@@ -756,7 +756,8 @@ img {
 .extras-grid {
     display: flex;
     justify-content: center;
-    gap: 48px;
+    flex-wrap: wrap;
+    gap: 32px 48px;
 }
 
 .extra-item {
@@ -774,6 +775,42 @@ img {
 .extra-label {
     font-size: 0.875rem;
     color: var(--gray-500);
+}
+
+.price-maintenance {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-600);
+    margin-top: 8px;
+}
+
+.price-maintenance small {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--gray-500);
+}
+
+.price small {
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: var(--gray-500);
+}
+
+.pricing-comparison {
+    text-align: center;
+    margin-top: 48px;
+    padding: 32px;
+    background: var(--primary-50, #f0f5ff);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--primary-200, #c7d7fe);
+}
+
+.pricing-comparison p {
+    font-size: 1rem;
+    color: var(--gray-700);
+    line-height: 1.7;
+    margin: 0;
 }
 
 /* ============ PROCESS ============ */
