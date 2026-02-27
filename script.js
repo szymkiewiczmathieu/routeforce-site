@@ -57,6 +57,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // --- Lightbox for screenshots ---
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox';
+    lightbox.innerHTML = '<button class="lightbox-close" aria-label="Close">&times;</button><img src="" alt="">';
+    document.body.appendChild(lightbox);
+
+    const lightboxImg = lightbox.querySelector('img');
+
+    document.querySelectorAll('.screenshot-img img, .hero-screenshot img').forEach(img => {
+        img.addEventListener('click', () => {
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    lightbox.addEventListener('click', () => {
+        lightbox.classList.remove('active');
+        document.body.style.overflow = '';
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+
     // --- Contact form handling ---
     const contactForm = document.getElementById('contactForm');
     contactForm.addEventListener('submit', (e) => {
