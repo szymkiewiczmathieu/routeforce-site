@@ -1233,3 +1233,354 @@ img {
 .lightbox-close:hover {
     opacity: 1;
 }
+
+/* ============ USE CASES PAGE ============ */
+
+.usecase-hero {
+    padding: 140px 0 60px;
+    background: linear-gradient(135deg, var(--primary-900) 0%, var(--primary-700) 50%, var(--primary-600) 100%);
+    text-align: center;
+    color: #fff;
+}
+
+.usecase-hero .hero-badge {
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.25);
+}
+
+.usecase-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+    margin-bottom: 16px;
+}
+
+.usecase-hero .hero-subtitle {
+    font-size: 1.15rem;
+    color: rgba(255,255,255,0.8);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* Stats Bar */
+
+.stats-bar {
+    padding: 0;
+    margin-top: -32px;
+    position: relative;
+    z-index: 10;
+}
+
+.stats-grid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    padding: 32px 48px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.stat-item {
+    flex: 1;
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-700);
+    letter-spacing: -0.02em;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--gray-500);
+    margin-top: 4px;
+    font-weight: 500;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 48px;
+    background: var(--gray-200);
+    flex-shrink: 0;
+    margin: 0 12px;
+}
+
+/* Use Cases Section */
+
+.usecases-section {
+    padding: 80px 0;
+}
+
+.usecase-card {
+    display: flex;
+    gap: 40px;
+    padding: 48px;
+    background: #fff;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+    margin-bottom: 32px;
+    transition: all 0.3s ease;
+}
+
+.usecase-card:hover {
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-200);
+}
+
+.usecase-icon-wrapper {
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.usecase-icon-wrapper svg {
+    width: 32px;
+    height: 32px;
+}
+
+.usecase-icon-wrapper.agro {
+    background: #fef3c7;
+    color: #d97706;
+}
+
+.usecase-icon-wrapper.pharma {
+    background: #fce7f3;
+    color: #db2777;
+}
+
+.usecase-icon-wrapper.distrib {
+    background: #dbeafe;
+    color: #2563eb;
+}
+
+.usecase-icon-wrapper.services {
+    background: #d1fae5;
+    color: #059669;
+}
+
+.usecase-icon-wrapper.energy {
+    background: #ede9fe;
+    color: #7c3aed;
+}
+
+.usecase-content {
+    flex: 1;
+}
+
+.usecase-header {
+    margin-bottom: 24px;
+}
+
+.usecase-header h2 {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--gray-900);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+}
+
+.usecase-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--gray-500);
+    background: var(--gray-100);
+    padding: 4px 12px;
+    border-radius: 50px;
+}
+
+.usecase-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-bottom: 28px;
+}
+
+.usecase-challenge h3,
+.usecase-solution h3 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 12px;
+}
+
+.usecase-challenge h3 {
+    color: var(--red-500);
+}
+
+.usecase-solution h3 {
+    color: var(--green-600);
+}
+
+.usecase-challenge p {
+    font-size: 0.925rem;
+    color: var(--gray-600);
+    line-height: 1.7;
+}
+
+.usecase-solution ul {
+    list-style: none;
+    padding: 0;
+}
+
+.usecase-solution li {
+    font-size: 0.925rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    padding: 4px 0 4px 20px;
+    position: relative;
+}
+
+.usecase-solution li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--green-500);
+}
+
+.usecase-metrics {
+    display: flex;
+    gap: 32px;
+    padding-top: 24px;
+    border-top: 1px solid var(--gray-100);
+}
+
+.metric {
+    display: flex;
+    flex-direction: column;
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary-700);
+    letter-spacing: -0.02em;
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    color: var(--gray-500);
+    font-weight: 500;
+}
+
+/* CTA Box */
+
+.usecase-cta {
+    padding: 80px 0;
+    background: var(--gray-50);
+}
+
+.cta-box {
+    text-align: center;
+    background: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-900) 100%);
+    color: #fff;
+    padding: 64px 48px;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-xl);
+}
+
+.cta-box h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+.cta-box p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 32px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-box .btn-primary {
+    background: #fff;
+    color: var(--primary-700);
+    border-color: #fff;
+    font-size: 1.05rem;
+}
+
+.cta-box .btn-primary:hover {
+    background: var(--primary-50);
+    border-color: var(--primary-50);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* Use Cases Responsive */
+
+@media (max-width: 1024px) {
+    .usecase-body {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .usecase-hero h1 {
+        font-size: 2rem;
+    }
+
+    .stats-grid {
+        flex-direction: column;
+        gap: 20px;
+        padding: 32px 24px;
+    }
+
+    .stat-divider {
+        width: 60px;
+        height: 1px;
+        margin: 0;
+    }
+
+    .usecase-card {
+        flex-direction: column;
+        gap: 20px;
+        padding: 28px;
+    }
+
+    .usecase-icon-wrapper {
+        width: 52px;
+        height: 52px;
+    }
+
+    .usecase-icon-wrapper svg {
+        width: 26px;
+        height: 26px;
+    }
+
+    .usecase-metrics {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .cta-box {
+        padding: 40px 24px;
+    }
+
+    .cta-box h2 {
+        font-size: 1.5rem;
+    }
+}

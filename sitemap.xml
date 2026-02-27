@@ -35,6 +35,39 @@
         <priority>0.9</priority>
     </url>
 
+    <!-- Cas d'usage FR -->
+    <url>
+        <loc>https://routeforce.app/cas-usage.html</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://routeforce.app/cas-usage.html" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://routeforce.app/en/use-cases.html" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://routeforce.app/es/casos-de-uso.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://routeforce.app/cas-usage.html" />
+        <lastmod>2026-02-27</lastmod>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Use Cases EN -->
+    <url>
+        <loc>https://routeforce.app/en/use-cases.html</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://routeforce.app/cas-usage.html" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://routeforce.app/en/use-cases.html" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://routeforce.app/es/casos-de-uso.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://routeforce.app/cas-usage.html" />
+        <lastmod>2026-02-27</lastmod>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Casos de uso ES -->
+    <url>
+        <loc>https://routeforce.app/es/casos-de-uso.html</loc>
+        <xhtml:link rel="alternate" hreflang="fr" href="https://routeforce.app/cas-usage.html" />
+        <xhtml:link rel="alternate" hreflang="en" href="https://routeforce.app/en/use-cases.html" />
+        <xhtml:link rel="alternate" hreflang="es" href="https://routeforce.app/es/casos-de-uso.html" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://routeforce.app/cas-usage.html" />
+        <lastmod>2026-02-27</lastmod>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Mentions legales -->
     <url>
         <loc>https://routeforce.app/mentions-legales.html</loc>
