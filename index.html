@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteMaster — Optimisation de tournées commerciales pour Salesforce</title>
+    <meta name="description" content="RouteMaster optimise les tournées de vos commerciaux terrain directement dans Salesforce. Alternative puissante et abordable à Salesforce Maps.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <a href="#" class="logo">
+                <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="8" cy="20" r="2.5" fill="currentColor"/>
+                    <circle cx="14" cy="10" r="2.5" fill="currentColor"/>
+                    <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
+                    <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
+                </svg>
+                <span>RouteMaster</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#features">Fonctionnalités</a>
+                <a href="#pricing">Tarifs</a>
+                <a href="#comparison">Comparatif</a>
+                <a href="#contact" class="btn btn-primary btn-sm">Demander une démo</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">100% natif Salesforce</div>
+                <h1>Optimisez les tournées de vos commerciaux terrain</h1>
+                <p class="hero-subtitle">
+                    Cartographie interactive, optimisation d'itinéraires et planification automatique —
+                    directement dans Salesforce. <strong>Sans licence récurrente.</strong>
+                </p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary btn-lg">Demander une démo gratuite</a>
+                    <a href="#features" class="btn btn-outline btn-lg">Découvrir les fonctionnalités</a>
+                </div>
+                <div class="hero-proof">
+                    <div class="proof-item">
+                        <span class="proof-number">0€</span>
+                        <span class="proof-label">licence mensuelle</span>
+                    </div>
+                    <div class="proof-divider"></div>
+                    <div class="proof-item">
+                        <span class="proof-number">3</span>
+                        <span class="proof-label">langues incluses</span>
+                    </div>
+                    <div class="proof-divider"></div>
+                    <div class="proof-item">
+                        <span class="proof-number">100%</span>
+                        <span class="proof-label">natif Salesforce</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-screenshot">
+                    <img src="assets/screenshot-tour-optimized.png" alt="RouteMaster — Tournée optimisée avec itinéraire tracé sur la carte Salesforce" loading="eager">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PROBLEM / SOLUTION -->
+    <section class="problem-section">
+        <div class="container">
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="15" y1="9" x2="9" y2="15"/>
+                            <line x1="9" y1="9" x2="15" y2="15"/>
+                        </svg>
+                    </div>
+                    <h3>Sans RouteMaster</h3>
+                    <ul>
+                        <li>Tournées planifiées manuellement sur Excel</li>
+                        <li>Temps de trajet non optimisé</li>
+                        <li>Aucune visibilité managériale</li>
+                        <li>Clients oubliés ou survisités</li>
+                    </ul>
+                </div>
+                <div class="solution-card">
+                    <div class="solution-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M8 12l3 3 5-5"/>
+                        </svg>
+                    </div>
+                    <h3>Avec RouteMaster</h3>
+                    <ul>
+                        <li>Itinéraires optimisés automatiquement</li>
+                        <li>Jusqu'à 30% de temps de trajet en moins</li>
+                        <li>Couverture client visible en temps réel</li>
+                        <li>Agenda Salesforce rempli en 1 clic</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Tout ce dont vos commerciaux terrain ont besoin</h2>
+                <p>Une solution complète intégrée nativement dans Salesforce</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </div>
+                    <h3>Carte interactive</h3>
+                    <p>Visualisez tous vos comptes clients sur une carte dynamique avec clustering intelligent. Identifiez instantanément vos zones de couverture.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <h3>Optimisation de tournées</h3>
+                    <p>Algorithme d'optimisation avancé qui calcule l'itinéraire le plus efficace. Pause déjeuner, durée de visite et contraintes horaires incluses.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                        </svg>
+                    </div>
+                    <h3>Filtres intelligents</h3>
+                    <p>Filtrez par secteur, dernière visite, potentiel, propriétaire... Sauvegardez vos combinaisons de filtres pour les réutiliser.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                            <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
+                        </svg>
+                    </div>
+                    <h3>Création de RDV en masse</h3>
+                    <p>Un clic suffit pour créer tous les événements Salesforce de votre tournée. Compte, contact, horaire et lieu pré-remplis automatiquement.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+                        </svg>
+                    </div>
+                    <h3>Navigation GPS</h3>
+                    <p>Exportez votre tournée optimisée directement vers Google Maps. Vos commerciaux n'ont plus qu'à suivre l'itinéraire.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="2" y1="12" x2="22" y2="12"/>
+                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                        </svg>
+                    </div>
+                    <h3>Multi-langue</h3>
+                    <p>Interface disponible en français, anglais et espagnol. Idéal pour les équipes commerciales internationales.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                            <line x1="12" y1="18" x2="12.01" y2="18"/>
+                        </svg>
+                    </div>
+                    <h3>Mobile-ready</h3>
+                    <p>Conçu pour fonctionner sur le terrain. Interface responsive, géolocalisation native et tactile optimisé.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </div>
+                    <h3>100% natif Salesforce</h3>
+                    <p>Aucune application tierce. Respecte les permissions, le partage et la sécurité Salesforce. Données jamais exportées.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SCREENSHOTS -->
+    <section class="screenshots-section" id="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2>RouteMaster en action</h2>
+                <p>Découvrez l'interface directement intégrée dans Salesforce</p>
+            </div>
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <div class="screenshot-img">
+                        <img src="assets/screenshot-satellite-legend.png" alt="Vue satellite avec légende des types de clients et paramètres de tournée" loading="lazy">
+                    </div>
+                    <div class="screenshot-caption">
+                        <h3>Cartographie & segmentation client</h3>
+                        <p>Vue satellite, fond de carte standard ou terrain — visualisez vos prospects, clients directs et indirects avec une légende couleur. Paramétrez vos contraintes de tournée en quelques clics.</p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-img">
+                        <img src="assets/screenshot-account-popup.png" alt="Fiche client avec boutons actions rapides" loading="lazy">
+                    </div>
+                    <div class="screenshot-caption">
+                        <h3>Fiche client instantanée</h3>
+                        <p>Cliquez sur un marqueur pour voir les détails du compte : adresse, propriétaire, dernière visite. Créez un événement ou lancez l'itinéraire sans quitter la carte.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="screenshots-row">
+                <div class="screenshot-card main">
+                    <div class="screenshot-img">
+                        <img src="assets/screenshot-tour-optimized.png" alt="Tournée optimisée avec itinéraire tracé et étapes numérotées" loading="lazy">
+                    </div>
+                    <div class="screenshot-caption">
+                        <h3>Tournée optimisée en temps réel</h3>
+                        <p>L'algorithme calcule le meilleur itinéraire en tenant compte de vos contraintes : pause déjeuner, durée de visite, fin de journée. Visualisez le tracé directement sur la carte avec les étapes numérotées.</p>
+                    </div>
+                </div>
+                <div class="screenshot-card side">
+                    <div class="screenshot-img">
+                        <img src="assets/screenshot-steps-panel.png" alt="Panneau des étapes avec création de rendez-vous en masse" loading="lazy">
+                    </div>
+                    <div class="screenshot-caption">
+                        <h3>Création de RDV en masse</h3>
+                        <p>5 clients à visiter ? Un seul clic sur "Créer 5 visites dans le calendrier" et tous les événements Salesforce sont créés avec le bon horaire, le bon contact et la bonne adresse. Export Google Maps inclus.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMPARISON -->
+    <section class="comparison-section" id="comparison">
+        <div class="container">
+            <div class="section-header">
+                <h2>RouteMaster vs Salesforce Maps</h2>
+                <p>La même puissance, sans les licences</p>
+            </div>
+            <div class="comparison-table-wrapper">
+                <table class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th class="highlight">RouteMaster</th>
+                            <th>Salesforce Maps</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Cartographie interactive</td>
+                            <td class="highlight"><span class="check">&#10003;</span></td>
+                            <td><span class="check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Optimisation de tournées</td>
+                            <td class="highlight"><span class="check">&#10003;</span></td>
+                            <td><span class="check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Filtres dynamiques</td>
+                            <td class="highlight"><span class="check">&#10003;</span></td>
+                            <td><span class="check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Création d'événements</td>
+                            <td class="highlight"><span class="check">&#10003;</span></td>
+                            <td><span class="check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Navigation GPS</td>
+                            <td class="highlight"><span class="check">&#10003;</span></td>
+                            <td><span class="check">&#10003;</span></td>
+                        </tr>
+                        <tr>
+                            <td>Multi-langue (FR/EN/ES)</td>
+                            <td class="highlight"><span class="check">&#10003;</span></td>
+                            <td><span class="check muted">~</span> EN principalement</td>
+                        </tr>
+                        <tr>
+                            <td>100% natif Salesforce</td>
+                            <td class="highlight"><span class="check">&#10003;</span></td>
+                            <td><span class="check">&#10003;</span></td>
+                        </tr>
+                        <tr class="row-highlight">
+                            <td><strong>Coût pour 10 utilisateurs / an</strong></td>
+                            <td class="highlight"><strong>8 500€ une fois</strong></td>
+                            <td><strong>9 000€ / an</strong></td>
+                        </tr>
+                        <tr class="row-highlight">
+                            <td><strong>Coût sur 3 ans</strong></td>
+                            <td class="highlight"><strong>8 500€</strong></td>
+                            <td><strong>27 000€</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Licence récurrente</td>
+                            <td class="highlight"><span class="check green">Aucune</span></td>
+                            <td><span class="check red">75€/user/mois</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <div class="section-header">
+                <h2>Une tarification simple et transparente</h2>
+                <p>Payez une fois, utilisez pour toujours. Pas de surprise.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Essentiel</h3>
+                        <p class="pricing-desc">Pour démarrer rapidement</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price">8 500€</span>
+                        <span class="price-period">paiement unique</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#10003;</span> Package installé et configuré</li>
+                        <li><span class="check">&#10003;</span> Cartographie interactive</li>
+                        <li><span class="check">&#10003;</span> Optimisation de tournées</li>
+                        <li><span class="check">&#10003;</span> Filtres standards</li>
+                        <li><span class="check">&#10003;</span> Navigation GPS</li>
+                        <li><span class="check">&#10003;</span> Formation demi-journée</li>
+                        <li><span class="check">&#10003;</span> Multi-langue FR/EN/ES</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline btn-block">Choisir Essentiel</a>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Le plus populaire</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <p class="pricing-desc">Pour une adoption maximale</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price">14 500€</span>
+                        <span class="price-period">paiement unique</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#10003;</span> Tout de l'offre Essentiel</li>
+                        <li><span class="check">&#10003;</span> Personnalisation métier</li>
+                        <li><span class="check">&#10003;</span> Règles de visite avancées</li>
+                        <li><span class="check">&#10003;</span> Créneaux horaires et pauses</li>
+                        <li><span class="check">&#10003;</span> Filtres personnalisés (jusqu'à 12)</li>
+                        <li><span class="check">&#10003;</span> Formation équipe complète (1 jour)</li>
+                        <li><span class="check">&#10003;</span> Accompagnement post-déploiement</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-primary btn-block">Choisir Pro</a>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <p class="pricing-desc">Pour les besoins spécifiques</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price">Sur devis</span>
+                        <span class="price-period">à partir de 25 000€</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#10003;</span> Tout de l'offre Pro</li>
+                        <li><span class="check">&#10003;</span> Intégrations ERP / API</li>
+                        <li><span class="check">&#10003;</span> Développements sur-mesure</li>
+                        <li><span class="check">&#10003;</span> SLA support dédié</li>
+                        <li><span class="check">&#10003;</span> Formation illimitée</li>
+                        <li><span class="check">&#10003;</span> Accompagnement continu</li>
+                        <li><span class="check">&#10003;</span> Évolutions prioritaires</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline btn-block">Nous contacter</a>
+                </div>
+            </div>
+            <div class="pricing-extras">
+                <h4>Services complémentaires</h4>
+                <div class="extras-grid">
+                    <div class="extra-item">
+                        <span class="extra-price">1 500€</span>
+                        <span class="extra-label">Journée de formation</span>
+                    </div>
+                    <div class="extra-item">
+                        <span class="extra-price">2 400€/an</span>
+                        <span class="extra-label">Support annuel</span>
+                    </div>
+                    <div class="extra-item">
+                        <span class="extra-price">950€/jour</span>
+                        <span class="extra-label">Développement spécifique</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="process-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Déploiement en 4 étapes</h2>
+                <p>De la démo au terrain, en moins de 2 semaines</p>
+            </div>
+            <div class="process-grid">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3>Démo personnalisée</h3>
+                    <p>On vous montre la solution avec vos propres données et vos cas d'usage métier.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3>Configuration</h3>
+                    <p>Installation sur votre org, paramétrage des filtres, rôles et permissions.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3>Formation</h3>
+                    <p>Vos équipes sont formées et autonomes. Documentation incluse.</p>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3>Go live</h3>
+                    <p>Vos commerciaux optimisent leurs tournées dès le premier jour.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>Demandez votre démo gratuite</h2>
+                    <p>Découvrez RouteMaster avec vos propres données. 30 minutes suffisent pour voir la différence.</p>
+                    <div class="contact-benefits">
+                        <div class="contact-benefit">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span>Démo personnalisée avec vos données</span>
+                        </div>
+                        <div class="contact-benefit">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span>Sans engagement</span>
+                        </div>
+                        <div class="contact-benefit">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span>Réponse sous 24h</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" required placeholder="Jean Dupont">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email professionnel</label>
+                        <input type="email" id="email" name="email" required placeholder="jean@entreprise.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Entreprise</label>
+                        <input type="text" id="company" name="company" required placeholder="Nom de votre entreprise">
+                    </div>
+                    <div class="form-group">
+                        <label for="users">Nombre de commerciaux terrain</label>
+                        <select id="users" name="users">
+                            <option value="1-5">1 à 5</option>
+                            <option value="6-15">6 à 15</option>
+                            <option value="16-50">16 à 50</option>
+                            <option value="50+">Plus de 50</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message (optionnel)</label>
+                        <textarea id="message" name="message" rows="3" placeholder="Décrivez brièvement votre besoin..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Demander ma démo gratuite</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="8" cy="20" r="2.5" fill="currentColor"/>
+                            <circle cx="14" cy="10" r="2.5" fill="currentColor"/>
+                            <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
+                            <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
+                        </svg>
+                        <span>RouteMaster</span>
+                    </a>
+                    <p>Optimisation de tournées commerciales pour Salesforce</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#features">Fonctionnalités</a>
+                    <a href="#pricing">Tarifs</a>
+                    <a href="#comparison">Comparatif</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 RouteMaster. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
