@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Contact form handling ---
     const contactForm = document.getElementById('contactForm');
-    contactForm.addEventListener('submit', (e) => {
+    if (contactForm) contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
 
         const formData = new FormData(contactForm);
