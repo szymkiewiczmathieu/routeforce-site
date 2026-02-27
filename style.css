@@ -214,6 +214,22 @@ img {
     color: var(--primary-600);
 }
 
+.lang-switch {
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+    color: var(--primary-600) !important;
+    background: var(--primary-50);
+    padding: 4px 12px;
+    border-radius: 50px;
+    border: 1px solid var(--primary-200);
+    transition: all 0.2s ease;
+}
+
+.lang-switch:hover {
+    background: var(--primary-100) !important;
+    color: var(--primary-700) !important;
+}
+
 .mobile-menu-btn {
     display: none;
     flex-direction: column;
