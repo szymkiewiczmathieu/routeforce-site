@@ -1446,6 +1446,119 @@ img {
     line-height: 1.7;
 }
 
+/* ============ INFRASTRUCTURE ============ */
+
+.infrastructure-section {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.infrastructure-intro {
+    max-width: 800px;
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.infrastructure-intro p {
+    font-size: 1.05rem;
+    color: var(--gray-600);
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.infrastructure-table-wrapper {
+    max-width: 900px;
+    margin: 0 auto 48px;
+    overflow-x: auto;
+}
+
+.infrastructure-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #fff;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.infrastructure-table thead {
+    background: var(--gray-900);
+    color: #fff;
+}
+
+.infrastructure-table th {
+    padding: 20px 24px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.infrastructure-table th:first-child {
+    text-align: left;
+}
+
+.infrastructure-table th.highlight {
+    background: var(--primary-700);
+}
+
+.infrastructure-table td {
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--gray-100);
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--gray-600);
+}
+
+.infrastructure-table td:first-child {
+    text-align: left;
+    font-weight: 500;
+    color: var(--gray-800);
+}
+
+.infrastructure-table td.highlight {
+    background: var(--primary-50);
+}
+
+.infrastructure-guarantees {
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.infrastructure-guarantee {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px 20px;
+    background: var(--gray-50);
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--primary-600);
+}
+
+.infrastructure-guarantee svg {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    color: var(--primary-600);
+    margin-top: 2px;
+}
+
+.infrastructure-guarantee span {
+    font-size: 0.95rem;
+    color: var(--gray-700);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .infrastructure-table th,
+    .infrastructure-table td {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+    }
+}
+
 /* Responsive for new sections */
 
 @media (max-width: 1024px) {
