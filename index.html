@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RouteForce — Optimisation de tournées commerciales pour Salesforce</title>
-    <meta name="description" content="RouteForce optimise les tournées de vos commerciaux terrain directement dans Salesforce. Alternative puissante et abordable à Salesforce Maps.">
+    <title>RouteForce — Optimisation de tournées commerciales Salesforce | Sans coût par utilisateur</title>
+    <meta name="description" content="Planifiez et optimisez les tournées de vos commerciaux terrain directement dans Salesforce. Algorithme VROOM, création automatique d'événements, export CSV, historique — 249 €/mois pour toute l'équipe.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Mathieu Szymkiewicz — RouteForce">
+    <meta name="keywords" content="optimisation tournées commerciales, Salesforce route planning, logiciel tournée CRM, gestion commerciaux terrain, alternative Salesforce Maps, planification itinéraires Salesforce">
 
     <!-- Canonical & Hreflang -->
     <link rel="canonical" href="https://routeforce.app/">
@@ -15,8 +18,8 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="RouteForce — Optimisation de tournées commerciales pour Salesforce">
-    <meta property="og:description" content="RouteForce optimise les tournées de vos commerciaux terrain directement dans Salesforce. Alternative puissante et abordable à Salesforce Maps.">
+    <meta property="og:title" content="RouteForce — Optimisation de tournées commerciales Salesforce">
+    <meta property="og:description" content="Planifiez et optimisez les tournées de vos commerciaux terrain directement dans Salesforce. Algorithme VROOM, création d'événements, export CSV — 249 €/mois pour toute l'équipe.">
     <meta property="og:url" content="https://routeforce.app/">
     <meta property="og:image" content="https://routeforce.app/assets/screenshot-tour-optimized.png">
     <meta property="og:locale" content="fr_FR">
@@ -26,8 +29,8 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="RouteForce — Optimisation de tournées pour Salesforce">
-    <meta name="twitter:description" content="Optimisez les tournées de vos commerciaux terrain directement dans Salesforce.">
+    <meta name="twitter:title" content="RouteForce — Tournées commerciales optimisées pour Salesforce">
+    <meta name="twitter:description" content="Planifiez et optimisez les tournées terrain directement dans Salesforce. Sans coût par utilisateur. 249 €/mois pour toute l'équipe.">
     <meta name="twitter:image" content="https://routeforce.app/assets/screenshot-tour-optimized.png">
 
     <!-- JSON-LD Structured Data -->
@@ -59,8 +62,19 @@
             "Création automatique d'événements Salesforce",
             "Filtres dynamiques et sauvegardés",
             "Export Google Maps / Waze / CSV",
+            "Historique des 20 dernières tournées",
+            "Comptes proches par géolocalisation GPS",
+            "Drag-and-drop pour réordonner les étapes",
+            "Gestion des rendez-vous non assignés (VROOM)",
+            "Interface mobile responsive avec bottom sheet",
             "Multilingue FR/EN/ES"
-        ]
+        ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "1",
+            "bestRating": "5"
+        }
     }
     </script>
 
@@ -140,7 +154,7 @@
             </div>
             <div class="hero-visual">
                 <div class="hero-screenshot">
-                    <img src="assets/screenshot-tour-optimized.png" alt="RouteForce — Tournée optimisée avec itinéraire tracé sur la carte Salesforce" loading="eager">
+                    <img src="assets/screenshot-tour-optimized.png" alt="RouteForce — Tournée optimisée avec itinéraire tracé sur la carte Salesforce" loading="eager" width="1200" height="800" fetchpriority="high">
                 </div>
             </div>
         </div>
@@ -160,10 +174,11 @@
                     </div>
                     <h3>Sans RouteForce</h3>
                     <ul>
-                        <li>Tournées planifiées manuellement sur Excel</li>
-                        <li>Temps de trajet non optimisé</li>
-                        <li>Aucune visibilité managériale</li>
-                        <li>Clients oubliés ou survisités</li>
+                        <li>Tournées planifiées manuellement sur Excel ou Google Maps</li>
+                        <li>30 à 45 min perdues chaque matin pour organiser la journée</li>
+                        <li>Aucune visibilité managériale sur la couverture terrain</li>
+                        <li>Clients oubliés, secteurs survisités, données CRM pas à jour</li>
+                        <li>Licences coûteuses facturées par utilisateur</li>
                     </ul>
                 </div>
                 <div class="solution-card">
@@ -175,9 +190,11 @@
                     </div>
                     <h3>Avec RouteForce</h3>
                     <ul>
-                        <li>Itinéraires optimisés par algorithme, pas à la main</li>
-                        <li>Couverture client visible en temps réel</li>
-                        <li>Agenda Salesforce rempli en 1 clic</li>
+                        <li>Itinéraire optimal calculé en quelques secondes</li>
+                        <li>Tous les comptes Salesforce visibles sur la carte</li>
+                        <li>Agenda Salesforce rempli en 1 clic — RDV, contacts, adresses</li>
+                        <li>Export CSV pour le reporting, Google Maps pour la navigation</li>
+                        <li>249 €/mois pour toute l'équipe, sans limite d'utilisateurs</li>
                     </ul>
                 </div>
             </div>
@@ -282,6 +299,17 @@
                     <h3>Historique des tournées</h3>
                     <p>Retrouvez et rechargez vos 20 dernières tournées en un clic. Distance, durée et étapes sauvegardées automatiquement après chaque session.</p>
                 </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                            <circle cx="12" cy="10" r="7" stroke-dasharray="2 2"/>
+                        </svg>
+                    </div>
+                    <h3>Comptes proches</h3>
+                    <p>Géolocalisation GPS en un tap — visualisez instantanément tous les comptes Salesforce dans un rayon configurable autour de votre position. Idéal pour optimiser les visites improvisées sur le terrain.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -343,7 +371,7 @@
             <div class="screenshots-grid">
                 <div class="screenshot-card">
                     <div class="screenshot-img">
-                        <img src="assets/screenshot-satellite-legend.png" alt="Vue satellite avec légende des types de clients et paramètres de tournée" loading="lazy">
+                        <img src="assets/screenshot-satellite-legend.png" alt="Carte Salesforce vue satellite avec légende de segmentation clients — prospects, clients directs et indirects" loading="lazy" width="1200" height="800">
                     </div>
                     <div class="screenshot-caption">
                         <h3>Cartographie & segmentation client</h3>
@@ -352,7 +380,7 @@
                 </div>
                 <div class="screenshot-card">
                     <div class="screenshot-img">
-                        <img src="assets/screenshot-account-popup.png" alt="Fiche client avec boutons actions rapides" loading="lazy">
+                        <img src="assets/screenshot-account-popup.png" alt="Fiche client Salesforce avec actions rapides — créer un RDV ou lancer l'itinéraire depuis la carte" loading="lazy" width="600" height="400">
                     </div>
                     <div class="screenshot-caption">
                         <h3>Fiche client instantanée</h3>
@@ -363,31 +391,51 @@
             <div class="screenshots-row">
                 <div class="screenshot-card main">
                     <div class="screenshot-img">
-                        <img src="assets/screenshot-tour-optimized.png" alt="Tournée optimisée avec itinéraire tracé et étapes numérotées" loading="lazy">
+                        <img src="assets/screenshot-tour-optimized.png" alt="Tournée commerciale optimisée dans Salesforce — itinéraire tracé sur la carte avec étapes numérotées et panneau latéral" loading="lazy" width="1200" height="800">
                     </div>
                     <div class="screenshot-caption">
                         <h3>Tournée optimisée en temps réel</h3>
-                        <p>L'algorithme calcule le meilleur itinéraire en tenant compte de vos contraintes : pause déjeuner, durée de visite, fin de journée. Visualisez le tracé directement sur la carte avec les étapes numérotées.</p>
+                        <p>L'algorithme VROOM calcule le meilleur itinéraire en tenant compte de vos contraintes : pause déjeuner, durée de visite, fin de journée. Tracé directement sur la carte avec les étapes numérotées.</p>
                     </div>
                 </div>
                 <div class="screenshot-card side">
                     <div class="screenshot-img">
-                        <img src="assets/screenshot-steps-panel.png" alt="Panneau des étapes avec création de rendez-vous en masse" loading="lazy">
+                        <img src="assets/screenshot-steps-panel.png" alt="Panneau de tournée Salesforce — liste des étapes avec création de rendez-vous en masse et export CSV" loading="lazy" width="600" height="800">
                     </div>
                     <div class="screenshot-caption">
                         <h3>Création de RDV en masse</h3>
-                        <p>5 clients à visiter ? Un seul clic sur "Créer 5 visites dans le calendrier" et tous les événements Salesforce sont créés avec le bon horaire, le bon contact et la bonne adresse. Export Google Maps et CSV inclus.</p>
+                        <p>5 clients à visiter ? Un seul clic et tous les événements Salesforce sont créés avec le bon horaire, le bon contact et la bonne adresse. Export Google Maps et CSV inclus.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="screenshots-row" style="margin-top: 2rem;">
+                <div class="screenshot-card main">
+                    <div class="screenshot-img">
+                        <img src="assets/screenshot-nearby-accounts.png" alt="Comptes proches autour de la position GPS dans Salesforce — clusters de marqueurs orange sur la carte France" loading="lazy" width="1200" height="800">
+                    </div>
+                    <div class="screenshot-caption">
+                        <h3>Comptes proches — GPS en temps réel</h3>
+                        <p>Un tap sur le bouton 📍 et RouteForce affiche immédiatement tous les comptes Salesforce dans un rayon configurable autour de vous. Parfait pour improviser une visite en passant.</p>
+                    </div>
+                </div>
+                <div class="screenshot-card side">
+                    <div class="screenshot-img">
+                        <img src="assets/screenshot-route-history.png" alt="Historique des tournées Salesforce — liste des 20 dernières tournées avec distance, durée et nombre d'étapes" loading="lazy" width="600" height="800">
+                    </div>
+                    <div class="screenshot-caption">
+                        <h3>Historique des tournées</h3>
+                        <p>Toutes vos tournées passées sauvegardées automatiquement. Rechargez une tournée de la semaine dernière en un clic — distance, durée et étapes retrouvées instantanément.</p>
                     </div>
                 </div>
             </div>
             <div class="screenshots-grid" style="margin-top: 2rem;">
                 <div class="screenshot-card" style="grid-column: 1 / -1;">
                     <div class="screenshot-img">
-                        <img src="assets/screenshot-tour-planner.png" alt="Planification de tournée sur la carte de France avec panneau de configuration et légende" loading="lazy">
+                        <img src="assets/screenshot-tour-planner.png" alt="Planification de tournée commerciale sur la carte de France — vue nationale avec clustering de comptes clients Salesforce" loading="lazy" width="1600" height="900">
                     </div>
                     <div class="screenshot-caption">
-                        <h3>Planification nationale</h3>
-                        <p>Visualisez vos clients sur toute la France, configurez votre point de départ, vos horaires et vos contraintes. La légende couleur identifie instantanément prospects, clients directs et indirects.</p>
+                        <h3>Vue nationale — planification à grande échelle</h3>
+                        <p>Visualisez vos comptes sur toute la France, configurez votre point de départ, vos horaires et vos contraintes. Le clustering intelligent regroupe les comptes par zone géographique pour une lecture immédiate.</p>
                     </div>
                 </div>
             </div>
@@ -675,6 +723,33 @@
                         <p>Il n'y a aucune limite d'utilisateurs. L'abonnement mensuel (249€/mois) couvre toute votre org Salesforce. Que vous ayez 5 ou 500 commerciaux, le prix ne change pas. C'est l'un des avantages majeurs par rapport aux solutions facturées par utilisateur.</p>
                     </div>
                 </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Comment fonctionne l'optimisation d'itinéraire ?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>RouteForce utilise <strong>VROOM</strong>, un solveur open-source de problèmes de tournées de véhicules (VRP). Il prend en compte les coordonnées GPS de chaque compte Salesforce, vos contraintes horaires (début, fin de journée, pause déjeuner) et les durées de visite pour calculer l'ordre de passage optimal. Le tout sur notre serveur hébergé en France — sans quota, sans limitation.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Peut-on utiliser RouteForce sur smartphone en mobilité ?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Oui. RouteForce est entièrement responsive et conçu pour le terrain. Sur mobile, l'interface adopte un panneau "bottom sheet" pour laisser la carte visible. La géolocalisation GPS native permet de trouver les comptes à proximité de votre position en temps réel. Fonctionne dans l'application Salesforce mobile ou tout navigateur mobile.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Quels secteurs d'activité utilisent RouteForce ?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>RouteForce s'adapte à tout secteur avec des équipes commerciales terrain : <strong>agroalimentaire</strong> (tournées GMS, restauration), <strong>industrie</strong> et distribution B2B, <strong>pharma</strong> (visiteurs médicaux), <strong>services et maintenance</strong> technique, <strong>énergie</strong> et environnement. Si vos commerciaux ont des rendez-vous clients dans Salesforce, RouteForce peut les aider.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -754,6 +829,36 @@
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
                     <span><strong>Zéro dépendance américaine</strong> — Aucun recours à Google Maps, AWS ou Azure pour le calcul d'itinéraires. 100 % indépendant.</span>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- BLOG TEASER -->
+    <section class="blog-teaser-section" id="blog-teaser" style="background:#f8fafc;padding:4rem 0">
+        <div class="container">
+            <div class="section-header">
+                <h2>Ressources pour les équipes Salesforce</h2>
+                <p>Guides pratiques, comparatifs et retours terrain sur la gestion des commerciaux itinérants</p>
+            </div>
+            <div class="blog-teaser-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem">
+                <a href="blog/salesforce-maps-alternative-2026.html" class="blog-teaser-card" style="background:#fff;border-radius:12px;padding:1.5rem;text-decoration:none;color:inherit;border:1px solid #e2e8f0;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+                    <div style="font-size:.75rem;font-weight:600;color:#6366f1;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem">📊 Comparatif</div>
+                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">Salesforce Maps vs RouteForce : quel outil pour votre équipe terrain en 2026 ?</h3>
+                    <p style="font-size:.875rem;color:#64748b;line-height:1.5">Comparatif fonctionnel, prix réels et cas d'usage — pour choisir la solution adaptée à votre contexte.</p>
+                    <div style="margin-top:1rem;font-size:.8rem;font-weight:500;color:#6366f1">Lire l'article →</div>
+                </a>
+                <a href="blog/" class="blog-teaser-card" style="background:#fff;border-radius:12px;padding:1.5rem;text-decoration:none;color:inherit;border:1px solid #e2e8f0;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+                    <div style="font-size:.75rem;font-weight:600;color:#6366f1;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem">💡 Guide</div>
+                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">Comment optimiser les tournées de vos commerciaux terrain avec Salesforce ?</h3>
+                    <p style="font-size:.875rem;color:#64748b;line-height:1.5">Méthodes, outils et bonnes pratiques pour réduire le temps de trajet et augmenter le nombre de visites.</p>
+                    <div style="margin-top:1rem;font-size:.8rem;font-weight:500;color:#6366f1">Explorer le blog →</div>
+                </a>
+                <a href="cas-usage.html" class="blog-teaser-card" style="background:#fff;border-radius:12px;padding:1.5rem;text-decoration:none;color:inherit;border:1px solid #e2e8f0;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+                    <div style="font-size:.75rem;font-weight:600;color:#6366f1;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem">🏭 Cas d'usage</div>
+                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">RouteForce dans votre secteur : agroalimentaire, industrie, pharma, services...</h3>
+                    <p style="font-size:.875rem;color:#64748b;line-height:1.5">Découvrez comment RouteForce s'adapte aux spécificités de votre métier et de votre organisation commerciale.</p>
+                    <div style="margin-top:1rem;font-size:.8rem;font-weight:500;color:#6366f1">Voir les cas d'usage →</div>
+                </a>
             </div>
         </div>
     </section>
@@ -893,6 +998,22 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "RouteForce s'adapte à tous les métiers avec des équipes terrain : agroalimentaire, industrie pharmaceutique, distribution B2B, services et maintenance technique, énergie et environnement. Toute entreprise avec des commerciaux itinérants peut en bénéficier."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Comment fonctionne l'algorithme d'optimisation de RouteForce ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RouteForce utilise VROOM, un solveur open-source de problèmes de tournées de véhicules (VRP). Il calcule l'ordre de passage optimal en tenant compte des coordonnées GPS de chaque compte Salesforce, des créneaux horaires, des durées de visite et des pauses. Le calcul s'effectue sur un serveur dédié hébergé en France (OVH Gravelines), sans quota ni limitation."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Peut-on utiliser RouteForce sur smartphone ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Oui. RouteForce est entièrement responsive et conçu pour le terrain. Sur mobile, l'interface adopte un panneau bottom-sheet pour laisser la carte visible. La géolocalisation GPS permet de trouver les comptes à proximité en temps réel. Fonctionne dans l'application Salesforce mobile ou tout navigateur mobile."
                 }
             }
         ]
