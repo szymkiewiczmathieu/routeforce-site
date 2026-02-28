@@ -68,6 +68,20 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Blog index -->
+    <url>
+        <loc>https://routeforce.app/blog/</loc>
+        <lastmod>2026-02-28</lastmod>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Blog article 1 -->
+    <url>
+        <loc>https://routeforce.app/blog/salesforce-maps-alternative-2026.html</loc>
+        <lastmod>2026-02-28</lastmod>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Mentions legales -->
     <url>
         <loc>https://routeforce.app/mentions-legales.html</loc>
