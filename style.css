@@ -1503,6 +1503,78 @@ img {
     margin-bottom: 12px;
 }
 
+/* Routing Split — FR server vs international relay */
+.routing-split {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+    max-width: 860px;
+    margin: 0 auto 48px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+}
+.routing-split-card {
+    flex: 1;
+    padding: 32px 28px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+.routing-split-primary {
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8f0fe 100%);
+    border-right: 1px solid #d0d8f0;
+}
+.routing-split-secondary {
+    background: #f8f9fb;
+}
+.routing-split-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8ecf4;
+    padding: 0 12px;
+    font-size: 1.4rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+.routing-split-flag {
+    font-size: 2rem;
+    line-height: 1;
+    flex-shrink: 0;
+}
+.routing-split-body h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--gray-900);
+    margin-bottom: 6px;
+}
+.routing-split-body p {
+    font-size: 0.88rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+.routing-split-tag {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: rgba(79, 70, 229, 0.08);
+    padding: 3px 10px;
+    border-radius: 20px;
+    white-space: nowrap;
+}
+@media (max-width: 640px) {
+    .routing-split {
+        flex-direction: column;
+    }
+    .routing-split-arrow {
+        padding: 8px 0;
+        transform: rotate(90deg);
+        align-self: center;
+    }
+}
+
 .infrastructure-table-wrapper {
     max-width: 900px;
     margin: 0 auto 48px;
