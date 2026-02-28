@@ -643,6 +643,23 @@ img {
     color: var(--gray-400);
 }
 
+.cross {
+    color: var(--gray-400);
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.pricing-features .cross {
+    color: var(--gray-300);
+    font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.pricing-features li:has(.cross) {
+    opacity: 0.5;
+}
+
 /* ============ PRICING ============ */
 
 .pricing-section {
