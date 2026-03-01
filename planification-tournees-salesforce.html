@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planification de tournées Salesforce — Outil natif pour équipes terrain | RouteForce</title>
+    <meta name="description" content="Planifiez des tournées commerciales optimisées directement dans Salesforce. Package natif, carte interactive, création automatique d'événements. Sans coût par utilisateur. 249€/mois.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://routeforce.app/planification-tournees-salesforce.html">
+    <link rel="alternate" hreflang="en" href="https://routeforce.app/en/salesforce-route-planning.html">
+    <link rel="alternate" hreflang="fr" href="https://routeforce.app/planification-tournees-salesforce.html">
+    <link rel="alternate" hreflang="es" href="https://routeforce.app/es/planificacion-rutas-salesforce.html">
+    <link rel="alternate" hreflang="x-default" href="https://routeforce.app/en/salesforce-route-planning.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <a href="/" class="logo"><svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/><path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="20" r="2.5" fill="currentColor"/><circle cx="14" cy="10" r="2.5" fill="currentColor"/><circle cx="20" cy="16" r="2.5" fill="currentColor"/><circle cx="26" cy="8" r="2.5" fill="currentColor"/></svg><span>RouteForce</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="/#features">Fonctionnalités</a>
+                <a href="/#pricing">Tarifs</a>
+                <a href="/#faq">FAQ</a>
+                <a href="/en/" class="lang-switch">EN</a>
+                <a href="/es/" class="lang-switch">ES</a>
+                <a href="/#contact" class="btn btn-primary btn-sm">Demander une démo</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu"><span></span><span></span><span></span></button>
+        </div>
+    </nav>
+
+    <header class="hero" style="padding-bottom:2rem">
+        <div class="container">
+            <div class="hero-content" style="max-width:800px">
+                <div class="hero-badge">Guide SEO</div>
+                <h1>Planification de tournées Salesforce : le guide complet pour les équipes terrain</h1>
+                <p class="hero-subtitle">Comment planifier, optimiser et gérer les tournées commerciales nativement dans Salesforce — sans coût par utilisateur.</p>
+                <div class="hero-cta">
+                    <a href="/#contact" class="btn btn-primary btn-lg">Réserver une démo gratuite</a>
+                    <a href="/#screenshots" class="btn btn-outline btn-lg">Voir dans Salesforce</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <article class="container" style="max-width:800px;margin:0 auto;padding:3rem 1.5rem">
+        <nav aria-label="Sommaire" style="background:#f8fafc;border-radius:12px;padding:1.5rem;margin-bottom:3rem">
+            <h2 style="font-size:1.1rem;margin-bottom:1rem">Sommaire</h2>
+            <ol style="padding-left:1.25rem;line-height:2">
+                <li><a href="#definition">Qu'est-ce que la planification de tournées Salesforce ?</a></li>
+                <li><a href="#pourquoi">Pourquoi planifier les tournées nativement dans Salesforce ?</a></li>
+                <li><a href="#fonctionnalites">Fonctionnalités clés d'un planificateur de tournées Salesforce</a></li>
+                <li><a href="#routeforce">Comment RouteForce gère la planification de tournées</a></li>
+                <li><a href="#qui">Qui bénéficie de la planification de tournées Salesforce ?</a></li>
+                <li><a href="#tarification">Tarification : prix fixe vs licence par utilisateur</a></li>
+                <li><a href="#deploiement">Déploiement et mise en route</a></li>
+                <li><a href="#faq">Questions fréquentes</a></li>
+            </ol>
+        </nav>
+
+        <section id="definition" style="margin-bottom:3rem">
+            <h2>Qu'est-ce que la planification de tournées Salesforce ?</h2>
+            <p>La planification de tournées Salesforce consiste à organiser les visites terrain de vos commerciaux directement dans votre CRM Salesforce. Au lieu de jongler entre tableurs, outils de cartographie séparés et votre CRM, la planification native signifie que vos données comptes, votre calendrier et vos itinéraires optimisés sont regroupés au même endroit.</p>
+            <p>Pour les organisations qui utilisent déjà Salesforce comme source de vérité pour leurs relations clients, la planification native élimine les silos de données. Les commerciaux voient leurs comptes sur une carte interactive, sélectionnent ceux à visiter et obtiennent un itinéraire optimisé — le tout sans quitter leur environnement Salesforce.</p>
+            <p>Un planificateur de tournées natif Salesforce utilise typiquement l'objet Account (avec sous-requêtes Contact) pour afficher les emplacements clients sur une carte. Il calcule l'ordre de visite le plus efficace en tenant compte des contraintes (horaires, pause déjeuner, durée de visite), puis crée automatiquement les événements Salesforce.</p>
+        </section>
+
+        <section id="pourquoi" style="margin-bottom:3rem">
+            <h2>Pourquoi planifier les tournées nativement dans Salesforce ?</h2>
+            <p>De nombreuses équipes terrain planifient encore leurs journées avec Google Maps, des tableurs Excel ou des logiciels de planification standalone. Bien que ces outils puissent calculer des itinéraires, ils créent une déconnexion fondamentale avec vos données CRM.</p>
+            <h3>Les problèmes des outils de planification externes</h3>
+            <ul>
+                <li><strong>Duplication de données :</strong> Les adresses clients doivent être exportées de Salesforce, importées dans l'outil, puis les résultats recopiés. Chaque étape introduit des erreurs.</li>
+                <li><strong>Absence de contexte CRM :</strong> Les outils externes ne savent pas quels comptes sont prioritaires, quand ils ont été visités pour la dernière fois, ou qui en est le propriétaire dans Salesforce.</li>
+                <li><strong>Création manuelle d'événements :</strong> Après avoir planifié une tournée à l'extérieur, les commerciaux doivent créer manuellement les événements Salesforce pour chaque étape.</li>
+                <li><strong>Aucune visibilité managériale :</strong> Les directeurs commerciaux ne peuvent pas voir les tournées planifiées sans interroger chaque commercial individuellement.</li>
+            </ul>
+            <h3>Les avantages de la planification native Salesforce</h3>
+            <ul>
+                <li><strong>Source de vérité unique :</strong> Données comptes, historique de visites, tournées planifiées et événements sont dans Salesforce.</li>
+                <li><strong>Optimisation contextuelle CRM :</strong> Filtrez les comptes par dernière visite, potentiel, territoire ou tout champ personnalisé avant de planifier.</li>
+                <li><strong>Création d'événements en un clic :</strong> Tournée optimisée → événements Salesforce créés automatiquement avec le bon compte, contact, horaire et adresse.</li>
+                <li><strong>Respect des permissions :</strong> Le planificateur respecte les profils, règles de partage et sécurité au niveau des champs de Salesforce.</li>
+                <li><strong>Mobile-ready :</strong> Les commerciaux terrain accèdent au même planificateur sur leur téléphone via l'application Salesforce mobile ou tout navigateur mobile.</li>
+            </ul>
+        </section>
+
+        <section id="fonctionnalites" style="margin-bottom:3rem">
+            <h2>Fonctionnalités clés d'un planificateur de tournées Salesforce</h2>
+            <h3>Carte interactive avec visualisation des comptes</h3>
+            <p>Affichez tous les comptes Salesforce sur une carte dynamique avec clustering intelligent. Codez les comptes par couleur selon leur type (prospect, client, partenaire) ou tout champ personnalisé.</p>
+            <h3>Algorithme d'optimisation de tournées</h3>
+            <p>Un véritable optimiseur calcule la séquence de visite la plus efficace — pas simplement des itinéraires point à point. Il tient compte de l'heure de départ, de fin, de la pause déjeuner et des durées de visite pour minimiser le temps de trajet total. RouteForce utilise VROOM, un solveur open-source éprouvé de Problème de Tournées de Véhicules (VRP).</p>
+            <h3>Création automatique d'événements Salesforce</h3>
+            <p>Le vrai gain de productivité vient de la création d'événements en masse. Après optimisation de la tournée, un clic crée tous les événements calendrier avec le compte, le contact, le créneau horaire et l'adresse pré-remplis.</p>
+            <h3>Filtres intelligents</h3>
+            <p>Filtrez les comptes affichés sur la carte par n'importe quelle combinaison de champs Salesforce : territoire, date de dernière visite, type de compte, propriétaire, potentiel. Sauvegardez vos combinaisons de filtres pour une réutilisation rapide.</p>
+            <h3>Comptes proches par GPS</h3>
+            <p>Quand un commercial est sur le terrain et a un créneau libre, il doit pouvoir trouver rapidement les comptes à proximité. La géolocalisation GPS affiche tous les comptes Salesforce dans un rayon configurable, permettant des visites spontanées.</p>
+            <h3>Historique des tournées</h3>
+            <p>Chaque tournée planifiée est sauvegardée automatiquement — distance, durée, étapes et date. Les commerciaux peuvent recharger une tournée précédente en un clic.</p>
+            <h3>Export et navigation</h3>
+            <p>Envoyez la tournée optimisée vers Google Maps ou Waze pour la navigation guidée. Exportez les données en CSV pour le reporting.</p>
+        </section>
+
+        <section id="routeforce" style="margin-bottom:3rem">
+            <h2>Comment RouteForce gère la planification de tournées</h2>
+            <p>RouteForce est une application 100% native Salesforce livrée comme managed package (2GP). Elle s'installe directement dans votre org Salesforce sans infrastructure externe à gérer de votre côté.</p>
+            <h3>Architecture</h3>
+            <p>Le front-end est un Lightning Web Component (LWC) qui s'exécute dans toute page Salesforce Lightning. Les calculs de tournées sont effectués par un serveur dédié hébergé en France (OVH Gravelines) utilisant VROOM et OpenRouteService — deux projets open-source.</p>
+            <ul>
+                <li>Vos données CRM restent dans votre org Salesforce</li>
+                <li>Seules les adresses sont envoyées au moteur de routage pour le calcul</li>
+                <li>Aucune dépendance à Google Maps ou à tout service tiers payant</li>
+                <li>RGPD natif : tout le traitement de données se fait sur infrastructure européenne</li>
+            </ul>
+            <h3>Couverture mondiale</h3>
+            <p>RouteForce fournit des calculs de tournées pour toute localisation dans le monde : Europe, Afrique, Moyen-Orient, Asie, Amériques et Océanie. Tous les calculs s'exécutent sur l'infrastructure propre de RouteForce — sans facturation par appel, sans quota, sans dépendance tierce.</p>
+            <div style="background:#f0f0ff;border-radius:12px;padding:1.5rem;margin:2rem 0;border-left:4px solid #6366f1">
+                <p style="margin:0;font-weight:600;color:#1e293b">Prêt pour des déploiements en production</p>
+                <p style="margin:0.5rem 0 0;color:#475569">Conçu pour les organisations sous Salesforce recherchant une solution de planification de tournées fiable avec des coûts prévisibles.</p>
+            </div>
+        </section>
+
+        <section id="qui" style="margin-bottom:3rem">
+            <h2>Qui bénéficie de la planification de tournées Salesforce ?</h2>
+            <h3>Directeurs commerciaux</h3>
+            <p>Gagnez en visibilité sur la couverture terrain. Identifiez les territoires sous-visités et suivez l'activité commerciale sans rapports manuels.</p>
+            <h3>Commerciaux terrain</h3>
+            <p>Passez moins de temps à planifier et plus de temps à vendre. La préparation de tournée du matin passe de 30-45 minutes à quelques clics.</p>
+            <h3>DSI et Admins Salesforce</h3>
+            <p>Déployez un managed package qui respecte votre modèle de sécurité Salesforce existant — profils, permissions, règles de partage. Pas d'infrastructure supplémentaire, pas de licences par utilisateur.</p>
+            <h3>Secteurs qui en bénéficient le plus</h3>
+            <ul>
+                <li><strong>Agroalimentaire :</strong> Commerciaux visitant des points de vente, restaurants et distributeurs</li>
+                <li><strong>Pharmaceutique :</strong> Visiteurs médicaux couvrant des établissements de santé</li>
+                <li><strong>Distribution B2B :</strong> Responsables de comptes visitant des clients industriels</li>
+                <li><strong>Services terrain :</strong> Équipes techniques planifiant des visites de maintenance</li>
+                <li><strong>Énergie & environnement :</strong> Inspecteurs terrain couvrant de grands territoires</li>
+            </ul>
+        </section>
+
+        <section id="tarification" style="margin-bottom:3rem">
+            <h2>Tarification : prix fixe vs licence par utilisateur</h2>
+            <p>La plupart des solutions de planification de tournées Salesforce facturent au nombre d'utilisateurs. RouteForce utilise un modèle fondamentalement différent : un prix fixe mensuel (249€/mois, facturé annuellement à 2 988€/an) couvre toute votre org Salesforce. Que vous ayez 5 commerciaux ou 50, le prix reste le même.</p>
+            <h3>Coûts de mise en place</h3>
+            <ul>
+                <li><strong>Autonome :</strong> à partir de 3 500€ — votre admin configure avec la documentation</li>
+                <li><strong>Clé en main :</strong> 5 000€ — l'équipe RouteForce gère tout, formation incluse</li>
+                <li><strong>Enterprise :</strong> sur devis pour on-premise ou besoins spécifiques</li>
+            </ul>
+            <p><a href="/optimisation-tournees-prix-fixe.html" style="color:#6366f1;font-weight:500">→ Lire notre comparatif détaillé : prix fixe vs licence par utilisateur</a></p>
+        </section>
+
+        <section id="deploiement" style="margin-bottom:3rem">
+            <h2>Déploiement et mise en route</h2>
+            <ol>
+                <li><strong>Démo personnalisée</strong> — Découvrez la solution avec vos propres données Salesforce</li>
+                <li><strong>Configuration</strong> — Installation du managed package, paramétrage des filtres, rôles et permissions</li>
+                <li><strong>Formation</strong> — Votre équipe est formée et autonome (documentation incluse)</li>
+                <li><strong>Go live</strong> — Vos commerciaux optimisent leurs tournées dès le premier jour</li>
+            </ol>
+            <p>Délai moyen de la démo au go-live : 1 à 2 semaines.</p>
+        </section>
+
+        <section id="faq" style="margin-bottom:3rem">
+            <h2>Questions fréquentes sur la planification de tournées Salesforce</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false"><span>Salesforce propose-t-il un planificateur de tournées intégré ?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-answer"><p>Non. Salesforce ne propose pas de planification de tournées ou d'optimisation d'itinéraires dans sa plateforme standard. Les organisations ont besoin d'une solution AppExchange tierce ou d'un composant développé sur mesure. RouteForce est un managed package natif qui ajoute ces capacités directement à votre org.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false"><span>Mes données clients sont-elles envoyées à des serveurs externes ?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-answer"><p>Vos données CRM restent dans votre org Salesforce. Seules les adresses sont transmises au moteur de routage RouteForce (hébergé en France, OVH Gravelines) pour le calcul des itinéraires. Aucune donnée n'est envoyée vers des services américains.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false"><span>Comment fonctionne l'algorithme d'optimisation ?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-answer"><p>RouteForce utilise VROOM, un solveur open-source de Problème de Tournées de Véhicules (VRP). Il prend les coordonnées GPS de chaque compte Salesforce, vos contraintes horaires et les durées de visite pour calculer la séquence de passage optimale. Le routage est assuré par OpenRouteService, également open-source et auto-hébergé.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false"><span>Que comprend l'abonnement à 249€/mois ?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-answer"><p>L'abonnement couvre : calculs de tournées illimités dans le monde entier, hébergement et surveillance de l'infrastructure, mises à jour de compatibilité Salesforce, support technique et toutes les nouvelles fonctionnalités. Sans coût par utilisateur.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:16px;padding:2.5rem;text-align:center;color:#fff;margin:3rem 0">
+            <h2 style="color:#fff;margin-bottom:0.5rem">Prêt à planifier vos tournées dans Salesforce ?</h2>
+            <p style="opacity:0.9;margin-bottom:1.5rem">Découvrez RouteForce en action avec vos propres données. 30 minutes suffisent.</p>
+            <a href="/#contact" class="btn btn-primary btn-lg" style="background:#fff;color:#6366f1;border-color:#fff">Réserver une démo gratuite</a>
+        </div>
+
+        <nav style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem">
+            <a href="/optimisation-tournees-prix-fixe.html" style="color:#6366f1">Optimisation à prix fixe →</a>
+            <a href="/optimisation-tournees-commerciaux-terrain.html" style="color:#6366f1">Optimisation commerciaux terrain →</a>
+            <a href="/planification-visites-salesforce.html" style="color:#6366f1">Planification de visites Salesforce →</a>
+        </nav>
+    </article>
+
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":"Salesforce propose-t-il un planificateur de tournées intégré ?","acceptedAnswer":{"@type":"Answer","text":"Non. Salesforce ne propose pas de planification de tournées dans sa plateforme standard. RouteForce est un managed package natif qui ajoute ces capacités directement à votre org."}},
+        {"@type":"Question","name":"Mes données clients sont-elles envoyées à des serveurs externes ?","acceptedAnswer":{"@type":"Answer","text":"Vos données CRM restent dans votre org Salesforce. Seules les adresses sont transmises au moteur de routage hébergé en France."}},
+        {"@type":"Question","name":"Que comprend l'abonnement à 249€/mois ?","acceptedAnswer":{"@type":"Answer","text":"Calculs illimités mondiaux, hébergement, mises à jour Salesforce, support technique et nouvelles fonctionnalités. Sans coût par utilisateur."}}
+    ]}
+    </script>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand"><a href="/" class="logo"><svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/><path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="20" r="2.5" fill="currentColor"/><circle cx="14" cy="10" r="2.5" fill="currentColor"/><circle cx="20" cy="16" r="2.5" fill="currentColor"/><circle cx="26" cy="8" r="2.5" fill="currentColor"/></svg><span>RouteForce</span></a><p>Optimisation de tournées commerciales pour Salesforce</p></div>
+                <div class="footer-links"><a href="/#features">Fonctionnalités</a><a href="/#pricing">Tarifs</a><a href="/#contact">Contact</a></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 RouteForce — Mathieu Szymkiewicz. Tous droits réservés.</p></div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

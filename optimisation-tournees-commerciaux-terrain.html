@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimisation de tournées commerciaux terrain — Réduire les trajets, augmenter les visites | RouteForce</title>
+    <meta name="description" content="Optimisez les tournées de vos commerciaux terrain pour réduire le temps de trajet et augmenter les visites clients. Intégration native Salesforce, algorithme VROOM, GPS. 249€/mois.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://routeforce.app/optimisation-tournees-commerciaux-terrain.html">
+    <link rel="alternate" hreflang="en" href="https://routeforce.app/en/field-sales-route-optimization.html">
+    <link rel="alternate" hreflang="fr" href="https://routeforce.app/optimisation-tournees-commerciaux-terrain.html">
+    <link rel="alternate" hreflang="es" href="https://routeforce.app/es/optimizacion-rutas-comerciales-campo.html">
+    <link rel="alternate" hreflang="x-default" href="https://routeforce.app/en/field-sales-route-optimization.html">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar"><div class="container navbar-content"><a href="/" class="logo"><svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/><path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="20" r="2.5" fill="currentColor"/><circle cx="14" cy="10" r="2.5" fill="currentColor"/><circle cx="20" cy="16" r="2.5" fill="currentColor"/><circle cx="26" cy="8" r="2.5" fill="currentColor"/></svg><span>RouteForce</span></a><div class="nav-links" id="navLinks"><a href="/#features">Fonctionnalités</a><a href="/#pricing">Tarifs</a><a href="/en/" class="lang-switch">EN</a><a href="/es/" class="lang-switch">ES</a><a href="/#contact" class="btn btn-primary btn-sm">Demander une démo</a></div><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+
+    <header class="hero" style="padding-bottom:2rem"><div class="container"><div class="hero-content" style="max-width:800px">
+        <div class="hero-badge">Guide Terrain</div>
+        <h1>Optimisation de tournées commerciaux terrain : comment réduire les trajets et visiter plus de clients</h1>
+        <p class="hero-subtitle">Guide pratique pour optimiser les tournées des commerciaux terrain avec Salesforce. De la planification manuelle à l'optimisation algorithmique.</p>
+        <div class="hero-cta"><a href="/#contact" class="btn btn-primary btn-lg">Réserver une démo gratuite</a><a href="/#screenshots" class="btn btn-outline btn-lg">Voir dans Salesforce</a></div>
+    </div></div></header>
+
+    <article class="container" style="max-width:800px;margin:0 auto;padding:3rem 1.5rem">
+        <section style="margin-bottom:3rem">
+            <h2>Le défi de l'optimisation des tournées terrain</h2>
+            <p>Les équipes commerciales terrain font face à un puzzle quotidien : quels comptes visiter, dans quel ordre, en tenant compte du temps de trajet, des horaires de travail, de la disponibilité des clients et des priorités business. C'est fondamentalement un Problème de Tournées de Véhicules (VRP) — l'un des défis d'optimisation les plus étudiés en recherche opérationnelle.</p>
+            <p>La plupart des commerciaux résolvent ce puzzle manuellement, en s'appuyant sur l'expérience et l'intuition. La planification manuelle a des limites inhérentes :</p>
+            <ul>
+                <li><strong>Chronophage :</strong> Planifier les visites du lendemain prend typiquement 30-45 minutes chaque matin</li>
+                <li><strong>Séquences sous-optimales :</strong> Le cerveau humain peine à trouver l'ordre de visite optimal au-delà de 5-6 étapes</li>
+                <li><strong>Gestion des contraintes :</strong> Intégrer pause déjeuner, créneaux horaires, durées de visite et retour au point de départ simultanément est très difficile mentalement</li>
+                <li><strong>Plans statiques :</strong> Les plans manuels ne s'adaptent pas facilement quand un rendez-vous est annulé ou qu'une nouvelle priorité apparaît</li>
+            </ul>
+        </section>
+
+        <section style="margin-bottom:3rem">
+            <h2>Planification manuelle vs optimisation algorithmique</h2>
+            <h3>Comment la plupart des commerciaux planifient aujourd'hui</h3>
+            <ol>
+                <li>Ouvrir Salesforce, vérifier quels comptes ont besoin d'une visite</li>
+                <li>Ouvrir Google Maps dans un autre onglet</li>
+                <li>Saisir manuellement chaque adresse</li>
+                <li>Essayer différents ordres pour minimiser le temps de trajet</li>
+                <li>Retourner dans Salesforce, créer des événements pour chaque visite</li>
+                <li>Saisir compte, contact, horaire et adresse pour chaque événement</li>
+            </ol>
+            <h3>Comment fonctionne l'optimisation algorithmique</h3>
+            <ol>
+                <li>Sélectionner les comptes à visiter sur une carte interactive (dans Salesforce)</li>
+                <li>Définir les contraintes : heure de départ, fin de journée, pause déjeuner, durée de visite</li>
+                <li>Cliquer "Optimiser la tournée" — l'algorithme calcule la meilleure séquence</li>
+                <li>Visualiser la tournée optimisée sur la carte</li>
+                <li>Cliquer "Créer les événements" — tous les événements Salesforce créés en un clic</li>
+            </ol>
+            <p>Le processus entier prend quelques minutes au lieu de 30-45 minutes, et la tournée résultante est mathématiquement optimisée.</p>
+        </section>
+
+        <section style="margin-bottom:3rem">
+            <h2>Comment fonctionne l'optimisation de tournées</h2>
+            <p>RouteForce utilise <strong>VROOM</strong>, un solveur open-source de Problème de Tournées de Véhicules (VRP). VROOM gère :</p>
+            <ul>
+                <li><strong>Coordonnées GPS :</strong> L'adresse géocodée de chaque compte Salesforce</li>
+                <li><strong>Fenêtres temporelles :</strong> Heure de début, fin de journée, créneaux de rendez-vous</li>
+                <li><strong>Durée de visite :</strong> Temps prévu pour chaque visite</li>
+                <li><strong>Contraintes de pause :</strong> Horaire et durée de la pause déjeuner</li>
+                <li><strong>Matrice de temps de trajet :</strong> Temps de conduite réalistes entre tous les points</li>
+            </ul>
+            <p>Le moteur de routage est alimenté par <strong>OpenRouteService</strong> (ORS), également open-source. Les deux fonctionnent sur le serveur dédié RouteForce hébergé en France (OVH Gravelines) — aucune dépendance à Google Maps, aucuns frais par calcul, couverture mondiale, RGPD natif.</p>
+        </section>
+
+        <section style="margin-bottom:3rem">
+            <h2>Pourquoi l'intégration CRM est essentielle</h2>
+            <h3>Filtrage contextuel CRM</h3>
+            <p>Avant de planifier une tournée, filtrez les comptes par n'importe quel champ Salesforce : date de dernière visite, type de compte, chiffre d'affaires, territoire, propriétaire.</p>
+            <h3>Création automatique d'événements</h3>
+            <p>Le plus grand gain de temps : créer les événements Salesforce en masse. Un clic crée tous les événements calendrier avec le bon compte, contact, créneau et adresse.</p>
+            <h3>Historique et analyse de couverture</h3>
+            <p>Quand les données de tournées sont dans Salesforce, les managers peuvent construire des rapports montrant quels comptes ont été visités, à quelle fréquence, et quels territoires sont sous-couverts.</p>
+        </section>
+
+        <section style="margin-bottom:3rem">
+            <h2>Optimisation mobile pour le terrain</h2>
+            <ul>
+                <li><strong>Interface responsive :</strong> Carte et contrôles s'adaptent aux petits écrans avec un panneau bottom-sheet</li>
+                <li><strong>Géolocalisation GPS :</strong> Visualisez tous les comptes Salesforce dans un rayon configurable autour de votre position</li>
+                <li><strong>Navigation :</strong> Envoyez la tournée optimisée vers Google Maps ou Waze</li>
+                <li><strong>Salesforce Mobile :</strong> Fonctionne dans l'application Salesforce mobile ou tout navigateur mobile</li>
+            </ul>
+        </section>
+
+        <section style="margin-bottom:3rem">
+            <h2>L'approche RouteForce</h2>
+            <p>RouteForce est une application 100% native Salesforce (managed package 2GP) qui apporte l'optimisation de tournées directement dans votre org Salesforce.</p>
+            <ul>
+                <li><strong>Natif Salesforce :</strong> Lightning Web Component dans votre org — pas un outil externe avec un connecteur</li>
+                <li><strong>Prix fixe :</strong> 249€/mois pour utilisateurs illimités. Sans licence par siège.</li>
+                <li><strong>Routage auto-hébergé :</strong> Infrastructure propre en France avec algorithmes open-source. Sans dépendance Google Maps.</li>
+                <li><strong>Couverture mondiale :</strong> Europe, Afrique, Asie, Amériques, Océanie</li>
+                <li><strong>Multi-langue :</strong> Interface en français, anglais et espagnol</li>
+                <li><strong>RGPD natif :</strong> Tout le traitement de données sur infrastructure européenne, hébergé en France</li>
+            </ul>
+            <div style="background:#f0f0ff;border-radius:12px;padding:1.5rem;margin:2rem 0;border-left:4px solid #6366f1">
+                <p style="margin:0;font-weight:600;color:#1e293b">Conçu pour les équipes terrain modernes</p>
+                <p style="margin:0.5rem 0 0;color:#475569">RouteForce est pensé pour les organisations qui utilisent Salesforce et ont besoin d'un outil d'optimisation de tournées fiable avec des coûts prévisibles.</p>
+            </div>
+        </section>
+
+        <section style="margin-bottom:3rem">
+            <h2>Questions fréquentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>RouteForce fonctionne-t-il hors d'Europe ?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><p>Oui. RouteForce offre une couverture mondiale : Europe, Afrique, Moyen-Orient, Asie, Amériques et Océanie. Tous les calculs sont effectués sur l'infrastructure propre de RouteForce.</p></div></div>
+                <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Puis-je utiliser RouteForce sur mon téléphone ?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><p>Oui. RouteForce est entièrement responsive et fonctionne dans l'application Salesforce mobile ou tout navigateur mobile. Géolocalisation GPS, comptes proches et navigation vers Google Maps/Waze sont disponibles sur mobile.</p></div></div>
+                <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>Quels objets Salesforce RouteForce utilise-t-il ?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><p>RouteForce fonctionne avec l'objet Account standard (avec sous-requêtes Contact). Il crée des événements Salesforce standards pour les visites planifiées.</p></div></div>
+            </div>
+        </section>
+
+        <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:16px;padding:2.5rem;text-align:center;color:#fff;margin:3rem 0">
+            <h2 style="color:#fff;margin-bottom:0.5rem">Prêt à optimiser les tournées de vos commerciaux ?</h2>
+            <p style="opacity:0.9;margin-bottom:1.5rem">Découvrez RouteForce en action avec vos propres données Salesforce.</p>
+            <a href="/#contact" class="btn btn-primary btn-lg" style="background:#fff;color:#6366f1;border-color:#fff">Réserver une démo gratuite</a>
+        </div>
+        <nav style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem"><a href="/planification-tournees-salesforce.html" style="color:#6366f1">← Planification Salesforce</a><a href="/planification-visites-salesforce.html" style="color:#6366f1">Planification de visites →</a></nav>
+    </article>
+
+    <footer class="footer"><div class="container"><div class="footer-content"><div class="footer-brand"><a href="/" class="logo"><svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/><path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="20" r="2.5" fill="currentColor"/><circle cx="14" cy="10" r="2.5" fill="currentColor"/><circle cx="20" cy="16" r="2.5" fill="currentColor"/><circle cx="26" cy="8" r="2.5" fill="currentColor"/></svg><span>RouteForce</span></a><p>Optimisation de tournées commerciales pour Salesforce</p></div><div class="footer-links"><a href="/#features">Fonctionnalités</a><a href="/#pricing">Tarifs</a><a href="/#contact">Contact</a></div></div><div class="footer-bottom"><p>&copy; 2026 RouteForce — Mathieu Szymkiewicz. Tous droits réservés.</p></div></div></footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optimización de rutas para comerciales de campo — Reducir desplazamientos | RouteForce</title>
+    <meta name="description" content="Optimice las rutas de sus comerciales de campo para reducir el tiempo de viaje y aumentar las visitas. Integración nativa Salesforce, algoritmo VROOM, GPS. 249€/mes.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://routeforce.app/es/optimizacion-rutas-comerciales-campo.html">
+    <link rel="alternate" hreflang="en" href="https://routeforce.app/en/field-sales-route-optimization.html">
+    <link rel="alternate" hreflang="fr" href="https://routeforce.app/optimisation-tournees-commerciaux-terrain.html">
+    <link rel="alternate" hreflang="es" href="https://routeforce.app/es/optimizacion-rutas-comerciales-campo.html">
+    <link rel="alternate" hreflang="x-default" href="https://routeforce.app/en/field-sales-route-optimization.html">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar" id="navbar"><div class="container navbar-content"><a href="/es/" class="logo"><svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/><path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="20" r="2.5" fill="currentColor"/><circle cx="14" cy="10" r="2.5" fill="currentColor"/><circle cx="20" cy="16" r="2.5" fill="currentColor"/><circle cx="26" cy="8" r="2.5" fill="currentColor"/></svg><span>RouteForce</span></a><div class="nav-links" id="navLinks"><a href="/es/#features">Funcionalidades</a><a href="/es/#pricing">Precios</a><a href="/" class="lang-switch">FR</a><a href="/en/" class="lang-switch">EN</a><a href="/es/#contact" class="btn btn-primary btn-sm">Solicitar demo</a></div><button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu"><span></span><span></span><span></span></button></div></nav>
+
+    <header class="hero" style="padding-bottom:2rem"><div class="container"><div class="hero-content" style="max-width:800px">
+        <div class="hero-badge">Guía de Campo</div>
+        <h1>Optimización de rutas para comerciales de campo: cómo reducir desplazamientos y visitar más clientes</h1>
+        <p class="hero-subtitle">Guía práctica para optimizar rutas comerciales con Salesforce. De la planificación manual a la optimización algorítmica.</p>
+        <div class="hero-cta"><a href="/es/#contact" class="btn btn-primary btn-lg">Reservar una demo gratuita</a><a href="/es/#screenshots" class="btn btn-outline btn-lg">Verlo en Salesforce</a></div>
+    </div></div></header>
+
+    <article class="container" style="max-width:800px;margin:0 auto;padding:3rem 1.5rem">
+        <section style="margin-bottom:3rem">
+            <h2>El desafío de la optimización de rutas de campo</h2>
+            <p>Los equipos comerciales de campo enfrentan un puzzle diario: qué cuentas visitar, en qué orden, considerando tiempo de viaje, horarios de trabajo, disponibilidad de clientes y prioridades de negocio. Esto es fundamentalmente un Problema de Rutas de Vehículos (VRP).</p>
+            <p>La mayoría de comerciales resuelven este puzzle manualmente. La planificación manual tiene limitaciones inherentes:</p>
+            <ul>
+                <li><strong>Consume tiempo:</strong> Planificar las visitas del día siguiente toma 30-45 minutos cada mañana</li>
+                <li><strong>Secuencias subóptimas:</strong> El cerebro humano tiene dificultades para encontrar el orden óptimo con más de 5-6 paradas</li>
+                <li><strong>Sin gestión de restricciones:</strong> Integrar pausa para almuerzo, horarios, duraciones de visita y vuelta al punto de partida simultáneamente es muy difícil</li>
+                <li><strong>Planes estáticos:</strong> Los planes manuales no se adaptan fácilmente cuando se cancela una reunión</li>
+            </ul>
+        </section>
+
+        <section style="margin-bottom:3rem">
+            <h2>Planificación manual vs optimización algorítmica</h2>
+            <h3>Cómo planifican la mayoría de comerciales hoy</h3>
+            <ol>
+                <li>Abrir Salesforce, verificar qué cuentas necesitan visita</li>
+                <li>Abrir Google Maps en otra pestaña</li>
+                <li>Introducir manualmente cada dirección</li>
+                <li>Probar diferentes órdenes para minimizar tiempo de viaje</li>
+                <li>Volver a Salesforce, crear eventos para cada visita</li>
+            </ol>
+            <h3>Cómo funciona la optimización algorítmica</h3>
+            <ol>
+                <li>Seleccionar cuentas en un mapa interactivo (dentro de Salesforce)</li>
+                <li>Definir restricciones: hora de inicio, fin de jornada, almuerzo, duración de visita</li>
+                <li>Clic en "Optimizar ruta" — el algoritmo calcula la mejor secuencia</li>
+                <li>Revisar la ruta optimizada en el mapa</li>
+                <li>Clic en "Crear eventos" — todos los eventos Salesforce creados en un clic</li>
+            </ol>
+        </section>
+
+        <section style="margin-bottom:3rem">
+            <h2>Cómo funciona la optimización de rutas</h2>
+            <p>RouteForce utiliza <strong>VROOM</strong>, un solucionador open-source de Problema de Rutas de Vehículos (VRP). Gestiona: coordenadas GPS, ventanas temporales, duración de visitas, pausas y matriz de tiempos de viaje.</p>
+            <p>El motor de rutas utiliza <strong>OpenRouteService</strong> (ORS). Ambos funcionan en el servidor dedicado RouteForce en Francia (OVH Gravelines) — sin dependencia de Google Maps, sin tarifas por cálculo, cobertura mundial, RGPD nativo.</p>
+        </section>
+
+        <section style="margin-bottom:3rem">
+            <h2>Por qué importa la integración CRM</h2>
+            <ul>
+                <li><strong>Filtrado contextual CRM:</strong> Filtre cuentas por cualquier campo Salesforce antes de planificar.</li>
+                <li><strong>Creación automática de eventos:</strong> Un clic crea todos los eventos Salesforce con cuenta, contacto, horario y dirección correctos.</li>
+                <li><strong>Historial y análisis:</strong> Cuando los datos de rutas están en Salesforce, los managers pueden construir informes de cobertura.</li>
+            </ul>
+        </section>
+
+        <section style="margin-bottom:3rem">
+            <h2>El enfoque RouteForce</h2>
+            <ul>
+                <li><strong>Nativo Salesforce:</strong> Lightning Web Component en su org</li>
+                <li><strong>Precio fijo:</strong> 249€/mes para usuarios ilimitados</li>
+                <li><strong>Rutas auto-alojadas:</strong> Infraestructura propia en Francia con algoritmos open-source</li>
+                <li><strong>Cobertura mundial:</strong> Europa, África, Asia, Américas, Oceanía</li>
+                <li><strong>Multi-idioma:</strong> Interfaz en francés, inglés y español</li>
+                <li><strong>RGPD nativo:</strong> Datos procesados en infraestructura europea</li>
+            </ul>
+            <div style="background:#f0f0ff;border-radius:12px;padding:1.5rem;margin:2rem 0;border-left:4px solid #6366f1">
+                <p style="margin:0;font-weight:600;color:#1e293b">Diseñado para equipos de campo modernos</p>
+                <p style="margin:0.5rem 0 0;color:#475569">RouteForce está pensado para organizaciones que usan Salesforce y necesitan una herramienta de optimización de rutas fiable con costes predecibles.</p>
+            </div>
+        </section>
+
+        <section style="margin-bottom:3rem">
+            <h2>Preguntas frecuentes</h2>
+            <div class="faq-grid">
+                <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>¿RouteForce funciona fuera de Europa?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><p>Sí. Cobertura mundial: Europa, África, Oriente Medio, Asia, Américas y Oceanía.</p></div></div>
+                <div class="faq-item"><button class="faq-question" aria-expanded="false"><span>¿Puedo usar RouteForce en mi teléfono?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button><div class="faq-answer"><p>Sí. Totalmente responsive, funciona en la app Salesforce mobile o cualquier navegador. GPS, cuentas cercanas y navegación incluidos.</p></div></div>
+            </div>
+        </section>
+
+        <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:16px;padding:2.5rem;text-align:center;color:#fff;margin:3rem 0">
+            <h2 style="color:#fff;margin-bottom:0.5rem">¿Listo para optimizar las rutas de su equipo?</h2>
+            <p style="opacity:0.9;margin-bottom:1.5rem">Vea RouteForce en acción con sus propios datos Salesforce.</p>
+            <a href="/es/#contact" class="btn btn-primary btn-lg" style="background:#fff;color:#6366f1;border-color:#fff">Reservar una demo gratuita</a>
+        </div>
+        <nav style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem"><a href="/es/planificacion-rutas-salesforce.html" style="color:#6366f1">← Planificación Salesforce</a><a href="/es/planificacion-visitas-salesforce.html" style="color:#6366f1">Planificación visitas →</a></nav>
+    </article>
+
+    <footer class="footer"><div class="container"><div class="footer-content"><div class="footer-brand"><a href="/es/" class="logo"><svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/><path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="8" cy="20" r="2.5" fill="currentColor"/><circle cx="14" cy="10" r="2.5" fill="currentColor"/><circle cx="20" cy="16" r="2.5" fill="currentColor"/><circle cx="26" cy="8" r="2.5" fill="currentColor"/></svg><span>RouteForce</span></a><p>Optimización de rutas comerciales para Salesforce</p></div><div class="footer-links"><a href="/es/#features">Funcionalidades</a><a href="/es/#pricing">Precios</a><a href="/es/#contact">Contacto</a></div></div><div class="footer-bottom"><p>&copy; 2026 RouteForce — Mathieu Szymkiewicz. Todos los derechos reservados.</p></div></div></footer>
+    <script src="../script.js"></script>
+</body>
+</html>
