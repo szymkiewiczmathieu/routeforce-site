@@ -82,6 +82,13 @@
         <priority>0.8</priority>
     </url>
 
+    <!-- Blog article 2 -->
+    <url>
+        <loc>https://routeforce.app/blog/optimiser-tournees-salesforce.html</loc>
+        <lastmod>2026-03-02</lastmod>
+        <priority>0.8</priority>
+    </url>
+
     <!-- Mentions legales -->
     <url>
         <loc>https://routeforce.app/mentions-legales.html</loc>

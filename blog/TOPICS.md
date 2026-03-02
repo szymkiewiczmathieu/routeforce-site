@@ -9,14 +9,7 @@
 
 ## File d'attente (dans l'ordre)
 
-### NEXT — Article 2
-- **Fichier**: `optimiser-tournees-salesforce.html`
-- **Titre**: `Comment optimiser les tournées de vos commerciaux terrain avec Salesforce`
-- **Keyword cible**: `optimiser tournées commerciales Salesforce`
-- **Angle**: Guide pratique — les vrais problèmes (Excel, double saisie, oublis de relance) + comment un outil natif Salesforce résout ça. Pas de chiffres inventés sur les gains.
-- **Tag**: Guide
-
-### Article 3
+### NEXT — Article 3
 - **Fichier**: `rgpd-donnees-clients-salesforce-maps.html`
 - **Titre**: `RGPD et cartographie Salesforce : pourquoi l'hébergement des données compte`
 - **Keyword cible**: `RGPD Salesforce Maps données`
@@ -39,3 +32,4 @@
 
 ## Complétés
 - [x] `salesforce-maps-alternative-2026.html` — 28 fév 2026
+- [x] `optimiser-tournees-salesforce.html` — 2 mars 2026
