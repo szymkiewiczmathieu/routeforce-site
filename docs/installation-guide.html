@@ -5,14 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>RouteForce — Guide d'installation</title>
 <style>
-  /* Reset & base */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
     color: #1a1a2e; background: #fff; line-height: 1.6;
-    max-width: 850px; margin: 0 auto; padding: 40px 32px;
+    max-width: 880px; margin: 0 auto; padding: 40px 32px;
   }
-  /* Print */
   @media print {
     body { padding: 20px; font-size: 11pt; }
     .no-print { display: none; }
@@ -21,63 +19,57 @@
     a { text-decoration: none; color: inherit; }
     a[href]::after { content: " (" attr(href) ")"; font-size: 0.85em; color: #555; }
   }
-
-  /* Typography */
-  h1 { font-size: 2em; color: #0d47a1; border-bottom: 3px solid #0d47a1; padding-bottom: 12px; margin-bottom: 8px; }
+  h1 { font-size: 2em; color: #2563EB; border-bottom: 3px solid #2563EB; padding-bottom: 12px; margin-bottom: 8px; }
   .subtitle { color: #555; font-size: 1.1em; margin-bottom: 32px; }
-  h2 { font-size: 1.4em; color: #1565c0; margin: 32px 0 16px; padding-bottom: 6px; border-bottom: 1px solid #e0e0e0; }
+  h2 { font-size: 1.4em; color: #1d4ed8; margin: 36px 0 16px; padding-bottom: 6px; border-bottom: 1px solid #e0e0e0; }
   h3 { font-size: 1.1em; color: #333; margin: 20px 0 10px; }
-
-  /* Step cards */
-  .step-card {
-    background: #f8f9fa; border-left: 4px solid #1565c0;
-    border-radius: 6px; padding: 20px 24px; margin: 16px 0;
-  }
-  .step-card h3 { margin-top: 0; color: #1565c0; }
-
-  /* Tables */
+  .step-card { background: #f8f9fa; border-left: 4px solid #2563EB; border-radius: 6px; padding: 20px 24px; margin: 16px 0; }
+  .step-card h3 { margin-top: 0; color: #1d4ed8; }
   table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.95em; }
   th, td { text-align: left; padding: 10px 14px; border: 1px solid #dee2e6; }
-  th { background: #e3f2fd; color: #0d47a1; font-weight: 600; }
+  th { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
   tr:nth-child(even) { background: #f8f9fa; }
-
-  /* Code */
   code { background: #e8eaf6; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; font-family: 'Cascadia Code', 'Fira Code', monospace; }
-  pre { background: #263238; color: #eeffff; padding: 16px 20px; border-radius: 6px; overflow-x: auto; margin: 12px 0; font-size: 0.88em; line-height: 1.5; }
+  pre { background: #1e293b; color: #e2e8f0; padding: 16px 20px; border-radius: 6px; overflow-x: auto; margin: 12px 0; font-size: 0.88em; line-height: 1.5; }
   pre code { background: transparent; color: inherit; padding: 0; }
-
-  /* Alerts */
   .alert { padding: 14px 18px; border-radius: 6px; margin: 16px 0; font-size: 0.95em; }
-  .alert-info { background: #e3f2fd; border-left: 4px solid #1565c0; }
-  .alert-warning { background: #fff3e0; border-left: 4px solid #e65100; }
-  .alert-success { background: #e8f5e9; border-left: 4px solid #2e7d32; }
-
-  /* Lists */
+  .alert-info { background: #eff6ff; border-left: 4px solid #2563EB; }
+  .alert-warning { background: #fff7ed; border-left: 4px solid #ea580c; }
+  .alert-success { background: #f0fdf4; border-left: 4px solid #16a34a; }
   ul, ol { margin: 8px 0 8px 24px; }
   li { margin: 4px 0; }
-
-  /* Footer */
+  .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: 600; }
+  .badge-required { background: #fee2e2; color: #dc2626; }
+  .badge-recommended { background: #fef3c7; color: #d97706; }
+  .badge-optional { background: #eff6ff; color: #2563EB; }
+  .badge-lang { background: #f0fdf4; color: #16a34a; }
   .footer { margin-top: 48px; padding-top: 20px; border-top: 2px solid #e0e0e0; color: #666; font-size: 0.9em; text-align: center; }
-
-  /* TOC */
-  .toc { background: #f5f5f5; border-radius: 8px; padding: 20px 28px; margin: 24px 0; }
-  .toc h3 { margin-top: 0; }
+  .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0; }
+  .toc h3 { margin-top: 0; color: #1d4ed8; }
   .toc ol { margin-left: 20px; }
-  .toc a { color: #1565c0; text-decoration: none; }
+  .toc a { color: #2563EB; text-decoration: none; }
   .toc a:hover { text-decoration: underline; }
+  .lang-note { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 12px 16px; margin: 16px 0; font-size: 0.9em; }
+  .field-table td:first-child { font-weight: 600; white-space: nowrap; }
 </style>
 </head>
 <body>
 
 <h1>📍 RouteForce</h1>
-<p class="subtitle">Guide d'installation et de configuration — Package managé Salesforce (2GP)</p>
+<p class="subtitle">Guide d'installation et de configuration — Package managé Salesforce 2GP</p>
+
+<div class="lang-note">
+  <strong>🌐 Multilingue :</strong> L'interface RouteForce est entièrement traduite en <span class="badge badge-lang">Français</span> <span class="badge badge-lang">English</span> <span class="badge badge-lang">Español</span>. La langue s'adapte automatiquement à celle de l'utilisateur Salesforce. Les labels Custom Metadata restent en anglais pour des raisons techniques (API names), mais les descriptions inline sont disponibles dans les 3 langues.
+</div>
 
 <div class="toc">
   <h3>Sommaire</h3>
   <ol>
     <li><a href="#prereqs">Prérequis</a></li>
     <li><a href="#install">Installation du package</a></li>
+    <li><a href="#remote-site">Remote Site Settings & CSP</a></li>
     <li><a href="#permissions">Attribution des permissions</a></li>
+    <li><a href="#licence">Configuration de la licence</a></li>
     <li><a href="#cmdt">Configuration Custom Metadata</a></li>
     <li><a href="#appbuilder">Configuration App Builder</a></li>
     <li><a href="#validation">Test de validation</a></li>
@@ -93,34 +85,31 @@
   <tr><th>Élément</th><th>Requis</th></tr>
   <tr><td>Édition Salesforce</td><td>Enterprise, Unlimited ou Developer</td></tr>
   <tr><td>Version API</td><td>≥ 62.0 (Winter '25)</td></tr>
-  <tr><td>Lightning Experience</td><td>Activé (le package n'est pas compatible Classic)</td></tr>
+  <tr><td>Lightning Experience</td><td>Activé (non compatible Salesforce Classic)</td></tr>
   <tr><td>Profil installateur</td><td>System Administrator</td></tr>
-  <tr><td>Objet Account</td><td>Champs d'adresse géolocalisés (Billing et/ou Shipping avec Latitude/Longitude)</td></tr>
+  <tr><td>Objet Account</td><td>Champs d'adresse avec géolocalisation active (Latitude/Longitude)</td></tr>
   <tr><td>Navigateur</td><td>Chrome, Edge, Firefox ou Safari (version récente)</td></tr>
 </table>
 
 <div class="alert alert-info">
-  <strong>💡 Géolocalisation des adresses :</strong> Salesforce géolocalise automatiquement les champs 
-  d'adresse standard (<code>BillingAddress</code>, <code>ShippingAddress</code>) si l'option 
-  <em>Data Integration Rules → Geocodes for Account Billing/Shipping Address</em> est activée 
-  dans <strong>Setup → Data Integration Rules</strong>.
+  <strong>💡 Géolocalisation des adresses :</strong> Salesforce géolocalise automatiquement les champs d'adresse standard (<code>BillingAddress</code>, <code>ShippingAddress</code>) si l'option <em>Geocodes for Account Billing/Shipping Address</em> est activée dans <strong>Setup → Data Integration Rules</strong>.
 </div>
 
 <!-- ============================================================ -->
 <h2 id="install">2. Installation du package</h2>
 
 <div class="step-card">
-  <h3>Étape 2.1 — Installer via le lien d'installation</h3>
+  <h3>Étape 2.1 — Installer via le lien</h3>
   <p>Cliquez sur le lien correspondant à votre environnement :</p>
   <table>
-    <tr><th>Environnement</th><th>Lien d'installation</th></tr>
+    <tr><th>Environnement</th><th>Lien</th></tr>
     <tr>
       <td><strong>Production / Developer</strong></td>
-      <td><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000C2kPQAS">Installer en production</a></td>
+      <td><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000C5QXQA0">Installer en production</a></td>
     </tr>
     <tr>
       <td><strong>Sandbox</strong></td>
-      <td><a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000C2kPQAS">Installer en sandbox</a></td>
+      <td><a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000C5QXQA0">Installer en sandbox</a></td>
     </tr>
   </table>
 </div>
@@ -132,205 +121,289 @@
     <li>Sélectionnez <strong>"Install for Admins Only"</strong> (recommandé pour la configuration initiale)</li>
     <li>Cochez <strong>"Yes, grant access to these third-party web sites"</strong> si demandé</li>
     <li>Cliquez sur <strong>Install</strong></li>
-    <li>Attendez l'email de confirmation (quelques minutes)</li>
+    <li>Attendez l'email de confirmation (1 à 5 minutes)</li>
   </ol>
 </div>
 
 <div class="alert alert-warning">
-  <strong>⚠️ Package managé :</strong> Le namespace du package est <code>routeforce</code>. 
-  Tous les composants sont préfixés automatiquement (ex: <code>routeforce__TourneeConfig__mdt</code>).
+  <strong>⚠️ Namespace :</strong> Le package utilise le namespace <code>routeforce</code>. Tous les composants, objets et champs sont préfixés automatiquement (ex : <code>routeforce__RouteForceConfig__mdt</code>).
 </div>
 
 <!-- ============================================================ -->
-<h2 id="permissions">3. Attribution des permissions</h2>
+<h2 id="remote-site">3. Remote Site Settings & CSP</h2>
+
+<p>Le composant effectue des appels HTTP vers le serveur d'optimisation et charge des tuiles de carte depuis OpenStreetMap. Deux configurations sont nécessaires :</p>
 
 <div class="step-card">
-  <h3>Étape 3.1 — Permission Set</h3>
-  <p>Attribuez le Permission Set <strong>RouteForce User</strong> aux utilisateurs qui doivent accéder au composant :</p>
-  <pre><code>Setup → Permission Sets → RouteForce User → Manage Assignments → Add Assignments</code></pre>
+  <h3>Étape 3.1 — Remote Site Settings</h3>
+  <p><strong>Setup → Security → Remote Site Settings → New</strong></p>
+  <table>
+    <tr><th>Name</th><th>URL</th><th>Description</th></tr>
+    <tr><td><code>RouteForce_ORS</code></td><td><code>https://ors.routeforce.app</code></td><td>Serveur d'optimisation et routing (obligatoire)</td></tr>
+  </table>
+</div>
+
+<div class="step-card">
+  <h3>Étape 3.2 — CSP Trusted Sites</h3>
+  <p><strong>Setup → Security → CSP Trusted Sites → New</strong></p>
+  <table>
+    <tr><th>Name</th><th>URL</th><th>Context</th></tr>
+    <tr><td><code>RouteForce_ORS</code></td><td><code>https://ors.routeforce.app</code></td><td>All (connect-src)</td></tr>
+    <tr><td><code>OpenStreetMap_Tiles</code></td><td><code>https://*.tile.openstreetmap.org</code></td><td>All (img-src)</td></tr>
+    <tr><td><code>Leaflet_CDN</code></td><td><code>https://unpkg.com</code></td><td>All (script-src, style-src)</td></tr>
+  </table>
+  <p style="margin-top: 8px; color: #64748b; font-size: 0.9em;">Ces sites sont nécessaires pour le chargement de la carte, des tuiles et des scripts Leaflet.js.</p>
 </div>
 
 <!-- ============================================================ -->
-<h2 id="cmdt">4. Configuration Custom Metadata</h2>
+<h2 id="permissions">4. Attribution des permissions</h2>
 
-<p>Le package utilise un type de métadonnées personnalisé <code>routeforce__TourneeConfig__mdt</code> pour la configuration. 
-Chaque enregistrement contient un champ texte <code>Value__c</code>.</p>
-
-<pre><code>Setup → Custom Metadata Types → Tournee Config → Manage Records</code></pre>
-
-<h3>4.1 — Enregistrements à créer</h3>
+<p>Le package fournit deux Permission Sets :</p>
 
 <table>
+  <tr><th>Permission Set</th><th>Usage</th></tr>
+  <tr><td><strong>RouteForce User</strong></td><td>Accès au composant carte, tournées, historique. Pour tous les utilisateurs terrain.</td></tr>
+  <tr><td><strong>RouteForce Admin</strong></td><td>Accès complet + modification des Custom Metadata. Pour les administrateurs.</td></tr>
+</table>
+
+<div class="step-card">
+  <h3>Étape 4.1 — Attribuer le Permission Set</h3>
+  <pre><code>Setup → Permission Sets → RouteForce User → Manage Assignments → Add Assignments</code></pre>
+  <p>Sélectionnez les utilisateurs concernés et cliquez sur <strong>Assign</strong>.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="licence">5. Configuration de la licence</h2>
+
+<p>RouteForce utilise un système de licence pour activer le composant. Les clés sont fournies par le support après inscription (trial 14 jours ou abonnement).</p>
+
+<div class="step-card">
+  <h3>Étape 5.1 — Renseigner la licence</h3>
+  <p>Accédez au Custom Metadata Type <strong>LicenceConfig</strong> :</p>
+  <pre><code>Setup → Custom Metadata Types → "Licence Config" → Manage Records → Edit "Default"</code></pre>
+
+  <table class="field-table">
+    <tr><th>Champ</th><th>Valeur</th><th>Description</th></tr>
+    <tr>
+      <td><code>Licence Key</code></td>
+      <td><em>(fournie par le support)</em></td>
+      <td><span class="badge badge-required">Obligatoire</span> Clé de licence RouteForce. Sans cette clé, le composant affiche un écran de licence expirée.</td>
+    </tr>
+    <tr>
+      <td><code>ORS API Key</code></td>
+      <td><em>(fournie par le support)</em></td>
+      <td><span class="badge badge-required">Obligatoire</span> Clé d'authentification pour le serveur d'optimisation. Sans cette clé, les calculs de route et l'optimisation ne fonctionneront pas.</td>
+    </tr>
+  </table>
+</div>
+
+<div class="alert alert-info">
+  <strong>💡 Trial gratuit :</strong> Contactez <a href="mailto:support@routeforce.app">support@routeforce.app</a> pour obtenir un essai gratuit de 14 jours. Vous recevrez votre clé de licence et votre clé API par email sécurisé (lien unique, auto-destruction après lecture).
+</div>
+
+<div class="alert alert-warning">
+  <strong>⚠️ Cache licence :</strong> La validation de licence est mise en cache pendant 24h. Si vous changez de clé, le nouveau statut sera effectif sous 24h maximum. Pour forcer un rafraîchissement immédiat : <strong>Setup → Custom Settings → Licence Cache → Manage → Edit</strong> et décochez <code>IsValid</code>.
+</div>
+
+<!-- ============================================================ -->
+<h2 id="cmdt">6. Configuration Custom Metadata</h2>
+
+<p>Toute la configuration de RouteForce est centralisée dans un seul Custom Metadata Type : <strong>RouteForceConfig</strong>. Un enregistrement <code>Default</code> est fourni avec des valeurs par défaut. Tous les champs sont <code>SubscriberControlled</code> : vous pouvez les modifier librement.</p>
+
+<pre><code>Setup → Custom Metadata Types → "RouteForce Config" → Manage Records → Edit "Default"</code></pre>
+
+<h3>6.1 — Champs de configuration</h3>
+
+<table class="field-table">
+  <tr><th>Champ</th><th>Type</th><th>Défaut</th><th>Description</th></tr>
   <tr>
-    <th>DeveloperName</th>
-    <th>Label</th>
-    <th>Value__c</th>
-    <th>Description</th>
-    <th>Obligatoire</th>
+    <td><code>Address Field Prefix</code></td>
+    <td>Picklist</td>
+    <td><code>Shipping</code></td>
+    <td><span class="badge badge-optional">Optionnel</span> Préfixe d'adresse pour la géolocalisation : <code>Shipping</code> ou <code>Billing</code>. Fallback automatique sur l'autre type si l'adresse préférée n'a pas de coordonnées.</td>
   </tr>
   <tr>
-    <td><code>ORS_VPS_Key</code></td>
-    <td>ORS VPS Key</td>
-    <td><em>(clé fournie par le support)</em></td>
-    <td>Clé d'API pour le serveur VPS d'optimisation de tournées (ORS on-premise). <strong>Requise pour l'optimisation des itinéraires.</strong></td>
-    <td>✅ Oui</td>
+    <td><code>Enable Contact Lookup</code></td>
+    <td>Checkbox</td>
+    <td><code>true</code></td>
+    <td><span class="badge badge-optional">Optionnel</span> Active l'affichage des contacts dans les popups de marqueurs et la sélection de contacts lors de la planification de tournée.</td>
   </tr>
   <tr>
-    <td><code>ORS_API_Key</code></td>
-    <td>ORS API Key</td>
-    <td><em>(clé fournie par le support)</em></td>
-    <td>Clé d'API HeiGIT (fallback cloud). Fournie avec la licence ou à obtenir sur <a href="https://openrouteservice.org/dev/#/signup">openrouteservice.org</a>.</td>
-    <td>⚡ Recommandé</td>
+    <td><code>Contact Query Fields</code></td>
+    <td>Text</td>
+    <td><code>Id,Name</code></td>
+    <td><span class="badge badge-optional">Optionnel</span> Champs Contact à récupérer. Exemples : <code>Id,Name,Email,Phone,Title</code></td>
   </tr>
   <tr>
-    <td><code>Address_Field_Prefix</code></td>
-    <td>Address Field Prefix</td>
-    <td><code>Shipping</code> ou <code>Billing</code></td>
-    <td>Champ d'adresse principal utilisé pour la géolocalisation. <strong>Fallback automatique</strong> : si l'adresse préférée n'a pas de coordonnées, l'autre type est utilisé.</td>
-    <td>📌 Optionnel (défaut : <code>Shipping</code>)</td>
+    <td><code>Contact Query Filter</code></td>
+    <td>Text</td>
+    <td><em>(vide)</em></td>
+    <td><span class="badge badge-optional">Optionnel</span> Clause WHERE SOQL (sans le mot-clé WHERE). Ex : <code>IsActive__c = true</code></td>
   </tr>
   <tr>
-    <td><code>Contact_Lookup_Enabled</code></td>
-    <td>Contact Lookup Enabled</td>
-    <td><code>true</code> ou <code>false</code></td>
-    <td>Active la sélection de contact lors de la création des RDV dans la tournée.</td>
-    <td>📌 Optionnel (défaut : <code>false</code>)</td>
+    <td><code>Default Map Layer</code></td>
+    <td>Picklist</td>
+    <td><code>Standard</code></td>
+    <td><span class="badge badge-optional">Optionnel</span> Fond de carte par défaut : <code>Standard</code> (rues), <code>Terrain</code> (topo), <code>Satellite</code> (vue aérienne).</td>
   </tr>
   <tr>
-    <td><code>Contact_Query_Fields</code></td>
-    <td>Contact Query Fields</td>
-    <td><code>Id,Name,Email,Phone</code></td>
-    <td>Champs Contact récupérés pour l'affichage dans la tournée.</td>
-    <td>📌 Optionnel</td>
+    <td><code>Enable History Naming</code></td>
+    <td>Checkbox</td>
+    <td><code>true</code></td>
+    <td><span class="badge badge-optional">Optionnel</span> Demande un nom de tournée avant l'enregistrement dans l'historique.</td>
   </tr>
   <tr>
-    <td><code>Contact_Query_Filter</code></td>
-    <td>Contact Query Filter</td>
-    <td><em>(clause WHERE SOQL)</em></td>
-    <td>Filtre SOQL optionnel pour les contacts (ex: <code>IsActive__c = true</code>).</td>
-    <td>📌 Optionnel</td>
+    <td><code>Last Visit Field</code></td>
+    <td>Text</td>
+    <td><em>(vide)</em></td>
+    <td><span class="badge badge-optional">Optionnel</span> Nom API du champ Account stockant la date de dernière visite. Active le filtre "Non visité depuis". Ex : <code>LastActivityDate</code> ou <code>Derniere_Visite__c</code></td>
+  </tr>
+  <tr>
+    <td><code>Not Visited Since (Days)</code></td>
+    <td>Number</td>
+    <td><em>(vide)</em></td>
+    <td><span class="badge badge-optional">Optionnel</span> Nombre de jours par défaut pour le filtre "Non visité depuis".</td>
+  </tr>
+  <tr>
+    <td><code>Support Email</code></td>
+    <td>Email</td>
+    <td><em>(vide)</em></td>
+    <td><span class="badge badge-optional">Optionnel</span> Email affiché sur l'écran de licence expirée. Si vide, <code>support@routeforce.app</code> est utilisé.</td>
   </tr>
 </table>
 
 <div class="alert alert-info">
-  <strong>💡 Smart fallback adresse :</strong> Si vous configurez <code>Address_Field_Prefix = Billing</code>, 
-  le système utilisera en priorité <code>BillingLatitude/BillingLongitude</code>. 
-  Si un compte n'a pas de coordonnées Billing, les coordonnées Shipping seront automatiquement utilisées 
-  comme fallback (et vice versa). Aucune donnée n'est perdue.
+  <strong>💡 Configuration minimale :</strong> Pour une installation rapide, seules les clés dans <strong>Licence Config</strong> (étape 5) sont obligatoires. Tous les champs ci-dessus ont des valeurs par défaut sensées. Vous pouvez les ajuster après les premiers tests.
 </div>
 
-<div class="step-card">
-  <h3>Étape 4.1 — Créer un enregistrement Custom Metadata</h3>
-  <ol>
-    <li>Accédez à <strong>Setup → Custom Metadata Types</strong></li>
-    <li>Cliquez sur <strong>Manage Records</strong> à côté de "Tournee Config"</li>
-    <li>Cliquez sur <strong>New</strong></li>
-    <li>Renseignez le <strong>Label</strong> et le <strong>DeveloperName</strong> (voir tableau ci-dessus)</li>
-    <li>Renseignez le champ <strong>Value</strong></li>
-    <li>Cliquez sur <strong>Save</strong></li>
-  </ol>
-</div>
+<h3>6.2 — Configuration par page (override App Builder)</h3>
 
-<h3>4.2 — Configuration de la clé ORS (obligatoire)</h3>
-
-<div class="alert alert-warning">
-  <strong>⚠️ Clé ORS VPS :</strong> La clé <code>ORS_VPS_Key</code> est nécessaire pour l'optimisation 
-  des tournées. Sans cette clé, le bouton "Optimiser" retournera une erreur. 
-  Contactez le support RouteForce pour obtenir votre clé.
-</div>
+<p>Les propriétés configurables dans l'App Builder (étape 7) sont <strong>prioritaires</strong> sur les Custom Metadata. Cela permet d'avoir des configurations différentes par page (ex : <code>Billing</code> sur la page Account, <code>Shipping</code> sur une page dédiée).</p>
 
 <!-- ============================================================ -->
-<h2 id="appbuilder">5. Configuration App Builder</h2>
+<h2 id="appbuilder">7. Configuration App Builder</h2>
 
 <div class="step-card">
-  <h3>Étape 5.1 — Ajouter le composant à une page Lightning</h3>
+  <h3>Étape 7.1 — Ajouter le composant à une page Lightning</h3>
   <ol>
-    <li>Ouvrez une page Lightning dans l'<strong>App Builder</strong> (page Account, Home, ou App Page)</li>
-    <li>Cherchez le composant <strong>"RouteForce Locator"</strong> dans le panneau de gauche</li>
+    <li>Ouvrez une page Lightning dans l'<strong>App Builder</strong> (page Account, Home ou App Page)</li>
+    <li>Cherchez <strong>"routeforce"</strong> dans le panneau de composants (à gauche)</li>
     <li>Glissez-déposez le composant sur la page</li>
-    <li>Configurez les propriétés dans le panneau de droite</li>
+    <li>Configurez les propriétés dans le panneau de droite (voir ci-dessous)</li>
+    <li>Cliquez sur <strong>Save</strong> puis <strong>Activate</strong></li>
   </ol>
 </div>
 
-<h3>5.2 — Propriétés configurables</h3>
+<h3>7.2 — Propriétés configurables</h3>
 
 <table>
   <tr><th>Propriété</th><th>Description</th><th>Exemple</th></tr>
-  <tr><td><code>Address Field Prefix</code></td><td>Override du préfixe d'adresse (prioritaire sur le CMDT)</td><td><code>Shipping</code> ou <code>Billing</code></td></tr>
-  <tr><td><code>Filter Field 1-12</code></td><td>Champs Account à exposer comme filtres</td><td><code>Industry</code>, <code>Type</code></td></tr>
-  <tr><td><code>Type Field</code></td><td>Champ pour la colorisation des marqueurs</td><td><code>Type</code></td></tr>
-  <tr><td><code>Type Values</code></td><td>Valeurs du champ type (séparées par virgule)</td><td><code>Customer,Prospect,Partner</code></td></tr>
-  <tr><td><code>Marker Fields</code></td><td>Champs additionnels affichés dans le popup</td><td><code>Phone,Website,Industry</code></td></tr>
-  <tr><td><code>Force Multi Picklist</code></td><td>Champs à forcer en sélection multiple</td><td><code>Industry</code></td></tr>
+  <tr>
+    <td><code>Address Field Prefix</code></td>
+    <td>Override du CMDT : préfixe d'adresse</td>
+    <td><code>Shipping</code> ou <code>Billing</code></td>
+  </tr>
+  <tr>
+    <td><code>Show Record Type</code></td>
+    <td>Affiche le filtre par type d'enregistrement Account</td>
+    <td><code>true</code> / <code>false</code></td>
+  </tr>
+  <tr>
+    <td><code>Filter Field 1–12</code></td>
+    <td>Champs Account à exposer comme filtres dynamiques (jusqu'à 12)</td>
+    <td><code>Industry</code>, <code>Rating</code>, <code>Type</code></td>
+  </tr>
+  <tr>
+    <td><code>Type Field</code></td>
+    <td>Champ utilisé pour coloriser les marqueurs par catégorie</td>
+    <td><code>Type</code></td>
+  </tr>
+  <tr>
+    <td><code>Type Values</code></td>
+    <td>Valeurs du champ type (séparées par virgule)</td>
+    <td><code>Customer - Direct,Prospect,Partner</code></td>
+  </tr>
 </table>
 
 <div class="alert alert-info">
-  <strong>💡 Hiérarchie de configuration :</strong> La propriété <code>Address Field Prefix</code> 
-  dans App Builder est <strong>prioritaire</strong> sur la valeur Custom Metadata. 
-  Cela permet de configurer un préfixe différent par page si nécessaire.
+  <strong>💡 Filtres dynamiques :</strong> Les filtres s'adaptent automatiquement au type de champ (picklist → dropdown, booléen → toggle, multipicklist → sélection multiple). Vous pouvez filtrer sur n'importe quel champ standard ou custom de l'objet Account.
 </div>
 
 <!-- ============================================================ -->
-<h2 id="validation">6. Test de validation post-installation</h2>
+<h2 id="validation">8. Test de validation</h2>
 
 <div class="step-card">
-  <h3>Checklist de validation</h3>
+  <h3>Checklist post-installation</h3>
   <ol>
     <li>✅ Le package apparaît dans <strong>Setup → Installed Packages</strong></li>
-    <li>✅ Le composant <strong>RouteForce Locator</strong> est disponible dans l'App Builder</li>
-    <li>✅ Les enregistrements Custom Metadata sont visibles dans <strong>Setup → Custom Metadata Types → Tournee Config</strong></li>
-    <li>✅ Le composant se charge correctement sur une page Lightning (carte Leaflet visible)</li>
-    <li>✅ Les comptes avec adresses géolocalisées apparaissent comme marqueurs sur la carte</li>
+    <li>✅ Le composant est visible dans l'App Builder (chercher "routeforce")</li>
+    <li>✅ Les Custom Metadata sont accessibles dans <strong>Setup → Custom Metadata Types</strong></li>
+    <li>✅ Le composant se charge (carte Leaflet visible, pas d'écran "licence expirée")</li>
+    <li>✅ Les comptes avec adresses géolocalisées apparaissent comme marqueurs</li>
     <li>✅ Le bouton <strong>"Tournée"</strong> ouvre le panneau de planification</li>
-    <li>✅ L'optimisation fonctionne (requiert <code>ORS_VPS_Key</code>)</li>
+    <li>✅ Cliquer sur des marqueurs les ajoute comme étapes</li>
+    <li>✅ Le bouton <strong>"Optimiser"</strong> réordonne les étapes (requiert ORS API Key)</li>
+    <li>✅ Le bouton <strong>"Historique"</strong> affiche les tournées enregistrées</li>
   </ol>
 </div>
 
 <div class="alert alert-success">
-  <strong>✅ Test rapide :</strong> Ouvrez la page Lightning contenant le composant, 
-  autorisez la géolocalisation dans le navigateur, et vérifiez que des marqueurs apparaissent 
-  autour de votre position. Cliquez sur un marqueur pour vérifier l'affichage des détails.
+  <strong>✅ Test rapide en 30 secondes :</strong> Ouvrez la page contenant le composant → autorisez la géolocalisation → vérifiez que des marqueurs apparaissent → cliquez sur un marqueur pour voir le popup de détails → cliquez sur "Tournée" → ajoutez 3 étapes → cliquez "Optimiser".
 </div>
 
 <!-- ============================================================ -->
-<h2 id="troubleshooting">7. Dépannage</h2>
+<h2 id="troubleshooting">9. Dépannage</h2>
 
 <table>
   <tr><th>Problème</th><th>Solution</th></tr>
   <tr>
-    <td>Aucun marqueur sur la carte</td>
-    <td>Vérifiez que vos comptes ont des coordonnées GPS (Data Integration Rules activées). Vérifiez le <code>Address_Field_Prefix</code>.</td>
+    <td>Écran "🔒 Licence expirée"</td>
+    <td>Vérifiez que <strong>Licence Config → Default</strong> contient une clé de licence valide. Contactez <a href="mailto:support@routeforce.app">support@routeforce.app</a> pour un trial.</td>
   </tr>
   <tr>
-    <td>Erreur "ORS_VPS_Key not configured"</td>
-    <td>Créez l'enregistrement Custom Metadata <code>ORS_VPS_Key</code> avec la clé fournie.</td>
+    <td>Aucun marqueur sur la carte</td>
+    <td>Vérifiez que vos comptes ont des coordonnées GPS (Setup → Data Integration Rules → Geocodes activés). Vérifiez le <code>Address Field Prefix</code> dans le CMDT.</td>
+  </tr>
+  <tr>
+    <td>Erreur "Optimiser la tournée"</td>
+    <td>Vérifiez que l'<code>ORS API Key</code> est renseignée dans <strong>Licence Config</strong> et que le Remote Site Setting <code>https://ors.routeforce.app</code> est actif.</td>
   </tr>
   <tr>
     <td>Composant non visible dans l'App Builder</td>
-    <td>Vérifiez que le Permission Set <strong>RouteForce User</strong> est attribué.</td>
+    <td>Vérifiez que le Permission Set <strong>RouteForce User</strong> ou <strong>RouteForce Admin</strong> est attribué à votre utilisateur.</td>
   </tr>
   <tr>
-    <td>La carte ne se charge pas</td>
-    <td>Ajoutez les CSP Trusted Sites suivantes dans <strong>Setup → CSP Trusted Sites</strong> :<br><code>https://ors.routeforce.app</code> (callouts ORS)<br><code>https://*.openstreetmap.org</code> (tuiles carte)<br><code>https://*.tile.openstreetmap.org</code></td>
+    <td>Carte blanche (pas de tuiles)</td>
+    <td>Ajoutez les CSP Trusted Sites pour <code>https://*.tile.openstreetmap.org</code> et <code>https://unpkg.com</code> (étape 3).</td>
   </tr>
   <tr>
-    <td>Erreur d'optimisation (timeout)</td>
-    <td>Le serveur VPS est peut-être temporairement indisponible. Le système bascule automatiquement sur le fallback HeiGIT si <code>ORS_API_Key</code> est configurée.</td>
+    <td>Erreur 401 sur les routes</td>
+    <td>Votre clé API est invalide ou votre licence a expiré. Contactez le support.</td>
+  </tr>
+  <tr>
+    <td>Les filtres n'affichent rien</td>
+    <td>Vérifiez que les Filter Fields configurés dans l'App Builder correspondent à des champs existants sur l'objet Account.</td>
   </tr>
 </table>
 
 <!-- ============================================================ -->
-<h2 id="support">8. Contact support</h2>
+<h2 id="support">10. Contact support</h2>
 
 <table>
   <tr><th>Canal</th><th>Détails</th></tr>
-  <tr><td>Email</td><td><em>À définir</em></td></tr>
-  <tr><td>Documentation</td><td><a href="https://routeforce.app">routeforce.app</a></td></tr>
+  <tr><td>Email</td><td><a href="mailto:support@routeforce.app">support@routeforce.app</a></td></tr>
+  <tr><td>Site web</td><td><a href="https://routeforce.app">routeforce.app</a></td></tr>
+  <tr><td>Trial gratuit</td><td>14 jours — envoyez un email à <a href="mailto:support@routeforce.app">support@routeforce.app</a> avec le nom de votre organisation</td></tr>
 </table>
+
+<div class="alert alert-info">
+  <strong>💡 Couverture routière :</strong> L'optimisation couvre actuellement le <strong>territoire métropolitain français</strong>. La couverture mondiale (Europe, Afrique, Asie, Amériques) est en cours de déploiement et sera disponible prochainement.
+</div>
 
 <div class="footer">
   <p><strong>RouteForce</strong> — Optimisation de tournées commerciales native Salesforce</p>
-  <p>Version 0.1.0 · Package ID : <code>04tgL000000C2kPQAS</code> · API 62.0</p>
+  <p>Version 0.1 · API 66.0 · Namespace <code>routeforce</code></p>
+  <p>Interface disponible en 🇫🇷 Français · 🇬🇧 English · 🇪🇸 Español</p>
   <p>© 2025–2026 RouteForce. Tous droits réservés.</p>
 </div>
 
