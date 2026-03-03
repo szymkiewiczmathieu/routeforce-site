@@ -106,11 +106,11 @@
     <tr><th>Environnement</th><th>Lien</th></tr>
     <tr>
       <td><strong>Production / Developer</strong></td>
-      <td><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000C5QXQA0">Installer en production</a></td>
+      <td><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000C5dRQAS">Installer en production</a></td>
     </tr>
     <tr>
       <td><strong>Sandbox</strong></td>
-      <td><a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000C5QXQA0">Installer en sandbox</a></td>
+      <td><a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000C5dRQAS">Installer en sandbox</a></td>
     </tr>
   </table>
 </div>
@@ -204,8 +204,8 @@
   <strong>💡 Trial gratuit :</strong> Contactez <a href="mailto:support@routeforce.app">support@routeforce.app</a> pour obtenir un essai gratuit de 14 jours. Vous recevrez votre clé de licence et votre clé API par email sécurisé (lien unique, auto-destruction après lecture).
 </div>
 
-<div class="alert alert-warning">
-  <strong>⚠️ Cache licence :</strong> La validation de licence est mise en cache pendant 24h. Si vous changez de clé, le nouveau statut sera effectif sous 24h maximum. Pour forcer un rafraîchissement immédiat : <strong>Setup → Custom Settings → Licence Cache → Manage → Edit</strong> et décochez <code>IsValid</code>.
+<div class="alert alert-info">
+  <strong>💡 Activation de la licence :</strong> La validation de licence est automatique. Une fois la clé renseignée, RouteForce vérifie la validité auprès de nos serveurs et active l'application. En cas de changement de clé, la mise à jour est effective sous 24h.
 </div>
 
 <!-- ============================================================ -->
@@ -387,20 +387,48 @@
 <h2 id="best-practices">9. Bonnes pratiques</h2>
 
 <div class="step-card">
-  <h3>Recommandation : champ Rollup "Dernière visite"</h3>
-  <p>Pour exploiter pleinement le filtre <strong>"Non visité depuis X jours"</strong>, nous recommandons fortement de créer un champ Rollup Summary (ou formula) sur l'objet Account :</p>
+  <h3>Recommandation : champ Rollup "Dernière visite" <span class="badge badge-recommended">Recommandé</span></h3>
+  <p>Pour exploiter pleinement le filtre <strong>"Non visité depuis X jours"</strong> et identifier les comptes à revisiter, nous recommandons <strong>fortement</strong> de créer un champ Rollup Summary sur l'objet Account :</p>
+
+  <h3 style="margin-top:16px;">Option A — Rollup Summary (recommandé)</h3>
   <table>
-    <tr><th>Champ</th><th>Configuration</th></tr>
+    <tr><th>Paramètre</th><th>Valeur</th></tr>
     <tr><td><strong>Label</strong></td><td><code>Dernière Visite</code> (ou <code>Last Visit Date</code>)</td></tr>
     <tr><td><strong>API Name</strong></td><td><code>Last_Visit_Date__c</code></td></tr>
-    <tr><td><strong>Type</strong></td><td>Rollup Summary (MAX) sur Events liés au compte, filtrés par <code>Subject CONTAINS 'Visite'</code> ou un RecordType dédié</td></tr>
-    <tr><td><strong>Alternative</strong></td><td>Formula <code>MAX(LastActivityDate, Last_Event_Date__c)</code> ou Flow schedulé</td></tr>
+    <tr><td><strong>Type</strong></td><td>Rollup Summary</td></tr>
+    <tr><td><strong>Summarized Object</strong></td><td>Events (activités liées au compte)</td></tr>
+    <tr><td><strong>Roll-Up Type</strong></td><td><code>MAX</code></td></tr>
+    <tr><td><strong>Field to Aggregate</strong></td><td><code>ActivityDate</code> (Date de l'événement)</td></tr>
+    <tr><td><strong>Filter Criteria</strong></td><td><code>Subject CONTAINS 'Visite'</code> — ou filtrez par RecordType dédié si vous en avez un</td></tr>
   </table>
-  <p style="margin-top:8px;">Ensuite, renseignez le nom API de ce champ dans <strong>RouteForce Config → Last Visit Field</strong> (ex: <code>Last_Visit_Date__c</code>).</p>
+
+  <h3 style="margin-top:16px;">Option B — Flow schedulé (alternative)</h3>
+  <p>Si le Rollup Summary n'est pas possible (ex : filtres complexes, objets non-master-detail), créez un <strong>Scheduled Flow</strong> quotidien qui :</p>
+  <ol>
+    <li>Requête les Events des dernières 24h liés à des Accounts</li>
+    <li>Met à jour <code>Last_Visit_Date__c</code> sur chaque Account concerné</li>
+  </ol>
+
+  <h3 style="margin-top:16px;">Configuration dans RouteForce</h3>
+  <p>Renseignez le nom API du champ dans <strong>RouteForce Config → <code>LastVisitField__c</code></strong> (ex: <code>Last_Visit_Date__c</code>). Le filtre "Non visité depuis" sera alors disponible dans la carte.</p>
+
+  <h3 style="margin-top:16px;">Cas d'usage : identifier les comptes sans visite récente</h3>
+  <p>Avec ce champ en place, vous pouvez :</p>
+  <ul>
+    <li>📍 <strong>Dans RouteForce</strong> : utiliser le filtre "Non visité depuis X jours" pour afficher uniquement les comptes à revisiter sur la carte</li>
+    <li>📊 <strong>Dans un rapport/dashboard SF</strong> : créer un rapport sur les comptes où <code>Last_Visit_Date__c &lt; TODAY() - 30</code></li>
+    <li>🔍 <strong>En SOQL</strong> (pour les admins) :</li>
+  </ul>
+  <pre><code>SELECT Name, BillingCity, Last_Visit_Date__c, OwnerId
+FROM Account
+WHERE Last_Visit_Date__c &lt; LAST_N_DAYS:30
+   OR Last_Visit_Date__c = NULL
+ORDER BY Last_Visit_Date__c ASC NULLS FIRST</code></pre>
+  <p style="margin-top:8px; color:#64748b; font-size:0.9em;">↑ Cette requête retourne tous les comptes non visités depuis 30 jours (ou jamais visités). Idéal pour alimenter une vue liste ou un dashboard de suivi commercial.</p>
 </div>
 
 <div class="alert alert-info">
-  <strong>💡 Pourquoi un Rollup ?</strong> Le champ standard <code>LastActivityDate</code> inclut les appels, emails et tâches — pas uniquement les visites terrain. Un Rollup dédié vous permet de filtrer précisément sur les visites physiques et d'identifier les comptes non visités depuis N jours.
+  <strong>💡 Pourquoi un Rollup plutôt que LastActivityDate ?</strong> Le champ standard <code>LastActivityDate</code> inclut les appels, emails, tâches et tous types d'activités — pas uniquement les visites terrain. Un Rollup dédié (ou Flow) vous permet de filtrer <strong>précisément</strong> sur les visites physiques et d'identifier les comptes qui n'ont pas reçu de visite depuis N jours. C'est la base d'une bonne couverture terrain.
 </div>
 
 <div class="step-card">
