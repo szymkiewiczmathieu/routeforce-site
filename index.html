@@ -568,62 +568,57 @@
         <div class="container">
             <div class="section-header">
                 <h2>🧠 Un algorithme, pas un GPS</h2>
-                <p>RouteForce ne se contente pas de tracer un itinéraire — il résout un problème d'optimisation combinatoire en temps réel.</p>
+                <p>RouteForce ne trace pas un itinéraire — il trouve le <strong>meilleur ordre de visite</strong> en quelques secondes.</p>
             </div>
 
             <div class="screenshots-grid">
                 <div class="screenshot-card main" style="border: none; box-shadow: none; background: transparent;">
                     <div class="screenshot-caption" style="padding: 0;">
-                        <h3>⚡ Optimisation VROOM + ORS</h3>
-                        <p>RouteForce combine deux moteurs open-source de référence mondiale :</p>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                            <div style="background: #eff6ff; border-radius: 10px; padding: 24px; text-align: center;">
+                                <div style="font-size: 2.2rem; font-weight: 800; color: #1d4ed8;">< 1s</div>
+                                <div style="color: #64748b; font-size: 0.9rem; margin-top: 4px;">Temps d'optimisation<br>pour 10 étapes</div>
+                            </div>
+                            <div style="background: #f0fdf4; border-radius: 10px; padding: 24px; text-align: center;">
+                                <div style="font-size: 2.2rem; font-weight: 800; color: #16a34a;">3.6M</div>
+                                <div style="color: #64748b; font-size: 0.9rem; margin-top: 4px;">Combinaisons évaluées<br>pour trouver la meilleure</div>
+                            </div>
+                            <div style="background: #fef3c7; border-radius: 10px; padding: 24px; text-align: center;">
+                                <div style="font-size: 2.2rem; font-weight: 800; color: #d97706;">30%</div>
+                                <div style="color: #64748b; font-size: 0.9rem; margin-top: 4px;">De kilomètres économisés<br>en moyenne par tournée</div>
+                            </div>
+                        </div>
+
+                        <h3>🎯 Votre journée, optimisée</h3>
+                        <p>L'algorithme ne minimise pas juste la distance. Il intègre vos contraintes réelles :</p>
                         <ul style="margin: 12px 0 12px 20px; line-height: 2;">
-                            <li><strong>VROOM</strong> — Solveur du <em>Vehicle Routing Problem</em> (VRP). Trouve l'ordre optimal de visite parmi toutes les permutations possibles. Pour 10 étapes, c'est 3,6 millions de combinaisons évaluées en moins d'une seconde.</li>
-                            <li><strong>OpenRouteService (ORS)</strong> — Moteur de routing basé sur OpenStreetMap. Calcule les distances et durées <strong>réelles</strong> (routes, sens uniques, limitations) — pas des lignes droites.</li>
+                            <li>⏰ <strong>Horaires de travail</strong> — arrivées estimées étape par étape</li>
+                            <li>🍽️ <strong>Pause déjeuner</strong> — créneau bloqué automatiquement</li>
+                            <li>⏱️ <strong>Durée de visite</strong> — adaptée à chaque rendez-vous</li>
+                            <li>🚫 <strong>Péages / autoroutes</strong> — évitables en un clic</li>
+                            <li>🔄 <strong>Ajustement manuel</strong> — réordonnez par drag & drop, la route se recalcule instantanément</li>
                         </ul>
 
-                        <h3 style="margin-top: 24px;">🎯 Contraintes métier intégrées</h3>
-                        <p>L'algorithme ne minimise pas juste la distance. Il prend en compte :</p>
-                        <ul style="margin: 12px 0 12px 20px; line-height: 2;">
-                            <li>⏰ <strong>Heure de départ</strong> — calcul des arrivées estimées étape par étape</li>
-                            <li>🍽️ <strong>Pause déjeuner</strong> — créneau bloqué automatiquement dans la planification</li>
-                            <li>⏱️ <strong>Durée de visite</strong> — temps passé chez chaque client (configurable)</li>
-                            <li>🚫 <strong>Évitement péages / autoroutes</strong> — options activables en un clic</li>
-                            <li>🔄 <strong>Réordonnancement manuel</strong> — drag & drop puis recalcul automatique de la route dans votre ordre</li>
-                        </ul>
-
-                        <h3 style="margin-top: 24px;">🌍 Couverture mondiale</h3>
-                        <p>Notre serveur ORS héberge le graphe routier <strong>OpenStreetMap planétaire</strong> (86 Go). Optimisez des tournées en France, en Europe, en Afrique, en Asie — partout où il y a des routes.</p>
-
-                        <h3 style="margin-top: 24px;">📱 100% natif Salesforce</h3>
-                        <p>Pas d'application tierce, pas de synchronisation à configurer. Le composant Lightning est embarqué directement dans vos pages Salesforce. Les comptes, contacts et événements sont lus et créés <strong>nativement</strong> via Apex — zéro intégration, zéro middleware.</p>
+                        <h3 style="margin-top: 24px;">🌍 Partout dans le monde</h3>
+                        <p>France, Europe, Afrique, Asie, Amériques — <strong>aucune restriction géographique</strong>. Où que soient vos clients, RouteForce calcule la route optimale sur le réseau routier réel.</p>
                     </div>
                 </div>
 
                 <div class="screenshot-card side" style="border: none; box-shadow: none; background: transparent;">
                     <div class="screenshot-caption" style="padding: 0;">
-                        <h3>🔧 Développé par un consultant Salesforce</h3>
-                        <p style="margin-bottom: 16px;">RouteForce est conçu et développé par un <strong>consultant Salesforce certifié</strong> avec 10 ans d'expérience terrain (App Builder, Service Cloud, Sales Cloud, Apex, LWC).</p>
+                        <h3>📱 100% intégré à Salesforce</h3>
+                        <p>Pas d'outil externe. Pas de synchronisation. RouteForce vit <strong>dans</strong> Salesforce :</p>
+                        <ul style="margin: 12px 0 12px 20px; line-height: 2;">
+                            <li>Vos <strong>comptes</strong> apparaissent automatiquement sur la carte</li>
+                            <li>Les <strong>rendez-vous</strong> se créent dans le calendrier SF en un clic</li>
+                            <li>Les <strong>filtres</strong> s'adaptent à vos champs custom (industrie, type, priorité…)</li>
+                            <li>Les <strong>tournées sauvegardées</strong> se rechargent pour la semaine suivante</li>
+                        </ul>
 
-                        <div style="background: #eff6ff; border-radius: 8px; padding: 20px; margin-bottom: 16px;">
-                            <h4 style="color: #1d4ed8; margin-bottom: 12px;">Stack technique</h4>
-                            <ul style="margin: 0 0 0 16px; line-height: 2; color: #334155;">
-                                <li><strong>Apex</strong> — Service Layer pattern, with sharing, bulkified</li>
-                                <li><strong>LWC</strong> — 5 composants modulaires (carte, route, historique, filtres, étapes)</li>
-                                <li><strong>Leaflet.js</strong> — Cartographie interactive (marqueurs, clusters, tracés)</li>
-                                <li><strong>VROOM</strong> — Optimisation VRP (Vehicle Routing Problem)</li>
-                                <li><strong>ORS</strong> — Routing mondial OpenStreetMap</li>
-                                <li><strong>2GP Managed Package</strong> — Installation en 2 clics, namespace protégé</li>
-                            </ul>
-                        </div>
-
-                        <div style="background: #f0fdf4; border-radius: 8px; padding: 20px;">
-                            <h4 style="color: #16a34a; margin-bottom: 12px;">Certifications</h4>
-                            <ul style="margin: 0 0 0 16px; line-height: 2; color: #334155;">
-                                <li>✅ Salesforce App Builder</li>
-                                <li>✅ Sales Cloud Consultant</li>
-                                <li>✅ Service Cloud Consultant</li>
-                                <li>✅ Pardot Specialist & Consultant</li>
-                            </ul>
+                        <div style="background: #eff6ff; border-radius: 8px; padding: 20px; margin-top: 20px;">
+                            <h4 style="color: #1d4ed8; margin-bottom: 12px;">Conçu par un expert Salesforce</h4>
+                            <p style="color: #334155; font-size: 0.9rem; line-height: 1.6; margin: 0;">10 ans d'expérience CRM, 5 certifications Salesforce (App Builder, Sales Cloud, Service Cloud, Pardot). RouteForce est né d'un vrai besoin terrain chez des clients grands comptes.</p>
                         </div>
                     </div>
                 </div>
