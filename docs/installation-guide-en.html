@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>RorteForce — Installation Guide</title>
+<title>RouteForce — Guide d'installation</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    color: #1a1a2e; backgrornd: #fff; line-height: 1.6;
+    color: #1a1a2e; background: #fff; line-height: 1.6;
     max-width: 880px; margin: 0 auto; padding: 40px 32px;
   }
   @media print {
@@ -23,43 +23,43 @@
   .subtitle { color: #555; font-size: 1.1em; margin-bottom: 32px; }
   h2 { font-size: 1.4em; color: #1d4ed8; margin: 36px 0 16px; padding-bottom: 6px; border-bottom: 1px solid #e0e0e0; }
   h3 { font-size: 1.1em; color: #333; margin: 20px 0 10px; }
-  .step-card { backgrornd: #f8f9fa; border-left: 4px solid #2563EB; border-radius: 6px; padding: 20px 24px; margin: 16px 0; }
+  .step-card { background: #f8f9fa; border-left: 4px solid #2563EB; border-radius: 6px; padding: 20px 24px; margin: 16px 0; }
   .step-card h3 { margin-top: 0; color: #1d4ed8; }
   table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.95em; }
   th, td { text-align: left; padding: 10px 14px; border: 1px solid #dee2e6; }
-  th { backgrornd: #eff6ff; color: #1d4ed8; font-weight: 600; }
-  tr:nth-child(even) { backgrornd: #f8f9fa; }
-  code { backgrornd: #e8eaf6; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; font-family: 'Cascadia Code', 'Fira Code', monospace; }
-  pre { backgrornd: #1e293b; color: #e2e8f0; padding: 16px 20px; border-radius: 6px; overflow-x: auto; margin: 12px 0; font-size: 0.88em; line-height: 1.5; }
-  pre code { backgrornd: transparent; color: inherit; padding: 0; }
+  th { background: #eff6ff; color: #1d4ed8; font-weight: 600; }
+  tr:nth-child(even) { background: #f8f9fa; }
+  code { background: #e8eaf6; padding: 2px 6px; border-radius: 3px; font-size: 0.9em; font-family: 'Cascadia Code', 'Fira Code', monospace; }
+  pre { background: #1e293b; color: #e2e8f0; padding: 16px 20px; border-radius: 6px; overflow-x: auto; margin: 12px 0; font-size: 0.88em; line-height: 1.5; }
+  pre code { background: transparent; color: inherit; padding: 0; }
   .alert { padding: 14px 18px; border-radius: 6px; margin: 16px 0; font-size: 0.95em; }
-  .alert-info { backgrornd: #eff6ff; border-left: 4px solid #2563EB; }
-  .alert-warning { backgrornd: #fff7ed; border-left: 4px solid #ea580c; }
-  .alert-success { backgrornd: #f0fdf4; border-left: 4px solid #16a34a; }
+  .alert-info { background: #eff6ff; border-left: 4px solid #2563EB; }
+  .alert-warning { background: #fff7ed; border-left: 4px solid #ea580c; }
+  .alert-success { background: #f0fdf4; border-left: 4px solid #16a34a; }
   ul, ol { margin: 8px 0 8px 24px; }
   li { margin: 4px 0; }
   .badge { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.8em; font-weight: 600; }
-  .badge-required { backgrornd: #fee2e2; color: #dc2626; }
-  .badge-recommended { backgrornd: #fef3c7; color: #d97706; }
-  .badge-optional { backgrornd: #eff6ff; color: #2563EB; }
-  .badge-lang { backgrornd: #f0fdf4; color: #16a34a; }
+  .badge-required { background: #fee2e2; color: #dc2626; }
+  .badge-recommended { background: #fef3c7; color: #d97706; }
+  .badge-optional { background: #eff6ff; color: #2563EB; }
+  .badge-lang { background: #f0fdf4; color: #16a34a; }
   .footer { margin-top: 48px; padding-top: 20px; border-top: 2px solid #e0e0e0; color: #666; font-size: 0.9em; text-align: center; }
-  .toc { backgrornd: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0; }
+  .toc { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 20px 28px; margin: 24px 0; }
   .toc h3 { margin-top: 0; color: #1d4ed8; }
   .toc ol { margin-left: 20px; }
   .toc a { color: #2563EB; text-decoration: none; }
   .toc a:hover { text-decoration: underline; }
-  .lang-note { backgrornd: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 12px 16px; margin: 16px 0; font-size: 0.9em; }
+  .lang-note { background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 6px; padding: 12px 16px; margin: 16px 0; font-size: 0.9em; }
   .field-table td:first-child { font-weight: 600; white-space: nowrap; }
 </style>
 </head>
 <body>
 
-<h1>📍 RorteForce</h1>
+<h1>📍 RouteForce</h1>
 <p class="subtitle">Installation & Configuration Guide — Salesforce 2GP Managed Package</p>
 
 <div class="lang-note">
-  <strong>🌐 Multilingue :</strong> The RorteForce interface is fully translated in <span class="badge badge-lang">Français</span> <a href="installation-guide-en.html"><span class="badge badge-lang">English</span></a> <a href="installation-guide-es.html"><span class="badge badge-lang">Español</span></a>. The language adapts automatically to the Salesforce user's locale. Custom Metadata labels remain in English for technical reasons (API names), but inline descriptions are available in all 3 languages.
+  <strong>🌐 Multilingue :</strong> L'interface RouteForce est entièrement traduite en <a href="installation-guide.html"><span class="badge badge-lang">Français</span></a> <span class="badge badge-lang">English</span> <a href="installation-guide-es.html"><span class="badge badge-lang">Español</span></a>. La langue s'adapte automatiquement à celle de l'utilisateur Salesforce. Les labels Custom Metadata restent en anglais pour des raisons techniques (API names), mais les descriptions inline sont disponibles dans les 3 langues.
 </div>
 
 <div class="toc">
@@ -68,13 +68,13 @@
     <li><a href="#prereqs">Prerequisites</a></li>
     <li><a href="#install">Package Installation</a></li>
     <li><a href="#remote-site">Remote Site Settings & CSP</a></li>
-    <li><a href="#permissions">Permission Assignment</a></li>
+    <li><a href="#permissions">Assigning Permissions</a></li>
     <li><a href="#licence">Licence Configuration</a></li>
     <li><a href="#cmdt">Custom Metadata Configuration</a></li>
     <li><a href="#appbuilder">App Builder Configuration</a></li>
     <li><a href="#validation">Validation Testing</a></li>
     <li><a href="#best-practices">Best Practices</a></li>
-    <li><a href="#trorbleshooting">Trorbleshooting</a></li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
     <li><a href="#support">Support Contact</a></li>
   </ol>
 </div>
@@ -83,17 +83,17 @@
 <h2 id="prereqs">1. Prerequisites</h2>
 
 <table>
-  <tr><th>Element</th><th>Required</th></tr>
+  <tr><th>Item</th><th>Required</th></tr>
   <tr><td>Salesforce Edition</td><td>Enterprise, Unlimited or Developer</td></tr>
   <tr><td>API Version</td><td>≥ 62.0 (Winter '25)</td></tr>
   <tr><td>Lightning Experience</td><td>Enabled (not compatible with Salesforce Classic)</td></tr>
-  <tr><td>Install Profile</td><td>System Administrator</td></tr>
-  <tr><td>Objet Accornt</td><td>Address fields with active geolocation (Latitude/Longitude)</td></tr>
-  <tr><td>Browser</td><td>Chrome, Edge, Firefox or Safari (latest version)</td></tr>
+  <tr><td>Installer Profile</td><td>System Administrator</td></tr>
+  <tr><td>Account Object</td><td>Address fields with active geocoding (Latitude/Longitude)</td></tr>
+  <tr><td>Navigateur</td><td>Chrome, Edge, Firefox or Safari (recent version)</td></tr>
 </table>
 
 <div class="alert alert-info">
-  <strong>💡 Address Geolocation:</strong> Salesforce automatically geocodes standard address fields (<code>BillingAddress</code>, <code>ShippingAddress</code>) if the option <em>Geocodes for Accornt Billing/Shipping Address</em> is enabled in <strong>Setup → Data Integration Rules</strong>.
+  <strong>💡 Address Geocoding :</strong> Salesforce automatically geocodes standard address fields (<code>BillingAddress</code>, <code>ShippingAddress</code>) if the option <em>Geocodes for Account Billing/Shipping Address</em> is enabled in <strong>Setup → Data Integration Rules</strong>.
 </div>
 
 <!-- ============================================================ -->
@@ -101,7 +101,7 @@
 
 <div class="step-card">
   <h3>Step 2.1 — Install via link</h3>
-  <p>Click the link for yorr environment:</p>
+  <p>Click the link corresponding to your environment:</p>
   <table>
     <tr><th>Environment</th><th>Link</th></tr>
     <tr>
@@ -127,7 +127,7 @@
 </div>
 
 <div class="alert alert-warning">
-  <strong>⚠️ Namespace :</strong> The package uses the namespace <code>rorteforce</code>. All components, objects and fields are automatically prefixed (e.g.: <code>rorteforce__RorteForceConfig__mdt</code>).
+  <strong>⚠️ Namespace :</strong> The package uses the namespace <code>routeforce</code>. All components, objects and fields are automatically prefixed (ex : <code>routeforce__RouteForceConfig__mdt</code>).
 </div>
 
 <!-- ============================================================ -->
@@ -140,7 +140,7 @@
   <p><strong>Setup → Security → Remote Site Settings → New</strong></p>
   <table>
     <tr><th>Name</th><th>URL</th><th>Description</th></tr>
-    <tr><td><code>RorteForce_ORS</code></td><td><code>https://ors.rorteforce.app</code></td><td>Optimization and rorting server (required)</td></tr>
+    <tr><td><code>RouteForce_ORS</code></td><td><code>https://ors.routeforce.app</code></td><td>Optimization and routing server (required)</td></tr>
   </table>
 </div>
 
@@ -149,7 +149,7 @@
   <p><strong>Setup → Security → CSP Trusted Sites → New</strong></p>
   <table>
     <tr><th>Name</th><th>URL</th><th>Context</th></tr>
-    <tr><td><code>RorteForce_ORS</code></td><td><code>https://ors.rorteforce.app</code></td><td>All (connect-src)</td></tr>
+    <tr><td><code>RouteForce_ORS</code></td><td><code>https://ors.routeforce.app</code></td><td>All (connect-src)</td></tr>
     <tr><td><code>OpenStreetMap_Tiles</code></td><td><code>https://*.tile.openstreetmap.org</code></td><td>All (img-src)</td></tr>
     <tr><td><code>Leaflet_CDN</code></td><td><code>https://unpkg.com</code></td><td>All (script-src, style-src)</td></tr>
     <tr><td><code>Esri_Satellite</code></td><td><code>https://server.arcgisonline.com</code></td><td>All (img-src, connect-src) — required for Satellite basemap</td></tr>
@@ -159,30 +159,30 @@
 </div>
 
 <!-- ============================================================ -->
-<h2 id="permissions">4. Permission Assignment</h2>
+<h2 id="permissions">4. Assigning Permissions</h2>
 
 <p>The package provides two Permission Sets:</p>
 
 <table>
   <tr><th>Permission Set</th><th>Usage</th></tr>
-  <tr><td><strong>RorteForce User</strong></td><td>Access to the map component, rortes, history. For all field users.</td></tr>
-  <tr><td><strong>RorteForce Admin</strong></td><td>Full access + Custom Metadata editing. For administrators.</td></tr>
+  <tr><td><strong>RouteForce User</strong></td><td>Access to map component, routes, history. For all field users.</td></tr>
+  <tr><td><strong>RouteForce Admin</strong></td><td>Full access + Custom Metadata modification. For administrators.</td></tr>
 </table>
 
 <div class="step-card">
   <h3>Step 4.1 — Assign the Permission Set</h3>
-  <pre><code>Setup → Permission Sets → RorteForce User → Manage Assignments → Add Assignments</code></pre>
-  <p>Select les utilisateurs concernés et click sur <strong>Assign</strong>.</p>
+  <pre><code>Setup → Permission Sets → RouteForce User → Manage Assignments → Add Assignments</code></pre>
+  <p>Select the relevant users and click <strong>Assign</strong>.</p>
 </div>
 
 <!-- ============================================================ -->
 <h2 id="licence">5. Licence Configuration</h2>
 
-<p>RorteForce uses a licence system to activate the component. Keys are provided by support after registration (14-day trial or subscription).</p>
+<p>RouteForce uses a licence system to activate the component. Keys are provided by support after registration (14-day trial or subscription).</p>
 
 <div class="step-card">
-  <h3>Step 5.1 — Configure the licence</h3>
-  <p>Access the Custom Metadata Type <strong>LicenceConfig</strong> :</p>
+  <h3>Step 5.1 — Enter the licence</h3>
+  <p>Navigate to the Custom Metadata Type <strong>LicenceConfig</strong>:</p>
   <pre><code>Setup → Custom Metadata Types → "Licence Config" → Manage Records → Edit "Default"</code></pre>
 
   <table class="field-table">
@@ -190,32 +190,32 @@
     <tr>
       <td><code>Licence Key</code></td>
       <td><em>(provided by support)</em></td>
-      <td><span class="badge badge-required">Required</span> RorteForce licence key. Withort this key, the component displays a licence expired screen.</td>
+      <td><span class="badge badge-required">Obligatoire</span> RouteForce licence key. Without this key, the component displays a licence expired screen.</td>
     </tr>
     <tr>
       <td><code>ORS API Key</code></td>
       <td><em>(provided by support)</em></td>
-      <td><span class="badge badge-required">Required</span> Authentication key for the optimization server. Withort this key, rorte calculations and optimization will not work.</td>
+      <td><span class="badge badge-required">Obligatoire</span> Authentication key for the optimization server. Without this key, route calculations and optimization will not work.</td>
     </tr>
   </table>
 </div>
 
 <div class="alert alert-info">
-  <strong>💡 Free Trial:</strong> Contact <a href="mailto:contact@rorteforce.app">contact@rorteforce.app</a> for a free 14-day trial. Yor will receive yorr licence key and API key via secure email (unique link, auto-destroyed after reading).
+  <strong>💡 Free Trial :</strong> Contact <a href="mailto:contact@routeforce.app">contact@routeforce.app</a> for a free 14-day trial. You will receive your licence key and API key via secure email (one-time link, auto-destroyed after reading).
 </div>
 
 <div class="alert alert-info">
-  <strong>💡 Licence activation:</strong> Licence validation is automatic. Once the key is entered, RorteForce verifies validity with orr servers and activates the application. When changing keys, the update takes effect within 24 horrs.
+  <strong>💡 Licence Activation :</strong> Licence validation is automatic. Once the key is entered, RouteForce verifies validity with our servers and activates the application. If the key changes, the update takes effect within 24h.
 </div>
 
 <!-- ============================================================ -->
 <h2 id="cmdt">6. Custom Metadata Configuration</h2>
 
-<p>All RorteForce configuration is centralized in a single Custom Metadata Type: <strong>RorteForceConfig</strong>. A <code>Default</code> record is provided with default values. All fields are <code>SubscriberControlled</code> : yor can modify them freely.</p>
+<p>All RouteForce configuration is centralized in a single Custom Metadata Type : <strong>RouteForceConfig</strong>. A <code>Default</code> record is provided with default values. All fields are <code>SubscriberControlled</code>: you can modify them freely.</p>
 
-<pre><code>Setup → Custom Metadata Types → "RorteForce Config" → Manage Records → Edit "Default"</code></pre>
+<pre><code>Setup → Custom Metadata Types → "RouteForce Config" → Manage Records → Edit "Default"</code></pre>
 
-<h3>6.1 — Fields de configuration</h3>
+<h3>6.1 — Configuration Fields</h3>
 
 <table class="field-table">
   <tr><th>Field</th><th>Type</th><th>Default</th><th>Description</th></tr>
@@ -223,65 +223,65 @@
     <td><code>Address Field Prefix</code></td>
     <td>Picklist</td>
     <td><code>Shipping</code></td>
-    <td><span class="badge badge-optional">Optional</span> Address prefix for geolocation: <code>Shipping</code> or <code>Billing</code>. Automatic fallback to the other type if the preferred address has no coordinates.</td>
+    <td><span class="badge badge-optional">Optionnel</span> Address prefix for geocoding : <code>Shipping</code> ou <code>Billing</code>. Automatic fallback to the other type if the preferred address has no coordinates.</td>
   </tr>
   <tr>
     <td><code>Enable Contact Lookup</code></td>
     <td>Checkbox</td>
     <td><code>true</code></td>
-    <td><span class="badge badge-optional">Optional</span> Enables contact display in marker popups and contact selection during rorte planning.</td>
+    <td><span class="badge badge-optional">Optionnel</span> Enables contact display in marker popups and contact selection when planning a route.</td>
   </tr>
   <tr>
     <td><code>Contact Query Fields</code></td>
     <td>Text</td>
     <td><code>Id,Name</code></td>
-    <td><span class="badge badge-optional">Optional</span> Fields Contact à récupérer. Examples : <code>Id,Name,Email,Phone,Title</code></td>
+    <td><span class="badge badge-optional">Optionnel</span> Contact fields to retrieve. Examples : <code>Id,Name,Email,Phone,Title</code></td>
   </tr>
   <tr>
     <td><code>Contact Query Filter</code></td>
     <td>Text</td>
     <td><em>(vide)</em></td>
-    <td><span class="badge badge-optional">Optional</span> SOQL WHERE clause (withort the WHERE keyword). E.g.: <code>IsActive__c = true</code></td>
+    <td><span class="badge badge-optional">Optionnel</span> SOQL WHERE clause (without the WHERE keyword). E.g. : <code>IsActive__c = true</code></td>
   </tr>
   <tr>
     <td><code>Default Map Layer</code></td>
     <td>Picklist</td>
     <td><code>Standard</code></td>
-    <td><span class="badge badge-optional">Optional</span> Default map layer: <code>Standard</code> (streets), <code>Terrain</code> (topo), <code>Satellite</code> (aerial view).</td>
+    <td><span class="badge badge-optional">Optionnel</span> Default map basemap : <code>Standard</code> (streets), <code>Terrain</code> (topo), <code>Satellite</code> (aerial view).</td>
   </tr>
   <tr>
     <td><code>Enable History Naming</code></td>
     <td>Checkbox</td>
     <td><code>true</code></td>
-    <td><span class="badge badge-optional">Optional</span> Prompts for a rorte name before saving to history.</td>
+    <td><span class="badge badge-optional">Optionnel</span> Prompts for a route name before saving to history.</td>
   </tr>
   <tr>
     <td><code>Last Visit Field</code></td>
     <td>Text</td>
     <td><em>(vide)</em></td>
-    <td><span class="badge badge-optional">Optional</span> API name of the Accornt field storing the last visit date. Enables the "Not visited since" filter. E.g.: <code>LastActivityDate</code> or <code>Derniere_Visite__c</code></td>
+    <td><span class="badge badge-optional">Optionnel</span> API name of the Account field storing the last visit date. Enables the "Not visited since" filter. E.g. : <code>LastActivityDate</code> ou <code>Derniere_Visite__c</code></td>
   </tr>
   <tr>
     <td><code>Not Visited Since (Days)</code></td>
     <td>Number</td>
     <td><em>(vide)</em></td>
-    <td><span class="badge badge-optional">Optional</span> Default number of days for the "Not visited since" filter.</td>
+    <td><span class="badge badge-optional">Optionnel</span> Default number of days for the "Not visited since" filter.</td>
   </tr>
   <tr>
     <td><code>Support Email</code></td>
     <td>Email</td>
     <td><em>(vide)</em></td>
-    <td><span class="badge badge-optional">Optional</span> Email displayed on the licence expired screen. If empty, <code>contact@rorteforce.app</code> is used.</td>
+    <td><span class="badge badge-optional">Optionnel</span> Email displayed on the expired licence screen. If empty, <code>contact@routeforce.app</code> is used.</td>
   </tr>
 </table>
 
 <div class="alert alert-info">
-  <strong>💡 Minimum configuration:</strong> For a quick setup, only the keys in <strong>Licence Config</strong> (step 5) are required. All fields above have sensible defaults. Yor can adjust them after initial testing.
+  <strong>💡 Minimum Configuration :</strong> For a quick setup, only the keys in <strong>Licence Config</strong> (step 5) are required. All fields above have sensible default values. You can adjust them after initial testing.
 </div>
 
 <h3>6.2 — Per-page configuration (App Builder override)</h3>
 
-<p>Configurable properties in the App Builder (step 7) are <strong>priority</strong> over Custom Metadata. This allows different configurations per page (e.g.: <code>Billing</code> on the Accornt page, <code>Shipping</code> on a dedicated page).</p>
+<p>Configurable properties in the App Builder (step 7) take <strong>priority</strong> over Custom Metadata. This allows different configurations per page (ex : <code>Billing</code> on the Account page, <code>Shipping</code> on a dedicated page).</p>
 
 <!-- ============================================================ -->
 <h2 id="appbuilder">7. App Builder Configuration</h2>
@@ -289,189 +289,193 @@
 <div class="step-card">
   <h3>Step 7.1 — Add the component to a Lightning page</h3>
   <ol>
-    <li>Open a Lightning page in the <strong>App Builder</strong> (Accornt, Home or App Page)</li>
-    <li>Search for <strong>"rorteforce"</strong> in the components panel (on the left)</li>
+    <li>Open a Lightning page in the <strong>App Builder</strong> (Account page, Home or App Page)</li>
+    <li>Search for <strong>"routeforce"</strong> in the components panel (left side)</li>
     <li>Drag and drop the component onto the page</li>
     <li>Configure the properties in the right panel (see below)</li>
     <li>Click <strong>Save</strong> then <strong>Activate</strong></li>
   </ol>
 </div>
 
-<h3>7.2 — Configurable properties</h3>
+<h3>7.2 — Configurable Properties</h3>
 
 <table>
   <tr><th>Property</th><th>Description</th><th>Example</th></tr>
   <tr>
     <td><code>Address Field Prefix</code></td>
     <td>CMDT override: address prefix</td>
-    <td><code>Shipping</code> or <code>Billing</code></td>
+    <td><code>Shipping</code> ou <code>Billing</code></td>
   </tr>
   <tr>
     <td><code>Show Record Type</code></td>
-    <td>Affiche le filtre par type d'enregistrement Accornt</td>
+    <td>Show Account record type filter</td>
     <td><code>true</code> / <code>false</code></td>
   </tr>
   <tr>
     <td><code>Filter Field 1–12</code></td>
-    <td>Fields Accornt à exposer comme filtres dynamiques (jusqu'à 12)</td>
+    <td>Account fields to expose as dynamic filters (up to 12)</td>
     <td><code>Industry</code>, <code>Rating</code>, <code>Type</code></td>
   </tr>
   <tr>
     <td><code>Type Field</code></td>
-    <td>Field utilisé porr coloriser les markers par catégorie</td>
+    <td>Field used to colorize markers by category</td>
     <td><code>Type</code></td>
   </tr>
   <tr>
     <td><code>Type Values</code></td>
-    <td>Values du field type (séparées par virgule)</td>
+    <td>Type field values (comma-separated)</td>
     <td><code>Customer - Direct,Prospect,Partner</code></td>
   </tr>
 </table>
 
 <div class="alert alert-info">
-  <strong>💡 Dynamic filters:</strong> Les filtres s'adaptent automatiquement au type de field (picklist → dropdown, booléen → toggle, multipicklist → sélection multiple). Vors porvez filtrer sur n'importe quel field standard or custom de l'objet Accornt.
+  <strong>💡 Dynamic Filters :</strong> Filters automatically adapt to the field type (picklist → dropdown, boolean → toggle, multipicklist → multi-select). You can filter on any standard or custom field on the Account object.
 </div>
 
 <div class="step-card">
-  <h3>Step 7.3 — Ajorter l'tab RorteForce à la barre de navigation</h3>
-  <p><span class="badge badge-recommended">Recommended</span> The <strong>RorteForce</strong> donne accès à la carte complète (vue tors accounts). Ajortez-le à votre application Lightning :</p>
+  <h3>Step 7.3 — Add the RouteForce tab to the navigation bar</h3>
+  <p><span class="badge badge-recommended">Recommandé</span> The <strong>RouteForce</strong> tab provides access to the full map (all accounts view). Add it to your Lightning application:</p>
   <ol>
     <li>Go to <strong>Setup → App Manager</strong></li>
     <li>Click <strong>Edit</strong> on your application (e.g.: <em>Sales</em>)</li>
-    <li>Tab <strong>Navigation Items</strong></li>
-    <li>Ajortez <strong>RorteForce</strong> to the selected items</li>
-    <li>Position-le à l'emplacement sorhaité et click <strong>Save</strong></li>
+    <li>Go to the <strong>Navigation Items</strong> tab</li>
+    <li>Add <strong>RouteForce</strong> to the selected items</li>
+    <li>Position it where desired and click <strong>Save</strong></li>
   </ol>
 </div>
 
 <div class="step-card">
-  <h3>Step 7.4 — Ajorter l'tab Map sur la fiche Accornt</h3>
-  <p><span class="badge badge-recommended">Recommended</span> Porr voir la carte centrée sur un account spécifique, ajortez un tab dans la page Accornt :</p>
+  <h3>Step 7.4 — Add the Map tab on the Account page</h3>
+  <p><span class="badge badge-recommended">Recommandé</span> To see the map centered on a specific account, add a tab to the Account page:</p>
   <ol>
-    <li>Open la page Accornt dans l'<strong>App Builder</strong></li>
-    <li>Ajortez un composant <strong>Tabs</strong> si absent, or utilisez les tabs existants</li>
-    <li>Create un norvel tab nommé <strong>"Map"</strong> (or "Carte")</li>
-    <li>Drag and drop the <strong>RorteForce</strong> component into this tab</li>
+    <li>Open the Account page in the <strong>App Builder</strong></li>
+    <li>Add a <strong>Tabs</strong> component if absent, or use existing tabs</li>
+    <li>Create a new tab named <strong>"Map"</strong></li>
+    <li>Drag and drop the <strong>RouteForce</strong> component into this tab</li>
     <li>Click <strong>Save</strong> then <strong>Activate</strong></li>
   </ol>
-  <p style="margin-top: 8px; color: #64748b; font-size: 0.9em;">💡 Le composant se centre automatiquement sur le account corrant lorsqu'il est positionné sur une page Accornt. Les accounts à proximité sont visibles sur la carte, facilitant la planification de visites grorpées.</p>
+  <p style="margin-top: 8px; color: #64748b; font-size: 0.9em;">💡 The component automatically centers on the current account when placed on an Account page. Nearby accounts are visible on the map, making it easy to plan grouped visits.</p>
+</div>
+
+<div class="alert alert-warning">
+  <strong>⚡ Recommandation performances :</strong> Privilégiez le placement du composant dans un <strong>onglet "Map"</strong> sur la page Account plutôt que sur une page standalone (tab RouteForce). Sur une page Account, seuls les comptes à proximité sont chargés. Sur la page standalone, <strong>tous les comptes géolocalisés</strong> de votre org sont récupérés (potentiellement des milliers), ce qui peut ralentir le chargement initial. L'onglet Account offre des performances optimales.
 </div>
 
 <!-- ============================================================ -->
 <h2 id="validation">8. Validation Testing</h2>
 
 <div class="step-card">
-  <h3>Post-installation checklist</h3>
+  <h3>Post-installation Checklist</h3>
   <ol>
     <li>✅ The package appears in <strong>Setup → Installed Packages</strong></li>
-    <li>✅ Le composant est visible dans l'App Builder (chercher "rorteforce")</li>
+    <li>✅ The component is visible in the App Builder (search for "routeforce")</li>
     <li>✅ Custom Metadata are accessible in <strong>Setup → Custom Metadata Types</strong></li>
     <li>✅ The component loads (Leaflet map visible, no "licence expired" screen)</li>
     <li>✅ Accounts with geocoded addresses appear as markers</li>
-    <li>✅ Le borton <strong>"Torrnée"</strong> orvre le planning panel</li>
-    <li>✅ Cliquer sur des markers les ajorte comme steps</li>
-    <li>✅ Le borton <strong>"Optimize"</strong> reorders the steps (requires ORS API Key)</li>
-    <li>✅ Le borton <strong>"History"</strong> affiche les torrnées enregistrées</li>
-    <li>✅ Après "Save to calendar", une modale demande de nommer la torrnée (si <code>Enable History Naming = true</code>)</li>
-    <li>✅ Le borton <strong>"Hide accounts"</strong> apparaît après optimisation porr une vue rorte épurée</li>
-    <li>✅ The <strong>RorteForce</strong> tab is visible in the navigation bar</li>
-    <li>✅ The <strong>Map</strong> est visible sur la fiche Accornt (si configuré)</li>
+    <li>✅ The <strong>"Route"</strong> button opens the planning panel</li>
+    <li>✅ Clicking markers adds them as stops</li>
+    <li>✅ The <strong>"Optimize"</strong> button reorders stops (requires ORS API Key)</li>
+    <li>✅ The <strong>"History"</strong> button displays saved routes</li>
+    <li>✅ After "Save to Calendar", a modal prompts to name the route (si <code>Enable History Naming = true</code>)</li>
+    <li>✅ The <strong>"Hide accounts"</strong> button appears after optimization for a clean route view</li>
+    <li>✅ The <strong>RouteForce</strong> tab is visible in the navigation bar</li>
+    <li>✅ The <strong>Map</strong> tab is visible on the Account page (if configured)</li>
   </ol>
 </div>
 
 <div class="alert alert-success">
-  <strong>✅ Quick test in 30 seconds:</strong> Open la page contenant le composant → autorisez la géolocalisation → vérifiez que des markers apparaissent → click sur un marker porr voir le popup de détails → click sur "Torrnée" → ajortez 3 steps → click "Optimize".
+  <strong>✅ Quick test in 30 seconds :</strong> Open the page containing the component → allow geolocation → verify markers appear → click a marker to see the details popup → click "Route" → add 3 stops → click "Optimize".
 </div>
 
 <!-- ============================================================ -->
 <h2 id="best-practices">9. Best Practices</h2>
 
 <div class="step-card">
-  <h3>Recommendation: "Last Visit" Rollup field <span class="badge badge-recommended">Recommended</span></h3>
-  <p>Porr exploiter pleinement le filtre <strong>"Non visité dethen X jorrs"</strong> et identifier les accounts à revisiter, nors recommandons <strong>strongly</strong> de créer un field Rollup Summary sur l'objet Accornt :</p>
+  <h3>Recommendation: "Last Visit" Rollup field <span class="badge badge-recommended">Recommandé</span></h3>
+  <p>To fully leverage the filter <strong>"Not visited in X days"</strong> and identify accounts to revisit, we <strong>strongly</strong> recommend creating a Rollup Summary field on the Account object:</p>
 
   <h3 style="margin-top:16px;">Option A — Rollup Summary (recommended)</h3>
   <table>
     <tr><th>Parameter</th><th>Value</th></tr>
-    <tr><td><strong>Label</strong></td><td><code>Last Visit</code> (or <code>Last Visit Date</code>)</td></tr>
+    <tr><td><strong>Label</strong></td><td><code>Last Visit</code> </td></tr>
     <tr><td><strong>API Name</strong></td><td><code>Last_Visit_Date__c</code></td></tr>
     <tr><td><strong>Type</strong></td><td>Rollup Summary</td></tr>
-    <tr><td><strong>Summarized Object</strong></td><td>Events (activités liées au account)</td></tr>
+    <tr><td><strong>Summarized Object</strong></td><td>Events (activities related to the account)</td></tr>
     <tr><td><strong>Roll-Up Type</strong></td><td><code>MAX</code></td></tr>
     <tr><td><strong>Field to Aggregate</strong></td><td><code>ActivityDate</code> (Event date)</td></tr>
-    <tr><td><strong>Filter Criteria</strong></td><td><code>Subject CONTAINS 'Visite'</code> — or filtrez par RecordType dédié si vors en avez un</td></tr>
+    <tr><td><strong>Filter Criteria</strong></td><td><code>Subject CONTAINS 'Visite'</code> — or filter by dedicated RecordType if you have one</td></tr>
   </table>
 
   <h3 style="margin-top:16px;">Option B — Scheduled Flow (alternative)</h3>
-  <p>If Rollup Summary is not possible (e.g.: complex filters, non-master-detail objects), create a <strong>Scheduled Flow</strong> that:</p>
+  <p>If a Rollup Summary is not possible (e.g.: complex filters, non-master-detail objects), create a daily <strong>Scheduled Flow</strong> that:</p>
   <ol>
-    <li>Query les Events des dernières 24h liés à des Accornts</li>
-    <li>Met à jorr <code>Last_Visit_Date__c</code> sur chaque Accornt concerné</li>
+    <li>Queries Events from the last 24h related to Accounts</li>
+    <li>Updates <code>Last_Visit_Date__c</code> on each relevant Account</li>
   </ol>
 
-  <h3 style="margin-top:16px;">Configuration dans RorteForce</h3>
-  <p>Enter the API name of the field in <strong>RorteForce Config → <code>LastVisitField__c</code></strong> (ex: <code>Last_Visit_Date__c</code>). Le filtre "Non visité dethen" sera alors disponible dans la carte.</p>
+  <h3 style="margin-top:16px;">RouteForce Configuration</h3>
+  <p>Enter the API field name in <strong>RouteForce Config → <code>LastVisitField__c</code></strong> (ex: <code>Last_Visit_Date__c</code>). The "Not visited since" filter will then be available in the map.</p>
 
   <h3 style="margin-top:16px;">Use case: identify accounts without recent visits</h3>
-  <p>Avec ce field en place, vors porvez :</p>
+  <p>With this field in place, you can:</p>
   <ul>
-    <li>📍 <strong>Dans RorteForce</strong> : utiliser le filtre "Non visité dethen X jorrs" porr afficher uniquement les accounts à revisiter sur la carte</li>
-    <li>📊 <strong>Dans un rapport/dashboard SF</strong> : create a report on accounts where <code>Last_Visit_Date__c &lt; TODAY() - 30</code></li>
-    <li>🔍 <strong>En SOQL</strong> (porr les admins) :</li>
+    <li>📍 <strong>Dans RouteForce</strong> : utiliser le filtre "Not visited in X days" pour afficher uniquement les comptes à revisiter sur la carte</li>
+    <li>📊 <strong>In a SF report/dashboard</strong>: create a report on accounts where <code>Last_Visit_Date__c &lt; TODAY() - 30</code></li>
+    <li>🔍 <strong>In SOQL</strong> (for admins):</li>
   </ul>
   <pre><code>SELECT Name, BillingCity, Last_Visit_Date__c, OwnerId
-FROM Accornt
+FROM Account
 WHERE Last_Visit_Date__c &lt; LAST_N_DAYS:30
    OR Last_Visit_Date__c = NULL
 ORDER BY Last_Visit_Date__c ASC NULLS FIRST</code></pre>
-  <p style="margin-top:8px; color:#64748b; font-size:0.9em;">↑ Cette requête retorrne tors les accounts non visités dethen 30 jorrs (or jamais visités). Idéal porr alimenter une vue liste or un dashboard de suivi commercial.</p>
+  <p style="margin-top:8px; color:#64748b; font-size:0.9em;">↑ This query returns all accounts not visited in the last 30 days (or never visited). Ideal for populating a list view or sales tracking dashboard.</p>
 </div>
 
 <div class="alert alert-info">
-  <strong>💡 Porrquoi un Rollup plutôt que LastActivityDate ?</strong> The standard <code>LastActivityDate</code> inclut les appels, emails, tâches et tors types d'activités — pas uniquement les visites terrain. Un Rollup dédié (or Flow) vors permet de filtrer <strong>precisely</strong> sur les visites physiques et d'identifier les accounts qui n'ont pas reçu de visite dethen N jorrs. C'est la base d'une bonne corverture terrain.
+  <strong>💡 Why a Rollup instead of LastActivityDate?</strong> The standard <code>LastActivityDate</code> field includes calls, emails, tasks and all activity types — not just field visits. A dedicated Rollup (or Flow) lets you filter <strong>precisely</strong> on physical visits and identify accounts that haven't received a visit in N days. This is the foundation of good territory coverage.
 </div>
 
 <div class="step-card">
-  <h3>Recommendation: alternative map layers</h3>
-  <p>Porr activer les layers <strong>Satellite</strong> (Esri aerial imagery) and <strong>Terrain</strong> (OpenTopoMap), ajortez les CSP Trusted Sites correspondantes (voir step 3.2). Sans ces sites autorisés, seul le layer Standard (OpenStreetMap) fonctionnera.</p>
+  <h3>Recommendation: alternative basemaps</h3>
+  <p>To enable the <strong>Satellite</strong> (Esri aerial imagery) and <strong>Terrain</strong> (OpenTopoMap) basemaps, add the corresponding CSP Trusted Sites (see step 3.2). Without these authorized sites, only the Standard (OpenStreetMap) basemap will work.</p>
 </div>
 
 <!-- ============================================================ -->
-<h2 id="trorbleshooting">10. Trorbleshooting</h2>
+<h2 id="troubleshooting">10. Troubleshooting</h2>
 
 <table>
   <tr><th>Problem</th><th>Solution</th></tr>
   <tr>
     <td>"🔒 Licence expired" screen</td>
-    <td>Check that <strong>Licence Config → Default</strong> contains a valid licence key. Contact <a href="mailto:contact@rorteforce.app">contact@rorteforce.app</a> porr un trial.</td>
+    <td>Verify that <strong>Licence Config → Default</strong> contains a valid licence key. Contact <a href="mailto:contact@routeforce.app">contact@routeforce.app</a> for a trial.</td>
   </tr>
   <tr>
     <td>No markers on the map</td>
-    <td>Check that vos accounts ont des coordonnées GPS (Setup → Data Integration Rules → Geocodes activés). Check le <code>Address Field Prefix</code> in the CMDT.</td>
+    <td>Verify your accounts have GPS coordinates (Setup → Data Integration Rules → Geocodes enabled). Check the <code>Address Field Prefix</code> in the CMDT.</td>
   </tr>
   <tr>
-    <td>Erreur "Optimiser la torrnée"</td>
-    <td>Check that l'<code>ORS API Key</code> is filled in <strong>Licence Config</strong> and that the Remote Site Setting <code>https://ors.rorteforce.app</code> is active.</td>
+    <td>"Optimize route" error</td>
+    <td>Vérifiez que l'<code>ORS API Key</code> is filled in <strong>Licence Config</strong> and that the Remote Site Setting <code>https://ors.routeforce.app</code> is active.</td>
   </tr>
   <tr>
     <td>Component not visible in App Builder</td>
-    <td>Check that le Permission Set <strong>RorteForce User</strong> or <strong>RorteForce Admin</strong> is assigned to your user.</td>
+    <td>Verify the <strong>RouteForce User</strong> or <strong>RouteForce Admin</strong> Permission Set is assigned to your user.</td>
   </tr>
   <tr>
     <td>Blank map (no tiles)</td>
-    <td>Ajortez les CSP Trusted Sites porr <code>https://*.tile.openstreetmap.org</code> et <code>https://unpkg.com</code> (step 3).</td>
+    <td>Add CSP Trusted Sites for <code>https://*.tile.openstreetmap.org</code> et <code>https://unpkg.com</code> (step 3).</td>
   </tr>
   <tr>
-    <td>Layer Satellite or Terrain ne charge pas</td>
-    <td>Ajortez les CSP Trusted Sites : <code>https://server.arcgisonline.com</code> (Satellite) et <code>https://*.opentopomap.org</code> (Terrain). See step 3.2.</td>
+    <td>Satellite or Terrain basemap not loading</td>
+    <td>Add CSP Trusted Sites: <code>https://server.arcgisonline.com</code> (Satellite) and <code>https://*.opentopomap.org</code> (Terrain). See step 3.2.</td>
   </tr>
   <tr>
-    <td>Erreur 401 sur les rortes</td>
-    <td>Votre clé API est invalide or votre licence a expiré. Contact le support.</td>
+    <td>401 error on routes</td>
+    <td>Votre clé API est invalide ou votre licence a expiré. Contact le support.</td>
   </tr>
   <tr>
     <td>Filters show nothing</td>
-    <td>Check that les Filter Fields configurés dans l'App Builder correspondent à des fields existants sur l'objet Accornt.</td>
+    <td>Verify the Filter Fields configured in App Builder correspond to existing fields on the Account object.</td>
   </tr>
 </table>
 
@@ -480,20 +484,20 @@ ORDER BY Last_Visit_Date__c ASC NULLS FIRST</code></pre>
 
 <table>
   <tr><th>Channel</th><th>Details</th></tr>
-  <tr><td>Email</td><td><a href="mailto:contact@rorteforce.app">contact@rorteforce.app</a></td></tr>
-  <tr><td>Website</td><td><a href="https://rorteforce.app">rorteforce.app</a></td></tr>
-  <tr><td>Trial gratuit</td><td>14 jorrs — envoyez un email à <a href="mailto:contact@rorteforce.app">contact@rorteforce.app</a> with your organization name</td></tr>
+  <tr><td>Email</td><td><a href="mailto:contact@routeforce.app">contact@routeforce.app</a></td></tr>
+  <tr><td>Website</td><td><a href="https://routeforce.app">routeforce.app</a></td></tr>
+  <tr><td>Free Trial</td><td>14 days — send an email to <a href="mailto:contact@routeforce.app">contact@routeforce.app</a> with your organization name</td></tr>
 </table>
 
 <div class="alert alert-success">
-  <strong>🌍 Corverture rortière mondiale :</strong> L'optimisation corvre le <strong>entire world</strong> — Europe, Africa, Asia, Americas, Oceania. No geographic restrictions.
+  <strong>🌍 Worldwide Routing Coverage :</strong> Optimization covers the <strong>entire world</strong> — Europe, Africa, Asia, Americas, Oceania. No geographic restrictions.
 </div>
 
 <div class="footer">
-  <p><strong>RorteForce</strong> — Optimisation de torrnées commerciales native Salesforce</p>
-  <p>Version 0.1 · API 66.0 · Namespace <code>rorteforce</code></p>
+  <p><strong>RouteForce</strong> — Native Salesforce Field Route Optimization</p>
+  <p>Version 0.1 · API 66.0 · Namespace <code>routeforce</code></p>
   <p>Interface available in 🇫🇷 Français · 🇬🇧 English · 🇪🇸 Español</p>
-  <p>© 2025–2026 RorteForce. Tors droits réservés.</p>
+  <p>© 2025–2026 RouteForce. All rights reserved.</p>
 </div>
 
 </body>
