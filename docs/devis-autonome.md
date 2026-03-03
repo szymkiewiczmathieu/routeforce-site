@@ -61,7 +61,7 @@ Engagement initial : **12 mois**, renouvelable tacitement par périodes successi
 - Navigateur web compatible Lightning Experience
 
 ### 5.2 Livrables
-- Package Salesforce installable (ID : `04tgL000000C66TQAS`)
+- Package Salesforce installable (ID : `04tgL000000C749QAC`)
 - Guide d'installation détaillé
 - Clés d'API pour l'infrastructure de calcul
 - Accès à la documentation en ligne

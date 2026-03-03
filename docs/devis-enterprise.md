@@ -21,7 +21,7 @@ Fourniture de la solution RouteForce **Formule Enterprise** avec infrastructure 
 
 ### 3.1 Services inclus
 ✓ **Infrastructure dédiée** — serveur de calcul isolé, performances garanties même à forte charge  
-✓ **SLA contractuel** — uptime 99,9 %, temps de réponse garanti (pénalités contractuelles)  
+✓ **Accord de niveau de service** — disponibilité et temps de réponse garantis (pénalités contractuelles)  
 ✓ **Multi-sites / multi-pays** — routing optimisé par zone géographique  
 ✓ **Onboarding personnalisé** — formation équipe terrain + admin SF (sur site possible)  
 ✓ **Interlocuteur dédié** — support prioritaire, réponse sous 4h ouvrées  
