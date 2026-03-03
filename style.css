@@ -345,6 +345,57 @@ img {
     display: block;
 }
 
+/* Hero visual — desktop + mobile side by side */
+.hero-visual {
+    position: relative;
+}
+.hero-mobile {
+    position: absolute;
+    bottom: -20px;
+    right: -30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    animation: mobileFloat 3s ease-in-out infinite;
+}
+.phone-frame {
+    width: 140px;
+    background: #1a1a2e;
+    border-radius: 24px;
+    padding: 8px 6px 12px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 2px rgba(255,255,255,0.1);
+    position: relative;
+    overflow: hidden;
+}
+.phone-notch {
+    width: 50px;
+    height: 6px;
+    background: #333;
+    border-radius: 4px;
+    margin: 0 auto 6px;
+}
+.phone-frame img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    display: block;
+}
+.mobile-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--primary);
+    background: #fff;
+    padding: 4px 12px;
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    white-space: nowrap;
+}
+@keyframes mobileFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+}
+
 /* ============ PROBLEM / SOLUTION ============ */
 
 .problem-section {
@@ -1121,6 +1172,12 @@ img {
         max-width: 600px;
         margin: 0 auto;
     }
+    .hero-mobile {
+        right: -10px;
+        bottom: -10px;
+    }
+    .phone-frame { width: 100px; }
+    .mobile-badge { font-size: 0.6rem; }
 
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
