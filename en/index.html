@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RouteForce — Field Sales Route Optimization for Salesforce | No Per-User Cost</title>
-    <meta name="description" content="Plan and optimize your field sales routes directly in Salesforce. VROOM algorithm, automatic event creation, CSV export, route history — €249/month for your entire team.">
+    <meta name="description" content="Plan and optimize your field sales routes directly in Salesforce. Advanced optimization, automatic event creation, CSV export, route history — €249/month for your entire team.">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Mathieu Szymkiewicz — RouteForce">
-    <meta name="keywords" content="Salesforce route optimization, field sales routing CRM, route planner Salesforce, territory management Salesforce, CRM mapping fixed price">
+    <meta name="keywords" content="field sales route optimization, Salesforce route planning, CRM route software, field sales management, Salesforce route planning, CRM mapping no per-user license">
 
     <!-- Canonical & Hreflang -->
     <link rel="canonical" href="https://routeforce.app/en/">
-    <link rel="alternate" hreflang="fr" href="https://routeforce.app/">
+    <link rel="alternate" hreflang="en" href="https://routeforce.app/">
     <link rel="alternate" hreflang="en" href="https://routeforce.app/en/">
     <link rel="alternate" hreflang="es" href="https://routeforce.app/es/">
     <link rel="alternate" hreflang="x-default" href="https://routeforce.app/">
@@ -19,18 +19,18 @@
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="RouteForce — Field Sales Route Optimization for Salesforce">
-    <meta property="og:description" content="Plan and optimize your field sales routes directly in Salesforce. VROOM algorithm, automatic event creation, CSV export, route history — €249/month for your entire team.">
+    <meta property="og:description" content="Plan and optimize your field sales routes directly in Salesforce. Advanced optimization, event creation, CSV export — €249/month for your entire team.">
     <meta property="og:url" content="https://routeforce.app/en/">
     <meta property="og:image" content="https://routeforce.app/assets/screenshot-tour-optimized.png">
     <meta property="og:locale" content="en_US">
-    <meta property="og:locale:alternate" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
     <meta property="og:locale:alternate" content="es_ES">
     <meta property="og:site_name" content="RouteForce">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="RouteForce — Field Sales Route Optimization for Salesforce">
-    <meta name="twitter:description" content="Optimize your field sales routes directly in Salesforce.">
+    <meta name="twitter:title" content="RouteForce — Optimized Field Sales Routes for Salesforce">
+    <meta name="twitter:description" content="Plan and optimize field sales routes directly in Salesforce. No per-user cost. €249/month for your entire team.">
     <meta name="twitter:image" content="https://routeforce.app/assets/screenshot-tour-optimized.png">
 
     <!-- JSON-LD Structured Data -->
@@ -41,7 +41,7 @@
         "name": "RouteForce",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web (Salesforce)",
-        "description": "Native Salesforce solution for field sales route optimization. Interactive map, route planning and automatic event creation.",
+        "description": "Native Salesforce field sales route optimization. Interactive mapping, route planning and automatic event creation.",
         "url": "https://routeforce.app",
         "offers": {
             "@type": "AggregateOffer",
@@ -50,20 +50,26 @@
             "highPrice": "18000",
             "offerCount": "3"
         },
-        "author": {
-            "@type": "Person",
-            "name": "Mathieu Szymkiewicz",
+        "publisher": {
+            "@type": "Organization",
+            "name": "RouteForce",
             "url": "https://routeforce.app"
         },
         "featureList": [
-            "Interactive Leaflet map embedded in Salesforce",
-            "Automatic route optimization (VROOM algorithm)",
-            "Route tracing on the map",
+            "Interactive Leaflet map integrated in Salesforce",
+            "Automatic route optimization",
+            "Route trace on the map",
             "Automatic Salesforce event creation",
             "Dynamic and saved filters",
-            "Google Maps / Waze / CSV export",
+            "Export to Google Maps / Waze / CSV",
+            "History of the last 20 routes",
+            "Nearby accounts by GPS geolocation",
+            "Drag-and-drop to reorder stops",
+            "Unassigned appointment management",
+            "Responsive mobile interface with bottom sheet",
             "Multilingual FR/EN/ES"
-        ]
+        ],
+        "inLanguage": ["fr", "en", "es"]
     }
     </script>
 
@@ -74,6 +80,116 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- COUNTDOWN BANNER — MULTILINGUAL SLIDER -->
+    <div class="countdown-banner">
+        <div class="countdown-content">
+            <div class="countdown-left">
+                <div class="countdown-slider" id="countdown-slider">
+                    <div class="countdown-slide active">
+                        <span class="countdown-label">🚀 LANCEMENT MONDIAL v1.0</span>
+                        <span class="countdown-sub">Package Major • Couverture routière monde entier • 09 mars 2026</span>
+                    </div>
+                    <div class="countdown-slide">
+                        <span class="countdown-label">🚀 WORLDWIDE LAUNCH v1.0</span>
+                        <span class="countdown-sub">Major Package • Worldwide routing coverage • March 9, 2026</span>
+                    </div>
+                    <div class="countdown-slide">
+                        <span class="countdown-label">🚀 LANZAMIENTO MUNDIAL v1.0</span>
+                        <span class="countdown-sub">Paquete Major • Cobertura mundial de rutas • 9 de marzo 2026</span>
+                    </div>
+                </div>
+            </div>
+            <div class="countdown-timer" id="countdown">
+                <div class="countdown-block">
+                    <span class="countdown-num" id="cd-days">--</span>
+                    <span class="countdown-unit" data-fr="JOURS" data-en="DAYS" data-es="DÍAS">JOURS</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-block">
+                    <span class="countdown-num" id="cd-hours">--</span>
+                    <span class="countdown-unit" data-fr="HEURES" data-en="HOURS" data-es="HORAS">HEURES</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-block">
+                    <span class="countdown-num" id="cd-mins">--</span>
+                    <span class="countdown-unit">MIN</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-block">
+                    <span class="countdown-num" id="cd-secs">--</span>
+                    <span class="countdown-unit">SEC</span>
+                </div>
+            </div>
+            <div class="countdown-right">
+                <div class="countdown-slider" id="countdown-slider-right">
+                    <div class="countdown-slide-right active">
+                        <span class="countdown-offer">🆓 ESSAI 14 JOURS</span>
+                        <span class="countdown-offer countdown-discount">🔥 -90% INSTALLATION</span>
+                    </div>
+                    <div class="countdown-slide-right">
+                        <span class="countdown-offer">🆓 14-DAY FREE TRIAL</span>
+                        <span class="countdown-offer countdown-discount">🔥 90% OFF SETUP</span>
+                    </div>
+                    <div class="countdown-slide-right">
+                        <span class="countdown-offer">🆓 PRUEBA GRATIS 14 DÍAS</span>
+                        <span class="countdown-offer countdown-discount">🔥 -90% INSTALACIÓN</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    (function(){
+      // Countdown timer
+      const target = new Date('2026-03-09T09:00:00+01:00').getTime();
+      const langs = ['fr','en','es'];
+      let langIdx = 0;
+
+      function updateTimer(){
+        const now = Date.now();
+        const diff = target - now;
+        if(diff <= 0){
+          document.getElementById('countdown').innerHTML = '<span style="font-size:1.2rem;font-weight:800;color:#fff;">🎉 LAUNCHED!</span>';
+          return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-days').textContent = d;
+        document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+        document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+        document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+      }
+
+      // Multilingual slider
+      function rotateSlides(){
+        langIdx = (langIdx + 1) % 3;
+        const lang = langs[langIdx];
+
+        // Left slides
+        document.querySelectorAll('#countdown-slider .countdown-slide').forEach((s,i) => {
+          s.classList.toggle('active', i === langIdx);
+        });
+
+        // Right slides
+        document.querySelectorAll('#countdown-slider-right .countdown-slide-right').forEach((s,i) => {
+          s.classList.toggle('active', i === langIdx);
+        });
+
+        // Timer units
+        document.querySelectorAll('.countdown-unit[data-'+lang+']').forEach(u => {
+          u.textContent = u.getAttribute('data-'+lang);
+        });
+      }
+
+      updateTimer();
+      setInterval(updateTimer, 1000);
+      setInterval(rotateSlides, 4000);
+    })();
+    </script>
 
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
@@ -93,14 +209,14 @@
                 <a href="#features">Features</a>
                 <a href="use-cases.html">Use Cases</a>
                 <a href="#pricing">Pricing</a>
-                <a href="#faq">FAQ</a>
                 <a href="../blog/">Blog</a>
+                <a href="#faq">FAQ</a>
                 <a href="../index.html" class="lang-switch">FR</a>
                 <a href="../es/index.html" class="lang-switch">ES</a>
-                <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" class="nav-status-badge" title="Live service status">
+                <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" class="nav-status-badge" title="Statut du service en temps réel">
                     <span class="status-dot"></span><span class="nav-status-label">Operational</span>
                 </a>
-                <a href="#contact" class="btn btn-primary btn-sm">Request a demo</a>
+                <a href="#contact" class="btn btn-primary btn-sm">Request a Demo</a>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
                 <span></span>
@@ -114,19 +230,19 @@
     <header class="hero">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">100% native Salesforce</div>
+                <div class="hero-badge">100% Native Salesforce</div>
                 <h1>Plan smarter routes for your field sales team — directly in Salesforce</h1>
                 <p class="hero-subtitle">
-                    Built for Salesforce-driven organizations with field teams. Route optimization, interactive mapping and automatic event creation —
-                    one flat price for your entire org. <strong>No per-user fees, ever.</strong>
+                    Built for Salesforce organizations with field teams. Route optimization, interactive mapping and automatic event creation —
+                    a flat price for your entire org. <strong>No per-user cost, ever.</strong>
                 </p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary btn-lg">Book a free demo</a>
+                    <a href="#contact" class="btn btn-primary btn-lg">Book a Free Demo</a>
                     <a href="#screenshots" class="btn btn-outline btn-lg">See it in Salesforce</a>
                 </div>
                 <div class="hero-proof">
                     <div class="proof-item">
-                        <span class="proof-number">€0</span>
+                        <span class="proof-number">0€</span>
                         <span class="proof-label">per user</span>
                     </div>
                     <div class="proof-divider"></div>
@@ -143,7 +259,14 @@
             </div>
             <div class="hero-visual">
                 <div class="hero-screenshot">
-                    <img src="../assets/screenshot-tour-optimized.png" alt="RouteForce — Optimized route with itinerary traced on the Salesforce map" loading="eager">
+                    <img src="../assets/screenshot-hero.jpg" alt="RouteForce — Optimized route with trace on the Salesforce map" loading="eager" fetchpriority="high">
+                </div>
+                <div class="hero-mobile">
+                    <div class="phone-frame">
+                        <div class="phone-notch"></div>
+                        <img src="../assets/screenshot-mobile.jpg" alt="RouteForce — Compatible with mobile, tablet and desktop" loading="eager">
+                    </div>
+                    <span class="mobile-badge">📱 Mobile Compatible</span>
                 </div>
             </div>
         </div>
@@ -163,10 +286,11 @@
                     </div>
                     <h3>Without RouteForce</h3>
                     <ul>
-                        <li>Routes planned manually in Excel</li>
-                        <li>Unoptimized travel time</li>
-                        <li>No management visibility</li>
-                        <li>Clients forgotten or over-visited</li>
+                        <li>Routes planned manually on Excel or Google Maps</li>
+                        <li>30 to 45 minutes lost every morning organizing the day</li>
+                        <li>No managerial visibility on field coverage</li>
+                        <li>Forgotten clients, over-visited areas, outdated CRM data</li>
+                        <li>Expensive per-user licenses</li>
                     </ul>
                 </div>
                 <div class="solution-card">
@@ -178,10 +302,11 @@
                     </div>
                     <h3>With RouteForce</h3>
                     <ul>
-                        <li>Reduced unproductive travel time</li>
-                        <li>Routes optimized by algorithm, not by hand</li>
-                        <li>Real-time client coverage visibility</li>
-                        <li>Salesforce calendar filled in 1 click</li>
+                        <li>Optimal route calculated in seconds</li>
+                        <li>All Salesforce accounts visible on the map</li>
+                        <li>Salesforce calendar filled in 1 click — appointments, contacts, addresses</li>
+                        <li>CSV export for reporting, Google Maps for navigation</li>
+                        <li>€249/month for the whole team, unlimited users</li>
                     </ul>
                 </div>
             </div>
@@ -192,7 +317,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>Everything your field sales team needs</h2>
-                <p>A complete solution natively integrated into Salesforce</p>
+                <p>A complete solution natively integrated in Salesforce</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
@@ -202,7 +327,7 @@
                             <circle cx="12" cy="10" r="3"/>
                         </svg>
                     </div>
-                    <h3>Interactive map</h3>
+                    <h3>Interactive Map</h3>
                     <p>View all your client accounts on a dynamic map with smart clustering. Instantly identify your coverage areas.</p>
                 </div>
                 <div class="feature-card">
@@ -212,8 +337,8 @@
                             <polyline points="12 6 12 12 16 14"/>
                         </svg>
                     </div>
-                    <h3>Route optimization</h3>
-                    <p>Advanced optimization algorithm that calculates the most efficient route. Lunch breaks, visit duration and time constraints included.</p>
+                    <h3>Route Optimization</h3>
+                    <p>Advanced optimization algorithm that calculates the most efficient route. Lunch break, visit duration and time constraints included.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -221,8 +346,8 @@
                             <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
                         </svg>
                     </div>
-                    <h3>Smart filters</h3>
-                    <p>Filter by sector, last visit, potential, owner... Save your filter combinations for quick reuse.</p>
+                    <h3>Smart Filters</h3>
+                    <p>Filter by sector, last visit, potential, owner... Save your filter combinations for reuse.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -234,8 +359,8 @@
                             <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
                         </svg>
                     </div>
-                    <h3>Bulk event creation</h3>
-                    <p>One click to create all Salesforce events for your route. Account, contact, time and location are pre-filled automatically.</p>
+                    <h3>Bulk Event Creation</h3>
+                    <p>One click creates all Salesforce events for your route. Account, contact, time and location auto-filled.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -244,7 +369,7 @@
                         </svg>
                     </div>
                     <h3>Export & Navigation</h3>
-                    <p>Send your route to Google Maps in one click, or export it as a CSV for your reporting. Sales reps get their itinerary, managers get their data.</p>
+                    <p>Send your route to Google Maps in one click, or export to CSV for reporting. Your reps get their route, your manager gets the data.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -265,7 +390,7 @@
                         </svg>
                     </div>
                     <h3>Mobile-ready</h3>
-                    <p>Designed to work in the field. Responsive interface, native geolocation and touch-optimized.</p>
+                    <p>Built for the field. Responsive interface, native geolocation and optimized touch.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -273,8 +398,8 @@
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         </svg>
                     </div>
-                    <h3>100% native Salesforce</h3>
-                    <p>No third-party app. Respects Salesforce permissions, sharing and security. Your CRM data stays in your org.</p>
+                    <h3>100% Native Salesforce</h3>
+                    <p>No third-party apps. Respects Salesforce permissions, sharing and security. Your CRM data stays in your org.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -283,8 +408,8 @@
                             <polyline points="12 6 12 12 9 15"/>
                         </svg>
                     </div>
-                    <h3>Route history</h3>
-                    <p>Retrieve and reload your last 20 routes in one click. Distance, duration and stops saved automatically after every session.</p>
+                    <h3>Route History</h3>
+                    <p>Find and reload your last 20 routes in one click. Distance, duration and stops saved automatically after each session.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -294,19 +419,19 @@
                             <circle cx="12" cy="10" r="7" stroke-dasharray="2 2"/>
                         </svg>
                     </div>
-                    <h3>Nearby accounts</h3>
-                    <p>GPS geolocation in one tap — instantly see all Salesforce accounts within a configurable radius around you. Perfect for impromptu visits on the road.</p>
+                    <h3>Nearby Accounts</h3>
+                    <p>GPS geolocation in one tap — instantly see all Salesforce accounts within a configurable radius around your position. Ideal for optimizing impromptu field visits.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- WHO IS IT FOR -->
-    <section class="personas-section" id="who-is-it-for">
+    <!-- POUR QUI -->
+    <section class="personas-section" id="pour-qui">
         <div class="container">
             <div class="section-header">
                 <h2>Who is RouteForce for?</h2>
-                <p>Every role finds its value</p>
+                <p>Every role finds value</p>
             </div>
             <div class="personas-grid">
                 <div class="persona-card">
@@ -317,7 +442,7 @@
                     <ul>
                         <li>Real-time visibility on field coverage</li>
                         <li>Reduced unproductive travel time</li>
-                        <li>Create field events from the map, no re-entry needed</li>
+                        <li>Create field events from the map, no re-entry</li>
                     </ul>
                 </div>
                 <div class="persona-card">
@@ -327,7 +452,7 @@
                     <h3>CIO / IT Manager</h3>
                     <ul>
                         <li>100% native Salesforce — no infrastructure to manage on your side</li>
-                        <li>CRM data stays within your Salesforce org</li>
+                        <li>CRM data stays in your Salesforce org</li>
                         <li>Respects existing permissions and profiles</li>
                         <li>No additional per-user cost</li>
                     </ul>
@@ -352,77 +477,149 @@
     <section class="screenshots-section" id="screenshots">
         <div class="container">
             <div class="section-header">
-                <h2>RouteForce in action</h2>
-                <p>See the interface directly integrated into Salesforce</p>
+                <h2>RouteForce in Action</h2>
+                <p>Discover the interface directly integrated in Salesforce</p>
             </div>
             <div class="screenshots-grid">
                 <div class="screenshot-card">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-satellite-legend.png" alt="Satellite view with client type legend and route parameters" loading="lazy">
+                        <img src="../assets/screenshot-satellite-legend.png" alt="RouteForce — Vue nationale des comptes Salesforce avec cercle Around Me, clusters par région et légende de segmentation" loading="lazy" width="1200" height="800">
                     </div>
                     <div class="screenshot-caption">
-                        <h3>Mapping & client segmentation</h3>
-                        <p>Satellite, standard or terrain view — visualize your prospects, direct and indirect clients with color-coded legends. Set your route constraints in just a few clicks.</p>
+                        <h3>Cartographie nationale & segmentation client</h3>
+                        <p>View all your Salesforce accounts across the entire country in seconds. The color legend instantly distinguishes Prospects, Direct Clients and Indirect Clients. The "Around me" circle shows the catchment area around your position.</p>
                     </div>
                 </div>
                 <div class="screenshot-card">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-account-popup.png" alt="Account card with quick action buttons" loading="lazy">
+                        <img src="../assets/screenshot-account-popup.png" alt="Fiche client Salesforce avec actions rapides — créer un RDV ou lancer l'itinéraire depuis la carte" loading="lazy" width="600" height="400">
                     </div>
                     <div class="screenshot-caption">
-                        <h3>Instant account card</h3>
-                        <p>Click on a marker to see account details: address, owner, last visit. Create an event or get directions without leaving the map.</p>
+                        <h3>Instant Client Card</h3>
+                        <p>Click a marker to see account details: address, owner, last visit. Create an event or launch the route without leaving the map.</p>
                     </div>
                 </div>
             </div>
             <div class="screenshots-row">
                 <div class="screenshot-card main">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-tour-optimized.png" alt="Optimized route with traced itinerary and numbered stops" loading="lazy">
+                        <img src="../assets/screenshot-tour-optimized.png" alt="Tournée commerciale optimisée dans Salesforce — itinéraire tracé sur la carte avec étapes numérotées et panneau latéral" loading="lazy" width="1200" height="800">
                     </div>
                     <div class="screenshot-caption">
-                        <h3>Real-time route optimization</h3>
-                        <p>The algorithm calculates the best route considering your constraints: lunch break, visit duration, end of day. See the route traced on the map with numbered stops.</p>
+                        <h3>Real-time Optimized Route</h3>
+                        <p>The algorithm calculates the best route taking into account your constraints: lunch break, visit duration, end of day. Traced directly on the map with numbered stops.</p>
                     </div>
                 </div>
                 <div class="screenshot-card side">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-steps-panel.png" alt="Steps panel with bulk appointment creation" loading="lazy">
+                        <img src="../assets/screenshot-steps-panel.png" alt="RouteForce — Carte locale avec marqueurs de comptes Salesforce et panneau de planification de tournée ouvert" loading="lazy" width="1200" height="800">
                     </div>
                     <div class="screenshot-caption">
-                        <h3>Bulk appointment creation</h3>
-                        <p>5 clients to visit? One click on "Create 5 visits in calendar" and all Salesforce events are created with the right time, contact and address. Google Maps and CSV export included.</p>
+                        <h3>Select Accounts to Visit</h3>
+                        <p>Zoom into your area, click accounts to include in the route. The side panel shows planning parameters: departure time, lunch break, end of day, visit duration. Click "Optimize route" to start the calculation.</p>
                     </div>
                 </div>
             </div>
             <div class="screenshots-row" style="margin-top: 2rem;">
                 <div class="screenshot-card main">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-nearby-accounts.png" alt="Nearby Salesforce accounts on the map — GPS geolocation with orange clusters around current position" loading="lazy" width="1200" height="800">
+                        <img src="../assets/screenshot-nearby-accounts.png" alt="Comptes proches autour de la position GPS dans Salesforce — clusters de marqueurs orange sur la carte France" loading="lazy" width="1200" height="800">
                     </div>
                     <div class="screenshot-caption">
-                        <h3>Nearby accounts — live GPS</h3>
-                        <p>Tap the 📍 button and RouteForce instantly shows all Salesforce accounts within a configurable radius around you. Perfect for an unplanned visit while passing through.</p>
+                        <h3>Nearby Accounts — Real-time GPS</h3>
+                        <p>One tap on the 📍 button and RouteForce immediately displays all Salesforce accounts within a configurable radius around you. Perfect for impromptu visits.</p>
                     </div>
                 </div>
                 <div class="screenshot-card side">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-route-history.png" alt="Salesforce route history panel — list of last 20 routes with distance, duration and number of stops" loading="lazy" width="600" height="800">
+                        <img src="../assets/screenshot-route-history.png" alt="Historique des tournées Salesforce — liste des 20 dernières tournées avec distance, durée et nombre d'étapes" loading="lazy" width="600" height="800">
                     </div>
                     <div class="screenshot-caption">
-                        <h3>Route history</h3>
-                        <p>All your past routes saved automatically. Reload last week's route in one click — distance, duration and stops restored instantly.</p>
+                        <h3>Route History</h3>
+                        <p>All your past routes saved automatically. Reload a route from last week in one click — distance, duration and stops retrieved instantly.</p>
                     </div>
                 </div>
             </div>
             <div class="screenshots-grid" style="margin-top: 2rem;">
-                <div class="screenshot-card" style="grid-column: 1 / -1;">
+                <div class="screenshot-card main">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-tour-planner.png" alt="Salesforce field sales route planning — nationwide view with account clusters and configuration panel" loading="lazy" width="1600" height="900">
+                        <img src="../assets/screenshot-tour-planner.png" alt="RouteForce — Panneau de planification de tournée ouvert sur la carte France avec paramètres horaires et section Nearby Accounts" loading="lazy" width="1600" height="900">
                     </div>
                     <div class="screenshot-caption">
-                        <h3>Nationwide planning</h3>
-                        <p>View your accounts across the entire country, set your departure point, schedules and constraints. Smart clustering groups accounts by area for instant readability.</p>
+                        <h3>Complete Planning Interface</h3>
+                        <p>The "Plan a route" panel brings everything together: starting point (GPS position or Salesforce account), date, schedules, lunch break, visit duration. The "Nearby Accounts" section shows accounts near your route, ready to be added.</p>
+                    </div>
+                </div>
+                <div class="screenshot-card side">
+                    <div class="screenshot-img">
+                        <img src="../assets/screenshot-save-route.jpg" alt="RouteForce — Sauvegarde et nommage d'une tournée optimisée pour réexécution ultérieure" loading="lazy">
+                    </div>
+                    <div class="screenshot-caption">
+                        <h3>💾 Save Your Routes</h3>
+                        <p>After planning and optimization, name and save your route. Find it in the history to re-run it the following week — same route, same accounts, zero effort. Ideal for recurring routes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ALGORITHM -->
+    <section class="features-section" id="algorithm" style="background: #f8fafc;">
+        <div class="container">
+            <div class="section-header">
+                <h2>🧠 An Algorithm, Not a GPS</h2>
+                <p>RouteForce doesn't just trace a route — it finds the <strong>best visit order</strong> in seconds.</p>
+            </div>
+
+            <div class="screenshots-grid">
+                <div class="screenshot-card main" style="border: none; box-shadow: none; background: transparent;">
+                    <div class="screenshot-caption" style="padding: 0;">
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 24px;">
+                            <div style="background: #eff6ff; border-radius: 10px; padding: 24px; text-align: center;">
+                                <div style="font-size: 2.2rem; font-weight: 800; color: #1d4ed8;">< 1s</div>
+                                <div style="color: #64748b; font-size: 0.9rem; margin-top: 4px;">Optimization time<br>for 10 stops</div>
+                            </div>
+                            <div style="background: #f0fdf4; border-radius: 10px; padding: 24px; text-align: center;">
+                                <div style="font-size: 2.2rem; font-weight: 800; color: #16a34a;">3.6M</div>
+                                <div style="color: #64748b; font-size: 0.9rem; margin-top: 4px;">Combinations evaluated<br>to find the best one</div>
+                            </div>
+                            <div style="background: #fef3c7; border-radius: 10px; padding: 24px; text-align: center;">
+                                <div style="font-size: 2.2rem; font-weight: 800; color: #d97706;">30%</div>
+                                <div style="color: #64748b; font-size: 0.9rem; margin-top: 4px;">Kilometers saved<br>on average per route</div>
+                            </div>
+                        </div>
+
+                        <h3>🎯 Your Day, Optimized</h3>
+                        <p>The algorithm doesn't just minimize distance. It integrates your real constraints:</p>
+                        <ul style="margin: 12px 0 12px 20px; line-height: 2;">
+                            <li>⏰ <strong>Work schedules</strong> — estimated arrivals stop by stop</li>
+                            <li>🍽️ <strong>Lunch break</strong> — time slot blocked automatically</li>
+                            <li>⏱️ <strong>Visit duration</strong> — adapted to each appointment</li>
+                            <li>🚫 <strong>Tolls / highways</strong> — avoidable in one click</li>
+                            <li>🔄 <strong>Ajustement manuel</strong> — réordonnez par drag & drop, la route se recalcule instantanément</li>
+                        </ul>
+
+                        <h3 style="margin-top: 24px;">🌍 Worldwide Coverage</h3>
+                        <p>France, Europe, Africa, Asia, Americas — <strong>no geographic restrictions</strong>. Wherever your clients are, RouteForce calculates the optimal route on the real road network.</p>
+                    </div>
+                </div>
+
+                <div class="screenshot-card side" style="border: none; box-shadow: none; background: transparent;">
+                    <div class="screenshot-caption" style="padding: 0;">
+                        <h3>📱 100% Integrated with Salesforce</h3>
+                        <p>No external tool. No synchronization. RouteForce lives <strong>inside</strong> Salesforce:</p>
+                        <ul style="margin: 12px 0 12px 20px; line-height: 2;">
+                            <li>Your <strong>accounts</strong> appear automatically on the map</li>
+                            <li><strong>Appointments</strong> are created in the SF calendar in one click</li>
+                            <li><strong>Filters</strong> adapt to your custom fields (industry, type, priority…)</li>
+                            <li><strong>Saved routes</strong> reload for the following week</li>
+                        </ul>
+
+                        <div style="background: #eff6ff; border-radius: 8px; padding: 20px; margin-top: 20px;">
+                            <h4 style="color: #1d4ed8; margin-bottom: 12px;">Built by a Salesforce Expert</h4>
+                            <p style="color: #334155; font-size: 0.9rem; line-height: 1.6; margin: 0;">10 years of CRM experience, 5 Salesforce certifications (App Builder, Sales Cloud, Service Cloud, Pardot). RouteForce was born from a real field need with enterprise clients.</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -434,7 +631,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>A price that doesn't grow with your team</h2>
-                <p>€249 excl. tax/month (billed annually) for your entire Salesforce org — 5 reps or 50, the price stays the same.</p>
+                <p>€249/month excl. tax (billed annually) for your entire Salesforce org — 5 reps or 50, the price stays the same.</p>
             </div>
             <div class="comparison-table-wrapper">
                 <table class="comparison-table">
@@ -447,17 +644,20 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr>
                         <tr class="row-highlight">
                             <td><strong>RouteForce</strong></td>
-                            <td class="highlight"><strong>€249/month</strong></td>
-                            <td class="highlight"><strong>€249/month</strong></td>
-                            <td class="highlight"><strong>€249/month</strong></td>
+                            <td class="highlight"><strong>249 €/mois</strong></td>
+                            <td class="highlight"><strong>249 €/mois</strong></td>
+                            <td class="highlight"><strong>249 €/mois</strong></td>
                         </tr>
                         <tr>
+                            
+                        <tr>
                             <td>Cost per user</td>
-                            <td class="highlight"><span class="check green">€0</span></td>
-                            <td class="highlight"><span class="check green">€0</span></td>
-                            <td class="highlight"><span class="check green">€0</span></td>
+                            <td class="highlight"><span class="check green">0 €</span></td>
+                            <td class="highlight"><span class="check green">0 €</span></td>
+                            <td class="highlight"><span class="check green">0 €</span></td>
                         </tr>
                     </tbody>
                 </table>
@@ -470,24 +670,26 @@
     <section class="pricing-section" id="pricing">
         <div class="container">
             <div class="section-header">
-                <h2>Simple and transparent pricing</h2>
+                <h2>Simple and Transparent Pricing</h2>
                 <p>One-time setup + monthly subscription. No per-user cost.</p>
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card">
+                    <div class="discount-badge">-90%<span>launch</span></div>
                     <div class="pricing-header">
-                        <h3>Self-Setup</h3>
+                        <h3>Self-Service</h3>
                         <p class="pricing-desc">Your Salesforce admin configures it with our documentation</p>
                     </div>
                     <div class="pricing-price">
-                        <span class="price">€3,500 <small>excl. tax</small></span>
-                        <span class="price-period">one-time setup</span>
-                        <span class="price-maintenance">+ €249 excl. tax / month · billed annually (€2,988 excl. tax/year)</span>
+                        <span class="price-original">€3,500 excl. tax</span>
+                        <span class="price-new">€350 <small>excl. tax</small></span>
+                        <span class="price-period">one-time setup — early adopter offer 🔥</span>
+                        <span class="price-maintenance">+ €249/month excl. tax · billed annually (€2,988/year)</span>
                     </div>
                     <ul class="pricing-features">
-                        <li><span class="check">&#10003;</span> Quick Salesforce package install</li>
-                        <li><span class="check">&#10003;</span> Full documentation provided</li>
-                        <li><span class="check">&#10003;</span> Routing engine hosted in France (OVH Gravelines)</li>
+                        <li><span class="check">&#10003;</span> Salesforce package installed in minutes</li>
+                        <li><span class="check">&#10003;</span> Complete documentation provided</li>
+                        <li><span class="check">&#10003;</span> Calculation engine hosted in France (OVH Gravelines)</li>
                         <li><span class="check">&#10003;</span> GDPR: data hosted in France</li>
                         <li><span class="check">&#10003;</span> Updates and Salesforce compatibility maintained</li>
                         <li><span class="check">&#10003;</span> Email support within 48h</li>
@@ -497,36 +699,61 @@
                         <li><span class="cross">&#10007;</span> Admin onboarding</li>
                         <li><span class="cross">&#10007;</span> Post-deployment follow-up</li>
                     </ul>
-                    <a href="#contact" class="btn btn-outline btn-block">Get started</a>
+                    <a href="#contact" class="btn btn-outline btn-block">Get Started</a>
                 </div>
                 <div class="pricing-card popular">
                     <div class="popular-badge">Recommended</div>
                     <div class="pricing-header">
-                        <h3>Fully Managed</h3>
+                        <h3>Turnkey</h3>
                         <p class="pricing-desc">We configure everything for you — zero effort on your side</p>
                     </div>
                     <div class="pricing-price">
                         <span class="price">€5,000 <small>excl. tax</small></span>
                         <span class="price-period">one-time setup</span>
-                        <span class="price-maintenance">+ €249 excl. tax / month · billed annually (€2,988 excl. tax/year)</span>
+                        <span class="price-maintenance">+ €249/month excl. tax · billed annually (€2,988/year)</span>
                     </div>
                     <ul class="pricing-features">
-                        <li><span class="check">&#10003;</span> Full installation & configuration by our team</li>
-                        <li><span class="check">&#10003;</span> Setup tailored to your Salesforce org</li>
-                        <li><span class="check">&#10003;</span> Admin onboarding session with your Salesforce admin</li>
-                        <li><span class="check">&#10003;</span> 30-day post-deployment follow-up</li>
+                        <li><span class="check">&#10003;</span> Installation and configuration by our team</li>
+                        <li><span class="check">&#10003;</span> Setup adapted to your Salesforce org</li>
+                        <li><span class="check">&#10003;</span> Onboarding meeting with your Salesforce admin</li>
+                        <li><span class="check">&#10003;</span> Post-deployment follow-up 30 jours</li>
                         <li><span class="check">&#10003;</span> Priority email support within 24h</li>
-                        <li><span class="check">&#10003;</span> Routing engine hosted in France (OVH Gravelines)</li>
+                        <li><span class="check">&#10003;</span> Calculation engine hosted in France (OVH Gravelines)</li>
                         <li><span class="check">&#10003;</span> GDPR: data hosted in France</li>
                         <li><span class="check">&#10003;</span> Updates and Salesforce compatibility maintained</li>
                         <li><span class="check">&#10003;</span> Multi-language FR/EN/ES</li>
                         <li><span class="check">&#10003;</span> Unlimited users</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary btn-block">Get started</a>
+                    <a href="#contact" class="btn btn-primary btn-block">Get Started</a>
+                </div>
+                <div class="pricing-card enterprise">
+                    <div class="popular-badge" style="background: linear-gradient(135deg, #1e1b4b, #4338ca);">Enterprise</div>
+                    <div class="pricing-header">
+                        <h3>Enterprise</h3>
+                        <p class="pricing-desc">Dedicated infrastructure and tailored support for multi-site organizations</p>
+                    </div>
+                    <div class="pricing-price">
+                        <span class="price">Custom Quote</span>
+                        <span class="price-period">adapted to your volume</span>
+                        <span class="price-maintenance">Custom annual subscription</span>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><span class="check">&#10003;</span> <strong>Dedicated infrastructure</strong> — isolated calculation server, guaranteed performance even under heavy load</li>
+                        <li><span class="check">&#10003;</span> <strong>Contractual SLA</strong> — 99.9% uptime, guaranteed response time</li>
+                        <li><span class="check">&#10003;</span> <strong>Multi-site / multi-country</strong> — routing optimized by geographic zone</li>
+                        <li><span class="check">&#10003;</span> <strong>Personalized onboarding</strong> — field team + SF admin training</li>
+                        <li><span class="check">&#10003;</span> <strong>Dedicated contact</strong> — priority support, response within 4h</li>
+                        <li><span class="check">&#10003;</span> Complete configuration by our team</li>
+                        <li><span class="check">&#10003;</span> Advanced setup (business filters, custom fields, integrations)</li>
+                        <li><span class="check">&#10003;</span> Quarterly usage review and recommendations</li>
+                        <li><span class="check">&#10003;</span> GDPR: France hosting (OVH) or region of choice</li>
+                        <li><span class="check">&#10003;</span> Unlimited users</li>
+                    </ul>
+                    <a href="#contact" class="btn btn-outline btn-block" style="border-color: #4338ca; color: #4338ca;">Request a Quote</a>
                 </div>
             </div>
             <div class="pricing-extras">
-                <h4>What's included every month</h4>
+                <h4>What's Included Every Month</h4>
                 <div class="extras-grid">
                     <div class="extra-item">
                         <span class="extra-price">&#10003;</span>
@@ -543,38 +770,38 @@
                     </div>
                     <div class="extra-item">
                         <span class="extra-price">&#10003;</span>
-                        <span class="extra-label">12-month commitment, auto-renewed</span>
+                        <span class="extra-label">12-month commitment, automatically renewable</span>
                     </div>
                 </div>
             </div>
             <div class="pricing-comparison">
-                <p><strong>RouteForce:</strong> a flat rate of €249/month for your entire Salesforce org, regardless of team size.</p>
+                <p><p><strong>RouteForce:</strong> a flat price of €249/month for your entire Salesforce org, regardless of the number of users.</p>
             </div>
         </div>
     </section>
 
     <section class="included-section" style="max-width:800px;margin:0 auto 4rem;padding:0 1.5rem;text-align:center">
-      <h3 style="font-size:1.25rem;font-weight:600;margin-bottom:1.5rem;color:#1e293b">What's included in the €249/month</h3>
+      <h3 style="font-size:1.25rem;font-weight:600;margin-bottom:1.5rem;color:#1e293b">What's Included in the €249/month</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;text-align:left">
         <div style="background:#f8fafc;border-radius:12px;padding:1.25rem">
           <div style="font-size:1.5rem;margin-bottom:.5rem">🖥️</div>
-          <div style="font-weight:600;margin-bottom:.25rem;color:#1e293b">Dedicated French Server</div>
-          <div style="font-size:.9rem;color:#64748b">OVH Gravelines infrastructure, maintained and monitored 24/7</div>
+          <div style="font-weight:600;margin-bottom:.25rem;color:#1e293b">Worldwide Coverage</div>
+          <div style="font-size:.9rem;color:#64748b">Dedicated OVH France server — worldwide routing, zero third-party services</div>
         </div>
         <div style="background:#f8fafc;border-radius:12px;padding:1.25rem">
           <div style="font-size:1.5rem;margin-bottom:.5rem">🗺️</div>
           <div style="font-weight:600;margin-bottom:.25rem;color:#1e293b">Unlimited Routing API</div>
-          <div style="font-size:.9rem;color:#64748b">No per-call billing — as many routes as you need</div>
+          <div style="font-size:.9rem;color:#64748b">No per-call billing — as many routes as you want</div>
         </div>
         <div style="background:#f8fafc;border-radius:12px;padding:1.25rem">
           <div style="font-size:1.5rem;margin-bottom:.5rem">🔄</div>
           <div style="font-weight:600;margin-bottom:.25rem;color:#1e293b">Updates Included</div>
-          <div style="font-size:.9rem;color:#64748b">New features released regularly, included in your subscription — no extra cost</div>
+          <div style="font-size:.9rem;color:#64748b">New features available regularly, included in your subscription</div>
         </div>
         <div style="background:#f8fafc;border-radius:12px;padding:1.25rem">
           <div style="font-size:1.5rem;margin-bottom:.5rem">🛡️</div>
           <div style="font-weight:600;margin-bottom:.25rem;color:#1e293b">Support Included</div>
-          <div style="font-size:.9rem;color:#64748b">48h response (Self-Setup) or 24h priority (Fully Managed)</div>
+          <div style="font-size:.9rem;color:#64748b">Response within 48h (Self-Service) or 24h priority (Turnkey)</div>
         </div>
       </div>
     </section>
@@ -583,13 +810,13 @@
     <section class="process-section">
         <div class="container">
             <div class="section-header">
-                <h2>Deployment in 4 steps</h2>
+                <h2>Deployment in 4 Steps</h2>
                 <p>From demo to field, in less than 2 weeks</p>
             </div>
             <div class="process-grid">
                 <div class="process-step">
                     <div class="step-number">1</div>
-                    <h3>Custom demo</h3>
+                    <h3>Personalized Demo</h3>
                     <p>We show you the solution with your own data and business use cases.</p>
                 </div>
                 <div class="process-connector"></div>
@@ -601,13 +828,13 @@
                 <div class="process-connector"></div>
                 <div class="process-step">
                     <div class="step-number">3</div>
-                    <h3>Admin onboarding</h3>
+                    <h3>Onboarding</h3>
                     <p>Your teams are trained and autonomous. Documentation included.</p>
                 </div>
                 <div class="process-connector"></div>
                 <div class="process-step">
                     <div class="step-number">4</div>
-                    <h3>Go live</h3>
+                    <h3>Go Live</h3>
                     <p>Your sales reps optimize their routes from day one.</p>
                 </div>
             </div>
@@ -628,16 +855,16 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes. RouteForce is 100% native Salesforce: your CRM data never leaves your Salesforce org. Route calculations are sent to our dedicated server hosted in France (OVH Gravelines) — never to a US service. The component fully respects your existing Salesforce profiles, permissions and sharing rules.</p>
+                        <p>Yes. RouteForce is 100% native Salesforce: your CRM data stays in your Salesforce org. The component fully respects your profiles, permissions and sharing rules. For route calculations, addresses are sent to our dedicated server hosted in France (OVH Gravelines) — never to a US service.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        <span>How does deployment work?</span>
+                        <span>How does the deployment work?</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Deployment and configuration handled by our team — no technical work on your side. Admin onboarding session and full documentation included. Average timeline: 1 to 2 weeks from demo to go-live.</p>
+                        <p>Déploiement et configuration pris en charge par notre équipe — sans intervention technique de votre côté. Onboarding meeting with your Salesforce admin et documentation complète incluses. Délai moyen : 1 à 2 semaines entre la démo et le go-live.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -646,7 +873,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Email support is included with a response within 48h. The monthly subscription (€249/month excl. tax) covers updates, Salesforce compatibility and ongoing support. Admin onboarding is included in the Fully Managed plan.</p>
+                        <p>Email support is included with response within 48h. The monthly subscription (€249/month excl. tax) covers updates, Salesforce compatibility and ongoing support. Onboarding and admin training are included in the Turnkey offer.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -655,7 +882,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>A one-time setup fee (€3,500 for Self-Setup, €5,000 for Fully Managed) then €249/month excl. tax, billed annually. No per-user cost — the price stays the same whether you have 5 or 50 users.</p>
+                        <p>Une one-time setup (3 500€ HT en autonome, 5 000€ HT clé en main) puis un abonnement mensuel à 249€/mois HT, avec engagement 12 mois renouvelable automatiquement. Pas de frais cachés, pas de coût par utilisateur. Le prix reste le même que vous ayez 5 ou 50 utilisateurs. <strong>🔥 Offre de lancement : -90% sur l'installation Standalone pour les early adopters !</strong></p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -664,7 +891,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>RouteForce works with all Salesforce editions supporting Lightning Web Components: Professional, Enterprise, Unlimited and Developer. It integrates with your existing Account object.</p>
+                        <p>RouteForce works with all Salesforce editions that support Lightning Web Components: Professional, Enterprise, Unlimited and Developer. It integrates with your existing Account object.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -673,7 +900,34 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>There is no user limit. The monthly subscription (€249/month) covers your entire Salesforce org. Whether you have 5 or 500 sales reps, the price doesn't change. This is one of the major advantages over per-user pricing models.</p>
+                        <p>There is no user limit. The monthly subscription (€249/month) covers your entire Salesforce org. Whether you have 5 or 500 sales reps, the price doesn't change. This is one of the major advantages over per-user solutions.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>How does the route optimization work?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>RouteForce uses an advanced route optimization algorithm. It takes into account the GPS coordinates of each Salesforce account, your time constraints (start, end of day, lunch break) and visit durations to calculate the optimal visit order. All on our server hosted in France — no quota, no limitations.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>Can RouteForce be used on a smartphone in the field?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Yes. RouteForce is fully responsive and designed for the field. On mobile, the interface uses a "bottom sheet" panel to keep the map visible. Native GPS geolocation lets you find nearby accounts in real time. Works in the Salesforce mobile app or any mobile browser.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>What industries use RouteForce?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>RouteForce adapts to any industry with field sales teams: <strong>food &amp; beverage</strong> (retail, restaurant routes), <strong>manufacturing</strong> and B2B distribution, <strong>pharma</strong> (medical reps), <strong>services and technical maintenance</strong>, <strong>energy</strong> and environment. If your sales reps have client appointments in Salesforce, RouteForce can help.</p>
                     </div>
                 </div>
             </div>
@@ -685,26 +939,23 @@
         <div class="container">
             <div class="section-header">
                 <h2>Infrastructure & Hosting</h2>
-                <p>A sovereign routing engine, hosted in France, tailored to your compliance requirements</p>
-            </div>
-            <div class="infrastructure-intro">
-                <p>RouteForce is powered by <strong>VROOM</strong> (open-source VRP solver) and <strong>OpenRouteService</strong> for route calculations — two proven open-source projects, self-hosted on our dedicated server in France (OVH Gravelines). <strong>Full worldwide coverage</strong>: Europe, Africa, Middle East, Asia, Americas, Oceania — all calculated on our own infrastructure, with no quota, no third-party service, no external dependency.</p>
+                <p>A sovereign calculation engine, hosted in France, with worldwide coverage — adapted to your compliance requirements</p>
             </div>
             <div class="routing-split">
                 <div class="routing-split-card routing-split-primary">
                     <div class="routing-split-flag">🇫🇷</div>
                     <div class="routing-split-body">
                         <h4>France & Europe</h4>
-                        <p>Calculated on our dedicated server in France (OVH Gravelines). No quota, no external dependency, data hosted in France. GDPR-native.</p>
-                        <span class="routing-split-tag">RouteForce dedicated server · OVH Gravelines</span>
+                        <p>Calculated on our dedicated server in France (OVH Gravelines). No quota, no external dependencies, data hosted in France. GDPR native.</p>
+                        <span class="routing-split-tag">Dedicated RouteForce Server · OVH Gravelines</span>
                     </div>
                 </div>
                 <div class="routing-split-arrow">+</div>
                 <div class="routing-split-card routing-split-secondary">
                     <div class="routing-split-flag">🌍</div>
                     <div class="routing-split-body">
-                        <h4>Worldwide coverage</h4>
-                        <p>Africa, Middle East, Asia, Americas, Oceania — all calculated on our own infrastructure. No third-party service, no quota, transparent for your users.</p>
+                        <h4>Worldwide Coverage</h4>
+                        <p>Africa, Middle East, Asia, Americas, Oceania — all calculated on our own infrastructure. Zero third-party services, zero quota, transparent for your users.</p>
                         <span class="routing-split-tag">100% self-hosted · Full planet coverage</span>
                     </div>
                 </div>
@@ -714,24 +965,24 @@
                     <thead>
                         <tr>
                             <th></th>
-                            <th class="highlight">Self-Setup / Fully Managed</th>
+                            <th class="highlight">Autonome / Clé en main</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Routing engine</td>
-                            <td class="highlight">RouteForce dedicated server</td>
+                            <td>Calculation Engine</td>
+                            <td class="highlight">Dedicated RouteForce Server</td>
                         </tr>
                         <tr>
-                            <td>Data hosting</td>
+                            <td>Hosting</td>
                             <td class="highlight">France (OVH Gravelines)</td>
                         </tr>
                         <tr>
-                            <td>Daily calculations</td>
+                            <td>Calculations per day</td>
                             <td class="highlight">Unlimited</td>
                         </tr>
                         <tr>
-                            <td>GDPR compliance</td>
+                            <td>GDPR Compliance</td>
                             <td class="highlight">✅ Hosted in France</td>
                         </tr>
                     </tbody>
@@ -740,11 +991,11 @@
             <div class="infrastructure-guarantees">
                 <div class="infrastructure-guarantee">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    <span><strong>Data sovereignty</strong> — Your customer data stays in France, on European infrastructure. No transfers to American servers.</span>
+                    <span><strong>Data sovereignty</strong> — Your client data stays in France, on European infrastructure. No transfer to American servers.</span>
                 </div>
                 <div class="infrastructure-guarantee">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span><strong>Native GDPR compliance</strong> — Your customers' addresses never leave European infrastructure. Compliant with the strictest IT security requirements.</span>
+                    <span><strong>GDPR Compliance native</strong> — Les adresses de vos clients ne quittent jamais l'infrastructure européenne. Conforme aux exigences des DSI les plus strictes.</span>
                 </div>
                 <div class="infrastructure-guarantee">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
@@ -758,27 +1009,27 @@
     <section class="blog-teaser-section" id="blog-teaser" style="background:#f8fafc;padding:4rem 0">
         <div class="container">
             <div class="section-header">
-                <h2>Resources for Salesforce teams</h2>
-                <p>Practical guides, comparisons and field insights on managing field sales reps</p>
+                <h2>Resources for Salesforce Teams</h2>
+                <p>Practical guides, comparisons and field feedback on managing field sales teams</p>
             </div>
             <div class="blog-teaser-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem">
                 <a href="../blog/salesforce-maps-alternative-2026.html" class="blog-teaser-card" style="background:#fff;border-radius:12px;padding:1.5rem;text-decoration:none;color:inherit;border:1px solid #e2e8f0;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
                     <div style="font-size:.75rem;font-weight:600;color:#6366f1;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem">📊 Comparison</div>
-                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">CRM mapping tool: flat rate vs per-user pricing — which to choose in 2026?</h3>
+                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">CRM mapping tool: flat rate vs per-user billing — which to choose in 2026?</h3>
                     <p style="font-size:.875rem;color:#64748b;line-height:1.5">Feature comparison, real pricing and use cases — to choose the right solution for your field team.</p>
                     <div style="margin-top:1rem;font-size:.8rem;font-weight:500;color:#6366f1">Read the article →</div>
                 </a>
                 <a href="../blog/" class="blog-teaser-card" style="background:#fff;border-radius:12px;padding:1.5rem;text-decoration:none;color:inherit;border:1px solid #e2e8f0;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
                     <div style="font-size:.75rem;font-weight:600;color:#6366f1;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem">💡 Guide</div>
                     <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">How to optimize your field sales routes with Salesforce?</h3>
-                    <p style="font-size:.875rem;color:#64748b;line-height:1.5">Methods, tools and best practices to reduce drive time and increase the number of customer visits.</p>
+                    <p style="font-size:.875rem;color:#64748b;line-height:1.5">Methods, tools and best practices to reduce travel time and increase visit count.</p>
                     <div style="margin-top:1rem;font-size:.8rem;font-weight:500;color:#6366f1">Explore the blog →</div>
                 </a>
-                <a href="../cas-usage.html" class="blog-teaser-card" style="background:#fff;border-radius:12px;padding:1.5rem;text-decoration:none;color:inherit;border:1px solid #e2e8f0;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
-                    <div style="font-size:.75rem;font-weight:600;color:#6366f1;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem">🏭 Use cases</div>
-                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">RouteForce in your sector: food industry, pharma, B2B distribution, services...</h3>
-                    <p style="font-size:.875rem;color:#64748b;line-height:1.5">See how RouteForce adapts to your industry and your sales organization.</p>
-                    <div style="margin-top:1rem;font-size:.8rem;font-weight:500;color:#6366f1">View use cases →</div>
+                <a href="use-cases.html" class="blog-teaser-card" style="background:#fff;border-radius:12px;padding:1.5rem;text-decoration:none;color:inherit;border:1px solid #e2e8f0;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
+                    <div style="font-size:.75rem;font-weight:600;color:#6366f1;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem">🏭 Use Cases</div>
+                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">RouteForce in your industry: food & beverage, manufacturing, pharma, services...</h3>
+                    <p style="font-size:.875rem;color:#64748b;line-height:1.5">Discover how RouteForce adapts to the specifics of your industry and sales organization.</p>
+                    <div style="margin-top:1rem;font-size:.8rem;font-weight:500;color:#6366f1">See use cases →</div>
                 </a>
             </div>
         </div>
@@ -789,16 +1040,16 @@
         <div class="container">
             <div class="contact-wrapper">
                 <div class="contact-info">
-                    <h2>Request your free demo</h2>
+                    <h2>Request Your Free Demo</h2>
                     <p>Discover RouteForce with your own data. 30 minutes is all it takes to see the difference.</p>
                     <div class="contact-benefits">
                         <div class="contact-benefit">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span>Custom demo with your data</span>
+                            <span>Personalized demo with your data</span>
                         </div>
                         <div class="contact-benefit">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span>No-obligation demo</span>
+                            <span>No-commitment demo</span>
                         </div>
                         <div class="contact-benefit">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -807,13 +1058,12 @@
                     </div>
                 </div>
                 <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqedjpdd" method="POST">
-                    <input type="hidden" name="_language" value="en">
                     <div class="form-group">
-                        <label for="name">Full name</label>
+                        <label for="name">Full Name</label>
                         <input type="text" id="name" name="name" required placeholder="John Smith">
                     </div>
                     <div class="form-group">
-                        <label for="email">Business email</label>
+                        <label for="email">Business Email</label>
                         <input type="email" id="email" name="email" required placeholder="john@company.com">
                     </div>
                     <div class="form-group">
@@ -831,10 +1081,13 @@
                     </div>
                     <div class="form-group">
                         <label for="message">Message (optional)</label>
-                        <textarea id="message" name="message" rows="3" placeholder="Briefly describe your needs..."></textarea>
+                        <textarea id="message" name="message" rows="3" placeholder="Briefly describe your need..."></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary btn-block btn-lg">Request my free demo</button>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Request My Free Demo</button>
                 </form>
+                <p style="text-align:center; margin-top:16px; color:var(--gray-500); font-size:0.9rem;">
+                    Or write to us directly: <a href="mailto:contact@routeforce.app" style="color:var(--primary); font-weight:600;">contact@routeforce.app</a>
+                </p>
             </div>
         </div>
     </section>
@@ -855,26 +1108,22 @@
                         </svg>
                         <span>RouteForce</span>
                     </a>
-                    <p>Field sales route optimization for Salesforce</p>
+                    <p>Field Sales Route Optimization for Salesforce</p>
                 </div>
                 <div class="footer-links">
                     <a href="#features">Features</a>
                     <a href="use-cases.html">Use Cases</a>
                     <a href="#pricing">Pricing</a>
-                    <a href="salesforce-route-planning.html">Salesforce Route Planning</a>
-                    <a href="flat-rate-route-optimization.html">Flat-Rate Pricing</a>
-                    <a href="field-sales-route-optimization.html">Field Sales Optimization</a>
-                    <a href="visit-planning-salesforce.html">Visit Planning</a>
+                    <a href="../blog/">Blog</a>
                     <a href="#contact">Contact</a>
-                    <a href="../mentions-legales.html">Legal</a>
+                    <a href="../mentions-legales.html">Legal Notice</a>
                     <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" class="status-link">
                         <span class="status-dot"></span>Service Status
                     </a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 RouteForce — Mathieu Szymkiewicz. All rights reserved.</p>
-                <p style="margin-top:0.4rem;font-size:0.78rem;opacity:0.6;">Powered by <a href="https://openrouteservice.org" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">OpenRouteService</a> (LGPL v3) and <a href="https://github.com/VROOM-Project/vroom" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">VROOM</a> (BSD 2-Clause).</p>
+                <p>&copy; 2026 RouteForce — Mathieu Szymkiewicz. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -887,18 +1136,18 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "How does RouteForce pricing compare to per-user solutions?",
+                "name": "How does RouteForce pricing work?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "RouteForce uses flat-rate pricing with no per-user fees. One-time setup then €249/month for your entire Salesforce org, regardless of team size. The price stays the same whether you have 5 or 50 users."
+                    "text": "RouteForce works with a flat price and no per-user cost. One-time setup (from €3,500 excl. tax) then €249/month for your entire Salesforce org, regardless of the number of users."
                 }
             },
             {
                 "@type": "Question",
-                "name": "What makes RouteForce different from per-user CRM mapping tools?",
+                "name": "What is the difference between RouteForce and per-user CRM mapping tools?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "RouteForce is 100% native Salesforce with a flat monthly price covering your entire org. It offers route optimization (VROOM algorithm), interactive mapping, automatic event creation, route history and GPS-based nearby accounts — all without per-user licensing costs."
+                    "text": "RouteForce is 100% native Salesforce, with no per-user cost. It offers route optimization, interactive mapping, automatic event creation, route history and GPS-based nearby accounts — for a flat monthly price of €249 excl. tax, regardless of your field team size."
                 }
             },
             {
@@ -906,7 +1155,7 @@
                 "name": "How long does it take to install RouteForce?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Our team handles the complete deployment. RouteForce is a native Salesforce package that installs directly into your org. No external server configuration is needed."
+                    "text": "Our team handles the full deployment. RouteForce is a native Salesforce package configured directly in your org. Average timeline: 1 to 2 weeks from demo to go-live."
                 }
             },
             {
@@ -914,15 +1163,31 @@
                 "name": "Does RouteForce work with my existing Salesforce?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, RouteForce is 100% native Salesforce. It works with your existing Account object (Contact sub-query included). No external sync required — your data stays in Salesforce."
+                    "text": "Yes, RouteForce is 100% native Salesforce. It works with your existing Account object (Contact sub-query included). No external synchronization required, your data stays in Salesforce."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Which industries use RouteForce?",
+                "name": "What industries use RouteForce?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "RouteForce adapts to any business with field teams: food & beverage, pharmaceutical, B2B distribution, field services & maintenance, energy & environment. Any company with traveling sales reps can benefit."
+                    "text": "RouteForce adapts to all industries with field teams: food & beverage, pharmaceutical, B2B distribution, technical services and maintenance, energy and environment. Any company with field sales reps can benefit."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "How does the RouteForce optimization algorithm work?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "RouteForce uses an advanced route optimization algorithm. It calculates the optimal visit order based on GPS coordinates of each Salesforce account, time slots, visit durations and breaks. The calculation runs on a dedicated server hosted in France, with no quota or limitations."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can RouteForce be used on a smartphone?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. RouteForce is fully responsive and designed for the field. On mobile, the interface uses a bottom-sheet panel to keep the map visible. GPS geolocation lets you find nearby accounts in real time. Works in the Salesforce mobile app or any mobile browser."
                 }
             }
         ]
