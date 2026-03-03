@@ -81,22 +81,34 @@
 </head>
 <body>
 
-    <!-- COUNTDOWN BANNER -->
+    <!-- COUNTDOWN BANNER — MULTILINGUAL SLIDER -->
     <div class="countdown-banner">
         <div class="countdown-content">
             <div class="countdown-left">
-                <span class="countdown-label">🚀 LANCEMENT MONDIAL v1.0</span>
-                <span class="countdown-sub">Package Major • Couverture routière monde entier • 09 mars 2026</span>
+                <div class="countdown-slider" id="countdown-slider">
+                    <div class="countdown-slide active">
+                        <span class="countdown-label">🚀 LANCEMENT MONDIAL v1.0</span>
+                        <span class="countdown-sub">Package Major • Couverture routière monde entier • 09 mars 2026</span>
+                    </div>
+                    <div class="countdown-slide">
+                        <span class="countdown-label">🚀 WORLDWIDE LAUNCH v1.0</span>
+                        <span class="countdown-sub">Major Package • Worldwide routing coverage • March 9, 2026</span>
+                    </div>
+                    <div class="countdown-slide">
+                        <span class="countdown-label">🚀 LANZAMIENTO MUNDIAL v1.0</span>
+                        <span class="countdown-sub">Paquete Major • Cobertura mundial de rutas • 9 de marzo 2026</span>
+                    </div>
+                </div>
             </div>
             <div class="countdown-timer" id="countdown">
                 <div class="countdown-block">
                     <span class="countdown-num" id="cd-days">--</span>
-                    <span class="countdown-unit">JOURS</span>
+                    <span class="countdown-unit" data-fr="JOURS" data-en="DAYS" data-es="DÍAS">JOURS</span>
                 </div>
                 <div class="countdown-sep">:</div>
                 <div class="countdown-block">
                     <span class="countdown-num" id="cd-hours">--</span>
-                    <span class="countdown-unit">HEURES</span>
+                    <span class="countdown-unit" data-fr="HEURES" data-en="HOURS" data-es="HORAS">HEURES</span>
                 </div>
                 <div class="countdown-sep">:</div>
                 <div class="countdown-block">
@@ -110,20 +122,36 @@
                 </div>
             </div>
             <div class="countdown-right">
-                <span class="countdown-offer">🆓 TRIAL 14 JOURS</span>
-                <span class="countdown-offer countdown-discount">🔥 -90% INSTALLATION</span>
+                <div class="countdown-slider" id="countdown-slider-right">
+                    <div class="countdown-slide-right active">
+                        <span class="countdown-offer">🆓 ESSAI 14 JOURS</span>
+                        <span class="countdown-offer countdown-discount">🔥 -90% INSTALLATION</span>
+                    </div>
+                    <div class="countdown-slide-right">
+                        <span class="countdown-offer">🆓 14-DAY FREE TRIAL</span>
+                        <span class="countdown-offer countdown-discount">🔥 90% OFF SETUP</span>
+                    </div>
+                    <div class="countdown-slide-right">
+                        <span class="countdown-offer">🆓 PRUEBA GRATIS 14 DÍAS</span>
+                        <span class="countdown-offer countdown-discount">🔥 -90% INSTALACIÓN</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <script>
     (function(){
+      // Countdown timer
       const target = new Date('2026-03-09T09:00:00+01:00').getTime();
-      function update(){
+      const langs = ['fr','en','es'];
+      let langIdx = 0;
+
+      function updateTimer(){
         const now = Date.now();
         const diff = target - now;
         if(diff <= 0){
-          document.getElementById('countdown').innerHTML = '<span style="font-size:1.2rem;font-weight:800;color:#fff;">🎉 C\'EST LANCÉ !</span>';
+          document.getElementById('countdown').innerHTML = '<span style="font-size:1.2rem;font-weight:800;color:#fff;">🎉 LAUNCHED!</span>';
           return;
         }
         const d = Math.floor(diff / 86400000);
@@ -135,8 +163,31 @@
         document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
         document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
       }
-      update();
-      setInterval(update, 1000);
+
+      // Multilingual slider
+      function rotateSlides(){
+        langIdx = (langIdx + 1) % 3;
+        const lang = langs[langIdx];
+
+        // Left slides
+        document.querySelectorAll('#countdown-slider .countdown-slide').forEach((s,i) => {
+          s.classList.toggle('active', i === langIdx);
+        });
+
+        // Right slides
+        document.querySelectorAll('#countdown-slider-right .countdown-slide-right').forEach((s,i) => {
+          s.classList.toggle('active', i === langIdx);
+        });
+
+        // Timer units
+        document.querySelectorAll('.countdown-unit[data-'+lang+']').forEach(u => {
+          u.textContent = u.getAttribute('data-'+lang);
+        });
+      }
+
+      updateTimer();
+      setInterval(updateTimer, 1000);
+      setInterval(rotateSlides, 4000);
     })();
     </script>
 

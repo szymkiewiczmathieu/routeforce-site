@@ -2204,6 +2204,28 @@ img {
     display: flex;
     flex-direction: column;
     gap: 2px;
+    min-width: 320px;
+}
+.countdown-slider {
+    position: relative;
+    height: 44px;
+    overflow: hidden;
+}
+.countdown-slide {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+}
+.countdown-slide.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 .countdown-label {
     font-size: 1rem;
@@ -2257,6 +2279,26 @@ img {
     flex-direction: column;
     gap: 4px;
     align-items: flex-start;
+    min-width: 200px;
+    position: relative;
+    height: 52px;
+}
+.countdown-slide-right {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateY(-12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none;
+}
+.countdown-slide-right.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
 }
 .countdown-offer {
     font-size: 0.8rem;
