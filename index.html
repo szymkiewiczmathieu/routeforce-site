@@ -81,14 +81,64 @@
 </head>
 <body>
 
-    <!-- PROMO BANNER -->
-    <div class="promo-banner">
-        <span class="promo-text">
-            <span class="promo-emoji">🔥</span>
-            LANCEMENT v1.0 — Installation Standalone -90% pour les early adopters + essai gratuit 14 jours
-            <span class="promo-emoji">🔥</span>
-        </span>
+    <!-- COUNTDOWN BANNER -->
+    <div class="countdown-banner">
+        <div class="countdown-content">
+            <div class="countdown-left">
+                <span class="countdown-label">🚀 LANCEMENT MONDIAL v1.0</span>
+                <span class="countdown-sub">Package Major • Couverture routière monde entier • 09 mars 2026</span>
+            </div>
+            <div class="countdown-timer" id="countdown">
+                <div class="countdown-block">
+                    <span class="countdown-num" id="cd-days">--</span>
+                    <span class="countdown-unit">JOURS</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-block">
+                    <span class="countdown-num" id="cd-hours">--</span>
+                    <span class="countdown-unit">HEURES</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-block">
+                    <span class="countdown-num" id="cd-mins">--</span>
+                    <span class="countdown-unit">MIN</span>
+                </div>
+                <div class="countdown-sep">:</div>
+                <div class="countdown-block">
+                    <span class="countdown-num" id="cd-secs">--</span>
+                    <span class="countdown-unit">SEC</span>
+                </div>
+            </div>
+            <div class="countdown-right">
+                <span class="countdown-offer">🆓 TRIAL 14 JOURS</span>
+                <span class="countdown-offer countdown-discount">🔥 -90% INSTALLATION</span>
+            </div>
+        </div>
     </div>
+
+    <script>
+    (function(){
+      const target = new Date('2026-03-09T09:00:00+01:00').getTime();
+      function update(){
+        const now = Date.now();
+        const diff = target - now;
+        if(diff <= 0){
+          document.getElementById('countdown').innerHTML = '<span style="font-size:1.2rem;font-weight:800;color:#fff;">🎉 C\'EST LANCÉ !</span>';
+          return;
+        }
+        const d = Math.floor(diff / 86400000);
+        const h = Math.floor((diff % 86400000) / 3600000);
+        const m = Math.floor((diff % 3600000) / 60000);
+        const s = Math.floor((diff % 60000) / 1000);
+        document.getElementById('cd-days').textContent = d;
+        document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+        document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
+        document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
+      }
+      update();
+      setInterval(update, 1000);
+    })();
+    </script>
 
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
