@@ -51,7 +51,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 80px;
+    scroll-padding-top: 134px;
 }
 
 body {
@@ -161,7 +161,7 @@ img {
 
 .navbar {
     position: fixed;
-    top: 0;
+    top: 54px;
     left: 0;
     right: 0;
     z-index: 1000;
@@ -252,7 +252,7 @@ img {
 /* ============ HERO ============ */
 
 .hero {
-    padding: 140px 0 80px;
+    padding: 194px 0 80px;
     background: linear-gradient(135deg, var(--primary-50) 0%, #fff 50%, var(--primary-50) 100%);
     overflow: hidden;
 }
@@ -2117,8 +2117,11 @@ img {
     background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4338ca 100%);
     color: #fff;
     padding: 14px 20px;
-    position: relative;
-    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1100;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(67, 56, 202, 0.4);
 }
@@ -2311,10 +2314,14 @@ img {
         top: -6px;
         right: -6px;
     }
-    .countdown-content { flex-direction: column; gap: 10px; text-align: center; }
+    .countdown-content { flex-direction: column; gap: 8px; text-align: center; }
     .countdown-left, .countdown-right { align-items: center; }
-    .countdown-label { font-size: 0.85rem; }
-    .countdown-num { font-size: 1.3rem; }
-    .countdown-block { min-width: 44px; padding: 5px 8px; }
-    .countdown-banner { padding: 10px 12px; }
+    .countdown-label { font-size: 0.8rem; }
+    .countdown-sub { font-size: 0.65rem; }
+    .countdown-num { font-size: 1.2rem; }
+    .countdown-block { min-width: 40px; padding: 4px 6px; }
+    .countdown-banner { padding: 8px 10px; }
+    .navbar { top: 90px; }
+    .hero { padding-top: 230px; }
+    html { scroll-padding-top: 170px; }
 }
