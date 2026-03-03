@@ -351,19 +351,20 @@ img {
 }
 .hero-mobile {
     position: absolute;
-    bottom: -20px;
-    right: -30px;
+    top: -10px;
+    right: -40px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 8px;
     animation: mobileFloat 3s ease-in-out infinite;
+    z-index: 10;
 }
 .phone-frame {
-    width: 140px;
+    width: 120px;
     background: #1a1a2e;
-    border-radius: 24px;
-    padding: 8px 6px 12px;
+    border-radius: 20px;
+    padding: 6px 5px 10px;
     box-shadow: 0 20px 60px rgba(0,0,0,0.3), 0 0 0 2px rgba(255,255,255,0.1);
     position: relative;
     overflow: hidden;
@@ -1173,11 +1174,12 @@ img {
         margin: 0 auto;
     }
     .hero-mobile {
-        right: -10px;
-        bottom: -10px;
+        right: -5px;
+        top: -5px;
     }
-    .phone-frame { width: 100px; }
-    .mobile-badge { font-size: 0.6rem; }
+    .phone-frame { width: 80px; border-radius: 14px; padding: 4px 3px 6px; }
+    .phone-notch { width: 30px; height: 4px; margin-bottom: 3px; }
+    .mobile-badge { font-size: 0.55rem; padding: 3px 8px; }
 
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
