@@ -720,12 +720,22 @@ img {
 
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 24px;
     margin-bottom: 64px;
-    max-width: 900px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.pricing-card.enterprise {
+    border: 2px solid #4338ca;
+    background: linear-gradient(180deg, #f5f3ff 0%, #ffffff 30%);
+}
+
+.pricing-card.enterprise:hover {
+    border-color: #1e1b4b;
+    box-shadow: 0 12px 40px rgba(67, 56, 202, 0.15);
 }
 
 .pricing-card {
@@ -1187,7 +1197,7 @@ img {
 
     .pricing-grid {
         grid-template-columns: 1fr;
-        max-width: 440px;
+        max-width: 480px;
         margin: 0 auto 64px;
     }
 
