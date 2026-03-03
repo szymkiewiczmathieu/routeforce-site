@@ -51,7 +51,7 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 134px;
+    scroll-padding-top: 70px;
 }
 
 body {
@@ -160,8 +160,8 @@ img {
 /* ============ NAVBAR ============ */
 
 .navbar {
-    position: fixed;
-    top: 54px;
+    position: sticky;
+    top: 0;
     left: 0;
     right: 0;
     z-index: 1000;
@@ -252,7 +252,7 @@ img {
 /* ============ HERO ============ */
 
 .hero {
-    padding: 194px 0 80px;
+    padding: 80px 0 80px;
     background: linear-gradient(135deg, var(--primary-50) 0%, #fff 50%, var(--primary-50) 100%);
     overflow: hidden;
 }
@@ -2175,12 +2175,9 @@ img {
 .countdown-banner {
     background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4338ca 100%);
     color: #fff;
-    padding: 14px 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1100;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 1001;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(67, 56, 202, 0.4);
 }
@@ -2380,7 +2377,4 @@ img {
     .countdown-num { font-size: 1.2rem; }
     .countdown-block { min-width: 40px; padding: 4px 6px; }
     .countdown-banner { padding: 8px 10px; }
-    .navbar { top: 90px; }
-    .hero { padding-top: 230px; }
-    html { scroll-padding-top: 170px; }
 }
