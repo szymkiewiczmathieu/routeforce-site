@@ -106,11 +106,11 @@
     <tr><th>Environnement</th><th>Lien</th></tr>
     <tr>
       <td><strong>Production / Developer</strong></td>
-      <td><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000C5dRQAS">Installer en production</a></td>
+      <td><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000C66TQAS">Installer en production</a></td>
     </tr>
     <tr>
       <td><strong>Sandbox</strong></td>
-      <td><a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000C5dRQAS">Installer en sandbox</a></td>
+      <td><a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000C66TQAS">Installer en sandbox</a></td>
     </tr>
   </table>
 </div>
@@ -355,6 +355,10 @@
     <li>Cliquez sur <strong>Save</strong> puis <strong>Activate</strong></li>
   </ol>
   <p style="margin-top: 8px; color: #64748b; font-size: 0.9em;">💡 Le composant se centre automatiquement sur le compte courant lorsqu'il est positionné sur une page Account. Les comptes à proximité sont visibles sur la carte, facilitant la planification de visites groupées.</p>
+</div>
+
+<div class="alert alert-warning">
+  <strong>⚡ Recommandation performances :</strong> Privilégiez le placement du composant dans un <strong>onglet "Map"</strong> sur la page Account plutôt que sur une page standalone (tab RouteForce). Sur une page Account, seuls les comptes à proximité sont chargés. Sur la page standalone, <strong>tous les comptes géolocalisés</strong> de votre org sont récupérés (potentiellement des milliers), ce qui peut ralentir le chargement initial. L'onglet Account offre des performances optimales.
 </div>
 
 <!-- ============================================================ -->
