@@ -73,6 +73,7 @@
     <li><a href="#cmdt">Configuration Custom Metadata</a></li>
     <li><a href="#appbuilder">Configuration App Builder</a></li>
     <li><a href="#validation">Test de validation</a></li>
+    <li><a href="#best-practices">Bonnes pratiques</a></li>
     <li><a href="#troubleshooting">Dépannage</a></li>
     <li><a href="#support">Contact support</a></li>
   </ol>
@@ -151,6 +152,8 @@
     <tr><td><code>RouteForce_ORS</code></td><td><code>https://ors.routeforce.app</code></td><td>All (connect-src)</td></tr>
     <tr><td><code>OpenStreetMap_Tiles</code></td><td><code>https://*.tile.openstreetmap.org</code></td><td>All (img-src)</td></tr>
     <tr><td><code>Leaflet_CDN</code></td><td><code>https://unpkg.com</code></td><td>All (script-src, style-src)</td></tr>
+    <tr><td><code>Esri_Satellite</code></td><td><code>https://server.arcgisonline.com</code></td><td>All (img-src, connect-src) — requis pour le fond Satellite</td></tr>
+    <tr><td><code>OpenTopoMap</code></td><td><code>https://*.opentopomap.org</code></td><td>All (img-src) — requis pour le fond Terrain</td></tr>
   </table>
   <p style="margin-top: 8px; color: #64748b; font-size: 0.9em;">Ces sites sont nécessaires pour le chargement de la carte, des tuiles et des scripts Leaflet.js.</p>
 </div>
@@ -329,6 +332,31 @@
   <strong>💡 Filtres dynamiques :</strong> Les filtres s'adaptent automatiquement au type de champ (picklist → dropdown, booléen → toggle, multipicklist → sélection multiple). Vous pouvez filtrer sur n'importe quel champ standard ou custom de l'objet Account.
 </div>
 
+<div class="step-card">
+  <h3>Étape 7.3 — Ajouter l'onglet RouteForce à la barre de navigation</h3>
+  <p><span class="badge badge-recommended">Recommandé</span> L'onglet <strong>RouteForce</strong> donne accès à la carte complète (vue tous comptes). Ajoutez-le à votre application Lightning :</p>
+  <ol>
+    <li>Allez dans <strong>Setup → App Manager</strong></li>
+    <li>Cliquez sur <strong>Edit</strong> sur votre application (ex: <em>Sales</em>)</li>
+    <li>Onglet <strong>Navigation Items</strong></li>
+    <li>Ajoutez <strong>RouteForce</strong> dans les éléments sélectionnés</li>
+    <li>Positionnez-le à l'emplacement souhaité et cliquez <strong>Save</strong></li>
+  </ol>
+</div>
+
+<div class="step-card">
+  <h3>Étape 7.4 — Ajouter l'onglet Map sur la fiche Account</h3>
+  <p><span class="badge badge-recommended">Recommandé</span> Pour voir la carte centrée sur un compte spécifique, ajoutez un onglet dans la page Account :</p>
+  <ol>
+    <li>Ouvrez la page Account dans l'<strong>App Builder</strong></li>
+    <li>Ajoutez un composant <strong>Tabs</strong> si absent, ou utilisez les onglets existants</li>
+    <li>Créez un nouvel onglet nommé <strong>"Map"</strong> (ou "Carte")</li>
+    <li>Glissez-déposez le composant <strong>RouteForce</strong> dans cet onglet</li>
+    <li>Cliquez sur <strong>Save</strong> puis <strong>Activate</strong></li>
+  </ol>
+  <p style="margin-top: 8px; color: #64748b; font-size: 0.9em;">💡 Le composant se centre automatiquement sur le compte courant lorsqu'il est positionné sur une page Account. Les comptes à proximité sont visibles sur la carte, facilitant la planification de visites groupées.</p>
+</div>
+
 <!-- ============================================================ -->
 <h2 id="validation">8. Test de validation</h2>
 
@@ -344,6 +372,10 @@
     <li>✅ Cliquer sur des marqueurs les ajoute comme étapes</li>
     <li>✅ Le bouton <strong>"Optimiser"</strong> réordonne les étapes (requiert ORS API Key)</li>
     <li>✅ Le bouton <strong>"Historique"</strong> affiche les tournées enregistrées</li>
+    <li>✅ Après "Enregistrer au calendrier", une modale demande de nommer la tournée (si <code>Enable History Naming = true</code>)</li>
+    <li>✅ Le bouton <strong>"Masquer comptes"</strong> apparaît après optimisation pour une vue route épurée</li>
+    <li>✅ L'onglet <strong>RouteForce</strong> est visible dans la barre de navigation</li>
+    <li>✅ L'onglet <strong>Map</strong> est visible sur la fiche Account (si configuré)</li>
   </ol>
 </div>
 
@@ -352,7 +384,32 @@
 </div>
 
 <!-- ============================================================ -->
-<h2 id="troubleshooting">9. Dépannage</h2>
+<h2 id="best-practices">9. Bonnes pratiques</h2>
+
+<div class="step-card">
+  <h3>Recommandation : champ Rollup "Dernière visite"</h3>
+  <p>Pour exploiter pleinement le filtre <strong>"Non visité depuis X jours"</strong>, nous recommandons fortement de créer un champ Rollup Summary (ou formula) sur l'objet Account :</p>
+  <table>
+    <tr><th>Champ</th><th>Configuration</th></tr>
+    <tr><td><strong>Label</strong></td><td><code>Dernière Visite</code> (ou <code>Last Visit Date</code>)</td></tr>
+    <tr><td><strong>API Name</strong></td><td><code>Last_Visit_Date__c</code></td></tr>
+    <tr><td><strong>Type</strong></td><td>Rollup Summary (MAX) sur Events liés au compte, filtrés par <code>Subject CONTAINS 'Visite'</code> ou un RecordType dédié</td></tr>
+    <tr><td><strong>Alternative</strong></td><td>Formula <code>MAX(LastActivityDate, Last_Event_Date__c)</code> ou Flow schedulé</td></tr>
+  </table>
+  <p style="margin-top:8px;">Ensuite, renseignez le nom API de ce champ dans <strong>RouteForce Config → Last Visit Field</strong> (ex: <code>Last_Visit_Date__c</code>).</p>
+</div>
+
+<div class="alert alert-info">
+  <strong>💡 Pourquoi un Rollup ?</strong> Le champ standard <code>LastActivityDate</code> inclut les appels, emails et tâches — pas uniquement les visites terrain. Un Rollup dédié vous permet de filtrer précisément sur les visites physiques et d'identifier les comptes non visités depuis N jours.
+</div>
+
+<div class="step-card">
+  <h3>Recommandation : fonds de carte alternatifs</h3>
+  <p>Pour activer les fonds <strong>Satellite</strong> (imagerie aérienne Esri) et <strong>Terrain</strong> (OpenTopoMap), ajoutez les CSP Trusted Sites correspondantes (voir étape 3.2). Sans ces sites autorisés, seul le fond Standard (OpenStreetMap) fonctionnera.</p>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="troubleshooting">10. Dépannage</h2>
 
 <table>
   <tr><th>Problème</th><th>Solution</th></tr>
@@ -377,6 +434,10 @@
     <td>Ajoutez les CSP Trusted Sites pour <code>https://*.tile.openstreetmap.org</code> et <code>https://unpkg.com</code> (étape 3).</td>
   </tr>
   <tr>
+    <td>Fond Satellite ou Terrain ne charge pas</td>
+    <td>Ajoutez les CSP Trusted Sites : <code>https://server.arcgisonline.com</code> (Satellite) et <code>https://*.opentopomap.org</code> (Terrain). Voir étape 3.2.</td>
+  </tr>
+  <tr>
     <td>Erreur 401 sur les routes</td>
     <td>Votre clé API est invalide ou votre licence a expiré. Contactez le support.</td>
   </tr>
@@ -387,7 +448,7 @@
 </table>
 
 <!-- ============================================================ -->
-<h2 id="support">10. Contact support</h2>
+<h2 id="support">11. Contact support</h2>
 
 <table>
   <tr><th>Canal</th><th>Détails</th></tr>
