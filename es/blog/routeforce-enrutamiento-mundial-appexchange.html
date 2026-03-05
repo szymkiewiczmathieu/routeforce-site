@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PWNN33DN');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteForce: enrutamiento mundial y listo para AppExchange — RouteForce Blog</title>
+    <meta name="description" content="RouteForce integra un motor de enrutamiento mundial (OpenRouteService planetario) y supera las verificaciones de seguridad del AppExchange de Salesforce.">
+    <link rel="canonical" href="https://routeforce.app/es/blog/routeforce-enrutamiento-mundial-appexchange.html">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="stylesheet" href="../../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <meta property="og:title" content="RouteForce: enrutamiento mundial y listo para AppExchange">
+    <meta property="og:description" content="Motor de enrutamiento planetario + listo para AppExchange. Lo que cambia para los equipos de campo.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://routeforce.app/es/blog/routeforce-enrutamiento-mundial-appexchange.html">
+    <meta property="og:image" content="https://routeforce.app/assets/screenshot-tour-planner.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "RouteForce: enrutamiento mundial y listo para AppExchange",
+        "description": "Motor de enrutamiento planetario y AppExchange de Salesforce: dos avances concretos para RouteForce.",
+        "author": {
+            "@type": "Person",
+            "name": "Mathieu Szymkiewicz"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "RouteForce",
+            "url": "https://routeforce.app"
+        },
+        "datePublished": "2026-03-05",
+        "dateModified": "2026-03-05",
+        "url": "https://routeforce.app/es/blog/routeforce-enrutamiento-mundial-appexchange.html",
+        "image": "https://routeforce.app/assets/screenshot-tour-planner.png"
+    }
+    </script>
+
+    <style>
+        .blog-hero { padding: 120px 0 60px; background: linear-gradient(135deg, var(--primary-50) 0%, white 100%); }
+        .blog-hero .container { max-width: 800px; }
+        .blog-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 24px; font-size: 0.875rem; color: var(--gray-500); }
+        .blog-tag { background: var(--primary-100); color: var(--primary-700); padding: 4px 12px; border-radius: 20px; font-weight: 600; font-size: 0.8rem; }
+        .blog-content { padding: 60px 0 100px; }
+        .blog-content .container { max-width: 800px; }
+        .blog-content h2 { font-size: 1.5rem; font-weight: 700; color: var(--gray-900); margin-top: 48px; margin-bottom: 16px; }
+        .blog-content h3 { font-size: 1.15rem; font-weight: 600; color: var(--gray-800); margin-top: 32px; margin-bottom: 12px; }
+        .blog-content p { font-size: 1.05rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 20px; }
+        .blog-content ul, .blog-content ol { margin-bottom: 20px; padding-left: 24px; }
+        .blog-content li { font-size: 1.05rem; line-height: 1.8; color: var(--gray-700); margin-bottom: 8px; }
+        .blog-content strong { color: var(--gray-900); }
+        .blog-cta-box { background: linear-gradient(135deg, var(--primary-600), var(--primary-700)); color: white; padding: 40px; border-radius: 16px; margin: 48px 0; text-align: center; }
+        .blog-cta-box h3 { color: white; margin-top: 0; font-size: 1.3rem; }
+        .blog-cta-box p { color: rgba(255,255,255,0.9); }
+        .blog-cta-box .btn { background: white; color: var(--primary-700); font-weight: 700; padding: 12px 32px; border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 12px; }
+        .blog-cta-box .btn:hover { background: var(--gray-100); }
+        .tech-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 0.95rem; }
+        .tech-table th { background: var(--gray-50); padding: 12px 16px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--gray-200); }
+        .tech-table td { padding: 12px 16px; border-bottom: 1px solid var(--gray-100); }
+    </style>
+</head>
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWNN33DN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <a href="../index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="8" cy="20" r="2.5" fill="currentColor"/>
+                    <circle cx="14" cy="10" r="2.5" fill="currentColor"/>
+                    <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
+                    <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
+                </svg>
+                <span>RouteForce</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="../index.html#features">Funcionalidades</a>
+                <a href="../index.html#pricing">Precios</a>
+                <a href="./" class="active">Blog</a>
+                <a href="../index.html#contact" class="btn btn-primary btn-sm">Solicitar una demo</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-meta">
+                <span class="blog-tag">Producto</span>
+                <span>5 de marzo de 2026</span>
+                <span>·</span>
+                <span>5 min de lectura</span>
+            </div>
+            <h1>RouteForce: enrutamiento mundial y listo para AppExchange</h1>
+            <p style="font-size:1.15rem;color:var(--gray-600);margin-top:16px;">Dos avances concretos esta semana: un motor de enrutamiento que cubre todo el planeta y una aplicación lista para el marketplace de Salesforce.</p>
+        </div>
+    </section>
+
+    <section class="blog-content">
+        <div class="container">
+
+            <h2>Un motor de enrutamiento mundial</h2>
+
+            <p>Hasta ahora, RouteForce calculaba itinerarios dentro de Francia y países vecinos. Funciona para la mayoría de los casos, pero no sirve cuando un cliente opera en Senegal, Emiratos Árabes o América del Sur.</p>
+
+            <p>Esta semana, construimos un grafo vial planetario basado en <strong>OpenRouteService</strong> y datos de <strong>OpenStreetMap</strong>. Los números:</p>
+
+            <table class="tech-table">
+                <tr><th>Dato</th><th>Valor</th></tr>
+                <tr><td>Archivo fuente</td><td>planet-latest.osm.pbf (78 GB)</td></tr>
+                <tr><td>Nodos viales</td><td>309 millones</td></tr>
+                <tr><td>Aristas</td><td>387 millones</td></tr>
+                <tr><td>Perfiles de enrutamiento</td><td>driving-car (4 variantes CH + LM)</td></tr>
+                <tr><td>Tiempo de construcción</td><td>~3 días en servidor dedicado</td></tr>
+                <tr><td>Infraestructura</td><td>VPS dedicado, 64 GB RAM, SSD</td></tr>
+            </table>
+
+            <p>A partir de la próxima semana, un comercial que use RouteForce podrá calcular una ruta optimizada <strong>en cualquier lugar del mundo</strong>: Dakar, Dubái, São Paulo o Melbourne. Mismo motor, misma precisión, misma velocidad.</p>
+
+            <h3>Por qué es importante</h3>
+
+            <p>La mayoría de las soluciones de enrutamiento para Salesforce dependen de Google Maps o servicios de terceros facturados por llamada API. Eso significa costos variables, límites de peticiones y dependencia de un proveedor externo.</p>
+
+            <p>RouteForce utiliza un motor open source auto-alojado. El costo de enrutamiento es <strong>fijo e incluido en la suscripción</strong>, sin importar el volumen de cálculos. Sin sorpresas en la factura, sin cuotas que vigilar.</p>
+
+            <h2>AppExchange: dónde estamos</h2>
+
+            <p>RouteForce es un paquete administrado de Salesforce (2GP). Acabamos de superar las etapas de seguridad necesarias para enviar la aplicación al AppExchange:</p>
+
+            <ul>
+                <li><strong>Salesforce Code Analyzer</strong> ejecutado — solo 2 hallazgos, ambos documentados como falsos positivos (campos CMDT editables por el cliente, por diseño).</li>
+                <li><strong>Claves API migradas</strong> a Custom Settings protegidos. Ningún secreto codificado en el fuente.</li>
+                <li><strong>Auditoría de las 20 vulnerabilidades AppExchange</strong> más comunes — 18/20 limpias, 2 falsos positivos documentados.</li>
+                <li><strong>258 tests Apex</strong>, 77% de cobertura de código. Cero tests fallidos.</li>
+                <li><strong>TLS verificado</strong>: todas las comunicaciones cifradas con AES-256-GCM.</li>
+                <li><strong>Permisos</strong>: dos PermissionSets (User y Admin), FLS aplicado en todos los objetos.</li>
+            </ul>
+
+            <p>La presentación está prevista en las próximas semanas. El proceso de revisión de Salesforce normalmente tarda de 6 a 9 semanas. Objetivo: publicación en el AppExchange en mayo de 2026.</p>
+
+            <h3>Qué cambia para los clientes</h3>
+
+            <p>Estar en el AppExchange significa:</p>
+
+            <ul>
+                <li><strong>Instalación en un clic</strong> desde el marketplace de Salesforce</li>
+                <li><strong>Actualizaciones automáticas</strong> a través del gestor de paquetes</li>
+                <li><strong>Visibilidad</strong> ante miles de empresas que buscan soluciones de enrutamiento</li>
+                <li><strong>Confianza</strong> — el código ha sido auditado por Salesforce</li>
+            </ul>
+
+            <h2>Versión actual: v1.2.0</h2>
+
+            <p>Para quienes no quieren esperar al AppExchange, RouteForce ya se puede instalar como paquete administrado. La v1.2.0, publicada hoy, incluye:</p>
+
+            <ul>
+                <li>Eventos de Salesforce mostrados en el mapa</li>
+                <li>Asistente de configuración (flujo de onboarding)</li>
+                <li>Filtro Cuentas / Leads / Ambos</li>
+                <li>17 parámetros configurables sin código (Custom Metadata)</li>
+                <li>220 etiquetas traducidas (inglés, francés, español)</li>
+                <li>Soporte completo de Leads (marcadores ⭐ en el mapa)</li>
+            </ul>
+
+            <div class="blog-cta-box">
+                <h3>Pruebe RouteForce en su org de Salesforce</h3>
+                <p>Instalación en 2 minutos. 249€/mes todo incluido, enrutamiento ilimitado.</p>
+                <a href="../index.html#contact" class="btn">Solicitar una demo</a>
+            </div>
+
+            <h2>Próximos pasos</h2>
+
+            <p>Las próximas semanas: envío al AppExchange, enrutamiento mundial en producción y primeros comentarios de clientes. Construimos RouteForce de forma pública — si tiene preguntas o necesidades específicas, <a href="mailto:contact@routeforce.app">escríbanos</a>.</p>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="8" cy="20" r="2.5" fill="currentColor"/>
+                            <circle cx="14" cy="10" r="2.5" fill="currentColor"/>
+                            <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
+                            <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
+                        </svg>
+                        <span>RouteForce</span>
+                    </a>
+                    <p>Optimización de rutas comerciales para Salesforce</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html#features">Funcionalidades</a>
+                    <a href="../index.html#pricing">Precios</a>
+                    <a href="./">Blog</a>
+                    <a href="../index.html#contact">Contacto</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 RouteForce. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../script.js"></script>
+</body>
+</html>
