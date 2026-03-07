@@ -75,6 +75,7 @@
             "Filtres dynamiques et sauvegardés",
             "Export Google Maps / Waze / CSV",
             "Historique des 20 dernières tournées",
+            "Géocodage automatique des comptes sans coordonnées GPS",
             "Comptes proches par géolocalisation GPS",
             "Drag-and-drop pour réordonner les étapes",
             "Gestion des rendez-vous non assignés",
@@ -229,6 +230,7 @@
                         <li><strong>Filtres configurables</strong> — par secteur, stage de vente, forecast, type de lead</li>
                         <li><strong>Itinéraire optimal multimodal</strong> — pause déjeuner, péages, durée de visite intégrés</li>
                         <li><strong>Agenda Salesforce rempli automatiquement</strong> — RDV, contacts, adresses, en un clic</li>
+                        <li><strong>Géocodage automatique</strong> — fonctionne même quand vos données Salesforce sont incomplètes (GPS manquant)</li>
                         <li><strong>Historique des tournées</strong> — rechargez vos itinéraires récurrents en 30 secondes</li>
                         <li><strong>Export CSV</strong> — reporting manager et feuille de route partagée</li>
                     </ul>
@@ -332,6 +334,17 @@
                     </div>
                     <h3>Filtres polymorphiques</h3>
                     <p>Filtrez par n'importe quel champ sur n'importe quel objet — Industry, Stage, Forecast, Lead Status, montant, et tout champ custom. Une interface de filtre unique, applicable à Account, Opportunity ou Lead.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                            <path d="M12 14v4M9 16h6"/>
+                        </svg>
+                    </div>
+                    <h3>Géocodage automatique</h3>
+                    <p>Vos comptes Salesforce n'ont pas de coordonnées GPS ? RouteForce les géocode à la volée. Les imports bulk (Data Loader, ETL, migrations) ne déclenchent pas le géocodeur natif de Salesforce — RouteForce comble ce vide automatiquement, sans config.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -861,6 +874,15 @@
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
+                        <span>Mes comptes Salesforce n'ont pas de coordonnées GPS — est-ce un problème ?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Non. C'est même l'un des avantages majeurs de RouteForce. Beaucoup d'orgs Salesforce ont des comptes sans coordonnées GPS car les imports en masse (Data Loader, Bulk API, ETL, MuleSoft) ne déclenchent pas le géocodeur natif de Salesforce. RouteForce détecte automatiquement les comptes sans GPS et les géocode à la volée lors du calcul de tournée. Les coordonnées sont ensuite stockées dans Salesforce — pas d'appel répété. <strong>Vous pouvez commencer tout de suite, sans projet préalable de nettoyage de données.</strong></p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
                         <span>Quels secteurs d'activité utilisent RouteForce ?</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
@@ -1102,6 +1124,14 @@
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Oui, RouteForce est 100% natif Salesforce. Il fonctionne avec votre objet Account existant (sous-requête Contact incluse). Aucune synchronisation externe n'est requise, vos données restent dans Salesforce."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Mes comptes Salesforce n'ont pas de coordonnées GPS — est-ce un problème ?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Non. RouteForce géocode automatiquement les comptes sans coordonnées GPS. Les imports en masse (Data Loader, Bulk API, ETL) ne déclenchent pas le géocodeur natif de Salesforce — RouteForce détecte et géocode ces comptes à la volée lors du calcul de tournée. Les coordonnées sont ensuite stockées dans Salesforce. Vous pouvez commencer immédiatement, sans nettoyage préalable de vos données."
                 }
             },
             {
