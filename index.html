@@ -344,7 +344,7 @@
                         </svg>
                     </div>
                     <h3>Géocodage automatique</h3>
-                    <p>Vos comptes Salesforce n'ont pas de coordonnées GPS ? RouteForce les géocode à la volée. Les imports bulk (Data Loader, ETL, migrations) ne déclenchent pas le géocodeur natif de Salesforce — RouteForce comble ce vide automatiquement, sans config.</p>
+                    <p>Prérequis : vos comptes Salesforce doivent avoir des coordonnées GPS (BillingLatitude/Longitude ou ShippingLatitude/Longitude). RouteForce lit ces coordonnées — il ne géocode pas. Si vos comptes n'ont pas encore de coordonnées, un projet de géocodage préalable est nécessaire (Salesforce Maps, Data.com, ou service tiers).</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -878,7 +878,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Non. C'est même l'un des avantages majeurs de RouteForce. Beaucoup d'orgs Salesforce ont des comptes sans coordonnées GPS car les imports en masse (Data Loader, Bulk API, ETL, MuleSoft) ne déclenchent pas le géocodeur natif de Salesforce. RouteForce détecte automatiquement les comptes sans GPS et les géocode à la volée lors du calcul de tournée. Les coordonnées sont ensuite stockées dans Salesforce — pas d'appel répété. <strong>Vous pouvez commencer tout de suite, sans projet préalable de nettoyage de données.</strong></p>
+                        <p>Non. RouteForce nécessite que vos comptes aient déjà des coordonnées GPS dans Salesforce (champs BillingLatitude/Longitude ou ShippingLatitude/Longitude). RouteForce ne géocode pas lui-même — il utilise les coordonnées existantes. Si vos comptes n'ont pas encore de coordonnées, vous devez effectuer un projet de géocodage préalable (Salesforce Maps, Data.com, ou service tiers) avant de pouvoir utiliser RouteForce.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1131,7 +1131,7 @@
                 "name": "Mes comptes Salesforce n'ont pas de coordonnées GPS — est-ce un problème ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Non. RouteForce géocode automatiquement les comptes sans coordonnées GPS. Les imports en masse (Data Loader, Bulk API, ETL) ne déclenchent pas le géocodeur natif de Salesforce — RouteForce détecte et géocode ces comptes à la volée lors du calcul de tournée. Les coordonnées sont ensuite stockées dans Salesforce. Vous pouvez commencer immédiatement, sans nettoyage préalable de vos données."
+                    "text": "Non. RouteForce nécessite que vos comptes aient déjà des coordonnées GPS dans Salesforce (champs BillingLatitude/Longitude ou ShippingLatitude/Longitude). RouteForce ne géocode pas lui-même — il utilise les coordonnées existantes. Un projet de géocodage préalable est nécessaire si vos comptes n'ont pas encore de coordonnées."
                 }
             },
             {
