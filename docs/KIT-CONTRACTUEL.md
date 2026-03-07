@@ -16,7 +16,7 @@
 ### 3. **Éléments à personnaliser**
 Dans chaque document, remplacer :
 - `[Adresse complète]` → ton adresse professionnelle
-- `[SIRET]` → ton numéro SIRET
+- `[SIRET]` → 938 498 649 00012
 - `[TVA intracommunautaire]` → ton numéro de TVA
 - `[À compléter]` dans les mentions légales
 - Les `[NUMÉRO]` dans les devis
