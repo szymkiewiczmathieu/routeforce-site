@@ -233,7 +233,7 @@
     <td><code>Address Field Prefix</code></td>
     <td>Picklist</td>
     <td><code>Shipping</code></td>
-    <td><span class="badge badge-optional">Optionnel</span> Address prefix for geocoding : <code>Shipping</code> ou <code>Billing</code>. Automatic fallback to the other type if the preferred address has no coordinates.</td>
+    <td><span class="badge badge-optional">Optionnel</span> Address prefix used to pick which Salesforce address coordinates to use: <code>Shipping</code> or <code>Billing</code>. Automatic fallback to the other type if the preferred address has no coordinates.</td>
   </tr>
   <tr>
     <td><code>Enable Contact Lookup</code></td>
@@ -381,7 +381,7 @@
     <li>✅ The component is visible in the App Builder (search for "routeforce")</li>
     <li>✅ Custom Metadata are accessible in <strong>Setup → Custom Metadata Types</strong></li>
     <li>✅ The component loads (Leaflet map visible, no "licence expired" screen)</li>
-    <li>✅ Accounts with geocoded addresses appear as markers</li>
+    <li>✅ Accounts with GPS coordinates (Latitude/Longitude) appear as markers</li>
     <li>✅ The <strong>"Route"</strong> button opens the planning panel</li>
     <li>✅ Clicking markers adds them as stops</li>
     <li>✅ The <strong>"Optimize"</strong> button reorders stops (requires ORS API Key)</li>

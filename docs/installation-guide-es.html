@@ -233,7 +233,7 @@
     <td><code>Address Field Prefix</code></td>
     <td>Picklist</td>
     <td><code>Shipping</code></td>
-    <td><span class="badge badge-optional">Optionnel</span> Prefijo de dirección para geocodificación : <code>Shipping</code> ou <code>Billing</code>. Fallback automático al otro tipo si la dirección preferida no tiene coordenadas.</td>
+    <td><span class="badge badge-optional">Optionnel</span> Prefijo de dirección usado para elegir qué coordenadas de dirección de Salesforce usar: <code>Shipping</code> o <code>Billing</code>. Fallback automático al otro tipo si la dirección preferida no tiene coordenadas.</td>
   </tr>
   <tr>
     <td><code>Enable Contacte Lookup</code></td>
@@ -381,7 +381,7 @@
     <li>✅ El componente es visible en el App Builder (buscar "routeforce")</li>
     <li>✅ Los Custom Metadata son accesibles en <strong>Setup → Custom Metadata Types</strong></li>
     <li>✅ El componente se carga (mapa Leaflet visible, sin pantalla "licencia expirada")</li>
-    <li>✅ Las cuentas con direcciones geocodificadas aparecen como marcadores</li>
+    <li>✅ Las cuentas con coordenadas GPS (Latitud/Longitud) aparecen como marcadores</li>
     <li>✅ El botón <strong>"Ruta"</strong> abre el panel de planificación</li>
     <li>✅ Hacer clic en los marcadores los añade como paradas</li>
     <li>✅ El botón <strong>"Optimizar"</strong> reordena las paradas (requiere ORS API Key)</li>

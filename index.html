@@ -75,7 +75,7 @@
             "Filtres dynamiques et sauvegardés",
             "Export Google Maps / Waze / CSV",
             "Historique des 20 dernières tournées",
-            "Géocodage automatique des comptes sans coordonnées GPS",
+            "Coordonnées GPS Salesforce requises (RouteForce n'effectue pas de géocodage automatique)",
             "Comptes proches par géolocalisation GPS",
             "Drag-and-drop pour réordonner les étapes",
             "Gestion des rendez-vous non assignés",
@@ -230,7 +230,7 @@
                         <li><strong>Filtres configurables</strong> — par secteur, stage de vente, forecast, type de lead</li>
                         <li><strong>Itinéraire optimal multimodal</strong> — pause déjeuner, péages, durée de visite intégrés</li>
                         <li><strong>Agenda Salesforce rempli automatiquement</strong> — RDV, contacts, adresses, en un clic</li>
-                        <li><strong>Géocodage automatique</strong> — fonctionne même quand vos données Salesforce sont incomplètes (GPS manquant)</li>
+                        <li><strong>Coordonnées GPS Salesforce</strong> — RouteForce exploite les coordonnées déjà présentes dans Salesforce (Latitude/Longitude). Le géocodage automatique n'est pas encore disponible.</li>
                         <li><strong>Historique des tournées</strong> — rechargez vos itinéraires récurrents en 30 secondes</li>
                         <li><strong>Export CSV</strong> — reporting manager et feuille de route partagée</li>
                     </ul>
@@ -343,8 +343,8 @@
                             <path d="M12 14v4M9 16h6"/>
                         </svg>
                     </div>
-                    <h3>Géocodage automatique</h3>
-                    <p>Prérequis : vos comptes Salesforce doivent avoir des coordonnées GPS (BillingLatitude/Longitude ou ShippingLatitude/Longitude). RouteForce lit ces coordonnées — il ne géocode pas. Si vos comptes n'ont pas encore de coordonnées, un projet de géocodage préalable est nécessaire (Salesforce Maps, Data.com, ou service tiers).</p>
+                    <h3>Coordonnées GPS Salesforce (requises)</h3>
+                    <p>Prérequis : vos comptes Salesforce doivent déjà avoir des coordonnées GPS (BillingLatitude/Longitude ou ShippingLatitude/Longitude). RouteForce lit ces coordonnées — il ne géocode pas. Le géocodage automatique n'est pas encore disponible dans RouteForce. Si vos comptes n'ont pas encore de coordonnées, un projet de géocodage préalable est nécessaire (Salesforce Maps, Data.com, ou service tiers).</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
