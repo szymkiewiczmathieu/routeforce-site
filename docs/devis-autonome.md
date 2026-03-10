@@ -1,4 +1,4 @@
-# DEVIS N° RF-[NUMÉRO] — FORMULE AUTONOME
+# DEVIS N° RF-[NUMÉRO] — ROUTEFORCE PRO + SELF-SETUP
 **RouteForce — Optimisation de tournées commerciales Salesforce**
 
 ## 1. PRESTATAIRE
@@ -12,75 +12,53 @@ Email : contact@routeforce.app
 ## 2. CLIENT
 [Intitulé société]  
 [Adresse]  
-SIRET : 938 498 649 00012  
+SIRET : [SIRET]  
 Contact : [Nom, email, téléphone]
 
 ## 3. OBJET
-Fourniture de la solution RouteForce **Formule Autonome** pour l'optimisation des tournées commerciales dans Salesforce.
+Fourniture de la solution **RouteForce Pro** pour l'optimisation des tournées commerciales dans Salesforce, avec mise en œuvre en **self-setup**.
 
 ### 3.1 Ce qui est inclus
-✓ Package Salesforce installé en quelques minutes  
-✓ Documentation complète fournie (guide d'installation et d'utilisation)  
-✓ Moteur de calcul hébergé en France (OVH Gravelines)  
-✓ RGPD : données hébergées en France  
-✓ Mises à jour et compatibilité Salesforce maintenues  
-✓ Support email sous 48h ouvrées  
-✓ Interface multilingue FR/EN/ES  
-✓ Utilisateurs illimités dans votre org Salesforce
+✓ Licence RouteForce Pro à l'échelle de l'organisation Salesforce  
+✓ Tarification organisationnelle, sans facturation par utilisateur  
+✓ Documentation d'installation et de configuration  
+✓ Moteur de calcul hébergé en France  
+✓ Mises à jour et maintenance applicative standard  
+✓ Support standard  
+✓ Interface multilingue FR/EN/ES
 
 ### 3.2 Ce qui n'est pas inclus
-✗ Configuration par notre équipe  
-✗ Prise en main admin  
-✗ Suivi post-déploiement  
+✗ Mise en service par notre équipe  
+✗ Paramétrage spécifique  
 ✗ Développements spécifiques  
-✗ Géolocalisation de vos comptes (prérequis : champs latitude/longitude renseignés)
+✗ Intégrations tierces  
+✗ Formation complémentaire non prévue au devis
 
 ## 4. CONDITIONS FINANCIÈRES
 
-### 4.1 Installation unique
-**3 500 € HT** (trois mille cinq cents euros hors taxes)
+### 4.1 Licence RouteForce Pro
+**599 € HT / mois**  
+**Engagement 12 mois – facturation annuelle**
 
-**Offre de lancement : -90% → 350 € HT** (trois cent cinquante euros hors taxes)
+Soit **7 188 € HT / an**.
 
-### 4.2 Abonnement mensuel
-**249 € HT / mois** (facturé annuellement : **2 988 € HT/an**)  
-Engagement initial : **12 mois**, renouvelable tacitement par périodes successives de 12 mois.
+### 4.2 Mise en service self-setup
+**0 € HT**
 
 ### 4.3 Total année 1
 | Description | Montant HT | TVA 20% | Montant TTC |
 |-------------|------------|---------|-------------|
-| Installation (promo -90%) | 350 € | 70 € | 420 € |
-| Abonnement 12 mois | 2 988 € | 597,60 € | 3 585,60 € |
-| **TOTAL ANNÉE 1** | **3 338 €** | **667,60 €** | **4 005,60 €** |
+| Self-setup | 0 € | 0 € | 0 € |
+| Licence RouteForce Pro – 12 mois | 7 188 € | 1 437,60 € | 8 625,60 € |
+| **TOTAL ANNÉE 1** | **7 188 €** | **1 437,60 €** | **8 625,60 €** |
 
-## 5. DÉLAIS ET LIVRABLES
-
-### 5.1 Conditions préalables
-- Org Salesforce édition Enterprise, Unlimited ou Developer
-- Comptes (Account) géolocalisés (champs latitude/longitude renseignés)
-- Navigateur web compatible Lightning Experience
-
-### 5.2 Livrables
-- Package Salesforce installable (ID : `04tgL000000C78zQAC`)
-- Guide d'installation détaillé
-- Clés d'API pour l'infrastructure de calcul
-- Accès à la documentation en ligne
-
-### 5.3 Délai d'activation
-Sous 48h ouvrées après réception du paiement de l'installation.
+## 5. PÉRIMÈTRE
+Le présent devis couvre exclusivement la licence RouteForce Pro et la mise à disposition de la solution dans le cadre d'un déploiement en autonomie par le Client.
+Toute prestation de configuration spécifique, intégration, migration, formation complémentaire, adaptation métier ou besoin non expressément mentionné au devis est exclu du périmètre initial et pourra faire l'objet d'un devis complémentaire.
 
 ## 6. MODALITÉS DE PAIEMENT
-
-### 6.1 Facturation
-- Installation : facturée à la commande
-- Abonnement : facturé annuellement à terme à échoir
-- Première facture abonnement : à la date d'activation
-
-### 6.2 Paiement
-Par virement bancaire dans les **30 jours** suivant la date de facture.
-
-### 6.3 Période d'essai
-14 jours gratuits avant engagement. Aucun engagement, aucune donnée conservée au-delà de 30 jours.
+- Facturation annuelle anticipée de la licence
+- Paiement par virement bancaire dans les **30 jours** suivant la date de facture
 
 ## 7. ÉVOLUTIONS ET SERVICES COMPLÉMENTAIRES
 Les évolutions demandées par le Client après la mise en service sont facturées au temps en régie, sur la base d'un TJM de **1 500 € HT/jour**, sous réserve de devis préalable.

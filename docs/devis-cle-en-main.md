@@ -1,4 +1,4 @@
-# DEVIS N° RF-[NUMÉRO] — FORMULE CLÉ EN MAIN
+# DEVIS N° RF-[NUMÉRO] — ROUTEFORCE PRO + CLÉ EN MAIN
 **RouteForce — Optimisation de tournées commerciales Salesforce**
 
 ## 1. PRESTATAIRE
@@ -12,76 +12,54 @@ Email : contact@routeforce.app
 ## 2. CLIENT
 [Intitulé société]  
 [Adresse]  
-SIRET : 938 498 649 00012  
+SIRET : [SIRET]  
 Contact : [Nom, email, téléphone]  
 Admin Salesforce désigné : [Nom, email]
 
 ## 3. OBJET
-Fourniture de la solution RouteForce **Formule Clé en main** pour l'optimisation des tournées commerciales dans Salesforce, incluant l'installation, la configuration et la prise en main.
+Fourniture de la solution **RouteForce Pro** avec **mise en service clé en main** pour l'optimisation des tournées commerciales dans Salesforce.
 
 ### 3.1 Ce qui est inclus
-✓ Installation et configuration par notre équipe  
-✓ Paramétrage adapté à votre org Salesforce (filtres métier, permissions, champs custom)  
-✓ Réunion de prise en main avec votre admin Salesforce (visio, 2h)  
-✓ Suivi post-déploiement 30 jours  
-✓ Support email prioritaire sous 24h ouvrées  
-✓ Moteur de calcul hébergé en France (OVH Gravelines)  
-✓ RGPD : données hébergées en France  
-✓ Mises à jour et compatibilité Salesforce maintenues  
-✓ Interface multilingue FR/EN/ES  
-✓ Utilisateurs illimités dans votre org Salesforce
+✓ Licence RouteForce Pro à l'échelle de l'organisation Salesforce  
+✓ Tarification organisationnelle, sans facturation par utilisateur  
+✓ Mise en service clé en main réalisée par RouteForce  
+✓ Paramétrage initial selon le périmètre défini au devis  
+✓ Accompagnement au démarrage  
+✓ Maintenance applicative standard et support  
+✓ Interface multilingue FR/EN/ES
 
 ### 3.2 Exclusions
-✗ Géolocalisation de vos comptes (prérequis : champs latitude/longitude renseignés)  
-✗ Développements spécifiques hors périmètre standard  
-✗ Formation des utilisateurs finaux (sauf admin Salesforce)
+✗ Développements spécifiques hors périmètre défini au devis  
+✗ Intégrations tierces non prévues  
+✗ Formations complémentaires non prévues au devis  
+✗ Prestations additionnelles non expressément mentionnées
 
 ## 4. CONDITIONS FINANCIÈRES
 
-### 4.1 Installation unique (clé en main)
-**5 000 € HT** (cinq mille euros hors taxes)
+### 4.1 Licence RouteForce Pro
+**599 € HT / mois**  
+**Engagement 12 mois – facturation annuelle**
 
-### 4.2 Abonnement mensuel
-**249 € HT / mois** (facturé annuellement : **2 988 € HT/an**)  
-Engagement initial : **12 mois**, renouvelable tacitement par périodes successives de 12 mois.
+Soit **7 188 € HT / an**.
+
+### 4.2 Mise en service clé en main
+**3 000 € HT**
 
 ### 4.3 Total année 1
 | Description | Montant HT | TVA 20% | Montant TTC |
 |-------------|------------|---------|-------------|
-| Installation clé en main | 5 000 € | 1 000 € | 6 000 € |
-| Abonnement 12 mois | 2 988 € | 597,60 € | 3 585,60 € |
-| **TOTAL ANNÉE 1** | **7 988 €** | **1 597,60 €** | **9 585,60 €** |
+| Mise en service clé en main | 3 000 € | 600 € | 3 600 € |
+| Licence RouteForce Pro – 12 mois | 7 188 € | 1 437,60 € | 8 625,60 € |
+| **TOTAL ANNÉE 1** | **10 188 €** | **2 037,60 €** | **12 225,60 €** |
 
-## 5. DÉROULEMENT DU PROJET
-
-### 5.1 Étape 1 — Installation & configuration (J+0 à J+5)
-- Installation du package Salesforce
-- Configuration des champs custom, filtres, permissions
-- Paramétrage des contraintes métier (durées de visite, pauses)
-- Tests de validation
-
-### 5.2 Étape 2 — Prise en main admin (J+6)
-- Réunion visio de 2h avec l'admin Salesforce désigné
-- Présentation de l'interface, des fonctionnalités, des options
-- Réponses aux questions, bonnes pratiques
-
-### 5.3 Étape 3 — Suivi post-déploiement (30 jours)
-- Support prioritaire sous 24h
-- Corrections mineures d'adaptation
-- Retours d'expérience et ajustements
+## 5. PÉRIMÈTRE
+Le présent devis couvre exclusivement la licence RouteForce Pro et la mise en service clé en main telle qu'expressément décrite au devis.
+Toute demande, interface, adaptation métier, reprise de données, développement spécifique, extension de périmètre ou besoin non mentionné au devis est exclu du périmètre initial et pourra faire l'objet d'un devis complémentaire.
 
 ## 6. MODALITÉS DE PAIEMENT
-
-### 6.1 Facturation
-- **50 % de l'installation** à la commande : 2 500 € HT
-- **50 % de l'installation** à la fin de l'étape 1 (J+5) : 2 500 € HT
-- Abonnement : facturé annuellement à terme à échoir, première facture à l'activation
-
-### 6.2 Paiement
-Par virement bancaire dans les **30 jours** suivant la date de facture.
-
-### 6.3 Période d'essai
-14 jours gratuits avant engagement. Aucun engagement, aucune donnée conservée au-delà de 30 jours.
+- Mise en service : facturée à la commande
+- Licence : facturation annuelle anticipée
+- Paiement par virement bancaire dans les **30 jours** suivant la date de facture
 
 ## 7. ÉVOLUTIONS ET SERVICES COMPLÉMENTAIRES
 Les évolutions demandées par le Client après la mise en service sont facturées au temps en régie, sur la base d'un TJM de **1 500 € HT/jour**, sous réserve de devis préalable.

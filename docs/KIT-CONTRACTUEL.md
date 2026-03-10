@@ -9,9 +9,9 @@
 - [Legal Notice EN](mentions-legales-en.html) — version anglaise
 
 ### 2. **Modèles de devis par formule**
-- [Devis Formule Autonome](devis-autonome.md) — 350€ HT install (-90% promo) + 249€/mois
-- [Devis Formule Clé en main](devis-cle-en-main.md) — 5 000€ HT install + 249€/mois
-- [Devis Formule Enterprise](devis-enterprise.md) — sur devis, infrastructure dédiée
+- [Devis RouteForce Pro + Self-setup](devis-autonome.md) — 599€ HT/mois avec engagement annuel + 0€ setup
+- [Devis RouteForce Pro + Clé en main](devis-cle-en-main.md) — 599€ HT/mois avec engagement annuel + 3 000€ HT setup
+- [Devis RouteForce Enterprise & multi-pays](devis-enterprise.md) — à partir de 1 200€ HT/mois + setup à partir de 5 000€ HT
 
 ### 3. **Éléments à personnaliser**
 Dans chaque document, remplacer :
@@ -23,33 +23,33 @@ Dans chaque document, remplacer :
 
 ## 🚀 PROCESSUS DE CONTRACTUALISATION
 
-### Pour un client **Autonome** :
-1. Envoyer le [devis Autonome](devis-autonome.md) rempli
+### Pour un client **Self-setup** :
+1. Envoyer le [devis RouteForce Pro + Self-setup](devis-autonome.md) rempli
 2. Joindre le lien vers les [CGV](cgv.html)
 3. Client signe le devis → contrat formé (CGV incluses par référence)
-4. Facturer 350€ HT (installation promo) + premier acompte abonnement
-5. Activer les clés API après paiement
+4. Facturer la licence annuelle RouteForce Pro
+5. Activer l'accès selon les conditions prévues
 
 ### Pour un client **Clé en main** :
-1. Envoyer le [devis Clé en main](devis-cle-en-main.md) rempli
-2. CGV jointes
-3. Signature → déclencher les 50% d'acompte
-4. Livrer en 3 étapes (install → formation → suivi 30j)
-5. Facturer le solde 50% après étape 1
+1. Envoyer le [devis RouteForce Pro + Clé en main](devis-cle-en-main.md) rempli
+2. Joindre les CGV
+3. Signature → facturation de la mise en service + licence annuelle
+4. Réaliser la mise en service selon le périmètre défini au devis
 
-### Pour un client **Enterprise** :
-1. Réaliser une étude préalable (5 jours facturables)
+### Pour un client **Enterprise & multi-pays** :
+1. Cadrer le périmètre exact
 2. Établir un devis sur mesure basé sur [le modèle Enterprise](devis-enterprise.md)
-3. Négocier le SLA, l'infrastructure, les intégrations
-4. Signature → facturation 30/40/30
+3. Définir les conditions financières et le niveau d'accompagnement
+4. Signature → exécution selon l'échéancier prévu au devis
 
 ## ⚠️ POINTS ATTENTION
 
 ### **Services additionnels**
-Les CGV incluent désormais l'**Article 3.4** :  
-> *Évolutions facturées au temps en régie, TJM 1 500 € HT/jour, devis préalable.*
+Les CGV distinguent désormais clairement :  
+- **la licence SaaS RouteForce**
+- **les prestations de services** (mise en service, paramétrage, intégration, accompagnement, formation, développements spécifiques)
 
-À mentionner explicitement dans les échanges commerciaux.
+À mentionner explicitement dans les échanges commerciaux et dans les devis.
 
 ### **Période d'essai**
 Toutes les formules incluent 14 jours d'essai gratuit.  
@@ -74,7 +74,7 @@ Pour une relecture juridique professionnelle (~200-300€) :
 
 ## 🔄 MISE À JOUR
 Ce kit est versionné. Modifications à apporter :
-1. Mettre à jour les CGV si changement de pricing
+1. Mettre à jour les CGV si changement de pricing ou d'immatriculation
 2. Ajuster les devis modèles si besoin
 3. Repousser sur GitHub Pages (`git push origin main`)
 
