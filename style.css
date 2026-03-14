@@ -412,8 +412,9 @@ img {
 }
 .phone-frame img {
     width: 100%;
-    aspect-ratio: 822 / 1600;
+    aspect-ratio: 1080 / 2340;
     object-fit: cover;
+    object-position: top center;
     border-radius: 24px;
     display: block;
     border: 1px solid rgba(148, 163, 184, 0.18);
