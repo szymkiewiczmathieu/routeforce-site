@@ -359,80 +359,68 @@ img {
 .hero-visual {
     display: flex;
     align-items: flex-end;
-    gap: 24px;
+    gap: 28px;
 }
 .hero-screenshot {
     flex: 1;
     min-width: 0;
 }
 .hero-mobile {
-    flex: 0 0 210px;
-    max-width: 210px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    animation: mobileFloat 4s ease-in-out infinite;
+    flex: 0 0 240px;
+    max-width: 240px;
 }
-.phone-frame {
-    width: 210px;
-    background: linear-gradient(180deg, #0f172a 0%, #111827 45%, #020617 100%);
-    border-radius: 34px;
-    padding: 14px 10px 14px;
-    box-shadow: 0 32px 80px rgba(15, 23, 42, 0.28), 0 12px 28px rgba(37, 99, 235, 0.18), inset 0 0 0 1px rgba(255,255,255,0.08);
+.hero-mobile-card {
     position: relative;
-    overflow: hidden;
-    transform: rotate(4deg);
+    background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.98) 100%);
+    border: 1px solid rgba(203, 213, 225, 0.9);
+    border-radius: 28px;
+    padding: 16px;
+    box-shadow: 0 28px 60px rgba(15, 23, 42, 0.16), 0 8px 24px rgba(37, 99, 235, 0.08);
 }
-.phone-frame::before {
+.hero-mobile-card::before {
     content: "";
     position: absolute;
-    inset: 0;
-    background: linear-gradient(135deg, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0.05) 30%, rgba(255,255,255,0) 55%);
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(191, 219, 254, 0.75));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
     pointer-events: none;
 }
-.phone-frame::after {
-    content: "";
-    position: absolute;
-    top: 18px;
-    left: 50%;
-    width: 10px;
-    height: 10px;
-    transform: translateX(-50%);
-    border-radius: 50%;
-    background: radial-gradient(circle at 35% 35%, #64748b 0%, #111827 65%, #020617 100%);
-    box-shadow: 0 0 0 2px rgba(255,255,255,0.05);
+.hero-mobile-header {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
 }
-.phone-notch {
-    width: 92px;
-    height: 12px;
-    background: rgba(2, 6, 23, 0.92);
-    border-radius: 999px;
-    margin: 0 auto 12px;
+.hero-mobile-kicker {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--primary-700);
 }
-.phone-frame img {
+.hero-mobile-meta {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: var(--gray-500);
+}
+.hero-mobile-screen {
+    background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
+    border-radius: 22px;
+    padding: 8px;
+    box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.22);
+}
+.hero-mobile-screen img {
     width: 100%;
     aspect-ratio: 1080 / 2340;
     object-fit: cover;
     object-position: top center;
-    border-radius: 24px;
+    border-radius: 16px;
     display: block;
-    border: 1px solid rgba(148, 163, 184, 0.18);
-}
-.mobile-badge {
-    font-size: 0.72rem;
-    font-weight: 800;
-    color: var(--primary-700);
-    background: rgba(255,255,255,0.92);
-    padding: 6px 14px;
-    border-radius: 999px;
-    box-shadow: var(--shadow-md);
-    white-space: nowrap;
-    border: 1px solid rgba(191, 219, 254, 0.9);
-}
-@keyframes mobileFloat {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
 }
 
 /* ============ PROBLEM / SOLUTION ============ */
@@ -1225,12 +1213,13 @@ img {
     }
     .hero-mobile {
         margin: 0 auto;
-        flex-basis: 170px;
-        max-width: 170px;
+        flex-basis: 220px;
+        max-width: 220px;
     }
-    .phone-frame { width: 170px; border-radius: 26px; padding: 11px 8px 11px; }
-    .phone-notch { width: 72px; height: 10px; margin-bottom: 10px; }
-    .mobile-badge { font-size: 0.64rem; padding: 5px 10px; }
+    .hero-mobile-card {
+        border-radius: 24px;
+        padding: 14px;
+    }
 
     .features-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1302,6 +1291,37 @@ img {
     .hero-proof {
         flex-wrap: wrap;
         gap: 16px;
+    }
+
+    .hero-visual {
+        gap: 20px;
+    }
+
+    .hero-mobile {
+        max-width: 100%;
+        width: min(280px, 100%);
+    }
+
+    .hero-mobile-card {
+        padding: 12px;
+        border-radius: 22px;
+    }
+
+    .hero-mobile-header {
+        margin-bottom: 12px;
+    }
+
+    .hero-mobile-meta {
+        font-size: 0.78rem;
+    }
+
+    .hero-mobile-screen {
+        border-radius: 20px;
+        padding: 7px;
+    }
+
+    .hero-mobile-screen img {
+        border-radius: 14px;
     }
 
     .problem-grid {
