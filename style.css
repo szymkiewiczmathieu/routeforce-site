@@ -355,10 +355,10 @@ img {
     font-style: italic;
 }
 
-/* Hero visual — desktop + mobile side by side */
+/* Hero visual — desktop screenshot + clean product panel */
 .hero-visual {
     display: flex;
-    align-items: flex-end;
+    align-items: stretch;
     gap: 28px;
 }
 .hero-screenshot {
@@ -366,16 +366,21 @@ img {
     min-width: 0;
 }
 .hero-mobile {
-    flex: 0 0 240px;
-    max-width: 240px;
+    flex: 0 0 320px;
+    max-width: 320px;
 }
 .hero-mobile-card {
+    height: 100%;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
     background: linear-gradient(180deg, rgba(255,255,255,0.98) 0%, rgba(248,250,252,0.98) 100%);
     border: 1px solid rgba(203, 213, 225, 0.9);
     border-radius: 28px;
-    padding: 16px;
-    box-shadow: 0 28px 60px rgba(15, 23, 42, 0.16), 0 8px 24px rgba(37, 99, 235, 0.08);
+    padding: 22px;
+    box-shadow: 0 28px 60px rgba(15, 23, 42, 0.12), 0 8px 24px rgba(37, 99, 235, 0.06);
 }
 .hero-mobile-card::before {
     content: "";
@@ -383,7 +388,7 @@ img {
     inset: -1px;
     border-radius: inherit;
     padding: 1px;
-    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(191, 219, 254, 0.75));
+    background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(191, 219, 254, 0.65));
     -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
@@ -392,8 +397,7 @@ img {
 .hero-mobile-header {
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    margin-bottom: 14px;
+    gap: 6px;
 }
 .hero-mobile-kicker {
     font-size: 0.72rem;
@@ -403,24 +407,48 @@ img {
     color: var(--primary-700);
 }
 .hero-mobile-meta {
-    font-size: 0.82rem;
-    line-height: 1.4;
-    color: var(--gray-500);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--gray-600);
 }
-.hero-mobile-screen {
-    background: linear-gradient(180deg, #e2e8f0 0%, #cbd5e1 100%);
-    border-radius: 22px;
-    padding: 8px;
-    box-shadow: inset 0 0 0 1px rgba(148, 163, 184, 0.22);
+.hero-mobile-points {
+    display: grid;
+    gap: 12px;
 }
-.hero-mobile-screen img {
-    width: 100%;
-    aspect-ratio: 1080 / 2340;
-    object-fit: cover;
-    object-position: top center;
-    border-radius: 16px;
+.hero-mobile-point {
+    padding: 14px 16px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid rgba(226, 232, 240, 0.95);
+}
+.hero-mobile-point strong {
     display: block;
-    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.14);
+    margin-bottom: 6px;
+    font-size: 0.92rem;
+    color: var(--gray-900);
+}
+.hero-mobile-point span {
+    display: block;
+    font-size: 0.84rem;
+    line-height: 1.55;
+    color: var(--gray-600);
+}
+.hero-mobile-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.hero-mobile-tags span {
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 12px;
+    border-radius: 999px;
+    background: rgba(219, 234, 254, 0.55);
+    color: var(--primary-700);
+    border: 1px solid rgba(191, 219, 254, 0.9);
+    font-size: 0.78rem;
+    font-weight: 700;
 }
 
 /* ============ PROBLEM / SOLUTION ============ */
@@ -1206,19 +1234,20 @@ img {
     }
 
     .hero-visual {
-        max-width: 600px;
+        max-width: 720px;
         margin: 0 auto;
         flex-direction: column;
-        align-items: center;
+        align-items: stretch;
     }
     .hero-mobile {
         margin: 0 auto;
-        flex-basis: 220px;
-        max-width: 220px;
+        flex-basis: auto;
+        max-width: 100%;
+        width: 100%;
     }
     .hero-mobile-card {
         border-radius: 24px;
-        padding: 14px;
+        padding: 18px;
     }
 
     .features-grid {
@@ -1299,29 +1328,22 @@ img {
 
     .hero-mobile {
         max-width: 100%;
-        width: min(280px, 100%);
+        width: 100%;
     }
 
     .hero-mobile-card {
-        padding: 12px;
+        padding: 16px;
         border-radius: 22px;
-    }
-
-    .hero-mobile-header {
-        margin-bottom: 12px;
+        gap: 16px;
     }
 
     .hero-mobile-meta {
-        font-size: 0.78rem;
+        font-size: 0.84rem;
     }
 
-    .hero-mobile-screen {
-        border-radius: 20px;
-        padding: 7px;
-    }
-
-    .hero-mobile-screen img {
-        border-radius: 14px;
+    .hero-mobile-point {
+        padding: 12px 14px;
+        border-radius: 16px;
     }
 
     .problem-grid {
