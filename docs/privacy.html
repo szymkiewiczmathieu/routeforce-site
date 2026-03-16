@@ -50,10 +50,10 @@
         <a href="https://routeforce.app" class="back-link">← Retour au site RouteForce</a>
 
         <h1>Politique de confidentialité</h1>
-        <p class="subtitle">Date d'effet : 10 mars 2026</p>
+        <p class="subtitle">Date d'effet : 16 mars 2026</p>
 
         <div class="highlight">
-            <p>Cette politique explique comment RouteForce traite les données personnelles collectées via le site <strong>routeforce.app</strong> et via la solution SaaS <strong>RouteForce</strong>, dans le cadre de ses activités de démonstration, de commercialisation, de support et de fourniture du service.</p>
+            <p>Cette politique explique comment RouteForce traite les données personnelles collectées via le site <strong>routeforce.app</strong> et via la solution <strong>RouteForce</strong> (Managed Package Salesforce), dans le cadre de ses activités de démonstration, de commercialisation, de support et de fourniture du service.</p>
         </div>
 
         <h2>1. Responsable du traitement</h2>
@@ -86,7 +86,7 @@
             <li>contraintes de planification et d'itinéraire : horaires, durées de visite, pauses, ordre de passage, paramètres de calcul ;</li>
             <li>données techniques minimales nécessaires au fonctionnement, au support et à la journalisation.</li>
         </ul>
-        <p><strong>RouteForce n'a pas vocation à collecter ni à copier l'intégralité des données CRM du Client.</strong> Seules les données strictement nécessaires au fonctionnement de la solution sont traitées.</p>
+        <p>RouteForce est un Managed Package installé dans l'environnement Salesforce du Client. Les données CRM du Client (comptes, contacts, adresses, opportunités) restent intégralement dans l'organisation Salesforce du Client et ne sont ni transférées, ni stockées sur les serveurs de RouteForce. Seules des coordonnées géographiques (latitude/longitude) sont transmises au service de calcul d'itinéraires pour le traitement des tournées.</p>
 
         <h2>4. Finalités et bases légales</h2>
         <table>
@@ -132,16 +132,28 @@
         </table>
 
         <h2>5. Cookies et traceurs</h2>
-        <p>Le site utilise <strong>Google Tag Manager</strong> (conteneur <strong>GTM-PWNN33DN</strong>) afin de gérer le déploiement de balises et d'outils de mesure. Google Tag Manager est un outil de gestion de balises ; il peut charger d'autres scripts selon la configuration retenue sur le site.</p>
-        <p>Les traceurs effectivement déposés et leurs finalités dépendent de la configuration active du conteneur au moment de la visite. En cas d'ajout d'outils nécessitant un consentement, ceux-ci doivent être gérés conformément à la réglementation applicable.</p>
+        <p>Le site utilise <strong>Google Tag Manager</strong> (conteneur GTM-PWNN33DN) pour la gestion de balises. Google Tag Manager peut charger des scripts tiers selon la configuration active, notamment Google Analytics (mesure d'audience).</p>
+        <p>Le site charge également <strong>Google Fonts</strong> (fonts.googleapis.com) pour l'affichage des polices de caractères. Ce chargement peut entraîner la transmission de votre adresse IP à Google.</p>
+        <p><strong>Calendly</strong> est utilisé comme outil de prise de rendez-vous (lien externe). Lorsque vous accédez à Calendly, les données collectées (nom, email, créneau) sont régies par la politique de confidentialité de Calendly.</p>
+        <p>Aucun cookie propriétaire n'est déposé par le site routeforce.app.</p>
+        <p>Conformément aux recommandations de la CNIL, si des traceurs nécessitant un consentement sont actifs via GTM, un bandeau de consentement sera mis en place.</p>
 
         <h2>6. Hébergement et sous-traitants</h2>
         <p>RouteForce s'appuie sur les prestataires suivants :</p>
-        <ul>
-            <li><strong>GitHub Pages</strong> : hébergement et diffusion du site vitrine RouteForce ;</li>
-            <li><strong>OVHcloud, Gravelines (France)</strong> : hébergement VPS utilisé pour le calcul d'itinéraires et le traitement des données GPS nécessaires au service.</li>
-        </ul>
-        <p>Les sous-traitants n'accèdent aux données que dans la mesure nécessaire à leurs prestations d'hébergement, d'infrastructure ou d'exploitation technique.</p>
+        <table>
+            <thead>
+                <tr><th>Prestataire</th><th>Rôle</th><th>Localisation</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>GitHub Pages</td><td>Hébergement du site vitrine</td><td>USA (Microsoft)</td></tr>
+                <tr><td>OVHcloud SAS</td><td>Hébergement du service de routing (Gravelines, France)</td><td>France</td></tr>
+                <tr><td>Google (GTM / Analytics / Fonts)</td><td>Gestion de balises, mesure d'audience, polices</td><td>USA/UE</td></tr>
+                <tr><td>Calendly</td><td>Prise de rendez-vous</td><td>USA</td></tr>
+                <tr><td>Brevo (ex-Sendinblue)</td><td>Emails transactionnels (SMTP)</td><td>France/UE</td></tr>
+                <tr><td>Stripe</td><td>Facturation</td><td>USA/UE</td></tr>
+            </tbody>
+        </table>
+        <p>Les sous-traitants n'accèdent aux données que dans la mesure nécessaire à leurs prestations.</p>
 
         <h2>7. Durées de conservation</h2>
         <ul>
@@ -155,8 +167,9 @@
         <p>Les données sont accessibles, selon le besoin, au responsable du traitement et aux prestataires techniques intervenant pour l'hébergement, l'exploitation, la maintenance ou la sécurité du service. Elles ne sont pas vendues ni cédées à des tiers à des fins commerciales.</p>
 
         <h2>9. Transferts hors Union européenne</h2>
-        <p>RouteForce n'organise <strong>aucun transfert intentionnel hors de l'Union européenne</strong> pour les données GPS nécessaires au service. Ces données sont traitées en France sur l'infrastructure OVHcloud utilisée pour le calcul d'itinéraires.</p>
-        <p>Certains outils techniques liés à l'exploitation du site ou des balises peuvent toutefois impliquer des traitements accessoires par des prestataires internationaux selon leur propre architecture. Le cas échéant, ces traitements relèvent des garanties mises en place par les prestataires concernés.</p>
+        <p>Les données de calcul d'itinéraires (coordonnées GPS) sont traitées exclusivement en France (OVHcloud, Gravelines).</p>
+        <p>Le site est hébergé sur GitHub Pages (Microsoft, USA). Google Tag Manager et Google Fonts impliquent des traitements par Google (USA). Ces transferts sont encadrés par les clauses contractuelles types (SCCs) mises en place par ces prestataires.</p>
+        <p>Les sauvegardes de la base d'administration sont stockées sur GitHub de manière chiffrée (GPG). GitHub n'a pas accès aux données en clair.</p>
 
         <h2>10. Sécurité</h2>
         <p>RouteForce met en œuvre des mesures techniques et organisationnelles adaptées, notamment :</p>
@@ -182,7 +195,7 @@
         <p class="muted">En cas de doute raisonnable sur l'identité du demandeur, un justificatif peut être demandé afin de sécuriser le traitement de la demande.</p>
 
         <h2>12. Mise à jour de la politique</h2>
-        <p>La présente politique peut être modifiée à tout moment pour refléter une évolution réglementaire, technique, contractuelle ou opérationnelle. La version en vigueur est celle publiée sur cette page, avec une date d'effet fixée au <strong>10 mars 2026</strong>.</p>
+        <p>La présente politique peut être modifiée à tout moment pour refléter une évolution réglementaire, technique, contractuelle ou opérationnelle. La version en vigueur est celle publiée sur cette page, avec une date d'effet fixée au <strong>16 mars 2026</strong>.</p>
     </div>
 </body>
 </html>

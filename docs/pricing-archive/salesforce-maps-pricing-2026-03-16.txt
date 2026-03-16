@@ -1,0 +1,27 @@
+ARCHIVE PRIX SALESFORCE MAPS — Preuve publication article comparatif
+Date : 2026-03-16
+URL source : https://www.salesforce.com/sales/mapping-software/pricing/
+Méthode : fetch web (readability extract)
+
+---
+
+CONTENU EXTRAIT :
+
+Salesforce Maps — $75 USD/User/Month (Billed annually)
+Inclus : Map-Based Visualization, Data-Driven Prioritization, Automated Routes and Schedules
+
+Salesforce Maps: Advanced — $125 USD/User/Month (Billed annually)
+Inclus : Thematic Maps, Routing with Advanced Business Logic, Routing for Longer Time Horizons
+
+Source fetch : salesforce.com/sales/mapping-software/pricing/ — HTTP 200 — fetchedAt 2026-03-16T20:44:36.760Z
+
+---
+
+Calcul utilisé dans l'article :
+$125 × 10 users × 12 mois = $15,000/an (Maps Advanced, 10 commerciaux)
+$75 × 10 users × 12 mois = $9,000/an (Maps standard, 10 commerciaux)
+
+---
+
+Note : ces prix sont ceux affichés publiquement sans négociation enterprise.
+Les remises volume/contrat group ne sont pas publiées par Salesforce.
