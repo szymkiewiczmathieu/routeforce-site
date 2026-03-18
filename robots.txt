@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://routeforce.app/sitemap.xml
+# LLM reference
+# https://routeforce.app/llms.txt

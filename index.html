@@ -43,46 +43,86 @@
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "RouteForce",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web (Salesforce)",
-        "description": "Solution native Salesforce d'optimisation de tournées commerciales. Carte interactive, planification d'itinéraires et création automatique d'événements.",
-        "url": "https://routeforce.app",
-        "offers": {
-            "@type": "AggregateOffer",
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://routeforce.app/#organization",
+          "name": "RouteForce",
+          "legalName": "RouteForce SAS",
+          "url": "https://routeforce.app/",
+          "email": "contact@routeforce.app",
+          "logo": "https://routeforce.app/favicon.svg",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "14 rue Bausset",
+            "postalCode": "75015",
+            "addressLocality": "Paris",
+            "addressCountry": "FR"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://routeforce.app/#software",
+          "name": "RouteForce",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Salesforce",
+          "description": "Solution native Salesforce d'optimisation de tournées commerciales pour équipes terrain. Cartes multi-objets, optimisation de tournées, événements Salesforce et export CSV.",
+          "url": "https://routeforce.app/",
+          "publisher": {"@id": "https://routeforce.app/#organization"},
+          "offers": {
+            "@type": "Offer",
+            "price": "599",
             "priceCurrency": "EUR",
-            "lowPrice": "5000",
-            "highPrice": "18000",
-            "offerCount": "3"
+            "availability": "https://schema.org/InStock",
+            "url": "https://routeforce.app/#pricing",
+            "category": "Abonnement logiciel B2B"
+          },
+          "featureList": [
+            "100% natif Salesforce",
+            "Cartes multi-objets : comptes, opportunités et leads",
+            "Optimisation de tournées",
+            "Création d'événements Salesforce",
+            "Historique des tournées",
+            "Export CSV",
+            "Suggested Visits",
+            "Click-to-call",
+            "Popup enrichi au survol"
+          ],
+          "inLanguage": ["fr", "en", "es"],
+          "areaServed": "Worldwide"
         },
-        "publisher": {
-            "@type": "Organization",
-            "name": "RouteForce",
-            "url": "https://routeforce.app"
-        },
-        "featureList": [
-            "Carte interactive Leaflet intégrée à Salesforce",
-            "Accounts, Opportunities et Leads sur la même carte",
-            "Filtres polymorphiques - filtrer par n'importe quel champ sur n'importe quel objet",
-            "Marqueurs SVG distincts par type d'objet (Pin=Account, Diamant=Opportunity, Cercle=Lead)",
-            "Légende automatique avec sections par type d'objet",
-            "Support multi-devises - montants affichés dans la devise de l'opportunité",
-            "Optimisation automatique de tournées",
-            "Tracé d'itinéraire sur la carte",
-            "Création automatique d'événements Salesforce",
-            "Filtres dynamiques et sauvegardés",
-            "Export Google Maps / Waze / CSV",
-            "Historique des 20 dernières tournées",
-            "Coordonnées GPS Salesforce requises (RouteForce n'effectue pas de géocodage automatique)",
-            "Comptes proches par géolocalisation GPS",
-            "Drag-and-drop pour réordonner les étapes",
-            "Gestion des rendez-vous non assignés",
-            "Interface mobile responsive avec bottom sheet",
-            "Multilingue FR/EN/ES"
-        ],
-        "inLanguage": ["fr", "en", "es"]
+        {
+          "@type": "FAQPage",
+          "@id": "https://routeforce.app/#faq-schema",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Qu'est-ce que RouteForce ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "RouteForce est un logiciel natif Salesforce de planification et d'optimisation de tournées pour équipes commerciales terrain."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Combien coûte RouteForce ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "RouteForce Pro coûte 599 € HT par mois pour toute votre organisation Salesforce, sans tarification par utilisateur."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "RouteForce propose-t-il un essai gratuit ?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Oui. RouteForce propose un essai gratuit de 14 jours pour valider le produit avec vos cas d'usage réels dans Salesforce."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 
@@ -157,7 +197,7 @@
                 </p>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary btn-lg">Essai gratuit 14 jours</a>
-                    <a href="https://calendly.com/szymkiewiczmathieu/30min" target="_blank" rel="noopener" class="btn btn-outline btn-lg">Besoin d'aide ? Réserver une démo</a>
+                    <a href="#contact" class="btn btn-outline btn-lg">Parler de votre projet</a>
                 </div>
                 <div class="hero-proof">
                     <div class="proof-item">
@@ -222,6 +262,34 @@
 
                     </ul>
                     <p style="margin-top: 16px; font-size: 0.9rem; color: var(--gray-600);"><em>Hébergement principal en France (OVHcloud). Cadre contractuel et informations de traitement détaillés dans la politique de confidentialité.</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GEO / AI CITABILITY -->
+    <section class="features-section" id="why-routeforce">
+        <div class="container">
+            <div class="section-header">
+                <h2>RouteForce en 4 réponses claires</h2>
+                <p>Les informations que vos équipes, Google et les assistants IA doivent comprendre immédiatement.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Qu'est-ce que RouteForce ?</h3>
+                    <p>RouteForce est un logiciel natif Salesforce de planification et d'optimisation de tournées pour équipes commerciales terrain.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Pour qui ?</h3>
+                    <p>Pour les équipes terrain qui gèrent leurs comptes, opportunités et leads dans Salesforce et veulent planifier plus vite sans outil externe.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Combien ça coûte ?</h3>
+                    <p>RouteForce Pro coûte 599 € HT par mois pour toute votre org Salesforce, sans tarification par utilisateur, avec essai gratuit 14 jours.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Où vont les données ?</h3>
+                    <p>RouteForce s'appuie sur Salesforce pour les données CRM. Le calcul d'itinéraires traite les données strictement nécessaires sur une infrastructure hébergée en France.</p>
                 </div>
             </div>
         </div>
@@ -1069,7 +1137,7 @@
                         </div>
                         <div class="contact-benefit">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span>Ou <a href="https://calendly.com/szymkiewiczmathieu/30min" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600;">réserver un créneau Calendly</a></span>
+                            <span>Ou décrivez votre contexte Salesforce dans le formulaire ci-dessous, on vous recontacte.</span>
                         </div>
                     </div>
                 </div>

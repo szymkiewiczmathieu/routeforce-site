@@ -43,46 +43,86 @@
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "RouteForce",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web (Salesforce)",
-        "description": "Solución nativa Salesforce de optimización de rutas comerciales. Mapa interactivo, planificación de itinerarios y creación automática de eventos.",
-        "url": "https://routeforce.app",
-        "offers": {
-            "@type": "AggregateOffer",
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://routeforce.app/#organization",
+          "name": "RouteForce",
+          "legalName": "RouteForce SAS",
+          "url": "https://routeforce.app/",
+          "email": "contact@routeforce.app",
+          "logo": "https://routeforce.app/favicon.svg",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "14 rue Bausset",
+            "postalCode": "75015",
+            "addressLocality": "Paris",
+            "addressCountry": "FR"
+          }
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://routeforce.app/#software",
+          "name": "RouteForce",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Salesforce",
+          "description": "Software nativo de Salesforce para planificación y optimización de rutas comerciales. Mapas multiobjeto, optimización de rutas, eventos de Salesforce y exportación CSV.",
+          "url": "https://routeforce.app/es/",
+          "publisher": {"@id": "https://routeforce.app/#organization"},
+          "offers": {
+            "@type": "Offer",
+            "price": "599",
             "priceCurrency": "EUR",
-            "lowPrice": "5000",
-            "highPrice": "18000",
-            "offerCount": "3"
+            "availability": "https://schema.org/InStock",
+            "url": "https://routeforce.app/es/#pricing",
+            "category": "Suscripción de software B2B"
+          },
+          "featureList": [
+            "100% nativo en Salesforce",
+            "Mapas multiobjeto para cuentas, oportunidades y leads",
+            "Optimización de rutas",
+            "Creación de eventos Salesforce",
+            "Historial de rutas",
+            "Exportación CSV",
+            "Suggested Visits",
+            "Click-to-call",
+            "Tarjetas enriquecidas al pasar el ratón"
+          ],
+          "inLanguage": ["fr", "en", "es"],
+          "areaServed": "Worldwide"
         },
-        "publisher": {
-            "@type": "Organization",
-            "name": "RouteForce",
-            "url": "https://routeforce.app"
-        },
-        "featureList": [
-            "Mapa interactivo Leaflet integrado en Salesforce",
-            "Cuentas, Oportunidades y Leads en el mismo mapa",
-            "Filtros polimórficos — filtrar por cualquier campo en cualquier objeto",
-            "Marcadores SVG distintos por tipo de objeto (Pin=Cuenta, Diamante=Oportunidad, Círculo=Lead)",
-            "Leyenda automática con secciones por tipo de objeto",
-            "Soporte multi-divisa — importes en la divisa de la oportunidad",
-            "Optimización automática de rutas",
-            "Trazado de itinerario en el mapa",
-            "Creación automática de eventos Salesforce",
-            "Filtros dinámicos y guardados",
-            "Exportación Google Maps / Waze / CSV",
-            "Historial de las últimas 20 rutas",
-            "Coordenadas GPS de Salesforce obligatorias (RouteForce no realiza geocodificación automática)",
-            "Cuentas cercanas por geolocalización GPS",
-            "Drag-and-drop para reordenar paradas",
-            "Gestión de citas no asignadas",
-            "Interfaz móvil responsive con bottom sheet",
-            "Multilingüe FR/EN/ES"
-        ],
-        "inLanguage": ["fr", "en", "es"]
+        {
+          "@type": "FAQPage",
+          "@id": "https://routeforce.app/es/#faq-schema",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "¿Qué es RouteForce?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "RouteForce es un software nativo de Salesforce para la planificación y optimización de rutas de equipos comerciales de campo."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿Cuánto cuesta RouteForce?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "RouteForce Pro cuesta 599 €/mes sin IVA para toda la organización de Salesforce, sin precio por usuario."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "¿RouteForce ofrece prueba gratuita?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sí. RouteForce ofrece una prueba gratuita de 14 días para validar el producto con casos de uso reales en Salesforce."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 
@@ -136,7 +176,7 @@
                 <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" class="nav-status-badge" title="Statut du service en temps réel">
                     <span class="status-dot"></span><span class="nav-status-label">Operativo</span>
                 </a>
-                <a href="#contact" class="btn btn-primary btn-sm">Solicitar Demo</a>
+                <a href="#contact" class="btn btn-primary btn-sm">Prueba gratuita 14 días</a>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
                 <span></span>
@@ -156,8 +196,8 @@
                     Centralice la preparación y el seguimiento de rutas sin salir de Salesforce. <strong>Mapas multiobjeto, acciones personalizadas, informes de visita, historial de rutas, eventos y exportación CSV</strong> ayudan a los equipos de campo a pasar más rápido de la planificación a la ejecución. <strong>Prueba gratis de 14 días — sus datos Salesforce, sin compromiso.</strong>
                 </p>
                 <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary btn-lg">Reservar Demo Gratis</a>
-                    <a href="#screenshots" class="btn btn-outline btn-lg">Ver en Acción</a>
+                    <a href="#contact" class="btn btn-primary btn-lg">Prueba gratuita 14 días</a>
+                    <a href="#contact" class="btn btn-outline btn-lg">Cuéntenos su caso de uso</a>
                 </div>
                 <div class="hero-proof">
                     <div class="proof-item">
@@ -221,6 +261,34 @@
                         
                     </ul>
                     <p style="margin-top: 16px; font-size: 0.9rem; color: var(--gray-600);"><em>Alojamiento principal en Francia (OVHcloud). El marco contractual y los detalles de tratamiento de datos están documentados en la política de privacidad.</em></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GEO / AI CITABILITY -->
+    <section class="features-section" id="why-routeforce">
+        <div class="container">
+            <div class="section-header">
+                <h2>RouteForce en 4 respuestas claras</h2>
+                <p>Los datos que sus equipos, Google y los asistentes de IA deben entender de inmediato.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>¿Qué es RouteForce?</h3>
+                    <p>RouteForce es un software nativo de Salesforce para la planificación y optimización de rutas de equipos comerciales de campo.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>¿Para quién es?</h3>
+                    <p>Para equipos de campo que gestionan cuentas, oportunidades y leads en Salesforce y quieren planificar más rápido sin añadir una herramienta externa.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>¿Cuánto cuesta?</h3>
+                    <p>RouteForce Pro cuesta 599 €/mes sin IVA para toda la org de Salesforce, sin precio por usuario y con prueba gratuita de 14 días.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>¿Dónde se procesan los datos?</h3>
+                    <p>RouteForce se apoya en Salesforce para los datos CRM. El cálculo de rutas procesa solo los datos necesarios en una infraestructura alojada en Francia.</p>
                 </div>
             </div>
         </div>
@@ -1053,7 +1121,7 @@
                         </div>
                         <div class="contact-benefit">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span>O <a href="https://calendly.com/szymkiewiczmathieu/30min" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600;">reserve un slot en Calendly</a></span>
+                            <span>O describa su contexto de Salesforce en el formulario inferior y le contactaremos.</span>
                         </div>
                     </div>
                 </div>

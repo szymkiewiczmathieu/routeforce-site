@@ -1,0 +1,57 @@
+# RouteForce
+
+> RouteForce is native Salesforce route planning and route optimization software for field sales teams.
+
+RouteForce helps field teams plan routes, visualize accounts / opportunities / leads on a map, create Salesforce events, review route history, and execute field visits without leaving Salesforce.
+
+## Primary pages
+- https://routeforce.app/
+- https://routeforce.app/en/
+- https://routeforce.app/es/
+
+## Commercial and product pages
+- https://routeforce.app/cas-usage.html
+- https://routeforce.app/en/use-cases.html
+- https://routeforce.app/es/casos-de-uso.html
+- https://routeforce.app/planification-tournees-salesforce.html
+- https://routeforce.app/en/salesforce-route-planning.html
+- https://routeforce.app/es/planificacion-rutas-salesforce.html
+- https://routeforce.app/planification-visites-salesforce.html
+- https://routeforce.app/en/visit-planning-salesforce.html
+- https://routeforce.app/es/planificacion-visitas-salesforce.html
+- https://routeforce.app/optimisation-tournees-commerciaux-terrain.html
+- https://routeforce.app/en/field-sales-route-optimization.html
+- https://routeforce.app/es/optimizacion-rutas-comerciales-campo.html
+- https://routeforce.app/optimisation-tournees-prix-fixe.html
+- https://routeforce.app/en/flat-rate-route-optimization.html
+- https://routeforce.app/es/optimizacion-rutas-precio-fijo.html
+
+## Comparison and blog content
+- https://routeforce.app/blog/
+- https://routeforce.app/blog/salesforce-maps-alternative-2026.html
+- https://routeforce.app/blog/routeforce-vs-salesforce-maps.html
+- https://routeforce.app/blog/routeforce-vs-salesforce-maps-en.html
+- https://routeforce.app/blog/routeforce-vs-salesforce-maps-es.html
+
+## Documentation
+- https://routeforce.app/docs/
+- https://routeforce.app/docs/setup-guide.html
+- https://routeforce.app/docs/user-guide.html
+- https://routeforce.app/docs/configuration-guide.html
+
+## Legal and trust pages
+- https://routeforce.app/docs/privacy.html
+- https://routeforce.app/docs/mentions-legales.html
+- https://routeforce.app/docs/cgv.html
+- https://routeforce.app/docs/dpa.html
+
+## Key facts
+- Native Salesforce software
+- Built for field sales teams
+- Multi-object maps for accounts, opportunities, and leads
+- Route optimization inside Salesforce
+- Salesforce event creation from planned routes
+- 14-day free trial
+- €599/month excluding tax for the whole Salesforce org
+- No per-user pricing
+- Primary hosting in France
