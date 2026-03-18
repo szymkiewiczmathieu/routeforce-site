@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation RouteForce — Guides d'installation et d'utilisation</title>
+    <meta name="description" content="Documentation RouteForce v4.1.0 : Setup Guide, User Guide, Configuration Guide pour Salesforce.">
+    <link rel="canonical" href="https://routeforce.app/docs/">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .docs-hero {
+            padding: 100px 0 50px;
+            background: linear-gradient(135deg, var(--primary-50) 0%, white 100%);
+        }
+        .docs-hero .container { max-width: 900px; }
+        .docs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+            padding-bottom: 80px;
+        }
+        .docs-card {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 12px;
+            padding: 28px;
+            text-decoration: none;
+            color: inherit;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .docs-card:hover {
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .docs-card-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        .docs-card h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 8px;
+        }
+        .docs-card p {
+            font-size: 0.9rem;
+            color: var(--gray-600);
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .docs-badge {
+            display: inline-block;
+            background: var(--primary-100);
+            color: var(--primary-700);
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .install-box {
+            background: linear-gradient(135deg, var(--primary-600), var(--primary-800));
+            color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin: 0 0 40px;
+        }
+        .install-box h2 { color: white; font-size: 1.25rem; margin-bottom: 8px; }
+        .install-box p { color: rgba(255,255,255,0.85); font-size: 0.93rem; margin-bottom: 16px; }
+        .install-links { display: flex; gap: 12px; flex-wrap: wrap; }
+        .install-links a {
+            display: inline-block;
+            background: white;
+            color: var(--primary-700);
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .install-links a.secondary {
+            background: rgba(255,255,255,0.15);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="nav-logo">
+                <img src="../favicon.svg" alt="RouteForce" width="32" height="32">
+                RouteForce
+            </a>
+            <div class="nav-links">
+                <a href="../index.html#features">Fonctionnalités</a>
+                <a href="../index.html#pricing">Tarifs</a>
+                <a href="../blog/">Blog</a>
+                <a href="../index.html#contact" class="btn btn-primary">Essai gratuit</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="docs-hero">
+        <div class="container">
+            <h1>Documentation RouteForce</h1>
+            <p style="font-size:1.1rem;color:var(--gray-600);margin-top:12px;">Guides d'installation, d'utilisation et de configuration — v4.1.0</p>
+
+            <div class="install-box" style="margin-top:32px;">
+                <h2>🚀 Installer RouteForce</h2>
+                <p>Installez le managed package dans votre org Salesforce en un clic. L'essai gratuit 14 jours démarre automatiquement au premier lancement.</p>
+                <div class="install-links">
+                    <a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000CeOHQA0" target="_blank" rel="noopener">Production — Installer v4.1.0</a>
+                    <a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000CeOHQA0" target="_blank" rel="noopener" class="secondary">Sandbox — Installer v4.1.0</a>
+                </div>
+            </div>
+
+            <div class="docs-grid">
+                <a href="setup-guide.html" class="docs-card">
+                    <div class="docs-card-icon">🔧</div>
+                    <h2>Setup Guide</h2>
+                    <p>Installation du package, configuration des permission sets, paramétrage initial. Pour les administrateurs Salesforce.</p>
+                    <span class="docs-badge">Administrateurs</span>
+                </a>
+                <a href="user-guide.html" class="docs-card">
+                    <div class="docs-card-icon">📖</div>
+                    <h2>User Guide</h2>
+                    <p>Utilisation quotidienne de RouteForce : créer une tournée, optimiser les stops, check-in, rapports de visite.</p>
+                    <span class="docs-badge">Utilisateurs terrain</span>
+                </a>
+                <a href="configuration-guide.html" class="docs-card">
+                    <div class="docs-card-icon">⚙️</div>
+                    <h2>Configuration Guide</h2>
+                    <p>Configuration avancée via les Custom Metadata, markerFields, custom actions, filtres et paramètres organisationnels.</p>
+                    <span class="docs-badge">Administrateurs avancés</span>
+                </a>
+            </div>
+
+            <p style="text-align:center;color:var(--gray-500);font-size:0.9rem;padding-bottom:60px;">
+                Une question ? <a href="mailto:contact@routeforce.app" style="color:var(--primary);">contact@routeforce.app</a> · 
+                <a href="https://calendly.com/szymkiewiczmathieu/30min" target="_blank" rel="noopener" style="color:var(--primary);">Réserver une démo</a>
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="../index.html" class="nav-logo" style="color:white;">
+                        <img src="../favicon.svg" alt="RouteForce" width="28" height="28">
+                        RouteForce
+                    </a>
+                    <p>Optimisation de tournées 100% native Salesforce.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Produit</h4>
+                    <a href="../index.html#features">Fonctionnalités</a>
+                    <a href="../index.html#pricing">Tarifs</a>
+                    <a href="../blog/">Blog</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Légal</h4>
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="privacy.html">Politique de confidentialité</a>
+                    <a href="cgv.html">CGV</a>
+                    <a href="dpa.html">DPA</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Tous les prix HT. TVA applicable. Engagement annuel — résiliation avec préavis 2 mois avant renouvellement. CGV disponibles sur demande.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
