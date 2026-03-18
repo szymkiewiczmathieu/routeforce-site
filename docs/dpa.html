@@ -4,149 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accord de Traitement des Données (DPA) — RouteForce</title>
-    <meta name="description" content="DPA RouteForce — Accord de Traitement des Données, RGPD, version 2.0, mars 2026.">
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex">
     <link rel="canonical" href="https://routeforce.app/docs/dpa.html">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1e293b; line-height: 1.75; background: #fff; }
-        .container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1e293b; line-height: 1.7; background: #fff; }
+        .container { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
         h1 { font-size: 1.8rem; color: #2563EB; margin-bottom: 0.3rem; }
-        h2 { font-size: 1.2rem; color: #1e293b; margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 2px solid #e2e8f0; }
-        h3 { font-size: 1.05rem; color: #334155; margin: 1.5rem 0 0.5rem; }
-        p { font-size: 0.93rem; margin-bottom: 0.7rem; }
+        .subtitle { color: #64748b; font-size: 0.95rem; margin-bottom: 2rem; }
+        h2 { font-size: 1.15rem; color: #1e293b; margin: 2rem 0 0.8rem; padding-bottom: 0.4rem; border-bottom: 2px solid #e2e8f0; }
+        h3 { font-size: 1rem; color: #334155; margin: 1.2rem 0 0.5rem; font-weight: 600; }
+        p, li { font-size: 0.93rem; margin-bottom: 0.6rem; }
         ul { padding-left: 1.5rem; margin-bottom: 1rem; }
-        li { font-size: 0.93rem; margin-bottom: 0.4rem; }
-        blockquote { background: #eff6ff; border-left: 4px solid #2563EB; padding: 0.75rem 1rem; border-radius: 0 6px 6px 0; margin: 1rem 0; }
-        blockquote p { margin: 0; font-style: italic; font-size: 0.9rem; }
-        table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.88rem; }
-        th { background: #1e40af; color: white; padding: 10px 12px; text-align: left; }
-        td { padding: 9px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
-        tr:nth-child(even) td { background: #f8fafc; }
-        hr { border: none; border-top: 1px solid #e2e8f0; margin: 1.5rem 0; }
-        strong { font-weight: 600; }
-        .back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.9rem; color: #2563EB; text-decoration: none; }
-        .version { color: #64748b; font-size: 0.9rem; margin-bottom: 2rem; }
-        .notice { background: #f0fdf4; border: 1px solid #86efac; border-radius: 6px; padding: 0.75rem 1rem; margin-bottom: 2rem; font-size: 0.88rem; color: #166534; }
-        @media (max-width: 600px) {
-            table, thead, tbody, th, td, tr { display: block; }
-            thead { display: none; }
-            td { border: none; border-bottom: 1px solid #e2e8f0; padding: 6px 0; }
-        }
+        a { color: #2563EB; }
+        .back { display: inline-block; margin-bottom: 1.5rem; color: #2563EB; text-decoration: none; font-size: 0.9rem; }
+        .back:hover { text-decoration: underline; }
+        table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.88rem; }
+        th, td { padding: 0.6rem 0.8rem; border: 1px solid #e2e8f0; text-align: left; vertical-align: top; }
+        th { background: #f1f5f9; font-weight: 600; }
+        .highlight { background: #eff6ff; border-left: 4px solid #2563EB; padding: 1rem 1.2rem; border-radius: 4px; margin: 1.5rem 0; font-size: 0.93rem; }
+        footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid #e2e8f0; font-size: 0.8rem; color: #94a3b8; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="https://routeforce.app" class="back-link">← Retour au site RouteForce</a>
-        <h1>Accord de Traitement des Données (DPA)</h1>
-        <p class="version">Data Processing Agreement — RGPD — Version 2.0 — 16 mars 2026</p>
+<div class="container">
+    <a href="../index.html" class="back">← Retour au site</a>
+    <h1>Accord de Traitement des Données (DPA)</h1>
+    <p class="subtitle">Data Processing Agreement — RGPD — Version 2.0 — 17 mars 2026</p>
 
-        <div class="notice">
-            Ce DPA est annexé aux CGV RouteForce et s'applique automatiquement à tout Contrat. Pour toute question RGPD : <a href="mailto:contact@routeforce.app">contact@routeforce.app</a>
-        </div>
-
-        <h2>Article 1 — Objet et contexte</h2>
-        <p>1.1. Le présent accord définit les engagements des Parties en matière de protection des données à caractère personnel dans le cadre de l'utilisation du Logiciel RouteForce®.</p>
-        <p>1.2. <strong>Architecture</strong> : RouteForce® est un Managed Package Salesforce installé dans l'organisation Salesforce du Client. Les données métier (comptes, contacts, adresses, opportunités) restent intégralement dans l'environnement Salesforce du Client. L'Éditeur n'y a pas accès.</p>
-        <p>1.3. <strong>Périmètre de traitement par l'Éditeur</strong> : (a) transit de coordonnées GPS via le Service de Routing (traitement transitoire) ; (b) gestion administrative de la licence.</p>
-
-        <h2>Article 2 — Description des traitements</h2>
-
-        <h3>2.1 Service de Routing (traitement transitoire)</h3>
-        <table>
-            <thead><tr><th>Élément</th><th>Description</th></tr></thead>
-            <tbody>
-                <tr><td>Finalité</td><td>Calcul d'itinéraires optimisés</td></tr>
-                <tr><td>Données transmises</td><td>Coordonnées géographiques (latitude/longitude) uniquement</td></tr>
-                <tr><td>Données NON transmises</td><td>Noms, adresses postales, téléphones, emails — ces données restent dans Salesforce</td></tr>
-                <tr><td>Nature du traitement</td><td>Transitoire — calcul en mémoire, aucun stockage</td></tr>
-                <tr><td>Durée de conservation</td><td>Zéro — les coordonnées ne sont pas enregistrées</td></tr>
-                <tr><td>Hébergement</td><td>OVHcloud SAS, datacenter Gravelines (France)</td></tr>
-            </tbody>
-        </table>
-        <p><strong>Service de secours optionnel (HeiGIT)</strong> : Le Client peut configurer un service de routing de secours via HeiGIT gGmbH (Heidelberg, Allemagne). Cette activation est à l'initiative exclusive du Client. L'Éditeur n'est pas sous-traitant pour ce traitement.</p>
-
-        <h3>2.2 Données d'administration de licence</h3>
-        <table>
-            <thead><tr><th>Élément</th><th>Description</th></tr></thead>
-            <tbody>
-                <tr><td>Finalité</td><td>Gestion de la relation commerciale, facturation, support</td></tr>
-                <tr><td>Données traitées</td><td>Nom de l'entreprise, nom et email du contact principal, identifiant Stripe</td></tr>
-                <tr><td>Base légale</td><td>Exécution du contrat (art. 6.1.b RGPD)</td></tr>
-                <tr><td>Stockage</td><td>Base PostgreSQL — OVHcloud, Gravelines (France)</td></tr>
-                <tr><td>Durée de conservation</td><td>Durée du contrat + 30 jours</td></tr>
-            </tbody>
-        </table>
-
-        <h3>2.3 Logs techniques</h3>
-        <table>
-            <thead><tr><th>Élément</th><th>Description</th></tr></thead>
-            <tbody>
-                <tr><td>Données</td><td>Adresses IP, timestamps, URLs appelées, user-agent</td></tr>
-                <tr><td>Finalité</td><td>Sécurité, débogage, détection d'abus</td></tr>
-                <tr><td>Durée de conservation</td><td>14 jours (rotation automatique)</td></tr>
-                <tr><td>Base légale</td><td>Intérêt légitime (art. 6.1.f RGPD)</td></tr>
-            </tbody>
-        </table>
-
-        <h2>Article 3 — Qualification RGPD</h2>
-        <p>3.1. <strong>Données CRM dans Salesforce</strong> : Le Client est responsable de traitement. L'Éditeur n'est ni responsable, ni sous-traitant pour ces données.</p>
-        <p>3.2. <strong>Service de Routing</strong> : Traitement transitoire sur données non identifiantes. L'Éditeur applique néanmoins les mesures de sécurité décrites ci-après.</p>
-        <p>3.3. <strong>Données d'administration</strong> : L'Éditeur agit en qualité de responsable de traitement pour ses propres finalités (facturation, relation client).</p>
-
-        <h2>Article 4 — Mesures de sécurité</h2>
-        <ul>
-            <li><strong>Chiffrement</strong> : HTTPS/TLS 1.2 et 1.3, HSTS activé, certificats Let's Encrypt, sauvegardes chiffrées GPG.</li>
-            <li><strong>Hébergement</strong> : OVHcloud SAS, Gravelines (France) — certifié ISO 27001, ISO 27017, ISO 27018, SOC 1/2, HDS.</li>
-            <li><strong>Contrôle d'accès</strong> : SSH clé ED25519, authentification par mot de passe désactivée, accès restreint à l'administrateur.</li>
-            <li><strong>Protection intrusions</strong> : Fail2ban actif, containers Docker isolés, mises à jour de sécurité automatiques.</li>
-            <li><strong>Supervision</strong> : Monitoring toutes les 15 minutes, audit de sécurité hebdomadaire.</li>
-        </ul>
-
-        <h2>Article 5 — Sous-traitants techniques</h2>
-        <table>
-            <thead><tr><th>Prestataire</th><th>Rôle</th><th>Localisation</th><th>Garanties</th></tr></thead>
-            <tbody>
-                <tr><td>OVHcloud SAS</td><td>Hébergement VPS</td><td>France (Gravelines)</td><td>DPA OVH, ISO 27001, HDS</td></tr>
-                <tr><td>GitHub (Microsoft)</td><td>Sauvegardes chiffrées GPG</td><td>USA</td><td>DPA Microsoft, SCCs, SOC 2 — données illisibles sans clé privée</td></tr>
-                <tr><td>Stripe</td><td>Facturation</td><td>USA/UE</td><td>DPA Stripe, PCI-DSS, SCCs</td></tr>
-                <tr><td>Brevo (ex-Sendinblue)</td><td>Emails transactionnels</td><td>France/UE</td><td>DPA Brevo, hébergement UE</td></tr>
-                <tr><td>UptimeRobot</td><td>Monitoring disponibilité</td><td>USA/UE</td><td>Aucune donnée personnelle transmise</td></tr>
-            </tbody>
-        </table>
-        <p>L'Éditeur informe le Client de tout changement de sous-traitant. Le Client dispose de 30 jours pour s'y opposer.</p>
-
-        <h2>Article 6 — Transferts hors UE</h2>
-        <p>Les données d'administration et logs sont hébergés en France. Les sauvegardes sur GitHub sont chiffrées GPG (GitHub ne peut y accéder en clair). Stripe et GitHub opèrent sous régime SCCs.</p>
-
-        <h2>Article 7 — Droits des personnes</h2>
-        <p>Pour les données d'administration : toute demande d'accès, rectification ou effacement à <a href="mailto:contact@routeforce.app">contact@routeforce.app</a>. Réponse sous 30 jours.</p>
-
-        <h2>Article 8 — Notification de violation</h2>
-        <p>En cas de violation de sécurité, l'Éditeur notifie le Client dans les <strong>48 heures</strong> avec : nature de la violation, données concernées, conséquences probables, mesures correctives.</p>
-
-        <h2>Article 9 — Sort des données en fin de contrat</h2>
-        <p>Les données CRM Salesforce ne sont pas affectées par la fin du Contrat. Les données d'administration sont supprimées dans les 30 jours. Les sauvegardes sont purgées dans leur cycle normal (30 jours).</p>
-
-        <h2>Article 10 — Droit d'audit</h2>
-        <p>Un audit annuel peut être demandé avec un préavis de 30 jours. L'Éditeur coopère de bonne foi. Les frais sont à la charge du Client.</p>
-
-        <h2>Annexe — Synthèse des traitements</h2>
-        <table>
-            <thead><tr><th>Traitement</th><th>Responsable</th><th>Données</th><th>Localisation</th><th>Rétention</th></tr></thead>
-            <tbody>
-                <tr><td>Données CRM (comptes, contacts, etc.)</td><td>Client</td><td>Données métier</td><td>Salesforce du Client</td><td>Contrôlée par le Client</td></tr>
-                <tr><td>Calcul d'itinéraires</td><td>Éditeur (transitoire)</td><td>Coordonnées GPS</td><td>OVH Gravelines (FR)</td><td>Zéro (mémoire)</td></tr>
-                <tr><td>Administration licence</td><td>Éditeur</td><td>Nom entreprise, email, ID Stripe</td><td>OVH Gravelines (FR)</td><td>Durée contrat + 30j</td></tr>
-                <tr><td>Logs techniques</td><td>Éditeur</td><td>IP, timestamps, URLs</td><td>OVH Gravelines (FR)</td><td>14 jours</td></tr>
-                <tr><td>Sauvegardes admin</td><td>Éditeur</td><td>Dump chiffré GPG</td><td>OVH (FR) + GitHub (US, chiffré)</td><td>30 jours glissants</td></tr>
-                <tr><td>Emails transactionnels</td><td>Éditeur (via Brevo)</td><td>Adresses email</td><td>Brevo (FR/UE)</td><td>Selon politique Brevo</td></tr>
-            </tbody>
-        </table>
-
-        <hr>
-        <p style="font-size:0.85rem;color:#64748b;margin-top:1rem;">Version 2.0 — 16 mars 2026. Ce DPA est annexé aux CGV RouteForce. Pour toute question : <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></p>
+    <div class="highlight">
+        <strong>L'Éditeur :</strong> RouteForce, société par actions simplifiée (SAS) au capital de 1 000 €<br>
+        Siège social : 14 rue Bausset, 75015 Paris — SIRET : 102 154 879 00013<br>
+        Représentée par Mathieu Szymkiewicz, Président — <a href="mailto:contact@routeforce.app">contact@routeforce.app</a>
     </div>
+
+    <h2>Article 1 — Objet et contexte</h2>
+    <p>Le présent accord définit les engagements des Parties en matière de protection des données à caractère personnel dans le cadre de l'utilisation du Logiciel RouteForce®.</p>
+    <p>RouteForce® est un Managed Package Salesforce installé dans l'organisation Salesforce du Client. Les données métier du Client (comptes, contacts, adresses, opportunités) restent intégralement dans l'environnement Salesforce du Client. L'Éditeur n'y a pas accès.</p>
+    <p>L'Éditeur traite des données à caractère personnel dans deux cas limités : (a) transit de coordonnées GPS via le Service de Routing ; (b) gestion administrative de la licence.</p>
+
+    <h2>Article 2 — Description des traitements</h2>
+
+    <h3>2.1 Service de Routing (traitement transitoire)</h3>
+    <table>
+        <tr><th>Élément</th><th>Description</th></tr>
+        <tr><td><strong>Finalité</strong></td><td>Calcul d'itinéraires optimisés</td></tr>
+        <tr><td><strong>Données transmises</strong></td><td>Coordonnées géographiques (latitude/longitude) uniquement</td></tr>
+        <tr><td><strong>Données NON transmises</strong></td><td>Noms, adresses postales, téléphones, emails — ces données restent dans Salesforce</td></tr>
+        <tr><td><strong>Nature du traitement</strong></td><td>Transitoire — calcul en mémoire, aucun stockage</td></tr>
+        <tr><td><strong>Durée de conservation</strong></td><td>Zéro — les coordonnées ne sont pas enregistrées</td></tr>
+        <tr><td><strong>Hébergement</strong></td><td>OVHcloud SAS, datacenter Gravelines (France)</td></tr>
+        <tr><td><strong>Qualification RGPD</strong></td><td>Les coordonnées GPS isolées ne constituent pas, en elles-mêmes, des données à caractère personnel. Par précaution, l'Éditeur applique les mesures de sécurité décrites au présent accord.</td></tr>
+    </table>
+
+    <h3>2.2 Données d'administration de licence</h3>
+    <table>
+        <tr><th>Élément</th><th>Description</th></tr>
+        <tr><td><strong>Finalité</strong></td><td>Gestion de la relation commerciale, facturation, support</td></tr>
+        <tr><td><strong>Données traitées</strong></td><td>Nom de l'entreprise, nom et email du contact principal, identifiant de facturation</td></tr>
+        <tr><td><strong>Base légale</strong></td><td>Exécution du contrat (art. 6.1.b RGPD)</td></tr>
+        <tr><td><strong>Stockage</strong></td><td>Base PostgreSQL sur VPS OVHcloud, Gravelines (France)</td></tr>
+        <tr><td><strong>Durée de conservation</strong></td><td>Durée du contrat + 30 jours</td></tr>
+    </table>
+
+    <h3>2.3 Logs techniques</h3>
+    <table>
+        <tr><th>Élément</th><th>Description</th></tr>
+        <tr><td><strong>Données</strong></td><td>Adresses IP, timestamps, URLs appelées, user-agent</td></tr>
+        <tr><td><strong>Finalité</strong></td><td>Sécurité, débogage, détection d'abus</td></tr>
+        <tr><td><strong>Durée de conservation</strong></td><td>14 jours (rotation automatique)</td></tr>
+        <tr><td><strong>Base légale</strong></td><td>Intérêt légitime (art. 6.1.f RGPD)</td></tr>
+    </table>
+
+    <h2>Article 3 — Mesures de sécurité</h2>
+    <ul>
+        <li><strong>Chiffrement</strong> : HTTPS/TLS 1.2 et 1.3 pour toutes les communications. HSTS activé. Sauvegardes chiffrées GPG.</li>
+        <li><strong>Hébergement</strong> : OVHcloud SAS, Gravelines (France) — certifié ISO 27001, ISO 27017, ISO 27018, SOC 1/2, HDS.</li>
+        <li><strong>Contrôle d'accès</strong> : SSH par clé ED25519 uniquement. Accès restreint à l'administrateur unique. Pare-feu UFW actif.</li>
+        <li><strong>Protection</strong> : Fail2ban actif (SSH, nginx). Containers Docker isolés. Mises à jour de sécurité automatiques.</li>
+        <li><strong>Supervision</strong> : Monitoring de disponibilité toutes les 15 minutes. Audit de sécurité hebdomadaire.</li>
+    </ul>
+
+    <h2>Article 4 — Sous-traitants techniques</h2>
+    <table>
+        <tr><th>Prestataire</th><th>Rôle</th><th>Localisation</th><th>Garanties</th></tr>
+        <tr><td>OVHcloud SAS</td><td>Hébergement VPS</td><td>France (Gravelines)</td><td>ISO 27001, HDS, DPA OVH</td></tr>
+        <tr><td>GitHub (Microsoft)</td><td>Sauvegardes chiffrées</td><td>USA</td><td>Données chiffrées GPG, SCCs, SOC 2</td></tr>
+        <tr><td>Stripe</td><td>Facturation</td><td>USA/UE</td><td>PCI-DSS, SCCs, DPA Stripe</td></tr>
+        <tr><td>Brevo (ex-Sendinblue)</td><td>Emails transactionnels</td><td>France/UE</td><td>DPA Brevo, hébergement UE</td></tr>
+        <tr><td>UptimeRobot</td><td>Monitoring disponibilité</td><td>USA/UE</td><td>Aucune donnée personnelle transmise</td></tr>
+    </table>
+    <p>L'Éditeur informe le Client de tout changement de sous-traitant. Le Client dispose de trente (30) jours pour s'opposer.</p>
+
+    <h2>Article 5 — Transferts hors UE</h2>
+    <p>Les données d'administration et les logs sont hébergés en France (OVHcloud, Gravelines). Les sauvegardes chiffrées GPG sont stockées sur GitHub (Microsoft, USA) sous couvert des SCCs du DPA Microsoft — GitHub n'accède pas aux données en clair. Stripe opère sous les SCCs pour les données aux USA. Le Service de Routing ne transfère aucune donnée hors UE.</p>
+
+    <h2>Article 6 — Droits des personnes</h2>
+    <p>Pour les données métier dans Salesforce : le Client est seul compétent. Pour les données d'administration, toute demande (accès, rectification, effacement, portabilité) peut être adressée à <a href="mailto:contact@routeforce.app">contact@routeforce.app</a>. Réponse sous trente (30) jours.</p>
+
+    <h2>Article 7 — Notification de violation</h2>
+    <p>En cas de violation de sécurité, l'Éditeur notifie le Client dans un délai de <strong>48 heures</strong> et coopère pour la notification à la CNIL (72h réglementaires) si nécessaire.</p>
+
+    <h2>Article 8 — Sort des données en fin de contrat</h2>
+    <p>Les données métier Salesforce restent dans l'environnement Salesforce du Client. Les données d'administration sont supprimées dans les trente (30) jours, sauf obligation légale (factures : 10 ans). L'Éditeur certifie la suppression par écrit sur demande.</p>
+
+    <h2>Article 9 — Droit d'audit</h2>
+    <p>Le Client dispose d'un droit d'audit annuel (préavis de 30 jours). L'audit peut prendre la forme d'un questionnaire, d'une visioconférence ou d'une inspection. Les frais sont à la charge du Client.</p>
+
+    <h2>Annexe — Synthèse des traitements</h2>
+    <table>
+        <tr><th>Traitement</th><th>Responsable</th><th>Données</th><th>Localisation</th><th>Rétention</th></tr>
+        <tr><td>Données CRM</td><td>Client</td><td>Données métier</td><td>Salesforce du Client</td><td>Contrôlée par le Client</td></tr>
+        <tr><td>Calcul d'itinéraires</td><td>Éditeur (transitoire)</td><td>Coordonnées GPS</td><td>OVH Gravelines (FR)</td><td>Zéro (mémoire)</td></tr>
+        <tr><td>Administration licence</td><td>Éditeur</td><td>Nom entreprise, email, ID Stripe</td><td>OVH Gravelines (FR)</td><td>Durée contrat + 30j</td></tr>
+        <tr><td>Logs techniques</td><td>Éditeur</td><td>IP, timestamps, URLs</td><td>OVH Gravelines (FR)</td><td>14 jours</td></tr>
+        <tr><td>Sauvegardes admin</td><td>Éditeur</td><td>Dump chiffré GPG</td><td>OVH (FR) + GitHub (US, chiffré)</td><td>30 jours glissants</td></tr>
+        <tr><td>Emails transactionnels</td><td>Éditeur (via Brevo)</td><td>Adresses email</td><td>Brevo (FR/UE)</td><td>Selon politique Brevo</td></tr>
+    </table>
+
+    <footer>
+        <p>© 2026 RouteForce SAS — SIRET 102 154 879 00013 — 14 rue Bausset, 75015 Paris</p>
+        <p><a href="mentions-legales.html">Mentions légales</a> · <a href="privacy.html">Politique de confidentialité</a> · <a href="cgv.html">CGV</a></p>
+    </footer>
+</div>
 </body>
 </html>
