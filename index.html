@@ -1089,7 +1089,20 @@
         btn.textContent = 'Envoi en cours…';
         msg.style.display = 'none';
 
-        const salesRepsMap = {'2':2,'10':10,'30':30,'75':75};
+        // Blocage emails non-professionnels
+        const freeEmailDomains = ['gmail.com','googlemail.com','hotmail.com','hotmail.fr','outlook.com','outlook.fr','live.com','live.fr','yahoo.com','yahoo.fr','icloud.com','me.com','mac.com','laposte.net','orange.fr','sfr.fr','free.fr','wanadoo.fr','aol.com','protonmail.com','proton.me','tutanota.com','yopmail.com','mailinator.com','guerrillamail.com','temp-mail.org','10minutemail.com'];
+        const emailDomain = form.email.value.trim().split('@')[1]?.toLowerCase();
+        if (freeEmailDomains.includes(emailDomain)) {
+            msg.style.background = '#fffbeb';
+            msg.style.border = '1px solid #fcd34d';
+            msg.style.color = '#92400e';
+            msg.innerHTML = '⚠️ Veuillez utiliser votre <strong>email professionnel</strong> (pas gmail, outlook, yahoo…).';
+            msg.style.display = 'block';
+            btn.disabled = false;
+            btn.textContent = 'Recevoir mes accès gratuitement';
+            return;
+        }
+
         const salesRepsVal = parseInt(form.sales_reps.value) || 2;
 
         const payload = {
