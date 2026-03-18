@@ -1127,7 +1127,7 @@
                 msg.style.background = '#f0fdf4';
                 msg.style.border = '1px solid #86efac';
                 msg.style.color = '#166534';
-                msg.innerHTML = '✅ <strong>Vos accès ont été envoyés !</strong><br>Vérifiez votre boîte email (et les spams). Le lien expire dans 48h.';
+                msg.innerHTML = '✅ <strong>Vos accès ont été envoyés !</strong><br>Vérifiez votre boîte email (et les spams). Le lien expire dans 48h.<br><br>📖 <a href="docs/setup-guide.html" style="color:#166534;font-weight:600;">Consultez le Setup Guide</a> pour installer RouteForce en 5 minutes.';
                 form.reset();
                 btn.textContent = 'Accès envoyés ✓';
             } else if (res.status === 409) {
