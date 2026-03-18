@@ -1123,9 +1123,12 @@
             const res = await fetch('https://ors.routeforce.app/api/trial/signup', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(payload)
+                body: JSON.stringify(payload),
+                mode: 'cors',
+                credentials: 'omit'
             });
-            const data = await res.json();
+            let data = {};
+            try { data = await res.json(); } catch(e) { data = {}; }
 
             if (res.status === 201 && data.ok) {
                 msg.style.background = '#f0fdf4';
