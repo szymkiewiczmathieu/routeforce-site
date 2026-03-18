@@ -353,6 +353,28 @@
                     <h3>Click-to-call depuis la carte</h3>
                     <p>Le numéro de téléphone s'affiche automatiquement sur chaque marker et chaque étape de tournée. Un tap sur mobile lance l'appel - sur desktop, ouvre votre app téléphone. Fonctionne sur Comptes, Leads et Opportunités. Zéro configuration.</p>
                 </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/>
+                        </svg>
+                    </div>
+                    <h3>Suggested Visits — visites à proximité</h3>
+                    <p>En fin de tournée, RouteForce affiche les comptes les plus proches du dernier arrêt prévu que vous n'avez pas visités récemment. Distance en km, jours depuis la dernière visite, ajout à la route en un clic. Les comptes jamais visités sont identifiés en priorité.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18M9 21V9"/>
+                        </svg>
+                    </div>
+                    <h3>Popup enrichi au survol</h3>
+                    <p>Survolez un marqueur sur la carte : téléphone cliquable, date de dernière visite (en rouge si trop ancienne), contact assigné, adresse, lien direct vers la fiche Salesforce. Toutes les infos utiles sans ouvrir le record.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -843,6 +865,15 @@
                     </button>
                     <div class="faq-answer">
                         <p>Non. RouteForce nécessite que vos comptes aient déjà des coordonnées GPS dans Salesforce (champs BillingLatitude/Longitude ou ShippingLatitude/Longitude). RouteForce ne géocode pas lui-même - il utilise les coordonnées existantes. Si vos comptes n'ont pas encore de coordonnées, vous devez effectuer un projet de géocodage préalable (Salesforce Maps, Data.com, ou service tiers) avant de pouvoir utiliser RouteForce.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false">
+                        <span>À quoi sert la fonctionnalité "Suggested Visits" ?</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Suggested Visits affiche les comptes proches du dernier arrêt de votre tournée que vous n'avez pas visités récemment — avec la distance en km et le nombre de jours depuis la dernière visite. Les comptes sans aucune visite enregistrée apparaissent en priorité (∞ jours). Cela vous permet d'optimiser un créneau libre entre deux rendez-vous sans avoir à chercher manuellement sur la carte. Le calcul se fait côté application, sans requête serveur supplémentaire. Aucune configuration requise.</p>
                     </div>
                 </div>
                 <div class="faq-item">
