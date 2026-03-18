@@ -1155,8 +1155,13 @@
             msg.style.background = '#fef2f2';
             msg.style.border = '1px solid #fca5a5';
             msg.style.color = '#991b1b';
-            const errDetail = err && err.message ? ' (' + err.message + ')' : '';
-            msg.innerHTML = '❌ Une erreur est survenue' + errDetail + '. Réessayez ou écrivez à <a href="mailto:contact@routeforce.app" style="color:#991b1b;font-weight:600;">contact@routeforce.app</a>.';
+            const isFetchError = err && err.message && err.message.includes('fetch');
+            if (isFetchError) {
+                msg.innerHTML = '❌ Connexion impossible au serveur. Vérifiez votre connexion internet, désactivez votre bloqueur de publicités (AdGuard, uBlock…) ou réessayez. Contact : <a href="mailto:contact@routeforce.app" style="color:#991b1b;font-weight:600;">contact@routeforce.app</a>.';
+            } else {
+                const errDetail = err && err.message ? ' (' + err.message + ')' : '';
+                msg.innerHTML = '❌ Une erreur est survenue' + errDetail + '. Réessayez ou écrivez à <a href="mailto:contact@routeforce.app" style="color:#991b1b;font-weight:600;">contact@routeforce.app</a>.';
+            }
             btn.disabled = false;
             btn.textContent = 'Recevoir mes accès gratuitement';
         }
