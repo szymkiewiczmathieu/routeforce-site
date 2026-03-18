@@ -1121,14 +1121,14 @@
                 msg.style.background = '#fffbeb';
                 msg.style.border = '1px solid #fcd34d';
                 msg.style.color = '#92400e';
-                msg.innerHTML = '⚠️ Un essai existe déjà pour cet email. Contactez <a href="mailto:support@routeforce.app" style="color:#92400e;font-weight:600;">support@routeforce.app</a> si besoin.';
+                msg.innerHTML = '⚠️ Un essai existe déjà pour cet email. Contactez <a href="mailto:contact@routeforce.app" style="color:#92400e;font-weight:600;">contact@routeforce.app</a> si besoin.';
                 btn.disabled = false;
                 btn.textContent = 'Recevoir mes accès gratuitement';
             } else if (res.status === 429) {
                 msg.style.background = '#fef2f2';
                 msg.style.border = '1px solid #fca5a5';
                 msg.style.color = '#991b1b';
-                msg.innerHTML = '⏳ Trop de demandes depuis cette adresse. Réessayez demain ou contactez <a href="mailto:support@routeforce.app" style="color:#991b1b;font-weight:600;">support@routeforce.app</a>.';
+                msg.innerHTML = '⏳ Trop de demandes depuis cette adresse. Réessayez demain ou contactez <a href="mailto:contact@routeforce.app" style="color:#991b1b;font-weight:600;">contact@routeforce.app</a>.';
                 btn.disabled = false;
                 btn.textContent = 'Recevoir mes accès gratuitement';
             } else {
@@ -1138,7 +1138,7 @@
             msg.style.background = '#fef2f2';
             msg.style.border = '1px solid #fca5a5';
             msg.style.color = '#991b1b';
-            msg.innerHTML = '❌ Une erreur est survenue. Réessayez ou écrivez à <a href="mailto:support@routeforce.app" style="color:#991b1b;font-weight:600;">support@routeforce.app</a>.';
+            msg.innerHTML = '❌ Une erreur est survenue. Réessayez ou écrivez à <a href="mailto:contact@routeforce.app" style="color:#991b1b;font-weight:600;">contact@routeforce.app</a>.';
             btn.disabled = false;
             btn.textContent = 'Recevoir mes accès gratuitement';
         }
