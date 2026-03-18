@@ -1103,17 +1103,21 @@
             return;
         }
 
-        const salesRepsVal = parseInt(form.sales_reps.value) || 2;
+        const salesRepsEl = document.getElementById('trial-users');
+        const salesRepsVal = salesRepsEl ? (parseInt(salesRepsEl.value) || 2) : 2;
+
+        const emailVal = document.getElementById('trial-email').value.trim();
+        const companyVal = document.getElementById('trial-company').value.trim();
+        const firstNameVal = document.getElementById('trial-firstname').value.trim();
+        const lastNameVal = document.getElementById('trial-lastname').value.trim();
 
         const payload = {
-            email: form.email.value.trim(),
-            company: form.company.value.trim(),
-            first_name: form.first_name.value.trim() || undefined,
-            last_name: form.last_name.value.trim() || undefined,
+            email: emailVal,
+            company: companyVal,
             sales_reps: salesRepsVal
         };
-        // remove undefined
-        Object.keys(payload).forEach(k => payload[k] === undefined && delete payload[k]);
+        if (firstNameVal) payload.first_name = firstNameVal;
+        if (lastNameVal) payload.last_name = lastNameVal;
 
         try {
             const res = await fetch('https://ors.routeforce.app/api/trial/signup', {
@@ -1151,7 +1155,8 @@
             msg.style.background = '#fef2f2';
             msg.style.border = '1px solid #fca5a5';
             msg.style.color = '#991b1b';
-            msg.innerHTML = '❌ Une erreur est survenue. Réessayez ou écrivez à <a href="mailto:contact@routeforce.app" style="color:#991b1b;font-weight:600;">contact@routeforce.app</a>.';
+            const errDetail = err && err.message ? ' (' + err.message + ')' : '';
+            msg.innerHTML = '❌ Une erreur est survenue' + errDetail + '. Réessayez ou écrivez à <a href="mailto:contact@routeforce.app" style="color:#991b1b;font-weight:600;">contact@routeforce.app</a>.';
             btn.disabled = false;
             btn.textContent = 'Recevoir mes accès gratuitement';
         }
