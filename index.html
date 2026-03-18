@@ -605,7 +605,7 @@
         <div class="container">
             <h2 style="color: white; margin-bottom: 12px; font-size: 1.8rem;">Voyez par vous-même</h2>
             <p style="color: rgba(255,255,255,0.9); margin-bottom: 24px; font-size: 1.1rem;">15 minutes de démo personnalisée avec vos propres données Salesforce. Sans engagement.</p>
-            <a href="#contact" class="btn btn-lg" style="background: white; color: #1d4ed8; font-weight: 700; padding: 16px 40px; border-radius: 8px; font-size: 1.1rem; text-decoration: none; display: inline-block;">Essai gratuit 14 jours — Installer</a>
+            <a href="#contact" class="btn btn-lg" style="background: white; color: #1d4ed8; font-weight: 700; padding: 16px 40px; border-radius: 8px; font-size: 1.1rem; text-decoration: none; display: inline-block;">Essai gratuit 14 jours</a>
         </div>
     </section>
 
@@ -967,29 +967,90 @@
     <!-- CONTACT -->
     <section class="contact-section" id="contact">
         <div class="container">
-            <div class="contact-wrapper">
+
+            <!-- BLOC 1 : ESSAI GRATUIT SELF-SERVICE -->
+            <div class="contact-wrapper" style="margin-bottom: 60px;">
                 <div class="contact-info">
-                    <h2>Démarrez votre essai gratuit</h2>
-                    <p>Testez RouteForce 14 jours avec vos propres données Salesforce. Installation en 5 minutes, sans engagement.</p>
+                    <h2>🚀 Essai gratuit 14 jours</h2>
+                    <p>Recevez vos accès par email en moins d'une minute. Installez le package Salesforce, saisissez vos clés — c'est opérationnel.</p>
                     <div class="contact-benefits">
                         <div class="contact-benefit">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span>14 jours gratuits, vos données Salesforce</span>
+                            <span>Accès envoyés en moins d'une minute</span>
                         </div>
                         <div class="contact-benefit">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span>Installation en 5 minutes, sans engagement</span>
+                            <span>14 jours gratuits avec vos données Salesforce</span>
                         </div>
                         <div class="contact-benefit">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span>Réponse rapide — accompagnement disponible</span>
+                            <span>Sans engagement, annulable à tout moment</span>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="trialForm">
+                    <div class="form-group">
+                        <label for="trial-firstname">Prénom</label>
+                        <input type="text" id="trial-firstname" name="first_name" placeholder="Jean">
+                    </div>
+                    <div class="form-group">
+                        <label for="trial-lastname">Nom</label>
+                        <input type="text" id="trial-lastname" name="last_name" placeholder="Dupont">
+                    </div>
+                    <div class="form-group">
+                        <label for="trial-email">Email professionnel *</label>
+                        <input type="email" id="trial-email" name="email" required placeholder="jean@entreprise.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="trial-company">Entreprise *</label>
+                        <input type="text" id="trial-company" name="company" required placeholder="Nom de votre entreprise">
+                    </div>
+                    <div class="form-group">
+                        <label for="trial-users">Nombre de commerciaux terrain</label>
+                        <select id="trial-users" name="sales_reps">
+                            <option value="2">1 à 5</option>
+                            <option value="10">6 à 15</option>
+                            <option value="30">16 à 50</option>
+                            <option value="75">Plus de 50</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block btn-lg" id="trialSubmitBtn">Recevoir mes accès gratuitement</button>
+                    <div id="trialMsg" style="display:none; margin-top:14px; padding:14px; border-radius:8px; font-size:0.9rem; line-height:1.5;"></div>
+                    <p style="margin-top:12px; font-size:0.8rem; color:var(--gray-500); line-height:1.5;">
+                        En envoyant ce formulaire, vous acceptez que vos données soient traitées pour créer votre essai. Détails : <a href="docs/privacy.html" style="color:var(--primary); font-weight:600;">politique de confidentialité</a>.
+                    </p>
+                </form>
+            </div>
+
+            <!-- SÉPARATEUR -->
+            <div style="text-align:center; margin: 0 0 50px; color: var(--gray-400); font-size:0.95rem;">
+                <span style="background:white; padding:0 16px;">— ou —</span>
+            </div>
+
+            <!-- BLOC 2 : FORMULAIRE CONTACT CLASSIQUE -->
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h2>💬 Une question ? On vous répond</h2>
+                    <p>Besoin d'un accompagnement, d'un devis, ou d'une démo personnalisée ? Écrivez-nous.</p>
+                    <div class="contact-benefits">
+                        <div class="contact-benefit">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span>Réponse rapide par email</span>
+                        </div>
+                        <div class="contact-benefit">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span>Démo personnalisée disponible</span>
+                        </div>
+                        <div class="contact-benefit">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                            <span>Ou <a href="https://calendly.com/szymkiewiczmathieu/30min" target="_blank" rel="noopener" style="color:var(--primary);font-weight:600;">réserver un créneau Calendly</a></span>
                         </div>
                     </div>
                 </div>
                 <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqedjpdd" method="POST">
                     <div class="form-group">
                         <label for="name">Nom complet</label>
-                        <input type="text" id="name" name="name" required placeholder="Jean Dupont">
+                        <input type="text" id="name" name="name" placeholder="Jean Dupont">
                     </div>
                     <div class="form-group">
                         <label for="email">Email professionnel</label>
@@ -997,22 +1058,13 @@
                     </div>
                     <div class="form-group">
                         <label for="company">Entreprise</label>
-                        <input type="text" id="company" name="company" required placeholder="Nom de votre entreprise">
+                        <input type="text" id="company" name="company" placeholder="Nom de votre entreprise">
                     </div>
                     <div class="form-group">
-                        <label for="users">Nombre de commerciaux terrain</label>
-                        <select id="users" name="users">
-                            <option value="1-5">1 à 5</option>
-                            <option value="6-15">6 à 15</option>
-                            <option value="16-50">16 à 50</option>
-                            <option value="50+">Plus de 50</option>
-                        </select>
+                        <label for="message">Votre message</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Décrivez votre besoin..."></textarea>
                     </div>
-                    <div class="form-group">
-                        <label for="message">Message (optionnel)</label>
-                        <textarea id="message" name="message" rows="3" placeholder="Décrivez brièvement votre besoin..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block btn-lg">Démarrer mon essai gratuit</button>
+                    <button type="submit" class="btn btn-outline btn-block btn-lg">Envoyer ma question</button>
                     <p style="margin-top:12px; font-size:0.8rem; color:var(--gray-500); line-height:1.5;">
                         En envoyant ce formulaire, vous acceptez que vos données soient traitées pour répondre à votre demande. Détails : <a href="docs/privacy.html" style="color:var(--primary); font-weight:600;">politique de confidentialité</a>.
                     </p>
@@ -1021,8 +1073,78 @@
                     Ou écrivez-nous directement : <a href="mailto:contact@routeforce.app" style="color:var(--primary); font-weight:600;">contact@routeforce.app</a>
                 </p>
             </div>
+
         </div>
     </section>
+
+    <script>
+    // === TRIAL FORM — API signup ===
+    document.getElementById('trialForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const btn = document.getElementById('trialSubmitBtn');
+        const msg = document.getElementById('trialMsg');
+        const form = e.target;
+
+        btn.disabled = true;
+        btn.textContent = 'Envoi en cours…';
+        msg.style.display = 'none';
+
+        const salesRepsMap = {'2':2,'10':10,'30':30,'75':75};
+        const salesRepsVal = parseInt(form.sales_reps.value) || 2;
+
+        const payload = {
+            email: form.email.value.trim(),
+            company: form.company.value.trim(),
+            first_name: form.first_name.value.trim() || undefined,
+            last_name: form.last_name.value.trim() || undefined,
+            sales_reps: salesRepsVal
+        };
+        // remove undefined
+        Object.keys(payload).forEach(k => payload[k] === undefined && delete payload[k]);
+
+        try {
+            const res = await fetch('https://ors.routeforce.app/api/trial/signup', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(payload)
+            });
+            const data = await res.json();
+
+            if (res.status === 201 && data.ok) {
+                msg.style.background = '#f0fdf4';
+                msg.style.border = '1px solid #86efac';
+                msg.style.color = '#166534';
+                msg.innerHTML = '✅ <strong>Vos accès ont été envoyés !</strong><br>Vérifiez votre boîte email (et les spams). Le lien expire dans 48h.';
+                form.reset();
+                btn.textContent = 'Accès envoyés ✓';
+            } else if (res.status === 409) {
+                msg.style.background = '#fffbeb';
+                msg.style.border = '1px solid #fcd34d';
+                msg.style.color = '#92400e';
+                msg.innerHTML = '⚠️ Un essai existe déjà pour cet email. Contactez <a href="mailto:support@routeforce.app" style="color:#92400e;font-weight:600;">support@routeforce.app</a> si besoin.';
+                btn.disabled = false;
+                btn.textContent = 'Recevoir mes accès gratuitement';
+            } else if (res.status === 429) {
+                msg.style.background = '#fef2f2';
+                msg.style.border = '1px solid #fca5a5';
+                msg.style.color = '#991b1b';
+                msg.innerHTML = '⏳ Trop de demandes depuis cette adresse. Réessayez demain ou contactez <a href="mailto:support@routeforce.app" style="color:#991b1b;font-weight:600;">support@routeforce.app</a>.';
+                btn.disabled = false;
+                btn.textContent = 'Recevoir mes accès gratuitement';
+            } else {
+                throw new Error(data.error || 'Erreur inconnue');
+            }
+        } catch(err) {
+            msg.style.background = '#fef2f2';
+            msg.style.border = '1px solid #fca5a5';
+            msg.style.color = '#991b1b';
+            msg.innerHTML = '❌ Une erreur est survenue. Réessayez ou écrivez à <a href="mailto:support@routeforce.app" style="color:#991b1b;font-weight:600;">support@routeforce.app</a>.';
+            btn.disabled = false;
+            btn.textContent = 'Recevoir mes accès gratuitement';
+        }
+        msg.style.display = 'block';
+    });
+    </script>
 
 
     <!-- FOOTER -->
