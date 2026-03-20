@@ -1,925 +1,473 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Guide — RouteForce</title>
-    <meta name="robots" content="noindex">
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1e293b; line-height: 1.75; background: #fff; }
-.container { max-width: 900px; margin: 0 auto; padding: 2rem 1.5rem 5rem; }
-h1 { font-size: 1.8rem; color: #2563EB; margin-bottom: 0.5rem; padding-bottom: 0.5rem; border-bottom: 3px solid #2563EB; }
-h2 { font-size: 1.25rem; color: #1e293b; margin: 2rem 0 0.75rem; padding-bottom: 0.4rem; border-bottom: 2px solid #e2e8f0; }
-h3 { font-size: 1.05rem; color: #334155; margin: 1.5rem 0 0.5rem; }
-h4 { font-size: 0.95rem; color: #475569; margin: 1rem 0 0.4rem; font-weight: 600; }
-p { font-size: 0.93rem; margin-bottom: 0.7rem; }
-ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
-li { font-size: 0.93rem; margin-bottom: 0.35rem; }
-code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-family: 'SF Mono', Monaco, monospace; font-size: 0.85em; color: #be185d; }
-pre { background: #0f172a; color: #e2e8f0; padding: 1.25rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
-pre code { background: none; color: inherit; padding: 0; font-size: 0.88rem; }
-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.88rem; }
-th { background: #1e40af; color: white; padding: 10px 12px; text-align: left; }
-td { padding: 9px 12px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
-tr:nth-child(even) td { background: #f8fafc; }
-blockquote { background: #eff6ff; border-left: 4px solid #2563EB; padding: 0.75rem 1rem; border-radius: 0 6px 6px 0; margin: 1rem 0; }
-blockquote p { margin: 0; font-style: italic; }
-hr { border: none; border-top: 1px solid #e2e8f0; margin: 2rem 0; }
-strong { font-weight: 600; }
-a { color: #2563EB; }
-.back-link { display: inline-block; margin-bottom: 1.5rem; font-size: 0.9rem; color: #2563EB; text-decoration: none; }
-.badge { display: inline-block; background: #dbeafe; color: #1e40af; padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 1rem; }
-@media (max-width: 600px) {
-    table, thead, tbody, th, td, tr { display: block; }
-    thead { display: none; }
-    td { border: none; border-bottom: 1px solid #e2e8f0; padding: 6px 0; }
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RouteForce User Guide</title>
+  <style>
+    @page { size: A4; margin: 16mm 14mm 18mm 14mm; }
+    :root {
+      --rf-primary: #2563eb;
+      --rf-primary-dark: #1d4ed8;
+      --rf-ink: #111827;
+      --rf-muted: #6b7280;
+      --rf-soft: #f8fbff;
+      --rf-soft-2: #eef4ff;
+      --rf-line: #dbe5f1;
+      --rf-panel: #ffffff;
+      --rf-deep: #1e1b4b;
+    }
+    * { box-sizing: border-box; }
+    html { background:#e5eefb; }
+    body { margin:0; color:var(--rf-ink); font: 15px/1.58 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; background:#e5eefb; }
+    .sheet { width: 210mm; min-height: 297mm; margin: 0 auto; background: white; }
+    .cover { min-height: 265mm; padding: 22mm 18mm; color:white; background: linear-gradient(135deg, var(--rf-deep) 0%, #233f97 58%, var(--rf-primary) 100%); position: relative; overflow:hidden; page-break-after: always; }
+    .cover:before { content:''; position:absolute; inset:auto -40mm -50mm auto; width:140mm; height:140mm; border-radius:50%; background:rgba(255,255,255,.07); }
+    .cover:after { content:''; position:absolute; inset:18mm auto auto -30mm; width:120mm; height:120mm; border-radius:50%; background:rgba(255,255,255,.05); }
+    .topbar { display:flex; justify-content:space-between; align-items:flex-start; gap:16px; position:relative; z-index:1; }
+    .logo { width: 190px; height:auto; display:block; filter: brightness(0) invert(1); }
+    .eyebrow { display:inline-block; border:1px solid rgba(255,255,255,.28); border-radius:999px; padding:6px 12px; font-size:12px; letter-spacing:.04em; text-transform:uppercase; }
+    .hero { position:relative; z-index:1; margin-top:28mm; max-width:130mm; }
+    .hero h1 { margin:0 0 10px; font-size:30pt; line-height:1.04; letter-spacing:-.03em; }
+    .hero p { margin:0; font-size:12.5pt; color:rgba(255,255,255,.88); }
+    .summary { margin-top:16mm; max-width:120mm; background:rgba(255,255,255,.10); border:1px solid rgba(255,255,255,.18); border-radius:16px; padding:14px 16px; backdrop-filter: blur(4px); }
+    .grid { position:relative; z-index:1; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-top:18mm; }
+    .card { background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.18); border-radius:14px; padding:12px 14px; min-height:76px; }
+    .label { font-size:11px; text-transform:uppercase; letter-spacing:.05em; color:rgba(255,255,255,.72); }
+    .value { margin-top:6px; font-weight:700; font-size:15px; }
+    .cover-footer { position:absolute; left:18mm; right:18mm; bottom:18mm; padding-top:10px; border-top:1px solid rgba(255,255,255,.22); color:rgba(255,255,255,.82); font-size:11px; }
+    .content-wrap { padding: 14mm 14mm 18mm; background:linear-gradient(180deg,#f8fbff 0,#ffffff 16mm); }
+    .doc-head { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; border-bottom:2px solid var(--rf-primary); padding-bottom:10px; margin-bottom:18px; }
+    .doc-head img { width:140px; border:none; box-shadow:none; margin:0; }
+    .doc-kicker { font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--rf-primary); font-weight:700; margin-bottom:4px; }
+    .doc-title { margin:0; font-size:26px; line-height:1.08; letter-spacing:-.02em; }
+    .doc-sub { margin:6px 0 0; color:var(--rf-muted); }
+    .intro { background:var(--rf-soft); border:1px solid var(--rf-line); border-radius:14px; padding:12px 14px; margin:0 0 18px; color:#334155; }
+    h1,h2,h3,h4 { color:var(--rf-ink); page-break-after:avoid; }
+    h1 { font-size:26px; margin:0 0 12px; }
+    h2 { font-size:18px; margin:22px 0 10px; padding:10px 12px; background:linear-gradient(90deg,var(--rf-soft-2),#fff); border-left:4px solid var(--rf-primary); border-radius:10px; }
+    h3 { font-size:15px; margin:16px 0 8px; color:var(--rf-primary-dark); }
+    p, li { orphans:3; widows:3; }
+    p { margin: 0 0 12px; }
+    ul,ol { padding-left:22px; margin:0 0 14px; }
+    li { margin: 0 0 4px; }
+    hr { border:none; border-top:1px solid var(--rf-line); margin:18px 0; }
+    a { color:var(--rf-primary-dark); text-decoration:none; }
+    table { width:100%; border-collapse:separate; border-spacing:0; margin:12px 0 18px; font-size:13px; border:1px solid var(--rf-line); border-radius:12px; overflow:hidden; }
+    th,td { padding:9px 10px; text-align:left; vertical-align:top; border-bottom:1px solid var(--rf-line); border-right:1px solid var(--rf-line); }
+    th:last-child, td:last-child { border-right:none; }
+    tr:last-child td { border-bottom:none; }
+    th { background:#edf4ff; color:#0f172a; font-weight:700; }
+    tr:nth-child(even) td { background:#fbfdff; }
+    code { background:#eef2ff; padding:2px 5px; border-radius:6px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size:.92em; }
+    pre { margin:12px 0 18px; padding:14px; border-radius:12px; background:#0f172a; color:#e2e8f0; overflow:auto; white-space:pre-wrap; }
+    pre code { background:none; padding:0; color:inherit; }
+    blockquote { margin:14px 0; padding:10px 14px; background:#f8fbff; border-left:4px solid var(--rf-primary); color:#475569; border-radius:10px; }
+    img { max-width:100%; display:block; margin:14px auto 18px; border:1px solid var(--rf-line); border-radius:14px; box-shadow:0 12px 28px rgba(37,99,235,.10); }
+    .page-footer { margin-top:22px; padding-top:10px; border-top:1px solid var(--rf-line); color:var(--rf-muted); font-size:11px; }
+    .no-border img.logo-inline { border:none; box-shadow:none; margin:0; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-link">← Documentation RouteForce</a>
-        <span class="badge">v4.1.0 · Utilisateurs terrain</span>
-        <h1 id="routeforce-user-guide">RouteForce — User Guide</h1>
-<p>A complete guide for sales reps and managers using RouteForce to plan field visits, optimize routes, and track customer interactions — all from within Salesforce.</p>
-<hr />
-<h2 id="1-getting-started">1. Getting Started</h2>
-<h3 id="opening-the-app">Opening the App</h3>
+  <div class="sheet">
+    <section class="cover">
+      <div class="topbar">
+        <img class="logo" src="file:///home/node/.openclaw/workspace/routeforce-docs/portal/brand/logo-routeforce.png" alt="RouteForce logo" />
+        <div class="eyebrow">Documentation client</div>
+      </div>
+      <div class="hero">
+        <h1>RouteForce User Guide</h1>
+        <p>Guide utilisateur client</p>
+      </div>
+      <div class="summary">Prise en main, filtres, planification de tournée, visites et historique.</div>
+      <div class="grid">
+        <div class="card"><div class="label">Produit</div><div class="value">RouteForce</div></div>
+        <div class="card"><div class="label">Audience</div><div class="value">Commerciaux terrain, managers, utilisateurs métier</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">Mars 2026</div></div>
+      </div>
+      <div class="cover-footer">RouteForce™ · Documentation client prête à l’envoi · support@routeforce.app</div>
+    </section>
+    <section class="content-wrap">
+      <div class="doc-head">
+        <div>
+          <div class="doc-kicker">RouteForce · Client-ready document</div>
+          <h1 class="doc-title">RouteForce User Guide</h1>
+          <p class="doc-sub">Version Mars 2026 · Mise en page RouteForce · Export HTML haute qualité</p>
+        </div>
+        <img class="logo-inline" src="file:///home/node/.openclaw/workspace/routeforce-docs/portal/brand/logo-routeforce.png" alt="RouteForce logo" />
+      </div>
+      <div class="intro">Cette version remplace les anciens exports fallback. Mise en page nettoyée, branding RouteForce intégré, artefacts markdown supprimés dans le rendu final, et structure optimisée pour impression/export PDF dès que le moteur système est disponible.</div>
+      <main class="content"><div class="note"><strong>RouteForce branded edition.</strong> This document is formatted for client delivery and print/PDF export.</div>
+    <h1>RouteForce User Guide</h1>
+<p><strong>Version:</strong> March 2026<br><strong>Audience:</strong> Sales reps, field users, managers<br><strong>Applies to:</strong> RouteForce for Salesforce</p>
+<p>RouteForce helps you visualize accounts on a map, filter territory data, build optimized routes, create visits, and keep a usable route history without leaving Salesforce.</p>
+<hr>
+<h2>1. Open RouteForce</h2>
 <ol>
-<li>Click the <strong>App Launcher</strong> (9-dot grid icon, top-left)</li>
-<li>Search for <strong>RouteForce</strong></li>
-<li>Click to open — the map loads with your geocoded Account markers</li>
+<li>Open the <strong>App Launcher</strong> in Salesforce.</li>
+<li>Search for <strong>RouteForce</strong>.</li>
+<li>Open the app.</li>
+<li>Wait for the map to load your geocoded records.</li>
 </ol>
-<h3 id="interface-overview">Interface Overview</h3>
+<p><img src="file:///home/node/.openclaw/workspace/routeforce-docs/portal/screenshots/user-docs/2661545e-11c2-4aae-a272-a73275f72496.png" alt="RouteForce main map"></p>
+<h3>What you see on screen</h3>
 <table>
 <thead>
 <tr>
 <th>Area</th>
-<th>Location</th>
 <th>Purpose</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td><strong>Filter Panel</strong></td>
-<td>Left sidebar</td>
-<td>Filter records, toggle display layers, save filter presets</td>
+<tbody><tr>
+<td>Filter panel</td>
+<td>Show only the records you want to work with</td>
 </tr>
 <tr>
-<td><strong>Map</strong></td>
-<td>Center</td>
-<td>Interactive map with Account, Lead, Opportunity, and Event markers</td>
+<td>Map</td>
+<td>Visualize Accounts, Leads, Opportunities, and Events</td>
 </tr>
 <tr>
-<td><strong>Route Panel</strong></td>
-<td>Right sidebar</td>
-<td>Plan routes, add stops, optimize, export</td>
+<td>Route panel</td>
+<td>Build, optimize, and export a route</td>
 </tr>
 <tr>
-<td><strong>Events Panel</strong></td>
-<td>Top bar</td>
-<td>Load calendar events, check in at visits</td>
+<td>Events area</td>
+<td>Load visits from your calendar</td>
 </tr>
 <tr>
-<td><strong>History Panel</strong></td>
-<td>Right sidebar</td>
-<td>View, reload, and manage past routes</td>
+<td>History panel</td>
+<td>Reuse or delete previous routes</td>
 </tr>
-</tbody>
-</table>
-<h3 id="navigation-tabs">Navigation Tabs</h3>
+</tbody></table>
+<h3>Main tabs</h3>
 <ul>
-<li><strong>RouteForce</strong> — Main map interface</li>
-<li><strong>Route History</strong> — List view of all saved routes</li>
-<li><strong>Saved Filters</strong> — List view of saved filter configurations</li>
-<li><strong>Visit Reports</strong> — List view of all visit reports created during check-ins</li>
-<li><strong>Configuration</strong> — Admin-only settings (onboarding wizard, licence)</li>
+<li><strong>RouteForce</strong> — live map and planning workspace</li>
+<li><strong>Route History</strong> — previously saved routes</li>
+<li><strong>Saved Filters</strong> — reusable filter presets</li>
+<li><strong>Visit Reports</strong> — check-in outcomes</li>
+<li><strong>Configuration</strong> — admin-only setup area</li>
 </ul>
-<hr />
-<h2 id="2-the-map">2. The Map</h2>
-<h3 id="map-controls">Map Controls</h3>
+<hr>
+<h2>2. Use the map</h2>
+<p>RouteForce displays records with valid geolocation directly on an interactive map.</p>
+<h3>Map controls</h3>
 <table>
 <thead>
 <tr>
 <th>Control</th>
-<th>Location</th>
-<th>Action</th>
+<th>What it does</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td><strong>Zoom +/−</strong></td>
-<td>Top-left</td>
+<tbody><tr>
+<td>Zoom + / -</td>
 <td>Zoom in or out</td>
 </tr>
 <tr>
-<td><strong>Fullscreen</strong></td>
-<td>Top-left</td>
-<td>Toggle fullscreen map mode</td>
+<td>Fullscreen</td>
+<td>Expand the map</td>
 </tr>
 <tr>
-<td><strong>My Location</strong></td>
-<td>Top-left</td>
-<td>Center map on your current GPS position</td>
+<td>My Location</td>
+<td>Center on your current GPS position</td>
 </tr>
 <tr>
-<td><strong>Basemap Selector</strong></td>
-<td>Filter panel &gt; Display</td>
-<td>Switch between Standard, Satellite, or Terrain tiles</td>
+<td>Basemap selector</td>
+<td>Switch between map styles</td>
 </tr>
 <tr>
-<td><strong>Scale</strong></td>
-<td>Bottom-right</td>
-<td>Shows metric distance scale</td>
+<td>Scale</td>
+<td>Show approximate distance</td>
 </tr>
-</tbody>
-</table>
-<h3 id="markers">Markers</h3>
-<p>Records with geocoded addresses appear as colored pin markers on the map:</p>
+</tbody></table>
+<h3>Marker types</h3>
 <table>
 <thead>
 <tr>
-<th>Marker Color</th>
-<th>Record Type</th>
+<th>Marker family</th>
+<th>Meaning</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td><strong>Blue tones</strong></td>
-<td>Accounts (color varies by Type field value)</td>
+<tbody><tr>
+<td>Blue tones</td>
+<td>Accounts</td>
 </tr>
 <tr>
-<td><strong>Warm tones</strong> (orange/red)</td>
-<td>Opportunities (color varies by Stage)</td>
+<td>Teal / green tones</td>
+<td>Leads</td>
 </tr>
 <tr>
-<td><strong>Cool tones</strong> (teal/green)</td>
-<td>Leads (color varies by Status)</td>
+<td>Orange / red tones</td>
+<td>Opportunities</td>
 </tr>
 <tr>
-<td><strong>Calendar icon</strong></td>
-<td>Events (blue = upcoming, gray = checked in)</td>
+<td>Calendar marker</td>
+<td>Events</td>
 </tr>
-</tbody>
-</table>
-<h3 id="visit-alert-badge">Visit Alert Badge</h3>
-<p>When configured by your admin, markers can display a <strong>red alert badge</strong> (small red circle with a number) indicating how many records at that location are overdue for a visit. This helps you quickly identify which accounts need attention.</p>
+</tbody></table>
+<h3>Useful behavior</h3>
 <ul>
-<li>The badge appears when a record hasn't been visited within the configured threshold (e.g., 30 days)</li>
-<li>Overdue records also display with <strong>highlighted styling</strong> in marker popups</li>
-<li>The threshold is configured by your admin via <code>VisitAlertDays__c</code> — set to 0 to disable</li>
+<li>Nearby markers group into <strong>clusters</strong>.</li>
+<li>The legend updates automatically based on the current display mode.</li>
+<li>Clicking a marker opens a popup with quick actions.</li>
 </ul>
-<h3 id="marker-tooltips">Marker Tooltips</h3>
-<p><strong>Hover</strong> over any marker to see a quick tooltip preview without clicking:</p>
+<hr>
+<h2>3. Filter records</h2>
+<p>Use the filter panel to focus on the right territory, segment, or visit list.</p>
+<p><img src="file:///home/node/.openclaw/workspace/routeforce-docs/portal/screenshots/user-docs/da880198-1597-40a9-8c01-453bb06675d9.png" alt="Filters and display options"></p>
+<h3>Common filters</h3>
 <ul>
-<li><strong>Single markers</strong> — shows the record name</li>
-<li><strong>Grouped markers</strong> (multiple records at the same address) — shows the first few record names with object-type icons (star for Leads, dollar for Opportunities), plus a "+N more" count if there are additional records</li>
+<li><strong>My Accounts</strong></li>
+<li><strong>Radius from center</strong></li>
+<li><strong>Record Type</strong></li>
+<li><strong>Last visit</strong></li>
+<li><strong>Industry / Type / Rating / Ownership</strong></li>
+<li><strong>Lead or Opportunity picklist filters</strong> when enabled</li>
 </ul>
-<p>Tooltips disappear automatically when you move the mouse away. Click the marker to open the full popup with action buttons.</p>
-<h3 id="marker-clustering">Marker Clustering</h3>
-<p>When many markers overlap, they automatically <strong>cluster</strong> into a single circle showing the count. Zoom in to reveal individual markers.</p>
-<h3 id="legend">Legend</h3>
-<p>The bottom of the map displays a <strong>color legend</strong> showing which color corresponds to which value (e.g., "Customer - Direct" = dark blue, "Prospect" = light blue). The legend updates based on the active display mode.</p>
-<hr />
-<h2 id="3-marker-popups">3. Marker Popups</h2>
-<p>Click any marker to open its <strong>popup</strong> with record details and quick actions.</p>
-<h3 id="popup-contents">Popup Contents</h3>
+<h3>Tips</h3>
 <ul>
-<li><strong>Name</strong> — Clickable link that opens the Salesforce record</li>
-<li><strong>Address</strong> — Street, city, postal code, country</li>
-<li><strong>Owner</strong> — Clickable link to the record owner</li>
-<li><strong>Last Visit</strong> — Date of the most recent visit report (if configured by admin for the record type: Account, Lead, or Opportunity)</li>
-<li><strong>Phone</strong> — Clickable phone number (<code>tel:</code> link) — tap to call directly on mobile, or click to launch your desktop phone app. Both Phone and MobilePhone are displayed when available</li>
-<li><strong>Custom Fields</strong> — Additional fields configured by your admin (e.g., Industry, Amount, Website)</li>
+<li>Some filters support <strong>multi-select checkboxes</strong>.</li>
+<li>After changing filters, click <strong>Apply</strong>.</li>
+<li>Save useful combinations to avoid rebuilding them later.</li>
 </ul>
-<h3 id="popup-actions">Popup Actions</h3>
-<table>
-<thead>
-<tr>
-<th>Button</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Create Event</strong></td>
-<td>Opens event creation for this record</td>
-</tr>
-<tr>
-<td><strong>Directions</strong></td>
-<td>Opens Google Maps with directions to this location</td>
-</tr>
-<tr>
-<td><strong>Add to Route</strong></td>
-<td>Adds this record as a stop in your current route (when route panel is open)</td>
-</tr>
-<tr>
-<td><strong>Nearby</strong></td>
-<td>Shows nearby records within the configured radius</td>
-</tr>
-<tr>
-<td><strong>Custom Actions</strong></td>
-<td>Additional buttons configured by your admin (e.g., data entry forms, workflows). These open in a fullscreen modal. See <a href="#16-custom-actions">Custom Actions</a>.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="group-popups">Group Popups</h3>
-<p>When multiple records share the same address (e.g., several Opportunities on one Account), clicking the marker shows a <strong>scrollable list</strong> of all records at that location, each with its own action buttons.</p>
-<hr />
-<h2 id="4-filtering-records">4. Filtering Records</h2>
-<h3 id="opening-the-filter-panel">Opening the Filter Panel</h3>
-<p>Click the <strong>filter icon</strong> on the left side of the map, or tap the filter area on mobile.</p>
-<h3 id="default-ownership">Default Ownership</h3>
-<p>When you first open RouteForce, each object's ownership filter defaults to <strong>"My [Accounts/Leads/Opportunities]"</strong> — you only see records you own. You can change this at any time using the ownership combobox in each filter section.</p>
-<h3 id="display-toggles">Display Toggles</h3>
-<p>Toggle which record types appear on the map:</p>
-<ul>
-<li><strong>Accounts</strong> — Show/hide Account markers</li>
-<li><strong>Leads</strong> — Show/hide Lead markers (if enabled by admin)</li>
-<li><strong>Opportunities</strong> — Show/hide Opportunity markers (if enabled by admin)</li>
-<li><strong>Events</strong> — Show/hide Event markers on the calendar layer</li>
-</ul>
-<blockquote>
-<p><strong>Tip:</strong> Toggling Events on automatically closes the Filter panel to reduce UI clutter.</p>
-</blockquote>
-<h3 id="account-filters">Account Filters</h3>
-<table>
-<thead>
-<tr>
-<th>Filter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>All Accounts</strong></td>
-<td>Show all Accounts (no ownership filter)</td>
-</tr>
-<tr>
-<td><strong>My Accounts</strong></td>
-<td>Show only Accounts you own</td>
-</tr>
-<tr>
-<td><strong>My Account Team</strong></td>
-<td>Show Accounts where you are a member of the Account Team (admin must enable)</td>
-</tr>
-<tr>
-<td><strong>My Role Team</strong></td>
-<td>Show Accounts owned by users in your role or any subordinate role (admin must enable)</td>
-</tr>
-<tr>
-<td><strong>Radius</strong></td>
-<td>Distance slider — only show records within X km of center</td>
-</tr>
-<tr>
-<td><strong>Record Type</strong></td>
-<td>Filter by Salesforce Record Type</td>
-</tr>
-<tr>
-<td><strong>Last Visit</strong></td>
-<td>Filter by visit recency: "Never visited", "Not visited in 3/6/12/24 months". Applies to <strong>all 3 object types</strong> (Accounts, Leads, Opportunities). Date is automatically sourced from the most recent Visit Report</td>
-</tr>
-<tr>
-<td><strong>Picklist Filters</strong></td>
-<td>Industry, Type, Rating, Ownership, etc. — depends on admin configuration</td>
-</tr>
-</tbody>
-</table>
-<h3 id="lead-filters">Lead Filters</h3>
-<p>Each Lead filter section has its own <strong>independent ownership filter</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Filter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>All Leads</strong></td>
-<td>Show all Leads (no ownership filter)</td>
-</tr>
-<tr>
-<td><strong>My Leads</strong></td>
-<td>Show only Leads you own</td>
-</tr>
-<tr>
-<td><strong>My Role Team</strong></td>
-<td>Show Leads owned by users in your role or any subordinate role (admin must enable)</td>
-</tr>
-<tr>
-<td><strong>Record Type</strong></td>
-<td>Filter by Lead Record Type</td>
-</tr>
-<tr>
-<td><strong>Last Visit</strong></td>
-<td>Filter by visit recency (automatic — based on most recent Visit Report)</td>
-</tr>
-<tr>
-<td><strong>Picklist Filters</strong></td>
-<td>Lead Source, Status, Rating, etc. — depends on admin configuration</td>
-</tr>
-</tbody>
-</table>
-<h3 id="opportunity-filters">Opportunity Filters</h3>
-<p>Each Opportunity filter section has its own <strong>independent ownership filter</strong>:</p>
-<table>
-<thead>
-<tr>
-<th>Filter</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>All Opportunities</strong></td>
-<td>Show all Opportunities (no ownership filter)</td>
-</tr>
-<tr>
-<td><strong>My Opportunities</strong></td>
-<td>Show only Opportunities you own</td>
-</tr>
-<tr>
-<td><strong>My Opportunity Team</strong></td>
-<td>Show Opportunities where you are a member of the Opportunity Team (admin must enable)</td>
-</tr>
-<tr>
-<td><strong>My Role Team</strong></td>
-<td>Show Opportunities owned by users in your role or any subordinate role (admin must enable)</td>
-</tr>
-<tr>
-<td><strong>Record Type</strong></td>
-<td>Filter by Opportunity Record Type</td>
-</tr>
-<tr>
-<td><strong>Last Visit</strong></td>
-<td>Filter by visit recency (automatic — based on most recent Visit Report)</td>
-</tr>
-<tr>
-<td><strong>Picklist Filters</strong></td>
-<td>Stage, Forecast Category, etc. — depends on admin configuration</td>
-</tr>
-<tr>
-<td><strong>Cross-object filters</strong></td>
-<td>Filter Opportunities by their Account's fields (e.g., Industry)</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><strong>Note:</strong> Each object's ownership filter is independent. For example, you can view "My Accounts" while simultaneously viewing "All Leads" and "My Opportunities".</p>
-</blockquote>
-<h3 id="multi-select-filters">Multi-Select Filters</h3>
-<p>Some filters display as <strong>checkbox lists</strong> instead of dropdowns, allowing you to select multiple values simultaneously (e.g., select both "Customer - Direct" AND "Prospect" for the Type filter).</p>
-<h3 id="applying-filters">Applying Filters</h3>
-<p>Click the <strong>Apply</strong> button after changing filters. The map refreshes with the filtered results.</p>
-<hr />
-<h2 id="5-saved-filters">5. Saved Filters</h2>
-<p>Save your frequently used filter combinations to reload them instantly.</p>
-<h3 id="saving-a-filter">Saving a Filter</h3>
+<hr>
+<h2>4. Save and reload filter presets</h2>
+<h3>Save a filter</h3>
 <ol>
-<li>Configure your desired filters, display toggles, and basemap</li>
-<li>In the <strong>Saved Filters</strong> section (top of filter panel), click <strong>Save</strong></li>
-<li>Enter a name (e.g., "My Western Region Prospects")</li>
-<li>Click <strong>Save</strong> — a confirmation toast appears</li>
+<li>Configure the map exactly how you want it.</li>
+<li>In <strong>Saved Filters</strong>, click <strong>Save</strong>.</li>
+<li>Enter a clear name.</li>
+<li>Confirm.</li>
 </ol>
-<h3 id="loading-a-saved-filter">Loading a Saved Filter</h3>
+<h3>Reload a filter</h3>
 <ol>
-<li>Open the <strong>Saved Filters</strong> dropdown</li>
-<li>Select a saved filter — all settings are instantly applied, including:</li>
-<li>Account, Lead, and Opportunity filters</li>
-<li>Display toggles (show/hide layers)</li>
-<li>Basemap selection</li>
-<li>Record type filters</li>
-<li>The map refreshes with the saved configuration</li>
+<li>Open the saved filter dropdown.</li>
+<li>Select a saved preset.</li>
+<li>RouteForce reapplies the full configuration.</li>
 </ol>
-<h3 id="deleting-a-saved-filter">Deleting a Saved Filter</h3>
+<h3>Delete a filter</h3>
 <ol>
-<li>Select the filter in the dropdown</li>
-<li>Click the <strong>Delete</strong> button</li>
-<li>Confirm deletion</li>
+<li>Select the saved filter.</li>
+<li>Click <strong>Delete</strong>.</li>
+<li>Confirm.</li>
 </ol>
-<hr />
-<h2 id="6-route-planning">6. Route Planning</h2>
-<h3 id="opening-the-route-panel">Opening the Route Panel</h3>
-<p>Click the <strong>route icon</strong> button on the map toolbar to open the route planning panel on the right side.</p>
-<h3 id="setting-a-starting-point">Setting a Starting Point</h3>
-<p>Choose how your route begins:</p>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>My Position</strong></td>
-<td>Uses your current GPS coordinates</td>
-</tr>
-<tr>
-<td><strong>Account</strong></td>
-<td>Search and select an Account record as the start</td>
-</tr>
-<tr>
-<td><strong>Lead</strong></td>
-<td>Search and select a Lead record (if enabled)</td>
-</tr>
-<tr>
-<td><strong>Opportunity</strong></td>
-<td>Search and select an Opportunity record (if enabled)</td>
-</tr>
-</tbody>
-</table>
-<p>Click the corresponding pill button and, for record-based starts, use the search field to find the record.</p>
-<h3 id="adding-stops">Adding Stops</h3>
-<p>With the route panel open, <strong>click markers on the map</strong> to add them as route stops. Each click adds the record to your step list.</p>
-<p>Steps appear in the route panel showing:</p>
-<ul>
-<li><strong>Step number</strong> (sequential badge)</li>
-<li><strong>Record name</strong> and city</li>
-<li><strong>Record type</strong> (Account, Lead, or Opportunity)</li>
-<li><strong>Phone</strong> — Clickable <code>tel:</code> link (when a contact is selected and has a phone number)</li>
-</ul>
-<h3 id="reordering-steps">Reordering Steps</h3>
-<ul>
-<li><strong>Drag and drop</strong> — Grab the hamburger icon (☰) on any step and drag it to a new position</li>
-<li><strong>Arrow buttons</strong> — Use the up/down arrows to move a step one position</li>
-</ul>
-<h3 id="removing-steps">Removing Steps</h3>
-<p>Click the <strong>trash icon</strong> on any step to remove it from the route.</p>
-<h3 id="route-settings">Route Settings</h3>
-<p>Expand the <strong>Settings</strong> section to configure:</p>
-<table>
-<thead>
-<tr>
-<th>Setting</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Route Date</strong></td>
-<td>Today</td>
-<td>Date for the planned route</td>
-</tr>
-<tr>
-<td><strong>Departure Time</strong></td>
-<td>08:00</td>
-<td>When you leave the starting point</td>
-</tr>
-<tr>
-<td><strong>Lunch Break</strong></td>
-<td>12:00–13:00</td>
-<td>Break period (no visits scheduled during this time)</td>
-</tr>
-<tr>
-<td><strong>End of Day</strong></td>
-<td>18:00</td>
-<td>Latest time for the last visit</td>
-</tr>
-<tr>
-<td><strong>Visit Duration</strong></td>
-<td>30 min</td>
-<td>Time spent at each stop</td>
-</tr>
-<tr>
-<td><strong>Avoid Tolls</strong></td>
-<td>Off</td>
-<td>Route avoids toll roads</td>
-</tr>
-<tr>
-<td><strong>Avoid Highways</strong></td>
-<td>Off</td>
-<td>Route avoids highways</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="7-route-optimization">7. Route Optimization</h2>
-<h3 id="optimizing-your-route">Optimizing Your Route</h3>
+<hr>
+<h2>5. Review events and agenda</h2>
+<p>RouteForce can display your Salesforce Events directly on the map.</p>
+<p><img src="file:///home/node/.openclaw/workspace/routeforce-docs/portal/screenshots/user-docs/526907d8-c0db-4fc2-98b4-036fac0a241b.png" alt="Agenda and events"></p>
+<h3>Load events</h3>
 <ol>
-<li>Add at least <strong>2 stops</strong> and set a <strong>starting point</strong></li>
-<li>Click the <strong>Optimize</strong> button (blue, routing icon)</li>
-<li>Wait for the spinner — the system calculates the optimal order</li>
-<li>Steps are reordered for the shortest total travel time</li>
+<li>Open the <strong>Events</strong> panel.</li>
+<li>Choose a date range.</li>
+<li>Click <strong>Load</strong>.</li>
 </ol>
-<h3 id="after-optimization">After Optimization</h3>
+<h3>Event states</h3>
 <ul>
-<li><strong>Step numbers</strong> update to the optimized order (green badges)</li>
-<li><strong>Arrival times</strong> appear on each step (rounded to the nearest 15 minutes)</li>
-<li><strong>Effective arrival</strong> shows the raw calculated time (if different from rounded)</li>
-<li><strong>Route line</strong> draws on the map showing the optimized path</li>
-<li><strong>Summary</strong> displays total distance (km) and duration</li>
+<li><strong>Blue marker</strong> — planned event</li>
+<li><strong>Grey marker with check state</strong> — checked-in event</li>
 </ul>
-<h3 id="lunch-break-handling">Lunch Break Handling</h3>
-<p>The optimizer automatically accounts for your lunch break. If a visit would fall during lunch, the arrival is shifted to after the break.</p>
-<h3 id="overflow-warning">Overflow Warning</h3>
-<p>If a step's arrival time exceeds your <strong>End of Day</strong> setting, it displays a red warning indicator. Consider removing steps or adjusting your schedule.</p>
-<h3 id="manual-adjustments">Manual Adjustments</h3>
-<p>After optimization, you can:</p>
+<h3>Event popup actions</h3>
 <ul>
-<li><strong>Click an arrival time</strong> to edit it manually (a pencil icon appears to indicate manual override)</li>
-<li><strong>Reorder steps</strong> — drag-and-drop still works post-optimization</li>
-<li><strong>Add/remove steps</strong> — then re-optimize if desired</li>
+<li>Open the related record</li>
+<li>Review the planned time slot</li>
+<li>Launch <strong>Check In</strong> when the visit happens</li>
 </ul>
-<h3 id="timezone">Timezone</h3>
-<p>All arrival and departure times displayed in your route reflect your Salesforce user timezone (Settings &gt; Language &amp; Time Zone).</p>
-<h3 id="step-limit">Step Limit</h3>
-<p>The routing engine supports a maximum of <strong>50 stops</strong> per route. A warning appears if you exceed this limit, and the Optimize button is disabled.</p>
-<hr />
-<h2 id="8-nearby-accounts">8. Nearby Accounts</h2>
-<p>When a route exists, the <strong>Nearby</strong> section automatically shows records within a configurable radius of your route path.</p>
-<p>Each nearby item displays:</p>
+<hr>
+<h2>6. Build a route</h2>
+<p>Open the route panel to prepare a field day.</p>
+<p><img src="file:///home/node/.openclaw/workspace/routeforce-docs/portal/screenshots/user-docs/dca3f0b4-4164-4c86-b87a-0e7969e39be6.png" alt="Route planning panel"></p>
+<h3>Choose a starting point</h3>
+<p>You can start from:</p>
 <ul>
-<li><strong>Record name</strong> and type</li>
-<li><strong>Distance</strong> from the nearest route point (e.g., "2.5 km")</li>
-<li><strong>Add button</strong> (+) to include it as a new stop</li>
+<li><strong>My Position</strong></li>
+<li><strong>An Account</strong></li>
+<li><strong>A Lead</strong></li>
+<li><strong>An Opportunity</strong></li>
 </ul>
-<p>When the <strong>Visit Alert</strong> feature is enabled by your admin, nearby records are <strong>sorted by visit urgency</strong> — records overdue for a visit appear first in the list, helping you prioritize the most important opportunistic stops.</p>
-<p>This helps you discover opportunistic visits along your planned route.</p>
-<hr />
-<h2 id="9-exporting-saving-routes">9. Exporting &amp; Saving Routes</h2>
-<h3 id="google-maps-export">Google Maps Export</h3>
-<p>Click <strong>Google Maps</strong> to open your optimized route in Google Maps with all waypoints. This is useful for turn-by-turn navigation on your phone.</p>
-<h3 id="csv-export">CSV Export</h3>
-<p>Click <strong>Export CSV</strong> to download a spreadsheet with:</p>
-<table>
-<thead>
-<tr>
-<th>Column</th>
-<th>Content</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Step</td>
-<td>Stop number</td>
-</tr>
-<tr>
-<td>Account</td>
-<td>Record name</td>
-</tr>
-<tr>
-<td>City</td>
-<td>City from address</td>
-</tr>
-<tr>
-<td>Arrival</td>
-<td>Estimated arrival time</td>
-</tr>
-<tr>
-<td>Contact</td>
-<td>Selected contact (if any)</td>
-</tr>
-<tr>
-<td>Phone</td>
-<td>Contact phone number (if contact is selected)</td>
-</tr>
-<tr>
-<td>Distance</td>
-<td>Distance from previous step</td>
-</tr>
-<tr>
-<td>Duration</td>
-<td>Travel time from previous step</td>
-</tr>
-</tbody>
-</table>
-<h3 id="creating-calendar-events">Creating Calendar Events</h3>
-<p>Click <strong>Create Visits</strong> to automatically create Salesforce Events for each stop:</p>
+<h3>Add stops</h3>
+<p>With the route panel open, click markers on the map to add them as route steps.</p>
+<p>Each step shows:</p>
 <ul>
-<li><strong>Subject</strong>: Record name</li>
-<li><strong>Start/End Time</strong>: Based on optimized arrival + visit duration</li>
-<li><strong>Related To</strong>: Linked to the Account/Lead/Opportunity</li>
+<li>sequence number</li>
+<li>record name</li>
+<li>city</li>
+<li>record type</li>
 </ul>
-<p>A confirmation message shows how many events were created. The <strong>daily agenda panel</strong> automatically opens with the newly created events, so you can immediately see your day's schedule.</p>
-<h3 id="saving-route-history">Saving Route History</h3>
-<p>After optimization, save your route to history for future reference. If <strong>History Naming</strong> is enabled, you can give the route a custom name (e.g., "Paris North — March 11").</p>
-<hr />
-<h2 id="10-events-check-in">10. Events &amp; Check-In</h2>
-<h3 id="loading-events">Loading Events</h3>
+<h3>Reorder or remove stops</h3>
+<ul>
+<li>Drag and drop steps</li>
+<li>Use move arrows if available</li>
+<li>Click the trash icon to remove a stop</li>
+</ul>
+<h3>Route settings</h3>
+<p>Typical route settings include:</p>
+<ul>
+<li>route date</li>
+<li>departure time</li>
+<li>lunch break</li>
+<li>end of day</li>
+<li>visit duration</li>
+<li>avoid tolls</li>
+<li>avoid highways</li>
+</ul>
+<hr>
+<h2>7. Optimize the route</h2>
+<p>When you have at least two stops and a starting point, click <strong>Optimize</strong>.</p>
+<p><img src="file:///home/node/.openclaw/workspace/routeforce-docs/portal/screenshots/user-docs/754c878a-8331-4d55-8bd2-9be44ccd0b22.png" alt="Optimized route result"></p>
+<h3>What RouteForce does</h3>
+<ul>
+<li>reorders stops for a more efficient trip</li>
+<li>draws the route on the map</li>
+<li>calculates distance and travel time</li>
+<li>estimates arrival times</li>
+<li>respects lunch break and end-of-day logic</li>
+</ul>
+<h3>Important limit</h3>
+<ul>
+<li>Maximum supported route size: <strong>50 stops</strong></li>
+</ul>
+<h3>After optimization</h3>
+<p>You can still:</p>
+<ul>
+<li>manually adjust steps</li>
+<li>add or remove a stop</li>
+<li>optimize again</li>
+</ul>
+<hr>
+<h2>8. Add nearby visits</h2>
+<p>When a route exists, RouteForce can suggest nearby records around the route path.</p>
+<p><img src="file:///home/node/.openclaw/workspace/routeforce-docs/portal/screenshots/user-docs/b5858b00-ff8a-4ae1-ad51-6c5a849a1fe2.png" alt="Supplemental nearby / route detail"></p>
+<p>Each nearby item can show:</p>
+<ul>
+<li>record name</li>
+<li>object type</li>
+<li>distance from the route</li>
+<li>add button to insert it as a stop</li>
+</ul>
+<p>This is useful for opportunistic visits.</p>
+<hr>
+<h2>9. Export and create visits</h2>
+<p>After optimization, RouteForce can help you operationalize the route.</p>
+<h3>Google Maps export</h3>
+<p>Use <strong>Google Maps</strong> to open the trip in a navigation-friendly format.</p>
+<h3>CSV export</h3>
+<p>Use <strong>Export CSV</strong> to download route details such as:</p>
+<ul>
+<li>stop number</li>
+<li>account / record name</li>
+<li>city</li>
+<li>arrival time</li>
+<li>assigned contact</li>
+<li>distance and duration</li>
+</ul>
+<h3>Create Salesforce Events</h3>
+<p>Use <strong>Create Visits</strong> to generate Events for the route steps automatically.</p>
+<p>Typical event data includes:</p>
+<ul>
+<li>subject</li>
+<li>start and end time</li>
+<li>related record</li>
+</ul>
+<hr>
+<h2>10. Check in after a visit</h2>
+<p>Use check-in to confirm the visit happened and log the outcome.</p>
+<p><img src="file:///home/node/.openclaw/workspace/routeforce-docs/portal/screenshots/user-docs/06396a98-15b2-4178-a864-995451a96646.png" alt="Visit report and check-in"></p>
+<h3>Check-in flow</h3>
 <ol>
-<li>Open the <strong>Events panel</strong> (calendar icon, top area)</li>
-<li>Select a date or use <strong>Today</strong> / <strong>This Week</strong> presets</li>
-<li>Click <strong>Load</strong> — events appear as calendar-pin markers on the map</li>
+<li>Open an event marker or event popup.</li>
+<li>Click <strong>Check In</strong>.</li>
+<li>Select the result.</li>
+<li>Enter notes.</li>
+<li>Confirm.</li>
 </ol>
-<h3 id="event-markers">Event Markers</h3>
+<p>This creates a <strong>Visit Report</strong> linked to the related record.</p>
+<p>Depending on your setup, you may also see:</p>
 <ul>
-<li><strong>Blue pulsing pin</strong> — Upcoming event (not yet checked in)</li>
-<li><strong>Gray pin with green checkmark</strong> — Checked-in event</li>
+<li>Quick Text snippets</li>
+<li>additional notes fields</li>
+<li>visit outcome options such as success, callback, or not home</li>
 </ul>
-<h3 id="next-event-block">Next Event Block</h3>
-<p>The <strong>next upcoming event</strong> is highlighted at the top of the events panel. <strong>Click it</strong> to automatically center and zoom the map to its location — useful for quickly navigating to your next appointment.</p>
-<h3 id="event-popup">Event Popup</h3>
-<p>Click an event marker to see:</p>
+<hr>
+<h2>11. Reuse route history</h2>
+<p>Route history helps you repeat a working territory plan.</p>
+<p><img src="file:///home/node/.openclaw/workspace/routeforce-docs/portal/screenshots/user-docs/aba6e83a-f537-43b8-a9fe-7f7c851e1830.png" alt="Route history"></p>
+<p>Each saved route can include:</p>
 <ul>
-<li><strong>Subject</strong> (event title)</li>
-<li><strong>Time range</strong> (e.g., 09:00 – 09:30)</li>
-<li><strong>Related record</strong> (Account/Lead/Opportunity name, clickable)</li>
-<li><strong>City</strong></li>
-<li><strong>Check-In button</strong> or <strong>Checked In</strong> status</li>
-<li><strong>Custom action buttons</strong> (if configured, e.g., "DN Entry")</li>
+<li>route name</li>
+<li>creation date</li>
+<li>stop count</li>
+<li>total distance</li>
+<li>total duration</li>
+<li>optimized status</li>
 </ul>
-<h3 id="hiding-markers">Hiding Markers</h3>
-<p>When the daily agenda is open, you can click <strong>Hide Accounts</strong> in the toolbar to temporarily hide Account/Lead/Opportunity markers, making event pins easier to see. Closing the agenda panel restores them automatically.</p>
-<h3 id="checking-in">Checking In</h3>
-<ol>
-<li>Click <strong>Check In</strong> on an event popup</li>
-<li>The <strong>Check-In Modal</strong> opens with:</li>
-<li><strong>Previous Visit</strong> context (if a prior visit report exists for this Account, Lead, or Opportunity) — shows the date, result, next action planned, and author of the last visit</li>
-<li><strong>Result</strong> field — visit outcome. Depending on admin configuration, this is either a <strong>dropdown picklist</strong> (with predefined options like "Successful", "Follow-up needed") or a <strong>free text</strong> input (max 255 characters)</li>
-<li><strong>Next Action</strong> field — what to do next after this visit</li>
-<li><strong>Notes</strong> field (rich text if Quick Text is enabled, plain textarea otherwise)</li>
-<li><strong>Quick Text</strong> snippets (pre-defined text blocks you can insert into notes)</li>
-<li>Fill in the result, next action, and notes</li>
-<li>Click <strong>Confirm</strong></li>
-</ol>
-<p>This creates a <strong>Visit Report</strong> record linked to the related record (Account, Lead, or Opportunity), and marks the event as checked in (the marker turns gray with a green checkmark).</p>
-<p>Visit Reports are accessible from the <strong>Visit Reports</strong> tab in the RouteForce app, or from the <strong>Related Lists</strong> on the corresponding Account, Lead, or Opportunity record.</p>
-<h3 id="creating-events-from-the-map">Creating Events from the Map</h3>
-<p>Click <strong>Create Event</strong> in any marker popup to schedule a new visit directly from the map. The event is pre-linked to the selected record.</p>
-<hr />
-<h2 id="11-route-history">11. Route History</h2>
-<h3 id="viewing-history">Viewing History</h3>
-<p>Click the <strong>history icon</strong> (clock) to open the history panel. Past routes are listed with:</p>
+<h3>Common actions</h3>
 <ul>
-<li><strong>Route name</strong> (custom or auto-generated)</li>
-<li><strong>Date</strong> created</li>
-<li><strong>Step count</strong></li>
-<li><strong>Distance</strong> and <strong>Duration</strong> (if optimized)</li>
-<li><strong>Optimized badge</strong> (green tag if the route was optimized)</li>
+<li><strong>Reload</strong> a previous route</li>
+<li><strong>Delete</strong> an obsolete route</li>
+<li>use a past route as a template for a new day</li>
 </ul>
-<h3 id="reloading-a-route">Reloading a Route</h3>
-<p>Click the <strong>reload icon</strong> on any history item to restore it:</p>
+<hr>
+<h2>12. Additional interface examples</h2>
+<p>These screenshots can help users recognize alternate UI states they may encounter.</p>
+<p><img src="file:///home/node/.openclaw/workspace/routeforce-docs/portal/screenshots/user-docs/dab588d3-5255-4ab3-b30f-93dc747e923a.jpg" alt="Detailed UI state 1"></p>
+<p><img src="file:///home/node/.openclaw/workspace/routeforce-docs/portal/screenshots/user-docs/ec83fefb-6206-4790-8191-112fa1de1e3b.jpg" alt="Detailed UI state 2"></p>
+<hr>
+<h2>13. Mobile usage</h2>
+<p>RouteForce works in Salesforce Mobile.</p>
+<h3>On mobile</h3>
 <ul>
-<li>All stops are re-added to the route panel</li>
-<li>The route line redraws on the map</li>
-<li>Optimization data is preserved</li>
+<li>the filter panel becomes a slide-out panel</li>
+<li>the route panel uses more screen width</li>
+<li>the map supports pinch and drag gestures</li>
+<li>action buttons stay touch-friendly</li>
 </ul>
-<h3 id="deleting-history">Deleting History</h3>
-<ol>
-<li>Click the <strong>trash icon</strong> on a history item</li>
-<li>A <strong>Confirm?</strong> prompt appears</li>
-<li>Click again to confirm deletion, or click the cancel icon to abort</li>
-</ol>
-<hr />
-<h2 id="12-contact-lookup">12. Contact Lookup</h2>
-<p>When enabled, each route step can have a <strong>contact</strong> assigned:</p>
-<ol>
-<li>After adding a stop, a <strong>Contact</strong> dropdown appears on the step</li>
-<li>Search for contacts linked to the record</li>
-<li>Select a contact — they appear in the CSV export and calendar events</li>
-</ol>
-<p>This is useful for knowing exactly who you'll meet at each stop.</p>
-<hr />
-<h2 id="13-mobile-usage">13. Mobile Usage</h2>
-<p>RouteForce is fully responsive and works on Salesforce Mobile:</p>
-<ul>
-<li><strong>Filter panel</strong> slides out from the left (tap to open/close)</li>
-<li><strong>Route panel</strong> takes full width on small screens</li>
-<li><strong>Check-in modal</strong> adapts to virtual keyboard (form stays visible)</li>
-<li><strong>Map</strong> supports touch gestures (pinch to zoom, one-finger drag to pan)</li>
-<li><strong>All buttons</strong> are touch-friendly with appropriate sizing</li>
-</ul>
-<hr />
-<h2 id="14-multilingual-support">14. Multilingual Support</h2>
-<p>RouteForce is available in <strong>English</strong>, <strong>French</strong>, and <strong>Spanish</strong>. The interface language follows your Salesforce user language setting.</p>
-<p>To change language: <strong>Settings &gt; Language &amp; Time Zone</strong> &gt; select your language. After changing your language in Salesforce, perform a hard refresh (Ctrl+Shift+R on Windows, Cmd+Shift+R on Mac) to reload all labels.</p>
-<hr />
-<h2 id="15-keyboard-shortcuts-tips">15. Keyboard Shortcuts &amp; Tips</h2>
-<table>
-<thead>
-<tr>
-<th>Tip</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Click + Add</strong></td>
-<td>With the route panel open, click any marker to add it as a stop</td>
-</tr>
-<tr>
-<td><strong>Zoom to fit</strong></td>
-<td>After optimization, the map auto-zooms to show the entire route</td>
-</tr>
-<tr>
-<td><strong>Quick filter</strong></td>
-<td>Use saved filters to switch between frequent search configurations</td>
-</tr>
-<tr>
-<td><strong>Nearby discovery</strong></td>
-<td>After optimizing, check the Nearby section for opportunistic visits</td>
-</tr>
-<tr>
-<td><strong>Batch events</strong></td>
-<td>Use "Create Visits" to schedule all stops at once instead of one by one</td>
-</tr>
-<tr>
-<td><strong>History reload</strong></td>
-<td>Reload a past route to re-use it as a template for a new day</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="16-custom-actions">16. Custom Actions</h2>
-<p>Custom Actions allow your admin to add <strong>custom buttons</strong> on marker popups, event popups, and the daily agenda panel. These buttons launch Screen Flows in a fullscreen modal, enabling specialized workflows without leaving the map.</p>
-<h3 id="how-it-works">How It Works</h3>
-<ol>
-<li>Custom action buttons appear in <strong>marker popups</strong>, <strong>event popups</strong>, and <strong>daily agenda rows</strong></li>
-<li>Click a custom action button — a <strong>fullscreen modal</strong> opens with the associated Screen Flow</li>
-<li>Complete the flow — on save or cancel, the modal closes automatically</li>
-</ol>
-<h3 id="where-custom-actions-appear">Where Custom Actions Appear</h3>
-<table>
-<thead>
-<tr>
-<th>Location</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Marker Popups</strong></td>
-<td>Buttons on Account, Lead, and Opportunity marker popups (map click)</td>
-</tr>
-<tr>
-<td><strong>Event Popups</strong></td>
-<td>Buttons on daily event marker popups (calendar pins on the map)</td>
-</tr>
-<tr>
-<td><strong>Daily Agenda Panel</strong></td>
-<td>Icon buttons on each event row in the "Today's Agenda" side panel</td>
-</tr>
-<tr>
-<td><strong>Group Popups</strong></td>
-<td>Buttons on each record when multiple records share an address</td>
-</tr>
-</tbody>
-</table>
-<h3 id="display-context">Display Context</h3>
-<p>The <strong>Display Context</strong> setting on each custom action controls where it appears:</p>
-<table>
-<thead>
-<tr>
-<th>Value</th>
-<th>Behavior</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>All</strong> (default)</td>
-<td>Button appears everywhere: popups, event popups, and agenda panel</td>
-</tr>
-<tr>
-<td><strong>Popup</strong></td>
-<td>Button appears only on marker and event popups (map clicks)</td>
-</tr>
-<tr>
-<td><strong>EventPanel</strong></td>
-<td>Button appears only on daily agenda panel rows</td>
-</tr>
-</tbody>
-</table>
-<h3 id="common-use-cases">Common Use Cases</h3>
-<table>
-<thead>
-<tr>
-<th>Use Case</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Data entry forms</strong></td>
-<td>Enter field data (e.g., product orders, inventory counts) directly from the map</td>
-</tr>
-<tr>
-<td><strong>Survey completion</strong></td>
-<td>Fill out visit surveys linked to the Account</td>
-</tr>
-<tr>
-<td><strong>Quick updates</strong></td>
-<td>Update record fields via a guided flow</td>
-</tr>
-</tbody>
-</table>
-<h3 id="custom-action-appearance">Custom Action Appearance</h3>
-<p>Each custom action button has:</p>
-<ul>
-<li><strong>Label</strong> — Action name (e.g., "DN Entry", "Complete Survey")</li>
-<li><strong>Icon</strong> — Visual indicator (e.g., edit, clipboard, check)</li>
-<li><strong>Color</strong> — Configurable button color for quick identification</li>
-</ul>
-<h3 id="conditional-visibility">Conditional Visibility</h3>
-<p>Your admin can configure custom actions to appear only on specific records. For example, a "DN Entry" button might only appear on Accounts of type "Customer - Direct". If a custom action doesn't appear on a marker popup, it's because the record doesn't match the configured filter condition.</p>
-<h3 id="notes">Notes</h3>
-<ul>
-<li>Custom actions are configured by your admin via <strong>RouteForce Action</strong> metadata records</li>
-<li>The flow receives the <strong>record ID</strong> of the clicked marker automatically</li>
-<li>Custom actions appear on both <strong>single marker popups</strong> and <strong>group popup</strong> items</li>
-<li>The modal is <strong>responsive</strong> — it adapts to mobile screens and landscape orientation</li>
-<li>Actions can be restricted to specific <strong>display contexts</strong> (popups only, agenda panel only, or everywhere)</li>
-</ul>
-<hr />
-<h2 id="17-application-logs">17. Application Logs</h2>
-<p>RouteForce automatically records application events in a structured log. This helps your admin monitor the application health and troubleshoot issues.</p>
-<h3 id="what-you-see">What You See</h3>
-<p>As a standard user, you can view your own log entries from the <strong>RouteForce Logs</strong> tab:</p>
-<table>
-<thead>
-<tr>
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Level</strong></td>
-<td><code>INFO</code> (normal), <code>WARN</code> (potential issue), <code>ERROR</code> (failure)</td>
-</tr>
-<tr>
-<td><strong>Context</strong></td>
-<td>Which part of the app generated the entry</td>
-</tr>
-<tr>
-<td><strong>Message</strong></td>
-<td>Details about the event</td>
-</tr>
-<tr>
-<td><strong>Timestamp</strong></td>
-<td>When it happened</td>
-</tr>
-</tbody>
-</table>
-<h3 id="automatic-cleanup">Automatic Cleanup</h3>
-<p>Log entries older than 30 days are automatically deleted. You don't need to do anything — the system handles this in the background.</p>
-<h3 id="when-to-check-logs">When to Check Logs</h3>
-<ul>
-<li>After a <strong>route optimization fails</strong> — look for ERROR entries in context "RouteService"</li>
-<li>After a <strong>check-in problem</strong> — look for entries in context "EventMapService"</li>
-<li>When your admin asks you to <strong>reproduce an issue</strong> — the logs capture the technical details</li>
-</ul>
-<hr />
-<h2 id="troubleshooting">Troubleshooting</h2>
+<hr>
+<h2>14. Troubleshooting</h2>
 <table>
 <thead>
 <tr>
 <th>Issue</th>
-<th>Solution</th>
+<th>What to check</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td>No markers on map</td>
-<td>Check that your records have geocoded addresses (Latitude/Longitude fields)</td>
+<tbody><tr>
+<td>No markers on the map</td>
+<td>The records must have latitude / longitude data</td>
 </tr>
 <tr>
-<td>Map doesn't load</td>
-<td>Contact your admin to verify licence and Remote Site Settings</td>
+<td>Map does not load</td>
+<td>Ask your admin to verify licence and remote access settings</td>
 </tr>
 <tr>
-<td>"Licence expired" overlay</td>
-<td>Contact support (email shown on the overlay)</td>
+<td>Optimization fails</td>
+<td>Reduce the number of stops and retry</td>
 </tr>
 <tr>
-<td>Route optimization fails</td>
-<td>Check your internet connection; ensure you have ≤ 50 stops</td>
+<td>Events do not appear</td>
+<td>Check the selected date range and your Salesforce Events</td>
 </tr>
 <tr>
-<td>Events not loading</td>
-<td>Verify you have upcoming Events for the selected date range</td>
+<td>Check-in is unavailable</td>
+<td>Your admin may have disabled Events or Visit Reports</td>
 </tr>
 <tr>
-<td>Filters not working</td>
-<td>Click <strong>Apply</strong> after changing filter values</td>
+<td>CSV export is empty</td>
+<td>Optimize the route first</td>
 </tr>
-<tr>
-<td>Check-in button missing</td>
-<td>Events feature or Visit Reports must be enabled by your admin</td>
-</tr>
-<tr>
-<td>CSV export empty</td>
-<td>Optimize the route first, then export</td>
-</tr>
-<tr>
-<td>Leads/Opps toggles visible despite being disabled</td>
-<td>Refresh the page (Ctrl+Shift+R). Config changes take effect on the next page load.</td>
-</tr>
-<tr>
-<td>Logs tab not visible</td>
-<td>Ask your admin to assign the RouteForce User or Admin permission set</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="support">Support</h2>
-<p>For questions or issues, contact the support email configured by your admin (visible in the Configuration section of the filter panel), or reach out to your Salesforce administrator.</p>
-        <hr>
-        <p style="font-size:0.85rem;color:#64748b;margin-top:1rem;">RouteForce v4.1.0 — Mars 2026. Questions : <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></p>
-    </div>
+</tbody></table>
+<hr>
+<h2>15. Best practices</h2>
+<ul>
+<li>Save filters for recurring territories.</li>
+<li>Keep routes realistic instead of overloading one day.</li>
+<li>Use nearby suggestions after optimization, not before.</li>
+<li>Check in as soon as the visit is completed.</li>
+<li>Reuse route history for repeat rounds.</li>
+</ul>
+<hr>
+<h2>Support</h2>
+<p>If something still looks wrong, contact your Salesforce administrator or the RouteForce support contact configured in your org.</p></main>
+      <div class="page-footer">Mathieu Szymkiewicz — Entrepreneur individuel · SIRET 938 498 649 00012 · TVA FR52938498649 · routeforce.app</div>
+    </section>
+  </div>
 </body>
 </html>
