@@ -1,0 +1,19 @@
+[
+  {
+    "timestamp": "2026-03-21T19:49:00Z",
+    "site": "routeforce.app",
+    "sitemap": "https://routeforce.app/sitemap.xml",
+    "sitemapHash": "sha256:2bde064c6303defa2871ebae8081ae2b690907fd69a08732f42122dd40b9346f",
+    "submittedUrlCount": 27,
+    "engines": {
+      "indexnow": {
+        "engine": "indexnow",
+        "status": "skipped",
+        "reason": "missing INDEXNOW_KEY"
+      }
+    },
+    "status": "PARTIAL",
+    "mode": "sitemap",
+    "dryRun": true
+  }
+]
