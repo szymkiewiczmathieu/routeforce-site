@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Configuration Guide &mdash; RouteForce v4.4.0</title>
+  <title>Configuration Guide &mdash; RouteForce v5.0.0</title>
   <style>
 :root{--primary:#2563eb;--primary-dark:#1e3a8a;--text:#1f2937;--muted:#6b7280;--light:#f8fafc;--border:#e2e8f0;--code-bg:#f1f5f9;--note-bg:#eff6ff;--warn-bg:#fefce8;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -50,7 +50,7 @@ footer{background:white;border-top:1px solid var(--border);padding:24px 32px;tex
 </header>
 <div class="doc-hero">
   <div class="hero-inner">
-    <span class="badge">v4.4.0 · Salesforce Administrators</span>
+    <span class="badge">v5.0.0 · Salesforce Administrators</span>
     <h1>Configuration Guide</h1>
     <p>A complete reference to configure, customize, and maintain RouteForce in your Salesforce org.</p>
   </div>
@@ -1745,6 +1745,14 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <td>Log Retention</td>
 <td>30 days</td>
 </tr>
+<tr>
+<td>Usage Data Retention</td>
+<td>90 days</td>
+</tr>
+<tr>
+<td>Background Jobs</td>
+<td>Auto-scheduled</td>
+</tr>
 </tbody>
 </table>
 <hr />
@@ -1816,8 +1824,8 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 </tr>
 <tr>
 <td>Schedule</td>
-<td>Manual</td>
-<td>Must be scheduled by admin (see Setup Guide)</td>
+<td>Auto</td>
+<td>Daily at 2 AM — auto-scheduled by PostInstallHandler (see §21)</td>
 </tr>
 </tbody>
 </table>
@@ -1860,7 +1868,141 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 </tbody>
 </table>
 <p>The 30-day default retention keeps storage manageable for most orgs.</p>
+<hr />
+<h2 id="21-background-jobs-automation">21. Background Jobs &amp; Automation</h2>
+<h3 id="overview">Overview</h3>
+<p>RouteForce runs 3 scheduled background jobs for data maintenance and analytics. These jobs are <strong>automatically scheduled</strong> on package install or upgrade — no manual setup is required.</p>
+<h3 id="postinstallhandler-automatic-scheduling">PostInstallHandler — Automatic Scheduling</h3>
+<p>When RouteForce is installed or upgraded, the <code>PostInstallHandler</code> class automatically schedules all 3 background jobs:</p>
+<table>
+<thead>
+<tr>
+<th>Job Name</th>
+<th>Class</th>
+<th>Schedule</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RouteForce Usage Aggregation</strong></td>
+<td><code>UsageAggregationSchedulable</code></td>
+<td>Daily at 1:00 AM</td>
+<td>Aggregates raw usage tracking records into daily/weekly summaries</td>
+</tr>
+<tr>
+<td><strong>RouteForce Log Purge</strong></td>
+<td><code>LogPurgeSchedulable</code></td>
+<td>Daily at 2:00 AM</td>
+<td>Deletes <code>RouteForceLog__c</code> records older than 30 days</td>
+</tr>
+<tr>
+<td><strong>RouteForce Usage Purge</strong></td>
+<td><code>UsagePurgeBatch</code></td>
+<td>Weekly, Sunday 3:00 AM</td>
+<td>Deletes raw usage tracking records older than 90 days</td>
+</tr>
+</tbody>
+</table>
+<p>The handler checks for existing scheduled jobs before creating new ones, so upgrading the package does not create duplicate jobs.</p>
+<h3 id="self-healing-jobs-self-rescheduling-pattern">Self-Healing Jobs (Self-Rescheduling Pattern)</h3>
+<p>Each batch job implements a <strong>self-rescheduling pattern</strong> for resilience:</p>
+<ol>
+<li>When a batch's <code>finish()</code> method runs, it <strong>aborts its own CronTrigger</strong> and immediately <strong>re-schedules itself</strong></li>
+<li>This means the job always runs under the context of the user who last triggered it</li>
+<li>If the original scheduling user is deactivated (e.g., an admin leaves the company), the job still executes because it re-schedules under the current execution context</li>
+</ol>
+<p>This pattern ensures jobs <strong>never silently stop</strong> due to user deactivation — a common issue with standard Salesforce scheduled jobs.</p>
+<h3 id="job-status-usage-dashboard">Job Status — Usage Dashboard</h3>
+<p>The <strong>Usage Dashboard</strong> (accessible to admins) displays a <strong>Job Status</strong> table showing the health of all 3 background jobs:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Job Name</strong></td>
+<td>Name of the scheduled job</td>
+</tr>
+<tr>
+<td><strong>Status</strong></td>
+<td>Color-coded badge: green = <strong>Active</strong>, orange = <strong>Inactive</strong>, gray = <strong>Missing</strong></td>
+</tr>
+<tr>
+<td><strong>Scheduled By</strong></td>
+<td>Name of the user who last scheduled the job</td>
+</tr>
+<tr>
+<td><strong>Next Run</strong></td>
+<td>Next scheduled fire time</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Active</strong> — the job is scheduled and will run at the next fire time</li>
+<li><strong>Inactive</strong> — a CronTrigger exists but is not in a running state</li>
+<li><strong>Missing</strong> — no CronTrigger found for this job (needs rescheduling)</li>
+</ul>
+<h3 id="reschedule-jobs-button">Reschedule Jobs Button</h3>
+<p>If jobs are missing or inactive (e.g., after a sandbox refresh, or if an admin manually deleted them), the Usage Dashboard provides a <strong>Reschedule Jobs</strong> button:</p>
+<ul>
+<li><strong>Visibility</strong>: only shown to users with the <code>RouteForce_Admin</code> permission set</li>
+<li><strong>Action</strong>: aborts all 3 existing CronTriggers (if any) and re-schedules them under the current admin user</li>
+<li><strong>Result</strong>: all 3 jobs return to <strong>Active</strong> status with updated "Scheduled By" and "Next Run" values</li>
+</ul>
+<p>This is a one-click recovery mechanism — no need to run anonymous Apex or navigate to Setup.</p>
+<h3 id="manual-scheduling-advanced">Manual Scheduling (Advanced)</h3>
+<p>In rare cases where you need to schedule jobs manually (e.g., from Developer Console), use:</p>
+<pre><code class="language-apex">// Usage Aggregation — daily at 1 AM
+System.schedule('RouteForce Usage Aggregation', '0 0 1 * * ?', new routeforce.UsageAggregationSchedulable());
+
+// Log Purge — daily at 2 AM
+System.schedule('RouteForce Log Purge', '0 0 2 * * ?', new routeforce.LogPurgeSchedulable());
+
+// Usage Purge — weekly Sunday at 3 AM
+System.schedule('RouteForce Usage Purge', '0 0 3 ? * SUN', new routeforce.UsagePurgeBatch());
+</code></pre>
+<h3 id="troubleshooting">Troubleshooting</h3>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Cause</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Jobs show as <strong>Missing</strong></td>
+<td>Sandbox refresh or manual deletion</td>
+<td>Click <strong>Reschedule Jobs</strong> in the Usage Dashboard</td>
+</tr>
+<tr>
+<td>Jobs show as <strong>Inactive</strong></td>
+<td>Scheduling user was deactivated</td>
+<td>Click <strong>Reschedule Jobs</strong> — jobs will re-schedule under your user</td>
+</tr>
+<tr>
+<td>Dashboard not showing job table</td>
+<td>User lacks admin permission</td>
+<td>Assign <code>RouteForce_Admin</code> permission set to the user</td>
+</tr>
+<tr>
+<td>Jobs not created after install</td>
+<td>PostInstallHandler did not run</td>
+<td>Click <strong>Reschedule Jobs</strong> or schedule manually via Developer Console</td>
+</tr>
+<tr>
+<td>Usage data not aggregating</td>
+<td><code>EnableUsageTracking__c</code> is disabled</td>
+<td>Enable usage tracking in <code>RouteForceConfig__mdt</code> — the aggregation job still runs but has no data to process</td>
+</tr>
+</tbody>
+</table>
 </div>
-<footer>RouteForce SAS &mdash; v4.4.0 &mdash; Mars 2026 &mdash; <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></footer>
+<footer>RouteForce SAS &mdash; v5.0.0 &mdash; Mars 2026 &mdash; <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></footer>
 </body>
 </html>

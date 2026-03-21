@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>User Guide &mdash; RouteForce v4.4.0</title>
+  <title>User Guide &mdash; RouteForce v5.0.0</title>
   <style>
 :root{--primary:#2563eb;--primary-dark:#1e3a8a;--text:#1f2937;--muted:#6b7280;--light:#f8fafc;--border:#e2e8f0;--code-bg:#f1f5f9;--note-bg:#eff6ff;--warn-bg:#fefce8;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -50,7 +50,7 @@ footer{background:white;border-top:1px solid var(--border);padding:24px 32px;tex
 </header>
 <div class="doc-hero">
   <div class="hero-inner">
-    <span class="badge">v4.4.0 · Sales Reps & Field Users</span>
+    <span class="badge">v5.0.0 · Sales Reps & Field Users</span>
     <h1>User Guide</h1>
     <p>A complete guide to plan field visits, optimize routes, and track customer interactions — all from within Salesforce.</p>
   </div>
@@ -108,6 +108,7 @@ footer{background:white;border-top:1px solid var(--border);padding:24px 32px;tex
 <li><strong>Route History</strong> — List view of all saved routes</li>
 <li><strong>Saved Filters</strong> — List view of saved filter configurations</li>
 <li><strong>Visit Reports</strong> — List view of all visit reports created during check-ins</li>
+<li><strong>Usage Analytics</strong> — Admin-only dashboard showing app usage and automation job status</li>
 <li><strong>Configuration</strong> — Admin-only settings (onboarding wizard, licence)</li>
 </ul>
 <hr />
@@ -899,6 +900,87 @@ footer{background:white;border-top:1px solid var(--border);padding:24px 32px;tex
 <li>When your admin asks you to <strong>reproduce an issue</strong> — the logs capture the technical details</li>
 </ul>
 <hr />
+<h2 id="19-usage-analytics-dashboard-admin">19. Usage Analytics Dashboard (Admin)</h2>
+<p>The <strong>Usage Analytics Dashboard</strong> is an admin-only tab that provides insights into how RouteForce is being used across your organization. It is accessible to users with the <strong>RouteForce_Admin</strong> permission set.</p>
+<h3 id="automation-jobs">Automation Jobs</h3>
+<p>At the top of the dashboard, the <strong>Automation Jobs</strong> section displays the status of RouteForce's background scheduled jobs. These jobs run automatically to keep the application healthy:</p>
+<table>
+<thead>
+<tr>
+<th>Job</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Usage Aggregation</strong></td>
+<td>Summarizes daily usage data for dashboard reporting</td>
+</tr>
+<tr>
+<td><strong>Log Purge</strong></td>
+<td>Deletes application log entries older than 30 days</td>
+</tr>
+<tr>
+<td><strong>Usage Purge</strong></td>
+<td>Deletes raw usage records older than the retention period</td>
+</tr>
+</tbody>
+</table>
+<p>For each job, the table shows:</p>
+<table>
+<thead>
+<tr>
+<th>Column</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Status</strong></td>
+<td>Color-coded badge indicating the job's current state</td>
+</tr>
+<tr>
+<td><strong>Scheduled By</strong></td>
+<td>The user who scheduled the job</td>
+</tr>
+<tr>
+<td><strong>Next Run</strong></td>
+<td>The date and time of the next scheduled execution</td>
+</tr>
+</tbody>
+</table>
+<h3 id="job-status-badges">Job Status Badges</h3>
+<table>
+<thead>
+<tr>
+<th>Badge</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Active</strong> (green)</td>
+<td>The job is scheduled and running normally</td>
+</tr>
+<tr>
+<td><strong>Inactive</strong> (orange)</td>
+<td>The job exists but is not currently in a running state</td>
+</tr>
+<tr>
+<td><strong>Missing</strong> (gray)</td>
+<td>The job is not scheduled at all — it needs to be rescheduled</td>
+</tr>
+</tbody>
+</table>
+<h3 id="rescheduling-jobs">Rescheduling Jobs</h3>
+<p>Click the <strong>Reschedule Jobs</strong> button to manually re-schedule all three background jobs under your user account. This is useful in the following situations:</p>
+<ul>
+<li><strong>After a sandbox refresh</strong> — scheduled jobs are lost during sandbox refreshes and need to be re-created</li>
+<li><strong>Deactivated user</strong> — if the user who originally scheduled the jobs has been deactivated and the automatic self-rescheduling did not trigger</li>
+<li><strong>Missing or Inactive jobs</strong> — if any job shows a "Missing" or "Inactive" badge, rescheduling restores them to active status</li>
+</ul>
+<p>After clicking <strong>Reschedule Jobs</strong>, the table refreshes and all three jobs should display a green <strong>Active</strong> badge with your name in the "Scheduled By" column.</p>
+<hr />
 <h2 id="troubleshooting">Troubleshooting</h2>
 <table>
 <thead>
@@ -954,6 +1036,6 @@ footer{background:white;border-top:1px solid var(--border);padding:24px 32px;tex
 <h2 id="support">Support</h2>
 <p>For questions or issues, contact the support email configured by your admin (visible in the Configuration section of the filter panel), or reach out to your Salesforce administrator.</p>
 </div>
-<footer>RouteForce SAS &mdash; v4.4.0 &mdash; Mars 2026 &mdash; <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></footer>
+<footer>RouteForce SAS &mdash; v5.0.0 &mdash; Mars 2026 &mdash; <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></footer>
 </body>
 </html>

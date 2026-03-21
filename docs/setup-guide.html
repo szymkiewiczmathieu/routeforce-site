@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Setup Guide &mdash; RouteForce v4.4.0</title>
+  <title>Setup Guide &mdash; RouteForce v5.0.0</title>
   <style>
 :root{--primary:#2563eb;--primary-dark:#1e3a8a;--text:#1f2937;--muted:#6b7280;--light:#f8fafc;--border:#e2e8f0;--code-bg:#f1f5f9;--note-bg:#eff6ff;--warn-bg:#fefce8;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -50,7 +50,7 @@ footer{background:white;border-top:1px solid var(--border);padding:24px 32px;tex
 </header>
 <div class="doc-hero">
   <div class="hero-inner">
-    <span class="badge">v4.4.0 · Salesforce Administrators</span>
+    <span class="badge">v5.0.0 · Salesforce Administrators</span>
     <h1>Setup Guide</h1>
     <p>Install RouteForce, assign access, configure core settings, and validate your first rollout.</p>
   </div>
@@ -78,11 +78,11 @@ footer{background:white;border-top:1px solid var(--border);padding:24px 32px;tex
 <tbody>
 <tr>
 <td>Production</td>
-<td><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000Cn4zQAC">Install v4.4.0</a></td>
+<td><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000CnBRQA0">Install v5.0.0</a></td>
 </tr>
 <tr>
 <td>Sandbox</td>
-<td><a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000Cn4zQAC">Install v4.4.0</a></td>
+<td><a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000CnBRQA0">Install v5.0.0</a></td>
 </tr>
 </tbody>
 </table>
@@ -410,11 +410,63 @@ sf org assign permset --name RouteForce_User --target-org &lt;your-org&gt;
 <li>[ ] <strong>Licence valid</strong> — Check the <strong>Licence</strong> tab — should show "Active"</li>
 <li>[ ] <strong>Leads visible</strong> — Lead markers appear on map (if <code>EnableLeads__c</code> = true)</li>
 <li>[ ] <strong>Opportunities visible</strong> — Opportunity markers appear (if <code>EnableOpportunities__c</code> = true)</li>
-<li>[ ] <strong>Log Purge scheduled</strong> — Verify "RouteForce Log Purge" appears in <strong>Setup &gt; Scheduled Jobs</strong></li>
-<li>[ ] <strong>Usage Aggregation scheduled</strong> — Verify "RouteForce Usage Aggregation" appears in <strong>Setup &gt; Scheduled Jobs</strong> (if <code>EnableUsageTracking__c</code> = true)</li>
+<li>[ ] <strong>Background jobs scheduled</strong> — Verify the following 3 jobs appear in <strong>Setup &gt; Scheduled Jobs</strong> (auto-configured since v5.0.0):</li>
+<li><code>RouteForce Usage Aggregation</code> — daily at 1:00 AM</li>
+<li><code>RouteForce Log Purge</code> — daily at 2:00 AM</li>
+<li><code>RouteForce Usage Purge</code> — weekly on Sunday at 3:00 AM</li>
 </ul>
 <hr />
-<h2 id="10-logging-log-purge">10. Logging &amp; Log Purge</h2>
+<h2 id="10-background-jobs-auto-configured-new-in-v500">10. Background Jobs (Auto-Configured) — <em>New in v5.0.0</em></h2>
+<p>Starting with <strong>v5.0.0</strong>, RouteForce includes a <code>PostInstallHandler</code> that <strong>automatically schedules all background jobs</strong> when the package is installed or upgraded. No manual <code>System.schedule()</code> calls are needed.</p>
+<h3 id="jobs-scheduled-automatically">Jobs Scheduled Automatically</h3>
+<table>
+<thead>
+<tr>
+<th>Job Name</th>
+<th>Schedule</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RouteForce Usage Aggregation</strong></td>
+<td>Daily at 1:00 AM</td>
+<td>Rolls up usage detail records into daily summaries</td>
+</tr>
+<tr>
+<td><strong>RouteForce Log Purge</strong></td>
+<td>Daily at 2:00 AM</td>
+<td>Deletes logs older than 30 days</td>
+</tr>
+<tr>
+<td><strong>RouteForce Usage Purge</strong></td>
+<td>Weekly on Sunday at 3:00 AM</td>
+<td>Purges old usage summary records</td>
+</tr>
+</tbody>
+</table>
+<h3 id="self-rescheduling">Self-Rescheduling</h3>
+<p>Each job <strong>automatically re-schedules itself</strong> after every run. This means the jobs survive scenarios that would normally break standard Salesforce scheduled jobs (e.g., the scheduling user being deactivated). The job simply re-creates its schedule under the running user context.</p>
+<h3 id="reschedule-button-troubleshooting">Reschedule Button (Troubleshooting)</h3>
+<p>If background jobs stop running (e.g., after a <strong>sandbox refresh</strong>, which clears all scheduled jobs), admins can restore them without writing any code:</p>
+<ol>
+<li>Open the <strong>RouteForce</strong> app</li>
+<li>Navigate to the <strong>Usage Dashboard</strong> tab</li>
+<li>Click the <strong>Reschedule Jobs</strong> button</li>
+</ol>
+<p>This aborts any stale entries and re-schedules all three jobs with their default cron expressions.</p>
+<h3 id="post-install-verification">Post-Install Verification</h3>
+<p>After installing or upgrading to v5.0.0+, confirm the jobs are active:</p>
+<ol>
+<li>Go to <strong>Setup &gt; Scheduled Jobs</strong></li>
+<li>Verify all three jobs are listed with a <strong>WAITING</strong> state:</li>
+<li><code>RouteForce Usage Aggregation</code></li>
+<li><code>RouteForce Log Purge</code></li>
+<li><code>RouteForce Usage Purge</code></li>
+</ol>
+<p>If any job is missing, use the <strong>Reschedule Jobs</strong> button in the Usage Dashboard (see above).</p>
+<hr />
+<h2 id="11-logging-log-purge">11. Logging &amp; Log Purge</h2>
 <p>RouteForce includes a built-in structured logging system that records application events in the <code>RouteForceLog__c</code> custom object. Logs are created automatically by the application across <strong>all services</strong> (map, routing, events, filters, configuration, licence) — no manual setup is required.</p>
 <h3 id="what-gets-logged">What Gets Logged</h3>
 <table>
@@ -446,26 +498,21 @@ sf org assign permset --name RouteForce_User --target-org &lt;your-org&gt;
 <li>Each log record shows: Level, Context (which service), Message, Timestamp, and User</li>
 </ol>
 <h3 id="automatic-purge">Automatic Purge</h3>
-<p>Logs older than <strong>30 days</strong> are automatically deleted by the <code>LogPurgeBatch</code> scheduled job.</p>
-<p><strong>To schedule the purge</strong> (one-time setup via Developer Console or Anonymous Apex):</p>
-<pre><code class="language-apex">System.schedule('RouteForce Log Purge', '0 0 2 * * ?', new routeforce.LogPurgeSchedulable());
-</code></pre>
-<p>This runs daily at 2:00 AM. Adjust the cron expression to change the schedule.</p>
-<p><strong>To verify the schedule:</strong><br />
-1. Go to <strong>Setup &gt; Scheduled Jobs</strong><br />
-2. Look for "RouteForce Log Purge"</p>
+<p>Logs older than <strong>30 days</strong> are automatically deleted by the <code>LogPurgeBatch</code> scheduled job. As of v5.0.0, this job is <strong>scheduled automatically</strong> on install — no manual setup is needed (see <a href="#10-background-jobs-auto-configured--new-in-v500">Background Jobs</a>).</p>
 <h3 id="custom-retention-period">Custom Retention Period</h3>
-<p>The default retention is 30 days. To use a different period, schedule with a custom value:</p>
+<p>The default retention is 30 days. To use a different period, schedule manually with a custom value via Anonymous Apex:</p>
 <pre><code class="language-apex">// Keep logs for 90 days instead of 30
 System.schedule('RouteForce Log Purge', '0 0 2 * * ?', new routeforce.LogPurgeSchedulable(90));
 </code></pre>
+<blockquote>
+<p><strong>Note</strong>: If you manually schedule with a custom retention, the PostInstallHandler will not override it on future upgrades as long as a job with the same name is already active.</p>
+</blockquote>
 <h3 id="storage-considerations">Storage Considerations</h3>
 <p>Each log record consumes standard data storage. For high-volume orgs, consider:<br />
-- Scheduling purge more frequently (e.g., every 12 hours)<br />
-- Reducing retention to 7–14 days<br />
+- Reducing retention to 7–14 days (see Custom Retention Period above)<br />
 - Monitoring data storage via <strong>Setup &gt; Storage Usage</strong></p>
 <hr />
-<h2 id="11-usage-tracking-analytics-optional">11. Usage Tracking &amp; Analytics (Optional)</h2>
+<h2 id="12-usage-tracking-analytics-optional">12. Usage Tracking &amp; Analytics (Optional)</h2>
 <p>RouteForce includes an opt-in usage tracking system that records user actions (route creation, optimization, check-ins, event creation, filters, exports, address enrichment) for analytics purposes.</p>
 <h3 id="how-it-works">How It Works</h3>
 <ol>
@@ -480,14 +527,8 @@ System.schedule('RouteForce Log Purge', '0 0 2 * * ?', new routeforce.LogPurgeSc
 <li>Set <strong>EnableUsageTracking__c</strong> to <code>true</code></li>
 <li>Save</li>
 </ol>
-<h3 id="schedule-the-aggregation-batch-required">Schedule the Aggregation Batch (Required)</h3>
-<p>Without the aggregation batch, the Usage Dashboard will remain empty. Schedule it via Developer Console or Anonymous Apex (one-time setup):</p>
-<pre><code class="language-apex">System.schedule('RouteForce Usage Aggregation', '0 0 1 * * ?', new routeforce.UsageAggregationSchedulable());
-</code></pre>
-<p>This runs daily at 1:00 AM. The batch aggregates the previous day's detail records into summaries.</p>
-<p><strong>To verify the schedule:</strong><br />
-1. Go to <strong>Setup &gt; Scheduled Jobs</strong><br />
-2. Look for "RouteForce Usage Aggregation"</p>
+<h3 id="aggregation-batch-auto-scheduled">Aggregation Batch (Auto-Scheduled)</h3>
+<p>As of v5.0.0, the aggregation batch is <strong>scheduled automatically</strong> on install — no manual setup is needed (see <a href="#10-background-jobs-auto-configured--new-in-v500">Background Jobs</a>). The batch runs daily at 1:00 AM and aggregates the previous day's detail records into summaries.</p>
 <h3 id="actions-tracked">Actions Tracked</h3>
 <table>
 <thead>
@@ -576,12 +617,20 @@ System.schedule('RouteForce Log Purge', '0 0 2 * * ?', new routeforce.LogPurgeSc
 <td>Permission denied errors</td>
 <td>Assign the correct permission set (Admin or User)</td>
 </tr>
+<tr>
+<td>Background jobs missing</td>
+<td>After a sandbox refresh, jobs are cleared. Open the Usage Dashboard and click <strong>Reschedule Jobs</strong></td>
+</tr>
+<tr>
+<td>Usage Dashboard empty</td>
+<td>Ensure <code>EnableUsageTracking__c</code> is <code>true</code> and the Usage Aggregation job is active in Scheduled Jobs</td>
+</tr>
 </tbody>
 </table>
 <hr />
 <h2 id="support">Support</h2>
 <p>For licence keys, bug reports, or feature requests: contact the email configured in <strong>Advanced &gt; Support Email</strong> during onboarding.</p>
 </div>
-<footer>RouteForce SAS &mdash; v4.4.0 &mdash; Mars 2026 &mdash; <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></footer>
+<footer>RouteForce SAS &mdash; v5.0.0 &mdash; Mars 2026 &mdash; <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></footer>
 </body>
 </html>
