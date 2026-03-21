@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Setup Guide — RouteForce v4.3.0</title>
+  <title>Setup Guide &mdash; RouteForce v4.3.0</title>
   <style>
 :root{--primary:#2563eb;--primary-dark:#1e3a8a;--text:#1f2937;--muted:#6b7280;--light:#f8fafc;--border:#e2e8f0;--code-bg:#f1f5f9;--note-bg:#eff6ff;--warn-bg:#fefce8;}
 *{box-sizing:border-box;margin:0;padding:0;}
 html{font-size:16px;}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--text);background:var(--light);line-height:1.65;}
+body{font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--text);background:var(--light);line-height:1.7;}
 .site-header{background:var(--primary-dark);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;}
 .site-header a.back{color:rgba(255,255,255,0.75);font-size:0.85rem;text-decoration:none;}
 .site-header a.back:hover{color:white;}
@@ -16,32 +16,37 @@ body{font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--text);back
 .badge{display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:999px;padding:4px 12px;font-size:0.8rem;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:16px;}
 .doc-hero h1{font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;}
 .doc-hero p{color:rgba(255,255,255,0.85);font-size:1rem;}
-.hero-inner{max-width:860px;margin:0 auto;}
-.container{max-width:860px;margin:0 auto;padding:48px 32px;}
+.hero-inner{max-width:900px;margin:0 auto;}
+.container{max-width:900px;margin:0 auto;padding:48px 32px;}
 h2{font-size:1.35rem;font-weight:700;margin-top:48px;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--primary);color:var(--primary-dark);}
 h3{font-size:1.05rem;font-weight:600;margin-top:28px;margin-bottom:10px;color:var(--text);}
+h4{font-size:0.95rem;font-weight:600;margin-top:20px;margin-bottom:8px;color:var(--muted);}
 p{margin-bottom:14px;}
 ul,ol{padding-left:22px;margin-bottom:16px;}
-li{margin-bottom:5px;}
-table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:0.9rem;border:1px solid var(--border);border-radius:10px;overflow:hidden;}
-th{background:#eef2ff;color:var(--primary-dark);font-weight:700;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);}
+li{margin-bottom:6px;}
+li p{margin-bottom:4px;}
+table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:0.88rem;border:1px solid var(--border);border-radius:10px;overflow:hidden;display:block;overflow-x:auto;}
+th{background:#eef2ff;color:var(--primary-dark);font-weight:700;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap;}
 td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;}
 tr:last-child td{border-bottom:none;}
-code{font-family:'Fira Code',Consolas,monospace;font-size:0.85em;background:var(--code-bg);padding:2px 6px;border-radius:4px;color:#b91c1c;}
-pre{background:#1e293b;color:#e2e8f0;padding:20px;border-radius:10px;overflow-x:auto;margin:16px 0 24px;font-size:0.85rem;line-height:1.6;}
-pre code{background:none;color:inherit;padding:0;}
-.note{background:var(--note-bg);border-left:4px solid var(--primary);border-radius:8px;padding:14px 18px;margin:16px 0;font-size:0.95rem;}
-.warning{background:var(--warn-bg);border-left:4px solid #f59e0b;border-radius:8px;padding:14px 18px;margin:16px 0;font-size:0.95rem;}
-a{color:var(--primary);}
-a:hover{text-decoration:underline;}
+tr:nth-child(even) td{background:#fafbff;}
+code{font-family:'Fira Code',Consolas,monospace;font-size:0.83em;background:var(--code-bg);padding:2px 6px;border-radius:4px;color:#b91c1c;}
+pre{background:#1e293b;color:#e2e8f0;padding:20px;border-radius:10px;overflow-x:auto;margin:16px 0 24px;font-size:0.83rem;line-height:1.6;}
+pre code{background:none;color:inherit;padding:0;font-size:inherit;}
+blockquote{background:var(--note-bg);border-left:4px solid var(--primary);border-radius:0 8px 8px 0;padding:12px 18px;margin:16px 0;font-size:0.95rem;}
+blockquote p{margin-bottom:0;}
+a{color:var(--primary);}a:hover{text-decoration:underline;}
+hr{border:none;border-top:1px solid var(--border);margin:32px 0;}
+.checklist li{list-style:none;padding-left:0;}
+.checklist li::before{content:"☐ ";color:var(--primary);}
 footer{background:white;border-top:1px solid var(--border);padding:24px 32px;text-align:center;color:var(--muted);font-size:0.85rem;margin-top:64px;}
-@media(max-width:640px){.site-header,.doc-hero,.container{padding-left:16px;padding-right:16px;}.doc-hero h1{font-size:1.5rem;}table{font-size:0.82rem;}}
+@media(max-width:640px){.site-header,.doc-hero,.container{padding-left:16px;padding-right:16px;}.doc-hero h1{font-size:1.5rem;}}
 </style>
 </head>
 <body>
 <header class="site-header">
   <svg viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:34px;"><circle cx="20" cy="20" r="18" stroke="white" stroke-width="2.5"/><path d="M10 26L17 12L24 20L32 10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="26" r="3" fill="white"/><circle cx="17" cy="12" r="3" fill="white"/><circle cx="24" cy="20" r="3" fill="white"/><circle cx="32" cy="10" r="3" fill="white"/><text x="46" y="27" font-family="Inter,system-ui,sans-serif" font-size="20" font-weight="700" fill="white">RouteForce</text></svg>
-  <a href="../docs/index.html" class="back">← Documentation</a>
+  <a href="../docs/index.html" class="back">&larr; Documentation</a>
 </header>
 <div class="doc-hero">
   <div class="hero-inner">
@@ -51,190 +56,461 @@ footer{background:white;border-top:1px solid var(--border);padding:24px 32px;tex
   </div>
 </div>
 <div class="container">
-
-<h2 id="prereqs">1. Prerequisites</h2>
+<h2 id="prerequisites">Prerequisites</h2>
 <ul>
-  <li>Salesforce org (Enterprise, Unlimited, or Developer Edition)</li>
-  <li>System Administrator profile</li>
-  <li>Translation Workbench enabled — <em>Setup &gt; Translation Workbench &gt; Enable</em></li>
-  <li>Languages activated: English, French, Spanish (if multilingual)</li>
-  <li>Optional: Account Teams enabled — required for the "My Account Team" filter</li>
-  <li>Optional: Team Selling enabled — required for the "My Opportunity Team" filter</li>
+<li>Salesforce org (Enterprise, Unlimited, or Developer Edition)</li>
+<li>System Administrator profile</li>
+<li>Translation Workbench enabled (Setup &gt; Translation Workbench &gt; Enable)</li>
+<li>Languages activated: English, French, Spanish (if multilingual)</li>
+<li><strong>Optional</strong>: Account Teams enabled (Setup &gt; Account Teams Settings) — required for the "My Account Team" filter</li>
+<li><strong>Optional</strong>: Team Selling enabled (Setup &gt; Opportunity Team Settings) — required for the "My Opportunity Team" filter</li>
 </ul>
-
-<h2 id="install">2. Install the Package</h2>
-<p>Install the RouteForce managed package using the link matching your environment:</p>
+<hr />
+<h2 id="1-install-the-package">1. Install the Package</h2>
+<p>Install the RouteForce managed package using the installation URL provided by your administrator.</p>
 <table>
-  <thead><tr><th>Environment</th><th>Link</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Production</strong></td><td><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000Cn3NQAS" target="_blank" rel="noopener">Install v4.3.0 — Production</a></td></tr>
-    <tr><td><strong>Sandbox</strong></td><td><a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000Cn3NQAS" target="_blank" rel="noopener">Install v4.3.0 — Sandbox</a></td></tr>
-  </tbody>
+<thead>
+<tr>
+<th>Environment</th>
+<th>Link</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Production</td>
+<td><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000Cn3NQAS">Install v4.3.0</a></td>
+</tr>
+<tr>
+<td>Sandbox</td>
+<td><a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000Cn3NQAS">Install v4.3.0</a></td>
+</tr>
+</tbody>
 </table>
-<p>Select <strong>Install for Admins Only</strong> (recommended), then assign permission sets manually.</p>
-
-<h2 id="permissions">3. Assign Permission Sets</h2>
+<p>Choose <strong>Install for Admins Only</strong> (recommended), then assign permission sets manually.</p>
+<hr />
+<h2 id="2-assign-permission-sets">2. Assign Permission Sets</h2>
 <p>RouteForce ships two permission sets:</p>
 <table>
-  <thead><tr><th>Permission Set</th><th>Target Users</th><th>Capabilities</th></tr></thead>
-  <tbody>
-    <tr><td><strong>RouteForce Admin</strong></td><td>Salesforce Admins</td><td>Full access + Configuration tab + Licence tab + modifyAllRecords</td></tr>
-    <tr><td><strong>RouteForce User</strong></td><td>Sales Reps</td><td>Standard access to map, routes, history, filters, visit reports</td></tr>
-  </tbody>
+<thead>
+<tr>
+<th>Permission Set</th>
+<th>Target Users</th>
+<th>Capabilities</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RouteForce Admin</strong></td>
+<td>Salesforce Admins</td>
+<td>Full access + Configuration tab + Licence tab + modifyAllRecords</td>
+</tr>
+<tr>
+<td><strong>RouteForce User</strong></td>
+<td>Sales Reps</td>
+<td>Standard access to map, routes, history, filters, visit reports</td>
+</tr>
+</tbody>
 </table>
-<p>Assign via <em>Setup &gt; Permission Sets</em> or via CLI:</p>
-<pre><code>sf org assign permset --name RouteForce_Admin --target-org &lt;your-org&gt;
-sf org assign permset --name RouteForce_User --target-org &lt;your-org&gt;</code></pre>
-
-<h3>Enable "Run Flows" Permission</h3>
-<p>RouteForce uses Screen Flows (e.g., Create Event, Custom Actions). The Standard User profile does not have <em>Run Flows</em> enabled by default. Without it, users see:</p>
-<div class="warning"><strong>Error:</strong> "You do not have the level of access necessary to perform the operation you requested."</div>
-<p>This permission must be configured manually by the admin:</p>
-<p><strong>Option A — Enable on the Profile:</strong> Setup &gt; Profiles &gt; Standard User &gt; System Permissions &gt; enable <em>Run Flows</em></p>
-<p><strong>Option B — Create a Permission Set:</strong> Setup &gt; Permission Sets &gt; New &gt; System Permissions &gt; enable <em>Run Flows</em> &gt; assign to all RouteForce users</p>
-
-<h2 id="onboarding">4. Run the Onboarding Wizard</h2>
+<p>Assign via <strong>Setup &gt; Permission Sets</strong> or:</p>
+<pre><code class="language-bash">sf org assign permset --name RouteForce_Admin --target-org &lt;your-org&gt;
+sf org assign permset --name RouteForce_User --target-org &lt;your-org&gt;
+</code></pre>
+<h3 id="enable-run-flows-permission-required">Enable "Run Flows" Permission (Required)</h3>
+<p>RouteForce uses Screen Flows (e.g., Create Event, Custom Actions). The <strong>Standard User</strong> profile does <strong>not</strong> have the "Run Flows" system permission enabled by default. Without it, users will see:</p>
+<blockquote>
+<p><em>"You do not have the level of access necessary to perform the operation you requested."</em></p>
+</blockquote>
+<p>This permission <strong>cannot</strong> be granted via a managed package — it must be configured manually by the admin:</p>
+<p><strong>Option A — Enable on the Profile:</strong><br />
+1. Go to <strong>Setup &gt; Profiles &gt; Standard User</strong> (or the relevant profile)<br />
+2. Under <strong>System Permissions</strong>, enable <strong>Run Flows</strong><br />
+3. Save</p>
+<p><strong>Option B — Create a Permission Set:</strong><br />
+1. Go to <strong>Setup &gt; Permission Sets &gt; New</strong><br />
+2. Name it (e.g., "Run Flows Access")<br />
+3. Under <strong>System Permissions</strong>, enable <strong>Run Flows</strong><br />
+4. Assign it to all RouteForce users</p>
+<hr />
+<h2 id="3-assign-the-routeforce-app">3. Assign the RouteForce App</h2>
+<p>After assigning permission sets, make the RouteForce app visible to users:</p>
 <ol>
-  <li>Open the RouteForce app from the App Launcher</li>
-  <li>Navigate to the <strong>Configuration</strong> tab</li>
-  <li>Launch the <code>RF_Onboarding</code> screen flow</li>
-  <li>Enter your API keys:</li>
+<li>Go to <strong>Setup &gt; App Manager</strong></li>
+<li>Find <strong>RouteForce</strong> in the list</li>
+<li>Click the dropdown arrow &gt; <strong>Manage</strong></li>
+<li>Under <strong>Profiles</strong> or <strong>Permission Sets</strong>, assign the app to the relevant profiles/permission sets</li>
+</ol>
+<p>Alternatively, the <code>RouteForce_Admin</code> and <code>RouteForce_User</code> permission sets already include app visibility — users with either permission set will see RouteForce in the App Launcher.</p>
+<h3 id="field-level-security-notes">Field-Level Security Notes</h3>
+<p>RouteForce uses <code>WITH USER_MODE</code> for all SOQL queries, which enforces Field-Level Security (FLS). The included permission sets grant the necessary FLS, but be aware of the following requirements:</p>
+<table>
+<thead>
+<tr>
+<th>Requirement</th>
+<th>Fields Needed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Accounts</strong></td>
+<td>Read access to address fields (Shipping or Billing, depending on <code>AddressFieldPrefix__c</code>)</td>
+</tr>
+<tr>
+<td><strong>Events</strong></td>
+<td>Read/Edit access to Subject, StartDateTime, EndDateTime, Description, WhoId, WhatId</td>
+</tr>
+<tr>
+<td><strong>Leads</strong> (if enabled)</td>
+<td>Read access to Lead address fields (Address, Latitude, Longitude)</td>
+</tr>
+<tr>
+<td><strong>Opportunities</strong> (if enabled)</td>
+<td>Read access to Opportunity fields + parent Account address</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>RouteForce_User</code> permission set grants all required FLS. If you use custom profiles with restricted FLS, ensure the above fields are accessible.</p>
+<hr />
+<h2 id="4-run-the-onboarding-wizard">4. Run the Onboarding Wizard</h2>
+<ol>
+<li>Open the <strong>RouteForce</strong> app from the App Launcher</li>
+<li>Navigate to the <strong>Configuration</strong> tab</li>
+<li>Launch the <strong>RF_Onboarding</strong> screen flow</li>
+<li>Enter your API keys:</li>
 </ol>
 <table>
-  <thead><tr><th>Field</th><th>Required</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><strong>Licence Key</strong></td><td>Yes</td><td>Your RouteForce licence key (provided by RouteForce)</td></tr>
-    <tr><td><strong>ORS API Key</strong></td><td>Yes</td><td>API key for the VPS routing server</td></tr>
-    <tr><td><strong>Fallback API Key</strong></td><td>No</td><td>HeiGIT fallback key (used when VPS is unavailable)</td></tr>
-  </tbody>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Licence Key</td>
+<td>Yes</td>
+<td>Your RouteForce licence key (provided by RouteForce support)</td>
+</tr>
+<tr>
+<td>ORS API Key</td>
+<td>Yes</td>
+<td>API key for the VPS routing server</td>
+</tr>
+<tr>
+<td>Fallback API Key</td>
+<td>No</td>
+<td>HeiGIT fallback key (used when VPS is unavailable)</td>
+</tr>
+</tbody>
 </table>
-<div class="note"><strong>Note:</strong> Keys are stored securely in a protected Custom Setting (<code>InternalConfig__c</code>), invisible to standard users.</div>
-<p>After saving keys, the wizard directs you to configure application settings via Custom Metadata Types:</p>
-<p><em>Setup → Custom Metadata Types → RouteForce Config → Manage Records → Default</em></p>
-
-<h3>Out-of-the-Box Defaults</h3>
+<p>Keys are stored securely in a protected Custom Setting (<code>InternalConfig__c</code>), invisible to standard users.</p>
+<p>After saving the keys, the wizard directs you to configure application settings via <strong>Custom Metadata Types</strong>:</p>
+<blockquote>
+<p><strong>Setup → Custom Metadata Types → RouteForce Config → Manage Records → Default</strong></p>
+</blockquote>
+<p>See the <a href="CONFIGURATION_GUIDE.md">Configuration Guide</a> for all available settings (map defaults, feature toggles, route settings, query filters, etc.).</p>
+<h3 id="visit-report-settings-recommended">Visit Report Settings (Recommended)</h3>
+<p>Two optional settings enhance the visit report experience:</p>
+<table>
+<thead>
+<tr>
+<th>CMDT Field</th>
+<th>Where</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>VisitAlertDays__c</code></td>
+<td>Setup &gt; Custom Metadata &gt; RouteForce Config &gt; Default</td>
+<td>Number of days after which a record is flagged as overdue. Markers display a red alert badge, and Nearby suggestions prioritize overdue records. Set to <code>0</code> to disable (default)</td>
+</tr>
+<tr>
+<td><code>VisitResultOptions__c</code></td>
+<td>Setup &gt; Custom Metadata &gt; RouteForce Config &gt; Default</td>
+<td>Comma-separated picklist values for the visit result field (e.g., <code>Successful,Follow-up needed,No contact,Cancelled</code>). Leave blank for free text input</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="5-configure-the-flexipage-optional">5. Configure the FlexiPage (Optional)</h2>
+<p>The default FlexiPage comes pre-configured with standard Salesforce fields:</p>
+<p><strong>Filters:</strong> Account.Industry, Account.Type, Account.Rating, Account.Ownership, Opportunity.StageName, Opportunity.ForecastCategory, Lead.Status, Lead.LeadSource, Opportunity.Account.Industry, Lead.Rating</p>
+<p><strong>Legend values:</strong> Standard Account Types, Opportunity Stages, and Lead Statuses</p>
+<p>To customize:</p>
+<ol>
+<li>Go to <strong>Setup &gt; Lightning App Builder</strong></li>
+<li>Edit the <strong>RouteForce</strong> AppPage</li>
+<li>Click the RouteForce component to see all configurable properties</li>
+<li>Add/remove filter fields, marker popup fields, legend values</li>
+</ol>
+<h3 id="key-properties">Key Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Filter fields</td>
+<td><code>Account.Industry,Account.Type,Opportunity.StageName,Lead.Status</code></td>
+<td>Comma-separated Picklist/Boolean filter fields (prefix each with its object)</td>
+</tr>
+<tr>
+<td>Account marker color field</td>
+<td><code>Type</code></td>
+<td>Account field used for marker color assignment</td>
+</tr>
+<tr>
+<td>Account marker color values</td>
+<td><code>Customer - Direct,Prospect</code></td>
+<td>Comma-separated values for the Account legend</td>
+</tr>
+<tr>
+<td>Opportunity marker color field</td>
+<td><code>StageName</code></td>
+<td>Opportunity field used for marker color assignment</td>
+</tr>
+<tr>
+<td>Opportunity marker color values</td>
+<td><code>Prospecting,Closed Won</code></td>
+<td>Values for the Opportunity legend</td>
+</tr>
+<tr>
+<td>Lead marker color field</td>
+<td><code>Status</code></td>
+<td>Lead field used for marker color assignment</td>
+</tr>
+<tr>
+<td>Lead marker color values</td>
+<td><code>Open - Not Contacted</code></td>
+<td>Values for the Lead legend</td>
+</tr>
+<tr>
+<td>Marker popup fields</td>
+<td><code>Phone,Industry,Opportunity.Amount,Lead.Company</code></td>
+<td>Fields displayed in marker popups</td>
+</tr>
+<tr>
+<td>Multi-select fields</td>
+<td><code>Industry,Type</code></td>
+<td>Fields rendered as multi-select checkboxes</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="6-verify-network-settings">6. Verify Network Settings</h2>
+<p>All network settings are <strong>included in the package</strong> and deployed automatically on install. No manual configuration is needed.</p>
+<h3 id="remote-site-settings-apex-callouts">Remote Site Settings (Apex callouts)</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URL</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RouteForce_ORS</strong></td>
+<td><code>https://ors.routeforce.app</code></td>
+<td>Route optimization, directions, licence validation</td>
+</tr>
+<tr>
+<td><strong>RouteForce_HeiGIT</strong></td>
+<td><code>https://api.openrouteservice.org</code></td>
+<td>HeiGIT fallback routing (when VPS is unavailable)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="csp-trusted-sites-map-tile-loading">CSP Trusted Sites (Map tile loading)</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URL</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>MAP</strong></td>
+<td><code>*.openstreetmap.org</code></td>
+<td>Standard basemap tiles</td>
+</tr>
+<tr>
+<td><strong>ArcGIS_Online</strong></td>
+<td><code>*.server.arcgisonline.com</code></td>
+<td>Satellite imagery tiles</td>
+</tr>
+<tr>
+<td><strong>ArcGIS_Server</strong></td>
+<td><code>server.arcgisonline.com</code></td>
+<td>Satellite imagery (exact)</td>
+</tr>
+<tr>
+<td><strong>OpenTopoMap</strong></td>
+<td><code>*.opentopomap.org</code></td>
+<td>Terrain basemap tiles</td>
+</tr>
+</tbody>
+</table>
+<p>If any are missing after install, add them via <strong>Setup &gt; CSP Trusted Sites</strong> or <strong>Setup &gt; Remote Site Settings</strong>.</p>
+<hr />
+<h2 id="7-custom-action-buttons-optional">7. Custom Action Buttons (Optional)</h2>
+<p>Add custom buttons to marker popups that launch your own Screen Flows (e.g., data entry forms, checklists).</p>
+<h3 id="step-1-create-a-screen-flow">Step 1 — Create a Screen Flow</h3>
+<ol>
+<li>Create a Screen Flow with a <code>recordId</code> <strong>Text</strong> input variable (mark as "Available for Input")</li>
+<li>Add a single Screen element containing your LWC component</li>
+<li>Pass <code>{!recordId}</code> to the component's <code>recordId</code> attribute</li>
+<li>Activate the flow</li>
+</ol>
+<h3 id="step-2-register-the-action">Step 2 — Register the Action</h3>
+<ol>
+<li>Go to <strong>Setup &gt; Custom Metadata Types &gt; RouteForce Action &gt; Manage Records</strong></li>
+<li>Click <strong>New</strong></li>
+<li>Fill in:</li>
+<li><strong>Label</strong>: Button text (e.g., "Data Entry")</li>
+<li><strong>Flow API Name</strong>: Your flow API name (e.g., <code>RF_SaisieGmsDN</code>)</li>
+<li><strong>Object Type</strong>: Which markers show this button (<code>All</code>, <code>Account</code>, <code>Lead</code>, <code>Opportunity</code>)</li>
+<li><strong>Display Context</strong>: Where the button appears (<code>All</code>, <code>Popup</code>, or <code>EventPanel</code>)</li>
+<li><strong>Button Color</strong>: Hex color (e.g., <code>#F59E0B</code>)</li>
+<li><strong>Icon</strong>: <code>action</code>, <code>edit</code>, <code>check</code>, <code>chart</code>, <code>list</code>, or <code>star</code></li>
+<li><strong>Filter Condition</strong> <em>(optional)</em>: Show this button only when a record field matches a value. Syntax: <code>FieldName=Value</code> (equals), <code>FieldName!=Value</code> (not equals), <code>FieldName=Val1,Val2</code> (in list). The field must be included in the FlexiPage's <code>markerFields</code> or be a standard marker property.</li>
+<li>Save — the button appears immediately in marker popups</li>
+</ol>
+<hr />
+<h2 id="8-event-layout-visit-report-field-recommended">8. Event Layout — Visit Report Field (Recommended)</h2>
+<p>RouteForce adds a custom lookup field <strong>Visit Report</strong> (<code>VisitReport__c</code>) on the standard <strong>Activity</strong> object. This field links each Event to the Visit Report created during check-in, allowing users to navigate directly from an Event to its associated report.</p>
+<p><strong>FLS is already granted</strong> by both <code>RouteForce_Admin</code> and <code>RouteForce_User</code> permission sets — no additional configuration is needed for field access.</p>
+<p>To make this field visible on the Event record page:</p>
+<ol>
+<li>Go to <strong>Setup &gt; Object Manager &gt; Event &gt; Page Layouts</strong></li>
+<li>Edit your Event page layout</li>
+<li>Drag the <strong>Visit Report</strong> field from the palette onto the layout (e.g., in the "Information" section)</li>
+<li>Save the layout</li>
+</ol>
+<blockquote>
+<p><strong>Note</strong>: This step is optional but recommended. Without it, users won't see the link to the Visit Report from their Event records.</p>
+</blockquote>
+<hr />
+<h2 id="9-post-install-verification-checklist">9. Post-Install Verification Checklist</h2>
+<p>After completing all setup steps, verify the installation:</p>
 <ul>
-  <li>Leads &amp; Opportunities enabled (<code>EnableLeads__c</code>, <code>EnableOpportunities__c</code> = true)</li>
-  <li>Filter fields pre-configured: <code>Account.Industry, Account.Type</code></li>
-  <li>History naming enabled — users are prompted to name saved routes</li>
-  <li>Ownership defaults to "My Accounts/Leads/Opportunities" per user</li>
+<li>[ ] <strong>App visible</strong> — RouteForce appears in the App Launcher for assigned users</li>
+<li>[ ] <strong>Map loads</strong> — Map displays with geocoded Account markers</li>
+<li>[ ] <strong>Filters work</strong> — Filtering by Industry or Type shows/hides markers correctly</li>
+<li>[ ] <strong>Events panel</strong> — Today's events load (if <code>EnableEvents__c</code> = true)</li>
+<li>[ ] <strong>Route optimization</strong> — Create a route with 3+ stops and optimize it</li>
+<li>[ ] <strong>Check-in works</strong> — Check in on an event and verify Visit Report is created (if <code>EnableEvents__c</code> = true)</li>
+<li>[ ] <strong>Licence valid</strong> — Check the <strong>Licence</strong> tab — should show "Active"</li>
+<li>[ ] <strong>Leads visible</strong> — Lead markers appear on map (if <code>EnableLeads__c</code> = true)</li>
+<li>[ ] <strong>Opportunities visible</strong> — Opportunity markers appear (if <code>EnableOpportunities__c</code> = true)</li>
+<li>[ ] <strong>Log Purge scheduled</strong> — Verify "RouteForce Log Purge" appears in <strong>Setup &gt; Scheduled Jobs</strong></li>
 </ul>
-
-<h3>Visit Report Settings (Recommended)</h3>
+<hr />
+<h2 id="10-logging-log-purge">10. Logging &amp; Log Purge</h2>
+<p>RouteForce includes a built-in structured logging system that records application events in the <code>RouteForceLog__c</code> custom object. Logs are created automatically by the application across <strong>all services</strong> (map, routing, events, filters, configuration, licence) — no manual setup is required.</p>
+<h3 id="what-gets-logged">What Gets Logged</h3>
 <table>
-  <thead><tr><th>Field</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td><code>VisitAlertDays__c</code></td><td>Days after which a record is flagged as overdue. Markers show a red alert badge. Set to 0 to disable.</td></tr>
-    <tr><td><code>VisitResultOptions__c</code></td><td>Comma-separated picklist values for the visit result field (e.g., <code>Successful,Follow-up needed,No contact</code>). Leave blank for free text.</td></tr>
-  </tbody>
+<thead>
+<tr>
+<th>Level</th>
+<th>Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>INFO</strong></td>
+<td>Batch completion, configuration changes, route saves</td>
+</tr>
+<tr>
+<td><strong>WARN</strong></td>
+<td>API fallback triggered, unexpected data format</td>
+</tr>
+<tr>
+<td><strong>ERROR</strong></td>
+<td>Callout failures, DML errors, licence validation failures</td>
+</tr>
+</tbody>
 </table>
-
-<h2 id="flexipage">5. Configure the FlexiPage (Optional)</h2>
-<p>The default FlexiPage comes pre-configured. To customize: <em>Setup &gt; Lightning App Builder &gt; RouteForce AppPage &gt; click the RouteForce component</em></p>
-<table>
-  <thead><tr><th>Property</th><th>Example</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td>Filter fields</td><td><code>Account.Industry,Account.Type,Opportunity.StageName</code></td><td>Comma-separated picklist/boolean filter fields (prefix each with its object)</td></tr>
-    <tr><td>Account marker color field</td><td><code>Type</code></td><td>Account field used for marker color assignment</td></tr>
-    <tr><td>Opportunity marker color field</td><td><code>StageName</code></td><td>Opportunity field for marker colors</td></tr>
-    <tr><td>Lead marker color field</td><td><code>Status</code></td><td>Lead field for marker colors</td></tr>
-    <tr><td>Marker popup fields</td><td><code>Phone,Industry,Opportunity.Amount</code></td><td>Fields displayed in marker popups</td></tr>
-    <tr><td>Multi-select fields</td><td><code>Industry,Type</code></td><td>Fields rendered as multi-select checkboxes</td></tr>
-  </tbody>
-</table>
-
-<h2 id="network">6. Network Settings</h2>
-<p>All network settings are included in the package and deployed automatically. No manual configuration needed in most cases.</p>
-<h3>Remote Site Settings</h3>
-<table>
-  <thead><tr><th>Name</th><th>URL</th><th>Purpose</th></tr></thead>
-  <tbody>
-    <tr><td>RouteForce_ORS</td><td><code>https://ors.routeforce.app</code></td><td>Route optimization, directions, licence validation</td></tr>
-    <tr><td>RouteForce_HeiGIT</td><td><code>https://api.openrouteservice.org</code></td><td>HeiGIT fallback routing</td></tr>
-  </tbody>
-</table>
-<h3>CSP Trusted Sites</h3>
-<table>
-  <thead><tr><th>Name</th><th>URL</th><th>Purpose</th></tr></thead>
-  <tbody>
-    <tr><td>MAP</td><td><code>*.openstreetmap.org</code></td><td>Standard basemap tiles</td></tr>
-    <tr><td>ArcGIS_Online</td><td><code>*.server.arcgisonline.com</code></td><td>Satellite imagery</td></tr>
-    <tr><td>OpenTopoMap</td><td><code>*.opentopomap.org</code></td><td>Terrain basemap tiles</td></tr>
-  </tbody>
-</table>
-
-<h2 id="custom-actions">7. Custom Action Buttons (Optional)</h2>
-<p>Add custom buttons to marker popups that launch your own Screen Flows.</p>
-<h3>Step 1 — Create a Screen Flow</h3>
+<h3 id="viewing-logs">Viewing Logs</h3>
 <ol>
-  <li>Create a Screen Flow with a <code>recordId</code> Text input variable (mark as "Available for Input")</li>
-  <li>Add a Screen element containing your LWC component</li>
-  <li>Pass <code>{!recordId}</code> to the component's <code>recordId</code> attribute</li>
-  <li>Activate the flow</li>
+<li>Navigate to the <strong>RouteForce Logs</strong> tab (visible to Admins via <code>RouteForce_Admin</code> permission set; hidden for standard users by default)</li>
+<li>Use list views or reports to filter by Level, Context, User, or date range</li>
+<li>Each log record shows: Level, Context (which service), Message, Timestamp, and User</li>
 </ol>
-<h3>Step 2 — Register the Action</h3>
-<p><em>Setup &gt; Custom Metadata Types &gt; RouteForce Action &gt; Manage Records &gt; New</em></p>
+<h3 id="automatic-purge">Automatic Purge</h3>
+<p>Logs older than <strong>30 days</strong> are automatically deleted by the <code>LogPurgeBatch</code> scheduled job.</p>
+<p><strong>To schedule the purge</strong> (one-time setup via Developer Console or Anonymous Apex):</p>
+<pre><code class="language-apex">System.schedule('RouteForce Log Purge', '0 0 2 * * ?', new routeforce.LogPurgeSchedulable());
+</code></pre>
+<p>This runs daily at 2:00 AM. Adjust the cron expression to change the schedule.</p>
+<p><strong>To verify the schedule:</strong><br />
+1. Go to <strong>Setup &gt; Scheduled Jobs</strong><br />
+2. Look for "RouteForce Log Purge"</p>
+<h3 id="custom-retention-period">Custom Retention Period</h3>
+<p>The default retention is 30 days. To use a different period, schedule with a custom value:</p>
+<pre><code class="language-apex">// Keep logs for 90 days instead of 30
+System.schedule('RouteForce Log Purge', '0 0 2 * * ?', new routeforce.LogPurgeSchedulable(90));
+</code></pre>
+<h3 id="storage-considerations">Storage Considerations</h3>
+<p>Each log record consumes standard data storage. For high-volume orgs, consider:<br />
+- Scheduling purge more frequently (e.g., every 12 hours)<br />
+- Reducing retention to 7–14 days<br />
+- Monitoring data storage via <strong>Setup &gt; Storage Usage</strong></p>
+<hr />
+<h2 id="multilingual-support">Multilingual Support</h2>
+<p>RouteForce supports <strong>English</strong>, <strong>French</strong>, and <strong>Spanish</strong> out of the box.</p>
+<ul>
+<li>All Custom Labels are translated</li>
+<li>Object labels and tab names are translated via objectTranslations</li>
+<li>The UI language follows the user's Salesforce language preference</li>
+</ul>
+<p>To verify: change your language in <strong>Settings &gt; Language &amp; Time Zone</strong> and refresh the app.</p>
+<hr />
+<h2 id="troubleshooting">Troubleshooting</h2>
 <table>
-  <thead><tr><th>Field</th><th>Description</th></tr></thead>
-  <tbody>
-    <tr><td>Label</td><td>Button text (e.g., "Data Entry")</td></tr>
-    <tr><td>Flow API Name</td><td>Your flow API name</td></tr>
-    <tr><td>Object Type</td><td>Which markers show this button: <code>All</code>, <code>Account</code>, <code>Lead</code>, <code>Opportunity</code></td></tr>
-    <tr><td>Display Context</td><td><code>All</code>, <code>Popup</code>, or <code>EventPanel</code></td></tr>
-    <tr><td>Button Color</td><td>Hex color (e.g., <code>#F59E0B</code>)</td></tr>
-    <tr><td>Icon</td><td><code>action</code>, <code>edit</code>, <code>check</code>, <code>chart</code>, <code>list</code>, or <code>star</code></td></tr>
-    <tr><td>Filter Condition</td><td>Optional. Syntax: <code>FieldName=Value</code>, <code>FieldName!=Value</code>, <code>FieldName=Val1,Val2</code></td></tr>
-  </tbody>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Map doesn't load</td>
+<td>Check Remote Site Settings and licence key</td>
+</tr>
+<tr>
+<td>"Licence not configured"</td>
+<td>Run the RF_Onboarding flow and enter your licence key</td>
+</tr>
+<tr>
+<td>No markers on map</td>
+<td>Ensure Accounts have geocoded addresses (ShippingLatitude/Longitude or BillingLatitude/Longitude)</td>
+</tr>
+<tr>
+<td>Route optimization fails</td>
+<td>Check that ORS API Key is configured and VPS is reachable</td>
+</tr>
+<tr>
+<td>Tabs not translated</td>
+<td>Enable Translation Workbench and activate FR/ES languages</td>
+</tr>
+<tr>
+<td>Permission denied errors</td>
+<td>Assign the correct permission set (Admin or User)</td>
+</tr>
+</tbody>
 </table>
-
-<h2 id="event-layout">8. Event Layout — Visit Report Field</h2>
-<p>RouteForce adds a <strong>Visit Report</strong> (<code>VisitReport__c</code>) lookup field on the Activity object, linking each Event to the Visit Report created during check-in.</p>
-<p>To make this field visible on the Event record page: <em>Setup &gt; Object Manager &gt; Event &gt; Page Layouts &gt; drag "Visit Report" onto the layout</em></p>
-<div class="note"><strong>Note:</strong> This step is optional but recommended. Without it, users won't see the link to the Visit Report from their Event records.</div>
-
-<h2 id="test">9. Test the Installation</h2>
-<ol>
-  <li>Open the RouteForce tab</li>
-  <li>Verify the map loads with your geocoded Accounts</li>
-  <li>Try filtering by Industry or Type</li>
-  <li>Enable Route mode and add stops</li>
-  <li>Optimize a route</li>
-  <li>Check the Licence tab — should show "Active"</li>
-</ol>
-
-<h2 id="logging">10. Logging &amp; Log Purge</h2>
-<p>RouteForce logs application events in the <code>RouteForceLog__c</code> custom object. No setup required — logs are created automatically.</p>
-<table>
-  <thead><tr><th>Level</th><th>Examples</th></tr></thead>
-  <tbody>
-    <tr><td>INFO</td><td>Batch completion, configuration changes, route saves</td></tr>
-    <tr><td>WARN</td><td>API fallback triggered, unexpected data format</td></tr>
-    <tr><td>ERROR</td><td>Callout failures, DML errors, licence validation failures</td></tr>
-  </tbody>
-</table>
-<p>Schedule the automatic log purge (runs daily at 2:00 AM, deletes logs older than 30 days):</p>
-<pre><code>System.schedule('RouteForce Log Purge', '0 0 2 * * ?', new routeforce.LogPurgeSchedulable());</code></pre>
-<p>Custom retention period (e.g., 90 days):</p>
-<pre><code>System.schedule('RouteForce Log Purge', '0 0 2 * * ?', new routeforce.LogPurgeSchedulable(90));</code></pre>
-
-<h2 id="multilingual">11. Multilingual Support</h2>
-<p>RouteForce supports <strong>English</strong>, <strong>French</strong>, and <strong>Spanish</strong> out of the box. The UI language follows the user's Salesforce language preference.</p>
-<p>To verify: change your language in <em>Settings &gt; Language &amp; Time Zone</em> and refresh the app.</p>
-
-<h2 id="troubleshooting">12. Troubleshooting</h2>
-<table>
-  <thead><tr><th>Issue</th><th>Solution</th></tr></thead>
-  <tbody>
-    <tr><td>Map doesn't load</td><td>Check Remote Site Settings and licence key</td></tr>
-    <tr><td>"Licence not configured"</td><td>Run the RF_Onboarding flow and enter your licence key</td></tr>
-    <tr><td>No markers on map</td><td>Ensure Accounts have geocoded addresses (ShippingLatitude/Longitude or BillingLatitude/Longitude)</td></tr>
-    <tr><td>Route optimization fails</td><td>Check that ORS API Key is configured and VPS is reachable</td></tr>
-    <tr><td>Tabs not translated</td><td>Enable Translation Workbench and activate FR/ES languages</td></tr>
-    <tr><td>Permission denied errors</td><td>Assign the correct permission set (Admin or User)</td></tr>
-  </tbody>
-</table>
-<p>For support: <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></p>
-
+<hr />
+<h2 id="support">Support</h2>
+<p>For licence keys, bug reports, or feature requests: contact the email configured in <strong>Advanced &gt; Support Email</strong> during onboarding.</p>
 </div>
 <footer>RouteForce SAS &mdash; v4.3.0 &mdash; Mars 2026 &mdash; <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></footer>
 </body>
