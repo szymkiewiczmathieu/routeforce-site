@@ -381,8 +381,8 @@
                             <path d="M12 14v4M9 16h6"/>
                         </svg>
                     </div>
-                    <h3>Coordonnées GPS Salesforce (requises)</h3>
-                    <p>Prérequis : vos comptes Salesforce doivent déjà avoir des coordonnées GPS (BillingLatitude/Longitude ou ShippingLatitude/Longitude). RouteForce lit ces coordonnées - il ne géocode pas. Le géocodage automatique n'est pas encore disponible dans RouteForce. Si vos comptes n'ont pas encore de coordonnées, un projet de géocodage préalable est nécessaire (Salesforce Maps, Data.com, ou service tiers).</p>
+                    <h3>Enrichissement d'adresses France</h3>
+                    <p>RouteForce peut désormais enrichir les adresses françaises et renseigner leurs coordonnées GPS directement depuis l'application, via la Base Adresse Nationale (data.gouv.fr). Cela accélère la préparation des tournées et améliore la qualité des données cartographiques.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
@@ -924,7 +924,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Non. RouteForce nécessite que vos comptes aient déjà des coordonnées GPS dans Salesforce (champs BillingLatitude/Longitude ou ShippingLatitude/Longitude). RouteForce ne géocode pas lui-même - il utilise les coordonnées existantes. Si vos comptes n'ont pas encore de coordonnées, vous devez effectuer un projet de géocodage préalable (Salesforce Maps, Data.com, ou service tiers) avant de pouvoir utiliser RouteForce.</p>
+                        <p>Pas forcément. Pour la France, RouteForce peut désormais enrichir les adresses et renseigner les coordonnées GPS des comptes et des leads via la Base Adresse Nationale (data.gouv.fr). En dehors de ce périmètre, des coordonnées GPS existantes ou un projet de géocodage préalable restent nécessaires.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -1342,7 +1342,7 @@
                 "name": "Mes comptes Salesforce n'ont pas de coordonnées GPS - est-ce un problème ?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Non. RouteForce nécessite que vos comptes aient déjà des coordonnées GPS dans Salesforce (champs BillingLatitude/Longitude ou ShippingLatitude/Longitude). RouteForce ne géocode pas lui-même - il utilise les coordonnées existantes. Un projet de géocodage préalable est nécessaire si vos comptes n'ont pas encore de coordonnées."
+                    "text": "Pas forcément. Pour la France, RouteForce peut désormais enrichir les adresses et renseigner les coordonnées GPS des comptes et des leads via la Base Adresse Nationale (data.gouv.fr). En dehors de ce périmètre, des coordonnées GPS existantes ou un projet de géocodage préalable restent nécessaires."
                 }
             },
             {

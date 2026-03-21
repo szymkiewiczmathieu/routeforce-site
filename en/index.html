@@ -328,8 +328,8 @@
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="14" y2="12"/><circle cx="18" cy="12" r="2"/><line x1="4" y1="18" x2="17" y2="18"/><circle cx="21" cy="18" r="2"/></svg></div>
-                    <h3>GPS coordinates required</h3>
-                    <p>RouteForce uses GPS coordinates already stored in Salesforce (BillingLatitude/Longitude). It does not geocode addresses itself. If your accounts don't have coordinates yet, a geocoding step is needed beforehand.</p>
+                    <h3>French address enrichment</h3>
+                    <p>RouteForce can now enrich French addresses and populate GPS coordinates directly from the app using the French National Address Database (data.gouv.fr). This speeds up route preparation and improves map data quality.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
@@ -743,7 +743,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Yes, GPS coordinates are required. RouteForce uses the coordinates already stored in Salesforce (BillingLatitude/Longitude or ShippingLatitude/Longitude fields) — it does not geocode addresses itself. If your accounts don't have coordinates yet, you'll need to run a geocoding project first (Salesforce Maps, a data provider, or a third-party service) before using RouteForce.</p>
+                        <p>Not always. In France, RouteForce can now enrich addresses and populate GPS coordinates for accounts and leads using the French National Address Database (data.gouv.fr). Outside that scope, existing GPS coordinates or a separate geocoding step are still required.</p>
                     </div>
                 </div>
                 <div class="faq-item">
