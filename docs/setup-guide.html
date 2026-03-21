@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Setup Guide &mdash; RouteForce v4.3.0</title>
+  <title>Setup Guide &mdash; RouteForce v4.4.0</title>
   <style>
 :root{--primary:#2563eb;--primary-dark:#1e3a8a;--text:#1f2937;--muted:#6b7280;--light:#f8fafc;--border:#e2e8f0;--code-bg:#f1f5f9;--note-bg:#eff6ff;--warn-bg:#fefce8;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -50,7 +50,7 @@ footer{background:white;border-top:1px solid var(--border);padding:24px 32px;tex
 </header>
 <div class="doc-hero">
   <div class="hero-inner">
-    <span class="badge">v4.3.0 · Salesforce Administrators</span>
+    <span class="badge">v4.4.0 · Salesforce Administrators</span>
     <h1>Setup Guide</h1>
     <p>Install RouteForce, assign access, configure core settings, and validate your first rollout.</p>
   </div>
@@ -78,11 +78,11 @@ footer{background:white;border-top:1px solid var(--border);padding:24px 32px;tex
 <tbody>
 <tr>
 <td>Production</td>
-<td><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000Cn3NQAS">Install v4.3.0</a></td>
+<td><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000Cn4zQAC">Install v4.4.0</a></td>
 </tr>
 <tr>
 <td>Sandbox</td>
-<td><a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000Cn3NQAS">Install v4.3.0</a></td>
+<td><a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000Cn4zQAC">Install v4.4.0</a></td>
 </tr>
 </tbody>
 </table>
@@ -411,6 +411,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;your-org&gt;
 <li>[ ] <strong>Leads visible</strong> — Lead markers appear on map (if <code>EnableLeads__c</code> = true)</li>
 <li>[ ] <strong>Opportunities visible</strong> — Opportunity markers appear (if <code>EnableOpportunities__c</code> = true)</li>
 <li>[ ] <strong>Log Purge scheduled</strong> — Verify "RouteForce Log Purge" appears in <strong>Setup &gt; Scheduled Jobs</strong></li>
+<li>[ ] <strong>Usage Aggregation scheduled</strong> — Verify "RouteForce Usage Aggregation" appears in <strong>Setup &gt; Scheduled Jobs</strong> (if <code>EnableUsageTracking__c</code> = true)</li>
 </ul>
 <hr />
 <h2 id="10-logging-log-purge">10. Logging &amp; Log Purge</h2>
@@ -464,6 +465,75 @@ System.schedule('RouteForce Log Purge', '0 0 2 * * ?', new routeforce.LogPurgeSc
 - Reducing retention to 7–14 days<br />
 - Monitoring data storage via <strong>Setup &gt; Storage Usage</strong></p>
 <hr />
+<h2 id="11-usage-tracking-analytics-optional">11. Usage Tracking &amp; Analytics (Optional)</h2>
+<p>RouteForce includes an opt-in usage tracking system that records user actions (route creation, optimization, check-ins, event creation, filters, exports, address enrichment) for analytics purposes.</p>
+<h3 id="how-it-works">How It Works</h3>
+<ol>
+<li><strong>Real-time tracking</strong> — Each user action creates a detail record in <code>RouteForceUsage__c</code> (async via <code>@future</code> to avoid impacting the main transaction)</li>
+<li><strong>Daily aggregation</strong> — The <code>UsageAggregationBatch</code> rolls up detail records into daily summaries per user/action in <code>RouteForceUsageSummary__c</code>, then deletes processed details to save storage</li>
+<li><strong>Dashboard</strong> — The Usage Dashboard tab reads from summaries for fast reporting</li>
+</ol>
+<h3 id="enable-usage-tracking">Enable Usage Tracking</h3>
+<p>Usage tracking is <strong>disabled by default</strong>. To enable it:</p>
+<ol>
+<li>Go to <strong>Setup &gt; Custom Metadata Types &gt; RouteForce Config &gt; Manage Records &gt; Default</strong></li>
+<li>Set <strong>EnableUsageTracking__c</strong> to <code>true</code></li>
+<li>Save</li>
+</ol>
+<h3 id="schedule-the-aggregation-batch-required">Schedule the Aggregation Batch (Required)</h3>
+<p>Without the aggregation batch, the Usage Dashboard will remain empty. Schedule it via Developer Console or Anonymous Apex (one-time setup):</p>
+<pre><code class="language-apex">System.schedule('RouteForce Usage Aggregation', '0 0 1 * * ?', new routeforce.UsageAggregationSchedulable());
+</code></pre>
+<p>This runs daily at 1:00 AM. The batch aggregates the previous day's detail records into summaries.</p>
+<p><strong>To verify the schedule:</strong><br />
+1. Go to <strong>Setup &gt; Scheduled Jobs</strong><br />
+2. Look for "RouteForce Usage Aggregation"</p>
+<h3 id="actions-tracked">Actions Tracked</h3>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Route Created</td>
+<td>User saves a new route</td>
+</tr>
+<tr>
+<td>Route Optimized</td>
+<td>User optimizes a route</td>
+</tr>
+<tr>
+<td>Check-In</td>
+<td>User checks in on a visit</td>
+</tr>
+<tr>
+<td>Event Created</td>
+<td>User creates calendar events from a route</td>
+</tr>
+<tr>
+<td>Filter Applied</td>
+<td>User applies map filters</td>
+</tr>
+<tr>
+<td>Address Enriched</td>
+<td>User enriches account addresses</td>
+</tr>
+<tr>
+<td>CSV Exported</td>
+<td>User exports data as CSV</td>
+</tr>
+<tr>
+<td>PDF Exported</td>
+<td>User exports data as PDF</td>
+</tr>
+</tbody>
+</table>
+<h3 id="storage-considerations_1">Storage Considerations</h3>
+<p>Detail records are automatically deleted after aggregation. Only summary records are retained long-term (one record per user/action/day). For most orgs, storage impact is minimal.</p>
+<hr />
 <h2 id="multilingual-support">Multilingual Support</h2>
 <p>RouteForce supports <strong>English</strong>, <strong>French</strong>, and <strong>Spanish</strong> out of the box.</p>
 <ul>
@@ -512,6 +582,6 @@ System.schedule('RouteForce Log Purge', '0 0 2 * * ?', new routeforce.LogPurgeSc
 <h2 id="support">Support</h2>
 <p>For licence keys, bug reports, or feature requests: contact the email configured in <strong>Advanced &gt; Support Email</strong> during onboarding.</p>
 </div>
-<footer>RouteForce SAS &mdash; v4.3.0 &mdash; Mars 2026 &mdash; <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></footer>
+<footer>RouteForce SAS &mdash; v4.4.0 &mdash; Mars 2026 &mdash; <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></footer>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Configuration Guide &mdash; RouteForce v4.3.0</title>
+  <title>Configuration Guide &mdash; RouteForce v4.4.0</title>
   <style>
 :root{--primary:#2563eb;--primary-dark:#1e3a8a;--text:#1f2937;--muted:#6b7280;--light:#f8fafc;--border:#e2e8f0;--code-bg:#f1f5f9;--note-bg:#eff6ff;--warn-bg:#fefce8;}
 *{box-sizing:border-box;margin:0;padding:0;}
@@ -50,7 +50,7 @@ footer{background:white;border-top:1px solid var(--border);padding:24px 32px;tex
 </header>
 <div class="doc-hero">
   <div class="hero-inner">
-    <span class="badge">v4.3.0 · Salesforce Administrators</span>
+    <span class="badge">v4.4.0 · Salesforce Administrators</span>
     <h1>Configuration Guide</h1>
     <p>A complete reference to configure, customize, and maintain RouteForce in your Salesforce org.</p>
   </div>
@@ -224,6 +224,12 @@ LWC Components (@wire)
 <td>Checkbox</td>
 <td><code>false</code></td>
 <td>Adds "My Role Team" filter option — shows records owned by users in the current user's role or any subordinate role in the hierarchy. Works for Accounts, Leads, and Opportunities. No org prerequisites required</td>
+</tr>
+<tr>
+<td><code>EnableUsageTracking__c</code></td>
+<td>Checkbox</td>
+<td><code>false</code></td>
+<td>Tracks user actions (route creation, optimization, check-ins, exports) for analytics. Requires scheduling <code>UsageAggregationSchedulable</code> — see <a href="SETUP_GUIDE.md">Setup Guide</a> §11</td>
 </tr>
 </tbody>
 </table>
@@ -1855,6 +1861,6 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 </table>
 <p>The 30-day default retention keeps storage manageable for most orgs.</p>
 </div>
-<footer>RouteForce SAS &mdash; v4.3.0 &mdash; Mars 2026 &mdash; <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></footer>
+<footer>RouteForce SAS &mdash; v4.4.0 &mdash; Mars 2026 &mdash; <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></footer>
 </body>
 </html>
