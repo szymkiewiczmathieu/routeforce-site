@@ -1,0 +1,16 @@
+.openclaw/
+AGENTS.md
+BOOTSTRAP.md
+HEARTBEAT.md
+IDENTITY.md
+MEMORY.md
+SOUL.md
+TOOLS.md
+USER.md
+data/
+memory/
+skills/
+
+# Local runtime/session artefacts
+tmp/
+.pi/
