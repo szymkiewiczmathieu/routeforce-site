@@ -84,7 +84,8 @@
         <li><strong>Hébergement</strong> : OVHcloud SAS, Gravelines (France) — certifié ISO 27001, ISO 27017, ISO 27018, SOC 1/2, HDS.</li>
         <li><strong>Contrôle d'accès</strong> : SSH par clé ED25519 uniquement. Accès restreint à l'administrateur unique. Pare-feu UFW actif.</li>
         <li><strong>Protection</strong> : Fail2ban actif (SSH, nginx). Containers Docker isolés. Mises à jour de sécurité automatiques.</li>
-        <li><strong>Supervision</strong> : Monitoring de disponibilité toutes les 15 minutes. Audit de sécurité hebdomadaire.</li>
+        <li><strong>Supervision</strong> : Monitoring de disponibilité toutes les 15 minutes. Audit de sécurité hebdomadaire. Journaux techniques rotatés et surveillance renforcée.</li>
+        <li><strong>Protection d'accès</strong> : Accès d'administration restreint via réseau privé, protection fail2ban sur les services exposés.</li>
     </ul>
 
     <h2>Article 4 — Sous-traitants techniques</h2>
@@ -94,6 +95,7 @@
         <tr><td>GitHub (Microsoft)</td><td>Sauvegardes chiffrées</td><td>USA</td><td>Données chiffrées GPG, SCCs, SOC 2</td></tr>
         <tr><td>Stripe</td><td>Facturation</td><td>USA/UE</td><td>PCI-DSS, SCCs, DPA Stripe</td></tr>
         <tr><td>Brevo (ex-Sendinblue)</td><td>Emails transactionnels</td><td>France/UE</td><td>DPA Brevo, hébergement UE</td></tr>
+        <tr><td>Tailscale</td><td>Accès d'administration sécurisé</td><td>USA/UE</td><td>Accès privé administrateur, pas d'usage comme hébergeur principal des données client</td></tr>
         <tr><td>UptimeRobot</td><td>Monitoring disponibilité</td><td>USA/UE</td><td>Aucune donnée personnelle transmise</td></tr>
     </table>
     <p>L'Éditeur informe le Client de tout changement de sous-traitant. Le Client dispose de trente (30) jours pour s'opposer.</p>
