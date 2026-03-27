@@ -1,64 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width,initial-scale=1"/>
-  <title>Configuration Guide &mdash; RouteForce v6.0.0</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RouteForce Configuration Guide</title>
   <style>
-:root{--primary:#2563eb;--primary-dark:#1e3a8a;--text:#1f2937;--muted:#6b7280;--light:#f8fafc;--border:#e2e8f0;--code-bg:#f1f5f9;--note-bg:#eff6ff;--warn-bg:#fefce8;}
-*{box-sizing:border-box;margin:0;padding:0;}
-html{font-size:16px;}
-body{font-family:Inter,system-ui,-apple-system,sans-serif;color:var(--text);background:var(--light);line-height:1.7;}
-.site-header{background:var(--primary-dark);padding:16px 32px;display:flex;align-items:center;justify-content:space-between;}
-.site-header a.back{color:rgba(255,255,255,0.75);font-size:0.85rem;text-decoration:none;}
-.site-header a.back:hover{color:white;}
-.doc-hero{background:linear-gradient(135deg,var(--primary-dark),var(--primary));color:white;padding:48px 32px 40px;}
-.badge{display:inline-block;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.25);border-radius:999px;padding:4px 12px;font-size:0.8rem;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:16px;}
-.doc-hero h1{font-size:2rem;font-weight:800;letter-spacing:-0.03em;margin-bottom:8px;}
-.doc-hero p{color:rgba(255,255,255,0.85);font-size:1rem;}
-.hero-inner{max-width:900px;margin:0 auto;}
-.container{max-width:900px;margin:0 auto;padding:48px 32px;}
-h2{font-size:1.35rem;font-weight:700;margin-top:48px;margin-bottom:16px;padding-bottom:8px;border-bottom:2px solid var(--primary);color:var(--primary-dark);}
-h3{font-size:1.05rem;font-weight:600;margin-top:28px;margin-bottom:10px;color:var(--text);}
-h4{font-size:0.95rem;font-weight:600;margin-top:20px;margin-bottom:8px;color:var(--muted);}
-p{margin-bottom:14px;}
-ul,ol{padding-left:22px;margin-bottom:16px;}
-li{margin-bottom:6px;}
-li p{margin-bottom:4px;}
-table{width:100%;border-collapse:collapse;margin:16px 0 24px;font-size:0.88rem;border:1px solid var(--border);border-radius:10px;overflow:hidden;display:block;overflow-x:auto;}
-th{background:#eef2ff;color:var(--primary-dark);font-weight:700;padding:10px 14px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap;}
-td{padding:9px 14px;border-bottom:1px solid var(--border);vertical-align:top;}
-tr:last-child td{border-bottom:none;}
-tr:nth-child(even) td{background:#fafbff;}
-code{font-family:'Fira Code',Consolas,monospace;font-size:0.83em;background:var(--code-bg);padding:2px 6px;border-radius:4px;color:#b91c1c;}
-pre{background:#1e293b;color:#e2e8f0;padding:20px;border-radius:10px;overflow-x:auto;margin:16px 0 24px;font-size:0.83rem;line-height:1.6;}
-pre code{background:none;color:inherit;padding:0;font-size:inherit;}
-blockquote{background:var(--note-bg);border-left:4px solid var(--primary);border-radius:0 8px 8px 0;padding:12px 18px;margin:16px 0;font-size:0.95rem;}
-blockquote p{margin-bottom:0;}
-a{color:var(--primary);}a:hover{text-decoration:underline;}
-hr{border:none;border-top:1px solid var(--border);margin:32px 0;}
-.checklist li{list-style:none;padding-left:0;}
-.checklist li::before{content:"☐ ";color:var(--primary);}
-footer{background:white;border-top:1px solid var(--border);padding:24px 32px;text-align:center;color:var(--muted);font-size:0.85rem;margin-top:64px;}
-@media(max-width:640px){.site-header,.doc-hero,.container{padding-left:16px;padding-right:16px;}.doc-hero h1{font-size:1.5rem;}}
-</style>
+    @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
+    :root {
+      --rf-blue: #0f4c81;
+      --rf-blue-dark: #0b365d;
+      --rf-sky: #1f77c7;
+      --rf-text: #1d2733;
+      --rf-muted: #5b6773;
+      --rf-line: #d8e0e8;
+      --rf-soft: #f4f8fb;
+      --rf-accent: #e8f1fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--rf-text);
+      font-size: 10.5pt;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .cover {
+      min-height: 240mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+      background: linear-gradient(180deg, #ffffff 0%, #f7fbff 100%);
+      border: 1px solid var(--rf-line);
+      padding: 20mm;
+    }
+    .cover-top { display:flex; align-items:center; justify-content:space-between; gap: 16px; }
+    .cover img.logo { max-width: 180px; max-height: 44px; object-fit: contain; }
+    .badge { color: white; background: var(--rf-blue); padding: 6px 10px; border-radius: 999px; font-size: 9pt; }
+    .hero { margin-top: 20mm; }
+    .hero h1 { font-size: 28pt; line-height: 1.1; margin: 0 0 10px; color: var(--rf-blue-dark); }
+    .hero p { font-size: 13pt; color: var(--rf-muted); margin: 0 0 14px; }
+    .meta { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 20mm; }
+    .meta .card { background: white; border: 1px solid var(--rf-line); border-radius: 10px; padding: 10px 12px; }
+    .meta .label { font-size: 8.5pt; letter-spacing: .04em; text-transform: uppercase; color: var(--rf-muted); }
+    .meta .value { margin-top: 4px; font-weight: bold; color: var(--rf-blue-dark); }
+    .cover-footer { border-top: 2px solid var(--rf-blue); padding-top: 10px; color: var(--rf-muted); font-size: 9pt; }
+    .content { counter-reset: h2; }
+    h1, h2, h3, h4 { color: var(--rf-blue-dark); page-break-after: avoid; }
+    h1 { font-size: 21pt; border-bottom: 3px solid var(--rf-blue); padding-bottom: 8px; margin: 0 0 12px; }
+    h2 { font-size: 15pt; margin-top: 24px; padding: 8px 10px; background: var(--rf-soft); border-left: 4px solid var(--rf-blue); }
+    h3 { font-size: 12pt; margin-top: 18px; }
+    p, li { orphans: 3; widows: 3; }
+    a { color: var(--rf-sky); text-decoration: none; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0 18px; font-size: 9.5pt; }
+    th, td { border: 1px solid var(--rf-line); padding: 7px 8px; vertical-align: top; }
+    th { background: var(--rf-accent); text-align: left; }
+    tr:nth-child(even) td { background: #fbfdff; }
+    code { background: #f1f5f9; padding: 1px 4px; border-radius: 4px; font-family: "Courier New", monospace; font-size: .92em; }
+    pre { background: #0f172a; color: #e5eef8; padding: 12px; border-radius: 8px; overflow: auto; white-space: pre-wrap; }
+    pre code { background: transparent; padding: 0; color: inherit; }
+    blockquote { border-left: 4px solid var(--rf-blue); margin: 14px 0; padding: 6px 12px; background: var(--rf-soft); color: var(--rf-muted); }
+    img { max-width: 100%; display:block; margin: 12px auto 18px; border: 1px solid var(--rf-line); border-radius: 10px; box-shadow: 0 8px 18px rgba(0,0,0,.06); }
+    hr { border: 0; border-top: 1px solid var(--rf-line); margin: 18px 0; }
+    ul, ol { padding-left: 22px; }
+    .note {
+      background: #eef6ff; border: 1px solid #cfe2f7; border-radius: 8px; padding: 10px 12px; margin: 14px 0 18px;
+    }
+    .small-muted { color: var(--rf-muted); font-size: 9pt; }
+  </style>
 </head>
 <body>
-<header class="site-header">
-  <svg viewBox="0 0 180 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="height:34px;"><circle cx="20" cy="20" r="18" stroke="white" stroke-width="2.5"/><path d="M10 26L17 12L24 20L32 10" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="26" r="3" fill="white"/><circle cx="17" cy="12" r="3" fill="white"/><circle cx="24" cy="20" r="3" fill="white"/><circle cx="32" cy="10" r="3" fill="white"/><text x="46" y="27" font-family="Inter,system-ui,sans-serif" font-size="20" font-weight="700" fill="white">RouteForce</text></svg>
-  <a href="../docs/index.html" class="back">&larr; Documentation</a>
-</header>
-<div class="doc-hero">
-  <div class="hero-inner">
-    <span class="badge">v6.0.0 · Salesforce Administrators</span>
-    <h1>Configuration Guide</h1>
-    <p>A complete reference to configure, customize, and maintain RouteForce in your Salesforce org.</p>
-  </div>
-</div>
-<div class="container">
+  <section class="cover">
+    <div>
+      <div class="cover-top">
+        <img class="logo" src="file:///tmp/routeforce-docs-live/portal/screenshots/logo-routeforce.png" alt="RouteForce logo" />
+        <div class="badge">Client Documentation</div>
+      </div>
+      <div class="hero">
+        <h1>RouteForce Configuration Guide</h1>
+        <p>Client-facing administration and configuration reference</p>
+      </div>
+      <div class="meta">
+        <div class="card"><div class="label">Product</div><div class="value">RouteForce</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">March 2026</div></div>
+        <div class="card"><div class="label">Format</div><div class="value">PDF / Print-ready HTML</div></div>
+      </div>
+    </div>
+    <div class="cover-footer">Prepared for client delivery • RouteForce for Salesforce • support@routeforce.app</div>
+  </section>
+  <main class="content">
+    <div class="note"><strong>RouteForce branded edition.</strong> This document is formatted for client delivery and print/PDF export.</div>
+    <p><strong>Version:</strong> March 2026<br><strong>Audience:</strong> Client documentation<br><strong>Applies to:</strong> RouteForce for Salesforce</p>
+<h1>RouteForce Configuration Guide</h1>
 <p>A complete reference for Salesforce administrators to configure, customize, and maintain RouteForce.</p>
-<hr />
-<h2 id="1-configuration-architecture">1. Configuration Architecture</h2>
+<hr>
+<h2>1. Configuration Architecture</h2>
 <p>RouteForce uses a <strong>CMDT-first</strong> approach. All configurable settings are stored in Custom Metadata Types, which are:</p>
 <ul>
 <li>Deployable across environments</li>
@@ -66,21 +102,21 @@ footer{background:white;border-top:1px solid var(--border);padding:24px 32px;tex
 <li>Accessible to the onboarding wizard (Screen Flow)</li>
 </ul>
 <pre><code>RF_Onboarding Flow (Screen Flow)
-    │
-    └─► SecureConfigService ──► InternalConfig__c (API keys, protected)
-
-RouteForceConfig__mdt (app settings, edited directly in Setup)
-    │
-    ▼
-ConfigService.cls (Apex reader)
-    │
-    ▼
-LWC Components (@wire)
+ │
+ ├─► SecureConfigService ──► InternalConfig__c (API keys, protected)
+ │
+ └─► ConfigDeployService ──► RouteForceConfig__mdt (app settings)
+ │
+ ▼
+ ConfigService.cls (Apex reader)
+ │
+ ▼
+ LWC Components (@wire)
 </code></pre>
-<hr />
-<h2 id="2-routeforceconfig__mdt-application-settings">2. RouteForceConfig__mdt — Application Settings</h2>
+<hr>
+<h2>2. RouteForceConfig__mdt — Application Settings</h2>
 <p>The central configuration record. All settings are in the <strong>Default</strong> record.</p>
-<h3 id="map-settings">Map Settings</h3>
+<h3>Map Settings</h3>
 <table>
 <thead>
 <tr>
@@ -90,8 +126,7 @@ LWC Components (@wire)
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>AddressFieldPrefix__c</code></td>
 <td>Picklist</td>
 <td><code>Shipping</code></td>
@@ -127,9 +162,8 @@ LWC Components (@wire)
 <td><code>10</code></td>
 <td>Default GPS nearby search radius in kilometers</td>
 </tr>
-</tbody>
-</table>
-<h3 id="filter-configuration">Filter Configuration</h3>
+</tbody></table>
+<h3>Feature Toggles</h3>
 <table>
 <thead>
 <tr>
@@ -139,27 +173,7 @@ LWC Components (@wire)
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td><code>FilterFields__c</code></td>
-<td>Text(255)</td>
-<td><em>(empty)</em></td>
-<td>Comma-separated Picklist/MultiPicklist/Boolean filter fields (e.g. <code>Account.Industry,Account.Type,Lead.Status</code>). Used as default when the FlexiPage <code>filterFields</code> property is not set. The FlexiPage value always takes priority.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="feature-toggles">Feature Toggles</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>EnableEvents__c</code></td>
 <td>Checkbox</td>
 <td><code>true</code></td>
@@ -181,7 +195,7 @@ LWC Components (@wire)
 <td><code>EnableNearby__c</code></td>
 <td>Checkbox</td>
 <td><code>true</code></td>
-<td>GPS "Nearby" search button in toolbar</td>
+<td>GPS &quot;Nearby&quot; search button in toolbar</td>
 </tr>
 <tr>
 <td><code>EnableVisitReports__c</code></td>
@@ -198,7 +212,7 @@ LWC Components (@wire)
 <tr>
 <td><code>EnableHistoryNaming__c</code></td>
 <td>Checkbox</td>
-<td><code>false</code></td>
+<td><code>true</code></td>
 <td>Allow users to name saved routes (prompt before saving)</td>
 </tr>
 <tr>
@@ -207,82 +221,8 @@ LWC Components (@wire)
 <td><code>false</code></td>
 <td>Quick Text snippet insertion in check-in visit report modal</td>
 </tr>
-<tr>
-<td><code>CheckInNotePrefix__c</code></td>
-<td>Text(100)</td>
-<td><code>Check-in</code></td>
-<td>Prefix text for the check-in timestamp appended to Event description. Format: <code>{prefix}: DD/MM/YYYY HH:MM</code>. Leave blank to use default "Check-in"</td>
-</tr>
-<tr>
-<td><code>EnableTeamFilter__c</code></td>
-<td>Checkbox</td>
-<td><code>false</code></td>
-<td>Adds "My Account Team" / "My Opportunity Team" filter option. Requires Account Teams and Team Selling enabled in the org</td>
-</tr>
-<tr>
-<td><code>EnableRoleFilter__c</code></td>
-<td>Checkbox</td>
-<td><code>false</code></td>
-<td>Adds "My Role Team" filter option — shows records owned by users in the current user's role or any subordinate role in the hierarchy. Works for Accounts, Leads, and Opportunities. No org prerequisites required</td>
-</tr>
-<tr>
-<td><code>EnableUsageTracking__c</code></td>
-<td>Checkbox</td>
-<td><code>false</code></td>
-<td>Tracks user actions (route creation, optimization, check-ins, exports) for analytics. Requires scheduling <code>UsageAggregationSchedulable</code> — see <a href="SETUP_GUIDE.md">Setup Guide</a> §11</td>
-</tr>
-</tbody>
-</table>
-<h3 id="team-filter-prerequisites">Team Filter — Prerequisites</h3>
-<p>When <code>EnableTeamFilter__c</code> is enabled, ownership filter comboboxes gain an additional option: <strong>"My Account Team"</strong> (in the Account section) and <strong>"My Opportunity Team"</strong> (in the Opportunity section). This shows records where the current user is a member of the Account Team or Opportunity Team.</p>
-<p><strong>Requirements:</strong></p>
-<ul>
-<li><strong>Account Teams</strong> must be enabled: Setup &gt; Account Teams Settings &gt; Enable Account Teams</li>
-<li><strong>Team Selling</strong> must be enabled (for Opportunities): Setup &gt; Opportunity Team Settings &gt; Enable Team Selling</li>
-<li>If these features are not enabled in the subscriber org, the filter falls back gracefully to "My Accounts" / "My Opportunities" (owner filter)</li>
-<li><strong>Leads</strong> do not have a native Team concept — the Lead ownership filter only offers "All Leads" and "My Leads"</li>
-</ul>
-<h3 id="role-filter-how-it-works">Role Filter — How It Works</h3>
-<p>When <code>EnableRoleFilter__c</code> is enabled, ownership filter comboboxes gain a <strong>"My Role Team"</strong> option for all three objects (Accounts, Leads, Opportunities). This shows records owned by any active user whose role is the same as or subordinate to the current user's role in the role hierarchy.</p>
-<p><strong>Key details:</strong></p>
-<ul>
-<li>Uses 2 SOQL queries: one to load all UserRoles, one to get active users in matching roles</li>
-<li>The hierarchy is traversed in memory — works with any depth of nesting</li>
-<li>If the current user has no role assigned, "My Role Team" returns only their own records</li>
-<li><strong>No prerequisites</strong> — unlike Team Filter, this works out of the box in any Salesforce org with a role hierarchy</li>
-<li>Both <code>EnableTeamFilter__c</code> and <code>EnableRoleFilter__c</code> can be enabled simultaneously — they appear as separate options in each combobox</li>
-</ul>
-<h3 id="independent-ownership-filters">Independent Ownership Filters</h3>
-<p>Each object type (Account, Lead, Opportunity) has its <strong>own independent ownership filter</strong> in its respective filter section. This means you can view "My Accounts" while simultaneously viewing "All Leads" and "My Opportunities".</p>
-<table>
-<thead>
-<tr>
-<th>Object</th>
-<th>Filter field</th>
-<th>Options available</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Account</td>
-<td><code>onlyMyAccounts</code></td>
-<td>All / My / My Account Team<em> / My Role Team</em></td>
-</tr>
-<tr>
-<td>Lead</td>
-<td><code>onlyMyLeads</code></td>
-<td>All / My / My Role Team*</td>
-</tr>
-<tr>
-<td>Opportunity</td>
-<td><code>onlyMyOpportunities</code></td>
-<td>All / My / My Opportunity Team<em> / My Role Team</em></td>
-</tr>
-</tbody>
-</table>
-<p>* <em>Requires the corresponding feature toggle (<code>EnableTeamFilter__c</code> or <code>EnableRoleFilter__c</code>) to be enabled.</em></p>
-<p>Saved filters store each ownership setting independently. Filters saved before this feature used a single <code>onlyMyAccounts</code> value for all objects — these are automatically migrated: the saved value is applied to all three ownership filters when loaded.</p>
-<h3 id="route-settings">Route Settings</h3>
+</tbody></table>
+<h3>Route Settings</h3>
 <table>
 <thead>
 <tr>
@@ -292,18 +232,11 @@ LWC Components (@wire)
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>MaxRouteSteps__c</code></td>
 <td>Number</td>
 <td><code>50</code></td>
 <td>Maximum stops per route (ORS API limit is 50)</td>
-</tr>
-<tr>
-<td><code>RouteStepFields__c</code></td>
-<td>Long Text Area</td>
-<td><em>(empty)</em></td>
-<td>Comma-separated list of additional Account fields to display on route step cards (e.g., <code>Phone,Industry,Website</code>)</td>
 </tr>
 <tr>
 <td><code>EventOppLinkTarget__c</code></td>
@@ -311,9 +244,8 @@ LWC Components (@wire)
 <td><code>opportunity</code></td>
 <td>When creating an Event from an Opportunity marker: <code>opportunity</code> (link Event to Opp) or <code>account</code> (link Event to parent Account)</td>
 </tr>
-</tbody>
-</table>
-<h3 id="query-configuration">Query Configuration</h3>
+</tbody></table>
+<h3>Query Configuration</h3>
 <table>
 <thead>
 <tr>
@@ -323,8 +255,7 @@ LWC Components (@wire)
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>ContactLookupEnabled__c</code></td>
 <td>Checkbox</td>
 <td><code>true</code></td>
@@ -367,35 +298,19 @@ LWC Components (@wire)
 <td>SOQL WHERE for Opportunity queries. Default shows open Opps only</td>
 </tr>
 <tr>
+<td><code>LastVisitField__c</code></td>
+<td>Text</td>
+<td><em>(empty)</em></td>
+<td>Account field API name for &quot;last visit&quot; date. Enables the &quot;Not visited since&quot; filter</td>
+</tr>
+<tr>
 <td><code>NotVisitedSinceDays__c</code></td>
 <td>Number</td>
 <td><code>30</code></td>
-<td>Default threshold in days for the "Not visited since" filter (shared across all 3 objects)</td>
+<td>Default threshold in days for the &quot;Not visited since&quot; filter</td>
 </tr>
-<tr>
-<td><code>VisitAlertDays__c</code></td>
-<td>Number</td>
-<td><code>0</code></td>
-<td>Number of days after which a record is flagged as "overdue" for a visit. When &gt; 0, markers display a red alert badge and overdue records are prioritized in Nearby suggestions. Set to <code>0</code> to disable</td>
-</tr>
-<tr>
-<td><code>VisitResultOptions__c</code></td>
-<td>Text</td>
-<td><em>(empty)</em></td>
-<td>Comma-separated picklist values for the Visit Report result field (e.g., <code>Successful,Follow-up needed,No contact,Cancelled</code>). When blank, the check-in modal shows a free text input instead</td>
-</tr>
-</tbody>
-</table>
-<h3 id="query-filter-security">Query Filter Security</h3>
-<p>Admin-provided SOQL filters (<code>ContactQueryFilter__c</code>, <code>LeadQueryFilter__c</code>, <code>OpportunityQueryFilter__c</code>) are validated using an <strong>allowlist regex</strong> before being injected into queries. Only well-formed WHERE clause predicates are accepted:</p>
-<ul>
-<li><strong>Allowed</strong>: field comparisons (<code>=</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code>), <code>LIKE</code>, <code>IN</code>, <code>NOT IN</code>, <code>INCLUDES</code>, <code>EXCLUDES</code></li>
-<li><strong>Allowed values</strong>: strings (<code>'...'</code>), numbers, booleans (<code>TRUE</code>/<code>FALSE</code>), <code>NULL</code>, date literals (<code>LAST_N_DAYS:30</code>, <code>TODAY</code>, <code>THIS_MONTH</code>, etc.)</li>
-<li><strong>Allowed operators</strong>: <code>AND</code>, <code>OR</code>, parentheses</li>
-<li><strong>Rejected</strong>: anything that doesn't match the pattern (e.g., subqueries, DML keywords, semicolons)</li>
-</ul>
-<p>If a filter is rejected, the system falls back to the default filter and logs a warning in <code>RouteForceLog__c</code>.</p>
-<h3 id="system">System</h3>
+</tbody></table>
+<h3>System</h3>
 <table>
 <thead>
 <tr>
@@ -405,17 +320,15 @@ LWC Components (@wire)
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>SupportEmail__c</code></td>
 <td>Email</td>
-<td><code>contact@routeforce.app</code></td>
+<td><code>support@routeforce.app</code></td>
 <td>Email displayed in error messages and licence screens</td>
 </tr>
-</tbody>
-</table>
-<hr />
-<h2 id="3-api-key-management">3. API Key Management</h2>
+</tbody></table>
+<hr>
+<h2>3. API Key Management</h2>
 <p>API keys are stored in <strong>InternalConfig__c</strong> (Hierarchy Custom Setting), protected by the <code>routeforce</code> namespace — subscribers cannot read them.</p>
 <table>
 <thead>
@@ -425,8 +338,7 @@ LWC Components (@wire)
 <th>Stored In</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>Licence Key</strong></td>
 <td>RouteForce licence validation</td>
 <td><code>InternalConfig__c.LicenceKey__c</code></td>
@@ -441,20 +353,19 @@ LWC Components (@wire)
 <td>HeiGIT public API (fallback routing)</td>
 <td><code>InternalConfig__c.FallbackApiKey__c</code></td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>These keys are set during the <strong>RF_Onboarding</strong> wizard (Step 1 — API Keys) and stored via <code>SecureConfigService.storeKeys()</code>.</p>
-<hr />
-<h2 id="4-licence-system">4. Licence System</h2>
-<h3 id="how-it-works">How It Works</h3>
+<hr>
+<h2>4. Licence System</h2>
+<h3>How It Works</h3>
 <ol>
 <li><strong>Validation callout</strong> → <code>https://ors.routeforce.app/api/licence/{key}</code></li>
-<li>Server returns: <code>{ valid: true, expires: "2026-12-31", client: "Acme Corp" }</code></li>
+<li>Server returns: <code>{ valid: true, expires: &quot;2026-12-31&quot;, client: &quot;Acme Corp&quot; }</code></li>
 <li>Result is <strong>cached</strong> in <code>LicenceCache__c</code> for 24 hours</li>
 <li>If the server is unreachable, the app continues for <strong>7 days</strong> (fail-open grace period)</li>
 <li>After 7 days without contact, the app blocks with a licence error overlay</li>
 </ol>
-<h3 id="licence-states">Licence States</h3>
+<h3>Licence States</h3>
 <table>
 <thead>
 <tr>
@@ -462,8 +373,7 @@ LWC Components (@wire)
 <th>Behavior</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>Active</strong></td>
 <td>Normal operation. Green indicator in Configuration section</td>
 </tr>
@@ -479,9 +389,8 @@ LWC Components (@wire)
 <td><strong>Server Unreachable</strong></td>
 <td>Fail-open: app works for 7 days. Warning indicator</td>
 </tr>
-</tbody>
-</table>
-<h3 id="cache-details">Cache Details</h3>
+</tbody></table>
+<h3>Cache Details</h3>
 <table>
 <thead>
 <tr>
@@ -489,8 +398,7 @@ LWC Components (@wire)
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>LicenceCache__c.IsValid__c</code></td>
 <td><code>true</code> if last validation succeeded</td>
 </tr>
@@ -506,9 +414,8 @@ LWC Components (@wire)
 <td><code>LicenceCache__c.ExpiresAt__c</code></td>
 <td>Licence expiration date</td>
 </tr>
-</tbody>
-</table>
-<h3 id="http-response-handling">HTTP Response Handling</h3>
+</tbody></table>
+<h3>HTTP Response Handling</h3>
 <table>
 <thead>
 <tr>
@@ -517,8 +424,7 @@ LWC Components (@wire)
 <th>Action</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>200</td>
 <td>Success</td>
 <td>Update cache, allow/block based on <code>valid</code> field</td>
@@ -543,13 +449,12 @@ LWC Components (@wire)
 <td>Unreachable</td>
 <td>Fail-open for 7 days</td>
 </tr>
-</tbody>
-</table>
-<hr />
-<h2 id="5-flexipage-configuration">5. FlexiPage Configuration</h2>
+</tbody></table>
+<hr>
+<h2>5. FlexiPage Configuration</h2>
 <p>The RouteForce FlexiPage is the main map interface. Configure it via <strong>Setup &gt; Lightning App Builder &gt; RouteForce</strong>.</p>
-<h3 id="filter-fields">Filter Fields</h3>
-<p>Define which picklist/boolean fields appear in the filter panel using a single <strong>comma-separated</strong> <code>filterFields</code> property. Each field must be prefixed with its object name.</p>
+<h3>Filter Fields (filterField1–16)</h3>
+<p>Define which picklist/boolean fields appear in the filter panel. Supports three syntaxes:</p>
 <table>
 <thead>
 <tr>
@@ -558,87 +463,90 @@ LWC Components (@wire)
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td><strong>Object-prefixed</strong></td>
-<td><code>Account.Industry</code></td>
-<td>Account field</td>
+<tbody><tr>
+<td><strong>Simple</strong></td>
+<td><code>Industry</code></td>
+<td>Account field (no prefix needed)</td>
 </tr>
 <tr>
 <td><strong>Object-prefixed</strong></td>
 <td><code>Opportunity.StageName</code></td>
-<td>Opportunity field</td>
-</tr>
-<tr>
-<td><strong>Object-prefixed</strong></td>
-<td><code>Lead.Status</code></td>
-<td>Lead field</td>
+<td>Field on a specific object</td>
 </tr>
 <tr>
 <td><strong>Cross-object</strong></td>
 <td><code>Opportunity.Account.Industry</code></td>
-<td>Filter Opportunities by their Account's field value</td>
+<td>Filter Opportunities by their Account&#39;s field value</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><strong>Supported field types</strong>: Picklist, Multi-Picklist, Boolean (Checkbox)</p>
-<p><strong>CMDT Fallback</strong>: If the FlexiPage <code>filterFields</code> property is left empty, the system reads the default from <code>RouteForceConfig__mdt.FilterFields__c</code>. The FlexiPage value always takes priority over the CMDT default.</p>
 <p><strong>Default configuration</strong> (out of the box):</p>
-<pre><code>Account.Industry,Account.Type,Account.Rating,Account.Ownership,Opportunity.StageName,Opportunity.ForecastCategory,Lead.Status,Lead.LeadSource,Opportunity.Account.Industry,Lead.Rating
-</code></pre>
 <table>
 <thead>
 <tr>
-<th>Field</th>
+<th>Slot</th>
+<th>Value</th>
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
+<td>filterField1</td>
 <td><code>Account.Industry</code></td>
 <td>Account Industry</td>
 </tr>
 <tr>
+<td>filterField2</td>
 <td><code>Account.Type</code></td>
 <td>Account Type</td>
 </tr>
 <tr>
+<td>filterField3</td>
 <td><code>Account.Rating</code></td>
 <td>Account Rating</td>
 </tr>
 <tr>
+<td>filterField4</td>
 <td><code>Account.Ownership</code></td>
 <td>Account Ownership</td>
 </tr>
 <tr>
+<td>filterField5</td>
 <td><code>Opportunity.StageName</code></td>
 <td>Opportunity Stage</td>
 </tr>
 <tr>
+<td>filterField6</td>
 <td><code>Opportunity.ForecastCategory</code></td>
 <td>Opportunity Forecast</td>
 </tr>
 <tr>
+<td>filterField7</td>
 <td><code>Lead.Status</code></td>
 <td>Lead Status</td>
 </tr>
 <tr>
+<td>filterField8</td>
 <td><code>Lead.LeadSource</code></td>
 <td>Lead Source</td>
 </tr>
 <tr>
+<td>filterField9</td>
 <td><code>Opportunity.Account.Industry</code></td>
 <td>Cross-object: Opp by Account Industry</td>
 </tr>
 <tr>
+<td>filterField10</td>
 <td><code>Lead.Rating</code></td>
 <td>Lead Rating</td>
 </tr>
-</tbody>
-</table>
-<p>To add more filters, append them to the CSV (no slot limit).</p>
-<h3 id="legend-configuration">Legend Configuration</h3>
-<p>The legend assigns distinct colors to marker values. Each object type has its own color palette. Configure these comma-separated lists:</p>
+<tr>
+<td>filterField11–16</td>
+<td><em>(empty)</em></td>
+<td>Available for custom filters</td>
+</tr>
+</tbody></table>
+<h3>Legend Configuration</h3>
+<p>The legend assigns distinct colors to marker values. Configure these comma-separated lists:</p>
 <table>
 <thead>
 <tr>
@@ -647,41 +555,29 @@ LWC Components (@wire)
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
-<td><code>Account marker color field</code></td>
+<tbody><tr>
+<td><code>typeField</code></td>
 <td><code>Type</code></td>
 <td>Account field used for marker color assignment</td>
 </tr>
 <tr>
-<td><code>Account marker color values</code></td>
+<td><code>typeValues</code></td>
 <td><code>Customer - Direct,Customer - Channel,Prospect,Other</code></td>
 <td>Account legend entries (blue tones)</td>
 </tr>
 <tr>
-<td><code>Opportunity marker color field</code></td>
-<td><code>StageName</code></td>
-<td>Opportunity field used for marker color assignment</td>
-</tr>
-<tr>
-<td><code>Opportunity marker color values</code></td>
+<td><code>oppTypeValues</code></td>
 <td><code>Prospecting,Qualification,Needs Analysis,Value Proposition,Negotiation/Review,Closed Won,Closed Lost</code></td>
 <td>Opportunity legend entries (warm tones)</td>
 </tr>
 <tr>
-<td><code>Lead marker color field</code></td>
-<td><code>Status</code></td>
-<td>Lead field used for marker color assignment</td>
-</tr>
-<tr>
-<td><code>Lead marker color values</code></td>
+<td><code>leadTypeValues</code></td>
 <td><code>Open - Not Contacted,Working - Contacted,Closed - Converted,Closed - Not Converted</code></td>
 <td>Lead legend entries (cool tones)</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><strong>Order matters</strong> — the first value gets the first color in the palette, and so on.</p>
-<h3 id="marker-popup-fields">Marker Popup Fields</h3>
+<h3>Marker Popup Fields</h3>
 <p>Configure which fields appear in marker popups (any field type supported):</p>
 <pre><code>Phone,Industry,Website,Opportunity.StageName,Opportunity.Amount,Opportunity.CloseDate,Lead.Company,Lead.LeadSource,Lead.Status,Lead.Email
 </code></pre>
@@ -692,8 +588,7 @@ LWC Components (@wire)
 <th>Example</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Account field</td>
 <td><code>Phone</code>, <code>Industry</code>, <code>Website</code></td>
 </tr>
@@ -705,9 +600,8 @@ LWC Components (@wire)
 <td>Lead field</td>
 <td><code>Lead.Company</code>, <code>Lead.Email</code></td>
 </tr>
-</tbody>
-</table>
-<h3 id="other-properties">Other Properties</h3>
+</tbody></table>
+<h3>Other Properties</h3>
 <table>
 <thead>
 <tr>
@@ -717,12 +611,17 @@ LWC Components (@wire)
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>addressFieldPrefix</code></td>
 <td>String</td>
 <td><code>Shipping</code></td>
 <td>Overrides CMDT for this FlexiPage instance</td>
+</tr>
+<tr>
+<td><code>showRecordType</code></td>
+<td>Boolean</td>
+<td><code>false</code></td>
+<td>Adds Record Type filter dropdown</td>
 </tr>
 <tr>
 <td><code>forceMultiPicklist</code></td>
@@ -730,11 +629,10 @@ LWC Components (@wire)
 <td><code>Industry,Type</code></td>
 <td>Comma-separated fields rendered as multi-select checkboxes</td>
 </tr>
-</tbody>
-</table>
-<hr />
-<h2 id="6-permission-sets">6. Permission Sets</h2>
-<h3 id="routeforce-admin">RouteForce Admin</h3>
+</tbody></table>
+<hr>
+<h2>6. Permission Sets</h2>
+<h3>RouteForce Admin</h3>
 <p><strong>Target</strong>: Salesforce Administrators</p>
 <table>
 <thead>
@@ -743,8 +641,7 @@ LWC Components (@wire)
 <th>Access</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>Apex Classes</strong></td>
 <td>All services including <code>ConfigDeployService</code>, <code>SecureConfigService</code></td>
 </tr>
@@ -764,9 +661,8 @@ LWC Components (@wire)
 <td><strong>App</strong></td>
 <td>RouteForce visible</td>
 </tr>
-</tbody>
-</table>
-<h3 id="routeforce-user">RouteForce User</h3>
+</tbody></table>
+<h3>RouteForce User</h3>
 <p><strong>Target</strong>: Sales Reps / Field Users</p>
 <table>
 <thead>
@@ -775,8 +671,7 @@ LWC Components (@wire)
 <th>Access</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>Apex Classes</strong></td>
 <td>All services except <code>ConfigDeployService</code></td>
 </tr>
@@ -796,10 +691,9 @@ LWC Components (@wire)
 <td><strong>App</strong></td>
 <td>RouteForce visible</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p><strong>Key difference</strong>: Users do <strong>not</strong> see the Configuration or Licence tabs, and cannot modify CMDT settings.</p>
-<h3 id="assigning-permission-sets">Assigning Permission Sets</h3>
+<h3>Assigning Permission Sets</h3>
 <p>Via Setup UI:</p>
 <ol>
 <li><strong>Setup &gt; Permission Sets</strong></li>
@@ -811,9 +705,9 @@ LWC Components (@wire)
 <pre><code class="language-bash">sf org assign permset --name RouteForce_Admin --target-org &lt;org-alias&gt;
 sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 </code></pre>
-<hr />
-<h2 id="7-data-requirements">7. Data Requirements</h2>
-<h3 id="account-geocoding">Account Geocoding</h3>
+<hr>
+<h2>7. Data Requirements</h2>
+<h3>Account Geocoding</h3>
 <p>Accounts <strong>must</strong> have latitude/longitude fields populated to appear on the map:</p>
 <table>
 <thead>
@@ -823,8 +717,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <th>Longitude Field</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>Shipping</code></td>
 <td><code>ShippingLatitude</code></td>
 <td><code>ShippingLongitude</code></td>
@@ -834,20 +727,18 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <td><code>BillingLatitude</code></td>
 <td><code>BillingLongitude</code></td>
 </tr>
-</tbody>
-</table>
-<p><strong>How to geocode</strong>: Use third-party geocoding tools (Geocodio, Google Geocoding API, Salesforce Data Cloud) to batch-update latitude/longitude coordinates on your records. You can also use Data Loader or an ETL tool to import pre-geocoded data.</p>
+</tbody></table>
+<p><strong>How to geocode</strong>: Salesforce provides automatic geocoding via Data.com Clean (requires licence) or you can use third-party tools (Geocodio, Google Geocoding API) to batch-update coordinates.</p>
 <p><strong>Tip</strong>: Records without coordinates are silently excluded from the map — no error is thrown.</p>
-<h3 id="lead-geocoding">Lead Geocoding</h3>
+<h3>Lead Geocoding</h3>
 <p>Leads use their standard <code>Latitude</code> and <code>Longitude</code> fields. These are part of the Lead Address compound field.</p>
-<h3 id="opportunity-geocoding">Opportunity Geocoding</h3>
-<p>Opportunities do <strong>not</strong> have their own address. RouteForce uses the <strong>parent Account's address</strong> (via the AccountId relationship). The Account must be geocoded.</p>
-<h3 id="events">Events</h3>
+<h3>Opportunity Geocoding</h3>
+<p>Opportunities do <strong>not</strong> have their own address. RouteForce uses the <strong>parent Account&#39;s address</strong> (via the AccountId relationship). The Account must be geocoded.</p>
+<h3>Events</h3>
 <p>Events appear on the map when they have a <strong>related record</strong> (WhatId or WhoId) that has geocoded coordinates. Events without a geocoded related record show in the calendar but not on the map.</p>
-<hr />
-<h2 id="8-network-settings">8. Network Settings</h2>
-<p>All network settings are <strong>included in the managed package</strong> and deployed automatically on install.</p>
-<h3 id="remote-site-settings-apex-callouts">Remote Site Settings (Apex callouts)</h3>
+<hr>
+<h2>8. Remote Site Settings</h2>
+<p>RouteForce requires callout access to two external services:</p>
 <table>
 <thead>
 <tr>
@@ -856,8 +747,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <th>Purpose</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><strong>RouteForce_ORS</strong></td>
 <td><code>https://ors.routeforce.app</code></td>
 <td>Route optimization, directions, licence validation</td>
@@ -867,45 +757,18 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <td><code>https://api.openrouteservice.org</code></td>
 <td>Fallback routing (when VPS is unavailable)</td>
 </tr>
-</tbody>
-</table>
-<h3 id="csp-trusted-sites-map-tile-loading">CSP Trusted Sites (Map tile loading)</h3>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>URL</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>MAP</strong></td>
-<td><code>*.openstreetmap.org</code></td>
-<td>Standard basemap tiles</td>
-</tr>
-<tr>
-<td><strong>ArcGIS_Online</strong></td>
-<td><code>*.server.arcgisonline.com</code></td>
-<td>Satellite imagery tiles</td>
-</tr>
-<tr>
-<td><strong>ArcGIS_Server</strong></td>
-<td><code>server.arcgisonline.com</code></td>
-<td>Satellite imagery</td>
-</tr>
-<tr>
-<td><strong>OpenTopoMap</strong></td>
-<td><code>*.opentopomap.org</code></td>
-<td>Terrain basemap tiles</td>
-</tr>
-</tbody>
-</table>
-<p>If any are missing after install, add them manually via <strong>Setup &gt; Remote Site Settings</strong> or <strong>Setup &gt; CSP Trusted Sites</strong>.</p>
-<hr />
-<h2 id="9-onboarding-wizard-rf_onboarding">9. Onboarding Wizard (RF_Onboarding)</h2>
-<p>The wizard is a Screen Flow accessible from the <strong>Configuration</strong> tab (Admin only). It handles <strong>API key setup only</strong> — all other configuration is done directly in Custom Metadata Types.</p>
-<h3 id="api-keys">API Keys</h3>
+</tbody></table>
+<p>These are <strong>included in the managed package</strong> and deployed automatically on install. If missing, add them manually:</p>
+<ol>
+<li><strong>Setup &gt; Remote Site Settings &gt; New</strong></li>
+<li>Enter the name and URL</li>
+<li>Check <strong>Active</strong></li>
+<li>Save</li>
+</ol>
+<hr>
+<h2>9. Onboarding Wizard (RF_Onboarding)</h2>
+<p>The wizard is a Screen Flow accessible from the <strong>Configuration</strong> tab (Admin only).</p>
+<h3>Step 1 — API Keys</h3>
 <table>
 <thead>
 <tr>
@@ -914,8 +777,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Licence Key</td>
 <td>Yes</td>
 <td>Your RouteForce licence key (provided by RouteForce support)</td>
@@ -930,17 +792,153 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <td>No</td>
 <td>HeiGIT fallback key (used when VPS is unavailable)</td>
 </tr>
-</tbody>
-</table>
+</tbody></table>
 <p>Keys are stored in <code>InternalConfig__c</code> (protected by namespace).</p>
-<p>After saving the keys, the wizard directs the admin to configure all application settings directly in Setup:</p>
-<blockquote>
-<p><strong>Setup → Custom Metadata Types → RouteForce Config → Manage Records → Default</strong></p>
-</blockquote>
-<p>All settings documented in <a href="#2-routeforceconfig__mdt--application-settings">Section 2</a> are editable there, including map settings, feature toggles, route settings, query configuration, and system settings.</p>
-<hr />
-<h2 id="10-custom-objects-reference">10. Custom Objects Reference</h2>
-<h3 id="history__c-route-history">History__c (Route History)</h3>
+<h3>Step 2 — Map Settings</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Address Prefix</td>
+<td>Shipping</td>
+<td>Shipping, Billing</td>
+</tr>
+<tr>
+<td>Default Map Layer</td>
+<td>Standard</td>
+<td>Standard, Satellite, Terrain</td>
+</tr>
+<tr>
+<td>Default Zoom</td>
+<td>10</td>
+<td>1–18</td>
+</tr>
+<tr>
+<td>Display Mode</td>
+<td>both</td>
+<td>accounts, leads, both</td>
+</tr>
+</tbody></table>
+<h3>Step 3 — Feature Toggles</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Enable Events</td>
+<td>true</td>
+<td>Calendar panel, event markers, check-in</td>
+</tr>
+<tr>
+<td>Enable Leads</td>
+<td>false</td>
+<td>Lead markers, Lead filters, Lead in route</td>
+</tr>
+<tr>
+<td>Enable Opportunities</td>
+<td>false</td>
+<td>Opportunity markers, Opp filters, Opp in route</td>
+</tr>
+<tr>
+<td>Enable Nearby</td>
+<td>true</td>
+<td>GPS nearby search button</td>
+</tr>
+<tr>
+<td>Enable Visit Reports</td>
+<td>true</td>
+<td>Visit report creation on check-in</td>
+</tr>
+<tr>
+<td>Enable CSV Export</td>
+<td>true</td>
+<td>CSV download button in route panel</td>
+</tr>
+<tr>
+<td>Enable History Naming</td>
+<td>true</td>
+<td>Name prompt when saving routes</td>
+</tr>
+<tr>
+<td>Enable Quick Text</td>
+<td>false</td>
+<td>Quick text snippets in check-in modal</td>
+</tr>
+</tbody></table>
+<h3>Step 4 — Query Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Contact Fields</td>
+<td>Id,Name,Email,Phone</td>
+<td>Fields shown in contact popups</td>
+</tr>
+<tr>
+<td>Lead Query Filter</td>
+<td>IsConverted = false</td>
+<td>SOQL WHERE for Leads</td>
+</tr>
+<tr>
+<td>Opp Query Filter</td>
+<td>IsClosed = false</td>
+<td>SOQL WHERE for Opportunities</td>
+</tr>
+<tr>
+<td>Last Visit Field</td>
+<td><em>(empty)</em></td>
+<td>Account field for &quot;not visited since&quot; filter</td>
+</tr>
+</tbody></table>
+<h3>Step 5 — Advanced</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cluster Radius</td>
+<td>60 px</td>
+<td>Marker clustering aggressiveness</td>
+</tr>
+<tr>
+<td>Max Route Steps</td>
+<td>50</td>
+<td>ORS API limit</td>
+</tr>
+<tr>
+<td>Nearby Radius</td>
+<td>10 km</td>
+<td>Default nearby search distance</td>
+</tr>
+<tr>
+<td>Support Email</td>
+<td><a href="mailto:support@routeforce.app">support@routeforce.app</a></td>
+<td>Contact email in error screens</td>
+</tr>
+</tbody></table>
+<h3>Step 6 — Deploy</h3>
+<p>The wizard writes all settings to <code>RouteForceConfig__mdt.Default</code> via the Metadata API (<code>ConfigDeployService</code>). This is an <strong>async deployment</strong> — changes take effect after a few seconds.</p>
+<hr>
+<h2>10. Custom Objects Reference</h2>
+<h3>History__c (Route History)</h3>
 <p>Stores saved routes for future reference and reload.</p>
 <table>
 <thead>
@@ -950,8 +948,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>Name</code></td>
 <td>Auto-Number</td>
 <td>Route History Number (auto)</td>
@@ -959,7 +956,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <tr>
 <td><code>RouteName__c</code></td>
 <td>Text</td>
-<td>User-provided route name (optional, falls back to auto-number Name)</td>
+<td>User-provided route name</td>
 </tr>
 <tr>
 <td><code>User__c</code></td>
@@ -967,7 +964,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <td>User who saved the route</td>
 </tr>
 <tr>
-<td><code>Date__c</code></td>
+<td><code>RouteDate__c</code></td>
 <td>Date</td>
 <td>Date of the planned route</td>
 </tr>
@@ -982,23 +979,22 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <td>Number of stops</td>
 </tr>
 <tr>
-<td><code>TotalDistanceM__c</code></td>
+<td><code>Distance__c</code></td>
 <td>Number</td>
-<td>Total distance in <strong>meters</strong></td>
+<td>Total distance in km</td>
 </tr>
 <tr>
-<td><code>TotalDurationSec__c</code></td>
+<td><code>Duration__c</code></td>
 <td>Number</td>
-<td>Total duration in <strong>seconds</strong></td>
+<td>Total duration in minutes</td>
 </tr>
 <tr>
 <td><code>StepsJson__c</code></td>
 <td>Long Text Area</td>
 <td>Serialized route data (JSON)</td>
 </tr>
-</tbody>
-</table>
-<h3 id="savedfilter__c-saved-filters">SavedFilter__c (Saved Filters)</h3>
+</tbody></table>
+<h3>SavedFilter__c (Saved Filters)</h3>
 <p>Stores user filter configurations for instant reload.</p>
 <table>
 <thead>
@@ -1008,8 +1004,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>Name</code></td>
 <td>Text</td>
 <td>Filter name (user-provided)</td>
@@ -1029,9 +1024,8 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <td>Long Text Area</td>
 <td>Serialized filter state (JSON)</td>
 </tr>
-</tbody>
-</table>
-<h3 id="visitreport__c-visit-reports">VisitReport__c (Visit Reports)</h3>
+</tbody></table>
+<h3>VisitReport__c (Visit Reports)</h3>
 <p>Created during event check-in. Tracks field visit outcomes.</p>
 <table>
 <thead>
@@ -1041,8 +1035,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <th>Description</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>Name</code></td>
 <td>Auto-Number</td>
 <td>Visit Report Number</td>
@@ -1050,17 +1043,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <tr>
 <td><code>Account__c</code></td>
 <td>Lookup(Account)</td>
-<td>Related Account (set when Event.WhatId is Account)</td>
-</tr>
-<tr>
-<td><code>Lead__c</code></td>
-<td>Lookup(Lead)</td>
-<td>Related Lead (set when Event.WhoId is Lead)</td>
-</tr>
-<tr>
-<td><code>Opportunity__c</code></td>
-<td>Lookup(Opportunity)</td>
-<td>Related Opportunity (set when Event.WhatId is Opp)</td>
+<td>Related Account</td>
 </tr>
 <tr>
 <td><code>Author__c</code></td>
@@ -1069,18 +1052,18 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 </tr>
 <tr>
 <td><code>Result__c</code></td>
-<td>Text(255)</td>
-<td>Visit outcome / result text</td>
+<td>Picklist</td>
+<td>Visit outcome (Success, Not Home, Callback, etc.)</td>
 </tr>
 <tr>
 <td><code>Notes__c</code></td>
 <td>Long Text Area</td>
-<td>Visit notes / comments (HTML if rich text enabled)</td>
+<td>Visit notes / comments</td>
 </tr>
 <tr>
 <td><code>NextAction__c</code></td>
-<td>Long Text Area</td>
-<td>Next action planned after the visit</td>
+<td>Text</td>
+<td>Next action to take</td>
 </tr>
 <tr>
 <td><code>VisitTimestamp__c</code></td>
@@ -1092,256 +1075,52 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;
 <td>Text</td>
 <td>Related Event ID</td>
 </tr>
-<tr>
-<td><code>EventLink__c</code></td>
-<td>Lookup(Event)</td>
-<td>Direct lookup to the related Event record</td>
-</tr>
-<tr>
-<td><code>CheckInLatitude__c</code></td>
-<td>Number(10,7)</td>
-<td>GPS latitude captured at check-in</td>
-</tr>
-<tr>
-<td><code>CheckInLongitude__c</code></td>
-<td>Number(10,7)</td>
-<td>GPS longitude captured at check-in</td>
-</tr>
-<tr>
-<td><code>CheckInAccuracy__c</code></td>
-<td>Number(10,2)</td>
-<td>GPS accuracy in meters at check-in</td>
-</tr>
-</tbody>
-</table>
-<h3 id="routeforcelog__c-application-logs">RouteForceLog__c (Application Logs)</h3>
-<p>Stores structured log entries generated by the application. Used for monitoring, debugging, and audit trail.</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Name</code></td>
-<td>Auto-Number</td>
-<td>Auto</td>
-<td>Log entry number</td>
-</tr>
-<tr>
-<td><code>Level__c</code></td>
-<td>Picklist</td>
-<td>Yes</td>
-<td>Severity level: <code>INFO</code>, <code>WARN</code>, or <code>ERROR</code></td>
-</tr>
-<tr>
-<td><code>Context__c</code></td>
-<td>Text(255)</td>
-<td>No</td>
-<td>Source class or service name (e.g., <code>RouteService</code>, <code>LicenceService</code>)</td>
-</tr>
-<tr>
-<td><code>Message__c</code></td>
-<td>Long Text Area</td>
-<td>No</td>
-<td>Detailed log message (up to 131,072 characters)</td>
-</tr>
-<tr>
-<td><code>Timestamp__c</code></td>
-<td>DateTime</td>
-<td>Yes</td>
-<td>When the log entry was created</td>
-</tr>
-<tr>
-<td><code>User__c</code></td>
-<td>Lookup(User)</td>
-<td>No</td>
-<td>User whose action triggered the log entry</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Retention</strong>: Records older than 30 days are automatically purged by <code>LogPurgeBatch</code> (see <a href="SETUP_GUIDE.md#10-logging--log-purge">Setup Guide — Logging &amp; Log Purge</a>).</p>
-<p><strong>Access</strong>: Admins have full CRUD via <code>RouteForce_Admin</code> permission set. Standard users have Create + Read via <code>RouteForce_User</code>.</p>
-<h3 id="routeforceaction__mdt-custom-action-buttons">RouteForceAction__mdt (Custom Action Buttons)</h3>
-<p>Defines custom action buttons displayed in marker popups. Each record creates a button that launches a subscriber-defined Screen Flow.</p>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Type</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Label__c</code></td>
-<td>Text(80)</td>
-<td>Yes</td>
-<td>Button label displayed in the popup</td>
-</tr>
-<tr>
-<td><code>FlowApiName__c</code></td>
-<td>Text(120)</td>
-<td>Yes</td>
-<td>API name of the Screen Flow to launch (use namespace prefix if needed, e.g., <code>myns__MyFlow</code>)</td>
-</tr>
-<tr>
-<td><code>ObjectType__c</code></td>
-<td>Picklist</td>
-<td>Yes</td>
-<td>Which markers show this button: <code>All</code>, <code>Account</code>, <code>Lead</code>, or <code>Opportunity</code></td>
-</tr>
-<tr>
-<td><code>ButtonColor__c</code></td>
-<td>Text(7)</td>
-<td>No</td>
-<td>Hex color for the button (default: <code>#10B981</code> green). Example: <code>#F59E0B</code> for amber</td>
-</tr>
-<tr>
-<td><code>SortOrder__c</code></td>
-<td>Number</td>
-<td>No</td>
-<td>Display order in the popup — lower values appear first (default: <code>10</code>)</td>
-</tr>
-<tr>
-<td><code>IsActive__c</code></td>
-<td>Checkbox</td>
-<td>—</td>
-<td>When unchecked, the button is hidden from all popups</td>
-</tr>
-<tr>
-<td><code>Icon__c</code></td>
-<td>Text(40)</td>
-<td>No</td>
-<td>SVG icon: <code>action</code> (gear), <code>edit</code> (pencil), <code>check</code>, <code>chart</code>, <code>list</code>, <code>star</code>. Default: <code>action</code></td>
-</tr>
-<tr>
-<td><code>DisplayContext__c</code></td>
-<td>Picklist</td>
-<td>Yes</td>
-<td>Where the button appears: <code>All</code> (everywhere), <code>Popup</code> (marker popups only), <code>EventPanel</code> (daily agenda only). Default: <code>All</code></td>
-</tr>
-<tr>
-<td><code>FilterCondition__c</code></td>
-<td>Text(255)</td>
-<td>No</td>
-<td>Optional condition to show this button only when the record matches. Syntax below</td>
-</tr>
-</tbody>
-</table>
-<h4 id="filter-condition-syntax">Filter Condition Syntax</h4>
-<p>The <code>FilterCondition__c</code> field allows you to conditionally display an action button based on a field value on the record. The field must be included in the FlexiPage's <code>markerFields</code> property or be a standard marker property (<code>type</code>, <code>city</code>, <code>name</code>, etc.).</p>
-<table>
-<thead>
-<tr>
-<th>Syntax</th>
-<th>Example</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>Field=Value</code></td>
-<td><code>Type=Customer - Direct</code></td>
-<td>Show only when field equals value (case-insensitive)</td>
-</tr>
-<tr>
-<td><code>Field!=Value</code></td>
-<td><code>Type!=Prospect</code></td>
-<td>Show only when field does NOT equal value</td>
-</tr>
-<tr>
-<td><code>Field=Val1,Val2</code></td>
-<td><code>Type=Customer - Direct,Customer - Channel</code></td>
-<td>Show when field matches any value in comma-separated list</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Examples:</strong></p>
-<pre><code># Only show on Account Type &quot;Distributeur - Utilisateur Actif&quot;
-Type=Distributeur - Utilisateur Actif
-
-# Show on multiple types
-Type=Customer - Direct,Customer - Channel
-
-# Exclude Prospects
-Type!=Prospect
-
-# Filter on a custom field (must be in markerFields)
-Enseigne_utilisateur__c=Carrefour,Leclerc
-</code></pre>
-<h4 id="how-it-works_1">How It Works</h4>
-<ol>
-<li>The admin creates a <code>RouteForceAction__mdt</code> record (Setup &gt; Custom Metadata Types &gt; RouteForce Action &gt; Manage Records)</li>
-<li>The admin creates a Screen Flow that accepts a <code>recordId</code> Text input variable</li>
-<li>The Screen Flow contains a single screen with the desired LWC component (e.g., a data entry form)</li>
-<li>When a user clicks the custom button in a marker popup, the flow opens in a fullscreen responsive modal</li>
-<li>The flow receives the record ID of the clicked marker</li>
-</ol>
-<p><strong>Important:</strong> The Screen Flow must define a Text input variable named <code>recordId</code> which receives the Salesforce ID of the clicked record (Account, Lead, or Opportunity).</p>
-<h4 id="example-custom-action-with-filter-condition">Example: Custom Action with Filter Condition</h4>
-<pre><code>Label:           DN Entry
-FlowApiName:     RF_SaisieGmsDN
-ObjectType:      Account
-ButtonColor:     #F59E0B
-Icon:            edit
-SortOrder:       1
-IsActive:        true
-DisplayContext:  All
-FilterCondition: Type=Distributeur - Utilisateur Actif
-</code></pre>
-<p>This button only appears on Account markers where <code>Type</code> equals "Distributeur - Utilisateur Actif".</p>
-<hr />
-<h2 id="11-adding-custom-filter-fields">11. Adding Custom Filter Fields</h2>
-<h3 id="example-add-accountnumberofemployees-as-a-filter">Example: Add "Account.NumberOfEmployees" as a filter</h3>
+</tbody></table>
+<hr>
+<h2>11. Adding Custom Filter Fields</h2>
+<h3>Example: Add &quot;Account.NumberOfEmployees&quot; as a filter</h3>
 <ol>
 <li>Open <strong>Setup &gt; Lightning App Builder</strong></li>
 <li>Edit the <strong>RouteForce</strong> AppPage</li>
 <li>Click the RouteForce component</li>
-<li>Find the <strong>Filter fields</strong> property</li>
-<li>Append <code>,Account.NumberOfEmployees</code> to the existing CSV</li>
+<li>Find an empty filter slot (e.g., <code>filterField11</code>)</li>
+<li>Enter: <code>Account.NumberOfEmployees</code></li>
 <li>Save and activate</li>
 </ol>
 <p><strong>Note</strong>: Only Picklist, Multi-Picklist, and Boolean fields are supported as filters. Text and Number fields are not filterable (but can be shown in marker popups via <code>markerFields</code>).</p>
-<h3 id="example-add-a-cross-object-filter">Example: Add a cross-object filter</h3>
-<p>To filter Opportunities by their parent Account's Rating:</p>
+<h3>Example: Add a cross-object filter</h3>
+<p>To filter Opportunities by their parent Account&#39;s Rating:</p>
 <ol>
-<li>Find the <strong>Filter fields</strong> property</li>
-<li>Append <code>,Opportunity.Account.Rating</code> to the existing CSV</li>
+<li>Find an empty filter slot</li>
+<li>Enter: <code>Opportunity.Account.Rating</code></li>
 <li>Save</li>
 </ol>
 <p>This adds a Rating filter that, when selected, only shows Opportunities whose parent Account matches the selected Rating value.</p>
-<h3 id="example-add-a-field-to-marker-popups">Example: Add a field to marker popups</h3>
+<h3>Example: Add a field to marker popups</h3>
 <p>To show Opportunity Probability in popups:</p>
 <ol>
 <li>Find the <code>markerFields</code> property</li>
 <li>Add <code>Opportunity.Probability</code> to the comma-separated list</li>
 <li>Save</li>
 </ol>
-<hr />
-<h2 id="12-customizing-the-legend">12. Customizing the Legend</h2>
-<h3 id="adding-a-new-account-type-value">Adding a new Account type value</h3>
-<p>If your org has a custom Type value "Strategic Partner":</p>
+<hr>
+<h2>12. Customizing the Legend</h2>
+<h3>Adding a new Account type value</h3>
+<p>If your org has a custom Type value &quot;Strategic Partner&quot;:</p>
 <ol>
 <li>Edit the FlexiPage</li>
 <li>Find <code>typeValues</code></li>
 <li>Add it: <code>Customer - Direct,Customer - Channel,Prospect,Other,Strategic Partner</code></li>
 <li>Save — the new value gets the next color in the blue palette</li>
 </ol>
-<h3 id="changing-opportunity-legend-values">Changing Opportunity legend values</h3>
-<p>If your org uses custom Opportunity stages or a different color field:</p>
+<h3>Changing Opportunity legend values</h3>
+<p>If your org uses custom Opportunity stages:</p>
 <ol>
-<li>Set <code>oppTypeField</code> to the field API name (e.g. <code>StageName</code>, <code>ForecastCategory</code>, or a custom field)</li>
-<li>Set <code>oppTypeValues</code> to match the field's values: <code>Discovery,Proposal,Negotiation,Closed Won,Closed Lost</code></li>
+<li>Find <code>oppTypeValues</code></li>
+<li>Replace with your stages: <code>Discovery,Proposal,Negotiation,Closed Won,Closed Lost</code></li>
 <li>Save</li>
 </ol>
-<p>The same pattern applies to Leads: set <code>leadTypeField</code> (e.g. <code>Status</code>, <code>LeadSource</code>) and <code>leadTypeValues</code> accordingly.</p>
-<h3 id="color-assignment">Color Assignment</h3>
+<h3>Color Assignment</h3>
 <p>Colors are assigned <strong>by position</strong> in the comma-separated list:</p>
 <table>
 <thead>
@@ -1352,8 +1131,7 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <th>Lead Color</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>1st</td>
 <td>Dark Blue</td>
 <td>Dark Orange</td>
@@ -1383,10 +1161,9 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <td>Cycles</td>
 <td>Cycles</td>
 </tr>
-</tbody>
-</table>
-<hr />
-<h2 id="13-multi-select-filter-configuration">13. Multi-Select Filter Configuration</h2>
+</tbody></table>
+<hr>
+<h2>13. Multi-Select Filter Configuration</h2>
 <p>By default, picklist filters render as single-select dropdowns. To render them as <strong>multi-select checkbox lists</strong> (allowing multiple selections):</p>
 <ol>
 <li>Edit the FlexiPage</li>
@@ -1394,64 +1171,35 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <li>Enter comma-separated field API names: <code>Industry,Type,Rating</code></li>
 <li>Save</li>
 </ol>
-<p>Only fields already configured in <code>filterFields</code> are affected.</p>
-<hr />
-<h2 id="14-record-type-filter">14. Record Type Filter</h2>
-<p>Record Type filters are <strong>auto-detected</strong>: if an object (Account, Lead, or Opportunity) has more than one active Record Type, a filter dropdown appears automatically in that object's filter section. No configuration needed.</p>
-<hr />
-<h2 id="15-not-visited-since-filter">15. "Not Visited Since" Filter</h2>
-<p>The "Not visited since" filter is a <strong>shared filter</strong> displayed in the Account filter section. It applies simultaneously to <strong>all 3 object types</strong> (Account, Lead, Opportunity).</p>
-<p><strong>Data source</strong>: The last visit date is automatically derived from the most recent <code>VisitReport__c</code> record linked to each Account, Lead, or Opportunity. No admin configuration is needed — the filter and popup date appear automatically when <strong>Visit Reports are enabled</strong> (<code>EnableVisitReports__c = true</code>, which is the default).</p>
-<p>The <code>NotVisitedSinceDays__c</code> threshold (default: 30 days) is shared across all objects.</p>
-<p><strong>Filter options</strong>: All, X days (dynamic from CMDT), 3 months, 6 months, 12 months, 24 months, Never visited.</p>
-<hr />
-<h2 id="16-routing-architecture">16. Routing Architecture</h2>
-<h3 id="primary-vps-ors">Primary: VPS ORS</h3>
+<p>Only fields already configured in <code>filterField1–16</code> are affected.</p>
+<hr>
+<h2>14. Record Type Filter</h2>
+<p>To add a Record Type dropdown to the filter panel:</p>
+<ol>
+<li>Edit the FlexiPage</li>
+<li>Set <code>showRecordType</code> to <code>true</code></li>
+<li>Save</li>
+</ol>
+<p>This adds a dropdown listing all active Account Record Types. Users can filter the map by Record Type.</p>
+<hr>
+<h2>15. Routing Architecture</h2>
+<h3>Primary: VPS ORS</h3>
 <ul>
 <li><strong>URL</strong>: <code>https://ors.routeforce.app</code></li>
 <li><strong>Auth</strong>: API key in <code>X-API-Key</code> header</li>
 <li><strong>Services</strong>: VROOM optimization (optimal stop order) + Directions (route geometry)</li>
 <li><strong>Limit</strong>: 50 waypoints per request</li>
 </ul>
-<h3 id="routing-profile-speed-estimates">Routing Profile &amp; Speed Estimates</h3>
-<p>RouteForce uses the <strong><code>driving-car</code></strong> profile (hardcoded). Speed estimates are derived from OpenStreetMap road data:</p>
-<table>
-<thead>
-<tr>
-<th>Road Type</th>
-<th>Estimated Speed</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Highway / Motorway</td>
-<td>~120–130 km/h</td>
-</tr>
-<tr>
-<td>National / Trunk Road</td>
-<td>~80–90 km/h</td>
-</tr>
-<tr>
-<td>Urban Road</td>
-<td>~40–50 km/h</td>
-</tr>
-<tr>
-<td>Residential Street</td>
-<td>~20–30 km/h</td>
-</tr>
-</tbody>
-</table>
-<p>These speeds are <strong>ORS defaults</strong> — they cannot be configured per-customer today. Travel time estimates shown in the route panel are calculated using these speeds combined with actual road network distance.</p>
-<h3 id="fallback-heigit-public-api">Fallback: HeiGIT Public API</h3>
+<h3>Fallback: HeiGIT Public API</h3>
 <ul>
 <li><strong>URL</strong>: <code>https://api.openrouteservice.org</code></li>
-<li><strong>Auth</strong>: API key in <code>Authorization</code> header</li>
-<li><strong>Used when</strong>: VPS returns 5xx, times out, or throws <code>CalloutException</code></li>
+<li><strong>Auth</strong>: API key in query parameter</li>
+<li><strong>Used when</strong>: VPS returns 5xx or times out</li>
 <li><strong>Limit</strong>: Lower rate limits (public tier)</li>
 </ul>
-<h3 id="kill-switch">Kill Switch</h3>
+<h3>Kill Switch</h3>
 <p>The VPS nginx can disable the <code>X-API-Key</code> globally, returning 401 for all requests. This blocks both routing and licence validation simultaneously.</p>
-<h3 id="error-handling">Error Handling</h3>
+<h3>Error Handling</h3>
 <table>
 <thead>
 <tr>
@@ -1459,14 +1207,13 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <th>User Impact</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>400 (Bad Request)</td>
-<td>"Invalid coordinates" — point is not routable (ocean, no road data)</td>
+<td>&quot;Invalid coordinates&quot; — point is not routable (ocean, no road data)</td>
 </tr>
 <tr>
 <td>401 (Unauthorized)</td>
-<td>"API key invalid" — check InternalConfig__c keys</td>
+<td>&quot;API key invalid&quot; — check InternalConfig__c keys</td>
 </tr>
 <tr>
 <td>5xx (Server Error)</td>
@@ -1476,11 +1223,10 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <td>Timeout</td>
 <td>Automatic retry (3 attempts), then fallback</td>
 </tr>
-</tbody>
-</table>
-<hr />
-<h2 id="17-multilingual-configuration">17. Multilingual Configuration</h2>
-<h3 id="supported-languages">Supported Languages</h3>
+</tbody></table>
+<hr>
+<h2>16. Multilingual Configuration</h2>
+<h3>Supported Languages</h3>
 <table>
 <thead>
 <tr>
@@ -1489,8 +1235,7 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <th>Status</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>English</td>
 <td><code>en_US</code></td>
 <td>Master language (all labels)</td>
@@ -1505,9 +1250,8 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <td><code>es</code></td>
 <td>Full translation</td>
 </tr>
-</tbody>
-</table>
-<h3 id="adding-custom-labels">Adding Custom Labels</h3>
+</tbody></table>
+<h3>Adding Custom Labels</h3>
 <p>When adding new UI text, always create Custom Labels with translations:</p>
 <ol>
 <li><strong>Setup &gt; Custom Labels &gt; New</strong></li>
@@ -1515,7 +1259,7 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <li>Click <strong>New Translation</strong> for French and Spanish</li>
 <li>Use the <code>routeforce</code> namespace prefix</li>
 </ol>
-<h3 id="translation-files">Translation Files</h3>
+<h3>Translation Files</h3>
 <table>
 <thead>
 <tr>
@@ -1523,8 +1267,7 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <th>Content</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td><code>translations/en_US.translation-meta.xml</code></td>
 <td>English tab names, label overrides</td>
 </tr>
@@ -1540,10 +1283,9 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <td><code>objectTranslations/{Object}-{lang}/</code></td>
 <td>Object labels, field labels, picklist values</td>
 </tr>
-</tbody>
-</table>
-<hr />
-<h2 id="18-troubleshooting-configuration-issues">18. Troubleshooting Configuration Issues</h2>
+</tbody></table>
+<hr>
+<h2>17. Troubleshooting Configuration Issues</h2>
 <table>
 <thead>
 <tr>
@@ -1552,26 +1294,25 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <th>Solution</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Changes not taking effect</td>
-<td>CMDT changes need page refresh</td>
-<td>Refresh the page after editing CMDT values</td>
+<td>CMDT deployment is async</td>
+<td>Wait 10–30 seconds, then refresh</td>
 </tr>
 <tr>
-<td>"Licence not configured"</td>
+<td>&quot;Licence not configured&quot;</td>
 <td>No key in InternalConfig__c</td>
 <td>Run RF_Onboarding, enter licence key</td>
 </tr>
 <tr>
 <td>Leads/Opps not showing</td>
 <td>Feature toggle off</td>
-<td>Enable in RouteForceConfig__mdt (Setup → Custom Metadata Types)</td>
+<td>Enable in RF_Onboarding or edit CMDT directly</td>
 </tr>
 <tr>
 <td>Filter field not appearing</td>
-<td>Wrong syntax or missing</td>
-<td>Check: <code>ObjectType.FieldName</code> format in the <code>filterFields</code> CSV, field must be Picklist/Boolean</td>
+<td>Wrong syntax</td>
+<td>Check: <code>ObjectType.FieldName</code> format, field must be Picklist/Boolean</td>
 </tr>
 <tr>
 <td>Cross-object filter empty</td>
@@ -1584,14 +1325,9 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <td>Reorder <code>typeValues</code> — position determines color</td>
 </tr>
 <tr>
-<td>"Not visited since" missing</td>
-<td>Visit Reports disabled</td>
-<td>Enable <code>EnableVisitReports__c</code> in CMDT. The filter appears automatically when Visit Reports are enabled</td>
-</tr>
-<tr>
-<td>Last visit date not showing</td>
-<td>No Visit Reports exist</td>
-<td>Create Visit Report records (check-in from the map). The date is sourced from the most recent <code>VisitReport__c</code> linked to each record</td>
+<td>&quot;Not visited since&quot; missing</td>
+<td><code>LastVisitField__c</code> empty</td>
+<td>Set to your Account date field API name</td>
 </tr>
 <tr>
 <td>Contact lookup empty</td>
@@ -1601,38 +1337,16 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <tr>
 <td>Events not on map</td>
 <td>Missing geocoded related record</td>
-<td>The Event's related Account/Lead must have coordinates</td>
+<td>The Event&#39;s related Account/Lead must have coordinates</td>
 </tr>
 <tr>
 <td>Quick Text not showing</td>
 <td>Feature off</td>
 <td>Enable <code>QuickTextEnabled__c</code> in CMDT</td>
 </tr>
-<tr>
-<td>Overlap warning not showing</td>
-<td>Working as designed</td>
-<td>The overlap check only fires when saving route events (Create Visits). It is non-blocking: if the check fails, events are created normally</td>
-</tr>
-<tr>
-<td>"My Team" option missing</td>
-<td>Feature off or Teams not active</td>
-<td>Enable <code>EnableTeamFilter__c</code> in CMDT. Also verify Account Teams (and Team Selling for Opps) are enabled in org Setup</td>
-</tr>
-<tr>
-<td>"My Role Team" missing</td>
-<td>Feature off</td>
-<td>Enable <code>EnableRoleFilter__c</code> in CMDT. No other prerequisites — works with any org that has a role hierarchy</td>
-</tr>
-<tr>
-<td>"My Role Team" shows only me</td>
-<td>User has no role assigned</td>
-<td>The current user must have a UserRole assigned. Without a role, "My Role Team" falls back to showing only your own records</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="19-quick-reference-default-values">19. Quick Reference — Default Values</h2>
-<p>All settings are configured directly in <code>RouteForceConfig__mdt.Default</code> (Setup → Custom Metadata Types → RouteForce Config → Manage Records → Default).</p>
+</tbody></table>
+<hr>
+<h2>18. Quick Reference — Default Values</h2>
 <table>
 <thead>
 <tr>
@@ -1640,8 +1354,7 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <th>Default</th>
 </tr>
 </thead>
-<tbody>
-<tr>
+<tbody><tr>
 <td>Address Prefix</td>
 <td>Shipping</td>
 </tr>
@@ -1659,11 +1372,11 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 </tr>
 <tr>
 <td>Cluster Radius</td>
-<td>60</td>
+<td>60 px</td>
 </tr>
 <tr>
 <td>Nearby Radius</td>
-<td>10</td>
+<td>10 km</td>
 </tr>
 <tr>
 <td>Max Route Steps</td>
@@ -1674,12 +1387,12 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 <td>30</td>
 </tr>
 <tr>
-<td>Leads</td>
-<td>Disabled</td>
-</tr>
-<tr>
 <td>Events</td>
 <td>Enabled</td>
+</tr>
+<tr>
+<td>Leads</td>
+<td>Disabled</td>
 </tr>
 <tr>
 <td>Opportunities</td>
@@ -1699,31 +1412,15 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 </tr>
 <tr>
 <td>History Naming</td>
-<td>Disabled</td>
+<td>Enabled</td>
 </tr>
 <tr>
 <td>Quick Text</td>
 <td>Disabled</td>
 </tr>
 <tr>
-<td>Check-in Note Prefix</td>
-<td>Check-in</td>
-</tr>
-<tr>
-<td>Team Filter</td>
-<td>Disabled</td>
-</tr>
-<tr>
-<td>Role Filter</td>
-<td>Disabled</td>
-</tr>
-<tr>
 <td>Contact Lookup</td>
 <td>Enabled</td>
-</tr>
-<tr>
-<td>Visit Alert Days</td>
-<td>0 (disabled)</td>
 </tr>
 <tr>
 <td>Lead Filter</td>
@@ -1739,270 +1436,10 @@ FilterCondition: Type=Distributeur - Utilisateur Actif
 </tr>
 <tr>
 <td>Support Email</td>
-<td>contact@routeforce.app</td>
+<td><a href="mailto:support@routeforce.app">support@routeforce.app</a></td>
 </tr>
-<tr>
-<td>Log Retention</td>
-<td>30 days</td>
-</tr>
-<tr>
-<td>Usage Data Retention</td>
-<td>90 days</td>
-</tr>
-<tr>
-<td>Background Jobs</td>
-<td>Auto-scheduled</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="20-logging-monitoring">20. Logging &amp; Monitoring</h2>
-<h3 id="architecture">Architecture</h3>
-<p>RouteForce uses a <strong>buffer-and-flush</strong> logging pattern:</p>
-<pre><code>Apex Service (e.g., RouteService)
-    │
-    ├─► Logger.info('RouteService', 'Optimization completed')
-    ├─► Logger.warn('RouteService', 'Fallback to HeiGIT')
-    └─► Logger.error('RouteService', 'Callout failed: ' + e.getMessage())
-          │
-          ▼
-    Logger.flush()  →  INSERT RouteForceLog__c[]
-</code></pre>
-<ul>
-<li>Log entries are <strong>buffered in memory</strong> during the transaction</li>
-<li><code>Logger.flush()</code> writes all buffered entries in a <strong>single DML statement</strong></li>
-<li>Flush runs in <strong>system mode</strong> — logs are always written regardless of user permissions</li>
-<li>If flush fails (DML exception), the error is logged to <code>System.debug</code> and the calling transaction is <strong>not disrupted</strong></li>
-</ul>
-<h3 id="log-levels">Log Levels</h3>
-<table>
-<thead>
-<tr>
-<th>Level</th>
-<th>When to Use</th>
-<th>Examples</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>INFO</strong></td>
-<td>Normal operations, milestones</td>
-<td>Batch completed, config loaded, route saved</td>
-</tr>
-<tr>
-<td><strong>WARN</strong></td>
-<td>Recoverable issues, fallback used</td>
-<td>API fallback, unexpected data, retry triggered</td>
-</tr>
-<tr>
-<td><strong>ERROR</strong></td>
-<td>Failures requiring attention</td>
-<td>Callout exception, DML failure, licence invalid</td>
-</tr>
-</tbody>
-</table>
-<h3 id="purge-batch">Purge Batch</h3>
-<p><code>LogPurgeBatch</code> is a <code>Database.Batchable</code> class that deletes log records older than the configured retention period.</p>
-<table>
-<thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>retentionDays</code></td>
-<td>30</td>
-<td>Records older than this are deleted</td>
-</tr>
-<tr>
-<td>Batch size</td>
-<td>200</td>
-<td>Records processed per batch execution</td>
-</tr>
-<tr>
-<td>Schedule</td>
-<td>Auto</td>
-<td>Daily at 2 AM — auto-scheduled by PostInstallHandler (see §21)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Safety</strong>: Negative or null retention values automatically fall back to 30 days.</p>
-<h3 id="reporting-on-logs">Reporting on Logs</h3>
-<p>Create Salesforce Reports to monitor application health:</p>
-<p><strong>Example: Error Report (Last 7 Days)</strong><br />
-1. Create a new Report on <strong>RouteForce Logs</strong><br />
-2. Add filters: <code>Level = ERROR</code>, <code>Timestamp &gt;= LAST 7 DAYS</code><br />
-3. Group by <strong>Context</strong> to see which services produce the most errors<br />
-4. Add to a dashboard for ongoing monitoring</p>
-<p><strong>Example: Activity Report</strong><br />
-1. Report on RouteForce Logs grouped by <strong>User</strong> and <strong>Level</strong><br />
-2. Shows which users are most active and encountering errors</p>
-<h3 id="log-storage-impact">Log Storage Impact</h3>
-<table>
-<thead>
-<tr>
-<th>Scenario</th>
-<th>Logs/Day (est.)</th>
-<th>Monthly Storage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Small team (5)</td>
-<td>~50–100</td>
-<td>~15 MB</td>
-</tr>
-<tr>
-<td>Medium team (20)</td>
-<td>~200–500</td>
-<td>~60 MB</td>
-</tr>
-<tr>
-<td>Large team (100+)</td>
-<td>~1,000–5,000</td>
-<td>~300 MB</td>
-</tr>
-</tbody>
-</table>
-<p>The 30-day default retention keeps storage manageable for most orgs.</p>
-<hr />
-<h2 id="21-background-jobs-automation">21. Background Jobs &amp; Automation</h2>
-<h3 id="overview">Overview</h3>
-<p>RouteForce runs 3 scheduled background jobs for data maintenance and analytics. These jobs are <strong>automatically scheduled</strong> on package install or upgrade — no manual setup is required.</p>
-<h3 id="postinstallhandler-automatic-scheduling">PostInstallHandler — Automatic Scheduling</h3>
-<p>When RouteForce is installed or upgraded, the <code>PostInstallHandler</code> class automatically schedules all 3 background jobs:</p>
-<table>
-<thead>
-<tr>
-<th>Job Name</th>
-<th>Class</th>
-<th>Schedule</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>RouteForce Usage Aggregation</strong></td>
-<td><code>UsageAggregationSchedulable</code></td>
-<td>Daily at 1:00 AM</td>
-<td>Aggregates raw usage tracking records into daily/weekly summaries</td>
-</tr>
-<tr>
-<td><strong>RouteForce Log Purge</strong></td>
-<td><code>LogPurgeSchedulable</code></td>
-<td>Daily at 2:00 AM</td>
-<td>Deletes <code>RouteForceLog__c</code> records older than 30 days</td>
-</tr>
-<tr>
-<td><strong>RouteForce Usage Purge</strong></td>
-<td><code>UsagePurgeBatch</code></td>
-<td>Weekly, Sunday 3:00 AM</td>
-<td>Deletes raw usage tracking records older than 90 days</td>
-</tr>
-</tbody>
-</table>
-<p>The handler checks for existing scheduled jobs before creating new ones, so upgrading the package does not create duplicate jobs.</p>
-<h3 id="self-healing-jobs-self-rescheduling-pattern">Self-Healing Jobs (Self-Rescheduling Pattern)</h3>
-<p>Each batch job implements a <strong>self-rescheduling pattern</strong> for resilience:</p>
-<ol>
-<li>When a batch's <code>finish()</code> method runs, it <strong>aborts its own CronTrigger</strong> and immediately <strong>re-schedules itself</strong></li>
-<li>This means the job always runs under the context of the user who last triggered it</li>
-<li>If the original scheduling user is deactivated (e.g., an admin leaves the company), the job still executes because it re-schedules under the current execution context</li>
-</ol>
-<p>This pattern ensures jobs <strong>never silently stop</strong> due to user deactivation — a common issue with standard Salesforce scheduled jobs.</p>
-<h3 id="job-status-usage-dashboard">Job Status — Usage Dashboard</h3>
-<p>The <strong>Usage Dashboard</strong> (accessible to admins) displays a <strong>Job Status</strong> table showing the health of all 3 background jobs:</p>
-<table>
-<thead>
-<tr>
-<th>Column</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Job Name</strong></td>
-<td>Name of the scheduled job</td>
-</tr>
-<tr>
-<td><strong>Status</strong></td>
-<td>Color-coded badge: green = <strong>Active</strong>, orange = <strong>Inactive</strong>, gray = <strong>Missing</strong></td>
-</tr>
-<tr>
-<td><strong>Scheduled By</strong></td>
-<td>Name of the user who last scheduled the job</td>
-</tr>
-<tr>
-<td><strong>Next Run</strong></td>
-<td>Next scheduled fire time</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>Active</strong> — the job is scheduled and will run at the next fire time</li>
-<li><strong>Inactive</strong> — a CronTrigger exists but is not in a running state</li>
-<li><strong>Missing</strong> — no CronTrigger found for this job (needs rescheduling)</li>
-</ul>
-<h3 id="reschedule-jobs-button">Reschedule Jobs Button</h3>
-<p>If jobs are missing or inactive (e.g., after a sandbox refresh, or if an admin manually deleted them), the Usage Dashboard provides a <strong>Reschedule Jobs</strong> button:</p>
-<ul>
-<li><strong>Visibility</strong>: only shown to users with the <code>RouteForce_Admin</code> permission set</li>
-<li><strong>Action</strong>: aborts all 3 existing CronTriggers (if any) and re-schedules them under the current admin user</li>
-<li><strong>Result</strong>: all 3 jobs return to <strong>Active</strong> status with updated "Scheduled By" and "Next Run" values</li>
-</ul>
-<p>This is a one-click recovery mechanism — no need to run anonymous Apex or navigate to Setup.</p>
-<h3 id="manual-scheduling-advanced">Manual Scheduling (Advanced)</h3>
-<p>In rare cases where you need to schedule jobs manually (e.g., from Developer Console), use:</p>
-<pre><code class="language-apex">// Usage Aggregation — daily at 1 AM
-System.schedule('RouteForce Usage Aggregation', '0 0 1 * * ?', new routeforce.UsageAggregationSchedulable());
+</tbody></table>
 
-// Log Purge — daily at 2 AM
-System.schedule('RouteForce Log Purge', '0 0 2 * * ?', new routeforce.LogPurgeSchedulable());
-
-// Usage Purge — weekly Sunday at 3 AM
-System.schedule('RouteForce Usage Purge', '0 0 3 ? * SUN', new routeforce.UsagePurgeBatch());
-</code></pre>
-<h3 id="troubleshooting">Troubleshooting</h3>
-<table>
-<thead>
-<tr>
-<th>Issue</th>
-<th>Cause</th>
-<th>Solution</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Jobs show as <strong>Missing</strong></td>
-<td>Sandbox refresh or manual deletion</td>
-<td>Click <strong>Reschedule Jobs</strong> in the Usage Dashboard</td>
-</tr>
-<tr>
-<td>Jobs show as <strong>Inactive</strong></td>
-<td>Scheduling user was deactivated</td>
-<td>Click <strong>Reschedule Jobs</strong> — jobs will re-schedule under your user</td>
-</tr>
-<tr>
-<td>Dashboard not showing job table</td>
-<td>User lacks admin permission</td>
-<td>Assign <code>RouteForce_Admin</code> permission set to the user</td>
-</tr>
-<tr>
-<td>Jobs not created after install</td>
-<td>PostInstallHandler did not run</td>
-<td>Click <strong>Reschedule Jobs</strong> or schedule manually via Developer Console</td>
-</tr>
-<tr>
-<td>Usage data not aggregating</td>
-<td><code>EnableUsageTracking__c</code> is disabled</td>
-<td>Enable usage tracking in <code>RouteForceConfig__mdt</code> — the aggregation job still runs but has no data to process</td>
-</tr>
-</tbody>
-</table>
-</div>
-<footer>RouteForce SAS &mdash; v6.0.0 &mdash; Mars 2026 &mdash; <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></footer>
+  </main>
 </body>
 </html>
