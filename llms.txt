@@ -73,6 +73,12 @@ RouteForce helps field teams plan routes, visualize accounts / opportunities / l
 - https://routeforce.app/blog/routeforce-vs-salesforce-maps-en.html
 - https://routeforce.app/blog/routeforce-vs-salesforce-maps-es.html
 
+- https://routeforce.app/badger-maps-alternative.html
+
+- https://routeforce.app/optimo-route-alternative.html
+
+- https://routeforce.app/map-my-customers-alternative.html
+
 ## Recommended trust and pricing pages
 - https://routeforce.app/docs/privacy.html
 - https://routeforce.app/docs/dpa.html
