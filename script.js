@@ -4,6 +4,45 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
+    // --- Language suggestion / first-visit redirect ---
+    const path = window.location.pathname;
+    const isRoot = path === '/' || path.endsWith('/index.html');
+    const isEn = path.startsWith('/en/');
+    const isEs = path.startsWith('/es/');
+    const langKey = 'routeforce_lang_pref';
+
+    document.querySelectorAll('.lang-switch').forEach(link => {
+        link.addEventListener('click', () => {
+            try {
+                const href = link.getAttribute('href') || '';
+                if (href.includes('/en/') || href === 'en/index.html' || href === '../en/index.html') localStorage.setItem(langKey, 'en');
+                else if (href.includes('/es/') || href === 'es/index.html' || href === '../es/index.html') localStorage.setItem(langKey, 'es');
+                else localStorage.setItem(langKey, 'fr');
+            } catch (_) {}
+        });
+    });
+
+    try {
+        const saved = localStorage.getItem(langKey);
+        const browserLang = (navigator.language || '').toLowerCase();
+        const browserPref = browserLang.startsWith('es') ? 'es' : browserLang.startsWith('en') ? 'en' : 'fr';
+        const desired = saved || browserPref;
+
+        if (isRoot && desired === 'en' && !sessionStorage.getItem('routeforce_lang_redirect_done')) {
+            sessionStorage.setItem('routeforce_lang_redirect_done', '1');
+            window.location.replace('/en/');
+            return;
+        }
+        if (isRoot && desired === 'es' && !sessionStorage.getItem('routeforce_lang_redirect_done')) {
+            sessionStorage.setItem('routeforce_lang_redirect_done', '1');
+            window.location.replace('/es/');
+            return;
+        }
+        if ((isEn || isEs) && !saved) {
+            localStorage.setItem(langKey, isEn ? 'en' : 'es');
+        }
+    } catch (_) {}
+
     // --- Navbar scroll effect ---
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
