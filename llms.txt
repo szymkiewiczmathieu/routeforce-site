@@ -59,3 +59,21 @@ RouteForce helps field teams plan routes, visualize accounts / opportunities / l
 - Native dashboards for visits, field activity, and adoption
 - Shared filters and heatmap for operational planning
 - Primary hosting in France
+
+
+## Buying and evaluation questions
+- Is RouteForce an alternative to Salesforce Maps? Yes — for field teams that want native Salesforce route planning, fixed org pricing, and primary hosting in France.
+- How much does RouteForce cost? Premium is €599/month excluding tax for the whole Salesforce org, with no per-user pricing.
+- Is there a free trial? Yes — RouteForce offers a 14-day premium trial after initial evaluation of the installable freemium plan.
+- Where is RouteForce hosted? Primary routing infrastructure is hosted in France. CRM data remains in Salesforce.
+
+## Recommended comparison pages
+- https://routeforce.app/salesforce-maps-alternative.html
+- https://routeforce.app/blog/routeforce-vs-salesforce-maps.html
+- https://routeforce.app/blog/routeforce-vs-salesforce-maps-en.html
+- https://routeforce.app/blog/routeforce-vs-salesforce-maps-es.html
+
+## Recommended trust and pricing pages
+- https://routeforce.app/docs/privacy.html
+- https://routeforce.app/docs/dpa.html
+- https://routeforce.app/docs/cgv.html
