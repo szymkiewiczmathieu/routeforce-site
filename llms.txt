@@ -51,7 +51,11 @@ RouteForce helps field teams plan routes, visualize accounts / opportunities / l
 - Multi-object maps for accounts, opportunities, and leads
 - Route optimization inside Salesforce
 - Salesforce event creation from planned routes
-- 14-day free trial
-- €599/month excluding tax for the whole Salesforce org
+- Installable freemium plan for map visualization and meeting creation
+- 14-day premium trial on request after testing the freemium plan
+- €599/month excluding tax for the whole Salesforce org for premium
 - No per-user pricing
+- Mobile route planning and execution inside Salesforce Mobile
+- Native dashboards for visits, field activity, and adoption
+- Shared filters and heatmap for operational planning
 - Primary hosting in France
