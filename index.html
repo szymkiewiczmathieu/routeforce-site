@@ -98,6 +98,18 @@
     box-shadow: 0 20px 60px rgba(0,0,0,0.4);
   }
 
+  /* Clickable images — open full size */
+  .screenshot-frame img, .screenshot-frame video { cursor: pointer; }
+
+  /* Lightbox overlay */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.9); align-items: center; justify-content: center;
+    cursor: zoom-out; padding: 24px;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img { max-width: 95vw; max-height: 95vh; border-radius: 8px; }
+
   /* Gradient text */
   .gradient-text {
     background: linear-gradient(135deg, #818cf8, #06b6d4);
@@ -473,11 +485,23 @@
   </div>
 </footer>
 
-<!-- Scroll reveal -->
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+
+<!-- Scroll reveal + Lightbox -->
 <script>
   document.querySelectorAll('.reveal').forEach(el => {
     new IntersectionObserver(([e]) => { if (e.isIntersecting) el.classList.add('visible'); }, { threshold: 0.1 }).observe(el);
   });
+  document.querySelectorAll('.screenshot-frame img').forEach(img => {
+    img.addEventListener('click', () => {
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox').classList.add('active');
+    });
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active'); });
 </script>
 
 <!-- Structured Data: Organization + SoftwareApplication -->
