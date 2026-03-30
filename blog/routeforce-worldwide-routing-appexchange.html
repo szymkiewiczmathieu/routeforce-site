@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en"><head><script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>RouteForce V7.4: worldwide routing engine and AppExchange readiness</title><meta name="description" content="RouteForce V7.4 introduces a worldwide routing engine with 309M nodes, AppExchange security review progress, heatmaps, lasso select, visit reports, and more."><meta name="keywords" content="RouteForce Salesforce AppExchange route optimization, worldwide routing, field sales, visit report, heatmap, GDPR"><link rel="canonical" href="https://routeforce.app/blog/routeforce-worldwide-routing-appexchange.html"><link rel="icon" type="image/svg+xml" href="../favicon.svg"><link rel="stylesheet" href="../style.css">
+<meta property="og:title" content="RouteForce V7.4: worldwide routing engine and AppExchange readiness">
+<meta property="og:description" content="RouteForce V7.4 brings a worldwide routing engine (309M nodes), AppExchange security review progress, heatmaps, lasso select, and visit reports with custom fields.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://routeforce.app/blog/routeforce-worldwide-routing-appexchange.html">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "RouteForce V7.4: worldwide routing engine and AppExchange readiness",
+  "datePublished": "2026-03-30",
+  "dateModified": "2026-03-30",
+  "author": {"@type": "Organization", "name": "RouteForce"},
+  "publisher": {"@type": "Organization", "name": "RouteForce", "url": "https://routeforce.app"},
+  "description": "RouteForce V7.4 introduces a worldwide routing engine with 309M nodes, AppExchange security review progress, heatmaps, lasso select, visit reports, and more.",
+  "mainEntityOfPage": "https://routeforce.app/blog/routeforce-worldwide-routing-appexchange.html"
+}
+</script>
+</head><body style="background:#09090b;color:#e4e4e7;"><header class="fixed top-0 w-full z-50 bg-[#09090b]/80 backdrop-blur-xl border-b border-[#27272a]/50" style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.8);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px;max-width:1200px;margin:0 auto;">
+    <a href="../index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+      <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:32px;height:32px;border-radius:8px;"/>
+      <span style="font-size:1.125rem;font-weight:800;color:#fafafa;">RouteForce</span>
+    </a>
+    <nav style="display:flex;gap:24px;align-items:center;font-size:0.875rem;">
+      <a href="../index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../index.html#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="../index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../docs/" style="background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;">Start Free</a>
+    </nav>
+  </div>
+</header>
+
+<section class="blog-hero" style="padding:120px 0 60px;background:linear-gradient(135deg,var(--primary-50) 0%,#09090b 100%);">
+  <div class="container" style="max-width:800px;">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;font-size:0.875rem;color:#a1a1aa;">
+      <span style="background:#6366f1;color:white;padding:4px 12px;border-radius:20px;font-weight:600;font-size:0.75rem;">Product</span>
+      <time datetime="2026-03-30">March 30, 2026</time>
+      <span>&middot;</span>
+      <span>5 min read</span>
+    </div>
+    <h1>RouteForce V7.4: worldwide routing engine and AppExchange readiness</h1>
+    <p style="font-size:1.2rem;color:var(--gray-600);margin-top:16px;line-height:1.7;">Version 7.4 brings a global routing engine covering 309 million road nodes, the start of our AppExchange security review, and a batch of features that make RouteForce a more complete field operations platform inside Salesforce.</p>
+  </div>
+</section>
+
+<section class="blog-content" style="padding:60px 0 100px;">
+  <div class="container" style="max-width:800px;">
+
+    <!-- 1. Worldwide routing engine -->
+    <h2>Worldwide routing: 309M nodes, 387M edges</h2>
+    <p>Until now, RouteForce routing was scoped to a single country per instance. V7.4 removes that limitation entirely. The routing engine now covers <strong>309 million nodes</strong> and <strong>387 million edges</strong> from the OpenStreetMap road network, processed through <a href="https://openrouteservice.org/" target="_blank" rel="noopener" style="color:#818cf8;">OpenRouteService</a>.</p>
+    <p>This means a sales manager in France can plan routes for reps traveling across Belgium, Germany, or Spain in a single session, without switching configurations or dealing with border gaps in the road graph.</p>
+
+    <h3>Self-hosted, GDPR-compliant infrastructure</h3>
+    <p>The worldwide routing instance runs on <strong>OVHcloud Gravelines</strong> (Hauts-de-France). All route computations happen on European soil, on servers operated by a European cloud provider. No waypoint data, no intermediate coordinates, and no route geometry leave the EU. This is a straightforward GDPR compliance story for customers who need it.</p>
+    <p>The server holds the full planet graph in memory and responds to route requests in real time. There is no dependency on Google, Mapbox, or any US-based routing API for the actual route calculation.</p>
+
+    <!-- 2. AppExchange security review -->
+    <h2>AppExchange security review: in progress</h2>
+    <p>RouteForce has entered the <strong>Salesforce AppExchange security review</strong> process. This is the formal evaluation that every managed package must pass before it can be listed on the AppExchange marketplace.</p>
+
+    <h3>What the review covers</h3>
+    <ul>
+      <li><strong>Static code analysis</strong> &mdash; Salesforce scans all Apex classes, triggers, Visualforce pages, and LWC components for security vulnerabilities including SOQL injection, XSS, CSRF, and insecure data handling.</li>
+      <li><strong>Architecture review</strong> &mdash; how the package handles data isolation between orgs, how it communicates with external services (Named Credentials, callout patterns), and whether it respects platform limits.</li>
+      <li><strong>Data handling</strong> &mdash; what data leaves the org, where it goes, how it is stored, and whether users have visibility into that flow.</li>
+      <li><strong>Permission model</strong> &mdash; whether the package requests only the permissions it needs and whether it enforces object- and field-level security correctly.</li>
+    </ul>
+
+    <h3>What this means for customers</h3>
+    <p>Once the review is complete, RouteForce will carry the Salesforce security reviewed badge. For IT and procurement teams, this reduces the due diligence burden: Salesforce has independently verified the package meets their security baseline. For now, the review is <strong>actively in progress</strong> and we will update this page when it completes.</p>
+    <p style="margin-top:12px;">You can already find the listing on AppExchange: <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener" style="color:#818cf8;">RouteForce on AppExchange</a>.</p>
+
+    <!-- 3. New features -->
+    <h2>New features in V7.4</h2>
+
+    <h3>Heatmap overlay</h3>
+    <p>Managers can now toggle a heatmap layer on the map to visualize record density, visit frequency, or any numeric field. This makes it easy to spot under-served territories or clusters of high-value accounts at a glance, without exporting data to a BI tool.</p>
+
+    <h3>Bulk select with the lasso tool</h3>
+    <p>Drawing a freeform shape on the map now selects all records inside it. From there, reps can add selected records to a route, assign them to a colleague, or run a bulk action. This replaces the tedious one-by-one selection workflow that was the only option in earlier versions.</p>
+
+    <h3>Saved and shared filters</h3>
+    <p>Filter configurations can now be saved and shared across users. A manager can define a filter like "accounts with no visit in the last 30 days and revenue above 50K" and share it with the entire team. Filters are stored as Salesforce records, so they respect the org's sharing model.</p>
+
+    <h3>Visit report with custom fields</h3>
+    <p>The visit report form now supports custom fields. Out of the box, V7.4 includes:</p>
+    <ul>
+      <li><strong>Customer satisfaction</strong> &mdash; a picklist or rating scale captured on the spot</li>
+      <li><strong>Order amount</strong> &mdash; a currency field for orders placed during the visit</li>
+      <li><strong>Next visit date</strong> &mdash; a date field to schedule the follow-up immediately</li>
+    </ul>
+    <p>Admins can add more fields to the visit report layout without code, using standard Salesforce page layout configuration.</p>
+
+    <h3>Quick text for visit notes</h3>
+    <p>Field reps can now use Salesforce Quick Text to insert predefined text snippets into visit notes. This speeds up note-taking for repetitive observations ("shelf display compliant", "out of stock on SKU X") and standardizes the data that flows back into reports.</p>
+
+    <h3>Usage tracking dashboard</h3>
+    <p>A new dashboard gives admins visibility into how the team uses RouteForce: number of routes created, visits logged, map sessions, and average route length. This helps justify the investment and identify reps who may need additional training.</p>
+
+    <h3>3 permission sets: Admin, Manager, User</h3>
+    <p>V7.4 ships with three pre-built permission sets that map to common field sales roles:</p>
+    <ul>
+      <li><strong>RouteForce Admin</strong> &mdash; full configuration access, usage dashboard, custom field management</li>
+      <li><strong>RouteForce Manager</strong> &mdash; team route visibility, shared filters, heatmap overlay, reassignment</li>
+      <li><strong>RouteForce User</strong> &mdash; personal route planning, visit reports, quick text, map access</li>
+    </ul>
+    <p>This eliminates the need to build custom permission sets from scratch during installation.</p>
+
+    <!-- 4. What's next -->
+    <h2>What's next</h2>
+    <p>The V7.4 release sets the foundation for several initiatives planned for Q2 and Q3 2026:</p>
+    <ul>
+      <li><strong>AppExchange listing completion</strong> &mdash; once the security review passes, RouteForce will be installable directly from the AppExchange with one click.</li>
+      <li><strong>Territory optimization</strong> &mdash; automated territory balancing based on workload, travel time, and account value.</li>
+      <li><strong>Offline route access</strong> &mdash; cached route data for reps working in areas with poor connectivity.</li>
+      <li><strong>Deeper Flow integration</strong> &mdash; more pre-built Flow templates for common field scenarios (prospection blitz, delivery confirmation, audit checklist).</li>
+    </ul>
+
+    <!-- 5. CTA -->
+    <div class="blog-cta" style="background:linear-gradient(135deg,var(--primary-600),var(--primary-800));border-radius:16px;padding:40px;text-align:center;margin:48px 0 0;color:white;">
+      <h3 style="color:white;margin:0 0 12px;font-size:1.4rem;">Try RouteForce V7.4</h3>
+      <p style="color:rgba(255,255,255,0.85);margin:0 0 24px;font-size:1rem;">Worldwide routing, heatmaps, visit reports, and a clean permission model. Install the 14-day free trial from AppExchange.</p>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener" class="btn btn-primary btn-lg" style="margin-right:12px;">View on AppExchange</a>
+      <a href="mailto:contact@routeforce.app" class="btn btn-outline btn-lg" style="border-color:white;color:white;">Contact us</a>
+    </div>
+
+  </div>
+</section>
+
+<footer style="border-top:1px solid #27272a;padding:48px 24px;background:#09090b;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:24px;height:24px;border-radius:6px;"/>
+        <span style="font-weight:700;color:#fafafa;">RouteForce</span>
+      </div>
+      <p style="color:#71717a;font-size:0.875rem;max-width:280px;">Salesforce-native route optimization for field sales teams.</p>
+    </div>
+    <div style="display:flex;gap:48px;font-size:0.875rem;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Product</span>
+        <a href="../index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+        <a href="../index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+        <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+        <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Company</span>
+        <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
+        <a href="../docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
+        <a href="../docs/cgv.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
+        <a href="../docs/dpa.html" style="color:#a1a1aa;text-decoration:none;">DPA</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:32px auto 0;padding-top:24px;border-top:1px solid #1e1e22;color:#71717a;font-size:0.75rem;">
+    &copy; 2026 RouteForce. All rights reserved.
+  </div>
+</footer>
+</body></html>
