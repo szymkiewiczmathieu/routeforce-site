@@ -483,5 +483,66 @@
   });
 </script>
 
+<!-- Structured Data: Organization + SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "RouteForce",
+  "url": "https://routeforce.app",
+  "logo": "https://routeforce.app/assets/logo-site-brand.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "contact@routeforce.app",
+    "contactType": "sales"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 rue Bausset",
+    "addressLocality": "Paris",
+    "postalCode": "75015",
+    "addressCountry": "FR"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "RouteForce",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Salesforce",
+  "description": "Salesforce-native route planning, optimization, and field visit tracking for sales teams. No per-user fees.",
+  "url": "https://routeforce.app",
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Free",
+      "price": "0",
+      "priceCurrency": "EUR",
+      "description": "Map visualization, filtering, event creation, unlimited users"
+    },
+    {
+      "@type": "Offer",
+      "name": "Pro",
+      "price": "599",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "billingDuration": "P1M"
+      },
+      "description": "Full route optimization, GPS check-in, visit reports, dashboards, unlimited users"
+    }
+  ],
+  "featureList": "Interactive map, Route optimization, GPS check-in, Visit reports, Heatmap, Bulk select, Saved filters, Route history, Custom actions, Mobile support, 2 dashboards, 18 reports",
+  "screenshot": "https://routeforce.app/assets/screenshots-2026/screen-01.jpg",
+  "softwareVersion": "7.4.0",
+  "author": {
+    "@type": "Organization",
+    "name": "RouteForce"
+  }
+}
+</script>
+
 </body>
 </html>

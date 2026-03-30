@@ -1,0 +1,42 @@
+# RouteForce — llms.txt
+
+> RouteForce is a 100% Salesforce-native route planning and field visit tracking application. It is a managed package installed directly in Salesforce orgs.
+
+## What RouteForce does
+- Interactive map showing Accounts, Leads, and Opportunities from Salesforce CRM
+- Route optimization with configurable time windows, lunch breaks, and visit duration
+- GPS check-in/check-out with visit reports (result, satisfaction, next action, order amount)
+- Heatmap visualization and bulk lasso-select for batch operations
+- 2 dashboards and 18 native Salesforce reports included
+- Route history with replay functionality
+- Saved and shared filter configurations
+- Custom actions via Screen Flows and Lightning Web Components from map markers
+- Full Salesforce Mobile App support
+
+## Pricing
+- Free plan: map visualization, filtering, event creation, unlimited users
+- Pro plan: €599/month per Salesforce org (not per user), includes all features, unlimited users
+
+## Technical details
+- 100% Lightning Web Component (LWC) based
+- Configuration via Custom Metadata Types (RouteForceConfig__mdt)
+- 3 permission sets: Admin, Manager, User
+- Route optimization powered by VROOM algorithm via OpenRouteService
+- Routing server hosted in France (OVHcloud, Gravelines) for GDPR compliance
+- No external data storage — CRM data stays in Salesforce
+
+## Key pages
+- Homepage: https://routeforce.app
+- Documentation: https://routeforce.app/docs/
+- Setup Guide: https://routeforce.app/docs/setup-guide.html
+- User Guide: https://routeforce.app/docs/user-guide.html
+- Configuration Guide: https://routeforce.app/docs/configuration-guide.html
+- Use Cases: https://routeforce.app/use-cases.html
+- Pricing: https://routeforce.app/pricing.html
+- Privacy Policy: https://routeforce.app/docs/privacy.html
+- AppExchange: https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba
+
+## Company
+- RouteForce SAS, 14 rue Bausset, 75015 Paris, France
+- SIRET: 102 154 879 00013
+- Contact: contact@routeforce.app
