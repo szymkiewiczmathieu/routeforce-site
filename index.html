@@ -428,20 +428,54 @@
     </p>
   </section>
 
-  <!-- ===== CTA ===== -->
-  <section class="py-24 px-6 lg:px-8">
-    <div class="max-w-4xl mx-auto bg-surface-container border border-outline-variant rounded-2xl p-12 lg:p-16 text-center relative overflow-hidden">
-      <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
-      <div class="relative z-10">
-        <h2 class="text-3xl lg:text-4xl font-bold tracking-tight mb-4">Ready to optimize your field team?</h2>
-        <p class="text-on-surface-variant text-lg mb-8 max-w-xl mx-auto">Install RouteForce for free, test in your org, then unlock premium for 14 days.</p>
-        <div class="flex flex-wrap gap-4 justify-center">
-          <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="bg-primary hover:bg-primary-dim text-white px-8 py-3.5 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-primary/20">
-            Start Free Trial
-          </a>
-          <a href="mailto:contact@routeforce.app" class="bg-surface-container-highest hover:bg-outline text-on-surface px-8 py-3.5 rounded-xl font-semibold transition-colors border border-outline">
-            Book a Demo
-          </a>
+  <!-- ===== CTA + CONTACT ===== -->
+  <section id="contact" class="py-24 px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <!-- Left: CTA -->
+      <div class="bg-surface-container border border-outline-variant rounded-2xl p-10 lg:p-12 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
+        <div class="relative z-10">
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Ready to optimize your field team?</h2>
+          <p class="text-on-surface-variant text-lg mb-8">Install RouteForce for free, test in your org, then unlock premium for 14 days.</p>
+          <div class="flex flex-col gap-4">
+            <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="bg-primary hover:bg-primary-dim text-white px-8 py-3.5 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-primary/20 text-center">
+              Install from AppExchange
+            </a>
+            <div class="flex items-center gap-4 text-on-surface-variant text-sm mt-4">
+              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-base">check_circle</span> No credit card</span>
+              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-base">check_circle</span> 5 min setup</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right: Contact Form -->
+      <div class="bg-surface-container border border-outline-variant rounded-2xl p-10 lg:p-12">
+        <h2 class="text-2xl font-bold tracking-tight mb-2">Get in touch</h2>
+        <p class="text-on-surface-variant text-sm mb-6">Request a demo, ask a question, or request premium access.</p>
+        <form action="https://formspree.io/f/xqedjpdd" method="POST" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-on-surface-variant mb-1">Full name</label>
+            <input type="text" name="name" placeholder="Jane Smith" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-on-surface-variant mb-1">Work email *</label>
+            <input type="email" name="email" required placeholder="jane@company.com" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-on-surface-variant mb-1">Company</label>
+            <input type="text" name="company" placeholder="Company name" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-on-surface-variant mb-1">Message</label>
+            <textarea name="message" rows="3" placeholder="Tell us about your needs..." class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-primary hover:bg-primary-dim text-white py-3 rounded-xl font-semibold transition-colors text-sm">
+            Send message
+          </button>
+          <p class="text-xs text-on-surface-variant/60 mt-2">By submitting, you agree to our <a href="docs/privacy.html" class="underline">Privacy Policy</a>.</p>
+        </form>
+      </div>
+    </div>
         </div>
       </div>
     </div>
