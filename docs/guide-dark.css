@@ -1,0 +1,83 @@
+/* RouteForce — Guide Dark Theme Override
+   Applied to setup-guide, user-guide, configuration-guide */
+
+/* Override guide-specific CSS vars */
+:root {
+  --rf-blue: #6366f1 !important;
+  --rf-blue-dark: #818cf8 !important;
+  --rf-soft: #18181b !important;
+  --rf-muted: #71717a !important;
+  --rf-bg: #09090b !important;
+  --primary-600: #6366f1 !important;
+  --primary-700: #818cf8 !important;
+}
+
+body {
+  background: #09090b !important;
+  color: #e4e4e7 !important;
+  font-family: 'Inter', -apple-system, sans-serif;
+  line-height: 1.7;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* Headings */
+h1 { color: #fafafa !important; font-size: 2rem; margin: 2rem 0 1rem; }
+h2 { color: #fafafa !important; font-size: 1.5rem; margin: 2.5rem 0 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid #27272a; }
+h3 { color: #d4d4d8 !important; font-size: 1.15rem; margin: 1.5rem 0 0.75rem; }
+
+/* Paragraphs & lists */
+p { color: #a1a1aa; margin: 0.75rem 0; }
+li { color: #a1a1aa; margin: 0.4rem 0; }
+strong { color: #e4e4e7; }
+a { color: #818cf8; }
+a:hover { color: #a5b4fc; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+th { background: #1e1e22 !important; color: #fafafa !important; text-align: left; padding: 10px 14px; border: 1px solid #27272a; font-size: 0.85rem; font-weight: 600; }
+td { background: #131316 !important; color: #a1a1aa !important; padding: 10px 14px; border: 1px solid #27272a; font-size: 0.875rem; }
+tr:hover td { background: #18181b !important; }
+
+/* Code */
+code { background: #27272a !important; color: #a5b4fc !important; padding: 2px 6px; border-radius: 4px; font-size: 0.88em; }
+pre { background: #131316 !important; color: #e4e4e7 !important; border: 1px solid #27272a; border-radius: 8px; padding: 16px; overflow-x: auto; font-size: 0.85rem; line-height: 1.6; }
+pre code { background: transparent !important; padding: 0; }
+
+/* Callout boxes */
+.highlight, .preambule, .info-box, .callout, [style*="border-left"] {
+  background: rgba(99, 102, 241, 0.06) !important;
+  border-color: #6366f1 !important;
+  border-radius: 8px;
+  padding: 1rem 1.2rem;
+  margin: 1rem 0;
+}
+
+/* HR separators */
+hr { border: none; border-top: 1px solid #27272a; margin: 2rem 0; }
+
+/* Header banner — hide the old branded header */
+.cover-page, .doc-header, [style*="linear-gradient"] {
+  background: linear-gradient(135deg, #1e1b4b 0%, #09090b 100%) !important;
+  border: none !important;
+}
+
+/* Badges */
+.docs-badge, .badge {
+  background: rgba(99, 102, 241, 0.15) !important;
+  color: #818cf8 !important;
+  border: 1px solid rgba(99, 102, 241, 0.3) !important;
+}
+
+/* Lists with bullets */
+ul { padding-left: 1.5rem; }
+ul li { list-style-type: disc; }
+ol { padding-left: 1.5rem; }
+ol li { list-style-type: decimal; }
+
+/* Images */
+img { border-radius: 8px; border: 1px solid #27272a; margin: 1rem 0; }
+
+/* Selection */
+::selection { background: rgba(99, 102, 241, 0.3); }
