@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RouteForce User Guide</title>
+  <title>RouteForce User Guide — V7.4.0</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -67,12 +67,27 @@
     .note {
       background: rgba(99, 102, 241, 0.08); border: 1px solid #27272a; border-radius: 8px; padding: 10px 12px; margin: 14px 0 18px;
     }
+    .tip {
+      background: rgba(34, 197, 94, 0.08); border: 1px solid #27272a; border-radius: 8px; padding: 10px 12px; margin: 14px 0 18px;
+    }
+    .warning {
+      background: rgba(245, 158, 11, 0.08); border: 1px solid #27272a; border-radius: 8px; padding: 10px 12px; margin: 14px 0 18px;
+    }
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
+    .screenshot-placeholder {
+      background: #18181b; border: 2px dashed #27272a; border-radius: 10px; padding: 40px 20px;
+      text-align: center; color: #71717a; font-size: 10pt; margin: 12px 0 18px;
+    }
+    .toc { margin: 18px 0 24px; }
+    .toc ol { counter-reset: toc-item; list-style: none; padding-left: 0; }
+    .toc li { counter-increment: toc-item; padding: 4px 0; }
+    .toc li::before { content: counter(toc-item) ". "; font-weight: bold; }
+    .toc a { color: inherit; }
   </style>
-  <meta name="description" content="Guide utilisateur RouteForce : carte, filtres, tournées, événements, check-in, check-out et historique dans Salesforce.">
+  <meta name="description" content="RouteForce V7.4.0 User Guide: map visualization, filters, route planning, check-in/check-out, visit reports, and route history in Salesforce.">
   <link rel="canonical" href="https://routeforce.app/docs/user-guide.html">
-  <meta property="og:title" content="RouteForce User Guide">
-  <meta property="og:description" content="Guide utilisateur RouteForce pour équipes terrain Salesforce.">
+  <meta property="og:title" content="RouteForce User Guide V7.4.0">
+  <meta property="og:description" content="Complete user guide for RouteForce field sales app on Salesforce.">
   <meta property="og:type" content="article">
 <link rel="stylesheet" href="guide-dark.css"/>
 </head>
@@ -88,390 +103,750 @@
   <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
   <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
 </svg>
-        <div class="badge">Client Documentation</div>
+        <div class="badge">User Guide</div>
       </div>
       <div class="hero">
         <h1>RouteForce User Guide</h1>
-        <p>Client-facing end-user guide</p>
+        <p>Daily field operations guide for sales reps and managers</p>
       </div>
       <div class="meta">
-        <div class="card"><div class="label">Product</div><div class="value">RouteForce</div></div>
-        <div class="card"><div class="label">Version</div><div class="value">March 2026 · RouteForce V7.4.0</div></div>
-        <div class="card"><div class="label">Format</div><div class="value">PDF / Print-ready HTML</div></div>
+        <div class="card"><div class="label">Product</div><div class="value">RouteForce for Salesforce</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">V7.4.0 — March 2026</div></div>
+        <div class="card"><div class="label">Audience</div><div class="value">Field Sales Reps &amp; Managers</div></div>
       </div>
     </div>
-    <div class="cover-footer">Prepared for client delivery • RouteForce for Salesforce • contact@routeforce.app</div>
+    <div class="cover-footer">RouteForce for Salesforce — contact@routeforce.app — https://routeforce.app</div>
   </section>
+
   <main class="content">
-    <div class="note"><strong>RouteForce branded edition.</strong> This document is formatted for client delivery and print/PDF export.</div>
+    <div class="note"><strong>RouteForce V7.4.0</strong> — This guide covers every feature available to field sales representatives and their managers. Keep it as a daily reference.</div>
+
     <h1>RouteForce User Guide</h1>
-<p><strong>Version:</strong> March 2026<br><strong>Audience:</strong> Sales reps, field users, managers<br><strong>Applies to:</strong> RouteForce for Salesforce</p>
-<p>RouteForce helps you visualize accounts on a map, filter territory data, build optimized routes, create visits, and keep a usable route history without leaving Salesforce.</p>
-<hr>
-<h2>1. Open RouteForce</h2>
-<ol>
-<li>Open the <strong>App Launcher</strong> in Salesforce.</li>
-<li>Search for <strong>RouteForce</strong>.</li>
-<li>Open the app.</li>
-<li>Wait for the map to load your geocoded records.</li>
-</ol>
+    <p><strong>Version:</strong> V7.4.0 — March 2026<br><strong>Audience:</strong> Field sales reps, territory managers<br><strong>Platform:</strong> Salesforce Desktop &amp; Salesforce Mobile App</p>
+    <p>RouteForce is a map-based field operations tool built natively inside Salesforce. It lets you visualize your territory, filter records, plan optimized routes, conduct GPS-verified visits, and maintain a complete route history — all without leaving Salesforce.</p>
 
-<h3>What you see on screen</h3>
-<table>
-<thead>
-<tr>
-<th>Area</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Filter panel</td>
-<td>Show only the records you want to work with</td>
-</tr>
-<tr>
-<td>Map</td>
-<td>Visualize Accounts, Leads, Opportunities, and Events</td>
-</tr>
-<tr>
-<td>Route panel</td>
-<td>Build, optimize, and export a route</td>
-</tr>
-<tr>
-<td>Events area</td>
-<td>Load visits from your calendar</td>
-</tr>
-<tr>
-<td>History panel</td>
-<td>Reuse or delete previous routes</td>
-</tr>
-</tbody></table>
-<h3>Main tabs</h3>
-<ul>
-<li><strong>RouteForce</strong> — live map and planning workspace</li>
-<li><strong>Route History</strong> — previously saved routes</li>
-<li><strong>Saved Filters</strong> — reusable filter presets</li>
-<li><strong>Visit Reports</strong> — check-in outcomes</li>
-<li><strong>Configuration</strong> — admin-only setup area</li>
-</ul>
-<hr>
-<h2>2. Use the map</h2>
-<p>RouteForce displays records with valid geolocation directly on an interactive map.</p>
-<h3>Map controls</h3>
-<table>
-<thead>
-<tr>
-<th>Control</th>
-<th>What it does</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Zoom + / -</td>
-<td>Zoom in or out</td>
-</tr>
-<tr>
-<td>Fullscreen</td>
-<td>Expand the map</td>
-</tr>
-<tr>
-<td>My Location</td>
-<td>Center on your current GPS position</td>
-</tr>
-<tr>
-<td>Basemap selector</td>
-<td>Switch between map styles</td>
-</tr>
-<tr>
-<td>Scale</td>
-<td>Show approximate distance</td>
-</tr>
-</tbody></table>
-<h3>Marker types</h3>
-<table>
-<thead>
-<tr>
-<th>Marker family</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>Blue tones</td>
-<td>Accounts</td>
-</tr>
-<tr>
-<td>Teal / green tones</td>
-<td>Leads</td>
-</tr>
-<tr>
-<td>Orange / red tones</td>
-<td>Opportunities</td>
-</tr>
-<tr>
-<td>Calendar marker</td>
-<td>Events</td>
-</tr>
-</tbody></table>
-<h3>Useful behavior</h3>
-<ul>
-<li>Nearby markers group into <strong>clusters</strong>.</li>
-<li>The legend updates automatically based on the current display mode.</li>
-<li>Clicking a marker opens a popup with quick actions.</li>
-</ul>
-<hr>
-<h2>3. Filter records</h2>
-<p>Use the filter panel to focus on the right territory, segment, or visit list.</p>
+    <nav class="toc">
+      <h3>Table of Contents</h3>
+      <ol>
+        <li><a href="#getting-started">Getting Started</a></li>
+        <li><a href="#map">The Map</a></li>
+        <li><a href="#marker-popups">Marker Popups and Actions</a></li>
+        <li><a href="#filters">Filtering Records</a></li>
+        <li><a href="#saved-filters">Saving and Sharing Filters</a></li>
+        <li><a href="#route-planning">Route Planning</a></li>
+        <li><a href="#optimization">Route Optimization</a></li>
+        <li><a href="#export">Exporting Routes</a></li>
+        <li><a href="#events">Creating Salesforce Events</a></li>
+        <li><a href="#agenda">Today's Agenda (Events Panel)</a></li>
+        <li><a href="#checkin-checkout">Check-In / Check-Out (Visit Reports)</a></li>
+        <li><a href="#route-history">Route History</a></li>
+        <li><a href="#heatmap">Heatmap</a></li>
+        <li><a href="#bulk-select">Bulk Select (Lasso Tool)</a></li>
+        <li><a href="#quick-text">Quick Text for Visit Notes</a></li>
+        <li><a href="#mobile">Mobile Usage</a></li>
+        <li><a href="#troubleshooting">Troubleshooting</a></li>
+        <li><a href="#best-practices">Best Practices</a></li>
+        <li><a href="#support">Support</a></li>
+      </ol>
+    </nav>
 
-<h3>Common filters</h3>
-<ul>
-<li><strong>My Accounts</strong></li>
-<li><strong>Radius from center</strong></li>
-<li><strong>Record Type</strong></li>
-<li><strong>Last visit</strong></li>
-<li><strong>Industry / Type / Rating / Ownership</strong></li>
-<li><strong>Lead or Opportunity picklist filters</strong> when enabled</li>
-</ul>
-<h3>Tips</h3>
-<ul>
-<li>Some filters support <strong>multi-select checkboxes</strong>.</li>
-<li>After changing filters, click <strong>Apply</strong>.</li>
-<li>Save useful combinations to avoid rebuilding them later.</li>
-</ul>
-<hr>
-<h2>4. Save and reload filter presets</h2>
-<h3>Save a filter</h3>
-<ol>
-<li>Configure the map exactly how you want it.</li>
-<li>In <strong>Saved Filters</strong>, click <strong>Save</strong>.</li>
-<li>Enter a clear name.</li>
-<li>Confirm.</li>
-</ol>
-<h3>Reload a filter</h3>
-<ol>
-<li>Open the saved filter dropdown.</li>
-<li>Select a saved preset.</li>
-<li>RouteForce reapplies the full configuration.</li>
-</ol>
-<h3>Delete a filter</h3>
-<ol>
-<li>Select the saved filter.</li>
-<li>Click <strong>Delete</strong>.</li>
-<li>Confirm.</li>
-</ol>
-<hr>
-<h2>5. Review events and agenda</h2>
-<p>RouteForce can display your Salesforce Events directly on the map.</p>
+    <hr>
 
-<h3>Load events</h3>
-<ol>
-<li>Open the <strong>Events</strong> panel.</li>
-<li>Choose a date range.</li>
-<li>Click <strong>Load</strong>.</li>
-</ol>
-<h3>Event states</h3>
-<ul>
-<li><strong>Blue marker</strong> — planned event</li>
-<li><strong>Grey marker with check state</strong> — checked-in event</li>
-</ul>
-<h3>Event popup actions</h3>
-<ul>
-<li>Open the related record</li>
-<li>Review the planned time slot</li>
-<li>Launch <strong>Check In</strong> when the visit happens</li>
-</ul>
-<hr>
-<h2>6. Build a route</h2>
-<p>Open the route panel to prepare a field day.</p>
+    <!-- ============================================================ -->
+    <h2 id="getting-started">1. Getting Started</h2>
 
-<h3>Choose a starting point</h3>
-<p>You can start from:</p>
-<ul>
-<li><strong>My Position</strong></li>
-<li><strong>An Account</strong></li>
-<li><strong>A Lead</strong></li>
-<li><strong>An Opportunity</strong></li>
-</ul>
-<h3>Add stops</h3>
-<p>With the route panel open, click markers on the map to add them as route steps.</p>
-<p>Each step shows:</p>
-<ul>
-<li>sequence number</li>
-<li>record name</li>
-<li>city</li>
-<li>record type</li>
-</ul>
-<h3>Reorder or remove stops</h3>
-<ul>
-<li>Drag and drop steps</li>
-<li>Use move arrows if available</li>
-<li>Click the trash icon to remove a stop</li>
-</ul>
-<h3>Route settings</h3>
-<p>Typical route settings include:</p>
-<ul>
-<li>route date</li>
-<li>departure time</li>
-<li>lunch break</li>
-<li>end of day</li>
-<li>visit duration</li>
-<li>avoid tolls</li>
-<li>avoid highways</li>
-</ul>
-<hr>
-<h2>7. Optimize the route</h2>
-<p>When you have at least two stops and a starting point, click <strong>Optimize</strong>.</p>
+    <h3>Open RouteForce</h3>
+    <ol>
+      <li>Click the <strong>App Launcher</strong> (waffle icon) in Salesforce.</li>
+      <li>Type <strong>RouteForce</strong> and select the app.</li>
+      <li>The map loads automatically with your geocoded records.</li>
+    </ol>
 
-<h3>What RouteForce does</h3>
-<ul>
-<li>reorders stops for a more efficient trip</li>
-<li>draws the route on the map</li>
-<li>calculates distance and travel time</li>
-<li>estimates arrival times</li>
-<li>respects lunch break and end-of-day logic</li>
-</ul>
-<h3>Important limit</h3>
-<ul>
-<li>Maximum supported route size: <strong>50 stops</strong></li>
-</ul>
-<h3>After optimization</h3>
-<p>You can still:</p>
-<ul>
-<li>manually adjust steps</li>
-<li>add or remove a stop</li>
-<li>optimize again</li>
-</ul>
-<hr>
-<h2>8. Add nearby visits</h2>
-<p>When a route exists, RouteForce can suggest nearby records around the route path.</p>
+    <div class="screenshot-placeholder">[Screenshot: RouteForce main interface after launch]</div>
 
-<p>Each nearby item can show:</p>
-<ul>
-<li>record name</li>
-<li>object type</li>
-<li>distance from the route</li>
-<li>add button to insert it as a stop</li>
-</ul>
-<p>This is useful for opportunistic visits.</p>
-<hr>
-<h2>9. Export and create visits</h2>
-<p>After optimization, RouteForce can help you operationalize the route.</p>
-<h3>Google Maps export</h3>
-<p>Use <strong>Google Maps</strong> to open the trip in a navigation-friendly format.</p>
-<h3>CSV export</h3>
-<p>Use <strong>Export CSV</strong> to download route details such as:</p>
-<ul>
-<li>stop number</li>
-<li>account / record name</li>
-<li>city</li>
-<li>arrival time</li>
-<li>assigned contact</li>
-<li>distance and duration</li>
-</ul>
-<h3>Create Salesforce Events</h3>
-<p>Use <strong>Create Visits</strong> to generate Events for the route steps automatically.</p>
-<p>Typical event data includes:</p>
-<ul>
-<li>subject</li>
-<li>start and end time</li>
-<li>related record</li>
-</ul>
-<hr>
-<h2>10. Check in after a visit</h2>
-<p>Use check-in to confirm the visit happened and log the outcome.</p>
+    <h3>Interface overview</h3>
+    <table>
+      <thead>
+        <tr><th>Area</th><th>Purpose</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Map</strong></td><td>Interactive map showing Accounts, Leads, and Opportunities as color-coded markers</td></tr>
+        <tr><td><strong>Filter Panel</strong> (left)</td><td>Narrow down which records appear on the map</td></tr>
+        <tr><td><strong>Route Panel</strong> (right)</td><td>Build, optimize, and manage your route stops</td></tr>
+        <tr><td><strong>Events Panel</strong></td><td>View today's calendar events on the map</td></tr>
+        <tr><td><strong>History Panel</strong></td><td>Browse and reload previously saved routes</td></tr>
+      </tbody>
+    </table>
 
-<h3>Check-in flow</h3>
-<ol>
-<li>Open an event marker or event popup.</li>
-<li>Click <strong>Check In</strong>.</li>
-<li>Select the result.</li>
-<li>Enter notes.</li>
-<li>Confirm.</li>
-</ol>
-<p>This creates a <strong>Visit Report</strong> linked to the related record.</p>
-<p>Depending on your setup, you may also see:</p>
-<ul>
-<li>Quick Text snippets</li>
-<li>additional notes fields</li>
-<li>visit outcome options such as success, callback, or not home</li>
-</ul>
-<hr>
-<h2>11. Reuse route history</h2>
-<p>Route history helps you repeat a working territory plan.</p>
+    <h3>Main tabs</h3>
+    <ul>
+      <li><strong>RouteForce</strong> — the live map and planning workspace</li>
+      <li><strong>Route History</strong> — all previously saved routes</li>
+      <li><strong>Saved Filters</strong> — reusable filter presets you have created or that were shared with you</li>
+      <li><strong>Visit Reports</strong> — check-in/check-out records and visit outcomes</li>
+      <li><strong>Configuration</strong> — admin-only settings (not covered in this guide)</li>
+    </ul>
 
-<p>Each saved route can include:</p>
-<ul>
-<li>route name</li>
-<li>creation date</li>
-<li>stop count</li>
-<li>total distance</li>
-<li>total duration</li>
-<li>optimized status</li>
-</ul>
-<h3>Common actions</h3>
-<ul>
-<li><strong>Reload</strong> a previous route</li>
-<li><strong>Delete</strong> an obsolete route</li>
-<li>use a past route as a template for a new day</li>
-</ul>
-<hr>
-<h2>12. Additional interface examples</h2>
-<p>These screenshots can help users recognize alternate UI states they may encounter.</p>
+    <hr>
 
+    <!-- ============================================================ -->
+    <h2 id="map">2. The Map</h2>
 
-<hr>
-<h2>13. Mobile usage</h2>
-<p>RouteForce works in Salesforce Mobile.</p>
-<h3>On mobile</h3>
-<ul>
-<li>the filter panel becomes a slide-out panel</li>
-<li>the route panel uses more screen width</li>
-<li>the map supports pinch and drag gestures</li>
-<li>action buttons stay touch-friendly</li>
-</ul>
-<hr>
-<h2>14. Troubleshooting</h2>
-<table>
-<thead>
-<tr>
-<th>Issue</th>
-<th>What to check</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>No markers on the map</td>
-<td>The records must have latitude / longitude data</td>
-</tr>
-<tr>
-<td>Map does not load</td>
-<td>Ask your admin to verify licence and remote access settings</td>
-</tr>
-<tr>
-<td>Optimization fails</td>
-<td>Reduce the number of stops and retry</td>
-</tr>
-<tr>
-<td>Events do not appear</td>
-<td>Check the selected date range and your Salesforce Events</td>
-</tr>
-<tr>
-<td>Check-in is unavailable</td>
-<td>Your admin may have disabled Events or Visit Reports</td>
-</tr>
-<tr>
-<td>CSV export is empty</td>
-<td>Optimize the route first</td>
-</tr>
-</tbody></table>
-<hr>
-<h2>15. Best practices</h2>
-<ul>
-<li>Save filters for recurring territories.</li>
-<li>Keep routes realistic instead of overloading one day.</li>
-<li>Use nearby suggestions after optimization, not before.</li>
-<li>Check in as soon as the visit is completed.</li>
-<li>Reuse route history for repeat rounds.</li>
-</ul>
-<hr>
-<h2>Support</h2>
-<p>If something still looks wrong, contact your Salesforce administrator or the RouteForce support contact configured in your org.</p>
+    <p>The map is the core of RouteForce. It displays three object types simultaneously so you get a complete view of your territory at a glance.</p>
+
+    <h3>Multi-object display</h3>
+    <p>RouteForce shows <strong>Accounts</strong>, <strong>Leads</strong>, and <strong>Opportunities</strong> on the map at the same time. Each object type uses a distinct marker color so you can tell them apart instantly.</p>
+
+    <table>
+      <thead>
+        <tr><th>Marker Color</th><th>Object</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Blue tones</td><td>Accounts</td></tr>
+        <tr><td>Teal / green tones</td><td>Leads</td></tr>
+        <tr><td>Orange / red tones</td><td>Opportunities</td></tr>
+        <tr><td>Purple / calendar icon</td><td>Events (when loaded)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="screenshot-placeholder">[Screenshot: Map with Account, Lead, and Opportunity markers visible]</div>
+
+    <h3>Map layers</h3>
+    <p>Switch between two map styles using the basemap selector in the top-right corner of the map:</p>
+    <ul>
+      <li><strong>Standard</strong> — clean street map, best for daily planning</li>
+      <li><strong>Satellite</strong> — aerial imagery, useful for locating buildings or rural sites</li>
+    </ul>
+
+    <h3>Clustering</h3>
+    <p>When many markers are close together, RouteForce groups them into <strong>clusters</strong>. A cluster displays the number of records it contains. Click a cluster to zoom in and reveal individual markers.</p>
+    <ul>
+      <li>The clustering radius is set to <strong>60 pixels</strong> by default (configurable by your admin).</li>
+      <li>As you zoom in, clusters automatically break apart into individual markers.</li>
+    </ul>
+
+    <h3>Map controls</h3>
+    <table>
+      <thead>
+        <tr><th>Control</th><th>What It Does</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Zoom + / -</strong></td><td>Zoom in or out (default zoom level is 10)</td></tr>
+        <tr><td><strong>Fullscreen</strong></td><td>Expand the map to fill the browser window</td></tr>
+        <tr><td><strong>My Location</strong></td><td>Center the map on your current GPS position</td></tr>
+        <tr><td><strong>Basemap Selector</strong></td><td>Toggle between Standard and Satellite views</td></tr>
+        <tr><td><strong>Scale</strong></td><td>Shows approximate distance on the map</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Address source</h3>
+    <p>Markers are placed based on geocoded addresses. Your admin configures whether RouteForce uses the <strong>Shipping Address</strong> or the <strong>Billing Address</strong> for Accounts. If a record has no valid coordinates, it will not appear on the map.</p>
+
+    <div class="tip"><strong>Tip:</strong> If you notice a record missing from the map, check whether it has a valid address with latitude and longitude populated.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="marker-popups">3. Marker Popups and Actions</h2>
+
+    <p>Click any marker on the map to open its popup. The popup shows key details about the record and provides quick actions you can take without navigating away.</p>
+
+    <div class="screenshot-placeholder">[Screenshot: Marker popup with record details and action buttons]</div>
+
+    <h3>Information displayed</h3>
+    <ul>
+      <li>Record name and type (Account, Lead, or Opportunity)</li>
+      <li>Address</li>
+      <li>Key fields (phone, industry, stage, etc.)</li>
+      <li>Last visit date (if available)</li>
+    </ul>
+
+    <h3>Quick actions</h3>
+    <table>
+      <thead>
+        <tr><th>Action</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Click-to-Call</strong></td><td>Tap the phone number to initiate a call directly from your device</td></tr>
+        <tr><td><strong>Navigate (Google Maps)</strong></td><td>Opens Google Maps with turn-by-turn directions to this location</td></tr>
+        <tr><td><strong>Add to Route</strong></td><td>Adds this record as a stop in your current route</td></tr>
+        <tr><td><strong>Open Record</strong></td><td>Opens the full Salesforce record in a new tab</td></tr>
+        <tr><td><strong>Custom Actions</strong></td><td>Your admin can configure additional actions (such as Screen Flows) that appear here</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Contact lookup (Accounts)</h3>
+    <p>When you click an Account marker, the popup can also show the <strong>related Contacts</strong> for that account. This lets you quickly see who to call or meet before heading to the location. This feature is enabled by your admin (ContactLookupEnabled).</p>
+
+    <h3>Custom actions</h3>
+    <p>Your admin can add custom action buttons to the popup using <strong>RouteForceAction__mdt</strong> metadata. These typically launch Screen Flows — for example, a quick order entry form or a customer satisfaction survey — directly from the map popup.</p>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="filters">4. Filtering Records</h2>
+
+    <p>The filter panel lets you control exactly which records appear on the map. Use filters to focus on a specific territory segment, customer type, or follow-up list.</p>
+
+    <div class="screenshot-placeholder">[Screenshot: Filter panel with multiple filters applied]</div>
+
+    <h3>Default filter fields</h3>
+    <p>RouteForce comes with <strong>10 pre-configured filter fields</strong>:</p>
+
+    <table>
+      <thead>
+        <tr><th>#</th><th>Filter Field</th><th>Object</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Industry</td><td>Account</td></tr>
+        <tr><td>2</td><td>Type</td><td>Account</td></tr>
+        <tr><td>3</td><td>Rating</td><td>Account</td></tr>
+        <tr><td>4</td><td>Ownership</td><td>Account</td></tr>
+        <tr><td>5</td><td>Stage Name</td><td>Opportunity</td></tr>
+        <tr><td>6</td><td>Forecast Category</td><td>Opportunity</td></tr>
+        <tr><td>7</td><td>Status</td><td>Lead</td></tr>
+        <tr><td>8</td><td>Lead Source</td><td>Lead</td></tr>
+        <tr><td>9</td><td>Account Industry</td><td>Opportunity (cross-object)</td></tr>
+        <tr><td>10</td><td>Rating</td><td>Lead</td></tr>
+      </tbody>
+    </table>
+
+    <p>Your admin can configure up to <strong>6 additional custom filter slots</strong> (slots 11 through 16), for a total of <strong>16 filters</strong>.</p>
+
+    <h3>Supported field types</h3>
+    <ul>
+      <li><strong>Picklist</strong> — select one or more values from a dropdown</li>
+      <li><strong>Multi-Select Picklist</strong> — select multiple values with checkboxes</li>
+      <li><strong>Boolean (Checkbox)</strong> — toggle on/off</li>
+    </ul>
+
+    <h3>"Not visited since" filter</h3>
+    <p>This special filter highlights records that have <strong>not been visited within a given number of days</strong>. The default threshold is <strong>30 days</strong>. Use this to identify neglected accounts or leads that need attention.</p>
+
+    <h3>How to use filters</h3>
+    <ol>
+      <li>Open the <strong>Filter Panel</strong> on the left side of the screen.</li>
+      <li>Set one or more filter values.</li>
+      <li>Click <strong>Apply</strong> to refresh the map.</li>
+      <li>The map now shows only the records matching your criteria.</li>
+    </ol>
+
+    <div class="tip"><strong>Tip:</strong> Combine multiple filters to narrow down your territory. For example, filter by Industry = "Manufacturing" and Rating = "Hot" to see your most promising manufacturing accounts.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="saved-filters">5. Saving and Sharing Filters</h2>
+
+    <p>When you find a filter combination you use regularly, save it as a preset so you can reapply it with one click.</p>
+
+    <h3>Save a filter preset</h3>
+    <ol>
+      <li>Configure your filters exactly as you want them.</li>
+      <li>Click <strong>Save Filter</strong> in the filter panel.</li>
+      <li>Enter a descriptive name (e.g., "Hot Manufacturing Accounts - North").</li>
+      <li>Choose whether to make it <strong>public</strong> or keep it private:
+        <ul>
+          <li><strong>Private</strong> — only you can see and use this preset.</li>
+          <li><strong>Public</strong> — any RouteForce user in your org can see and apply this preset.</li>
+        </ul>
+      </li>
+      <li>Click <strong>Save</strong>.</li>
+    </ol>
+
+    <h3>Load a saved filter</h3>
+    <ol>
+      <li>Open the <strong>Saved Filters</strong> dropdown.</li>
+      <li>Select a preset from the list (your private filters and all public filters are shown).</li>
+      <li>RouteForce immediately applies all filter values and refreshes the map.</li>
+    </ol>
+
+    <h3>Delete a saved filter</h3>
+    <ol>
+      <li>Select the filter preset from the dropdown.</li>
+      <li>Click the <strong>Delete</strong> button.</li>
+      <li>Confirm the deletion.</li>
+    </ol>
+
+    <div class="note"><strong>Note:</strong> You can only delete filters you created. Public filters created by other users cannot be deleted by you.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="route-planning">6. Route Planning</h2>
+
+    <p>The route panel is where you build your daily field plan. Add the stops you want to visit, arrange them in order, configure timing, and let RouteForce handle the rest.</p>
+
+    <div class="screenshot-placeholder">[Screenshot: Route panel with multiple stops added]</div>
+
+    <h3>Add stops</h3>
+    <p>There are two ways to add stops to your route:</p>
+    <ul>
+      <li><strong>From the map:</strong> Click a marker, then click <strong>Add to Route</strong> in the popup.</li>
+      <li><strong>From search:</strong> Use the search bar in the route panel to find a record by name, then add it.</li>
+    </ul>
+    <p>Each stop shows its sequence number, record name, city, and record type (Account, Lead, or Opportunity).</p>
+
+    <h3>Reorder stops</h3>
+    <ul>
+      <li><strong>Drag and drop</strong> — grab a stop and move it to a new position in the list.</li>
+      <li>The map updates the route line in real time as you reorder.</li>
+    </ul>
+
+    <h3>Undo / Redo</h3>
+    <p>Made a mistake? Use the <strong>Undo</strong> and <strong>Redo</strong> buttons at the top of the route panel to step backward or forward through your recent changes.</p>
+
+    <h3>Remove a stop</h3>
+    <p>Click the <strong>trash icon</strong> next to any stop to remove it from the route.</p>
+
+    <h3>Route settings</h3>
+    <p>Before optimizing, configure these time parameters to get realistic arrival estimates:</p>
+    <table>
+      <thead>
+        <tr><th>Setting</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Departure Time</strong></td><td>When you plan to leave for your first stop</td></tr>
+        <tr><td><strong>Visit Duration</strong></td><td>How long you typically spend at each stop (used for arrival time calculations)</td></tr>
+        <tr><td><strong>Lunch Break</strong></td><td>Time reserved for lunch — the optimizer will not schedule visits during this window</td></tr>
+        <tr><td><strong>End of Day</strong></td><td>Latest time you want to be visiting — stops after this time will be flagged</td></tr>
+        <tr><td><strong>Avoid Tolls</strong></td><td>Route around toll roads when possible</td></tr>
+        <tr><td><strong>Avoid Highways</strong></td><td>Prefer smaller roads (useful for rural territories)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warning"><strong>Limit:</strong> A single route supports up to <strong>50 stops</strong>. If you need more, split your plan into multiple routes (e.g., morning and afternoon).</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="optimization">7. Route Optimization</h2>
+
+    <p>Once you have at least two stops and a starting point, click <strong>Optimize</strong> to let RouteForce calculate the most efficient order.</p>
+
+    <div class="screenshot-placeholder">[Screenshot: Optimized route displayed on the map with numbered stops]</div>
+
+    <h3>What happens when you optimize</h3>
+    <ol>
+      <li>RouteForce sends your stops to the optimization engine (VROOM algorithm via OpenRouteService).</li>
+      <li>Stops are <strong>reordered</strong> to minimize total travel time and distance.</li>
+      <li>The optimized route is <strong>drawn on the map</strong> as a colored line connecting each stop in sequence.</li>
+      <li><strong>Estimated arrival times</strong> are calculated for each stop, respecting your departure time, visit duration, lunch break, and end-of-day settings.</li>
+      <li>A <strong>route summary</strong> appears showing total distance (in km) and total duration.</li>
+    </ol>
+
+    <h3>After optimization</h3>
+    <p>You can still make changes after optimizing:</p>
+    <ul>
+      <li>Manually reorder stops if you prefer a different sequence.</li>
+      <li>Add or remove stops and re-optimize.</li>
+      <li>Adjust route settings (departure time, lunch break, etc.) and optimize again.</li>
+    </ul>
+
+    <div class="tip"><strong>Tip:</strong> Optimization works best when your route settings are realistic. Set your actual departure time and visit duration before clicking Optimize to get useful arrival estimates.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="export">8. Exporting Routes</h2>
+
+    <p>After building or optimizing a route, you can export it for navigation or reporting.</p>
+
+    <h3>Export to Google Maps</h3>
+    <p>Click <strong>Export to Google Maps</strong> to open the route in Google Maps with all your stops as waypoints. This gives you turn-by-turn navigation for your field day.</p>
+    <ul>
+      <li>On desktop, Google Maps opens in a new browser tab.</li>
+      <li>On mobile, it opens directly in the Google Maps app for live navigation.</li>
+    </ul>
+
+    <h3>Export to CSV</h3>
+    <p>Click <strong>Export CSV</strong> to download a spreadsheet with your route details:</p>
+    <table>
+      <thead>
+        <tr><th>Column</th><th>Content</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Stop Number</td><td>Sequence position in the route</td></tr>
+        <tr><td>Record Name</td><td>Account, Lead, or Opportunity name</td></tr>
+        <tr><td>City</td><td>City from the record address</td></tr>
+        <tr><td>Arrival Time</td><td>Estimated arrival based on optimization</td></tr>
+        <tr><td>Contact</td><td>Assigned contact (if available)</td></tr>
+        <tr><td>Distance</td><td>Distance from previous stop</td></tr>
+        <tr><td>Duration</td><td>Travel time from previous stop</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note"><strong>Note:</strong> CSV export requires an optimized route. If you have not yet clicked Optimize, the export may be empty.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="events">9. Creating Salesforce Events</h2>
+
+    <p>RouteForce can create Salesforce Events directly from your route stops, so your calendar reflects your field plan.</p>
+
+    <h3>Create events from a route</h3>
+    <ol>
+      <li>Build and optimize your route.</li>
+      <li>Click <strong>Create Events</strong> (or <strong>Create Visits</strong>).</li>
+      <li>RouteForce generates one Salesforce Event per stop using the <strong>RF_CreateEvent</strong> flow.</li>
+      <li>Each event includes:
+        <ul>
+          <li>Subject (visit purpose)</li>
+          <li>Start and end time (based on optimization estimates)</li>
+          <li>Related record (Account, Lead, or Opportunity)</li>
+          <li>Location</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Bulk event creation</h3>
+    <p>After optimization, you can create events for <strong>all stops at once</strong> rather than one by one. This is the fastest way to populate your calendar for the day.</p>
+
+    <h3>Calendar overlap detection</h3>
+    <p>RouteForce checks your existing Salesforce calendar before creating events. If a new event would overlap with an existing one, you will see a <strong>warning</strong> so you can adjust the timing or skip that stop.</p>
+
+    <div class="screenshot-placeholder">[Screenshot: Event creation dialog with overlap warning]</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="agenda">10. Today's Agenda (Events Panel)</h2>
+
+    <p>The Events Panel gives you a quick view of your Salesforce calendar events for today, displayed directly on the map.</p>
+
+    <h3>How to use it</h3>
+    <ol>
+      <li>Open the <strong>Events Panel</strong>.</li>
+      <li>Today's events are loaded automatically and shown as markers on the map.</li>
+      <li>Use the <strong>Show/Hide Events</strong> toggle to control whether event markers are visible.</li>
+    </ol>
+
+    <h3>Event details</h3>
+    <p>Click an event marker to see:</p>
+    <ul>
+      <li>Event subject and time</li>
+      <li>Related record (Account, Lead, Opportunity)</li>
+      <li>Location</li>
+      <li>Quick action buttons (open record, navigate, check in)</li>
+    </ul>
+
+    <div class="tip"><strong>Tip:</strong> Start each morning by opening the Events Panel. It gives you a visual overview of where you need to be throughout the day.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="checkin-checkout">11. Check-In / Check-Out (Visit Reports)</h2>
+
+    <p>The check-in/check-out system lets you record visits as they happen, with GPS verification and a structured visit report.</p>
+
+    <div class="screenshot-placeholder">[Screenshot: Check-in screen with GPS verification and visit report form]</div>
+
+    <h3>Step 1: Check in</h3>
+    <ol>
+      <li>When you arrive at a customer location, open the event marker or event from the Events Panel.</li>
+      <li>Click <strong>Check In</strong>.</li>
+      <li>RouteForce captures your <strong>GPS position</strong> and verifies you are within range of the location.
+        <ul>
+          <li>The on-site detection radius is <strong>500 meters</strong> by default (configurable by your admin).</li>
+          <li>Your GPS accuracy is displayed so you know how precise the reading is.</li>
+        </ul>
+      </li>
+      <li>The check-in timestamp is recorded automatically.</li>
+    </ol>
+
+    <h3>Previous visit context</h3>
+    <p>When you check in, RouteForce shows you a summary of the <strong>previous visit</strong> to this same record (if any). This includes the last visit date, result, and notes — so you have context before your meeting starts.</p>
+
+    <h3>Step 2: Complete the visit report</h3>
+    <p>After your meeting, fill in the visit report with the following fields:</p>
+
+    <table>
+      <thead>
+        <tr><th>Field</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Result</strong></td><td>Overall visit outcome: <em>Positive</em>, <em>Neutral</em>, <em>Negative</em>, or <em>No Answer</em></td></tr>
+        <tr><td><strong>Satisfaction</strong></td><td>Customer satisfaction level observed during the visit</td></tr>
+        <tr><td><strong>Next Action</strong></td><td>What follow-up action is needed (e.g., send quote, schedule demo)</td></tr>
+        <tr><td><strong>Order Amount</strong></td><td>If an order was placed, enter the amount here</td></tr>
+        <tr><td><strong>Notes</strong></td><td>Free-form rich text field for detailed visit notes (supports Quick Text — see <a href="#quick-text">Section 15</a>)</td></tr>
+        <tr><td><strong>Next Visit Date</strong></td><td>When the customer should be visited again</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Step 3: Check out</h3>
+    <ol>
+      <li>Click <strong>Check Out</strong> when you are ready to leave.</li>
+      <li>The check-out timestamp is recorded.</li>
+      <li>RouteForce automatically calculates the <strong>visit duration</strong> (time between check-in and check-out).</li>
+    </ol>
+
+    <h3>After check-out</h3>
+    <ul>
+      <li>A <strong>Visit Report</strong> record is created in Salesforce, linked to the Account/Lead/Opportunity.</li>
+      <li>A <strong>Google Maps link</strong> to the check-in location is saved for reference.</li>
+      <li>Your manager can review visit reports from the <strong>Visit Reports</strong> tab.</li>
+    </ul>
+
+    <div class="warning"><strong>Important:</strong> Always check out before leaving a location. If you forget, the visit duration will not be calculated correctly.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="route-history">12. Route History</h2>
+
+    <p>Every route you build is <strong>saved automatically</strong>. You can browse past routes, replay them on the map, and reuse them as templates for future days.</p>
+
+    <h3>Browse past routes</h3>
+    <ol>
+      <li>Open the <strong>Route History</strong> tab.</li>
+      <li>Routes are listed by date, most recent first.</li>
+      <li>Each entry shows:
+        <ul>
+          <li>Route name (if naming is enabled) or date</li>
+          <li>Number of stops</li>
+          <li>Total distance (km)</li>
+          <li>Total duration</li>
+          <li>Whether it was optimized</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Replay a route on the map</h3>
+    <p>Select a past route to <strong>replay it on the map</strong>. The route line, stops, and sequence are displayed exactly as they were. This is useful for:</p>
+    <ul>
+      <li>Reviewing what you did on a specific day</li>
+      <li>Showing your manager your territory coverage</li>
+      <li>Reloading a proven route as a starting point for a new day</li>
+    </ul>
+
+    <h3>Route naming</h3>
+    <p>If your admin has enabled <strong>route naming</strong> (EnableHistoryNaming), you can give each route a descriptive name (e.g., "North District - Monday Round"). This makes it easier to find specific routes later.</p>
+
+    <h3>Delete a route</h3>
+    <p>Select a route and click <strong>Delete</strong> to remove it from your history. This cannot be undone.</p>
+
+    <div class="screenshot-placeholder">[Screenshot: Route History panel with saved routes listed by date]</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="heatmap">13. Heatmap</h2>
+
+    <p>The heatmap overlay provides a visual density view of your records on the map. Areas with many records appear as warm colors (red/orange), while sparse areas appear cool (blue/green).</p>
+
+    <h3>How to use it</h3>
+    <ol>
+      <li>Click the <strong>Heatmap</strong> toggle button on the map toolbar.</li>
+      <li>The heatmap overlay appears on top of the map.</li>
+      <li>Click the toggle again to turn it off and return to individual markers.</li>
+    </ol>
+
+    <h3>When to use it</h3>
+    <ul>
+      <li>Identify which areas of your territory have the highest concentration of records.</li>
+      <li>Spot underserved zones with few accounts or leads.</li>
+      <li>Plan route days around high-density areas for efficiency.</li>
+    </ul>
+
+    <div class="note"><strong>Note:</strong> The heatmap feature must be enabled by your admin (EnableHeatmap). If you do not see the toggle, ask your admin to activate it.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="bulk-select">14. Bulk Select (Lasso Tool)</h2>
+
+    <p>The lasso tool lets you select multiple records on the map at once by drawing a selection area.</p>
+
+    <div class="screenshot-placeholder">[Screenshot: Lasso selection drawn around a group of markers]</div>
+
+    <h3>How to use it</h3>
+    <ol>
+      <li>Click the <strong>Lasso</strong> button on the map toolbar.</li>
+      <li>Click and drag on the map to draw a selection area around the markers you want.</li>
+      <li>All markers inside the area are selected and highlighted.</li>
+    </ol>
+
+    <h3>What you can do with a selection</h3>
+    <ul>
+      <li><strong>Add all to route</strong> — adds every selected record as a route stop in one action.</li>
+      <li><strong>Bulk operations</strong> — depending on your admin configuration, additional bulk actions may be available.</li>
+    </ul>
+
+    <div class="tip"><strong>Tip:</strong> Use the lasso tool to quickly build a route for a specific neighborhood or industrial zone. Draw around the area, add all to your route, then optimize.</div>
+
+    <div class="note"><strong>Note:</strong> Bulk select must be enabled by your admin (EnableBulkSelect). If you do not see the Lasso button, ask your admin to activate it.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="quick-text">15. Quick Text for Visit Notes</h2>
+
+    <p>Quick Text provides pre-defined text templates that you can insert into the visit notes field during check-in/check-out. This saves time and ensures consistent reporting.</p>
+
+    <h3>How to use it</h3>
+    <ol>
+      <li>During check-in or check-out, click in the <strong>Notes</strong> field.</li>
+      <li>Click the <strong>Quick Text</strong> button (or look for the template icon).</li>
+      <li>Select a template from the list.</li>
+      <li>The template text is inserted into the notes field.</li>
+      <li>Edit the inserted text as needed to add specific details.</li>
+    </ol>
+
+    <h3>Rich text support</h3>
+    <p>The notes field supports <strong>rich text formatting</strong> — bold, italic, bullet points, and more. Quick Text templates can include formatting, so your visit notes look professional and well-structured.</p>
+
+    <div class="note"><strong>Note:</strong> Quick Text must be enabled by your admin (QuickTextEnabled). Templates are managed in the RouteForce configuration.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="mobile">16. Mobile Usage</h2>
+
+    <p>RouteForce is fully functional on the <strong>Salesforce Mobile App</strong>. You have access to every feature described in this guide while in the field.</p>
+
+    <div class="screenshot-placeholder">[Screenshot: RouteForce on mobile device showing the map and route panel]</div>
+
+    <h3>Mobile interface</h3>
+    <ul>
+      <li>The map supports <strong>pinch to zoom</strong> and <strong>drag</strong> gestures.</li>
+      <li>The filter panel becomes a <strong>slide-out drawer</strong> to maximize map space.</li>
+      <li>The route panel adapts to the screen width.</li>
+      <li>All buttons and controls are <strong>touch-friendly</strong> with appropriate sizing.</li>
+    </ul>
+
+    <h3>Key mobile workflows</h3>
+    <table>
+      <thead>
+        <tr><th>Workflow</th><th>How It Works on Mobile</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>GPS Check-In</strong></td><td>Uses your phone's GPS for accurate location verification. Works the same as desktop but with better GPS precision.</td></tr>
+        <tr><td><strong>Click-to-Call</strong></td><td>Tapping a phone number initiates a phone call directly on your device.</td></tr>
+        <tr><td><strong>Navigate</strong></td><td>Opens Google Maps app with turn-by-turn directions.</td></tr>
+        <tr><td><strong>Visit Reports</strong></td><td>Complete check-in/check-out forms on your phone immediately after each visit.</td></tr>
+        <tr><td><strong>Route Export</strong></td><td>Export to Google Maps launches the app for live navigation.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip"><strong>Tip:</strong> For the best mobile experience, plan and optimize your route on desktop before heading out. Then use mobile for navigation, check-ins, and visit reports throughout the day.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="troubleshooting">17. Troubleshooting</h2>
+
+    <table>
+      <thead>
+        <tr><th>Problem</th><th>What to Check</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>No markers appear on the map</td>
+          <td>Records must have valid latitude/longitude coordinates. Ask your admin to verify geocoding is running.</td>
+        </tr>
+        <tr>
+          <td>Map does not load</td>
+          <td>Check your internet connection. If the problem persists, ask your admin to verify the RouteForce license and remote site settings.</td>
+        </tr>
+        <tr>
+          <td>Route optimization fails</td>
+          <td>Reduce the number of stops (max 50) and try again. Ensure all stops have valid addresses.</td>
+        </tr>
+        <tr>
+          <td>Events do not appear on the map</td>
+          <td>Check that you have Events for today in your Salesforce calendar. Try toggling Show/Hide Events.</td>
+        </tr>
+        <tr>
+          <td>Check-in button is greyed out</td>
+          <td>You may be too far from the location (outside the 500m radius). Move closer and try again. If you are on-site, check that GPS is enabled on your device.</td>
+        </tr>
+        <tr>
+          <td>Check-in says "Low GPS accuracy"</td>
+          <td>Move to an open area away from tall buildings. Wait a few seconds for the GPS signal to stabilize, then try again.</td>
+        </tr>
+        <tr>
+          <td>CSV export is empty</td>
+          <td>You must optimize the route first. Build your stops, click Optimize, then export.</td>
+        </tr>
+        <tr>
+          <td>Filter changes have no effect</td>
+          <td>Make sure you click <strong>Apply</strong> after changing filter values.</td>
+        </tr>
+        <tr>
+          <td>Heatmap or Lasso button is missing</td>
+          <td>These features are optional. Ask your admin to enable them in RouteForce configuration.</td>
+        </tr>
+        <tr>
+          <td>Quick Text templates are not showing</td>
+          <td>Quick Text must be enabled by your admin. Contact them to verify the configuration.</td>
+        </tr>
+        <tr>
+          <td>A specific record is missing from the map</td>
+          <td>The record may not have a geocoded address, or it may be filtered out. Clear all filters and check if it appears.</td>
+        </tr>
+        <tr>
+          <td>Route history is empty</td>
+          <td>Routes are saved when you build them. If you have never created a route, history will be empty.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="best-practices">18. Best Practices</h2>
+
+    <h3>Planning your day</h3>
+    <ul>
+      <li>Start each morning by opening RouteForce and reviewing your <strong>Today's Agenda</strong>.</li>
+      <li>Use the <strong>"Not visited since"</strong> filter to identify accounts that need attention.</li>
+      <li>Keep routes realistic — <strong>5 to 10 stops</strong> per day is typical. Do not overload your schedule.</li>
+      <li>Set accurate <strong>departure time</strong> and <strong>visit duration</strong> before optimizing for reliable arrival estimates.</li>
+      <li>Export your optimized route to <strong>Google Maps</strong> before leaving the office.</li>
+    </ul>
+
+    <h3>In the field</h3>
+    <ul>
+      <li><strong>Check in immediately</strong> when you arrive at each location. Do not wait until the end of the day.</li>
+      <li><strong>Check out before leaving</strong> so visit duration is calculated accurately.</li>
+      <li>Use <strong>Quick Text</strong> templates to speed up note-taking while keeping reports consistent.</li>
+      <li>Use <strong>Click-to-Call</strong> from the popup to call ahead before driving to a stop.</li>
+      <li>If a stop is cancelled, remove it from your route and re-optimize.</li>
+    </ul>
+
+    <h3>Managing your territory</h3>
+    <ul>
+      <li><strong>Save filter presets</strong> for recurring territory views (e.g., "Key Accounts - East", "New Leads - This Month").</li>
+      <li>Share useful filters as <strong>public presets</strong> so your team can benefit.</li>
+      <li>Use the <strong>Heatmap</strong> to visualize account density and identify coverage gaps.</li>
+      <li>Review your <strong>Route History</strong> weekly to ensure balanced territory coverage.</li>
+      <li>Name your routes (if enabled) to find them easily later.</li>
+    </ul>
+
+    <h3>For managers</h3>
+    <ul>
+      <li>Review <strong>Visit Reports</strong> to track team activity and visit outcomes.</li>
+      <li>Use the <strong>Route History</strong> tab to see which areas your reps are covering.</li>
+      <li>Check <strong>visit durations</strong> and <strong>results</strong> for coaching opportunities.</li>
+      <li>Create <strong>public filter presets</strong> to standardize how your team segments their territory.</li>
+    </ul>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="support">19. Support</h2>
+
+    <p>If you encounter an issue not covered in this guide:</p>
+    <ol>
+      <li>Check the <a href="#troubleshooting">Troubleshooting</a> section above.</li>
+      <li>Contact your <strong>Salesforce administrator</strong> — they can verify your configuration and permissions.</li>
+      <li>If the issue persists, reach out to <strong>RouteForce support</strong> at <a href="mailto:contact@routeforce.app">contact@routeforce.app</a>.</li>
+    </ol>
+
+    <hr>
+    <p class="small-muted" style="text-align:center; margin-top: 24px;">RouteForce V7.4.0 — User Guide — March 2026<br>https://routeforce.app</p>
 
   </main>
 </body>

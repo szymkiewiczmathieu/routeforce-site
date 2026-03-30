@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RouteForce Setup Guide</title>
+  <title>RouteForce Setup Guide — V7.4.0</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -69,10 +69,10 @@
     }
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
   </style>
-  <meta name="description" content="Guide d'installation RouteForce pour Salesforce : package, permissions, onboarding, validation et rollout pilote.">
+  <meta name="description" content="RouteForce V7.4.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.">
   <link rel="canonical" href="https://routeforce.app/docs/setup-guide.html">
-  <meta property="og:title" content="RouteForce Setup Guide">
-  <meta property="og:description" content="Guide d'installation RouteForce pour administrateurs Salesforce.">
+  <meta property="og:title" content="RouteForce Setup Guide — V7.4.0">
+  <meta property="og:description" content="Implementation guide for Salesforce administrators deploying RouteForce V7.4.0.">
   <meta property="og:type" content="article">
 <link rel="stylesheet" href="guide-dark.css"/>
 </head>
@@ -92,327 +92,795 @@
       </div>
       <div class="hero">
         <h1>RouteForce Setup Guide</h1>
-        <p>Client-facing implementation guide</p>
+        <p>Implementation guide for Salesforce administrators</p>
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">RouteForce</div></div>
-        <div class="card"><div class="label">Version</div><div class="value">March 2026</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">V7.4.0 — March 2026</div></div>
         <div class="card"><div class="label">Format</div><div class="value">PDF / Print-ready HTML</div></div>
       </div>
     </div>
-    <div class="cover-footer">Prepared for client delivery • RouteForce for Salesforce • contact@routeforce.app</div>
+    <div class="cover-footer">Prepared for client delivery &bull; RouteForce for Salesforce &bull; contact@routeforce.app</div>
   </section>
   <main class="content">
     <div class="note"><strong>RouteForce branded edition.</strong> This document is formatted for client delivery and print/PDF export.</div>
     <h1>RouteForce Setup Guide</h1>
-<p><strong>Version:</strong> March 2026<br><strong>Package version:</strong> RouteForce V7.4.0<br><strong>Audience:</strong> Salesforce administrators during initial deployment<br><strong>Goal:</strong> Install RouteForce, assign access, configure core settings, and validate the first working rollout</p>
-<div class="note"><strong>Install links:</strong> <a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000D0evQAC">Production / Developer Edition</a> · <a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000D0evQAC">Sandbox</a></div>
+<p><strong>Version:</strong> V7.4.0 — March 2026<br><strong>Audience:</strong> Salesforce administrators during initial deployment<br><strong>Goal:</strong> Install RouteForce, assign access, run the onboarding wizard, configure core settings, and validate the first working rollout</p>
+<div class="note"><strong>Install links:</strong> <a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000D0evQAC">Production / Developer Edition</a> &middot; <a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000D0evQAC">Sandbox</a></div>
 <hr>
+
+<!-- ======================================================== -->
 <h2>1. Before you start</h2>
 <h3>Prerequisites</h3>
 <ul>
-<li>Salesforce org with Lightning enabled</li>
-<li>System Administrator access</li>
-<li>RouteForce package installation link</li>
-<li>RouteForce licence key</li>
-<li>ORS API key if provided for your environment</li>
-<li>Geocoded data on the records you want to display</li>
+<li>Salesforce org with <strong>Lightning Experience</strong> enabled</li>
+<li><strong>System Administrator</strong> profile access</li>
+<li>RouteForce package installation link (provided by your RouteForce contact)</li>
+<li>RouteForce <strong>licence key</strong></li>
+<li><strong>ORS API key</strong> (provided for your environment)</li>
+<li>Optional: <strong>Fallback API key</strong> if applicable to your deployment</li>
+<li>Geocoded data (latitude/longitude) on the records you want to display on the map</li>
 </ul>
 <h3>Recommended preparation</h3>
 <ul>
-<li>Confirm whether your org should use <strong>Shipping</strong> or <strong>Billing</strong> addresses.</li>
-<li>Identify pilot users.</li>
-<li>Check that your key Account records already contain latitude and longitude.</li>
+<li>Confirm whether your org uses <strong>Shipping</strong> or <strong>Billing</strong> addresses for field visits.</li>
+<li>Identify pilot users and their roles (admin, manager, field rep).</li>
+<li>Verify that key Account records already contain latitude and longitude values.</li>
+<li>Review which objects your team needs on the map (Accounts, Leads, Opportunities).</li>
 </ul>
 <hr>
+
+<!-- ======================================================== -->
 <h2>2. Install the package</h2>
-<p>Use the RouteForce installation URL provided by your RouteForce contact.</p>
+<p>Use the installation link matching your environment.</p>
 <table>
 <thead>
 <tr>
 <th>Environment</th>
-<th>Typical endpoint</th>
+<th>Installation URL</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>Production</td>
-<td><code>https://login.salesforce.com/packaging/installPackage.apexp?...</code></td>
+<td>Production / Developer Edition</td>
+<td><a href="https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000D0evQAC"><code>https://login.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000D0evQAC</code></a></td>
 </tr>
 <tr>
 <td>Sandbox</td>
-<td><code>https://test.salesforce.com/packaging/installPackage.apexp?...</code></td>
+<td><a href="https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000D0evQAC"><code>https://test.salesforce.com/packaging/installPackage.apexp?p0=04tgL000000D0evQAC</code></a></td>
 </tr>
 </tbody></table>
-<h3>Installation recommendation</h3>
-<ul>
-<li>Choose <strong>Install for Admins Only</strong> first.</li>
-<li>Assign users intentionally after validation.</li>
-</ul>
-<h3>During installation</h3>
-<p>Approve access requests if Salesforce prompts for RouteForce callout endpoints.</p>
+<h3>Installation steps</h3>
+<ol>
+<li>Open the installation URL in a browser where you are logged in as System Administrator.</li>
+<li>Select <strong>Install for Admins Only</strong>. You will assign users intentionally after validation.</li>
+<li>If Salesforce prompts you to approve third-party access for RouteForce callout endpoints, click <strong>Yes, grant access</strong>.</li>
+<li>Wait for the installation confirmation email from Salesforce.</li>
+</ol>
+<h3>Verify installation</h3>
+<pre><code class="language-sql">SELECT Id, SubscriberPackage.Name, SubscriberPackageVersion.MajorVersion,
+       SubscriberPackageVersion.MinorVersion, SubscriberPackageVersion.PatchVersion
+FROM InstalledSubscriberPackage
+WHERE SubscriberPackage.Name = 'RouteForce'
+</code></pre>
 <hr>
+
+<!-- ======================================================== -->
 <h2>3. Assign permission sets</h2>
-<p>RouteForce ships with two main permission sets.</p>
+<p>RouteForce V7.4.0 ships with <strong>three</strong> permission sets to support different levels of access.</p>
 <table>
 <thead>
 <tr>
 <th>Permission Set</th>
 <th>Intended audience</th>
-<th>Purpose</th>
+<th>Key capabilities</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>RouteForce Admin</td>
-<td>Salesforce admins</td>
-<td>Full setup and configuration access</td>
+<td><code>RouteForce_Admin</code></td>
+<td>Salesforce administrators</td>
+<td>Full configuration access. All 32 Apex classes. Both flows (RF_Onboarding, RF_Main). Read/write on all RouteForce custom objects.</td>
 </tr>
 <tr>
-<td>RouteForce User</td>
+<td><code>RouteForce_Manager</code></td>
+<td>Sales managers, team leads</td>
+<td>Manager-level access. 18 Apex classes. <code>viewAllRecords</code> on RouteForce History and Visit Report objects. Can view team activity and reports.</td>
+</tr>
+<tr>
+<td><code>RouteForce_User</code></td>
 <td>Sales reps and field users</td>
-<td>Daily operational access</td>
+<td>Standard daily access. 18 Apex classes. Own-record visibility only on History and Visit Reports.</td>
 </tr>
 </tbody></table>
-<h3>Assign in Salesforce</h3>
+<h3>Assignment via Setup</h3>
 <ol>
 <li>Go to <strong>Setup &gt; Permission Sets</strong>.</li>
-<li>Open the permission set.</li>
+<li>Open the desired permission set (e.g., <code>RouteForce_Admin</code>).</li>
 <li>Click <strong>Manage Assignments</strong>.</li>
-<li>Add users.</li>
+<li>Click <strong>Add Assignment</strong> and select the appropriate users.</li>
+<li>Repeat for each permission set as needed.</li>
 </ol>
-<h3>Optional CLI assignment</h3>
+<h3>Assignment via CLI</h3>
 <pre><code class="language-bash">sf org assign permset --name RouteForce_Admin --target-org &lt;your-org&gt;
+sf org assign permset --name RouteForce_Manager --target-org &lt;your-org&gt;
 sf org assign permset --name RouteForce_User --target-org &lt;your-org&gt;
 </code></pre>
+<h3>Verify assignments</h3>
+<pre><code class="language-sql">SELECT Assignee.Name, PermissionSet.Name
+FROM PermissionSetAssignment
+WHERE PermissionSet.Name LIKE 'RouteForce_%'
+ORDER BY PermissionSet.Name, Assignee.Name
+</code></pre>
+<div class="note"><strong>Recommendation:</strong> During initial setup, assign <code>RouteForce_Admin</code> to yourself. Add pilot users with <code>RouteForce_User</code> or <code>RouteForce_Manager</code> only after you have completed validation (Section 10).</div>
 <hr>
-<h2>4. Launch the onboarding wizard</h2>
-<p>Open the RouteForce app and go to the <strong>Configuration</strong> tab.</p>
 
-<p>Run the <strong>RF_Onboarding</strong> flow.</p>
+<!-- ======================================================== -->
+<h2>4. Verify Remote Site Settings</h2>
+<p>RouteForce requires external access for routing, licence validation, and optional address enrichment. These Remote Site Settings should be created automatically during package installation. Verify that they exist and are active.</p>
+<table>
+<thead>
+<tr>
+<th>Remote Site Name</th>
+<th>URL</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RouteForce_ORS</td>
+<td><code>https://ors.routeforce.app</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>OpenRouteService</td>
+<td><code>https://api.openrouteservice.org</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>FR_Address_API</td>
+<td><code>https://api-adresse.data.gouv.fr</code></td>
+<td>Only if address enrichment is enabled</td>
+</tr>
+</tbody></table>
+<h3>Verify in Setup</h3>
+<ol>
+<li>Go to <strong>Setup &gt; Security &gt; Remote Site Settings</strong>.</li>
+<li>Confirm each URL above is listed and marked <strong>Active</strong>.</li>
+<li>If any are missing, click <strong>New Remote Site</strong> and add the URL manually.</li>
+</ol>
+<hr>
+
+<!-- ======================================================== -->
+<h2>5. Launch the onboarding wizard</h2>
+<p>The <strong>RF_Onboarding</strong> flow guides you through initial configuration. It securely stores your keys via <code>SecureConfigService</code> into the <code>InternalConfig__c</code> custom setting.</p>
+<h3>How to launch</h3>
+<ol>
+<li>Open the <strong>RouteForce</strong> app from the App Launcher.</li>
+<li>Navigate to the <strong>Configuration</strong> tab.</li>
+<li>Click <strong>Run Onboarding</strong> (or the RF_Onboarding flow will launch automatically on first access).</li>
+</ol>
+
 <h3>Step 1 — API keys</h3>
-<p>Provide:</p>
-<ul>
-<li><strong>Licence Key</strong></li>
-<li><strong>ORS API Key</strong></li>
-<li><strong>Fallback API Key</strong> if used in your deployment</li>
-</ul>
-<h3>Step 2 — map defaults</h3>
-<p>Set:</p>
-<ul>
-<li>address prefix</li>
-<li>default map layer</li>
-<li>default zoom</li>
-<li>default display mode</li>
-</ul>
-<h3>Step 3 — feature toggles</h3>
-<p>Enable or disable features such as:</p>
-<ul>
-<li>Events</li>
-<li>Leads</li>
-<li>Nearby</li>
-<li>Visit Reports</li>
-<li>History naming</li>
-<li>Opportunities</li>
-</ul>
-<h3>Step 4 — advanced settings</h3>
-<p>Typical advanced settings:</p>
-<ul>
-<li>cluster radius</li>
-<li>max route steps</li>
-<li>nearby radius</li>
-<li>support email</li>
-</ul>
-<hr>
-<h2>5. Configure the default user experience</h2>
-<p>Use the onboarding flow and Lightning App Builder together.</p>
+<p>Enter the following credentials:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Licence Key</strong></td>
+<td>Your RouteForce licence key (provided during purchase)</td>
+</tr>
+<tr>
+<td><strong>ORS API Key</strong></td>
+<td>API key for the RouteForce routing service</td>
+</tr>
+<tr>
+<td><strong>Fallback API Key</strong></td>
+<td>Secondary routing key used when the primary ORS endpoint is unavailable</td>
+</tr>
+</tbody></table>
+<div class="note"><strong>Security note:</strong> All keys are stored securely in <code>InternalConfig__c</code> via the <code>SecureConfigService</code> class. They are never exposed in Custom Metadata or client-side code.</div>
 
-<h3>Good default choices</h3>
+<h3>Step 2 — Map defaults</h3>
+<p>Configure the baseline map behavior:</p>
 <table>
 <thead>
 <tr>
 <th>Setting</th>
-<th>Recommended starting point</th>
+<th>Default</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>Address prefix</td>
-<td>Shipping if visits happen at shipping sites</td>
+<td><code>Shipping</code></td>
+<td>Which standard address fields to use (<code>Shipping</code> or <code>Billing</code>)</td>
 </tr>
 <tr>
-<td>Map layer</td>
-<td>Standard</td>
+<td>Default map layer</td>
+<td><code>Standard</code></td>
+<td>Base map tile layer</td>
 </tr>
 <tr>
-<td>Display mode</td>
-<td>Accounts first</td>
+<td>Default zoom</td>
+<td><code>10</code></td>
+<td>Initial zoom level when the map loads</td>
+</tr>
+<tr>
+<td>Default display mode</td>
+<td><code>both</code></td>
+<td>Show map and list simultaneously (<code>map</code>, <code>list</code>, or <code>both</code>)</td>
+</tr>
+</tbody></table>
+
+<h3>Step 3 — Feature toggles</h3>
+<p>Enable or disable features based on your business needs:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Events</td>
+<td>Enabled</td>
+<td>Display Salesforce Events on the map</td>
 </tr>
 <tr>
 <td>Leads</td>
-<td>Disabled unless field teams use them daily</td>
+<td>Enabled</td>
+<td>Display Leads on the map</td>
 </tr>
 <tr>
 <td>Opportunities</td>
-<td>Enable only if route planning needs them</td>
+<td>Enabled</td>
+<td>Display Opportunities on the map (uses parent Account address)</td>
 </tr>
 <tr>
-<td>Nearby radius</td>
-<td>Conservative to avoid clutter</td>
+<td>Visit Reports</td>
+<td>Enabled</td>
+<td>Allow users to create visit reports from the map</td>
+</tr>
+<tr>
+<td>Heatmap</td>
+<td>Enabled</td>
+<td>Enable the heatmap visualization layer</td>
+</tr>
+<tr>
+<td>Bulk Select</td>
+<td>Enabled</td>
+<td>Allow multi-record selection on the map</td>
+</tr>
+<tr>
+<td>CSV Export</td>
+<td>Enabled</td>
+<td>Allow exporting map data to CSV</td>
+</tr>
+<tr>
+<td>History Naming</td>
+<td>Enabled</td>
+<td>Automatically name route history records</td>
+</tr>
+<tr>
+<td>Usage Tracking</td>
+<td>Enabled</td>
+<td>Track feature usage for analytics</td>
+</tr>
+<tr>
+<td>Contact Lookup</td>
+<td>Enabled</td>
+<td>Enable contact lookup on account markers</td>
+</tr>
+<tr>
+<td>Quick Text</td>
+<td>Enabled</td>
+<td>Enable quick text templates in visit reports</td>
+</tr>
+<tr>
+<td>Role Filter</td>
+<td>Disabled</td>
+<td>Filter records by user role hierarchy</td>
+</tr>
+<tr>
+<td>Team Filter</td>
+<td>Disabled</td>
+<td>Filter records by team membership</td>
 </tr>
 </tbody></table>
-<h3>FlexiPage customization</h3>
-<p>In <strong>Lightning App Builder</strong>, you can configure:</p>
-<ul>
-<li>filter fields</li>
-<li>legend values</li>
-<li>marker popup fields</li>
-<li>record type filter</li>
-<li>multi-select behavior</li>
-</ul>
-<hr>
-<h2>6. Validate route settings</h2>
-<p>Make sure the route panel behaves as expected.</p>
 
-<p>Check that users can:</p>
-<ul>
-<li>open route mode</li>
-<li>choose a starting point</li>
-<li>add stops</li>
-<li>edit route timing</li>
-<li>optimize successfully</li>
-</ul>
-<p>Review these core settings in particular:</p>
-<ul>
-<li>departure time</li>
-<li>lunch break</li>
-<li>end of day</li>
-<li>visit duration</li>
-<li>max route steps</li>
-</ul>
+<h3>Step 4 — Advanced settings</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cluster radius</td>
+<td><code>60</code></td>
+<td>Pixel radius for marker clustering</td>
+</tr>
+<tr>
+<td>Max route steps</td>
+<td><code>50</code></td>
+<td>Maximum number of stops per optimized route</td>
+</tr>
+<tr>
+<td>Not visited since (days)</td>
+<td><code>30</code></td>
+<td>Highlight accounts not visited within this period</td>
+</tr>
+<tr>
+<td>Check-in on-site radius (meters)</td>
+<td><code>500</code></td>
+<td>GPS proximity required for on-site check-in</td>
+</tr>
+<tr>
+<td>Log retention (days)</td>
+<td><code>30</code></td>
+<td>Number of days to retain internal log records</td>
+</tr>
+</tbody></table>
 <hr>
-<h2>7. Verify remote access</h2>
-<p>RouteForce relies on external routing and licence services.</p>
-<h3>Verify Remote Site Settings if needed</h3>
-<p>Typical endpoints include:</p>
-<ul>
-<li><code>https://ors.routeforce.app</code></li>
-<li><code>https://api.openrouteservice.org</code></li>
-</ul>
-<p>If they are not already available through the package, add them manually in <strong>Setup &gt; Remote Site Settings</strong>.</p>
+
+<!-- ======================================================== -->
+<h2>6. RouteForceConfig__mdt — Full configuration reference</h2>
+<p>All configuration is stored in the <code>RouteForceConfig__mdt</code> Custom Metadata Type (36 fields). The onboarding wizard sets the most important values, but you can edit any field directly in <strong>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Manage Records</strong>.</p>
+
+<table>
+<thead>
+<tr>
+<th>Field API Name</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><code>AddressFieldPrefix__c</code></td><td><code>Shipping</code></td><td>Address field prefix (Shipping or Billing)</td></tr>
+<tr><td><code>ClusterRadius__c</code></td><td><code>60</code></td><td>Marker clustering pixel radius</td></tr>
+<tr><td><code>DefaultDisplayMode__c</code></td><td><code>both</code></td><td>Initial display mode</td></tr>
+<tr><td><code>DefaultMapLayer__c</code></td><td><code>Standard</code></td><td>Base map layer</td></tr>
+<tr><td><code>DefaultZoom__c</code></td><td><code>10</code></td><td>Initial map zoom level</td></tr>
+<tr><td><code>MaxRouteSteps__c</code></td><td><code>50</code></td><td>Max stops per route</td></tr>
+<tr><td><code>NotVisitedSinceDays__c</code></td><td><code>30</code></td><td>Days threshold for "not visited" highlight</td></tr>
+<tr><td><code>EnableEvents__c</code></td><td><code>true</code></td><td>Show Events on map</td></tr>
+<tr><td><code>EnableLeads__c</code></td><td><code>true</code></td><td>Show Leads on map</td></tr>
+<tr><td><code>EnableOpportunities__c</code></td><td><code>true</code></td><td>Show Opportunities on map</td></tr>
+<tr><td><code>EnableVisitReports__c</code></td><td><code>true</code></td><td>Enable visit report creation</td></tr>
+<tr><td><code>EnableHeatmap__c</code></td><td><code>true</code></td><td>Enable heatmap layer</td></tr>
+<tr><td><code>EnableBulkSelect__c</code></td><td><code>true</code></td><td>Enable multi-select on map</td></tr>
+<tr><td><code>EnableCSVExport__c</code></td><td><code>true</code></td><td>Enable CSV export</td></tr>
+<tr><td><code>EnableUsageTracking__c</code></td><td><code>true</code></td><td>Track feature usage</td></tr>
+<tr><td><code>EnableHistoryNaming__c</code></td><td><code>true</code></td><td>Auto-name route history records</td></tr>
+<tr><td><code>EnableRoleFilter__c</code></td><td><code>false</code></td><td>Filter by role hierarchy</td></tr>
+<tr><td><code>EnableTeamFilter__c</code></td><td><code>false</code></td><td>Filter by team</td></tr>
+<tr><td><code>ContactLookupEnabled__c</code></td><td><code>true</code></td><td>Contact lookup on account markers</td></tr>
+<tr><td><code>QuickTextEnabled__c</code></td><td><code>true</code></td><td>Quick text in visit reports</td></tr>
+<tr><td><code>CheckInOnSiteRadiusMeters__c</code></td><td><code>500</code></td><td>On-site check-in GPS radius (meters)</td></tr>
+<tr><td><code>LogRetentionDays__c</code></td><td><code>30</code></td><td>Log retention period (days)</td></tr>
+<tr><td><code>FilterFields__c</code></td><td><code>Account.Industry,Account.Type</code></td><td>Comma-separated list of filterable fields</td></tr>
+<tr><td><code>VisitReportCustomFields__c</code></td><td><code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td><td>Fields shown in the visit report form</td></tr>
+<tr><td><code>VisitResultOptions__c</code></td><td><code>Positive,Neutral,Negative,No Answer</code></td><td>Picklist values for visit result</td></tr>
+</tbody></table>
+
+<h3>SOQL check — verify active configuration</h3>
+<pre><code class="language-sql">SELECT DeveloperName, AddressFieldPrefix__c, DefaultZoom__c,
+       EnableLeads__c, EnableOpportunities__c, EnableVisitReports__c,
+       MaxRouteSteps__c, EnableHeatmap__c, EnableBulkSelect__c
+FROM RouteForceConfig__mdt
+WHERE DeveloperName = 'Default'
+</code></pre>
 <hr>
-<h2>8. Verify your geocoded data</h2>
-<p>If the data is not geocoded, users will see an empty map.</p>
+
+<!-- ======================================================== -->
+<h2>7. Default filter fields</h2>
+<p>RouteForce V7.4.0 includes 16 filter field slots. The first 10 are pre-configured with commonly used fields. Slots 11 through 16 are empty and available for your custom fields.</p>
+<table>
+<thead>
+<tr>
+<th>Slot</th>
+<th>Field API Name</th>
+<th>Field Path</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>filterField1</td><td><code>filterField1__c</code></td><td><code>Account.Industry</code></td><td>Standard picklist</td></tr>
+<tr><td>filterField2</td><td><code>filterField2__c</code></td><td><code>Account.Type</code></td><td>Standard picklist</td></tr>
+<tr><td>filterField3</td><td><code>filterField3__c</code></td><td><code>Account.Rating</code></td><td>Standard picklist</td></tr>
+<tr><td>filterField4</td><td><code>filterField4__c</code></td><td><code>Account.Ownership</code></td><td>Standard picklist</td></tr>
+<tr><td>filterField5</td><td><code>filterField5__c</code></td><td><code>Opportunity.StageName</code></td><td>Standard picklist</td></tr>
+<tr><td>filterField6</td><td><code>filterField6__c</code></td><td><code>Opportunity.ForecastCategory</code></td><td>Standard picklist</td></tr>
+<tr><td>filterField7</td><td><code>filterField7__c</code></td><td><code>Lead.Status</code></td><td>Standard picklist</td></tr>
+<tr><td>filterField8</td><td><code>filterField8__c</code></td><td><code>Lead.LeadSource</code></td><td>Standard picklist</td></tr>
+<tr><td>filterField9</td><td><code>filterField9__c</code></td><td><code>Opportunity.Account.Industry</code></td><td>Cross-object reference</td></tr>
+<tr><td>filterField10</td><td><code>filterField10__c</code></td><td><code>Lead.Rating</code></td><td>Standard picklist</td></tr>
+<tr><td>filterField11</td><td><code>filterField11__c</code></td><td><em>(empty)</em></td><td>Available for custom use</td></tr>
+<tr><td>filterField12</td><td><code>filterField12__c</code></td><td><em>(empty)</em></td><td>Available for custom use</td></tr>
+<tr><td>filterField13</td><td><code>filterField13__c</code></td><td><em>(empty)</em></td><td>Available for custom use</td></tr>
+<tr><td>filterField14</td><td><code>filterField14__c</code></td><td><em>(empty)</em></td><td>Available for custom use</td></tr>
+<tr><td>filterField15</td><td><code>filterField15__c</code></td><td><em>(empty)</em></td><td>Available for custom use</td></tr>
+<tr><td>filterField16</td><td><code>filterField16__c</code></td><td><em>(empty)</em></td><td>Available for custom use</td></tr>
+</tbody></table>
+<div class="note"><strong>Custom filter fields:</strong> To add a custom filter, edit the <code>RouteForceConfig__mdt</code> record and set the empty slot to a valid field path (e.g., <code>Account.My_Custom_Field__c</code>). The field must be a picklist or a reference to a picklist for the filter UI to display selectable values.</div>
+<hr>
+
+<!-- ======================================================== -->
+<h2>8. Configure the default user experience</h2>
+<p>After the onboarding wizard, fine-tune the user experience by adjusting configuration values and the Lightning page layout.</p>
+
+<h3>Recommended starting defaults</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Recommended value</th>
+<th>Reasoning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Address prefix</td>
+<td><code>Shipping</code></td>
+<td>Most field visits happen at shipping/delivery sites</td>
+</tr>
+<tr>
+<td>Map layer</td>
+<td><code>Standard</code></td>
+<td>Clean, fast-loading base map</td>
+</tr>
+<tr>
+<td>Display mode</td>
+<td><code>both</code></td>
+<td>Map and list side by side for maximum context</td>
+</tr>
+<tr>
+<td>Leads</td>
+<td>Enabled if field teams prospect; otherwise disable</td>
+<td>Reduces map clutter when not needed</td>
+</tr>
+<tr>
+<td>Opportunities</td>
+<td>Enable only if route planning involves deal stages</td>
+<td>Keeps the map focused</td>
+</tr>
+<tr>
+<td>Not visited since</td>
+<td><code>30</code> days</td>
+<td>Highlights accounts needing attention</td>
+</tr>
+<tr>
+<td>Max route steps</td>
+<td><code>50</code></td>
+<td>Covers a full day of visits for most territories</td>
+</tr>
+<tr>
+<td>Cluster radius</td>
+<td><code>60</code></td>
+<td>Good balance between readability and density</td>
+</tr>
+</tbody></table>
+
+<h3>Visit report configuration</h3>
+<p>The visit report form fields and result options are controlled by two configuration values:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>VisitReportCustomFields__c</code></td>
+<td><code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td>
+</tr>
+<tr>
+<td><code>VisitResultOptions__c</code></td>
+<td><code>Positive,Neutral,Negative,No Answer</code></td>
+</tr>
+</tbody></table>
+<p>To add or remove fields from the visit report form, edit the comma-separated list in <code>VisitReportCustomFields__c</code>. To change the result dropdown options, edit <code>VisitResultOptions__c</code>.</p>
+
+<h3>FlexiPage customization (Lightning App Builder)</h3>
+<p>For deeper UI customization, open the RouteForce Lightning page in <strong>Lightning App Builder</strong>:</p>
+<ol>
+<li>Go to <strong>Setup &gt; Lightning App Builder</strong>.</li>
+<li>Find and edit the RouteForce page.</li>
+<li>You can configure the following component properties:
+<ul>
+<li><strong>Filter fields</strong> — select which filter fields appear in the sidebar</li>
+<li><strong>Legend</strong> — customize map legend labels and colors</li>
+<li><strong>Marker popup fields</strong> — choose which fields display when clicking a marker</li>
+<li><strong>Record type filter</strong> — limit visible record types</li>
+<li><strong>Multi-select behavior</strong> — configure bulk selection options</li>
+</ul>
+</li>
+<li>Save and <strong>Activate</strong> the page for the appropriate profiles or app.</li>
+</ol>
+<hr>
+
+<!-- ======================================================== -->
+<h2>9. Verify your geocoded data</h2>
+<p>RouteForce plots records on the map using latitude and longitude fields. If these fields are empty, the map will appear blank.</p>
 <h3>Accounts</h3>
-<p>Use either:</p>
+<p>Depending on your <code>AddressFieldPrefix</code> setting, ensure either:</p>
 <ul>
-<li><code>ShippingLatitude</code> / <code>ShippingLongitude</code></li>
-<li>or <code>BillingLatitude</code> / <code>BillingLongitude</code></li>
+<li><code>ShippingLatitude</code> / <code>ShippingLongitude</code> (if prefix is <code>Shipping</code>)</li>
+<li><code>BillingLatitude</code> / <code>BillingLongitude</code> (if prefix is <code>Billing</code>)</li>
 </ul>
 <h3>Leads</h3>
-<p>Use standard Lead latitude / longitude fields.</p>
+<p>Use the standard <code>Latitude</code> / <code>Longitude</code> fields on the Lead object.</p>
 <h3>Opportunities</h3>
-<p>Opportunities use the parent Account address.</p>
-<h3>Quick SOQL check</h3>
-<pre><code class="language-sql">SELECT Id, Name, ShippingLatitude, ShippingLongitude
+<p>Opportunities inherit the address from their parent Account. Ensure the parent Account is geocoded.</p>
+
+<h3>SOQL checks</h3>
+<p>Run these queries to verify data availability:</p>
+<pre><code class="language-sql">-- Accounts with Shipping coordinates
+SELECT COUNT(Id)
+FROM Account
+WHERE ShippingLatitude != null AND ShippingLongitude != null
+</code></pre>
+<pre><code class="language-sql">-- Accounts with Billing coordinates
+SELECT COUNT(Id)
+FROM Account
+WHERE BillingLatitude != null AND BillingLongitude != null
+</code></pre>
+<pre><code class="language-sql">-- Leads with coordinates
+SELECT COUNT(Id)
+FROM Lead
+WHERE Latitude != null AND Longitude != null
+</code></pre>
+<pre><code class="language-sql">-- Sample geocoded accounts
+SELECT Id, Name, ShippingLatitude, ShippingLongitude, ShippingCity
 FROM Account
 WHERE ShippingLatitude != null
 LIMIT 20
 </code></pre>
-<p>If you use Billing instead:</p>
-<pre><code class="language-sql">SELECT Id, Name, BillingLatitude, BillingLongitude
-FROM Account
-WHERE BillingLatitude != null
-LIMIT 20
-</code></pre>
+<div class="note"><strong>No geocoded data?</strong> You will need to geocode your records before RouteForce can display them. This can be done via Data Loader, a geocoding service, or Salesforce Data Integration Rules for standard address fields.</div>
 <hr>
-<h2>9. Run a full installation test</h2>
-<p>Use a small pilot scenario before broad rollout.</p>
-<h3>Validation checklist</h3>
+
+<!-- ======================================================== -->
+<h2>10. Run the full validation checklist</h2>
+<p>Before rolling out to users, complete this end-to-end validation as a user with <code>RouteForce_Admin</code> assigned.</p>
+
+<h3>Core functionality</h3>
 <ol>
-<li>Open the RouteForce tab.</li>
-<li>Confirm markers are visible.</li>
-<li>Apply at least one filter.</li>
-<li>Add 2 to 5 stops.</li>
-<li>Optimize the route.</li>
-<li>Confirm distance and timing are calculated.</li>
-<li>Create route visits if relevant.</li>
-<li>Check route history.</li>
+<li>Open the <strong>RouteForce</strong> tab from the App Launcher.</li>
+<li>Confirm markers are visible on the map.</li>
+<li>Apply at least one filter and verify the markers update.</li>
+<li>Save a filter combination and reload the page to verify it persists.</li>
+<li>Add 3 to 5 stops to the route panel.</li>
+<li>Run route optimization and confirm distance and timing are calculated.</li>
+<li>Create a route visit (if visit reports are enabled).</li>
+<li>Check route history and confirm the record was saved.</li>
 </ol>
 
-<p>If this works cleanly, the setup is ready for pilot users.</p>
-<hr>
-<h2>10. Recommended rollout order</h2>
-<h3>Phase 1 — Admin validation</h3>
+<h3>Feature-specific tests</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Test</th>
+<th>Expected result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Heatmap</td>
+<td>Toggle the heatmap layer on</td>
+<td>Heatmap overlay renders on the map with density shading</td>
+</tr>
+<tr>
+<td>Bulk Select</td>
+<td>Use lasso or area selection to select multiple markers</td>
+<td>Selected records appear in the list panel; bulk actions are available</td>
+</tr>
+<tr>
+<td>Saved Filters</td>
+<td>Save a filter, refresh the page, re-apply the saved filter</td>
+<td>Filter is persisted and applies correctly after reload</td>
+</tr>
+<tr>
+<td>Visit Report</td>
+<td>Check in at a stop and complete the visit report form</td>
+<td>Visit report record is created with all configured fields</td>
+</tr>
+<tr>
+<td>CSV Export</td>
+<td>Export current map view to CSV</td>
+<td>CSV file downloads with visible record data</td>
+</tr>
+<tr>
+<td>Leads on map</td>
+<td>Enable Leads and confirm Lead markers appear</td>
+<td>Lead markers display with correct addresses</td>
+</tr>
+<tr>
+<td>Opportunities on map</td>
+<td>Enable Opportunities and confirm markers appear</td>
+<td>Opportunity markers display at parent Account address</td>
+</tr>
+</tbody></table>
+
+<h3>Route settings validation</h3>
+<p>Verify that the route panel respects these settings:</p>
 <ul>
-<li>install package</li>
-<li>configure defaults</li>
-<li>confirm licence</li>
-<li>validate routing</li>
+<li>Departure time</li>
+<li>Lunch break window</li>
+<li>End-of-day time</li>
+<li>Default visit duration</li>
+<li>Max route steps limit</li>
 </ul>
-<h3>Phase 2 — Pilot users</h3>
+<hr>
+
+<!-- ======================================================== -->
+<h2>11. Dashboards and reports</h2>
+<p>RouteForce V7.4.0 includes <strong>2 dashboards</strong> and <strong>18 reports</strong> out of the box, ready for use by admins and managers.</p>
+
+<h3>Included dashboards</h3>
+<table>
+<thead>
+<tr>
+<th>Dashboard</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RouteForce Activity Overview</td>
+<td>High-level view of route creation, visit completions, and user adoption</td>
+</tr>
+<tr>
+<td>RouteForce Manager Dashboard</td>
+<td>Team-level metrics, visit frequency, and territory coverage</td>
+</tr>
+</tbody></table>
+
+<h3>Included reports (18)</h3>
+<p>Reports cover areas including:</p>
 <ul>
-<li>assign RouteForce User to a small group</li>
-<li>gather feedback on filters and marker fields</li>
-<li>adjust defaults if needed</li>
+<li>Route history and optimization usage</li>
+<li>Visit report summaries and completion rates</li>
+<li>User adoption and feature usage</li>
+<li>Territory coverage and not-visited accounts</li>
+<li>Check-in activity and GPS compliance</li>
+</ul>
+<p>Find all reports in the <strong>RouteForce Reports</strong> folder. Dashboards are in the <strong>RouteForce Dashboards</strong> folder. Managers with <code>RouteForce_Manager</code> can view team-wide data; users with <code>RouteForce_User</code> see only their own records.</p>
+
+<h3>SOQL check — verify report folder</h3>
+<pre><code class="language-sql">SELECT Id, DeveloperName, Name
+FROM Folder
+WHERE DeveloperName LIKE 'RouteForce%'
+AND Type = 'Report'
+</code></pre>
+<hr>
+
+<!-- ======================================================== -->
+<h2>12. Recommended rollout order</h2>
+<h3>Phase 1 — Admin validation (1-2 days)</h3>
+<ul>
+<li>Install the package</li>
+<li>Assign <code>RouteForce_Admin</code> to yourself</li>
+<li>Run the onboarding wizard</li>
+<li>Verify Remote Site Settings</li>
+<li>Confirm licence activation</li>
+<li>Complete the full validation checklist (Section 10)</li>
+<li>Review dashboards and reports</li>
+</ul>
+<h3>Phase 2 — Pilot users (1-2 weeks)</h3>
+<ul>
+<li>Assign <code>RouteForce_User</code> to a small group of field reps (3-5 users)</li>
+<li>Assign <code>RouteForce_Manager</code> to their direct manager</li>
+<li>Gather feedback on filters, marker fields, and route behavior</li>
+<li>Adjust defaults and FlexiPage layout if needed</li>
+<li>Test visit reports with real field data</li>
 </ul>
 <h3>Phase 3 — Broader deployment</h3>
 <ul>
-<li>assign more users</li>
-<li>train on route creation and check-in</li>
-<li>publish user guide internally</li>
+<li>Assign permission sets to remaining users</li>
+<li>Train users on route creation, optimization, and check-in</li>
+<li>Share the RouteForce User Guide internally</li>
+<li>Configure custom filter fields (slots 11-16) based on pilot feedback</li>
+<li>Set up dashboard subscriptions for managers</li>
 </ul>
 <hr>
-<h2>11. Common setup issues</h2>
+
+<!-- ======================================================== -->
+<h2>13. Common setup issues</h2>
 <table>
 <thead>
 <tr>
 <th>Issue</th>
 <th>Likely cause</th>
-<th>Fix</th>
+<th>Resolution</th>
 </tr>
 </thead>
 <tbody><tr>
 <td>Map is empty</td>
-<td>No geocoded records</td>
-<td>Verify latitude / longitude fields</td>
+<td>No geocoded records, or wrong address prefix</td>
+<td>Run the SOQL checks in Section 9. Switch <code>AddressFieldPrefix</code> if needed.</td>
 </tr>
 <tr>
-<td>Licence error</td>
+<td>Licence error on load</td>
 <td>Missing or invalid licence key</td>
-<td>Re-run onboarding and update keys</td>
+<td>Re-run the onboarding wizard and enter the correct licence key.</td>
 </tr>
 <tr>
 <td>Route optimization fails</td>
-<td>ORS access issue</td>
-<td>Verify keys and remote access</td>
+<td>ORS access blocked or invalid API key</td>
+<td>Verify Remote Site Settings (Section 4) and API keys in onboarding.</td>
 </tr>
 <tr>
 <td>Users cannot open RouteForce</td>
 <td>Missing permission set</td>
-<td>Assign RouteForce User</td>
+<td>Assign <code>RouteForce_User</code> or <code>RouteForce_Manager</code> to the user.</td>
 </tr>
 <tr>
-<td>Wrong addresses used</td>
-<td>Wrong address prefix</td>
-<td>Switch Shipping vs Billing</td>
+<td>Wrong addresses displayed</td>
+<td>Incorrect address prefix setting</td>
+<td>Change <code>AddressFieldPrefix__c</code> from <code>Shipping</code> to <code>Billing</code> or vice versa.</td>
 </tr>
 <tr>
 <td>Too much clutter on map</td>
-<td>Too many objects enabled by default</td>
-<td>Simplify display mode and filters</td>
+<td>All object types enabled with no filters</td>
+<td>Disable unneeded objects (Leads, Opportunities) or adjust default filters.</td>
+</tr>
+<tr>
+<td>Heatmap not rendering</td>
+<td>Feature disabled in configuration</td>
+<td>Set <code>EnableHeatmap__c</code> to <code>true</code> in <code>RouteForceConfig__mdt</code>.</td>
+</tr>
+<tr>
+<td>Visit report fields missing</td>
+<td>Incorrect <code>VisitReportCustomFields__c</code> value</td>
+<td>Edit the comma-separated field list in configuration to include the desired fields.</td>
+</tr>
+<tr>
+<td>Bulk select not working</td>
+<td>Feature disabled in configuration</td>
+<td>Set <code>EnableBulkSelect__c</code> to <code>true</code> in <code>RouteForceConfig__mdt</code>.</td>
+</tr>
+<tr>
+<td>Filters not showing expected fields</td>
+<td>Filter field slots not configured</td>
+<td>Verify <code>filterField1-16</code> values in <code>RouteForceConfig__mdt</code>.</td>
+</tr>
+<tr>
+<td>Manager cannot see team data</td>
+<td>Wrong permission set assigned</td>
+<td>Assign <code>RouteForce_Manager</code> instead of <code>RouteForce_User</code>.</td>
 </tr>
 </tbody></table>
 <hr>
-<h2>12. Handover to operations</h2>
-<p>Before closing the setup phase, make sure you have:</p>
+
+<!-- ======================================================== -->
+<h2>14. Handover to operations</h2>
+<p>Before closing the setup phase, confirm the following items are documented and communicated:</p>
 <ul>
-<li>documented the chosen address model</li>
-<li>documented enabled features</li>
-<li>confirmed support email</li>
-<li>identified the admin owner of RouteForce</li>
-<li>shared the user guide with field teams</li>
+<li>Address model chosen (<code>Shipping</code> or <code>Billing</code>)</li>
+<li>Enabled features and their rationale</li>
+<li>Configured filter fields (including any custom additions)</li>
+<li>Visit report field configuration</li>
+<li>Permission set assignments and user roles</li>
+<li>Designated RouteForce admin owner</li>
+<li>Support email or escalation path for RouteForce issues</li>
+<li>User Guide shared with field teams</li>
+<li>Dashboard subscriptions configured for managers</li>
 </ul>
 <hr>
+
+<!-- ======================================================== -->
 <h2>Support</h2>
-<p>For package access, licence activation, or routing issues, use your RouteForce support channel and keep your org name plus environment details handy.</p>
+<p>For package access, licence activation, routing issues, or general questions, contact your RouteForce support channel. When reaching out, include:</p>
+<ul>
+<li>Your Salesforce org ID</li>
+<li>Environment type (Production or Sandbox)</li>
+<li>RouteForce package version (<code>V7.4.0</code>)</li>
+<li>Description of the issue and steps to reproduce</li>
+</ul>
+<p class="small-muted">RouteForce &bull; contact@routeforce.app &bull; <a href="https://routeforce.app">routeforce.app</a></p>
 
   </main>
 </body>
