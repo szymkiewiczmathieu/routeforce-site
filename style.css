@@ -2014,7 +2014,7 @@ img {
 
 .cta-box {
     text-align: center;
-    background: linear-gradient(135deg, var(--primary-700) 0%, var(--primary-900) 100%);
+    background: linear-gradient(135deg, #4f46e5 0%, #3730a3 100%);
     color: #fff;
     padding: 64px 48px;
     border-radius: var(--radius-xl);
