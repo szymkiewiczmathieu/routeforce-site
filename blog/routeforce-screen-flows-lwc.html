@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteForce + Screen Flows + LWC : un vrai levier d'extensibilité pour les équipes terrain</title>
+    <meta name="description" content="Comment RouteForce combine Custom Actions, Screen Flows et Lightning Web Components pour adapter les workflows terrain sans reconstruire le package.">
+    <link rel="canonical" href="https://routeforce.app/blog/routeforce-screen-flows-lwc.html">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="../style.css">
+    <meta property="og:title" content="RouteForce + Screen Flows + LWC : un vrai levier d'extensibilité pour les équipes terrain">
+    <meta property="og:description" content="Comment adapter RouteForce à des workflows métier avancés directement depuis la carte Salesforce.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://routeforce.app/blog/routeforce-screen-flows-lwc.html">
+    <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-03.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "RouteForce + Screen Flows + LWC : un vrai levier d'extensibilité pour les équipes terrain",
+      "description": "Comment RouteForce combine Custom Actions, Screen Flows et Lightning Web Components pour adapter les workflows terrain sans reconstruire le package.",
+      "author": {"@type": "Person", "name": "Mathieu Szymkiewicz"},
+      "publisher": {"@type": "Organization", "name": "RouteForce", "url": "https://routeforce.app"},
+      "datePublished": "2026-03-29",
+      "dateModified": "2026-03-29",
+      "url": "https://routeforce.app/blog/routeforce-screen-flows-lwc.html"
+    }
+    </script>
+</head>
+<body style="background:#09090b;color:#e4e4e7;">
+<header class="fixed top-0 w-full z-50 bg-[#09090b]/80 backdrop-blur-xl border-b border-[#27272a]/50" style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.8);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px;max-width:1200px;margin:0 auto;">
+    <a href="../index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+      <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:32px;height:32px;border-radius:8px;"/>
+      <span style="font-size:1.125rem;font-weight:800;color:#fafafa;">RouteForce</span>
+    </a>
+    <nav style="display:flex;gap:24px;align-items:center;font-size:0.875rem;">
+      <a href="../index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../index.html#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="../index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../docs/" style="background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;">Start Free</a>
+    </nav>
+  </div>
+</header>
+
+<section class="blog-hero" style="padding:120px 0 60px;background:linear-gradient(135deg,var(--primary-50) 0%,#09090b 100%);">
+    <div class="container" style="max-width:800px;">
+        <div class="breadcrumb" style="font-size:.875rem;color:var(--gray-500);margin-bottom:16px;"><a href="../index.html" style="color:var(--primary-600);text-decoration:none;">Accueil</a> › <a href="../blog/" style="color:var(--primary-600);text-decoration:none;">Blog</a> › Extensibilité Salesforce</div>
+        <div class="blog-meta" style="display:flex;gap:16px;align-items:center;margin-bottom:24px;font-size:.875rem;color:var(--gray-500);"><span class="blog-tag" style="background:var(--primary-100);color:var(--primary-700);padding:4px 12px;border-radius:20px;font-weight:600;font-size:.8rem;">Produit</span><span>29 mars 2026</span><span>·</span><span>6 min de lecture</span></div>
+        <h1>RouteForce + Screen Flows + LWC : un vrai levier d'extensibilité pour les équipes terrain</h1>
+        <p style="font-size:1.2rem;color:var(--gray-600);margin-top:16px;line-height:1.7;">RouteForce ne se limite pas à afficher une carte. Le système de Custom Actions permet de déclencher des Screen Flows Salesforce avec des Lightning Web Components embarqués, directement depuis la carte, pour adapter le produit à des workflows métier avancés sans casser l'expérience native.</p>
+    </div>
+</section>
+
+<section class="blog-content" style="padding:60px 0 100px;">
+    <div class="container" style="max-width:800px;">
+        <h2>Pourquoi cet angle compte</h2>
+        <p>Pour beaucoup d'équipes terrain, la question n'est pas seulement : "est-ce que l'outil optimise les tournées ?" La vraie question est plutôt la suivante : <strong>peut-on l'adapter au métier sans reconstruire toute la stack Salesforce ?</strong></p>
+        <p>Avec RouteForce, la réponse peut être oui. Les <strong>Custom Actions</strong> permettent de lancer des workflows métier directement depuis la carte, en s'appuyant sur des <strong>Screen Flows</strong> et des <strong>Lightning Web Components</strong>.</p>
+
+        <h2>Ce que ça donne en pratique</h2>
+        <p>Un commercial terrain visualise son portefeuille sur la carte. Il touche un magasin, un compte ou un point de vente, puis déclenche une action métier :</p>
+        <ul>
+            <li>contrôle de disponibilité produit</li>
+            <li>relevé de prix</li>
+            <li>audit de rayon</li>
+            <li>formulaire métier spécifique</li>
+        </ul>
+        <p>Le tout peut s'ouvrir dans une expérience plein écran adaptée aux tablettes, sans quitter le contexte de RouteForce.</p>
+
+        <h2>Architecture simple, résultat puissant</h2>
+        <ul>
+            <li><strong>RouteForce</strong> gère la carte et déclenche l'action</li>
+            <li><strong>Le Screen Flow</strong> joue le rôle de conteneur et reçoit le contexte métier, notamment le <code>recordId</code></li>
+            <li><strong>Le LWC</strong> porte l'expérience métier : filtres, tri, champs rapides, sauvegarde, logique d'interface</li>
+        </ul>
+        <p>Le résultat, c'est une solution qui reste native Salesforce sans devenir rigide. Vous gardez un produit propre, packageable, sans devoir toucher au cœur du package à chaque besoin métier.</p>
+
+        <h2>Pourquoi c'est un vrai argument produit</h2>
+        <p>Cet angle répond à une objection fréquente des prospects avancés : <em>"Oui, mais est-ce que ça va vraiment s'adapter à notre process métier ?"</em></p>
+        <p>Ce pattern montre que RouteForce peut servir de base solide pour les équipes terrain tout en restant extensible par une équipe Salesforce interne ou un partenaire.</p>
+
+        <div class="alert-box" style="background:var(--primary-50);border-left:4px solid var(--primary-600);padding:20px 24px;border-radius:0 8px 8px 0;margin:32px 0;">
+            <p style="margin:0;color:var(--gray-800);"><strong>Le message à retenir :</strong> RouteForce reste natif. Vos workflows métier restent flexibles.</p>
+        </div>
+
+        <h2>Quand cet angle est particulièrement fort</h2>
+        <p>Cet angle est particulièrement fort pour :</p>
+        <ul>
+            <li>les équipes Salesforce qui veulent garder un produit propre et packageable</li>
+            <li>les organisations avec des besoins terrain spécifiques</li>
+            <li>les directions commerciales qui veulent éviter un outil figé</li>
+            <li>les admins Salesforce qui veulent étendre un workflow sans lancer un projet d'intégration lourd</li>
+        </ul>
+
+        <div class="blog-cta" style="background:linear-gradient(135deg,var(--primary-600),var(--primary-800));border-radius:16px;padding:40px;text-align:center;margin:48px 0 0;color:white;">
+            <h3 style="color:white;margin:0 0 12px;font-size:1.4rem;">Vous voulez voir comment RouteForce s'adapte à votre métier ?</h3>
+            <p style="color:rgba(255,255,255,0.85);margin:0 0 24px;font-size:1rem;">Découvrez comment RouteForce combine planification native Salesforce, prix fixe par org et workflows métier extensibles.</p>
+            <a href="../cas-usage.html" class="btn btn-primary btn-lg" style="margin-right:12px;">Voir les cas d'usage</a>
+            <a href="../index.html#contact" class="btn btn-outline btn-lg" style="border-color:white;color:white;">Essai gratuit 14 jours</a>
+        </div>
+    </div>
+</section>
+
+<footer style="border-top:1px solid #27272a;padding:48px 24px;background:#09090b;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:24px;height:24px;border-radius:6px;"/>
+        <span style="font-weight:700;color:#fafafa;">RouteForce</span>
+      </div>
+      <p style="color:#71717a;font-size:0.875rem;max-width:280px;">Salesforce-native route optimization for field sales teams.</p>
+    </div>
+    <div style="display:flex;gap:48px;font-size:0.875rem;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Product</span>
+        <a href="../index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+        <a href="../index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+        <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+        <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Company</span>
+        <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
+        <a href="../docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
+        <a href="../docs/cgv.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
+        <a href="../docs/dpa.html" style="color:#a1a1aa;text-decoration:none;">DPA</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:32px auto 0;padding-top:24px;border-top:1px solid #1e1e22;color:#71717a;font-size:0.75rem;">
+    &copy; 2026 RouteForce. All rights reserved.
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
+<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteForce passe au routage mondial et prépare l'AppExchange — RouteForce Blog</title>
+    <meta name="description" content="RouteForce intègre un moteur de routage mondial (OpenRouteService planétaire) et franchit les étapes de sécurité pour l'AppExchange Salesforce. Ce que ça change concrètement.">
+    <link rel="canonical" href="https://routeforce.app/blog/routeforce-ors-mondial-appexchange.html">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <meta property="og:title" content="RouteForce passe au routage mondial et prépare l'AppExchange">
+    <meta property="og:description" content="Moteur de routage planétaire + AppExchange ready. Ce que ça change pour les équipes terrain.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://routeforce.app/blog/routeforce-ors-mondial-appexchange.html">
+    <meta property="og:image" content="https://routeforce.app/assets/screenshot-tour-planner.png">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "RouteForce passe au routage mondial et prépare l'AppExchange",
+        "description": "Moteur de routage planétaire et AppExchange Salesforce : deux avancées concrètes pour RouteForce.",
+        "author": {
+            "@type": "Person",
+            "name": "Mathieu Szymkiewicz"
+        },
+        "publisher": {
+            "@type": "Organization",
+            "name": "RouteForce",
+            "url": "https://routeforce.app"
+        },
+        "datePublished": "2026-03-05",
+        "dateModified": "2026-03-05",
+        "url": "https://routeforce.app/blog/routeforce-ors-mondial-appexchange.html",
+        "image": "https://routeforce.app/assets/screenshot-tour-planner.png"
+    }
+    </script>
+
+    <style>
+        .blog-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, #131316 0%, #09090b 100%);
+        }
+        .blog-hero .container { max-width: 800px; }
+        .blog-meta {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            margin-bottom: 24px;
+            font-size: 0.875rem;
+            color: var(--gray-500);
+        }
+        .blog-tag {
+            background: var(--primary-100);
+            color: var(--primary-700);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+        .blog-content {
+            padding: 60px 0 100px;
+        }
+        .blog-content .container { max-width: 800px; }
+        .blog-content h2 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-top: 48px;
+            margin-bottom: 16px;
+        }
+        .blog-content h3 {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+        .blog-content p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+            margin-bottom: 20px;
+        }
+        .blog-content ul, .blog-content ol {
+            margin-bottom: 20px;
+            padding-left: 24px;
+        }
+        .blog-content li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--gray-700);
+            margin-bottom: 8px;
+        }
+        .blog-content strong { color: var(--gray-900); }
+        .blog-content blockquote {
+            border-left: 4px solid var(--primary-400);
+            padding: 16px 24px;
+            margin: 24px 0;
+            background: var(--primary-50);
+            border-radius: 0 12px 12px 0;
+            font-style: italic;
+            color: var(--gray-700);
+        }
+        .blog-cta-box {
+            background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
+            color: white;
+            padding: 40px;
+            border-radius: 16px;
+            margin: 48px 0;
+            text-align: center;
+        }
+        .blog-cta-box h3 { color: white; margin-top: 0; font-size: 1.3rem; }
+        .blog-cta-box p { color: rgba(255,255,255,0.9); }
+        .blog-cta-box .btn { background: #18181b; color: var(--primary-700); font-weight: 700; padding: 12px 32px; border-radius: 8px; text-decoration: none; display: inline-block; margin-top: 12px; }
+        .blog-cta-box .btn:hover { background: var(--gray-100); }
+        .tech-table { width: 100%; border-collapse: collapse; color: #e4e4e7; margin: 24px 0; font-size: 0.95rem; }
+        .tech-table th { color: #fafafa;  background: var(--gray-50); padding: 12px 16px; text-align: left; font-weight: 600; border-bottom: 2px solid var(--gray-200); }
+        .tech-table td { padding: 12px 16px; border-bottom: 1px solid var(--gray-100); }
+    </style>
+</head>
+<body style="background:#09090b;color:#e4e4e7;">
+    <!-- Google Tag Manager (noscript) -->
+<header class="fixed top-0 w-full z-50 bg-[#09090b]/80 backdrop-blur-xl border-b border-[#27272a]/50" style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.8);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px;max-width:1200px;margin:0 auto;">
+    <a href="../index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+      <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:32px;height:32px;border-radius:8px;"/>
+      <span style="font-size:1.125rem;font-weight:800;color:#fafafa;">RouteForce</span>
+    </a>
+    <nav style="display:flex;gap:24px;align-items:center;font-size:0.875rem;">
+      <a href="../index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../index.html#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="../index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../docs/" style="background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;">Start Free</a>
+    </nav>
+  </div>
+</header>
+
+    <section class="blog-hero">
+        <div class="container">
+            <div class="blog-meta">
+                <span class="blog-tag">Produit</span>
+                <span>5 mars 2026</span>
+                <span>·</span>
+                <span>5 min de lecture</span>
+            </div>
+            <h1>RouteForce passe au routage mondial et prépare l'AppExchange</h1>
+            <p style="font-size:1.15rem;color:var(--gray-600);margin-top:16px;">Deux avancées concrètes cette semaine : un moteur de routage qui couvre la planète entière, et une application prête pour la marketplace Salesforce.</p>
+        </div>
+    </section>
+
+    <section class="blog-content">
+        <div class="container">
+
+            <h2>Un moteur de routage mondial</h2>
+
+            <p>Jusqu'à présent, RouteForce calculait ses itinéraires sur un périmètre France + pays limitrophes. C'est suffisant pour la majorité des cas, mais ça bloque dès qu'un client opère au Sénégal, aux Émirats ou en Amérique du Sud.</p>
+
+            <p>Cette semaine, on a lancé le build d'un graphe routier planétaire basé sur <strong>OpenRouteService</strong> et les données <strong>OpenStreetMap</strong>. Les chiffres :</p>
+
+            <table class="tech-table">
+                <tr><th>Donnée</th><th>Valeur</th></tr>
+                <tr><td>Fichier source</td><td>planet-latest.osm.pbf (78 Go)</td></tr>
+                <tr><td>Nœuds routiers</td><td>309 millions</td></tr>
+                <tr><td>Arêtes</td><td>387 millions</td></tr>
+                <tr><td>Profils de routage</td><td>driving-car (4 variantes CH + LM)</td></tr>
+                <tr><td>Temps de build</td><td>~3 jours sur infrastructure haute performance</td></tr>
+                <tr><td>Infrastructure</td><td>VPS OVH, 64 Go RAM, SSD</td></tr>
+            </table>
+
+            <p>Concrètement, dès la semaine prochaine, un commercial utilisant RouteForce pourra calculer un itinéraire optimisé <strong>n'importe où dans le monde</strong> : Dakar, Dubaï, São Paulo ou Melbourne. Même moteur, même précision, même vitesse.</p>
+
+            <h3>Pourquoi c'est important</h3>
+
+            <p>La plupart des solutions de routage Salesforce dépendent de Google Maps ou de services tiers facturés à l'appel API. Ça veut dire des coûts variables, des limites de requêtes, et une dépendance à un fournisseur externe.</p>
+
+            <p>RouteForce utilise un moteur open source auto-hébergé. Le coût de routage est <strong>fixe et inclus dans l'abonnement</strong>, quel que soit le volume de calculs. Pas de surprise sur la facture, pas de quota à surveiller.</p>
+
+            <h2>AppExchange : où on en est</h2>
+
+            <p>RouteForce est un package managé Salesforce (2GP). On vient de passer les étapes de sécurité nécessaires pour soumettre l'application sur l'AppExchange :</p>
+
+            <ul>
+                <li><strong>Salesforce Code Analyzer</strong> exécuté — 2 findings uniquement, tous documentés comme faux positifs (champs CMDT éditables par le client, par conception).</li>
+                <li><strong>Clés API migrées</strong> vers des Custom Settings protégées. Aucun secret en dur dans le code.</li>
+                <li><strong>Audit des 20 vulnérabilités AppExchange</strong> les plus courantes — 18/20 clean, 2 faux positifs documentés.</li>
+                <li><strong>258 tests Apex</strong>, 77% de couverture. Aucun test en échec.</li>
+                <li><strong>TLS vérifié</strong> : toutes les communications chiffrées en AES-256-GCM.</li>
+                <li><strong>Permissions</strong> : deux PermissionSets (User et Admin), FLS respecté sur tous les objets.</li>
+            </ul>
+
+            <p>La soumission est prévue dans les prochaines semaines. Le processus de review Salesforce prend généralement 6 à 9 semaines. Objectif : publication sur l'AppExchange courant mai 2026.</p>
+
+            <h3>Ce que ça change pour les clients</h3>
+
+            <p>Être sur l'AppExchange, c'est :</p>
+
+            <ul>
+                <li><strong>Installation en un clic</strong> depuis la marketplace Salesforce</li>
+                <li><strong>Mises à jour automatiques</strong> via le gestionnaire de packages</li>
+                <li><strong>Visibilité</strong> auprès de milliers d'entreprises qui cherchent des solutions de routage</li>
+                <li><strong>Confiance</strong> — le code a été audité par Salesforce</li>
+            </ul>
+
+            <h2>Version actuelle : v1.2.0</h2>
+
+            <p>Pour ceux qui n'attendent pas l'AppExchange, RouteForce est déjà installable via package managé. La v1.2.0, publiée aujourd'hui, inclut :</p>
+
+            <ul>
+                <li>Affichage des événements Salesforce sur la carte</li>
+                <li>Assistant de configuration (onboarding wizard)</li>
+                <li>Filtre Comptes / Leads / Les deux</li>
+                <li>17 paramètres configurables sans code (Custom Metadata)</li>
+                <li>220 labels traduits (anglais, français, espagnol)</li>
+                <li>Support Leads complet (marqueurs ⭐ sur la carte)</li>
+            </ul>
+
+            <div class="blog-cta-box">
+                <h3>Testez RouteForce dans votre org Salesforce</h3>
+                <p>Installation en 2 minutes. 599€/mois tout compris, routage illimité.</p>
+                <a href="../index.html#contact" class="btn">Essai gratuit 14 jours</a>
+            </div>
+
+            <h2>La suite</h2>
+
+            <p>Les prochaines semaines : soumission AppExchange, routage mondial en production, et les premiers retours clients. On construit RouteForce en public — si vous avez des questions ou des besoins spécifiques, <a href="mailto:contact@routeforce.app">écrivez-nous</a>.</p>
+
+        </div>
+    </section>
+
+    <footer style="border-top:1px solid #27272a;padding:48px 24px;background:#09090b;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:24px;height:24px;border-radius:6px;"/>
+        <span style="font-weight:700;color:#fafafa;">RouteForce</span>
+      </div>
+      <p style="color:#71717a;font-size:0.875rem;max-width:280px;">Salesforce-native route optimization for field sales teams.</p>
+    </div>
+    <div style="display:flex;gap:48px;font-size:0.875rem;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Product</span>
+        <a href="../index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+        <a href="../index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+        <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+        <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Company</span>
+        <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
+        <a href="../docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
+        <a href="../docs/cgv.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
+        <a href="../docs/dpa.html" style="color:#a1a1aa;text-decoration:none;">DPA</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:32px auto 0;padding-top:24px;border-top:1px solid #1e1e22;color:#71717a;font-size:0.75rem;">
+    &copy; 2026 RouteForce. All rights reserved.
+  </div>
+</footer>
+
+    <script src="../script.js"></script>
+</body>
+</html>
