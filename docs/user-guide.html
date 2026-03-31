@@ -281,8 +281,8 @@
       </tbody>
     </table>
 
-    <h3>Contact lookup (Accounts)</h3>
-    <p>When you click an Account marker, the popup can also show <strong>related Contacts</strong> for that account. This lets you see who to call or meet before heading there. This feature is controlled by your admin (<code>ContactLookupEnabled</code>).</p>
+    <h3>Contact lookup (Route steps)</h3>
+    <p>When you add an Account to your route, the route step card can show <strong>related Contacts</strong> for that account. This lets you see who to call or meet before heading there. This feature is controlled by your admin (<code>ContactLookupEnabled</code>) and appears in the route panel, not in the map popup.</p>
 
     <h3>Custom actions (admin-configured)</h3>
     <p>Admins can add custom action buttons to the popup using <strong>RouteForceAction__mdt</strong> metadata. These launch Screen Flows directly from the popup — for example, a price survey, a shelf audit, or a quick re-order form. See the <a href="configuration-guide.html">Configuration Guide</a> for details.</p>
@@ -690,7 +690,7 @@
     <h3>Rich text support</h3>
     <p>The notes field supports <strong>rich text formatting</strong> — bold, italic, bullet points, and more. Quick Text templates can include formatting, so your visit notes look professional and well-structured.</p>
 
-    <div class="note"><strong>Note:</strong> Quick Text must be enabled by your admin (QuickTextEnabled). Templates are managed in the RouteForce configuration.</div>
+    <div class="note"><strong>Note:</strong> Quick Text must be enabled by your admin (<code>QuickTextEnabled__c</code>). Templates are standard Salesforce Quick Text records — managed in <strong>Setup > Quick Text</strong>, not in RouteForce configuration.</div>
 
     <hr>
 
