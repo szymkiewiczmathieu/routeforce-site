@@ -5,21 +5,40 @@
 <meta property="og:type" content="article"/>
 <meta property="og:url" content="https://routeforce.app/blog/routeforce-screen-flows-lwc.html"/>
 <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-<meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/svg+xml" href="../favicon.svg"/><link rel="icon" type="image/x-icon" href="../favicon.ico"><link rel="stylesheet" href="../style.css"></head><body style="background:#09090b;color:#e4e4e7;"><header class="fixed top-0 w-full z-50 bg-[#09090b]/80 backdrop-blur-xl border-b border-[#27272a]/50" style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.8);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
-  <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px;max-width:1200px;margin:0 auto;">
+<meta name="twitter:card" content="summary_large_image"/><link rel="icon" type="image/svg+xml" href="../favicon.svg"/><link rel="icon" type="image/x-icon" href="../favicon.ico"><link rel="stylesheet" href="../style.css"></head><body style="background:#09090b;color:#e4e4e7;">
+<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px;max-width:1280px;margin:0 auto;">
     <a href="../index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
       <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:32px;height:32px;border-radius:8px;"/>
       <span style="font-size:1.125rem;font-weight:800;color:#fafafa;">RouteForce</span>
     </a>
-    <nav style="display:flex;gap:24px;align-items:center;font-size:0.875rem;">
+    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.875rem;">
       <a href="../index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="../index.html#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
       <a href="../index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use Cases</a>
       <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
-      <a href="../docs/" style="background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;">Start Free</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.875rem;" id="docsLink">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.875rem;">Start Free</a>
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn">
+        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
+    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
+      <a href="../index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use Cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Start Free</a>
     </nav>
   </div>
+  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}</style>
 </header><section class="blog-hero" style="padding:120px 0 60px;background:linear-gradient(135deg,var(--primary-50) 0%,#09090b 100%);"><div class="container" style="max-width:800px;"><h1>RouteForce + Screen Flows + LWC: extensibility for field teams</h1><p style="font-size:1.2rem;color:var(--gray-600);margin-top:16px;line-height:1.7;">RouteForce does more than display a map. Custom Actions can trigger Salesforce Screen Flows with embedded Lightning Web Components directly from the map, making advanced business workflows possible without breaking the native experience.</p></div></section><section class="blog-content" style="padding:60px 0 100px;"><div class="container" style="max-width:800px;"><h2>Why this matters</h2><p>For advanced Salesforce teams, the real question is not only whether a route planning tool works. The more important question is whether it can adapt to business workflows without creating a heavy integration project.</p><p>With RouteForce, the answer can be yes. Custom Actions let field reps launch business workflows directly from the map by combining <strong>Screen Flows</strong> and <strong>Lightning Web Components</strong>.</p><h2>What it looks like in practice</h2><p>A field rep taps a store, account, or lead on the map and instantly opens a custom business workflow such as product availability checks, price surveys, shelf audits, or visit-specific forms.</p><h2>Simple architecture, powerful result</h2><ul><li><strong>RouteForce</strong> handles the map and triggers the action</li><li><strong>Screen Flow</strong> acts as the container and receives context, including <code>recordId</code></li><li><strong>LWC</strong> delivers the business UX: filters, sorting, quick inputs, save actions</li></ul><p>The result is a native Salesforce route planning product that stays packageable while remaining flexible for in-house Salesforce teams.</p><div class="blog-cta" style="background:linear-gradient(135deg,var(--primary-600),var(--primary-800));border-radius:16px;padding:40px;text-align:center;margin:48px 0 0;color:white;"><h3 style="color:white;margin:0 0 12px;font-size:1.4rem;">Want to see how RouteForce adapts to your workflows?</h3><p style="color:rgba(255,255,255,0.85);margin:0 0 24px;font-size:1rem;">Discover how RouteForce combines native Salesforce route planning, fixed org pricing, and extensible field workflows.</p><a href="../use-cases.html" class="btn btn-primary btn-lg" style="margin-right:12px;">See use cases</a><a href="mailto:contact@routeforce.app" class="btn btn-outline btn-lg" style="border-color:white;color:white;">Start your 14-day trial</a></div></div></section><footer style="border-top:1px solid #27272a;padding:48px 24px;background:#09090b;">
   <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;">
     <div>
@@ -36,6 +55,7 @@
         <a href="../index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
         <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
         <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
       </div>
       <div style="display:flex;flex-direction:column;gap:8px;">
         <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Company</span>
