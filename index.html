@@ -176,13 +176,33 @@
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing">Pricing</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="use-cases.html">Use Cases</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="blog/">Blog</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="consulting.html">Consulting</a>
     </nav>
     <div class="flex items-center gap-3">
       <a href="docs/" class="hidden sm:inline-flex text-sm text-on-surface-variant hover:text-on-surface transition-colors">Docs</a>
       <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="bg-primary hover:bg-primary-dim text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
         Start Free
       </a>
+      <!-- Mobile hamburger -->
+      <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+        <span class="block w-5 h-0.5 bg-on-surface"></span>
+        <span class="block w-5 h-0.5 bg-on-surface"></span>
+        <span class="block w-5 h-0.5 bg-on-surface"></span>
+      </button>
     </div>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/50 bg-surface/95 backdrop-blur-xl px-6 py-4">
+    <nav class="flex flex-col gap-4 text-sm">
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Features</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#showcase" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Product</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Pricing</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="use-cases.html">Use Cases</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="blog/">Blog</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="consulting.html">Consulting</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="bg-primary text-white px-4 py-2.5 rounded-lg text-sm font-semibold text-center mt-2">Start Free</a>
+    </nav>
   </div>
 </header>
 
@@ -590,6 +610,7 @@
       <div class="flex flex-col gap-2">
         <span class="font-semibold text-on-surface mb-1">Company</span>
         <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="mailto:contact@routeforce.app">Contact</a>
+        <a class="text-on-surface-variant hover:text-on-surface transition-colors font-semibold text-primary-light" href="consulting.html">Consulting</a>
         <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/privacy.html">Privacy</a>
         <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/terms.html">Terms</a>
         <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/dpa.html">DPA</a>
