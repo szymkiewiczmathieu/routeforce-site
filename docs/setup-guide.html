@@ -479,36 +479,26 @@ WHERE DeveloperName = 'Default'
 <hr>
 
 <!-- ======================================================== -->
-<h2>7. Default filter fields</h2>
-<p>RouteForce V7.4.0 includes 16 filter field slots. The first 10 are pre-configured with commonly used fields. Slots 11 through 16 are empty and available for your custom fields.</p>
-<table>
-<thead>
-<tr>
-<th>Slot</th>
-<th>Field API Name</th>
-<th>Field Path</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>filterField1</td><td><code>filterField1__c</code></td><td><code>Account.Industry</code></td><td>Standard picklist</td></tr>
-<tr><td>filterField2</td><td><code>filterField2__c</code></td><td><code>Account.Type</code></td><td>Standard picklist</td></tr>
-<tr><td>filterField3</td><td><code>filterField3__c</code></td><td><code>Account.Rating</code></td><td>Standard picklist</td></tr>
-<tr><td>filterField4</td><td><code>filterField4__c</code></td><td><code>Account.Ownership</code></td><td>Standard picklist</td></tr>
-<tr><td>filterField5</td><td><code>filterField5__c</code></td><td><code>Opportunity.StageName</code></td><td>Standard picklist</td></tr>
-<tr><td>filterField6</td><td><code>filterField6__c</code></td><td><code>Opportunity.ForecastCategory</code></td><td>Standard picklist</td></tr>
-<tr><td>filterField7</td><td><code>filterField7__c</code></td><td><code>Lead.Status</code></td><td>Standard picklist</td></tr>
-<tr><td>filterField8</td><td><code>filterField8__c</code></td><td><code>Lead.LeadSource</code></td><td>Standard picklist</td></tr>
-<tr><td>filterField9</td><td><code>filterField9__c</code></td><td><code>Opportunity.Account.Industry</code></td><td>Cross-object reference</td></tr>
-<tr><td>filterField10</td><td><code>filterField10__c</code></td><td><code>Lead.Rating</code></td><td>Standard picklist</td></tr>
-<tr><td>filterField11</td><td><code>filterField11__c</code></td><td><em>(empty)</em></td><td>Available for custom use</td></tr>
-<tr><td>filterField12</td><td><code>filterField12__c</code></td><td><em>(empty)</em></td><td>Available for custom use</td></tr>
-<tr><td>filterField13</td><td><code>filterField13__c</code></td><td><em>(empty)</em></td><td>Available for custom use</td></tr>
-<tr><td>filterField14</td><td><code>filterField14__c</code></td><td><em>(empty)</em></td><td>Available for custom use</td></tr>
-<tr><td>filterField15</td><td><code>filterField15__c</code></td><td><em>(empty)</em></td><td>Available for custom use</td></tr>
-<tr><td>filterField16</td><td><code>filterField16__c</code></td><td><em>(empty)</em></td><td>Available for custom use</td></tr>
-</tbody></table>
-<div class="note"><strong>Custom filter fields:</strong> To add a custom filter, edit the <code>RouteForceConfig__mdt</code> record and set the empty slot to a valid field path (e.g., <code>Account.My_Custom_Field__c</code>). The field must be a picklist or a reference to a picklist for the filter UI to display selectable values.</div>
+<h2>7. Filter fields configuration</h2>
+<p>RouteForce uses a single comma-separated field to define which filters appear on the map. The default is:</p>
+<pre><code>Account.Industry,Account.Type</code></pre>
+<p>You can configure filters in <strong>two ways</strong>:</p>
+<ul>
+<li><strong>RouteForceConfig__mdt</strong> — edit the <code>FilterFields__c</code> field on the Default record</li>
+<li><strong>Lightning App Builder</strong> — set the <code>filterFields</code> property on the RouteForce component (overrides the CMDT value)</li>
+</ul>
+<h3>Filter field syntax</h3>
+<p>Each filter is an <code>Object.FieldName</code> path, comma-separated. Examples:</p>
+<pre><code>Account.Industry,Account.Type,Account.Rating,Opportunity.StageName,Lead.Status</code></pre>
+<p>Cross-object references are supported:</p>
+<pre><code>Opportunity.Account.Industry</code></pre>
+<h3>Supported field types</h3>
+<ul>
+<li><strong>Picklist</strong> — renders as a dropdown</li>
+<li><strong>Multi-Select Picklist</strong> — renders as checkboxes</li>
+<li><strong>Boolean (Checkbox)</strong> — renders as a toggle</li>
+</ul>
+<div class="note"><strong>Note:</strong> There is no hard limit on the number of filters. Add as many as your team needs — but keep it practical. Too many filters can slow the UI and confuse field reps.</div>
 <hr>
 
 <!-- ======================================================== -->
@@ -783,7 +773,7 @@ AND Type = 'Report'
 <li>Assign permission sets to remaining users</li>
 <li>Train users on route creation, optimization, and check-in</li>
 <li>Share the RouteForce User Guide internally</li>
-<li>Configure custom filter fields (slots 11-16) based on pilot feedback</li>
+<li>Add more filter fields to FilterFields__c based on pilot feedback</li>
 <li>Set up dashboard subscriptions for managers</li>
 </ul>
 <hr>
@@ -846,7 +836,7 @@ AND Type = 'Report'
 <tr>
 <td>Filters not showing expected fields</td>
 <td>Filter field slots not configured</td>
-<td>Verify <code>filterField1-16</code> values in <code>RouteForceConfig__mdt</code>.</td>
+<td>Verify <code>FilterFields__c</code> value in <code>RouteForceConfig__mdt</code>.</td>
 </tr>
 <tr>
 <td>Manager cannot see team data</td>

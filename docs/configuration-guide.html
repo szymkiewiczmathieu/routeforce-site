@@ -664,8 +664,8 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <h2 id="flexipage">4. FlexiPage Configuration (App Builder)</h2>
 <p>The RouteForce Lightning App Page is the primary map interface. Configure it via <strong>Setup > Lightning App Builder > RouteForce</strong>. The component exposes configurable properties for filter fields, legend values, and marker popup fields.</p>
 
-<h3>4.1 Default Filter Fields (filterField1–16)</h3>
-<p>The RouteForce component provides 16 filter field slots in the App Builder properties panel. Each slot accepts a field API name using one of three supported syntaxes:</p>
+<h3>4.1 Filter Fields Configuration</h3>
+<p>The RouteForce component accepts a <strong>single comma-separated string</strong> of filter field paths — either via the <code>filterFields</code> App Builder property or via <code>FilterFields__c</code> in RouteForceConfig__mdt. There are no numbered slots. Each field path uses one of three syntaxes:</p>
 <table>
 <thead>
 <tr>
@@ -694,84 +694,30 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </table>
 <p><strong>Supported field types:</strong> Picklist, Multi-Picklist, Boolean (Checkbox). Text and Number fields are not supported as filters but can be displayed in marker popups.</p>
 
-<h3>4.2 Default Filter Configuration (out of the box)</h3>
-<table>
-<thead>
-<tr>
-<th>Slot</th>
-<th>Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>filterField1</code></td>
-<td><code>Account.Industry</code></td>
-<td>Account Industry picklist</td>
-</tr>
-<tr>
-<td><code>filterField2</code></td>
-<td><code>Account.Type</code></td>
-<td>Account Type picklist</td>
-</tr>
-<tr>
-<td><code>filterField3</code></td>
-<td><code>Account.Rating</code></td>
-<td>Account Rating picklist</td>
-</tr>
-<tr>
-<td><code>filterField4</code></td>
-<td><code>Account.Ownership</code></td>
-<td>Account Ownership picklist</td>
-</tr>
-<tr>
-<td><code>filterField5</code></td>
-<td><code>Opportunity.StageName</code></td>
-<td>Opportunity Stage picklist</td>
-</tr>
-<tr>
-<td><code>filterField6</code></td>
-<td><code>Opportunity.ForecastCategory</code></td>
-<td>Opportunity Forecast Category</td>
-</tr>
-<tr>
-<td><code>filterField7</code></td>
-<td><code>Lead.Status</code></td>
-<td>Lead Status picklist</td>
-</tr>
-<tr>
-<td><code>filterField8</code></td>
-<td><code>Lead.LeadSource</code></td>
-<td>Lead Source picklist</td>
-</tr>
-<tr>
-<td><code>filterField9</code></td>
-<td><code>Opportunity.Account.Industry</code></td>
-<td>Cross-object: filter Opportunities by parent Account Industry</td>
-</tr>
-<tr>
-<td><code>filterField10</code></td>
-<td><code>Lead.Rating</code></td>
-<td>Lead Rating picklist</td>
-</tr>
-<tr>
-<td><code>filterField11–16</code></td>
-<td><em>(empty)</em></td>
-<td>Available for custom filter fields</td>
-</tr>
-</tbody>
-</table>
+<h3>4.2 Default Filter Configuration</h3>
+<p>Out of the box, <code>FilterFields__c</code> is set to:</p>
+<pre><code>Account.Industry,Account.Type</code></pre>
+<p>This means only 2 filters appear by default. To add more, edit the value in RouteForceConfig__mdt or in App Builder.</p>
+<p><strong>Example with more filters:</strong></p>
+<pre><code>Account.Industry,Account.Type,Account.Rating,Opportunity.StageName,Lead.Status,Opportunity.Account.Industry</code></pre>
 
-<h3>4.3 Adding a Custom Filter Field</h3>
+<h3>4.3 Adding or Changing Filter Fields</h3>
+<p><strong>Option A — via RouteForceConfig__mdt:</strong></p>
+<ol>
+<li>Go to <strong>Setup > Custom Metadata Types > RouteForceConfig > Default</strong></li>
+<li>Edit the <code>FilterFields__c</code> field</li>
+<li>Add comma-separated field paths (e.g. <code>Account.Industry,Account.Type,Lead.Status</code>)</li>
+<li>Save</li>
+</ol>
+<p><strong>Option B — via Lightning App Builder</strong> (overrides CMDT):</p>
 <ol>
 <li>Open <strong>Setup > Lightning App Builder</strong></li>
 <li>Edit the <strong>RouteForce</strong> AppPage</li>
 <li>Click the RouteForce component in the canvas</li>
-<li>In the properties panel, find an empty filter slot (e.g., <code>filterField11</code>)</li>
-<li>Enter the field API name using the appropriate syntax (e.g., <code>Account.AnnualRevenue</code> or <code>Lead.Industry</code>)</li>
+<li>In the properties panel, set the <code>filterFields</code> property to your comma-separated field paths</li>
 <li>Save and activate</li>
 </ol>
-<div class="warning"><strong>Important:</strong> Only Picklist, Multi-Picklist, and Boolean (Checkbox) fields are supported as filters. Entering a Text, Number, or Date field will cause the filter to not render.</div>
+<div class="warning"><strong>Important:</strong> Only Picklist, Multi-Picklist, and Boolean (Checkbox) fields are supported. Text, Number, and Date fields will not render as filters.</div>
 
 <h3>4.4 Legend Configuration</h3>
 <p>The legend assigns distinct colors to marker values. Configure these comma-separated lists in the App Builder properties:</p>

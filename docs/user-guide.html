@@ -255,16 +255,16 @@
     <img src="../assets/screenshots-2026/marker-popup.png" alt="RouteForce marker popup — account details, phone, owner, last visit, create event" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;max-width:500px;"/>
 
     <h3>What you see in the popup</h3>
-    <p>Each popup displays:</p>
+    <p>The popup works for <strong>Accounts, Leads, and Opportunities</strong>. Each shows:</p>
     <ul>
-      <li><strong>Account name</strong> — the record name at the top (e.g. "Partenariat pains speciaux")</li>
-      <li><strong>Address</strong> — full street address shown below the name</li>
-      <li><strong>Phone number</strong> — tap to call directly (click-to-call)</li>
+      <li><strong>Record name</strong> — clickable link at the top, color-coded by type (blue for Account, green for Lead, orange for Opportunity). Opens the full Salesforce record.</li>
+      <li><strong>Address</strong> — with a directions link that opens Google Maps with turn-by-turn navigation to this location</li>
+      <li><strong>Phone number</strong> — tap to call directly (click-to-call, shown in green)</li>
       <li><strong>Owner</strong> — the Salesforce user assigned to this record</li>
-      <li><strong>Account type or category</strong> — shows the record type or a key field (e.g. parent account, industry)</li>
-      <li><strong>Tags</strong> — visual badges like "New" for recently created records</li>
-      <li><strong>Last visit</strong> — shows how many days since the last check-in (e.g. "28 J" = 28 days ago). Helps you spot overdue accounts at a glance</li>
-      <li><strong>Mini map</strong> — a small Google Maps preview at the bottom showing the exact location</li>
+      <li><strong>Last visit date</strong> — shows the date of the last check-in. Turns <strong>red</strong> with a "days ago" counter if the visit is overdue (based on your admin's alert threshold)</li>
+      <li><strong>Last visit report</strong> — if a visit report exists, shows the result (Positive/Neutral/Negative) with a link to open the full report</li>
+      <li><strong>Additional fields</strong> — extra fields configured by your admin (industry, type, stage, etc.)</li>
+      <li><strong>For Opportunities</strong> — also shows the parent Account name as a clickable link</li>
     </ul>
 
     <h3>Actions available</h3>
@@ -273,7 +273,7 @@
         <tr><th>Action</th><th>What it does</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Create an event</strong></td><td>The main button at the bottom of the popup. Creates a Salesforce Event linked to this account — schedule a visit in one tap.</td></tr>
+        <tr><td><strong>Create an event</strong></td><td>The green button at the bottom of the popup. Creates a Salesforce Event linked to this record (Account, Lead, or Opportunity) — schedule a visit in one tap.</td></tr>
         <tr><td><strong>Click-to-Call</strong></td><td>Tap the phone number to call directly from your device. On mobile, it launches the phone dialer.</td></tr>
         <tr><td><strong>Navigate</strong></td><td>Tap the mini map or the address to open Google Maps with directions to this location.</td></tr>
         <tr><td><strong>Open Record</strong></td><td>Click the account name to open the full Salesforce record in a new tab.</td></tr>
@@ -297,27 +297,14 @@
     <img src="../assets/screenshots-2026/screen-02.jpg" alt="Filter panel" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
 
     <h3>Default filter fields</h3>
-    <p>RouteForce comes with <strong>10 pre-configured filter fields</strong>:</p>
-
-    <table>
-      <thead>
-        <tr><th>#</th><th>Filter Field</th><th>Object</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>Industry</td><td>Account</td></tr>
-        <tr><td>2</td><td>Type</td><td>Account</td></tr>
-        <tr><td>3</td><td>Rating</td><td>Account</td></tr>
-        <tr><td>4</td><td>Ownership</td><td>Account</td></tr>
-        <tr><td>5</td><td>Stage Name</td><td>Opportunity</td></tr>
-        <tr><td>6</td><td>Forecast Category</td><td>Opportunity</td></tr>
-        <tr><td>7</td><td>Status</td><td>Lead</td></tr>
-        <tr><td>8</td><td>Lead Source</td><td>Lead</td></tr>
-        <tr><td>9</td><td>Account Industry</td><td>Opportunity (cross-object)</td></tr>
-        <tr><td>10</td><td>Rating</td><td>Lead</td></tr>
-      </tbody>
-    </table>
-
-    <p>Your admin can configure up to <strong>6 additional custom filter slots</strong> (slots 11 through 16), for a total of <strong>16 filters</strong>.</p>
+    <p>RouteForce ships with <strong>2 default filter fields</strong>:</p>
+    <ul>
+      <li><strong>Account.Industry</strong></li>
+      <li><strong>Account.Type</strong></li>
+    </ul>
+    <p>Your admin can add as many filters as needed — either via <strong>RouteForceConfig__mdt</strong> (<code>FilterFields__c</code>) or via <strong>Lightning App Builder</strong> (FlexiPage). Filters are comma-separated field paths, for example:</p>
+    <code>Account.Industry,Account.Type,Opportunity.StageName,Lead.Status,Opportunity.Account.Industry</code>
+    <p style="margin-top:8px;">Cross-object filters are supported (e.g. <code>Opportunity.Account.Industry</code>).</p>
 
     <h3>Supported field types</h3>
     <ul>
