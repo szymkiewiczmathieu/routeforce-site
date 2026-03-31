@@ -251,7 +251,7 @@ ORDER BY PermissionSet.Name, Assignee.Name
 
 <!-- ======================================================== -->
 <h2>5. Launch the onboarding wizard</h2>
-<p>The <strong>RF_Onboarding</strong> flow has <strong>2 screens</strong>: a <strong>Welcome screen</strong> and an <strong>API Keys screen</strong> where you enter your Licence Key, ORS API Key, and Fallback API Key. These are stored securely via <code>SecureConfigService</code> into <code>InternalConfig__c</code>.</p>
+<p>The <strong>RF_Onboarding</strong> flow has <strong>4 screens</strong>: a <strong>Welcome</strong> screen, an <strong>API Keys</strong> screen where you enter your Licence Key, ORS API Key, and Fallback API Key, a <strong>Done</strong> confirmation screen, and an <strong>Error</strong> screen (displayed if key storage fails). Keys are stored securely via <code>SecureConfigService</code> into <code>InternalConfig__c</code>.</p>
 <h3>How to launch</h3>
 <ol>
 <li>Open the <strong>RouteForce</strong> app from the App Launcher.</li>
@@ -470,6 +470,17 @@ ORDER BY PermissionSet.Name, Assignee.Name
 <tr><td><code>FilterFields__c</code></td><td><code>Account.Industry,Account.Type</code></td><td>Comma-separated list of filterable fields</td></tr>
 <tr><td><code>VisitReportCustomFields__c</code></td><td><code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td><td>Fields shown in the visit report form</td></tr>
 <tr><td><code>VisitResultOptions__c</code></td><td><code>Positive,Neutral,Negative,No Answer</code></td><td>Picklist values for visit result</td></tr>
+<tr><td><code>CheckInNotePrefix__c</code></td><td><code>Check-in:</code></td><td>Prefix added to event description at check-in</td></tr>
+<tr><td><code>ContactQueryFields__c</code></td><td><code>Id,Name,Email,Phone,MobilePhone</code></td><td>Contact fields queried for account popup lookup</td></tr>
+<tr><td><code>ContactQueryFilter__c</code></td><td><code>null</code></td><td>Optional SOQL WHERE clause for contact queries</td></tr>
+<tr><td><code>EventOppLinkTarget__c</code></td><td><code>opportunity</code></td><td>Event-Opportunity linking target field</td></tr>
+<tr><td><code>LeadQueryFields__c</code></td><td><code>Rating,LeadSource</code></td><td>Lead fields included in marker data</td></tr>
+<tr><td><code>LeadQueryFilter__c</code></td><td><code>IsConverted = false</code></td><td>SOQL WHERE clause for lead queries</td></tr>
+<tr><td><code>OpportunityQueryFields__c</code></td><td><code>StageName,Amount,CloseDate</code></td><td>Opportunity fields included in marker data</td></tr>
+<tr><td><code>OpportunityQueryFilter__c</code></td><td><code>IsClosed = false</code></td><td>SOQL WHERE clause for opportunity queries</td></tr>
+<tr><td><code>RouteStepFields__c</code></td><td><code>null</code></td><td>Additional fields shown in route step cards</td></tr>
+<tr><td><code>SupportEmail__c</code></td><td><code>contact@routeforce.app</code></td><td>Support email shown in UI</td></tr>
+<tr><td><code>VisitAlertDays__c</code></td><td><code>0</code></td><td>Days threshold for overdue visit alerts (0 = disabled)</td></tr>
 </tbody></table>
 
 <h3>SOQL check — verify active configuration</h3>
@@ -723,12 +734,12 @@ LIMIT 20
 </tr>
 </thead>
 <tbody><tr>
-<td>RouteForce Activity Overview</td>
-<td>High-level view of route creation, visit completions, and user adoption</td>
+<td>RouteForce — Field Activity</td>
+<td>Sales manager dashboard — visit activity, on-site compliance, route efficiency, and team performance</td>
 </tr>
 <tr>
-<td>RouteForce Manager Dashboard</td>
-<td>Team-level metrics, visit frequency, and territory coverage</td>
+<td>RouteForce — Adoption &amp; Usage</td>
+<td>Admin dashboard — feature adoption, user activity, system health, and error monitoring</td>
 </tr>
 </tbody></table>
 

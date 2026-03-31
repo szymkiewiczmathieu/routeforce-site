@@ -180,9 +180,9 @@
 <tbody>
 <tr>
 <td><code>AddressFieldPrefix__c</code></td>
-<td>Text</td>
+<td>Picklist</td>
 <td><code>Shipping</code></td>
-<td>Determines which compound address fields are used for geolocation. Set to <code>Shipping</code> to use ShippingLatitude/ShippingLongitude, or <code>Billing</code> to use BillingLatitude/BillingLongitude.</td>
+<td>Determines which compound address fields are used for geolocation. Values: <code>Shipping</code> (uses ShippingLatitude/ShippingLongitude) or <code>Billing</code> (uses BillingLatitude/BillingLongitude).</td>
 </tr>
 <tr>
 <td><code>ClusterRadius__c</code></td>
@@ -198,9 +198,9 @@
 </tr>
 <tr>
 <td><code>DefaultMapLayer__c</code></td>
-<td>Text</td>
+<td>Picklist</td>
 <td><code>Standard</code></td>
-<td>Initial basemap layer. Accepted values: <code>Standard</code> (OpenStreetMap tiles) or <code>Satellite</code> (aerial imagery). Users can switch layers via the map controls.</td>
+<td>Initial basemap layer. Accepted values: <code>Standard</code> (OpenStreetMap tiles), or <code>Satellite</code> (aerial imagery). Users can switch layers via the map controls.</td>
 </tr>
 <tr>
 <td><code>DefaultZoom__c</code></td>
@@ -424,13 +424,13 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 </tr>
 <tr>
 <td><code>VisitReportCustomFields__c</code></td>
-<td>Text</td>
+<td>LongTextArea(1000)</td>
 <td><code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td>
 <td>Comma-separated field identifiers shown in the visit report form. Controls the order and visibility of fields in the check-in modal. Supports both standard identifiers (<code>result</code>, <code>nextAction</code>, <code>notes</code>) and custom field API names.</td>
 </tr>
 <tr>
 <td><code>VisitResultOptions__c</code></td>
-<td>Text</td>
+<td>LongTextArea(1000)</td>
 <td><code>Positive,Neutral,Negative,No Answer</code></td>
 <td>Comma-separated picklist values for the visit result dropdown in the check-in form. Customize to match your organization's visit outcome categories.</td>
 </tr>
@@ -460,7 +460,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <tbody>
 <tr>
 <td><code>SupportEmail__c</code></td>
-<td>Text</td>
+<td>Email</td>
 <td><code>contact@routeforce.app</code></td>
 <td>Support email address displayed in error messages, licence screens, and the Configuration tab. Override this with your internal support email if you provide first-line support.</td>
 </tr>
@@ -511,13 +511,13 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tr>
 <tr>
 <td><code>ObjectType__c</code></td>
-<td>Text</td>
-<td>Which object type markers display this action. Accepted values: <code>Account</code>, <code>Lead</code>, <code>Opportunity</code>. A single action can only target one object type — create separate records for multiple objects.</td>
+<td>Picklist</td>
+<td>Which object type markers display this action. Values: <code>All</code> (default — shows on all object types), <code>Account</code>, <code>Lead</code>, <code>Opportunity</code>.</td>
 </tr>
 <tr>
 <td><code>DisplayContext__c</code></td>
-<td>Text</td>
-<td>Where the action button appears. Accepted values: <code>popup</code> (marker popup only), <code>route</code> (route step card only), <code>both</code> (both locations).</td>
+<td>Picklist</td>
+<td>Where the action button appears. Values: <code>All</code> (default — both locations), <code>Popup</code> (marker popup only), <code>EventPanel</code> (event panel only).</td>
 </tr>
 <tr>
 <td><code>FilterCondition__c</code></td>
@@ -527,7 +527,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <tr>
 <td><code>ButtonColor__c</code></td>
 <td>Text</td>
-<td>CSS color value for the button. Accepts hex codes (<code>#4CAF50</code>), named colors (<code>green</code>), or CSS variables. Default styling applies if left empty.</td>
+<td>CSS color value for the button. Accepts hex codes (<code>#4CAF50</code>), named colors (<code>green</code>), or CSS variables. Default: <code>#10B981</code>.</td>
 </tr>
 <tr>
 <td><code>IsActive__c</code></td>
@@ -570,7 +570,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tr>
 <tr>
 <td><code>DisplayContext__c</code></td>
-<td><code>both</code></td>
+<td><code>All</code></td>
 </tr>
 <tr>
 <td><code>FilterCondition__c</code></td>
@@ -618,7 +618,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tr>
 <tr>
 <td><code>DisplayContext__c</code></td>
-<td><code>popup</code></td>
+<td><code>Popup</code></td>
 </tr>
 <tr>
 <td><code>FilterCondition__c</code></td>
@@ -1044,7 +1044,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <hr>
 
 <h2 id="scheduled-jobs">8. Scheduled Jobs</h2>
-<p>RouteForce includes two schedulable Apex classes that must be scheduled after installation.</p>
+<p>RouteForce includes three schedulable Apex classes that must be scheduled after installation.</p>
 
 <h3>8.1 UsageAggregationSchedulable</h3>
 <table>
@@ -1071,7 +1071,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </table>
 <p>Schedule via Anonymous Apex:</p>
 <pre><code>System.schedule(
-  'RouteForce - Usage Aggregation',
+  'RouteForce Usage Aggregation',
   '0 0 1 * * ?',
   new routeforce.UsageAggregationSchedulable()
 );</code></pre>
@@ -1101,12 +1101,42 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </table>
 <p>Schedule via Anonymous Apex:</p>
 <pre><code>System.schedule(
-  'RouteForce - Log Purge',
+  'RouteForce Log Purge',
   '0 0 2 * * ?',
   new routeforce.LogPurgeSchedulable()
 );</code></pre>
 
-<div class="warning"><strong>Important:</strong> Scheduled jobs are automatically removed when deploying a new version of the schedulable class. After upgrading RouteForce, re-schedule both jobs using the Anonymous Apex snippets above.</div>
+<h3>8.3 UsagePurgeBatch</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Purges old raw usage records after aggregation</td>
+</tr>
+<tr>
+<td><strong>Recommended Schedule</strong></td>
+<td>Weekly, Sunday at 3:00 AM</td>
+</tr>
+<tr>
+<td><strong>Prerequisite</strong></td>
+<td><code>EnableUsageTracking__c = true</code></td>
+</tr>
+</tbody>
+</table>
+<p>Schedule via Anonymous Apex:</p>
+<pre><code>System.schedule(
+  'RouteForce Usage Purge',
+  '0 0 3 ? * SUN',
+  new routeforce.UsagePurgeBatch()
+);</code></pre>
+
+<div class="warning"><strong>Important:</strong> Scheduled jobs are automatically removed when deploying a new version of the schedulable class. After upgrading RouteForce, re-schedule all three jobs using the Anonymous Apex snippets above.</div>
 
 <hr>
 
@@ -1413,8 +1443,19 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <td>HeiGIT public API (fallback routing)</td>
 <td><code>InternalConfig__c.FallbackApiKey__c</code></td>
 </tr>
+<tr>
+<td><strong>BAN Endpoint</strong></td>
+<td>BAN geocoding API endpoint</td>
+<td><code>InternalConfig__c.BanEndpoint__c</code></td>
+</tr>
+<tr>
+<td><strong>Licence Endpoint</strong></td>
+<td>Licence validation API endpoint</td>
+<td><code>InternalConfig__c.LicenceEndpoint__c</code></td>
+</tr>
 </tbody>
 </table>
+<div class="note"><strong>Note:</strong> <code>BanEndpoint__c</code> and <code>LicenceEndpoint__c</code> are system-managed fields and are not typically edited by admins.</div>
 <p>Keys are set during the <strong>RF_Onboarding</strong> wizard (Step 1) and stored via <code>SecureConfigService.storeKeys()</code>.</p>
 
 <hr>
