@@ -142,7 +142,7 @@
         <li><a href="#checkin-checkout">Check-In / Check-Out (Visit Reports)</a></li>
         <li><a href="#route-history">Route History</a></li>
         <li><a href="#heatmap">Heatmap</a></li>
-        <li><a href="#bulk-select">Bulk Select (Lasso Tool)</a></li>
+        <li><a href="#bulk-select">Bulk Select (Rectangle Selection Tool)</a></li>
         <li><a href="#quick-text">Quick Text for Visit Notes</a></li>
         <li><a href="#mobile">Mobile Usage</a></li>
         <li><a href="#troubleshooting">Troubleshooting</a></li>
@@ -275,7 +275,7 @@
       <tbody>
         <tr><td><strong>Create an event</strong></td><td>The green button at the bottom of the popup. Creates a Salesforce Event linked to this record (Account, Lead, or Opportunity) — schedule a visit in one tap.</td></tr>
         <tr><td><strong>Click-to-Call</strong></td><td>Tap the phone number to call directly from your device. On mobile, it launches the phone dialer.</td></tr>
-        <tr><td><strong>Navigate</strong></td><td>Tap the mini map or the address to open Google Maps with directions to this location.</td></tr>
+        <tr><td><strong>Navigate</strong></td><td>Tap the directions arrow icon on the address to open Google Maps with directions to this location.</td></tr>
         <tr><td><strong>Open Record</strong></td><td>Click the account name to open the full Salesforce record in a new tab.</td></tr>
         <tr><td><strong>Custom Actions</strong></td><td>Your admin can add extra buttons (Screen Flows) — for example, a quick order form or a customer survey.</td></tr>
       </tbody>
@@ -482,7 +482,7 @@
     <ol>
       <li>Build and optimize your route.</li>
       <li>Click <strong>Create Events</strong> (or <strong>Create Visits</strong>).</li>
-      <li>RouteForce generates one Salesforce Event per stop using the <strong>RF_CreateEvent</strong> flow.</li>
+      <li>Single events from marker popups use the <strong>RF_CreateEvent</strong> flow.</li>
       <li>Each event includes:
         <ul>
           <li>Subject (visit purpose)</li>
@@ -494,7 +494,7 @@
     </ol>
 
     <h3>Bulk event creation</h3>
-    <p>After optimization, you can create events for <strong>all stops at once</strong> rather than one by one. This is the fastest way to populate your calendar for the day.</p>
+    <p>After optimization, you can create events for <strong>all stops at once</strong> rather than one by one. Bulk event creation from the route panel uses direct Apex (<code>RouteService.createRouteEvents</code>) for performance. This is the fastest way to populate your calendar for the day.</p>
 
     <h3>Calendar overlap detection</h3>
     <p>RouteForce checks your existing Salesforce calendar before creating events. If a new event would overlap with an existing one, you will see a <strong>warning</strong> so you can adjust the timing or skip that stop.</p>
@@ -552,19 +552,19 @@
     <p>When you check in, RouteForce shows you a summary of the <strong>previous visit</strong> to this same record (if any). This includes the last visit date, result, and notes — so you have context before your meeting starts.</p>
 
     <h3>Step 2: Complete the visit report</h3>
-    <p>After your meeting, fill in the visit report with the following fields:</p>
+    <p>After your meeting, fill in the visit report. The form shows <strong>3 standard fields</strong> (Result, Next Action, Notes) plus <strong>admin-configurable custom fields</strong>. By default, the custom fields include Satisfaction, Order Amount, and Next Visit Date — but your admin can change this via <code>VisitReportCustomFields__c</code> in RouteForceConfig__mdt.</p>
 
     <table>
       <thead>
         <tr><th>Field</th><th>Description</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Result</strong></td><td>Overall visit outcome: <em>Positive</em>, <em>Neutral</em>, <em>Negative</em>, or <em>No Answer</em></td></tr>
-        <tr><td><strong>Satisfaction</strong></td><td>Customer satisfaction level observed during the visit</td></tr>
+        <tr><td><strong>Result</strong></td><td>Overall visit outcome. This is a text field — the available options are configured by your admin via <code>VisitResultOptions__c</code>. The default options are: <em>Positive</em>, <em>Neutral</em>, <em>Negative</em>, <em>No Answer</em>.</td></tr>
         <tr><td><strong>Next Action</strong></td><td>What follow-up action is needed (e.g., send quote, schedule demo)</td></tr>
-        <tr><td><strong>Order Amount</strong></td><td>If an order was placed, enter the amount here</td></tr>
         <tr><td><strong>Notes</strong></td><td>Free-form rich text field for detailed visit notes (supports Quick Text — see <a href="#quick-text">Section 15</a>)</td></tr>
-        <tr><td><strong>Next Visit Date</strong></td><td>When the customer should be visited again</td></tr>
+        <tr><td><strong>Satisfaction</strong> <span class="small-muted">(custom field)</span></td><td>Customer satisfaction level observed during the visit</td></tr>
+        <tr><td><strong>Order Amount</strong> <span class="small-muted">(custom field)</span></td><td>If an order was placed, enter the amount here</td></tr>
+        <tr><td><strong>Next Visit Date</strong> <span class="small-muted">(custom field)</span></td><td>When the customer should be visited again</td></tr>
       </tbody>
     </table>
 
@@ -627,7 +627,7 @@
     <!-- ============================================================ -->
     <h2 id="heatmap">13. Heatmap</h2>
 
-    <p>The heatmap overlay provides a visual density view of your records on the map. Areas with many records appear as warm colors (red/orange), while sparse areas appear cool (blue/green).</p>
+    <p>The heatmap overlay provides a visual density view of your records on the map. Areas with many records appear as warm colors (red, high density), while sparse areas appear as indigo/purple (low density), transitioning through amber in between.</p>
 
     <h3>How to use it</h3>
     <ol>
@@ -648,17 +648,17 @@
     <hr>
 
     <!-- ============================================================ -->
-    <h2 id="bulk-select">14. Bulk Select (Lasso Tool)</h2>
+    <h2 id="bulk-select">14. Bulk Select (Rectangle Selection Tool)</h2>
 
-    <p>The lasso tool lets you select multiple records on the map at once by drawing a selection area.</p>
+    <p>The rectangle selection tool lets you select multiple records on the map at once by drawing a selection area.</p>
 
-    <img src="../assets/screenshots-2026/lasso-select.png" alt="Bulk select lasso — select area to add stops to route" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
+    <img src="../assets/screenshots-2026/lasso-select.png" alt="Bulk select — drag-select area to add stops to route" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
 
     <h3>How to use it</h3>
     <ol>
-      <li>Click the <strong>Lasso</strong> button on the map toolbar.</li>
-      <li>Click and drag on the map to draw a selection area around the markers you want.</li>
-      <li>All markers inside the area are selected and highlighted.</li>
+      <li>Click <strong>Select Area</strong> in the toolbar.</li>
+      <li>Click and drag on the map to draw a rectangle around the records you want to select.</li>
+      <li>All markers inside the rectangle are selected and highlighted.</li>
     </ol>
 
     <h3>What you can do with a selection</h3>
@@ -667,9 +667,9 @@
       <li><strong>Bulk operations</strong> — depending on your admin configuration, additional bulk actions may be available.</li>
     </ul>
 
-    <div class="tip"><strong>Tip:</strong> Use the lasso tool to quickly build a route for a specific neighborhood or industrial zone. Draw around the area, add all to your route, then optimize.</div>
+    <div class="tip"><strong>Tip:</strong> Use the rectangle selection tool to quickly build a route for a specific neighborhood or industrial zone. Draw around the area, add all to your route, then optimize.</div>
 
-    <div class="note"><strong>Note:</strong> Bulk select must be enabled by your admin (EnableBulkSelect). If you do not see the Lasso button, ask your admin to activate it.</div>
+    <div class="note"><strong>Note:</strong> Bulk select must be enabled by your admin (EnableBulkSelect). If you do not see the Select Area button, ask your admin to activate it.</div>
 
     <hr>
 
@@ -705,7 +705,7 @@
     <p>The mobile view shows the full interactive map with your accounts, leads, and opportunities displayed as markers and clusters (green circles with numbers). The map supports <strong>pinch to zoom</strong> and <strong>drag</strong> to navigate.</p>
 
     <h3>The FAB button (+ button)</h3>
-    <p>The blue <strong>floating action button (FAB)</strong> in the bottom-right corner is your main action hub on mobile. Tap it to access:</p>
+    <p>The indigo <strong>floating action button (FAB)</strong> in the bottom-right corner is your main action hub on mobile. Tap it to access:</p>
     <ul>
       <li><strong>Filters</strong> — open the filter panel to narrow down visible records</li>
       <li><strong>My position</strong> — center the map on your current GPS location</li>
@@ -774,7 +774,7 @@
           <td>Make sure you click <strong>Apply</strong> after changing filter values.</td>
         </tr>
         <tr>
-          <td>Heatmap or Lasso button is missing</td>
+          <td>Heatmap or Select Area button is missing</td>
           <td>These features are optional. Ask your admin to enable them in RouteForce configuration.</td>
         </tr>
         <tr>

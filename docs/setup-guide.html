@@ -179,17 +179,17 @@ WHERE SubscriberPackage.Name = 'RouteForce'
 <tbody><tr>
 <td><code>RouteForce_Admin</code></td>
 <td>Salesforce administrators</td>
-<td>Full configuration access. All 32 Apex classes. Both flows (RF_Onboarding, RF_Main). Read/write on all RouteForce custom objects.</td>
+<td>Full configuration access. All 32 Apex classes. Both flows (RF_Onboarding, RF_CreateEvent). Read/write on all RouteForce custom objects.</td>
 </tr>
 <tr>
 <td><code>RouteForce_Manager</code></td>
 <td>Sales managers, team leads</td>
-<td>Manager-level access. 18 Apex classes. <code>viewAllRecords</code> on RouteForce History and Visit Report objects. Can view team activity and reports.</td>
+<td>Manager-level access. 17 Apex classes. <code>viewAllRecords</code> on RouteForce History and Visit Report objects. Can view team activity and reports.</td>
 </tr>
 <tr>
 <td><code>RouteForce_User</code></td>
 <td>Sales reps and field users</td>
-<td>Standard daily access. 18 Apex classes. Own-record visibility only on History and Visit Reports.</td>
+<td>Standard daily access. 14 Apex classes. Own-record visibility only on History and Visit Reports.</td>
 </tr>
 </tbody></table>
 <h3>Assignment via Setup</h3>
@@ -231,12 +231,12 @@ ORDER BY PermissionSet.Name, Assignee.Name
 <td>Yes</td>
 </tr>
 <tr>
-<td>OpenRouteService</td>
+<td>RouteForce_HeiGIT</td>
 <td><code>https://api.openrouteservice.org</code></td>
 <td>Yes</td>
 </tr>
 <tr>
-<td>FR_Address_API</td>
+<td>RouteForce_BAN</td>
 <td><code>https://api-adresse.data.gouv.fr</code></td>
 <td>Only if address enrichment is enabled</td>
 </tr>
@@ -251,7 +251,7 @@ ORDER BY PermissionSet.Name, Assignee.Name
 
 <!-- ======================================================== -->
 <h2>5. Launch the onboarding wizard</h2>
-<p>The <strong>RF_Onboarding</strong> flow guides you through initial configuration. It securely stores your keys via <code>SecureConfigService</code> into the <code>InternalConfig__c</code> custom setting.</p>
+<p>The <strong>RF_Onboarding</strong> flow has <strong>2 screens</strong>: a <strong>Welcome screen</strong> and an <strong>API Keys screen</strong> where you enter your Licence Key, ORS API Key, and Fallback API Key. These are stored securely via <code>SecureConfigService</code> into <code>InternalConfig__c</code>.</p>
 <h3>How to launch</h3>
 <ol>
 <li>Open the <strong>RouteForce</strong> app from the App Launcher.</li>
@@ -259,7 +259,7 @@ ORDER BY PermissionSet.Name, Assignee.Name
 <li>Click <strong>Run Onboarding</strong> (or the RF_Onboarding flow will launch automatically on first access).</li>
 </ol>
 
-<h3>Step 1 — API keys</h3>
+<h3>API Keys screen</h3>
 <p>Enter the following credentials:</p>
 <table>
 <thead>
@@ -283,7 +283,10 @@ ORDER BY PermissionSet.Name, Assignee.Name
 </tbody></table>
 <div class="note"><strong>Security note:</strong> All keys are stored securely in <code>InternalConfig__c</code> via the <code>SecureConfigService</code> class. They are never exposed in Custom Metadata or client-side code.</div>
 
-<h3>Step 2 — Map defaults</h3>
+<h3>After running the onboarding flow</h3>
+<p>After completing the RF_Onboarding flow, configure map defaults, feature toggles, and advanced settings directly in <strong>RouteForceConfig__mdt</strong> (<strong>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Default</strong>).</p>
+
+<h3>Map defaults</h3>
 <p>Configure the baseline map behavior:</p>
 <table>
 <thead>
@@ -315,7 +318,7 @@ ORDER BY PermissionSet.Name, Assignee.Name
 </tr>
 </tbody></table>
 
-<h3>Step 3 — Feature toggles</h3>
+<h3>Feature toggles</h3>
 <p>Enable or disable features based on your business needs:</p>
 <table>
 <thead>
@@ -392,7 +395,7 @@ ORDER BY PermissionSet.Name, Assignee.Name
 </tr>
 </tbody></table>
 
-<h3>Step 4 — Advanced settings</h3>
+<h3>Advanced settings</h3>
 <table>
 <thead>
 <tr>

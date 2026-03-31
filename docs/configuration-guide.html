@@ -150,8 +150,8 @@
  |
  +---> SecureConfigService --> InternalConfig__c (API keys, protected)
  |
- +---> ConfigDeployService --> RouteForceConfig__mdt (app settings, 36 fields)
- |                        --> RouteForceAction__mdt (custom actions)
+ +---> Custom Metadata deployment (Setup UI) --> RouteForceConfig__mdt (app settings, 36 fields)
+ |                                          --> RouteForceAction__mdt (custom actions)
  |
  v
  ConfigService.cls (Apex reader — cached)
@@ -334,7 +334,7 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 </tbody>
 </table>
 
-<h3>2.4 Filter Settings (10 fields)</h3>
+<h3>2.4 Filter Settings (8 fields)</h3>
 <p>Configure which data is queried and how filters behave.</p>
 <table>
 <thead>
@@ -842,12 +842,6 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <td>Overrides the CMDT <code>AddressFieldPrefix__c</code> for this specific FlexiPage instance</td>
 </tr>
 <tr>
-<td><code>showRecordType</code></td>
-<td>Boolean</td>
-<td><code>false</code></td>
-<td>Adds a Record Type dropdown filter listing all active Account Record Types</td>
-</tr>
-<tr>
 <td><code>forceMultiPicklist</code></td>
 <td>String</td>
 <td><code>Industry,Type</code></td>
@@ -886,7 +880,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tr>
 <tr>
 <td><code>FilterType__c</code></td>
-<td>Picklist</td>
+<td>Text(255)</td>
 <td>Filter category</td>
 </tr>
 <tr>
@@ -938,7 +932,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <li>Navigate to the <strong>Configuration</strong> tab (requires RouteForce Admin permission set)</li>
 <li>Open the <strong>Address Enrichment</strong> panel</li>
 <li>Select the target object: <strong>Account</strong> or <strong>Lead</strong></li>
-<li>Configure the <strong>max records per batch</strong> (default: 200, max: 2000)</li>
+<li>The batch processes <strong>95 records per batch</strong> (hard limit due to Salesforce callout governor limits)</li>
 <li>Click <strong>Start Enrichment</strong></li>
 <li>The batch processes records without coordinates and queries the BAN API for each address</li>
 <li>Results are written back to the Latitude/Longitude fields on each record</li>
@@ -960,9 +954,9 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <td>Which object to enrich (Account or Lead)</td>
 </tr>
 <tr>
-<td>Max Records</td>
-<td>200</td>
-<td>Maximum records processed per batch execution. Higher values take longer but process more records.</td>
+<td>Batch Size</td>
+<td>95</td>
+<td>Records processed per batch execution. This is a hard limit due to Salesforce callout governor limits (100 callouts per transaction minus overhead).</td>
 </tr>
 <tr>
 <td>Address Prefix</td>
@@ -993,44 +987,40 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </thead>
 <tbody>
 <tr>
-<td><code>map_load</code></td>
-<td>User opens the RouteForce map</td>
+<td><code>ROUTE_CREATED</code></td>
+<td>Route Created</td>
 </tr>
 <tr>
-<td><code>filter_apply</code></td>
-<td>User applies or changes any filter</td>
+<td><code>ROUTE_OPTIMIZED</code></td>
+<td>Route Optimized</td>
 </tr>
 <tr>
-<td><code>route_optimize</code></td>
-<td>User optimizes a route (VROOM API call)</td>
+<td><code>CHECK_IN</code></td>
+<td>Check-In</td>
 </tr>
 <tr>
-<td><code>check_in</code></td>
-<td>User performs a visit check-in</td>
+<td><code>CHECK_OUT</code></td>
+<td>Check-Out</td>
 </tr>
 <tr>
-<td><code>check_out</code></td>
-<td>User performs a visit check-out</td>
+<td><code>EVENT_CREATED</code></td>
+<td>Event Created</td>
 </tr>
 <tr>
-<td><code>route_save</code></td>
-<td>User saves a route to history</td>
+<td><code>FILTER_APPLIED</code></td>
+<td>Filter Applied</td>
 </tr>
 <tr>
-<td><code>csv_export</code></td>
-<td>User exports a route as CSV</td>
+<td><code>ADDRESS_ENRICHED</code></td>
+<td>Address Enriched</td>
 </tr>
 <tr>
-<td><code>bulk_select</code></td>
-<td>User uses lasso bulk selection</td>
+<td><code>CSV_EXPORTED</code></td>
+<td>CSV Exported</td>
 </tr>
 <tr>
-<td><code>heatmap_toggle</code></td>
-<td>User toggles the heatmap overlay</td>
-</tr>
-<tr>
-<td><code>filter_save</code></td>
-<td>User saves a filter configuration</td>
+<td><code>PDF_EXPORTED</code></td>
+<td>PDF Exported</td>
 </tr>
 </tbody>
 </table>
@@ -1071,7 +1061,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tr>
 <tr>
 <td><strong>Recommended Schedule</strong></td>
-<td>Daily, after business hours (e.g., 2:00 AM)</td>
+<td>Daily, after business hours (e.g., 1:00 AM)</td>
 </tr>
 <tr>
 <td><strong>Prerequisite</strong></td>
@@ -1082,7 +1072,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <p>Schedule via Anonymous Apex:</p>
 <pre><code>System.schedule(
   'RouteForce - Usage Aggregation',
-  '0 0 2 * * ?',
+  '0 0 1 * * ?',
   new routeforce.UsageAggregationSchedulable()
 );</code></pre>
 
@@ -1101,7 +1091,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tr>
 <tr>
 <td><strong>Recommended Schedule</strong></td>
-<td>Daily, after business hours (e.g., 3:00 AM)</td>
+<td>Daily, after business hours (e.g., 2:00 AM)</td>
 </tr>
 <tr>
 <td><strong>Retention Period</strong></td>
@@ -1112,7 +1102,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <p>Schedule via Anonymous Apex:</p>
 <pre><code>System.schedule(
   'RouteForce - Log Purge',
-  '0 0 3 * * ?',
+  '0 0 2 * * ?',
   new routeforce.LogPurgeSchedulable()
 );</code></pre>
 
@@ -1134,7 +1124,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <tbody>
 <tr>
 <td><strong>Apex Classes</strong></td>
-<td>All services including <code>ConfigDeployService</code>, <code>SecureConfigService</code></td>
+<td>All 32 Apex classes including <code>SecureConfigService</code></td>
 </tr>
 <tr>
 <td><strong>Objects</strong></td>
@@ -1155,7 +1145,45 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tbody>
 </table>
 
-<h3>9.2 RouteForce User</h3>
+<h3>9.2 RouteForce Manager</h3>
+<p><strong>Target:</strong> Sales managers and team leads.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Apex Classes</strong></td>
+<td>17 Apex classes (operational + reporting services)</td>
+</tr>
+<tr>
+<td><strong>Flows</strong></td>
+<td><code>RF_CreateEvent</code> only</td>
+</tr>
+<tr>
+<td><strong>Objects</strong></td>
+<td><code>viewAllRecords</code> on History__c, VisitReport__c, and RouteForceUsageSummary__c. Standard CRUD on SavedFilter__c.</td>
+</tr>
+<tr>
+<td><strong>CMDT</strong></td>
+<td>Read-only RouteForceConfig__mdt, RouteForceAction__mdt</td>
+</tr>
+<tr>
+<td><strong>Tabs</strong></td>
+<td>RouteForce, History, Saved Filters, Visit Reports</td>
+</tr>
+<tr>
+<td><strong>App</strong></td>
+<td>RouteForce visible</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key difference from User:</strong> Managers have <code>viewAllRecords</code> on History__c, VisitReport__c, and RouteForceUsageSummary__c, allowing them to see team activity and reports. They do <strong>not</strong> have access to admin tabs (Configuration, Licence).</p>
+
+<h3>9.3 RouteForce User</h3>
 <p><strong>Target:</strong> Sales Reps and field users.</p>
 <table>
 <thead>
@@ -1167,7 +1195,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <tbody>
 <tr>
 <td><strong>Apex Classes</strong></td>
-<td>All services except <code>ConfigDeployService</code> and <code>SecureConfigService</code></td>
+<td>14 Apex classes (excludes admin-only services like <code>SecureConfigService</code>)</td>
 </tr>
 <tr>
 <td><strong>Objects</strong></td>
@@ -1189,7 +1217,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </table>
 <p><strong>Key difference:</strong> Users do <strong>not</strong> see the Configuration or Licence tabs, and cannot modify CMDT settings or manage API keys.</p>
 
-<h3>9.3 Assigning Permission Sets</h3>
+<h3>9.4 Assigning Permission Sets</h3>
 <p>Via Setup UI:</p>
 <ol>
 <li><strong>Setup > Permission Sets</strong></li>
@@ -1199,6 +1227,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </ol>
 <p>Via SF CLI:</p>
 <pre><code>sf org assign permset --name RouteForce_Admin --target-org &lt;org-alias&gt;
+sf org assign permset --name RouteForce_Manager --target-org &lt;org-alias&gt;
 sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</code></pre>
 
 <hr>
@@ -1609,7 +1638,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 </table>
 
 <h3>Step 6 — Deploy</h3>
-<p>The wizard writes all settings to <code>RouteForceConfig__mdt.Default</code> via the Metadata API (<code>ConfigDeployService</code>). This is an <strong>asynchronous deployment</strong> — changes take effect after 10–30 seconds.</p>
+<p>After running the onboarding flow, configure all remaining settings directly in <code>RouteForceConfig__mdt.Default</code> via <strong>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Default</strong>.</p>
 
 <hr>
 
