@@ -166,9 +166,9 @@
 <!-- ===== NAV ===== -->
 <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/50">
   <div class="flex justify-between items-center px-6 lg:px-8 py-3 max-w-7xl mx-auto">
-    <a href="/" class="flex items-center gap-2.5">
-      <img src="assets/logo-site-brand.png" alt="RouteForce" class="w-8 h-8 rounded-lg"/>
-      <span class="text-lg font-bold tracking-tight">RouteForce</span>
+    <a href="/" class="flex items-center gap-2.5 min-w-0 pr-3">
+      <img src="assets/logo-site-brand.png" alt="RouteForce" class="w-8 h-8 rounded-lg shrink-0"/>
+      <span class="text-lg font-bold tracking-tight truncate">RouteForce</span>
     </a>
     <nav class="hidden md:flex gap-8 items-center text-sm">
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a>
@@ -178,13 +178,13 @@
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="blog/">Blog</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="consulting.html">Consulting</a>
     </nav>
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2 sm:gap-3">
       <a href="docs/" class="hidden sm:inline-flex text-sm text-on-surface-variant hover:text-on-surface transition-colors">Docs</a>
-      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="bg-primary hover:bg-primary-dim text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors">
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="hidden md:inline-flex bg-primary hover:bg-primary-dim text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors whitespace-nowrap">
         Start with the free app
       </a>
       <!-- Mobile hamburger -->
-      <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+      <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2 shrink-0" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Open menu">
         <span class="block w-5 h-0.5 bg-on-surface"></span>
         <span class="block w-5 h-0.5 bg-on-surface"></span>
         <span class="block w-5 h-0.5 bg-on-surface"></span>
@@ -201,7 +201,7 @@
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="blog/">Blog</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="consulting.html">Consulting</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/">Docs</a>
-      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="bg-primary text-white px-4 py-2.5 rounded-lg text-sm font-semibold text-center mt-2">Start with the free app</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="bg-primary text-white px-4 py-2.5 rounded-lg text-sm font-semibold text-center mt-2">Install RouteForce from AppExchange</a>
     </nav>
   </div>
 </header>
@@ -302,7 +302,7 @@
       </div>
       <div class="text-center">
         <div class="text-2xl font-bold text-on-surface">14 days</div>
-        <div class="text-xs">free app + premium unlock</div>
+        <div class="text-xs">free app with premium unlock</div>
       </div>
     </div>
   </section>
