@@ -372,30 +372,23 @@
       <li>Configure your filters exactly as you want them.</li>
       <li>Click <strong>Save Filter</strong> in the filter panel.</li>
       <li>Enter a descriptive name (e.g., "Hot Manufacturing Accounts - North").</li>
-      <li>Choose whether to make it <strong>public</strong> or keep it private:
-        <ul>
-          <li><strong>Private</strong> — only you can see and use this preset.</li>
-          <li><strong>Public</strong> — any RouteForce user in your org can see and apply this preset.</li>
-        </ul>
-      </li>
+      <li>Choose visibility: check <strong>Make visible to all users</strong> to share it org-wide, or leave unchecked to keep it private.</li>
       <li>Click <strong>Save</strong>.</li>
     </ol>
 
     <h3>Load a saved filter</h3>
     <ol>
-      <li>Open the <strong>Saved Filters</strong> dropdown.</li>
-      <li>Select a preset from the list (your private filters and all public filters are shown).</li>
-      <li>RouteForce immediately applies all filter values and refreshes the map.</li>
+      <li>Open the <strong>Saved Filters</strong> dropdown. Filters are grouped: <strong>My Filters</strong> (yours) and <strong>Shared Filters</strong> (created by others).</li>
+      <li>Select a preset. RouteForce immediately applies all filter values and refreshes the map.</li>
+      <li>An ownership badge appears below the dropdown showing whether the active filter is <strong>Private</strong>, <strong>Visible to all users</strong>, or <strong>shared by [owner name]</strong>.</li>
     </ol>
 
     <h3>Delete a saved filter</h3>
     <ol>
       <li>Select the filter preset from the dropdown.</li>
-      <li>Click the <strong>Delete</strong> button.</li>
+      <li>Click the <strong>Delete</strong> button. This button is only enabled for filters you created — if the filter belongs to another user, the button is disabled with a tooltip explaining why.</li>
       <li>Confirm the deletion.</li>
     </ol>
-
-    <div class="note"><strong>Note:</strong> You can only delete filters you created. Public filters created by other users cannot be deleted by you.</div>
 
     <hr>
 
@@ -519,7 +512,7 @@
       <li>Single events from marker popups use the <strong>RF_CreateEvent</strong> flow.</li>
       <li>Each event includes:
         <ul>
-          <li>Subject (visit purpose)</li>
+          <li>Subject — the account or record name</li>
           <li>Start and end time (based on optimization estimates)</li>
           <li>Related record (Account, Lead, or Opportunity)</li>
           <li>Location</li>
@@ -579,8 +572,10 @@
           <li>Your GPS accuracy is displayed so you know how precise the reading is.</li>
         </ul>
       </li>
-      <li>The check-in timestamp is recorded automatically.</li>
+      <li>The check-in timestamp is recorded automatically in a <strong>Visit Report</strong> record.</li>
     </ol>
+
+    <div class="note"><strong>Calendar-safe:</strong> Check-in does <strong>not</strong> modify the Event Subject or Description. Your calendar data stays clean for Outlook/Exchange sync. All check-in data is stored in the Visit Report record linked to the Event.</div>
 
     <h3>Previous visit context</h3>
     <p>When you check in, RouteForce shows you a summary of the <strong>previous visit</strong> to this same record (if any). This includes the last visit date, result, and notes — so you have context before your meeting starts.</p>
