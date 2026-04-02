@@ -448,7 +448,7 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 <td><code>CheckInNotePrefix__c</code></td>
 <td>Text</td>
 <td><code>Check-in:</code></td>
-<td>Prefix prepended to auto-generated Event description text when a user checks in. The full description becomes: <code>[prefix] [Account Name] — [timestamp]</code>.</td>
+<td><strong>DEPRECATED</strong> — No longer used. Check-in data is now stored entirely in Visit Reports; Event Subject and Description are not modified during check-in.</td>
 </tr>
 <tr>
 <td><code>CheckInOnSiteRadiusMeters__c</code></td>
@@ -1672,8 +1672,8 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <tbody>
 <tr>
 <td>Check-In Note Prefix</td>
-<td>Check-in:</td>
-<td>Prefix for auto-generated event descriptions</td>
+<td><s>Check-in:</s></td>
+<td><strong>DEPRECATED</strong> — No longer used</td>
 </tr>
 <tr>
 <td>On-Site Radius</td>
@@ -2184,7 +2184,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <tbody>
 <tr>
 <td><code>CheckInNotePrefix__c</code></td>
-<td><code>Check-in:</code></td>
+<td><s>Check-in:</s> (deprecated)</td>
 </tr>
 <tr>
 <td><code>CheckInOnSiteRadiusMeters__c</code></td>
