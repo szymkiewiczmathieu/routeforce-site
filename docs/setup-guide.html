@@ -632,49 +632,29 @@ WHERE DeveloperName = 'Default'
 </tbody></table>
 <p>To add or remove fields from the visit report form, edit the comma-separated list in <code>VisitReportCustomFields__c</code>. To change the result dropdown options, edit <code>VisitResultOptions__c</code>.</p>
 
-<h3>Customization philosophy</h3>
-<p>The RouteForce managed package ships a <strong>ready-to-use app</strong> — the RouteForce Lightning App, with pre-configured pages, tabs, reports, and dashboards. Everything works out of the box after installation.</p>
-<p>All managed pages, tabs, and the app itself serve as a <strong>default template</strong>. They cannot be edited directly (this is standard Salesforce managed package behavior). However, the RouteForce <strong>LWC component</strong> (<code>routeforce</code>) is fully reusable — you can place it on any Lightning page with your own configuration.</p>
-
-<h3>What you can customize</h3>
+<h3>Two levels of configuration</h3>
+<p>RouteForce is configured at <strong>two levels</strong>:</p>
 <table>
 <thead>
-<tr><th>What</th><th>How</th></tr>
+<tr><th>Level</th><th>What it controls</th><th>Where</th></tr>
 </thead>
 <tbody>
 <tr>
-<td>Feature toggles, filters, map defaults</td>
-<td>Edit <code>RouteForceConfig__mdt</code> directly — no page changes needed</td>
+<td><strong>RouteForceConfig__mdt</strong></td>
+<td>Product <strong>behavior</strong> — feature toggles, map defaults, query filters, visit report fields, retention settings</td>
+<td>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Default</td>
 </tr>
 <tr>
-<td>Map page (filter fields, legend, marker popups)</td>
-<td>Clone the RouteForce page and adjust component properties (see below)</td>
-</tr>
-<tr>
-<td>Add the map to an Account, Lead, or Opportunity page</td>
-<td>Edit the Record Page in App Builder, drag the <code>routeforce</code> component onto it</td>
-</tr>
-<tr>
-<td>Create a dedicated map page for a team or use case</td>
-<td>Create a new App Page, add the <code>routeforce</code> component, configure its properties</td>
-</tr>
-<tr>
-<td>Build your own Lightning app with RouteForce</td>
-<td>Create a custom Lightning App and add pages containing the <code>routeforce</code> component</td>
-</tr>
-<tr>
-<td>Layouts (Visit Report, Route History, etc.)</td>
-<td>Clone the managed layout and assign your version to the appropriate profiles</td>
-</tr>
-<tr>
-<td>Reports and dashboards</td>
-<td>Clone any managed report or dashboard using <strong>Save As</strong></td>
+<td><strong>FlexiPage properties</strong></td>
+<td>Visual <strong>presentation</strong> — which filter fields appear, legend colors by record type, marker popup content, multi-select rendering, address prefix</td>
+<td>Lightning App Builder (on the RouteForce component)</td>
 </tr>
 </tbody>
 </table>
+<p>CMDT handles the "what" (which features, which fields, which objects). The FlexiPage handles the "how it looks" (legend, colors, popup content, filter layout). <strong>Both should be configured during setup</strong> to match your organization's data model and field sales workflow.</p>
 
-<h3>Cloning the default RouteForce page</h3>
-<p>To adjust the map's visual configuration (filter fields, legend colors, marker popup fields), clone the default page:</p>
+<h3>Cloning the RouteForce page (recommended)</h3>
+<p>The default RouteForce page ships with generic settings. <strong>We strongly recommend cloning it</strong> to configure the legend, filter fields, and marker popups for your specific business:</p>
 <ol>
 <li>Go to <strong>Setup &gt; Lightning App Builder</strong>.</li>
 <li>Find the <strong>RouteForce</strong> page and open it.</li>
@@ -704,7 +684,15 @@ WHERE DeveloperName = 'Default'
 <li>Save and activate the page for the appropriate record types or profiles.</li>
 </ol>
 
-<div class="note"><strong>Summary:</strong> RouteForceConfig__mdt is the primary configuration lever (no page changes needed). Cloning pages and placing the LWC component on other pages gives you full control over the UI. The managed app is your starting point — customize as much or as little as you need.</div>
+<h3>Going further</h3>
+<p>Beyond cloning the default page, the RouteForce LWC component (<code>routeforce</code>) is fully reusable. You can:</p>
+<ul>
+<li><strong>Embed the map on a Record Page</strong> — add it to any Account, Lead, or Opportunity page in App Builder</li>
+<li><strong>Create dedicated pages</strong> — build separate App Pages with different configurations for different teams</li>
+<li><strong>Build your own Lightning App</strong> — create a custom app with pages containing the <code>routeforce</code> component</li>
+<li><strong>Clone layouts, reports, and dashboards</strong> — use Save As on any managed layout, report, or dashboard to create your own version</li>
+</ul>
+<div class="note"><strong>Summary:</strong> RouteForceConfig__mdt controls product behavior. The FlexiPage controls visual presentation. Both should be configured during initial setup. The managed app serves as a starting template — clone what you need and customize.</div>
 <hr>
 
 <!-- ======================================================== -->
