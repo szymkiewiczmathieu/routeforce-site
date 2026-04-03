@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Native Salesforce integration: RouteForce works everywhere your team works</title>
+  <meta name="description" content="RouteForce is a Salesforce-native component that can be placed on record pages, app pages, home pages, tabs, utility bar, and Experience Cloud — with no-code configuration.">
+  <link rel="canonical" href="https://routeforce.app/native-integration-salesforce.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:title" content="Native Salesforce integration: RouteForce works everywhere your team works">
+  <meta property="og:description" content="How RouteForce combines no-code configuration, managed package convenience, and flexible placement across Salesforce.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://routeforce.app/native-integration-salesforce.html">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body style="background:#09090b;color:#e4e4e7;">
+<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px;max-width:1280px;margin:0 auto;">
+    <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
+      <img src="assets/logo-site-brand.png" alt="RouteForce" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;"/>
+      <span style="font-size:1.125rem;font-weight:800;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">RouteForce</span>
+    </a>
+    <nav id="desktopNav" style="display:flex;gap:20px;align-items:center;font-size:0.875rem;white-space:nowrap;">
+      <a href="index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="index.html#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.875rem;" id="docsLink">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.875rem;">Install RouteForce from AppExchange</a>
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn">
+        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
+    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
+      <a href="index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="index.html#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Install RouteForce from AppExchange</a>
+    </nav>
+  </div>
+  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
+</header>
+
+<section class="blog-hero" style="padding:120px 0 60px;background:linear-gradient(135deg,var(--primary-50) 0%,#09090b 100%);">
+  <div class="container" style="max-width:900px;">
+    <span style="background:var(--primary-100);color:var(--primary-700);padding:4px 12px;border-radius:20px;font-weight:600;font-size:0.8rem;display:inline-block;margin-bottom:16px;">Native integration</span>
+    <h1>RouteForce works everywhere your Salesforce team works</h1>
+    <p style="font-size:1.2rem;color:var(--gray-600);margin-top:16px;line-height:1.7;">RouteForce is not only a managed package you install. It is a Salesforce-native component that admins can place, configure, and adapt across record pages, app pages, home pages, tabs, utility bar, and Experience Cloud — without code.</p>
+  </div>
+</section>
+
+<section class="blog-content" style="padding:60px 0 100px;">
+  <div class="container" style="max-width:900px;">
+    <h2>Record page integration without workflow disruption</h2>
+    <p>The RouteForce component can be placed directly on Account, Lead, or Opportunity pages. The map centers automatically on the current record geolocation and loads nearby records, so reps get a contextual geographic view directly from the record they are already using.</p>
+    <p>That means the user does not need to leave the record workflow just to understand geographic context or nearby accounts.</p>
+
+    <h2>Two layers of configuration, no code required</h2>
+    <p>Admins can configure RouteForce in two separate ways:</p>
+    <ul>
+      <li><strong>Behavior layer</strong> through Custom Metadata: features on/off, filters, defaults, and functional settings</li>
+      <li><strong>Presentation layer</strong> through Lightning App Builder: legend, colors, placement, and popup field visibility</li>
+    </ul>
+    <p>This makes the product flexible without turning every change into a custom development project.</p>
+
+    <h2>Managed package, then adaptable everywhere</h2>
+    <p>The package installs and works immediately. After that, admins can clone pages, layouts, and reports to match their business process.</p>
+    <p>The same reusable LWC component can be used across:</p>
+    <ul>
+      <li>Account pages</li>
+      <li>Lead pages</li>
+      <li>Opportunity pages</li>
+      <li>App Pages</li>
+      <li>Home Pages</li>
+      <li>Tabs</li>
+      <li>Utility Bar</li>
+      <li>Experience Cloud</li>
+    </ul>
+
+    <h2>Why this matters commercially</h2>
+    <p>For Salesforce admins and business stakeholders, this flexibility changes the buying story. RouteForce is not only a route planning product. It is a native operational component that can adapt to the real structure of the org.</p>
+    <p>That makes the product easier to pilot, easier to justify, and easier to expand.</p>
+
+    <div class="blog-cta" style="background:linear-gradient(135deg,var(--primary-600),var(--primary-800));border-radius:16px;padding:40px;text-align:center;margin:48px 0 0;color:white;">
+      <h3 style="color:white;margin:0 0 12px;font-size:1.4rem;">Explore RouteForce native integration inside Salesforce</h3>
+      <p style="color:rgba(255,255,255,0.85);margin:0 0 24px;font-size:1rem;">Install the free app on AppExchange, then see how RouteForce can be placed and adapted where your team actually works.</p>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary btn-lg" style="margin-right:12px;">Install RouteForce from AppExchange</a>
+      <a href="use-cases.html" class="btn btn-outline btn-lg" style="border-color:white;color:white;">See use cases</a>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid #27272a;padding:48px 24px;background:#09090b;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <img src="assets/logo-site-brand.png" alt="RouteForce" style="width:24px;height:24px;border-radius:6px;"/>
+        <span style="font-weight:700;color:#fafafa;">RouteForce</span>
+      </div>
+      <p style="color:#71717a;font-size:0.875rem;max-width:280px;">Salesforce-native route optimization for field sales teams.</p>
+    </div>
+    <div style="display:flex;gap:48px;font-size:0.875rem;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Product</span>
+        <a href="index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+        <a href="index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+        <a href="docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+        <a href="blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+        <a href="consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Company</span>
+        <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
+        <a href="docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
+        <a href="docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
+        <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" style="color:#a1a1aa;text-decoration:none;">Status</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:32px auto 0;padding-top:24px;border-top:1px solid #1e1e22;color:#71717a;font-size:0.75rem;">&copy; 2026 RouteForce. All rights reserved.</div>
+</footer>
+</body>
+</html>
