@@ -39,12 +39,12 @@
     .logo-icon { width: 44px; height: 44px; color: var(--rf-blue-dark); flex: 0 0 auto; display:block; }
     .badge { color: white; background: var(--rf-blue); padding: 6px 10px; border-radius: 999px; font-size: 9pt; }
     .hero { margin-top: 20mm; }
-    .hero h1 { font-size: 28pt; line-height: 1.1; margin: 0 0 10px; color: var(--rf-blue-dark); }
+    .hero h1 { font-size: 28pt; line-height: 1.1; margin: 0 0 10px; color: #fafafa; }
     .hero p { font-size: 13pt; color: var(--rf-muted); margin: 0 0 14px; }
     .meta { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 20mm; }
     .meta .card { background: #18181b; border: 1px solid var(--rf-line); border-radius: 10px; padding: 10px 12px; }
     .meta .label { font-size: 8.5pt; letter-spacing: .04em; text-transform: uppercase; color: var(--rf-muted); }
-    .meta .value { margin-top: 4px; font-weight: bold; color: var(--rf-blue-dark); }
+    .meta .value { margin-top: 4px; font-weight: bold; color: #fafafa; }
     .cover-footer { border-top: 2px solid var(--rf-blue); padding-top: 10px; color: var(--rf-muted); font-size: 9pt; }
     .content { counter-reset: h2; }
     h1, h2, h3, h4 { color: var(--rf-blue-dark); page-break-after: avoid; }
@@ -176,11 +176,7 @@
 </tr>
 </thead>
 <tbody><tr>
-<td>Production / Developer Edition</td>
-<td><a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba"><code>https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba</code></a></td>
-</tr>
-<tr>
-<td>Sandbox</td>
+<td>Production / Developer / Sandbox</td>
 <td><a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba"><code>https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba</code></a></td>
 </tr>
 </tbody></table>
@@ -524,6 +520,18 @@ ORDER BY PermissionSet.Name, Assignee.Name
 FROM RouteForceConfig__mdt
 WHERE DeveloperName = 'Default'
 </code></pre>
+
+<h3>RouteForceAction__mdt — custom map actions</h3>
+<p>RouteForce also includes the <code>RouteForceAction__mdt</code> Custom Metadata Type for configuring custom quick actions on the map (e.g., launching Screen Flows from marker popups). See the <a href="configuration-guide.html">Configuration Guide</a> for full details.</p>
+
+<h3>Scheduled jobs (auto-managed)</h3>
+<p>The package includes three scheduled jobs, automatically registered by the post-install handler:</p>
+<ul>
+<li><code>LogPurgeSchedulable</code> — purges RouteForce log records older than the configured retention period</li>
+<li><code>UsageAggregationSchedulable</code> — aggregates feature usage statistics</li>
+<li><code>UsagePurgeBatch</code> — purges aged usage tracking records on a weekly schedule</li>
+</ul>
+<p>No manual scheduling is required. These jobs are registered automatically when the package is installed or upgraded.</p>
 <hr>
 
 <!-- ======================================================== -->
@@ -625,11 +633,12 @@ WHERE DeveloperName = 'Default'
 <p>To add or remove fields from the visit report form, edit the comma-separated list in <code>VisitReportCustomFields__c</code>. To change the result dropdown options, edit <code>VisitResultOptions__c</code>.</p>
 
 <h3>FlexiPage customization (Lightning App Builder)</h3>
-<p>For deeper UI customization, open the RouteForce Lightning page in <strong>Lightning App Builder</strong>:</p>
+<p>The default RouteForce page is part of the managed package and <strong>cannot be edited directly</strong>. To customize the map interface, clone the page and adjust its properties:</p>
 <ol>
 <li>Go to <strong>Setup &gt; Lightning App Builder</strong>.</li>
-<li>Find and edit the RouteForce page.</li>
-<li>You can configure the following component properties:
+<li>Find the <strong>RouteForce</strong> page in the list and open it.</li>
+<li>Click <strong>Clone</strong> (or <strong>Save As</strong>) to create your own copy.</li>
+<li>On your cloned page, click the RouteForce component to adjust its properties:
 <ul>
 <li><strong>Filter fields</strong> — select which filter fields appear in the sidebar</li>
 <li><strong>Legend</strong> — customize map legend labels and colors</li>
@@ -638,8 +647,10 @@ WHERE DeveloperName = 'Default'
 <li><strong>Multi-select behavior</strong> — configure bulk selection options</li>
 </ul>
 </li>
-<li>Save and <strong>Activate</strong> the page for the appropriate profiles or app.</li>
+<li>Click <strong>Save</strong>, then <strong>Activation</strong>.</li>
+<li>Under <strong>Page Settings</strong>, activate for all users. Then create a custom tab for this page and add it to the RouteForce app via <strong>Setup &gt; App Manager &gt; RouteForce &gt; Edit &gt; Navigation Items</strong>.</li>
 </ol>
+<div class="note"><strong>Tip:</strong> You can also control page visibility via permission sets and profile assignments in Setup.</div>
 <hr>
 
 <!-- ======================================================== -->
@@ -813,7 +824,7 @@ AND Type = 'Report'
 <li>Assign <code>RouteForce_User</code> to a small group of field reps (3-5 users)</li>
 <li>Assign <code>RouteForce_Manager</code> to their direct manager</li>
 <li>Gather feedback on filters, marker fields, and route behavior</li>
-<li>Adjust defaults and FlexiPage layout if needed</li>
+<li>Adjust defaults in RouteForceConfig__mdt, or clone the FlexiPage to customize (see Section 8)</li>
 <li>Test visit reports with real field data</li>
 </ul>
 <h3>Phase 3 — Broader deployment</h3>

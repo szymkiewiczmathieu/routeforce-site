@@ -447,7 +447,7 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 <tr>
 <td><code>CheckInNotePrefix__c</code></td>
 <td>Text</td>
-<td><code>Check-in:</code></td>
+<td><code>Check-in</code></td>
 <td><strong>DEPRECATED</strong> — No longer used. Check-in data is now stored entirely in Visit Reports; Event Subject and Description are not modified during check-in.</td>
 </tr>
 <tr>
@@ -459,7 +459,7 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 <tr>
 <td><code>VisitReportCustomFields__c</code></td>
 <td>LongTextArea(1000)</td>
-<td><code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td>
+<td><em>No metadata default</em> — recommended value set by onboarding wizard: <code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td>
 <td>Comma-separated field identifiers shown in the visit report form. Controls the order and visibility of fields in the check-in modal. Supports both standard identifiers (<code>result</code>, <code>nextAction</code>, <code>notes</code>) and custom field API names.</td>
 </tr>
 <tr>
@@ -696,7 +696,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <hr>
 
 <h2 id="flexipage">4. FlexiPage Configuration (App Builder)</h2>
-<p>The RouteForce Lightning App Page is the primary map interface. Configure it via <strong>Setup > Lightning App Builder > RouteForce</strong>. The component exposes configurable properties for filter fields, legend values, and marker popup fields.</p>
+<p>The RouteForce Lightning App Page is the primary map interface. The default page ships with the managed package and <strong>cannot be edited directly</strong>. To customize, clone the page in Lightning App Builder, adjust the component properties, and activate your clone (see <strong>4.3 Option B</strong> below). The component exposes configurable properties for filter fields, legend values, and marker popup fields.</p>
 
 <h3>4.1 Filter Fields Configuration</h3>
 <p>The RouteForce component accepts a <strong>single comma-separated string</strong> of filter field paths — either via the <code>filterFields</code> App Builder property or via <code>FilterFields__c</code> in RouteForceConfig__mdt. There are no numbered slots. Each field path uses one of three syntaxes:</p>
@@ -746,11 +746,13 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <p><strong>Option B — via Lightning App Builder</strong> (overrides CMDT):</p>
 <ol>
 <li>Open <strong>Setup > Lightning App Builder</strong></li>
-<li>Edit the <strong>RouteForce</strong> AppPage</li>
-<li>Click the RouteForce component in the canvas</li>
-<li>In the properties panel, set the <code>filterFields</code> property to your comma-separated field paths</li>
-<li>Save and activate</li>
+<li>Find the <strong>RouteForce</strong> page and open it</li>
+<li>Click <strong>Clone</strong> (or <strong>Save As</strong>) to create your own copy</li>
+<li>Click the RouteForce component, then in the properties panel set the <code>filterFields</code> property to your comma-separated field paths</li>
+<li>Configure any other properties as needed (legend, marker fields, etc.)</li>
+<li>Click <strong>Save</strong>, then <strong>Activation</strong>. Create a custom tab for this page and add it to the RouteForce app via <strong>Setup > App Manager > RouteForce > Edit > Navigation Items</strong>.</li>
 </ol>
+<div class="note"><strong>Note:</strong> The default RouteForce page is part of the managed package and cannot be edited directly. Your cloned page replaces it when added to the app navigation.</div>
 <div class="warning"><strong>Important:</strong> Only Picklist, Multi-Picklist, and Boolean (Checkbox) fields are supported. Text, Number, and Date fields will not render as filters.</div>
 
 <h3>4.4 Legend Configuration</h3>
@@ -775,9 +777,19 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <td>Account legend entries (blue tones)</td>
 </tr>
 <tr>
+<td><code>oppTypeField</code></td>
+<td><code>StageName</code></td>
+<td>Opportunity field used for marker color assignment</td>
+</tr>
+<tr>
 <td><code>oppTypeValues</code></td>
 <td><code>Prospecting,Qualification,Needs Analysis,Closed Won,Closed Lost</code></td>
 <td>Opportunity legend entries (warm tones)</td>
+</tr>
+<tr>
+<td><code>leadTypeField</code></td>
+<td><code>Status</code></td>
+<td>Lead field used for marker color assignment</td>
 </tr>
 <tr>
 <td><code>leadTypeValues</code></td>
@@ -1672,7 +1684,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <tbody>
 <tr>
 <td>Check-In Note Prefix</td>
-<td><s>Check-in:</s></td>
+<td><s>Check-in</s></td>
 <td><strong>DEPRECATED</strong> — No longer used</td>
 </tr>
 <tr>
@@ -2184,7 +2196,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <tbody>
 <tr>
 <td><code>CheckInNotePrefix__c</code></td>
-<td><s>Check-in:</s> (deprecated)</td>
+<td><s>Check-in</s> (deprecated)</td>
 </tr>
 <tr>
 <td><code>CheckInOnSiteRadiusMeters__c</code></td>
@@ -2192,7 +2204,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 </tr>
 <tr>
 <td><code>VisitReportCustomFields__c</code></td>
-<td><code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td>
+<td><em>No metadata default</em> — recommended value set by onboarding wizard: <code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td>
 </tr>
 <tr>
 <td><code>VisitResultOptions__c</code></td>

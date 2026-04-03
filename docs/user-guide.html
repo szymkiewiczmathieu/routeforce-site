@@ -244,7 +244,7 @@
       </tbody>
     </table>
 
-    <img src="../assets/screenshots-2026/screen-01.jpg" alt="Map with markers" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
+    <img src="../assets/screenshots-2026/screen-07.jpg" alt="Map with markers" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
 
     <h3>Map layers</h3>
     <p>Switch between two map styles using the basemap selector in the top-right corner of the map:</p>
@@ -402,7 +402,7 @@
     <h3>Add stops</h3>
     <p>There are two ways to add stops to your route:</p>
     <ul>
-      <li><strong>From the map:</strong> Click a marker, then click <strong>Add to Route</strong> in the popup.</li>
+      <li><strong>From the map:</strong> In route mode, click any marker on the map to add it directly as a route step.</li>
       <li><strong>From search:</strong> Use the search bar in the route panel to find a record by name, then add it.</li>
     </ul>
     <p>Each stop shows its sequence number, record name, city, and record type (Account, Lead, or Opportunity).</p>
@@ -444,7 +444,7 @@
 
     <p>Once you have at least two stops and a starting point, click <strong>Optimize</strong> to let RouteForce calculate the most efficient order.</p>
 
-    <img src="../assets/screenshots-2026/screen-04.jpg" alt="Optimized route on map" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
+    <img src="../assets/screenshots-2026/screen-04.jpg" alt="Route panel after optimization with reordered stops" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
 
     <h3>What happens when you optimize</h3>
     <ol>
@@ -572,7 +572,7 @@
           <li>Your GPS accuracy is displayed so you know how precise the reading is.</li>
         </ul>
       </li>
-      <li>The check-in timestamp is recorded automatically in a <strong>Visit Report</strong> record.</li>
+      <li>RouteForce creates a lightweight <strong>VisitReport__c</strong> record with your GPS coordinates and timestamp only.</li>
     </ol>
 
     <div class="note"><strong>Calendar-safe:</strong> Check-in does <strong>not</strong> modify the Event Subject or Description. Your calendar data stays clean for Outlook/Exchange sync. All check-in data is stored in the Visit Report record linked to the Event.</div>
@@ -600,13 +600,13 @@
     <h3>Step 3: Check out</h3>
     <ol>
       <li>Click <strong>Check Out</strong> when you are ready to leave.</li>
-      <li>The check-out timestamp is recorded.</li>
+      <li>RouteForce updates the existing <strong>VisitReport__c</strong> with the result, notes, next action, and check-out timestamp.</li>
       <li>RouteForce automatically calculates the <strong>visit duration</strong> (time between check-in and check-out).</li>
     </ol>
 
     <h3>After check-out</h3>
     <ul>
-      <li>A <strong>Visit Report</strong> record is created in Salesforce, linked to the Account/Lead/Opportunity.</li>
+      <li>The <strong>Visit Report</strong> record — created at check-in and completed at check-out — is linked to the Account/Lead/Opportunity.</li>
       <li>A <strong>Google Maps link</strong> to the check-in location is saved for reference.</li>
       <li>Your manager can review visit reports from the <strong>Visit Reports</strong> tab.</li>
     </ul>
