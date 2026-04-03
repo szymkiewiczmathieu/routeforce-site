@@ -696,7 +696,15 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <hr>
 
 <h2 id="flexipage">4. FlexiPage Configuration (App Builder)</h2>
-<p>The RouteForce Lightning App Page is the primary map interface. The default page ships with the managed package and <strong>cannot be edited directly</strong>. To customize, clone the page in Lightning App Builder, adjust the component properties, and activate your clone (see <strong>4.3 Option B</strong> below). The component exposes configurable properties for filter fields, legend values, and marker popup fields.</p>
+<p>The RouteForce managed package ships a <strong>ready-to-use Lightning App</strong> with pre-configured pages. This serves as a <strong>default template</strong> — everything works out of the box.</p>
+<p>The managed pages cannot be edited directly. However, the RouteForce <strong>LWC component</strong> (<code>routeforce</code>) is fully reusable — you can place it on any Lightning page with your own configuration. The component exposes configurable properties for filter fields, legend values, and marker popup fields.</p>
+<p><strong>Customization options:</strong></p>
+<ul>
+<li><strong>Clone the default page</strong> — adjust component properties and replace the default in the app navigation (see 4.3 Option B)</li>
+<li><strong>Create a new App Page</strong> — build a dedicated map page for a specific team or use case</li>
+<li><strong>Embed on a Record Page</strong> — add the <code>routeforce</code> component to any Account, Lead, or Opportunity record page</li>
+<li><strong>Build your own Lightning App</strong> — create a custom app with pages containing the <code>routeforce</code> component</li>
+</ul>
 
 <h3>4.1 Filter Fields Configuration</h3>
 <p>The RouteForce component accepts a <strong>single comma-separated string</strong> of filter field paths — either via the <code>filterFields</code> App Builder property or via <code>FilterFields__c</code> in RouteForceConfig__mdt. There are no numbered slots. Each field path uses one of three syntaxes:</p>
