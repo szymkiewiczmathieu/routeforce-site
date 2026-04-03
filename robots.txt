@@ -1,17 +1,27 @@
 User-agent: *
 Allow: /
+Disallow: /en/
+Disallow: /en
 
 # AI crawlers — explicitly allowed for GEO
 User-agent: GPTBot
 Allow: /
+Disallow: /en/
+Disallow: /en
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /en/
+Disallow: /en
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /en/
+Disallow: /en
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /en/
+Disallow: /en
 
 Sitemap: https://routeforce.app/sitemap.xml
