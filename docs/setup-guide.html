@@ -674,22 +674,24 @@ WHERE DeveloperName = 'Default'
 <li>Under <strong>Navigation Items</strong>, add your new tab and optionally remove the default one.</li>
 </ol>
 
-<h3>Adding the map to a Record Page</h3>
-<p>You can embed the RouteForce map directly on any Account, Lead, or Opportunity record page:</p>
+<h3>Embedding the map on Account, Lead, or Opportunity pages</h3>
+<p>The RouteForce component can be placed directly on any <strong>Account</strong>, <strong>Lead</strong>, or <strong>Opportunity</strong> record page. When placed on a record page, the map <strong>automatically centers on the current record's location</strong> and loads nearby records — no additional configuration needed.</p>
+<p>This gives field reps an instant geographic view of their territory right from any record they are working on.</p>
 <ol>
 <li>Go to <strong>Setup &gt; Lightning App Builder</strong>.</li>
-<li>Open (or create) a <strong>Record Page</strong> for the desired object.</li>
+<li>Open (or create) a <strong>Record Page</strong> for Account, Lead, or Opportunity.</li>
 <li>Search for <strong>routeforce</strong> in the component panel and drag it onto the page.</li>
-<li>Configure the component properties as needed.</li>
+<li>Configure the component properties (filter fields, legend, marker popups) — the same properties as on the App Page.</li>
 <li>Save and activate the page for the appropriate record types or profiles.</li>
 </ol>
+<div class="note"><strong>How it works:</strong> On a record page, RouteForce receives the record ID automatically from Salesforce. It uses the record's geolocation to center the map and immediately loads items around that location — giving the user a contextual map view without any manual search.</div>
 
 <h3>Going further</h3>
-<p>Beyond cloning the default page, the RouteForce LWC component (<code>routeforce</code>) is fully reusable. You can:</p>
+<p>Beyond the default app and record pages, the RouteForce LWC component (<code>routeforce</code>) is fully reusable. You can:</p>
 <ul>
-<li><strong>Embed the map on a Record Page</strong> — add it to any Account, Lead, or Opportunity page in App Builder</li>
-<li><strong>Create dedicated pages</strong> — build separate App Pages with different configurations for different teams</li>
+<li><strong>Create dedicated App Pages</strong> — build separate pages with different configurations for different teams or use cases</li>
 <li><strong>Build your own Lightning App</strong> — create a custom app with pages containing the <code>routeforce</code> component</li>
+<li><strong>Add to Home Page</strong> — place the map on a Lightning Home Page for instant territory overview</li>
 <li><strong>Clone layouts, reports, and dashboards</strong> — use Save As on any managed layout, report, or dashboard to create your own version</li>
 </ul>
 <div class="note"><strong>Summary:</strong> RouteForceConfig__mdt controls product behavior. The FlexiPage controls visual presentation. Both should be configured during initial setup. The managed app serves as a starting template — clone what you need and customize.</div>
