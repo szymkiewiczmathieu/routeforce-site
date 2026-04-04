@@ -273,6 +273,7 @@ document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail
     window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
   });
 });
+document.querySelectorAll('.faq-question').forEach(function(btn){btn.addEventListener('click',function(){var item=btn.closest('.faq-item');var open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(other){other.classList.remove('open');var q=other.querySelector('.faq-question');if(q){q.setAttribute('aria-expanded','false');}});if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true');}});});
 </script>
 </body>
 </html>
