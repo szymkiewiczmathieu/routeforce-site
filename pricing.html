@@ -12,7 +12,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RouteForce pricing: €599/month up to 20 users, enterprise quoting beyond</title>
-  <meta name="description" content="RouteForce pricing for Salesforce field teams: start with the free app on AppExchange, then unlock premium features with fixed org pricing instead of per-user fees.">
+  <meta name="description" content="RouteForce pricing: free app on AppExchange, then unlock premium features with fixed org pricing instead of per-user fees.">
   <link rel="canonical" href="https://routeforce.app/pricing.html">
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -224,6 +224,9 @@ document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail
   });
 });
 document.querySelectorAll('.faq-question').forEach(function(btn){btn.addEventListener('click',function(){var item=btn.closest('.faq-item');var open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(other){other.classList.remove('open');var q=other.querySelector('.faq-question');if(q){q.setAttribute('aria-expanded','false');}});if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true');}});});
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is there any per-user cost?","acceptedAnswer":{"@type":"Answer","text":"No. RouteForce Pro standard pricing is €599 excluding tax per month for Salesforce orgs with up to 20 users. Larger deployments are quoted separately."}},{"@type":"Question","name":"Can we try RouteForce before paying for Pro?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can install RouteForce from AppExchange, start with the free app, and unlock premium features with a RouteForce licence when your team needs more advanced capabilities."}},{"@type":"Question","name":"Why is RouteForce easier to justify than Salesforce Maps?","acceptedAnswer":{"@type":"Answer","text":"Because the buying message stays simpler: native Salesforce product, standard fixed pricing up to 20 users, no per-user cost in that scope, and a free app entry point before premium unlock."}}]}
 </script>
 </body>
 </html>

@@ -30,4 +30,11 @@
   <url><loc>https://routeforce.app/docs/cgv.html</loc><priority>0.3</priority></url>
   <url><loc>https://routeforce.app/docs/mentions-legales.html</loc><priority>0.3</priority></url>
   <url><loc>https://routeforce.app/consulting.html</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://routeforce.app/native-integration-salesforce.html</loc><priority>0.7</priority></url>
+  <url><loc>https://routeforce.app/blog/from-route-planning-to-visit-reporting-salesforce-native-field-workflow.html</loc><priority>0.7</priority></url>
+  <url><loc>https://routeforce.app/blog/what-to-compare-before-replacing-salesforce-maps.html</loc><priority>0.7</priority></url>
+  <url><loc>https://routeforce.app/blog/fixed-org-pricing-vs-per-user-field-sales-software.html</loc><priority>0.7</priority></url>
+  <url><loc>https://routeforce.app/blog/why-route-planning-outside-salesforce-breaks-field-execution.html</loc><priority>0.7</priority></url>
+  <url><loc>https://routeforce.app/blog/how-to-improve-field-visit-planning-inside-salesforce.html</loc><priority>0.7</priority></url>
+  <url><loc>https://routeforce.app/blog/salesforce-maps-alternative-2026.html</loc><priority>0.7</priority></url>
 </urlset>
