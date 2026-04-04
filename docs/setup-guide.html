@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RouteForce Setup Guide — V7.7.0</title>
+  <title>RouteForce Setup Guide — V7.8.0</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -69,10 +69,10 @@
     }
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
   </style>
-  <meta name="description" content="RouteForce V7.7.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.">
+  <meta name="description" content="RouteForce V7.8.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.">
   <link rel="canonical" href="https://routeforce.app/docs/setup-guide.html">
-  <meta property="og:title" content="RouteForce Setup Guide — V7.7.0">
-  <meta property="og:description" content="Implementation guide for Salesforce administrators deploying RouteForce V7.7.0.">
+  <meta property="og:title" content="RouteForce Setup Guide — V7.8.0">
+  <meta property="og:description" content="Implementation guide for Salesforce administrators deploying RouteForce V7.8.0.">
   <meta property="og:type" content="article">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -131,7 +131,7 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">RouteForce</div></div>
-        <div class="card"><div class="label">Version</div><div class="value">V7.7.0 — April 2026</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">V7.8.0 — April 2026</div></div>
         <div class="card"><div class="label">Format</div><div class="value">PDF / Print-ready HTML</div></div>
       </div>
     </div>
@@ -140,7 +140,7 @@
   <main class="content">
     <div class="note"><strong>RouteForce branded edition.</strong> This document is formatted for client delivery and print/PDF export.</div>
     <h1>RouteForce Setup Guide</h1>
-<p><strong>Version:</strong> V7.7.0 — April 2026<br><strong>Audience:</strong> Salesforce administrators during initial deployment<br><strong>Goal:</strong> Install RouteForce, assign access, run the onboarding wizard, configure core settings, and validate the first working rollout</p>
+<p><strong>Version:</strong> V7.8.0 — April 2026<br><strong>Audience:</strong> Salesforce administrators during initial deployment<br><strong>Goal:</strong> Install RouteForce, assign access, run the onboarding wizard, configure core settings, and validate the first working rollout</p>
 <div class="note"><strong>Install links:</strong> <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Production / Developer Edition</a> &middot; <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Sandbox</a></div>
 <hr>
 
@@ -197,7 +197,7 @@ WHERE SubscriberPackage.Name = 'RouteForce'
 
 <!-- ======================================================== -->
 <h2>3. Assign permission sets</h2>
-<p>RouteForce V7.7.0 ships with <strong>three</strong> permission sets to support different levels of access.</p>
+<p>RouteForce V7.8.0 ships with <strong>three</strong> permission sets to support different levels of access.</p>
 <table>
 <thead>
 <tr>
@@ -640,18 +640,26 @@ WHERE DeveloperName = 'Default'
 </thead>
 <tbody>
 <tr>
-<td><strong>RouteForceConfig__mdt</strong></td>
+<td><strong>RouteForceConfig__mdt</strong> (org-wide)</td>
 <td>Product <strong>behavior</strong> — feature toggles, map defaults, query filters, visit report fields, retention settings</td>
 <td>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Default</td>
 </tr>
 <tr>
-<td><strong>FlexiPage properties</strong></td>
+<td><strong>App Builder properties</strong> (per page)</td>
 <td>Visual <strong>presentation</strong> — which filter fields appear, legend colors by record type, marker popup content, multi-select rendering, address prefix</td>
 <td>Lightning App Builder (on the RouteForce component)</td>
 </tr>
 </tbody>
 </table>
-<p>CMDT handles the "what" (which features, which fields, which objects). The FlexiPage handles the "how it looks" (legend, colors, popup content, filter layout). <strong>Both should be configured during setup</strong> to match your organization's data model and field sales workflow.</p>
+<div class="note"><strong>Quick rule:</strong><br>
+<strong>"Where do I change this?"</strong><br><br>
+<strong>Which fields/filters/colors appear?</strong> → App Builder properties (per-page)<br>
+<strong>Enable/disable a feature?</strong> → CMDT RouteForceConfig.Default<br>
+<strong>Limits and defaults (zoom, radius)?</strong> → CMDT RouteForceConfig.Default<br>
+<strong>Custom action buttons?</strong> → CMDT RouteForceAction records<br><br>
+Only <code>addressFieldPrefix</code> and <code>filterFields</code> cascade: App Builder overrides CMDT. Everything else is exclusive to one layer.<br><br>
+For the complete reference with presets, see the <a href="configuration-guide.html#config-model">Configuration Guide — Configuration Model</a>.
+</div>
 
 <h3>Cloning the RouteForce page (recommended)</h3>
 <p>The default RouteForce page ships with generic settings. <strong>We strongly recommend cloning it</strong> to configure the legend, filter fields, and marker popups for your specific business:</p>
@@ -693,8 +701,9 @@ WHERE DeveloperName = 'Default'
 <li><strong>Build your own Lightning App</strong> — create a custom app with pages containing the <code>routeforce</code> component</li>
 <li><strong>Add to Home Page</strong> — place the map on a Lightning Home Page for instant territory overview</li>
 <li><strong>Clone layouts, reports, and dashboards</strong> — use Save As on any managed layout, report, or dashboard to create your own version</li>
+<li><strong>Use a configuration preset</strong> — the <a href="configuration-guide.html#presets">Configuration Guide</a> includes 4 ready-to-use presets (Account-only, Sales team, Prospecting, Full operations) with exact values to copy-paste</li>
 </ul>
-<div class="note"><strong>Summary:</strong> RouteForceConfig__mdt controls product behavior. The FlexiPage controls visual presentation. Both should be configured during initial setup. The managed app serves as a starting template — clone what you need and customize.</div>
+<div class="note"><strong>Summary:</strong> RouteForceConfig__mdt controls product behavior (org-wide). The App Builder controls visual presentation (per page). Both should be configured during initial setup. The managed app serves as a starting template — clone what you need and customize. See the <a href="configuration-guide.html">Configuration Guide</a> for the complete reference.</div>
 <hr>
 
 <!-- ======================================================== -->
@@ -812,7 +821,7 @@ LIMIT 20
 
 <!-- ======================================================== -->
 <h2>11. Dashboards and reports</h2>
-<p>RouteForce V7.7.0 includes <strong>2 dashboards</strong> and <strong>18 reports</strong> out of the box, ready for use by admins and managers.</p>
+<p>RouteForce V7.8.0 includes <strong>2 dashboards</strong> and <strong>18 reports</strong> out of the box, ready for use by admins and managers.</p>
 
 <h3>Included dashboards</h3>
 <table>
@@ -971,7 +980,7 @@ AND Type = 'Report'
 <ul>
 <li>Your Salesforce org ID</li>
 <li>Environment type (Production or Sandbox)</li>
-<li>RouteForce package version (<code>V7.7.0</code>)</li>
+<li>RouteForce package version (<code>V7.8.0</code>)</li>
 <li>Description of the issue and steps to reproduce</li>
 </ul>
 <p class="small-muted">RouteForce &bull; contact@routeforce.app &bull; <a href="https://routeforce.app">routeforce.app</a></p>
