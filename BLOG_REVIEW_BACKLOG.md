@@ -24,47 +24,35 @@ Each article must be checked for:
 
 ## Core comparison / money articles
 
-- [ ] `blog/salesforce-maps-alternative.html` — **DONE (recently tuned)**
-- [ ] `blog/salesforce-maps-pricing-alternative.html` — **DONE (premium CTA tightened)**
-- [ ] `blog/flat-pricing-vs-per-user-salesforce-field-tools.html` — **FIX URGENT addressed partially; recheck full page after 50-users removal**
-- [ ] `blog/fixed-org-pricing-vs-per-user-field-sales-software.html` — **REVIEW NEXT**
-- [ ] `blog/what-to-compare-before-replacing-salesforce-maps.html` — **REVIEW NEXT**
-- [ ] `blog/routeforce-vs-salesforce-maps-en.html` — **REVIEW NEXT**
-- [ ] `blog/salesforce-route-planning-pricing.html` — **REVIEW NEXT**
+- [x] `blog/salesforce-maps-alternative.html` — **DONE** — clean, no issues found
+- [x] `blog/salesforce-maps-pricing-alternative.html` — **DONE** — CTA gradient fixed (was using CSS vars with poor contrast)
+- [x] `blog/flat-pricing-vs-per-user-salesforce-field-tools.html` — **DONE** — removed "up to 20 users" cap, fixed CTA text, added excl. tax, added internal links
+- [x] `blog/fixed-org-pricing-vs-per-user-field-sales-software.html` — **DONE** — rebuilt broken hero, added body dark styles, removed user-cap, fixed CTA to indigo, added internal links
+- [x] `blog/what-to-compare-before-replacing-salesforce-maps.html` — **DONE** — fixed pricing user-cap text, fixed light-mode link box on dark page
+- [x] `blog/routeforce-vs-salesforce-maps-en.html` — **DONE** — redirect page only, no content issues
+- [x] `blog/salesforce-route-planning-pricing.html` — **DONE** — removed user-cap framing from pricing and comparison checklist
 
 ## Route planning / field workflow articles
 
-- [ ] `blog/field-route-planning-software.html` — **DONE partially (CTA premium pass), full article still to review**
-- [ ] `blog/sales-route-planner.html` — **DONE partially (CTA premium pass), full article still to review**
-- [ ] `blog/salesforce-route-planning-software.html` — **REVIEW NEXT**
-- [ ] `blog/route-planning-in-salesforce.html` — **REVIEW NEXT**
-- [ ] `blog/optimize-field-sales-routes-salesforce.html` — **REVIEW NEXT**
-- [ ] `blog/visit-planning-software-salesforce.html` — **REVIEW NEXT**
-- [ ] `blog/how-to-improve-field-visit-planning-inside-salesforce.html` — **REVIEW NEXT**
-- [ ] `blog/why-route-planning-outside-salesforce-breaks-field-execution.html` — **REVIEW NEXT**
-- [ ] `blog/from-route-planning-to-visit-reporting-salesforce-native-field-workflow.html` — **REVIEW NEXT**
+- [x] `blog/field-route-planning-software.html` — **DONE** — fixed hero date visibility, fixed CTA button contrast
+- [x] `blog/sales-route-planner.html` — **DONE** — fixed hero date visibility, fixed CTA button contrast
+- [x] `blog/salesforce-route-planning-software.html` — **DONE** — fixed CTA button contrast
+- [x] `blog/route-planning-in-salesforce.html` — **DONE** — fixed hero date visibility, fixed CTA button contrast
+- [x] `blog/optimize-field-sales-routes-salesforce.html` — **DONE** — fixed hero date visibility
+- [x] `blog/visit-planning-software-salesforce.html` — **DONE** — clean, no issues found
+- [x] `blog/how-to-improve-field-visit-planning-inside-salesforce.html` — **DONE** — rebuilt broken hero, removed dead script.js, added pricing/install info, added internal links
+- [x] `blog/why-route-planning-outside-salesforce-breaks-field-execution.html` — **DONE** — rebuilt broken hero, removed dead script.js, added missing footer, expanded pricing section, added internal links
+- [x] `blog/from-route-planning-to-visit-reporting-salesforce-native-field-workflow.html` — **DONE** — full template rebuild (dark body, header, footer, analytics, hero, structured data), added internal links
 
 ## Product / platform narrative articles
 
-- [ ] `blog/routeforce-screen-flows-lwc.html` — **REVIEW NEXT**
-- [ ] `blog/routeforce-worldwide-routing-appexchange.html` — **DONE partially (V7.8 + CTA premium pass), full article still to review**
-- [ ] `blog/salesforce-maps-alternative-2026.html` — **REVIEW LATER**
+- [x] `blog/routeforce-screen-flows-lwc.html` — **DONE** — standardized hero badge to solid indigo
+- [x] `blog/routeforce-worldwide-routing-appexchange.html` — **DONE** — removed all V7.8 refs (11 occurrences), fixed internal-facing language, added Product nav link
+- [x] `blog/salesforce-maps-alternative-2026.html` — **DONE** — redirect page only, no content issues
 
 ## French article(s)
 
-- [ ] `blog/optimiser-tournees-salesforce.html` — **REVIEW NEXT**
-
----
-
-## Immediate article priorities
-1. `blog/flat-pricing-vs-per-user-salesforce-field-tools.html`
-2. `blog/fixed-org-pricing-vs-per-user-field-sales-software.html`
-3. `blog/what-to-compare-before-replacing-salesforce-maps.html`
-4. `blog/salesforce-route-planning-software.html`
-5. `blog/route-planning-in-salesforce.html`
-6. `blog/visit-planning-software-salesforce.html`
-7. `blog/routeforce-screen-flows-lwc.html`
-8. `blog/optimiser-tournees-salesforce.html`
+- [x] `blog/optimiser-tournees-salesforce.html` — **DONE** — redirect page only, no content issues
 
 ---
 
