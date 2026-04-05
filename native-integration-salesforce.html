@@ -12,7 +12,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Native Salesforce Integration | RouteForce</title>
-  <meta name="description" content="RouteForce is a Salesforce-native component for record pages, app pages, tabs, utility bar, and Experience Cloud — no-code setup.">
+  <meta name="description" content="RouteForce is a Salesforce-native component for record pages, app pages, tabs, utility bar, and Experience Cloud. No-code setup.">
   <link rel="canonical" href="https://routeforce.app/native-integration-salesforce.html">
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
   <link rel="icon" type="image/x-icon" href="favicon.ico">
@@ -45,7 +45,7 @@
     <div style="display:flex;align-items:center;gap:8px;">
       <a href="docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.875rem;" id="docsLink">Docs</a>
       <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.875rem;">Install RouteForce from AppExchange</a>
-      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn">
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
         <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
       </button>
     </div>
@@ -69,7 +69,7 @@
   <div class="container" style="max-width:980px;">
     <span style="background:var(--primary-100);color:var(--primary-700);padding:4px 12px;border-radius:20px;font-weight:600;font-size:0.8rem;display:inline-block;margin-bottom:16px;">Native integration</span>
     <h1>RouteForce works where Salesforce teams already work</h1>
-    <p style="font-size:1.2rem;color:var(--gray-600);margin-top:16px;line-height:1.7;max-width:860px;">RouteForce is not only a managed package you install. It is a Salesforce-native component that admins can place, configure, and adapt across record pages, app pages, home pages, tabs, utility bar, and Experience Cloud — without custom code.</p>
+    <p style="font-size:1.2rem;color:var(--gray-600);margin-top:16px;line-height:1.7;max-width:860px;">RouteForce is not only a managed package you install. It is a Salesforce-native component that admins can place, configure, and adapt across record pages, app pages, home pages, tabs, utility bar, and Experience Cloud, without custom code.</p>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:28px;max-width:940px;">
       <div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.22);border-radius:18px;padding:18px 18px 16px;">
         <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Deployment story</div>
@@ -112,6 +112,130 @@
     <p>For Salesforce admins and business stakeholders, this flexibility changes the buying story. RouteForce is not only a route planning product. It is a native operational component that can adapt to the real structure of the org.</p>
     <p>That makes the product easier to pilot, easier to justify, easier to roll out, and easier to expand once the first workflow is proven.</p>
 
+    <h2>Where RouteForce fits in your Salesforce page layouts</h2>
+    <p>Because RouteForce ships as a Lightning Web Component, Salesforce admins can place it anywhere Lightning App Builder accepts a component. Each placement opens a different use case.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:24px 0 28px;">
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Account pages</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Geographic context per record</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">The map centers on the account address and shows nearby accounts, so reps get territory context without leaving the record.</div>
+      </div>
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Lead pages</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Spot nearby pipeline</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">When a rep qualifies a lead, nearby accounts and open opportunities appear immediately. Useful for planning a first visit alongside existing customers.</div>
+      </div>
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Opportunity pages</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Deal-level field context</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">Useful when field reps manage deals that require on-site engagement. The map shows the deal location and nearby accounts that could be visited in the same trip.</div>
+      </div>
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Home pages</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Start-of-day planning view</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">Placed on the Lightning home page, RouteForce becomes the daily planning surface. Reps open Salesforce and immediately see accounts, filter by territory, and build their day.</div>
+      </div>
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">App pages and tabs</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Dedicated planning space</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">Admins can create a dedicated RouteForce tab or app page for teams that want a full-width map experience separate from record pages.</div>
+      </div>
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Utility bar and Experience Cloud</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Always available or partner-facing</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">The utility bar placement keeps RouteForce accessible across any page without navigation. Experience Cloud support extends access to partner portals and external users.</div>
+      </div>
+    </div>
+
+    <h2>No-code configuration for admins</h2>
+    <p>Admins configure RouteForce entirely through standard Salesforce tooling. No custom code is required at any stage of the setup.</p>
+    <p>The <strong>Lightning App Builder</strong> handles all presentation decisions: where the component appears, which record types see it, and which page layout it belongs to. Admins drag the RouteForce component onto any supported surface and assign it through standard assignment rules.</p>
+    <p>Functional behavior is controlled through <strong>Custom Metadata Types</strong>, which are accessible in Setup. Admins set component properties declaratively: default filters (account type, owner, territory), map style, visible object types (accounts, leads, opportunities), and display options. These settings live in org metadata and are version-controlled like any other Salesforce configuration.</p>
+    <p>Permission Sets control which profiles and users access RouteForce features. Standard Salesforce permission assignment applies: no separate user management system, no RouteForce-specific admin panel.</p>
+    <p>The result is a setup that Salesforce admins handle without involving a developer, and that fits naturally into existing org governance processes.</p>
+
+    <h2>How RouteForce uses Salesforce platform features</h2>
+    <p>RouteForce is built on standard Salesforce platform capabilities. This is what makes it genuinely native rather than just installable inside the org.</p>
+    <ul>
+      <li><strong>SOQL for data queries:</strong> account, lead, and opportunity records are retrieved through standard SOQL queries. The component respects sharing rules, field-level security, and record visibility set in your org. No data is extracted or replicated to an external database.</li>
+      <li><strong>Lightning Data Service:</strong> record context (such as the current account address on a record page) is accessed through Lightning Data Service, the standard mechanism for reading and writing Salesforce records from Lightning components.</li>
+      <li><strong>Custom Metadata Types:</strong> configuration lives in metadata, not hardcoded component properties. This means admins can change behavior without touching the component itself, and settings travel correctly between sandboxes and production through standard deployment tooling.</li>
+      <li><strong>Permission Sets:</strong> feature access is governed by Permission Sets, which integrate with standard Salesforce user management. Adding or removing RouteForce access for a user follows the same process as any other permission change in the org.</li>
+      <li><strong>Platform Events:</strong> real-time updates within the component use Salesforce Platform Events where applicable, keeping event-driven communication on-platform rather than through external webhooks or polling mechanisms.</li>
+    </ul>
+    <p>The practical effect: RouteForce inherits the security, scalability, and governance of the Salesforce platform by design, not by workaround.</p>
+
+    <h2>Comparison: native integration vs connected apps</h2>
+    <p>Field teams often evaluate RouteForce against external route planning tools that connect to Salesforce through an API or middleware layer. The architectural difference has real operational consequences.</p>
+    <div style="overflow-x:auto;margin:24px 0 28px;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+        <thead>
+          <tr>
+            <th style="background:#1e1e22;color:#fafafa;border:1px solid #27272a;padding:12px 16px;text-align:left;">Dimension</th>
+            <th style="background:rgba(99,102,241,0.15);color:#c4b5fd;border:1px solid #27272a;padding:12px 16px;text-align:left;">RouteForce (native LWC)</th>
+            <th style="background:#1e1e22;color:#a1a1aa;border:1px solid #27272a;padding:12px 16px;text-align:left;">Connected external app</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Data location</td>
+            <td style="background:#131316;color:#e4e4e7;border:1px solid #27272a;padding:11px 16px;">CRM data stays in Salesforce</td>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Data synced to external system</td>
+          </tr>
+          <tr>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Login</td>
+            <td style="background:#131316;color:#e4e4e7;border:1px solid #27272a;padding:11px 16px;">Single Salesforce login</td>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Separate login for external tool</td>
+          </tr>
+          <tr>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Data freshness</td>
+            <td style="background:#131316;color:#e4e4e7;border:1px solid #27272a;padding:11px 16px;">Real-time from Salesforce</td>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Delayed by sync schedule</td>
+          </tr>
+          <tr>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Security model</td>
+            <td style="background:#131316;color:#e4e4e7;border:1px solid #27272a;padding:11px 16px;">Inherits Salesforce sharing rules and FLS</td>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Separate permission system to maintain</td>
+          </tr>
+          <tr>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Admin tooling</td>
+            <td style="background:#131316;color:#e4e4e7;border:1px solid #27272a;padding:11px 16px;">Lightning App Builder and Setup</td>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Separate admin interface outside Salesforce</td>
+          </tr>
+          <tr>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">User adoption friction</td>
+            <td style="background:#131316;color:#e4e4e7;border:1px solid #27272a;padding:11px 16px;">Low: same UI, same workflow</td>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Higher: context switch to separate tool</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Connected apps are not always a bad choice. When teams need deep integrations with non-Salesforce systems or operate across multiple CRMs, a middleware approach may make sense. But for orgs where Salesforce is the primary system of record for field teams, native integration reduces complexity at every layer: data, security, UX, and admin.</p>
+
+    <h2 id="faq">Frequently asked questions about RouteForce native integration</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span>Does installing RouteForce require custom Apex code?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><p>No. RouteForce installs as a managed package from AppExchange and is configured entirely through Lightning App Builder and Custom Metadata Types. No Apex development is required for installation, configuration, or ongoing administration.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span>Can RouteForce be placed on custom object pages?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><p>RouteForce is natively exposed for Account, Lead, and Opportunity record pages. It can also be placed on Lightning App Pages, Home Pages, Tabs, the Utility Bar, and Experience Cloud pages. Placement on fully custom objects depends on your configuration and the address field structure available.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span>Does RouteForce respect Salesforce sharing rules and field-level security?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><p>Yes. Because RouteForce queries data through standard SOQL and uses Lightning Data Service, it operates within the org's sharing rules and field-level security settings. Users only see records they have access to in Salesforce, with no workaround or bypass.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span>Does the native integration work in sandboxes and scratch orgs?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><p>Yes. RouteForce can be installed and tested in sandbox environments before deploying to production. Configuration through Custom Metadata Types can be moved between environments using standard Salesforce deployment tools including change sets and the Salesforce CLI.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span>What happens to RouteForce when Salesforce releases updates?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><p>RouteForce is tested against Salesforce releases as part of the managed package maintenance included in the subscription. Compatibility updates are delivered through the managed package channel, not through manual re-deployments by your team.</p></div>
+      </div>
+    </div>
+
     <div class="blog-cta">
       <h3>Explore RouteForce native integration inside Salesforce</h3>
       <p>Install the free app on AppExchange, then see how RouteForce can be placed and adapted where your team actually works.</p>
@@ -151,6 +275,7 @@
   <div style="max-width:1200px;margin:32px auto 0;padding-top:24px;border-top:1px solid #1e1e22;color:#71717a;font-size:0.75rem;">&copy; 2026 RouteForce. All rights reserved.</div>
 </footer>
 <script>
+document.querySelectorAll('.faq-question').forEach(function(btn){btn.addEventListener('click',function(){var item=btn.closest('.faq-item');var open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(other){other.classList.remove('open');var q=other.querySelector('.faq-question');if(q){q.setAttribute('aria-expanded','false');}});if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true');}});});
 window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
 document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach(function(link){
   link.addEventListener('click',function(){
@@ -159,7 +284,7 @@ document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail
 });
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","name":"RouteForce Native Integration for Salesforce","description":"RouteForce is a Salesforce-native component for record pages, app pages, tabs, utility bar, and Experience Cloud — no-code setup.","url":"https://routeforce.app/native-integration-salesforce.html","publisher":{"@type":"Organization","name":"RouteForce","url":"https://routeforce.app"}}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does installing RouteForce require custom Apex code?","acceptedAnswer":{"@type":"Answer","text":"No. RouteForce installs as a managed package from AppExchange and is configured entirely through Lightning App Builder and Custom Metadata Types. No Apex development is required for installation, configuration, or ongoing administration."}},{"@type":"Question","name":"Can RouteForce be placed on custom object pages?","acceptedAnswer":{"@type":"Answer","text":"RouteForce is natively exposed for Account, Lead, and Opportunity record pages. It can also be placed on Lightning App Pages, Home Pages, Tabs, the Utility Bar, and Experience Cloud pages. Placement on fully custom objects depends on your configuration and the address field structure available."}},{"@type":"Question","name":"Does RouteForce respect Salesforce sharing rules and field-level security?","acceptedAnswer":{"@type":"Answer","text":"Yes. Because RouteForce queries data through standard SOQL and uses Lightning Data Service, it operates within the org's sharing rules and field-level security settings. Users only see records they have access to in Salesforce, with no workaround or bypass."}},{"@type":"Question","name":"Does the native integration work in sandboxes and scratch orgs?","acceptedAnswer":{"@type":"Answer","text":"Yes. RouteForce can be installed and tested in sandbox environments before deploying to production. Configuration through Custom Metadata Types can be moved between environments using standard Salesforce deployment tools including change sets and the Salesforce CLI."}},{"@type":"Question","name":"What happens to RouteForce when Salesforce releases updates?","acceptedAnswer":{"@type":"Answer","text":"RouteForce is tested against Salesforce releases as part of the managed package maintenance included in the subscription. Compatibility updates are delivered through the managed package channel, not through manual re-deployments by your team."}}]}
 </script>
 </body>
 </html>

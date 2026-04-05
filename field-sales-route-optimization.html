@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>/* dark-page-override */ body{background:#09090b!important;color:#e4e4e7!important} .hero,.blog-hero,.page-hero{background:linear-gradient(135deg,#1e1b4b 0%,#09090b 100%)!important} .hero h1,.blog-hero h1,.page-hero h1{color:#fafafa!important} .hero p,.blog-hero p,.page-hero p{color:#a1a1aa!important} .section-header h2{color:#fafafa!important} .section-header p{color:#a1a1aa!important} .feature-card,.trust-card,.pricing-card,.comparison-card,.step-card,.faq-item{background:#18181b!important;border-color:#27272a!important;color:#e4e4e7!important} .feature-card h3,.trust-card h3,.pricing-card h3,.step-card h3{color:#fafafa!important} .feature-card p,.trust-card p,.pricing-card p,.step-card p{color:#a1a1aa!important} .features-section,.trust-section,.comparison-section,.steps-section,.faq-section,.pricing-section{background:#09090b!important} .footer{background:#09090b!important;border-color:#27272a!important} .footer a,.footer p,.footer span{color:#a1a1aa!important} table th{background:#1e1e22!important;color:#fafafa!important;border-color:#27272a!important} table td{background:#131316!important;color:#a1a1aa!important;border-color:#27272a!important} a{color:#818cf8} .btn-primary{background:#6366f1!important;border-color:#6366f1!important} .badge,.tag{background:rgba(99,102,241,0.15)!important;color:#818cf8!important} hr{border-color:#27272a!important} blockquote{border-color:#6366f1!important;background:rgba(99,102,241,0.06)!important;color:#a1a1aa!important} .cta-box,.blog-cta{background:linear-gradient(135deg,#4f46e5,#3730a3)!important} .highlight,.callout,.info-box{background:rgba(99,102,241,0.06)!important;border-color:#6366f1!important}</style>
+<style>/* dark-page-override */ body{background:#09090b!important;color:#e4e4e7!important} .hero,.blog-hero,.page-hero{background:linear-gradient(135deg,#1e1b4b 0%,#09090b 100%)!important} .hero h1,.blog-hero h1,.page-hero h1{color:#fafafa!important} .hero p,.blog-hero p,.page-hero p{color:#a1a1aa!important} .section-header h2{color:#fafafa!important} .section-header p{color:#a1a1aa!important} .feature-card,.trust-card,.pricing-card,.comparison-card,.step-card,.faq-item{background:#18181b!important;border-color:#27272a!important;color:#e4e4e7!important} .feature-card h3,.trust-card h3,.pricing-card h3,.step-card h3{color:#fafafa!important} .feature-card p,.trust-card p,.pricing-card p,.step-card p{color:#a1a1aa!important} .features-section,.trust-section,.comparison-section,.steps-section,.faq-section,.pricing-section{background:#09090b!important} .footer{background:#09090b!important;border-color:#27272a!important} .footer a,.footer p,.footer span{color:#a1a1aa!important} table th{background:#1e1e22!important;color:#fafafa!important;border-color:#27272a!important} table td{background:#131316!important;color:#a1a1aa!important;border-color:#27272a!important} a{color:#9099ff} .btn-primary{background:#6366f1!important;border-color:#6366f1!important} .badge,.tag{background:rgba(99,102,241,0.15)!important;color:#9099ff!important} hr{border-color:#27272a!important} blockquote{border-color:#6366f1!important;background:rgba(99,102,241,0.06)!important;color:#a1a1aa!important} .cta-box,.blog-cta{background:linear-gradient(135deg,#4f46e5,#3730a3)!important} .highlight,.callout,.info-box{background:rgba(99,102,241,0.06)!important;border-color:#6366f1!important}</style>
 </head>
 <body style="background:#09090b;color:#e4e4e7;">
 <header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
@@ -49,7 +49,7 @@
     <div style="display:flex;align-items:center;gap:8px;">
       <a href="docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.875rem;" id="docsLink">Docs</a>
       <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.875rem;">Start Free</a>
-      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn">
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
         <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
       </button>
     </div>
@@ -111,7 +111,7 @@
 
         <section id="challenge" style="margin-bottom:3rem">
             <h2>The field sales routing challenge</h2>
-            <p>Field sales teams face a daily puzzle: which accounts to visit, in what order, considering travel time, working hours, customer availability and business priorities. This is fundamentally a Vehicle Routing Problem (VRP) — one of the most studied optimization challenges in operations research.</p>
+            <p>Field sales teams face a daily puzzle: which accounts to visit, in what order, considering travel time, working hours, customer availability and business priorities. This is fundamentally a Vehicle Routing Problem (VRP), one of the most studied optimization challenges in operations research.</p>
             <p>Most field reps solve this puzzle manually, using experience and intuition. While experienced reps develop good instincts, manual planning has inherent limitations:</p>
             <ul>
                 <li><strong>Time-consuming:</strong> Planning the next day's visits typically takes 30-45 minutes each morning</li>
@@ -132,15 +132,15 @@
                 <li>Go back to Salesforce, create events for each visit</li>
                 <li>Enter account, contact, time and address for each event</li>
             </ol>
-            <p>This process takes significant time and produces results that are far from optimal — especially for routes with more than a handful of stops.</p>
+            <p>This process takes significant time and produces results that are far from optimal, especially for routes with more than a handful of stops.</p>
 
             <h3>How algorithm-powered optimization works</h3>
             <ol>
                 <li>Select accounts to visit on an interactive map (inside Salesforce)</li>
                 <li>Set constraints: start time, end time, lunch break, visit duration</li>
-                <li>Click "Optimize route" — algorithm calculates the best sequence</li>
+                <li>Click "Optimize route": the algorithm calculates the best sequence</li>
                 <li>Review the optimized route on the map</li>
-                <li>Click "Create events" — all Salesforce events created in one click</li>
+                <li>Click "Create events": all Salesforce events are created in one click</li>
             </ol>
             <p>The entire process takes minutes instead of 30-45 minutes, and the resulting route is mathematically optimized.</p>
         </section>
@@ -160,14 +160,14 @@
             <ul>
                 <li>No dependency on Google Maps or any paid third-party service</li>
                 <li>No per-calculation charges</li>
-                <li>Worldwide coverage — from Europe to Asia, Africa, Americas and Oceania</li>
+                <li>Worldwide coverage, from Europe to Asia, Africa, Americas and Oceania</li>
                 <li>GDPR-compliant data processing on European infrastructure</li>
             </ul>
         </section>
 
         <section id="crm-integration" style="margin-bottom:3rem">
             <h2>Why CRM integration matters</h2>
-            <p>Route optimization in isolation — without CRM integration — solves only half the problem. The real value comes from connecting route planning with your customer data.</p>
+            <p>Route optimization in isolation, without CRM integration, solves only half the problem. The real value comes from connecting route planning with your customer data.</p>
 
             <h3>CRM-aware filtering</h3>
             <p>Before planning a route, filter accounts by any Salesforce field: last visit date, account type, revenue, territory, owner. This ensures you're visiting the right accounts, not just the nearest ones.</p>
@@ -191,7 +191,7 @@
                 <li><strong>Responsive interface:</strong> Map and controls adapt to smaller screens with a bottom-sheet panel design</li>
                 <li><strong>GPS geolocation:</strong> Tap a button to see all Salesforce accounts within a configurable radius around your current position</li>
                 <li><strong>Navigation handoff:</strong> Send the optimized route to Google Maps or Waze for turn-by-turn navigation</li>
-                <li><strong>Works in Salesforce Mobile:</strong> No separate app to install — runs directly in the Salesforce mobile app or any mobile browser</li>
+                <li><strong>Works in Salesforce Mobile:</strong> No separate app to install. Runs directly in the Salesforce mobile app or any mobile browser</li>
             </ul>
 
             <h3>Nearby accounts: the impromptu visit feature</h3>
@@ -205,10 +205,10 @@
 
             <h3>What makes it different</h3>
             <ul>
-                <li><strong>Native Salesforce:</strong> Lightning Web Component running inside your org — not an external tool with a Salesforce connector</li>
+                <li><strong>Native Salesforce:</strong> Lightning Web Component running inside your org, not an external tool with a Salesforce connector</li>
                 <li><strong>Flat-rate pricing:</strong> €599/month billed annually at €7,188/year for Salesforce orgs with up to 20 users. Larger deployments are quoted separately.</li>
                 <li><strong>Self-hosted routing:</strong> Own infrastructure in France using open-source algorithms. No Google Maps dependency.</li>
-                <li><strong>Worldwide coverage:</strong> Route calculations work globally — Europe, Africa, Asia, Americas, Oceania</li>
+                <li><strong>Worldwide coverage:</strong> Route calculations work globally: Europe, Africa, Asia, Americas, Oceania</li>
                 <li><strong>Multi-language:</strong> Interface available in French, English and Spanish</li>
                 <li><strong>GDPR-native:</strong> All data processing on European infrastructure, hosted in France</li>
             </ul>
@@ -222,10 +222,10 @@
         <section id="getting-started" style="margin-bottom:3rem">
             <h2>Getting started</h2>
             <ol>
-                <li><strong>Install the free app from AppExchange</strong> — Validate fit inside your Salesforce org first</li>
-                <li><strong>Configuration</strong> — Managed package installed in your org, filters and permissions set up</li>
-                <li><strong>Training</strong> — Your team trained and autonomous (documentation included)</li>
-                <li><strong>Premium unlock if needed</strong> — Activate broader route optimization and field execution capabilities</li>
+                <li><strong>Install the free app from AppExchange</strong>. Validate fit inside your Salesforce org first</li>
+                <li><strong>Configuration:</strong> Managed package installed in your org, filters and permissions set up</li>
+                <li><strong>Training:</strong> Your team trained and autonomous (documentation included)</li>
+                <li><strong>Premium unlock if needed:</strong> Activate broader route optimization and field execution capabilities</li>
             </ol>
             <p>Average timeline: 1 to 2 weeks from first validation to production rollout.</p>
             <p>Setup options: Self-Setup from €0 or Fully Managed at €3,000 (includes training and 30-day follow-up).</p>
@@ -240,7 +240,7 @@
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false"><span>Does RouteForce work outside of Europe?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                    <div class="faq-answer"><p>Yes. RouteForce provides worldwide coverage: Europe, Africa, Middle East, Asia, Americas and Oceania. All calculations run on RouteForce's own infrastructure — no geographic restrictions.</p></div>
+                    <div class="faq-answer"><p>Yes. RouteForce provides worldwide coverage: Europe, Africa, Middle East, Asia, Americas and Oceania. All calculations run on RouteForce's own infrastructure, with no geographic restrictions.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false"><span>Can I use RouteForce on my phone?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
@@ -276,11 +276,11 @@
 <section style="max-width:800px;margin:0 auto 3rem;padding:0 24px;">
   <h2 style="font-size:1.25rem;font-weight:700;color:#fafafa;margin-bottom:1rem;">Related pages</h2>
   <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;">
-    <li><a href="salesforce-route-planning.html" style="color:#818cf8;text-decoration:none;">Salesforce route planning — native route planner for field teams &rarr;</a></li>
-    <li><a href="visit-planning-salesforce.html" style="color:#818cf8;text-decoration:none;">Visit planning for Salesforce — automate field visit scheduling &rarr;</a></li>
-    <li><a href="blog/salesforce-maps-alternative.html" style="color:#818cf8;text-decoration:none;">Salesforce Maps alternative: a native option for route planning &rarr;</a></li>
-    <li><a href="blog/optimize-field-sales-routes-salesforce.html" style="color:#818cf8;text-decoration:none;">How to optimize field sales routes in Salesforce (2026 guide) &rarr;</a></li>
-    <li><a href="blog/sales-route-planner.html" style="color:#818cf8;text-decoration:none;">Sales route planner: what teams should compare before they buy &rarr;</a></li>
+    <li><a href="salesforce-route-planning.html" style="color:#9099ff;text-decoration:none;">Salesforce route planning: native route planner for field teams &rarr;</a></li>
+    <li><a href="visit-planning-salesforce.html" style="color:#9099ff;text-decoration:none;">Visit planning for Salesforce: automate field visit scheduling &rarr;</a></li>
+    <li><a href="blog/salesforce-maps-alternative.html" style="color:#9099ff;text-decoration:none;">Salesforce Maps alternative: a native option for route planning &rarr;</a></li>
+    <li><a href="blog/optimize-field-sales-routes-salesforce.html" style="color:#9099ff;text-decoration:none;">How to optimize field sales routes in Salesforce (2026 guide) &rarr;</a></li>
+    <li><a href="blog/sales-route-planner.html" style="color:#9099ff;text-decoration:none;">Sales route planner: what teams should compare before they buy &rarr;</a></li>
   </ul>
 </section>
 
@@ -305,7 +305,7 @@
       <div style="display:flex;flex-direction:column;gap:8px;">
         <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Company</span>
         <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
-        <a href="consulting.html" style="color:#818cf8;text-decoration:none;font-weight:600;">Consulting</a>
+        <a href="consulting.html" style="color:#9099ff;text-decoration:none;font-weight:600;">Consulting</a>
         <a href="docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
         <a href="docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
         <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" style="color:#a1a1aa;text-decoration:none;">Status</a>

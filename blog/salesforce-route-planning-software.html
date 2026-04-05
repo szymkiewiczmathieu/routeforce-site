@@ -58,7 +58,7 @@
     <div style="display:flex;align-items:center;gap:8px;">
       <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.875rem;" id="docsLink">Docs</a>
       <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.875rem;">Install RouteForce from AppExchange</a>
-      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn">
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
         <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
       </button>
     </div>
@@ -100,17 +100,17 @@
     <h2>Tools on the market today</h2>
     <p>The current landscape includes several options with different trade-offs:</p>
     <ul>
-      <li><strong>Salesforce Maps</strong> — Salesforce's own add-on, priced between $75 and $150 per user per month. Deep platform integration, but cost scales linearly with team size.</li>
-      <li><strong>Geopointe</strong> — Salesforce-native, similar positioning to Salesforce Maps with mapping and territory features.</li>
-      <li><strong>Badger Maps</strong> — popular external route planner that integrates with Salesforce via API, but runs outside the CRM.</li>
-      <li><strong>Map My Customers</strong> — field sales platform with routing and territory tools; connects to Salesforce but is not native.</li>
-      <li><strong>portatour</strong> — automatic scheduling engine that builds plans based on visit frequency rules.</li>
-      <li><strong>RouteForce</strong> — Salesforce-native, flat-rate pricing up to 20 users, worldwide routing, GDPR-compliant with EU data residency.</li>
+      <li><strong>Salesforce Maps</strong>: Salesforce's own add-on, priced between $75 and $150 per user per month. Deep platform integration, but cost scales linearly with team size.</li>
+      <li><strong>Geopointe</strong>: Salesforce-native, similar positioning to Salesforce Maps with mapping and territory features.</li>
+      <li><strong>Badger Maps</strong>: popular external route planner that integrates with Salesforce via API, but runs outside the CRM.</li>
+      <li><strong>Map My Customers</strong>: field sales platform with routing and territory tools; connects to Salesforce but is not native.</li>
+      <li><strong>portatour</strong>: automatic scheduling engine that builds plans based on visit frequency rules.</li>
+      <li><strong>RouteForce</strong>: Salesforce-native, flat-rate pricing up to 20 users, worldwide routing, GDPR-compliant with EU data residency.</li>
     </ul>
     <p>What separates these tools is not feature count. It is how well they integrate into the daily Salesforce workflow your reps already use.</p>
 
     <h2>Route planning should stay close to CRM data</h2>
-    <p>Field teams already manage accounts, leads, opportunities, and events in Salesforce. If route planning happens outside the CRM — as with tools like Badger Maps or Map My Customers — reps often jump between systems and recreate context manually.</p>
+    <p>Field teams already manage accounts, leads, opportunities, and events in Salesforce. If route planning happens outside the CRM, as with tools like Badger Maps or Map My Customers, reps often jump between systems and recreate context manually.</p>
     <p>A stronger model is route planning that starts from Salesforce records and keeps execution close to the same dataset. Native apps like RouteForce, Geopointe, or Salesforce Maps avoid that context-switching because the data never leaves the platform.</p>
 
     <h2>Route planning is only one part of field execution</h2>
@@ -134,7 +134,7 @@
     </ul>
 
     <h2>Data residency and GDPR compliance</h2>
-    <p>For European teams — or any organization selling into regulated markets — data residency is a real evaluation criterion. Where does the routing engine process your account addresses and visit data? Is that data stored inside the EU?</p>
+    <p>For European teams, or any organization selling into regulated markets, data residency is a real evaluation criterion. Where does the routing engine process your account addresses and visit data? Is that data stored inside the EU?</p>
     <p>Some tools route data through US-based services without clear documentation. Before committing, buyers should confirm whether the vendor offers EU data processing and can support a DPA aligned with GDPR requirements.</p>
 
     <h2>Admin simplicity affects adoption</h2>
@@ -150,18 +150,18 @@
     <h2>Where RouteForce fits</h2>
     <p>RouteForce is designed as Salesforce-native route planning software with a broader field execution model behind it.</p>
     <ul>
-      <li><strong>Native inside Salesforce</strong> — route planning, visit creation, and execution workflow all run inside the platform, with no external app or API sync</li>
+      <li><strong>Native inside Salesforce</strong>: route planning, visit creation, and execution workflow all run inside the platform, with no external app or API sync</li>
       <li><strong>Free app first</strong> through AppExchange install</li>
       <li><strong>Premium unlock</strong> when advanced route optimization and execution depth are needed</li>
-      <li><strong>Flat-rate pricing up to 20 users</strong>, with larger deployments quoted separately — no per-user cost escalation</li>
-      <li><strong>Worldwide routing</strong> — works globally, not limited to specific regions</li>
+      <li><strong>Flat-rate pricing up to 20 users</strong>, with larger deployments quoted separately. No per-user cost escalation.</li>
+      <li><strong>Worldwide routing</strong>: works globally, not limited to specific regions</li>
       <li><strong>GDPR-compliant</strong> with EU data residency and a published DPA</li>
     </ul>
     <p><a href="../salesforce-route-planning.html" style="color:#6366f1;font-weight:500;">→ See the route planning page</a><br><a href="../flat-rate-route-optimization.html" style="color:#6366f1;font-weight:500;">→ Compare fixed pricing vs per-user licensing</a></p>
 
     <h2>Conclusion</h2>
     <p>The best Salesforce route planning software is not only the one that builds routes. It is the one that supports the whole operating model around those routes.</p>
-    <p>That means comparing workflow quality, pricing logic, admin simplicity, and field execution — not only a feature matrix.</p>
+    <p>That means comparing workflow quality, pricing logic, admin simplicity, and field execution, not only a feature matrix.</p>
 
     <div class="blog-cta">
       <h3>See how RouteForce handles route planning inside Salesforce</h3>
@@ -193,7 +193,7 @@
       <div style="display:flex;flex-direction:column;gap:8px;">
         <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Company</span>
         <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
-        <a href="../consulting.html" style="color:#818cf8;text-decoration:none;font-weight:600;">Consulting</a>
+        <a href="../consulting.html" style="color:#9099ff;text-decoration:none;font-weight:600;">Consulting</a>
         <a href="../docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
         <a href="../docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
         <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" style="color:#a1a1aa;text-decoration:none;">Status</a>
