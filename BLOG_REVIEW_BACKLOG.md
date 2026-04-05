@@ -174,15 +174,13 @@ These are high-volume keywords where RouteForce has NO presence yet. Winning eve
 - [x] New article blog/business-case-sales-route-optimization.html, ~1,500 words
 - [x] ROI calculator (7:1 ratio, payback under 6 weeks), objection handling table, CFO tips
 
-### 3.2 NEW: "How to set up route planning in Salesforce: install to first route"
-- [ ] Activation content. Step-by-step, free tier.
-- [ ] Low search volume but high conversion value (removes friction)
-- [ ] 800-1,000 words
+### 3.2 DONE: "How to set up route planning in Salesforce: install to first route"
+- [x] Activation content. blog/how-to-set-up-route-planning-salesforce.html, ~1,000 words
+- [x] 5-step technical guide with links to docs
 
-### 3.3 NEW: "Field sales app: what mobile field teams need from their tools"
-- [ ] Target: "field sales app" (90/mo, $20.26 CPC, comp 21 = LOW)
-- [ ] Angle: mobile-first field sales. RouteForce in Salesforce Mobile App vs standalone apps.
-- [ ] 1,000+ words
+### 3.3 DONE: "Field sales app: what mobile field teams need from their tools"
+- [x] Target: "field sales app" (90/mo, $20.26 CPC, comp 21)
+- [x] New article blog/field-sales-app.html, ~1,200 words with 6-tool comparison table
 
 ## Priority 4: Content consolidation (fix cannibalization)
 

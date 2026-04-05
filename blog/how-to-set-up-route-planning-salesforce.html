@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18063754907');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Set Up Route Planning in Salesforce (Step-by-Step) | RouteForce</title>
+  <meta name="description" content="Set up route planning in Salesforce in under 30 minutes. Step-by-step guide covering installation, permission sets, App Builder placement, and configuration.">
+  <link rel="canonical" href="https://routeforce.app/blog/how-to-set-up-route-planning-salesforce.html">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+  <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+  <link rel="stylesheet" href="../style.css">
+  <meta property="og:title" content="How to set up route planning in Salesforce (step-by-step)">
+  <meta property="og:site_name" content="RouteForce">
+  <meta property="og:description" content="Install RouteForce from AppExchange, assign permission sets, add the component to a Lightning page, and start planning routes. Full walkthrough in 5 steps.">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://routeforce.app/blog/how-to-set-up-route-planning-salesforce.html">
+  <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to set up route planning in Salesforce (step-by-step)"/>
+  <meta name="twitter:description" content="Install RouteForce from AppExchange, assign permission sets, add the component to a Lightning page, and start planning routes. Full walkthrough."/>
+  <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How to set up route planning in Salesforce (step-by-step)",
+    "datePublished": "2026-04-05",
+    "dateModified": "2026-04-05",
+    "author": {"@type": "Organization", "name": "RouteForce"},
+    "publisher": {"@type": "Organization", "name": "RouteForce", "url": "https://routeforce.app"},
+    "description": "Step-by-step guide to setting up route planning in Salesforce using RouteForce. Covers installation, permission sets, App Builder placement, and configuration.",
+    "image": "https://routeforce.app/assets/screenshots-2026/screen-01.jpg",
+    "mainEntityOfPage": "https://routeforce.app/blog/how-to-set-up-route-planning-salesforce.html",
+    "mainEntity": {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do I need API access to use route planning in Salesforce?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. RouteForce requires a Salesforce edition with API access (Enterprise, Unlimited, or Developer Edition). Professional Edition works only if you have purchased the API add-on. The component uses API calls for geocoding and route optimization."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I test route planning before buying premium?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The free RouteForce app from AppExchange includes map visualization, account plotting, and manual route planning. You can install and use these features with no time limit. Route optimization (automatic sequencing of stops) requires a premium subscription at EUR 599/month for up to 20 users."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does it take to set up route planning in Salesforce?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Installation takes about 10 minutes. Configuration (permission sets, App Builder placement, and default settings) takes another 20 minutes. Most teams are fully operational within 30 minutes of starting the install. If you prefer a hands-off approach, RouteForce offers a fully managed setup for EUR 3,000."
+          }
+        }
+      ]
+    }
+  }
+  </script>
+</head>
+<body style="background:#09090b;color:#e4e4e7;">
+<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px;max-width:1280px;margin:0 auto;">
+    <a href="../index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
+      <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;"/>
+      <span style="font-size:1.125rem;font-weight:800;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">RouteForce</span>
+    </a>
+    <nav id="desktopNav" style="display:flex;gap:20px;align-items:center;font-size:0.875rem;white-space:nowrap;">
+      <a href="../index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../index.html#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="../index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.875rem;" id="docsLink">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.875rem;">Install RouteForce from AppExchange</a>
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
+    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
+      <a href="../index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../index.html#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="../index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Install RouteForce from AppExchange</a>
+    </nav>
+  </div>
+  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
+</header>
+
+<section class="blog-hero" style="padding:120px 0 60px;background:linear-gradient(135deg,#131316 0%,#09090b 100%);">
+  <div class="container" style="max-width:800px;">
+    <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;font-size:0.875rem;color:#a1a1aa;">
+      <span style="background:#6366f1;color:white;padding:4px 12px;border-radius:20px;font-weight:600;font-size:0.75rem;">Setup guide</span>
+      <time datetime="2026-04-05">April 5, 2026</time>
+      <span>&middot;</span>
+      <span>6 min read</span>
+    </div>
+    <h1>How to set up route planning in Salesforce</h1>
+    <p style="font-size:1.2rem;color:var(--gray-600);margin-top:16px;line-height:1.7;">Install a route planning component from AppExchange, assign permission sets, drop it onto a Lightning page, and configure your defaults. The whole process takes about 30 minutes.</p>
+  </div>
+</section>
+
+<section class="blog-content" style="padding:60px 0 100px;">
+  <div class="container" style="max-width:800px;">
+
+    <p>Adding route planning to Salesforce does not require custom development. With a managed package from AppExchange, you get a Lightning Web Component that plugs into your existing org. This guide walks through the full setup using RouteForce as the example, from installation to a working route on screen.</p>
+
+    <h2>What you need before you start</h2>
+    <p>Before you begin, confirm you have the following:</p>
+    <ul>
+      <li><strong>A Salesforce org with API access.</strong> Enterprise, Unlimited, and Developer Editions include API access by default. Professional Edition requires the API add-on.</li>
+      <li><strong>System Administrator profile</strong> (or equivalent permissions) for the person doing the installation and initial configuration.</li>
+      <li><strong>Accounts with addresses.</strong> The component geocodes your account addresses to plot them on the map. If your accounts have blank or incomplete addresses, they will not appear. Clean up your data first.</li>
+      <li><strong>About 30 minutes.</strong> Installation takes roughly 10 minutes. Configuration and verification take another 20.</li>
+    </ul>
+    <p>If your org uses a sandbox, consider installing there first to test before deploying to production.</p>
+
+    <h2>Step 1: Install from AppExchange</h2>
+    <p>Go to the <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">RouteForce listing on AppExchange</a> and click <strong>Get It Now</strong>. The installation is free. You will be asked to log in to the Salesforce org where you want to install.</p>
+    <p>During installation, you choose whether to install for all users, specific profiles, or admins only. For a first install, "Install for Admins Only" is the safest option. You can extend access later through permission sets.</p>
+    <p>The managed package deploys the following to your org:</p>
+    <ul>
+      <li><strong>Permission sets</strong> for controlling access to free and premium features.</li>
+      <li><strong>Custom Metadata Types</strong> for org-wide configuration defaults.</li>
+      <li><strong>Lightning Web Components</strong> that you will place on Lightning pages using App Builder.</li>
+      <li><strong>Custom objects and fields</strong> for visit tracking and route storage.</li>
+    </ul>
+    <p>Installation typically completes in under 5 minutes. You will receive a confirmation email from Salesforce when it finishes. For detailed steps, see the <a href="../docs/setup-guide.html">Setup Guide</a>.</p>
+
+    <h2>Step 2: Assign permission sets</h2>
+    <p>RouteForce creates permission sets during installation. These control which users can access the component and which features they see.</p>
+    <p>There are two levels:</p>
+    <ul>
+      <li><strong>Free app access.</strong> Gives users access to the map visualization, account plotting, and manual route creation. No subscription required.</li>
+      <li><strong>Premium access.</strong> Adds route optimization (automatic stop sequencing), advanced filters, and reporting features. Requires an active subscription.</li>
+    </ul>
+    <p>To assign permission sets:</p>
+    <ol>
+      <li>Go to <strong>Setup &gt; Users &gt; Permission Sets</strong>.</li>
+      <li>Find the RouteForce permission sets in the list.</li>
+      <li>Open the permission set you want to assign.</li>
+      <li>Click <strong>Manage Assignments</strong>, then <strong>Add Assignment</strong>.</li>
+      <li>Select the users who need access and save.</li>
+    </ol>
+    <p>If you installed for "Admins Only" in Step 1, this is where you grant access to your field reps and managers. Assign the free permission set first, verify everything works, then add premium access once your subscription is active.</p>
+    <p>For teams using permission set groups (recommended by Salesforce for scalable access management), you can add the RouteForce permission sets to an existing group rather than assigning them individually.</p>
+
+    <h2>Step 3: Add RouteForce to a Lightning page</h2>
+    <p>The component is a standard Lightning Web Component. You place it on any Lightning page using App Builder, the same drag-and-drop editor you use for other page layouts.</p>
+    <p>Common placement options:</p>
+    <ul>
+      <li><strong>Home page.</strong> Reps see the map and their planned route as soon as they log in. Good for teams that plan routes at the start of each day.</li>
+      <li><strong>Account record page.</strong> The map appears in the context of a specific account, showing nearby accounts. Useful for reps who want to add visits around a specific location.</li>
+      <li><strong>Dedicated app page.</strong> Create a standalone "Route Planning" page in a custom Lightning app. Best for teams that want a full-screen map experience.</li>
+    </ul>
+    <p>To add the component:</p>
+    <ol>
+      <li>Open <strong>Setup &gt; Lightning App Builder</strong>.</li>
+      <li>Edit the page where you want the component (or create a new one).</li>
+      <li>In the component panel on the left, search for "RouteForce".</li>
+      <li>Drag the component onto the page canvas.</li>
+      <li>Save and activate the page.</li>
+    </ol>
+    <p>If you are placing it on a record page, make sure the page is assigned to the correct record type and profile. If reps cannot see the component after activation, check the page assignment in App Builder.</p>
+
+    <h2>Step 4: Configure filters and defaults</h2>
+    <p>RouteForce supports two layers of configuration:</p>
+    <p><strong>Org-wide defaults</strong> are set through Custom Metadata Types in Salesforce Setup. These apply to every instance of the component across your org. Use them for settings like default map center, distance units, and which Salesforce objects to display.</p>
+    <p><strong>Page-specific settings</strong> are configured through App Builder component properties. When you select the RouteForce component on a Lightning page, the right panel shows configurable properties. Use these to override org-wide defaults for a specific page, for example, setting a different default filter on the Home page than on an Account page.</p>
+    <p>The <a href="../docs/configuration-guide.html">Configuration Guide</a> includes 4 copy-paste presets for common scenarios:</p>
+    <ul>
+      <li>Field sales team with daily route planning</li>
+      <li>Account management with territory-based filtering</li>
+      <li>Service team with appointment-based scheduling</li>
+      <li>Manager view with team-wide route visibility</li>
+    </ul>
+    <p>Start with a preset, then adjust the filters and defaults to match your team's workflow.</p>
+
+    <h2>Step 5: Verify and go live</h2>
+    <p>Before rolling out to the team, run through this checklist:</p>
+    <ol>
+      <li><strong>Open the component.</strong> Navigate to the page where you placed it. The map should load and display your accounts as pins.</li>
+      <li><strong>Check geocoding.</strong> Verify that accounts with valid addresses appear on the map in the correct locations. If accounts are missing, check that their addresses are complete and correctly formatted.</li>
+      <li><strong>Test route creation.</strong> Select a few accounts and create a manual route. The component should draw a path between the selected stops.</li>
+      <li><strong>Test route optimization (premium).</strong> If you have an active subscription, click the optimize button. The stops should reorder to minimize travel time.</li>
+      <li><strong>Create a test event.</strong> Plan a visit to an account and confirm that it creates the expected Salesforce event or task record.</li>
+    </ol>
+    <p>If something is not working as expected, the <a href="../docs/user-guide.html">User Guide</a> covers common issues including missing map pins, geocoding errors, and permission problems.</p>
+    <p>Once verified, communicate the rollout to your team. Share the page location, explain what the component does, and point them to the <a href="../docs/user-guide.html">User Guide</a> for self-service help.</p>
+
+    <h2>What comes next</h2>
+    <p>With the free app installed, your team can visualize accounts on a map and create manual routes. To unlock route optimization, which automatically sequences stops to minimize driving time, you need a premium subscription.</p>
+    <p>RouteForce premium costs <a href="../pricing.html">EUR 599/month</a> (excl. tax) for up to 20 users. There are no per-user fees. If your team grows from 5 to 20 reps, the price stays the same. For teams larger than 20, contact RouteForce for a custom quote.</p>
+    <p>Two setup paths are available:</p>
+    <ul>
+      <li><strong>Self-setup (EUR 0).</strong> Follow this guide and the <a href="../docs/configuration-guide.html">Configuration Guide</a>. Most admins complete it in under 30 minutes.</li>
+      <li><strong>Fully managed setup (EUR 3,000).</strong> RouteForce handles installation, configuration, data validation, user training, and go-live support. Best for teams that want a hands-off deployment. <a href="../consulting.html">Learn more about consulting</a>.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>Do I need API access?</h3>
+    <p>Yes. RouteForce requires a Salesforce edition with API access. Enterprise, Unlimited, and Developer Editions include it by default. Professional Edition works only if you have purchased the API add-on. The component uses API calls for geocoding account addresses and for route optimization calculations.</p>
+
+    <h3>Can I test before buying premium?</h3>
+    <p>Yes. The free app from AppExchange includes map visualization, account plotting, and manual route planning. There is no time limit on the free tier. Route optimization (automatic sequencing of stops to minimize travel time) is the main feature that requires a premium subscription. Install the free app, verify it works with your data, and upgrade when you are ready.</p>
+
+    <h3>How long does setup take?</h3>
+    <p>About 30 minutes total. Installation from AppExchange takes roughly 10 minutes (most of that is waiting for Salesforce to process the package). Assigning permission sets, placing the component in App Builder, and configuring defaults takes another 20 minutes. The biggest variable is data quality: if your account addresses are incomplete, you will need additional time to clean them up before accounts appear correctly on the map.</p>
+
+    <div class="blog-cta">
+      <h3>Ready to add route planning to Salesforce?</h3>
+      <p>Start with the free app from AppExchange. Installation takes 10 minutes, and you can test with your own data before deciding on premium.</p>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn-cta-primary">Install RouteForce from AppExchange</a>
+      <a href="../docs/setup-guide.html" class="btn-cta-secondary">Read the full setup guide</a>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:800px;margin:0 auto 3rem;padding:0 24px;">
+  <h2 style="font-size:1.25rem;font-weight:700;color:#fafafa;margin-bottom:1rem;">From the blog</h2>
+  <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;">
+    <li><a href="route-planning-in-salesforce.html" style="color:#9099ff;text-decoration:none;">Route planning in Salesforce: how it works and what to look for &rarr;</a></li>
+    <li><a href="salesforce-maps-alternative.html" style="color:#9099ff;text-decoration:none;">Salesforce Maps alternative: a native option for route planning and field execution &rarr;</a></li>
+    <li><a href="salesforce-maps-pricing-breakdown.html" style="color:#9099ff;text-decoration:none;">Salesforce Maps pricing: what it actually costs for field teams &rarr;</a></li>
+    <li><a href="optimize-field-sales-routes-salesforce.html" style="color:#9099ff;text-decoration:none;">How to optimize field sales routes inside Salesforce &rarr;</a></li>
+    <li><a href="../salesforce-route-planning.html" style="color:#9099ff;text-decoration:none;">Salesforce route planning: native route planner for field teams &rarr;</a></li>
+  </ul>
+</section>
+
+<footer style="border-top:1px solid #27272a;padding:48px 24px;background:#09090b;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;">
+    <div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
+        <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:24px;height:24px;border-radius:6px;"/>
+        <span style="font-weight:700;color:#fafafa;">RouteForce</span>
+      </div>
+      <p style="color:#71717a;font-size:0.875rem;max-width:280px;">Salesforce-native route optimization for field sales teams.</p>
+    </div>
+    <div style="display:flex;gap:48px;font-size:0.875rem;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Product</span>
+        <a href="../index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+        <a href="../index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+        <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+        <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+        <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Company</span>
+        <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
+        <a href="../consulting.html" style="color:#9099ff;text-decoration:none;font-weight:600;">Consulting</a>
+        <a href="../docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
+        <a href="../docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
+        <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" style="color:#a1a1aa;text-decoration:none;">Status</a>
+      </div>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:32px auto 0;padding-top:24px;border-top:1px solid #1e1e22;color:#71717a;font-size:0.75rem;">&copy; 2026 RouteForce. All rights reserved.</div>
+</footer>
+<script>
+window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach(function(link){
+  link.addEventListener('click',function(){
+    window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
+  });
+});
+</script>
+</body>
+</html>
