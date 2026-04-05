@@ -152,15 +152,26 @@
             <h1>RouteForce Documentation</h1>
             <p style="font-size:1.1rem;color:var(--gray-600);margin-top:12px;">Installation, field adoption, advanced configuration, and trust pages for buyers, Salesforce admins, and field teams.</p>
 
-            <div class="install-box" style="margin-top:32px;">
-                <h2>🚀 Install RouteForce</h2>
-                <p>Install the RouteForce managed package in your Salesforce org in one click. This documentation hub covers <strong>version 7.8.0</strong> with improved admin configuration guides, deployment patterns, and copy-paste presets. Install the free app to visualize records on the map and create meetings immediately, then unlock premium features for route optimization, GPS visit execution, and advanced dashboards.</p>
-                <div class="install-links">
-                    <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener" data-plausible-event="install_package_docs_production">Production / Developer Edition: Documentation for V7.8.0</a>
-                    <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener" class="secondary" data-plausible-event="install_package_docs_sandbox">Sandbox: Documentation for V7.8.0</a>
-                </div>
+            <div class="docs-grid" style="margin-top:32px;">
+                <a href="setup-guide.html" class="docs-card">
+                    <div class="docs-card-icon">🔧</div>
+                    <h2>Setup Guide</h2>
+                    <p>Package installation, permission set assignment, onboarding flow, free vs premium setup, dashboard verification, and first rollout steps for Salesforce administrators.</p>
+                    <span class="docs-badge">Administrators · V7.8.0</span>
+                </a>
+                <a href="user-guide.html" class="docs-card">
+                    <div class="docs-card-icon">📖</div>
+                    <h2>User Guide</h2>
+                    <p>Daily RouteForce usage: map exploration, filters, route building, free app usage, premium features, check-in / check-out, native dashboards, and history reuse.</p>
+                    <span class="docs-badge">Field users · V7.8.0</span>
+                </a>
+                <a href="configuration-guide.html" class="docs-card">
+                    <div class="docs-card-icon">⚙️</div>
+                    <h2>Configuration Guide</h2>
+                    <p>Two-layer config model (App Builder + CMDT), deployment patterns, clone-and-compose guide, App Builder property reference, 4 copy-paste presets, and complete field reference for all 36 settings.</p>
+                    <span class="docs-badge">Advanced admins · V7.8.0</span>
+                </a>
             </div>
-
 
             <div class="features-section" style="padding:10px 0 0;">
                 <div class="section-header">
@@ -184,35 +195,20 @@
                     <a href="../field-sales-route-optimization.html" style="color:#9099ff; text-decoration:none;">Field execution</a>
                     <a href="../flat-rate-route-optimization.html" style="color:#9099ff; text-decoration:none;">Flat-rate model</a>
                     <a href="../native-integration-salesforce.html" style="color:#9099ff; text-decoration:none;">Native integration</a>
-                    <a href="configuration-guide.html" style="color:#9099ff; text-decoration:none;">Configuration guide</a>
                 </div>
             </div>
 
-            <div class="docs-grid">
-                <a href="setup-guide.html" class="docs-card">
-                    <div class="docs-card-icon">🔧</div>
-                    <h2>Setup Guide</h2>
-                    <p>Package installation, permission set assignment, onboarding flow, free vs premium setup, dashboard verification, and first rollout steps for Salesforce administrators.</p>
-                    <span class="docs-badge">Administrators · V7.8.0</span>
-                </a>
-                <a href="user-guide.html" class="docs-card">
-                    <div class="docs-card-icon">📖</div>
-                    <h2>User Guide</h2>
-                    <p>Daily RouteForce usage: map exploration, filters, route building, free app usage, premium features, check-in / check-out, native dashboards, and history reuse.</p>
-                    <span class="docs-badge">Field users · V7.8.0</span>
-                </a>
-                <a href="configuration-guide.html" class="docs-card">
-                    <div class="docs-card-icon">⚙️</div>
-                    <h2>Configuration Guide</h2>
-                    <p>Two-layer config model (App Builder + CMDT), deployment patterns, clone-and-compose guide, App Builder property reference, 4 copy-paste presets, and complete field reference for all 36 settings.</p>
-                    <span class="docs-badge">Advanced admins · V7.8.0</span>
-                </a>
+            <div class="install-box">
+                <h2>Install RouteForce</h2>
+                <p>Install the managed package in your Salesforce org in one click. Start free with map visualization and meeting creation, then unlock premium features for route optimization, GPS visit execution, and advanced dashboards.</p>
+                <div class="install-links">
+                    <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener" data-plausible-event="install_package_docs_production">Production / Developer Edition: Install V7.8.0</a>
+                    <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener" class="secondary" data-plausible-event="install_package_docs_sandbox">Sandbox: Install V7.8.0</a>
+                </div>
             </div>
 
             <p style="text-align:center;color:var(--gray-500);font-size:0.9rem;padding-bottom:60px;">
-                Questions? <a href="mailto:contact@routeforce.app" style="color:var(--primary);">contact@routeforce.app</a> · 
-                <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="color:var(--primary);" target="_blank" rel="noopener">Production docs | V7.8.0</a> ·
-                <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="color:var(--primary);" target="_blank" rel="noopener">Sandbox docs | V7.8.0</a>
+                Questions? <a href="mailto:contact@routeforce.app" style="color:var(--primary);">contact@routeforce.app</a>
             </p>
         </div>
     </section>
