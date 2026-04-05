@@ -16,7 +16,7 @@
 
 ## Pricing
 - Free plan: map visualization, filtering, event creation, unlimited users
-- Pro plan: €599/month per Salesforce org (not per user), includes all features, unlimited users
+- Pro plan: €599/month excl. tax per Salesforce org (not per user), for up to 20 users — billed annually at €7,188/year. Custom quote for larger deployments.
 
 ## Technical details
 - 100% Lightning Web Component (LWC) based

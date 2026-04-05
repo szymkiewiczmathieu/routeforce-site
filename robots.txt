@@ -23,4 +23,10 @@ Allow: /
 User-agent: cohere-ai
 Allow: /
 
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
 Sitemap: https://routeforce.app/sitemap.xml
