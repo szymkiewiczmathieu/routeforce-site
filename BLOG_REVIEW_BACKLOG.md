@@ -136,12 +136,10 @@ These are high-volume keywords where RouteForce has NO presence yet. Winning eve
 - [x] New article blog/salesforce-maps-pricing-breakdown.html, ~1,800 words with TCO tables
 - [x] Competition index: 20 (LOW). Quick win.
 
-### 1.3 NEW: "Route optimization software: the buyer's guide for field teams"
-- [ ] Target: "route optimization software" (1,300/mo, $47.52 CPC)
-- [ ] Massive volume but generic. Competition index 23 (surprisingly low).
-- [ ] Angle: comprehensive buyer's guide. Categories of route optimization (delivery vs sales vs field service), key evaluation criteria, comparison of top solutions, when Salesforce-native matters.
-- [ ] This is top-of-funnel awareness content. Won't convert directly but drives brand discovery.
-- [ ] 2,500+ words
+### 1.3 DONE: "Route optimization software: the buyer's guide for field teams"
+- [x] Target: "route optimization software" (1,300/mo, $47.52 CPC, comp 23)
+- [x] New article blog/route-optimization-software.html, ~2,500 words
+- [x] 8-tool comparison with real pricing, decision tree, ROI benchmarks
 
 ### 1.4 DONE: "Sales territory mapping: how to visualize and manage sales territories"
 - [x] Target: "sales territory mapping" (320/mo), "territory management salesforce" (390/mo), "salesforce territory mapping" (30/mo)
