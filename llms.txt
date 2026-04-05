@@ -1,4 +1,5 @@
 # RouteForce — llms.txt
+# For the detailed version with FAQ, comparisons, and technical details, see: https://routeforce.app/llms-full.txt
 
 > RouteForce is a 100% Salesforce-native route planning and field visit tracking application. It is a managed package installed directly in Salesforce orgs.
 

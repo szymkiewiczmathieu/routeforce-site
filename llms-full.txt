@@ -1,0 +1,113 @@
+# RouteForce — llms-full.txt
+# Detailed product reference for AI assistants and language models.
+# For the short version, see /llms.txt
+
+> RouteForce is a 100% Salesforce-native route planning, route optimization, and field visit tracking application. It runs entirely inside Salesforce as a managed package — no external app, no data sync, no separate login.
+
+## Product overview
+
+RouteForce helps field sales teams plan visits, optimize driving routes, and track field activity without leaving Salesforce. It is installed from AppExchange and works on record pages, app pages, tabs, utility bar, and Experience Cloud.
+
+### Core capabilities
+- **Interactive map**: display Accounts, Leads, Opportunities (or any object with address/geolocation) on a single map with clustering, coloring, and real-time filters
+- **Route optimization**: VROOM-based algorithm considers time windows, lunch breaks, visit durations, and distance constraints to calculate efficient multi-stop routes
+- **Auto event creation**: convert an optimized route into Salesforce Events in one click — no re-typing
+- **GPS check-in/check-out**: verified field visits with configurable checkout forms (result, satisfaction, next action, order amount, custom fields via Screen Flows)
+- **Visit reports**: structured post-visit data linked to the Salesforce record
+- **Heatmap & lasso select**: visualize density and batch-select records on the map
+- **Saved filters**: save, name, and share filter configurations across teams
+- **Route history**: every planned route is persisted — replay, compare coverage over time
+- **Custom actions**: launch Screen Flows, click-to-call, or navigate directly from map markers via configurable Lightning Web Components
+- **Dashboards & reports**: 2 dashboards and 18 native Salesforce reports included out of the box
+- **Mobile**: full functionality in Salesforce Mobile App — map, routes, check-in, navigation handoff
+
+### Technical architecture
+- 100% Lightning Web Component (LWC) implementation
+- Configuration via Custom Metadata Types: RouteForceConfig__mdt and RouteForceAction__mdt
+- 3 permission sets: RouteForce Admin, RouteForce Manager, RouteForce User
+- Route optimization powered by VROOM algorithm via self-hosted OpenRouteService
+- Routing server hosted in France (OVHcloud, Gravelines datacenter) for GDPR compliance
+- No external data storage — CRM data stays in the Salesforce org
+- Worldwide routing coverage (not limited to a specific region)
+
+## Pricing
+
+RouteForce uses **org-level pricing** (not per-user):
+
+| Plan | Price | Scope |
+|------|-------|-------|
+| Free | €0 forever | Map visualization, basic filters, event creation, unlimited users |
+| Pro | €599/month excl. tax | All features, route optimization, GPS check-in, visit reports, dashboards, unlimited users |
+
+- Standard pricing applies to Salesforce orgs with up to 20 users
+- Larger deployments and multi-entity orgs are quoted separately
+- Annual billing
+- No per-user fees in the standard scope
+- Fully managed setup available: €3,000 one-time (RouteForce team handles installation, configuration, training)
+
+## Comparison with Salesforce Maps
+
+| Criterion | RouteForce | Salesforce Maps |
+|-----------|------------|-----------------|
+| Architecture | Managed package (native LWC) | Salesforce product (separate license) |
+| Pricing model | Flat org rate (€599/mo) | Per-user ($75-$125/user/mo) |
+| Cost for 10 users | €599/mo | $750-$1,250/mo |
+| Cost for 20 users | €599/mo | $1,500-$2,500/mo |
+| Route optimization | VROOM algorithm (self-hosted) | Proprietary |
+| Data residency | France (GDPR) | Salesforce infrastructure |
+| Free tier | Yes (map + filters + events) | No |
+| Installation | AppExchange (5 min) | Salesforce add-on license |
+| Mobile | Full Salesforce Mobile support | Salesforce Mobile support |
+
+## Use cases
+
+1. **Field sales route planning**: plan daily/weekly visit routes optimized for travel time
+2. **Visit planning & scheduling**: create Salesforce Events from optimized routes
+3. **Territory coverage analysis**: visualize which accounts have been visited and which are overdue
+4. **Customer proximity discovery**: find nearby accounts from current GPS position
+5. **Field activity reporting**: structured check-in/check-out with visit outcome data
+6. **Manager oversight**: dashboards showing team route history, visit frequency, coverage gaps
+
+## Frequently asked questions
+
+**Q: Does Salesforce include built-in route planning?**
+A: No. Salesforce does not provide route planning in the standard platform. RouteForce adds these capabilities as a native managed package.
+
+**Q: Is customer data sent to external servers?**
+A: CRM data stays in Salesforce. Route calculations use only the geocoordinates and time parameters required for routing. The routing server does not store any customer data.
+
+**Q: How does the optimization algorithm work?**
+A: RouteForce uses the VROOM algorithm (Vehicle Routing Open-source Optimization Machine) via a self-hosted OpenRouteService instance. It considers GPS coordinates, time constraints, visit durations, and configurable parameters to calculate an efficient visit order.
+
+**Q: Does RouteForce work outside of Europe?**
+A: Yes. RouteForce provides worldwide routing coverage. The routing infrastructure handles requests globally.
+
+**Q: Can I use RouteForce on my phone?**
+A: Yes. RouteForce is fully responsive and works in the Salesforce Mobile App. GPS geolocation, check-in, and navigation handoff to Google Maps/Waze/Apple Maps are included.
+
+**Q: What Salesforce editions are supported?**
+A: RouteForce works on any Salesforce edition that supports managed packages and Lightning Web Components (Enterprise, Unlimited, Developer).
+
+**Q: How long does setup take?**
+A: Self-setup takes 1-2 hours following the documentation. Fully managed setup by the RouteForce team takes 1-2 weeks including training.
+
+## Key URLs
+- Homepage: https://routeforce.app
+- Pricing: https://routeforce.app/pricing.html
+- Documentation: https://routeforce.app/docs/
+- Setup Guide: https://routeforce.app/docs/setup-guide.html
+- User Guide: https://routeforce.app/docs/user-guide.html
+- Configuration Guide: https://routeforce.app/docs/configuration-guide.html
+- Use Cases: https://routeforce.app/use-cases.html
+- Blog: https://routeforce.app/blog/
+- Consulting: https://routeforce.app/consulting.html
+- AppExchange listing: https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba
+- Privacy Policy: https://routeforce.app/docs/privacy.html
+- Terms: https://routeforce.app/docs/terms.html
+- DPA: https://routeforce.app/docs/dpa.html
+
+## Company
+- RouteForce SAS
+- 14 rue Bausset, 75015 Paris, France
+- SIRET: 102 154 879 00013
+- Contact: contact@routeforce.app
