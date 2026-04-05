@@ -2080,6 +2080,118 @@ img {
     box-shadow: 0 8px 24px rgba(0,0,0,0.2);
 }
 
+/* ─── Blog CTA ─── */
+
+.blog-cta {
+    background: linear-gradient(135deg, #4f46e5 0%, #6366f1 50%, #3730a3 100%);
+    border-radius: 20px;
+    padding: 48px 40px;
+    text-align: center;
+    margin: 56px 0 0;
+    color: #fff;
+    box-shadow: 0 20px 60px rgba(49, 46, 129, 0.30);
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-cta::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -20%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.blog-cta h3 {
+    color: #fff;
+    margin: 0 0 12px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.blog-cta p {
+    color: rgba(255, 255, 255, 0.85);
+    margin: 0 auto 28px;
+    font-size: 1.05rem;
+    max-width: 680px;
+    line-height: 1.6;
+}
+
+.blog-cta .btn-cta-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: #312e81;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 14px 28px;
+    border-radius: 10px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    margin: 6px;
+}
+
+.blog-cta .btn-cta-primary:hover {
+    background: #eef2ff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.blog-cta .btn-cta-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 14px 28px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    margin: 6px;
+    backdrop-filter: blur(4px);
+}
+
+.blog-cta .btn-cta-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.7);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .blog-cta {
+        padding: 36px 24px;
+        border-radius: 16px;
+        margin: 40px 0 0;
+    }
+
+    .blog-cta h3 {
+        font-size: 1.3rem;
+    }
+
+    .blog-cta p {
+        font-size: 0.95rem;
+    }
+
+    .blog-cta .btn-cta-primary,
+    .blog-cta .btn-cta-secondary {
+        display: block;
+        width: 100%;
+        margin: 6px 0;
+    }
+}
+
 /* Use Cases Responsive */
 
 @media (max-width: 1024px) {
@@ -2437,35 +2549,36 @@ img {
 }
 
 /* Blog article content styles */
-.blog-content h2, .blog-article h2 {
+.blog-content h2, .blog-article h2, article.container h2 {
     font-size: 1.5rem;
     font-weight: 700;
     margin: 56px 0 20px;
     color: #fafafa;
+    letter-spacing: -0.01em;
 }
-.blog-content h3, .blog-article h3 {
+.blog-content h3, .blog-article h3, article.container h3 {
     font-size: 1.2rem;
     font-weight: 600;
     margin: 40px 0 16px;
     color: #e4e4e7;
 }
-.blog-content p, .blog-article p {
-    font-size: 1rem;
+.blog-content p, .blog-article p, article.container p {
+    font-size: 1.0625rem;
     line-height: 1.85;
-    color: #a1a1aa;
-    margin-bottom: 20px;
+    color: #d4d4d8;
+    margin-bottom: 22px;
 }
-.blog-content ul, .blog-article ul { list-style: disc; padding-left: 24px; margin-bottom: 24px; }
-.blog-content ol, .blog-article ol { list-style: decimal; padding-left: 24px; margin-bottom: 24px; }
-.blog-content li, .blog-article li { margin-bottom: 10px; color: #a1a1aa; line-height: 1.75; }
-.blog-content strong, .blog-article strong { color: #e4e4e7; }
-.blog-content section, .blog-article section { margin-bottom: 16px; }
-.blog-content blockquote, .blog-article blockquote {
+.blog-content ul, .blog-article ul, article.container ul { list-style: disc; padding-left: 24px; margin-bottom: 24px; }
+.blog-content ol, .blog-article ol, article.container ol { list-style: decimal; padding-left: 24px; margin-bottom: 24px; }
+.blog-content li, .blog-article li, article.container li { margin-bottom: 10px; color: #d4d4d8; line-height: 1.8; font-size: 1.0625rem; }
+.blog-content strong, .blog-article strong, article.container strong { color: #fafafa; font-weight: 600; }
+.blog-content section, .blog-article section, article.container section { margin-bottom: 20px; }
+.blog-content blockquote, .blog-article blockquote, article.container blockquote {
     border-left: 3px solid #6366f1;
     padding: 16px 24px;
     margin: 32px 0;
     background: #18181b;
     border-radius: 0 8px 8px 0;
-    color: #a1a1aa;
+    color: #d4d4d8;
     font-style: italic;
 }
