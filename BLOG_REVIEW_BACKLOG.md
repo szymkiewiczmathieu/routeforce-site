@@ -152,11 +152,10 @@ These are high-volume keywords where RouteForce has NO presence yet. Winning eve
 
 ## Priority 2: Salesforce-specific high-intent keywords
 
-### 2.1 REWRITE: salesforce-route-planning.html
-- [ ] Target: "route planner for salesforce" (30/mo vol, but 109 GSC impressions = Google shows us), "salesforce route planning" (10/mo), "salesforce route optimization" (10/mo)
-- [ ] We're already pos 26-44 on these. Push to top 10 with stronger content.
-- [ ] Add comparison table, decision framework, more internal links from blog
-- [ ] 800-1000 words added
+### 2.1 DONE: salesforce-route-planning.html strengthened
+- [x] Target: "route planner for salesforce" (30/mo vol, but 109 GSC impressions), "salesforce route planning" (10/mo), "salesforce route optimization" (10/mo)
+- [x] Added comparison table (RouteForce vs SF Maps vs Badger Maps vs SPOTIO), decision framework, internal links
+- [x] ~800 words added
 
 ### 2.2 NEW: "Salesforce Maps alternatives compared: honest field team guide"
 - [ ] Target: "salesforce maps alternative" (30/mo, comp 9 = very low)
@@ -164,12 +163,10 @@ These are high-volume keywords where RouteForce has NO presence yet. Winning eve
 - [ ] Format: genuine multi-product comparison. Be factual about competitors.
 - [ ] 1,500+ words
 
-### 2.3 NEW: "RouteForce vs Badger Maps: which route planner for Salesforce teams?"
-- [ ] Target: "badger maps alternative" (20/mo, $23.90 CPC, comp 82 = HIGH)
-- [ ] Also captures: "badger maps pricing" (40/mo, comp 32)
-- [ ] High CPC = high commercial intent. Worth the competition.
-- [ ] Head-to-head: native SF vs external, flat-rate vs per-user, data residency
-- [ ] 1,200+ words
+### 2.3 DONE: "RouteForce vs Badger Maps: which route planner for Salesforce teams?"
+- [x] Target: "badger maps alternative" (20/mo, $23.90 CPC), "badger maps pricing" (40/mo, comp 32)
+- [x] New article blog/routeforce-vs-badger-maps.html, ~1,500 words with pricing tables and honest comparison
+- [x] Badger pricing confirmed: $58/user Business, $95/user Enterprise + add-ons
 
 ### 2.4 STRENGTHEN: field-sales-route-optimization.html
 - [ ] Target: "sales route optimization" (30/mo, $51.62 CPC!), "field service route optimization" (30/mo)
