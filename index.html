@@ -187,7 +187,7 @@
     box-shadow: 0 20px 60px rgba(0,0,0,0.4);
   }
 
-  /* Clickable images — open full size */
+  /* Clickable images - open full size */
   .screenshot-frame img, .screenshot-frame video { cursor: pointer; }
 
   /* Lightbox overlay */
@@ -505,7 +505,7 @@
       </div>
       <div class="lg:w-7/12 w-full">
         <div class="screenshot-frame glow-primary">
-          <video autoplay loop muted playsinline controls class="w-full h-auto">
+          <video autoplay loop muted playsinline controls preload="none" class="w-full h-auto">
             <source src="assets/videos/OptimiseRoute.mp4" type="video/mp4"/>
           </video>
         </div>
@@ -546,7 +546,7 @@
       <div class="lg:w-7/12 w-full flex justify-center">
         <div class="video-glow max-w-sm">
           <div class="rounded-[2rem] overflow-hidden border border-outline bg-surface-container">
-            <video autoplay loop muted playsinline controls class="w-full h-auto">
+            <video autoplay loop muted playsinline controls preload="none" class="w-full h-auto">
               <source src="assets/videos/routeforce-mobile-demo.mp4" type="video/mp4"/>
             </video>
           </div>
@@ -631,7 +631,7 @@
         <div class="bg-surface-container rounded-2xl p-8 flex flex-col h-full">
           <div class="flex items-center justify-between mb-1">
             <h3 class="text-xl font-bold">Pro</h3>
-            <span class="text-[10px] font-bold uppercase tracking-widest text-primary-light bg-primary/10 px-2.5 py-1 rounded-full">Popular</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-primary-light bg-primary/10 px-2.5 py-1 rounded-full">Popular</span>
           </div>
           <p class="text-on-surface-variant text-sm mb-6">For Salesforce orgs up to 20 users</p>
           <div class="flex items-baseline gap-1 mb-8">
@@ -755,7 +755,7 @@
 
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
-  <img id="lightbox-img" src="" alt=""/>
+  <img id="lightbox-img" src="" alt="Full-size screenshot"/>
 </div>
 
 <!-- Scroll reveal + Lightbox -->
@@ -766,6 +766,7 @@
   document.querySelectorAll('.screenshot-frame img').forEach(img => {
     img.addEventListener('click', () => {
       document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox-img').alt = img.alt || 'Full-size screenshot';
       document.getElementById('lightbox').classList.add('active');
     });
   });

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RouteForce Configuration Guide — V7.8.0</title>
+  <title>RouteForce Configuration Guide | V7.8.0</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -72,19 +72,19 @@
     }
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
   </style>
-  <meta name="description" content="RouteForce V7.8.0 Configuration Guide — Reference for RouteForceConfig__mdt, RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
+  <meta name="description" content="RouteForce V7.8.0 Configuration Guide: Reference for RouteForceConfig__mdt, RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
   <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html">
-  <meta property="og:title" content="RouteForce Configuration Guide — V7.8.0">
+  <meta property="og:title" content="RouteForce Configuration Guide | V7.8.0">
   <meta property="og:site_name" content="RouteForce">
   <meta property="og:description" content="Advanced admin guide for RouteForceConfig__mdt and RouteForceAction__mdt configuration.">
   <meta property="og:url" content="https://routeforce.app/docs/configuration-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="RouteForce Configuration Guide — V7.8.0"/>
-  <meta name="twitter:description" content="RouteForce V7.8.0 Configuration Guide — Reference for RouteForceConfig__mdt, RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
+  <meta name="twitter:title" content="RouteForce Configuration Guide | V7.8.0"/>
+  <meta name="twitter:description" content="RouteForce V7.8.0 Configuration Guide: Reference for RouteForceConfig__mdt, RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"RouteForce Configuration Guide — V7.8.0","url":"https://routeforce.app/docs/configuration-guide.html","description":"RouteForce V7.8.0 Configuration Guide — Reference for RouteForceConfig__mdt, RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"RouteForce","url":"https://routeforce.app"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"RouteForce Configuration Guide | V7.8.0","url":"https://routeforce.app/docs/configuration-guide.html","description":"RouteForce V7.8.0 Configuration Guide: Reference for RouteForceConfig__mdt, RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"RouteForce","url":"https://routeforce.app"}}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -150,25 +150,25 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">RouteForce for Salesforce</div></div>
-        <div class="card"><div class="label">Version</div><div class="value">V7.8.0 — April 2026</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">V7.8.0 | April 2026</div></div>
         <div class="card"><div class="label">Audience</div><div class="value">Salesforce Administrators</div></div>
       </div>
     </div>
-    <div class="cover-footer">RouteForce for Salesforce — Advanced Configuration Reference — contact@routeforce.app</div>
+    <div class="cover-footer">RouteForce for Salesforce | Advanced Configuration Reference | contact@routeforce.app</div>
   </section>
   <main class="content">
-    <div class="note"><strong>RouteForce V7.8.0 — Configuration Guide.</strong> This document covers the two-layer configuration model (App Builder + Custom Metadata), deployment patterns, the complete field reference for RouteForceConfig__mdt and RouteForceAction__mdt, and ready-to-use configuration presets.</div>
-    <p><strong>Version:</strong> V7.8.0 — April 2026<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> RouteForce for Salesforce (managed package)</p>
+    <div class="note"><strong>RouteForce V7.8.0: Configuration Guide.</strong> This document covers the two-layer configuration model (App Builder + Custom Metadata), deployment patterns, the complete field reference for RouteForceConfig__mdt and RouteForceAction__mdt, and ready-to-use configuration presets.</div>
+    <p><strong>Version:</strong> V7.8.0 | April 2026<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> RouteForce for Salesforce (managed package)</p>
 
-<h1>Table of Contents</h1>
+<h2>Table of Contents</h2>
 <ol>
-<li><a href="#config-model">Configuration Model — Where Does Each Setting Live?</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
+<li><a href="#config-model">Configuration Model: Where Does Each Setting Live?</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
 <li><a href="#deployment-patterns">Deployment Patterns</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
 <li><a href="#customize-workspace">Customizing the Global Workspace</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
 <li><a href="#app-builder">App Builder Property Reference</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
 <li><a href="#architecture">Configuration Architecture</a></li>
-<li><a href="#config-mdt">RouteForceConfig__mdt — Complete Field Reference (36 fields)</a></li>
-<li><a href="#action-mdt">RouteForceAction__mdt — Custom Actions Reference</a></li>
+<li><a href="#config-mdt">RouteForceConfig__mdt: Complete Field Reference (36 fields)</a></li>
+<li><a href="#action-mdt">RouteForceAction__mdt: Custom Actions Reference</a></li>
 <li><a href="#flexipage">FlexiPage Configuration (App Builder)</a></li>
 <li><a href="#shared-filters">Shared Filters (SavedFilter__c)</a></li>
 <li><a href="#address-enrichment">Address Enrichment (France only)</a></li>
@@ -183,14 +183,14 @@
 <li><a href="#presets">Configuration Presets</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
 <li><a href="#examples">Configuration Examples</a></li>
 <li><a href="#troubleshooting">Troubleshooting</a></li>
-<li><a href="#quick-reference">Quick Reference — All 36 Defaults</a></li>
+<li><a href="#quick-reference">Quick Reference: All 36 Defaults</a></li>
 </ol>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
 <!-- NEW SECTION: Configuration Model                            -->
 <!-- ═══════════════════════════════════════════════════════════ -->
 <hr>
-<h2 id="config-model">1. Configuration Model — Where Does Each Setting Live?</h2>
+<h2 id="config-model">1. Configuration Model: Where Does Each Setting Live?</h2>
 <p>RouteForce has <strong>two configuration layers</strong> with clear ownership:</p>
 
 <table>
@@ -211,7 +211,7 @@
 </tbody>
 </table>
 
-<div class="note"><strong>Decision tree — "Where do I change this?"</strong><br><br>
+<div class="note"><strong>Decision tree: "Where do I change this?"</strong><br><br>
 <strong>Is it about WHICH FIELDS / FILTERS / COLORS appear?</strong> → App Builder properties (per-page). Falls back to CMDT if left blank.<br><br>
 <strong>Is it about enabling/disabling a FEATURE?</strong> → CMDT RouteForceConfig.Default<br><br>
 <strong>Is it about LIMITS or DEFAULTS (zoom, radius, days)?</strong> → CMDT RouteForceConfig.Default<br><br>
@@ -258,7 +258,7 @@ Hardcoded product default</code></pre>
 <h2 id="deployment-patterns">2. Deployment Patterns</h2>
 <p>RouteForce supports two deployment models. Both are first-class.</p>
 
-<h3>Pattern A — Contextual (Record Page)</h3>
+<h3>Pattern A: Contextual (Record Page)</h3>
 <p>Best for teams that work from Account/Lead/Opportunity record pages.</p>
 <table>
 <thead><tr><th>Aspect</th><th>Detail</th></tr></thead>
@@ -271,7 +271,7 @@ Hardcoded product default</code></pre>
 </tbody>
 </table>
 
-<h3>Pattern B — Global Workspace (App Page / Tab / Home / Utility Bar)</h3>
+<h3>Pattern B: Global Workspace (App Page / Tab / Home / Utility Bar)</h3>
 <p>Best for field reps and managers who use the map as their primary work surface.</p>
 <table>
 <thead><tr><th>Aspect</th><th>Detail</th></tr></thead>
@@ -288,10 +288,10 @@ Hardcoded product default</code></pre>
 <table>
 <thead><tr><th>Need</th><th>Pattern</th></tr></thead>
 <tbody>
-<tr><td>Reps live on record pages and want contextual map</td><td><strong>A — Record Page</strong></td></tr>
-<tr><td>Reps use the map as their main workspace</td><td><strong>B — Global Workspace</strong></td></tr>
+<tr><td>Reps live on record pages and want contextual map</td><td><strong>A: Record Page</strong></td></tr>
+<tr><td>Reps use the map as their main workspace</td><td><strong>B: Global Workspace</strong></td></tr>
 <tr><td>Both contextual and global usage</td><td><strong>A + B</strong> (independent configs per page)</td></tr>
-<tr><td>Quick access without leaving current page</td><td><strong>B — Utility Bar</strong></td></tr>
+<tr><td>Quick access without leaving current page</td><td><strong>B: Utility Bar</strong></td></tr>
 </tbody>
 </table>
 
@@ -302,7 +302,7 @@ Hardcoded product default</code></pre>
 <h2 id="customize-workspace">3. Customizing the Global Workspace</h2>
 <p>The packaged RouteForce app includes a <strong>default App Page</strong> with pre-configured values. Because it is a managed-package page, you cannot edit it directly in customer orgs. Use the <strong>clone-and-compose</strong> pattern below.</p>
 
-<h3>Step 1 — Create your own App Page</h3>
+<h3>Step 1: Create your own App Page</h3>
 <ol>
 <li><strong>Setup</strong> → <strong>Lightning App Builder</strong> → <strong>New</strong> → <strong>App Page</strong></li>
 <li>Choose <strong>One Region</strong> layout</li>
@@ -312,21 +312,21 @@ Hardcoded product default</code></pre>
 <li><strong>Activation</strong> → choose where to expose it (App Page, Tab)</li>
 </ol>
 
-<h3>Step 2 — Create a Tab for your page</h3>
+<h3>Step 2: Create a Tab for your page</h3>
 <ol>
 <li><strong>Setup</strong> → <strong>Tabs</strong> → <strong>Lightning Page Tabs</strong> → <strong>New</strong></li>
 <li>Select your new page → give it a label (e.g., "RouteForce")</li>
 <li>Choose the RouteForce icon (or any preferred icon)</li>
 </ol>
 
-<h3>Step 3 — Add to your App</h3>
-<p><strong>Option A — Use the packaged RouteForce app</strong> (recommended):</p>
+<h3>Step 3: Add to your App</h3>
+<p><strong>Option A: Use the packaged RouteForce app</strong> (recommended):</p>
 <ol>
 <li><strong>Setup</strong> → <strong>App Manager</strong> → find <strong>RouteForce</strong> → <strong>Edit</strong></li>
 <li>In <strong>Navigation Items</strong>, add your new tab</li>
 <li>Optionally remove the default RouteForce tab if you want full control</li>
 </ol>
-<p><strong>Option B — Create your own app shell:</strong></p>
+<p><strong>Option B: Create your own app shell:</strong></p>
 <ol>
 <li><strong>Setup</strong> → <strong>App Manager</strong> → <strong>New Lightning App</strong></li>
 <li>Add your custom RouteForce tab + any other tabs you need</li>
@@ -368,7 +368,7 @@ Hardcoded product default</code></pre>
 <tr><td><strong>Override</strong></td><td>Overrides CMDT entirely (not additive)</td></tr>
 </tbody>
 </table>
-<p>Syntax: <code>{Object}.{FieldApiName}</code> — always prefix with the object name.</p>
+<p>Syntax: <code>{Object}.{FieldApiName}</code>, always prefix with the object name.</p>
 
 <table>
 <thead><tr><th>Scenario</th><th>Value</th></tr></thead>
@@ -382,9 +382,9 @@ Hardcoded product default</code></pre>
 </table>
 
 <h3>typeField / typeValues (Account markers)</h3>
-<p>Assigns distinct marker colors to Account records based on a field value. App Builder only — no CMDT equivalent.</p>
+<p>Assigns distinct marker colors to Account records based on a field value. App Builder only, no CMDT equivalent.</p>
 <p><strong>Example:</strong> <code>typeField</code> = <code>Type</code>, <code>typeValues</code> = <code>Customer - Direct,Customer - Channel,Prospect,Other</code></p>
-<p>Each value gets a distinct color. <strong>Order determines color assignment</strong> — first value = first color in the palette. Leave both blank for uniform Account markers.</p>
+<p>Each value gets a distinct color. <strong>Order determines color assignment</strong>: first value = first color in the palette. Leave both blank for uniform Account markers.</p>
 
 <h3>oppTypeField / oppTypeValues (Opportunity markers)</h3>
 <p>Same pattern as Account, with warm-toned colors. Requires <code>EnableOpportunities__c = true</code> in CMDT.</p>
@@ -403,7 +403,7 @@ Hardcoded product default</code></pre>
 <tr><td><strong>Purpose</strong></td><td>Renders specified picklist filters as multi-select checkboxes instead of single-select dropdowns</td></tr>
 </tbody>
 </table>
-<p><strong>Example:</strong> <code>Industry,Type</code> — the Industry and Type filters become multi-select. Only applies to fields already listed in <code>filterFields</code>.</p>
+<p><strong>Example:</strong> <code>Industry,Type</code>: the Industry and Type filters become multi-select. Only applies to fields already listed in <code>filterFields</code>.</p>
 
 <h3>markerFields</h3>
 <table>
@@ -432,7 +432,7 @@ Hardcoded product default</code></pre>
 <h2 id="presets">Configuration Presets</h2>
 <p>Copy-paste these ready-made configurations. Each preset lists the App Builder properties and CMDT settings to apply.</p>
 
-<h3>Preset A — Account-only map (simple)</h3>
+<h3>Preset A: Account-only map (simple)</h3>
 <div class="note"><strong>Use case:</strong> Teams that only work with Account records. Clean, fast, no clutter.</div>
 <table>
 <thead><tr><th>App Builder Property</th><th>Value</th></tr></thead>
@@ -446,7 +446,7 @@ Hardcoded product default</code></pre>
 </table>
 <p><strong>CMDT:</strong> <code>EnableLeads__c</code> = false, <code>EnableOpportunities__c</code> = false</p>
 
-<h3>Preset B — Account + Opportunity (sales team)</h3>
+<h3>Preset B: Account + Opportunity (sales team)</h3>
 <div class="note"><strong>Use case:</strong> Sales teams that need to see pipeline on the map alongside existing customers.</div>
 <table>
 <thead><tr><th>App Builder Property</th><th>Value</th></tr></thead>
@@ -461,7 +461,7 @@ Hardcoded product default</code></pre>
 </table>
 <p><strong>CMDT:</strong> <code>EnableOpportunities__c</code> = true, <code>OpportunityQueryFilter__c</code> = <code>IsClosed = false</code></p>
 
-<h3>Preset C — Prospecting mode (Leads-heavy)</h3>
+<h3>Preset C: Prospecting mode (Leads-heavy)</h3>
 <div class="note"><strong>Use case:</strong> BDR/SDR teams focused on converting leads in a territory.</div>
 <table>
 <thead><tr><th>App Builder Property</th><th>Value</th></tr></thead>
@@ -474,8 +474,8 @@ Hardcoded product default</code></pre>
 </table>
 <p><strong>CMDT:</strong> <code>EnableLeads__c</code> = true, <code>LeadQueryFilter__c</code> = <code>IsConverted = false</code>, <code>DefaultDisplayMode__c</code> = <code>leads</code></p>
 
-<h3>Preset D — Full operations workspace</h3>
-<div class="note"><strong>Use case:</strong> Managers and ops teams who need the complete picture — every object, every filter, every feature.</div>
+<h3>Preset D: Full operations workspace</h3>
+<div class="note"><strong>Use case:</strong> Managers and ops teams who need the complete picture: every object, every filter, every feature.</div>
 <table>
 <thead><tr><th>App Builder Property</th><th>Value</th></tr></thead>
 <tbody>
@@ -494,8 +494,8 @@ Hardcoded product default</code></pre>
 <h2 id="architecture">1. Configuration Architecture</h2>
 <p>RouteForce uses a <strong>Custom Metadata Type-first</strong> approach. All configurable application settings are stored in two CMDTs:</p>
 <ul>
-<li><strong>RouteForceConfig__mdt</strong> — 36 fields controlling map behavior, features, queries, visit reports, and system settings</li>
-<li><strong>RouteForceAction__mdt</strong> — Custom action buttons displayed in marker popups (one record per action)</li>
+<li><strong>RouteForceConfig__mdt</strong>: 36 fields controlling map behavior, features, queries, visit reports, and system settings</li>
+<li><strong>RouteForceAction__mdt</strong>: Custom action buttons displayed in marker popups (one record per action)</li>
 </ul>
 <p>This architecture provides:</p>
 <ul>
@@ -512,7 +512,7 @@ Hardcoded product default</code></pre>
  |                                          --> RouteForceAction__mdt (custom actions)
  |
  v
- ConfigService.cls (Apex reader — cached)
+ ConfigService.cls (Apex reader, cached)
  |
  v
  LWC Components (@wire getConfig)
@@ -521,7 +521,7 @@ Hardcoded product default</code></pre>
 
 <hr>
 
-<h2 id="config-mdt">2. RouteForceConfig__mdt — Complete Field Reference</h2>
+<h2 id="config-mdt">2. RouteForceConfig__mdt: Complete Field Reference</h2>
 <p>The central configuration record. All 36 settings reside in the <strong>Default</strong> record (<code>RouteForceConfig__mdt.Default</code>). Each field is documented below, organized by category.</p>
 
 <h3>2.1 Map Settings (7 fields)</h3>
@@ -580,7 +580,7 @@ Hardcoded product default</code></pre>
 </tr>
 </tbody>
 </table>
-<div class="note"><strong>Example — Satellite view for a rural territory:</strong><br>
+<div class="note"><strong>Example: Satellite view for a rural territory:</strong><br>
 Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom__c</code> = <code>8</code>, <code>ClusterRadius__c</code> = <code>40</code> (less clustering for sparse markers).</div>
 
 <h3>2.2 Feature Toggles (11 fields)</h3>
@@ -772,7 +772,7 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 <td><code>CheckInNotePrefix__c</code></td>
 <td>Text</td>
 <td><code>Check-in</code></td>
-<td><strong>DEPRECATED</strong> — No longer used. Check-in data is now stored entirely in Visit Reports; Event Subject and Description are not modified during check-in.</td>
+<td><strong>DEPRECATED</strong>: No longer used. Check-in data is now stored entirely in Visit Reports; Event Subject and Description are not modified during check-in.</td>
 </tr>
 <tr>
 <td><code>CheckInOnSiteRadiusMeters__c</code></td>
@@ -783,7 +783,7 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 <tr>
 <td><code>VisitReportCustomFields__c</code></td>
 <td>LongTextArea(1000)</td>
-<td><em>No metadata default</em> — recommended value set by onboarding wizard: <code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td>
+<td><em>No metadata default</em>; recommended value set by onboarding wizard: <code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td>
 <td>Comma-separated field identifiers shown in the visit report form. Controls the order and visibility of fields in the check-in modal. Supports both standard identifiers (<code>result</code>, <code>nextAction</code>, <code>notes</code>) and custom field API names.</td>
 </tr>
 <tr>
@@ -800,7 +800,7 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 </tr>
 </tbody>
 </table>
-<div class="note"><strong>Example — Customizing the visit report form:</strong><br>
+<div class="note"><strong>Example: Customizing the visit report form:</strong><br>
 To add a custom "Competitor Mentioned" field, create the field on VisitReport__c, then update <code>VisitReportCustomFields__c</code>:<br>
 <code>result, routeforce__Satisfaction__c, nextAction, routeforce__CompetitorMentioned__c, notes, routeforce__NextVisitDate__c</code></div>
 
@@ -839,7 +839,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 
 <hr>
 
-<h2 id="action-mdt">3. RouteForceAction__mdt — Custom Actions Reference</h2>
+<h2 id="action-mdt">3. RouteForceAction__mdt: Custom Actions Reference</h2>
 <p>Each record in <code>RouteForceAction__mdt</code> defines a custom action button that appears in marker popups, route step cards, or both. Actions launch Screen Flows, allowing administrators to build custom workflows triggered directly from the map interface.</p>
 
 <h3>3.1 Field Reference</h3>
@@ -870,12 +870,12 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <tr>
 <td><code>ObjectType__c</code></td>
 <td>Picklist</td>
-<td>Which object type markers display this action. Values: <code>All</code> (default — shows on all object types), <code>Account</code>, <code>Lead</code>, <code>Opportunity</code>.</td>
+<td>Which object type markers display this action. Values: <code>All</code> (default, shows on all object types), <code>Account</code>, <code>Lead</code>, <code>Opportunity</code>.</td>
 </tr>
 <tr>
 <td><code>DisplayContext__c</code></td>
 <td>Picklist</td>
-<td>Where the action button appears. Values: <code>All</code> (default — both locations), <code>Popup</code> (marker popup only), <code>EventPanel</code> (event panel only).</td>
+<td>Where the action button appears. Values: <code>All</code> (default, both locations), <code>Popup</code> (marker popup only), <code>EventPanel</code> (event panel only).</td>
 </tr>
 <tr>
 <td><code>FilterCondition__c</code></td>
@@ -932,7 +932,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tr>
 <tr>
 <td><code>FilterCondition__c</code></td>
-<td><em>(empty — show on all accounts)</em></td>
+<td><em>(empty, shows on all accounts)</em></td>
 </tr>
 <tr>
 <td><code>ButtonColor__c</code></td>
@@ -1020,12 +1020,12 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <hr>
 
 <h2 id="flexipage">4. FlexiPage Configuration (App Builder)</h2>
-<p>While <code>RouteForceConfig__mdt</code> controls product <strong>behavior</strong> (feature toggles, query filters, map defaults), the FlexiPage properties control the visual <strong>presentation</strong> — which filters appear, how the legend is colored, what fields show in marker popups. <strong>Both should be configured during initial setup.</strong></p>
-<p>The default RouteForce page ships with generic settings and serves as a template. We <strong>recommend cloning it</strong> to match your organization's data model (see 4.3 Option B). The RouteForce LWC component (<code>routeforce</code>) is fully reusable — you can also place it on Record Pages (Account, Lead, Opportunity), custom App Pages, or your own Lightning Apps.</p>
-<p><strong>Record Page integration:</strong> When placed on an Account, Lead, or Opportunity record page, the map <strong>automatically centers on the current record</strong> and loads nearby items. This gives field reps a contextual geographic view directly from any record — no manual search needed. The same component properties (filters, legend, popup fields) are available for configuration.</p>
+<p>While <code>RouteForceConfig__mdt</code> controls product <strong>behavior</strong> (feature toggles, query filters, map defaults), the FlexiPage properties control the visual <strong>presentation</strong>: which filters appear, how the legend is colored, what fields show in marker popups. <strong>Both should be configured during initial setup.</strong></p>
+<p>The default RouteForce page ships with generic settings and serves as a template. We <strong>recommend cloning it</strong> to match your organization's data model (see 4.3 Option B). The RouteForce LWC component (<code>routeforce</code>) is fully reusable; you can also place it on Record Pages (Account, Lead, Opportunity), custom App Pages, or your own Lightning Apps.</p>
+<p><strong>Record Page integration:</strong> When placed on an Account, Lead, or Opportunity record page, the map <strong>automatically centers on the current record</strong> and loads nearby items. This gives field reps a contextual geographic view directly from any record, with no manual search needed. The same component properties (filters, legend, popup fields) are available for configuration.</p>
 
 <h3>4.1 Filter Fields Configuration</h3>
-<p>The RouteForce component accepts a <strong>single comma-separated string</strong> of filter field paths — either via the <code>filterFields</code> App Builder property or via <code>FilterFields__c</code> in RouteForceConfig__mdt. There are no numbered slots. Each field path uses one of three syntaxes:</p>
+<p>The RouteForce component accepts a <strong>single comma-separated string</strong> of filter field paths: either via the <code>filterFields</code> App Builder property or via <code>FilterFields__c</code> in RouteForceConfig__mdt. There are no numbered slots. Each field path uses one of three syntaxes:</p>
 <table>
 <thead>
 <tr>
@@ -1038,7 +1038,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <tr>
 <td><strong>Simple</strong></td>
 <td><code>Industry</code></td>
-<td>Account field (no prefix needed — Account is the default object)</td>
+<td>Account field (no prefix needed, Account is the default object)</td>
 </tr>
 <tr>
 <td><strong>Object-prefixed</strong></td>
@@ -1062,14 +1062,14 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <pre><code>Account.Industry,Account.Type,Account.Rating,Opportunity.StageName,Lead.Status,Opportunity.Account.Industry</code></pre>
 
 <h3>4.3 Adding or Changing Filter Fields</h3>
-<p><strong>Option A — via RouteForceConfig__mdt:</strong></p>
+<p><strong>Option A: via RouteForceConfig__mdt:</strong></p>
 <ol>
 <li>Go to <strong>Setup > Custom Metadata Types > RouteForceConfig > Default</strong></li>
 <li>Edit the <code>FilterFields__c</code> field</li>
 <li>Add comma-separated field paths (e.g. <code>Account.Industry,Account.Type,Lead.Status</code>)</li>
 <li>Save</li>
 </ol>
-<p><strong>Option B — via Lightning App Builder</strong> (overrides CMDT):</p>
+<p><strong>Option B: via Lightning App Builder</strong> (overrides CMDT):</p>
 <ol>
 <li>Open <strong>Setup > Lightning App Builder</strong></li>
 <li>Find the <strong>RouteForce</strong> page and open it</li>
@@ -1124,7 +1124,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tr>
 </tbody>
 </table>
-<p><strong>Order matters</strong> — the first value gets the first color in its palette, the second value gets the second color, and so on. Colors cycle if there are more values than colors in the palette.</p>
+<p><strong>Order matters</strong>: the first value gets the first color in its palette, the second value gets the second color, and so on. Colors cycle if there are more values than colors in the palette.</p>
 
 <h3>4.5 Color Assignment by Position</h3>
 <table>
@@ -1232,7 +1232,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <li>User applies filters on the map (Industry = "Technology", Type = "Customer - Direct", etc.)</li>
 <li>User clicks <strong>Save Filter</strong> and enters a name</li>
 <li>The filter state is serialized to JSON and stored in the <code>Configuration__c</code> field</li>
-<li>To reload, the user selects a saved filter from the dropdown — all filter values are restored instantly</li>
+<li>To reload, the user selects a saved filter from the dropdown; all filter values are restored instantly</li>
 </ol>
 
 <h3>5.2 Object Fields</h3>
@@ -1294,7 +1294,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <h3>6.1 Overview</h3>
 <ul>
 <li><strong>Coverage:</strong> France only (metropolitan + overseas territories)</li>
-<li><strong>Data source:</strong> BAN (Base Adresse Nationale) — the official French government address database</li>
+<li><strong>Data source:</strong> BAN (Base Adresse Nationale), the official French government address database</li>
 <li><strong>Enriched fields:</strong> Latitude and Longitude on Account and Lead records</li>
 <li><strong>Access:</strong> Admin panel in the Configuration tab</li>
 </ul>
@@ -1657,11 +1657,11 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 </table>
 <p><strong>Geocoding options:</strong></p>
 <ul>
-<li><strong>BAN API enrichment</strong> (France only) — built into RouteForce, see <a href="#address-enrichment">Section 6</a></li>
-<li><strong>Salesforce Data.com Clean</strong> — automatic geocoding (requires licence)</li>
-<li><strong>Third-party tools</strong> — Geocodio, Google Geocoding API, or similar batch geocoders</li>
+<li><strong>BAN API enrichment</strong> (France only): built into RouteForce, see <a href="#address-enrichment">Section 6</a></li>
+<li><strong>Salesforce Data.com Clean</strong>: automatic geocoding (requires licence)</li>
+<li><strong>Third-party tools</strong>: Geocodio, Google Geocoding API, or similar batch geocoders</li>
 </ul>
-<p><strong>Tip:</strong> Records without coordinates are silently excluded from the map — no error is thrown.</p>
+<p><strong>Tip:</strong> Records without coordinates are silently excluded from the map, no error is thrown.</p>
 
 <h3>10.2 Lead Geocoding</h3>
 <p>Leads use their standard <code>Latitude</code> and <code>Longitude</code> fields (part of the Lead Address compound field).</p>
@@ -1786,7 +1786,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <hr>
 
 <h2 id="api-keys">13. API Key Management</h2>
-<p>API keys are stored in <strong>InternalConfig__c</strong> (Hierarchy Custom Setting), protected by the <code>routeforce</code> namespace — subscribers cannot read them directly.</p>
+<p>API keys are stored in <strong>InternalConfig__c</strong> (Hierarchy Custom Setting), protected by the <code>routeforce</code> namespace; subscribers cannot read them directly.</p>
 <table>
 <thead>
 <tr>
@@ -1831,7 +1831,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <h2 id="onboarding">14. Onboarding Wizard (RF_Onboarding)</h2>
 <p>The onboarding wizard is a Screen Flow accessible from the <strong>Configuration</strong> tab (RouteForce Admin only). It walks through all essential settings in 6 steps.</p>
 
-<h3>Step 1 — API Keys</h3>
+<h3>Step 1: API Keys</h3>
 <table>
 <thead>
 <tr>
@@ -1859,7 +1859,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 </tbody>
 </table>
 
-<h3>Step 2 — Map Settings</h3>
+<h3>Step 2: Map Settings</h3>
 <table>
 <thead>
 <tr>
@@ -1892,7 +1892,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 </tbody>
 </table>
 
-<h3>Step 3 — Feature Toggles</h3>
+<h3>Step 3: Feature Toggles</h3>
 <table>
 <thead>
 <tr>
@@ -1955,7 +1955,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 </tbody>
 </table>
 
-<h3>Step 4 — Query Configuration</h3>
+<h3>Step 4: Query Configuration</h3>
 <table>
 <thead>
 <tr>
@@ -1998,7 +1998,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 </tbody>
 </table>
 
-<h3>Step 5 — Visit Report & System Settings</h3>
+<h3>Step 5: Visit Report &amp; System Settings</h3>
 <table>
 <thead>
 <tr>
@@ -2011,7 +2011,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <tr>
 <td>Check-In Note Prefix</td>
 <td><s>Check-in</s></td>
-<td><strong>DEPRECATED</strong> — No longer used</td>
+<td><strong>DEPRECATED</strong>: No longer used</td>
 </tr>
 <tr>
 <td>On-Site Radius</td>
@@ -2046,7 +2046,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 </tbody>
 </table>
 
-<h3>Step 6 — Deploy</h3>
+<h3>Step 6: Deploy</h3>
 <p>After running the onboarding flow, configure all remaining settings directly in <code>RouteForceConfig__mdt.Default</code> via <strong>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Default</strong>.</p>
 
 <hr>
@@ -2277,7 +2277,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <tr>
 <td>Legend colors incorrect</td>
 <td>Order mismatch in typeValues</td>
-<td>Reorder <code>typeValues</code> — position determines color assignment</td>
+<td>Reorder <code>typeValues</code>; position determines color assignment</td>
 </tr>
 <tr>
 <td>"Not visited since" filter missing</td>
@@ -2349,7 +2349,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 
 <hr>
 
-<h2 id="quick-reference">17. Quick Reference — All 36 Default Values</h2>
+<h2 id="quick-reference">17. Quick Reference: All 36 Default Values</h2>
 
 <h3>Map Settings (7)</h3>
 <table>
@@ -2530,7 +2530,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 </tr>
 <tr>
 <td><code>VisitReportCustomFields__c</code></td>
-<td><em>No metadata default</em> — recommended value set by onboarding wizard: <code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td>
+<td><em>No metadata default</em>; recommended value set by onboarding wizard: <code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td>
 </tr>
 <tr>
 <td><code>VisitResultOptions__c</code></td>

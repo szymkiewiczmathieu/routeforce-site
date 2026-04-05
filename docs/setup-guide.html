@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>RouteForce Setup Guide — V7.8.0</title>
+  <title>RouteForce Setup Guide | V7.8.0</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -71,17 +71,17 @@
   </style>
   <meta name="description" content="RouteForce V7.8.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.">
   <link rel="canonical" href="https://routeforce.app/docs/setup-guide.html">
-  <meta property="og:title" content="RouteForce Setup Guide — V7.8.0">
+  <meta property="og:title" content="RouteForce Setup Guide | V7.8.0">
   <meta property="og:site_name" content="RouteForce">
   <meta property="og:description" content="Implementation guide for Salesforce administrators deploying RouteForce V7.8.0.">
   <meta property="og:url" content="https://routeforce.app/docs/setup-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="RouteForce Setup Guide — V7.8.0"/>
+  <meta name="twitter:title" content="RouteForce Setup Guide | V7.8.0"/>
   <meta name="twitter:description" content="RouteForce V7.8.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"RouteForce Setup Guide — V7.8.0","url":"https://routeforce.app/docs/setup-guide.html","description":"RouteForce V7.8.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.","publisher":{"@type":"Organization","name":"RouteForce","url":"https://routeforce.app"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"RouteForce Setup Guide | V7.8.0","url":"https://routeforce.app/docs/setup-guide.html","description":"RouteForce V7.8.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.","publisher":{"@type":"Organization","name":"RouteForce","url":"https://routeforce.app"}}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -147,7 +147,7 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">RouteForce</div></div>
-        <div class="card"><div class="label">Version</div><div class="value">V7.8.0 — April 2026</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">V7.8.0 | April 2026</div></div>
         <div class="card"><div class="label">Format</div><div class="value">PDF / Print-ready HTML</div></div>
       </div>
     </div>
@@ -155,8 +155,7 @@
   </section>
   <main class="content">
     <div class="note"><strong>RouteForce branded edition.</strong> This document is formatted for client delivery and print/PDF export.</div>
-    <h1>RouteForce Setup Guide</h1>
-<p><strong>Version:</strong> V7.8.0 — April 2026<br><strong>Audience:</strong> Salesforce administrators during initial deployment<br><strong>Goal:</strong> Install RouteForce, assign access, run the onboarding wizard, configure core settings, and validate the first working rollout</p>
+    <p><strong>Version:</strong> V7.8.0 | April 2026<br><strong>Audience:</strong> Salesforce administrators during initial deployment<br><strong>Goal:</strong> Install RouteForce, assign access, run the onboarding wizard, configure core settings, and validate the first working rollout</p>
 <div class="note"><strong>Install links:</strong> <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Production / Developer Edition</a> &middot; <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Sandbox</a></div>
 <hr>
 
@@ -479,7 +478,7 @@ ORDER BY PermissionSet.Name, Assignee.Name
 <hr>
 
 <!-- ======================================================== -->
-<h2>6. RouteForceConfig__mdt — Full configuration reference</h2>
+<h2>6. RouteForceConfig__mdt: Full configuration reference</h2>
 <p>All configuration is stored in the <code>RouteForceConfig__mdt</code> Custom Metadata Type (36 fields). The onboarding wizard sets the most important values, but you can edit any field directly in <strong>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Manage Records</strong>.</p>
 
 <table>
@@ -516,7 +515,7 @@ ORDER BY PermissionSet.Name, Assignee.Name
 <tr><td><code>FilterFields__c</code></td><td><code>Account.Industry,Account.Type</code></td><td>Comma-separated list of filterable fields</td></tr>
 <tr><td><code>VisitReportCustomFields__c</code></td><td><code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td><td>Fields shown in the visit report form</td></tr>
 <tr><td><code>VisitResultOptions__c</code></td><td><code>Positive,Neutral,Negative,No Answer</code></td><td>Picklist values for visit result</td></tr>
-<tr><td><code>CheckInNotePrefix__c</code></td><td><code>Check-in:</code></td><td><strong>DEPRECATED</strong> — No longer used. Check-in data is stored in Visit Reports; Event Subject and Description are not modified.</td></tr>
+<tr><td><code>CheckInNotePrefix__c</code></td><td><code>Check-in:</code></td><td><strong>DEPRECATED</strong>: No longer used. Check-in data is stored in Visit Reports; Event Subject and Description are not modified.</td></tr>
 <tr><td><code>ContactQueryFields__c</code></td><td><code>Id,Name,Email,Phone,MobilePhone</code></td><td>Contact fields queried for account popup lookup</td></tr>
 <tr><td><code>ContactQueryFilter__c</code></td><td><code>null</code></td><td>Optional SOQL WHERE clause for contact queries</td></tr>
 <tr><td><code>EventOppLinkTarget__c</code></td><td><code>opportunity</code></td><td>Event-Opportunity linking target field</td></tr>
@@ -529,7 +528,7 @@ ORDER BY PermissionSet.Name, Assignee.Name
 <tr><td><code>VisitAlertDays__c</code></td><td><code>0</code></td><td>Days threshold for overdue visit alerts (0 = disabled)</td></tr>
 </tbody></table>
 
-<h3>SOQL check — verify active configuration</h3>
+<h3>SOQL check: verify active configuration</h3>
 <pre><code class="language-sql">SELECT DeveloperName, AddressFieldPrefix__c, DefaultZoom__c,
        EnableLeads__c, EnableOpportunities__c, EnableVisitReports__c,
        MaxRouteSteps__c, EnableHeatmap__c, EnableBulkSelect__c
@@ -537,15 +536,15 @@ FROM RouteForceConfig__mdt
 WHERE DeveloperName = 'Default'
 </code></pre>
 
-<h3>RouteForceAction__mdt — custom map actions</h3>
+<h3>RouteForceAction__mdt: custom map actions</h3>
 <p>RouteForce also includes the <code>RouteForceAction__mdt</code> Custom Metadata Type for configuring custom quick actions on the map (e.g., launching Screen Flows from marker popups). See the <a href="configuration-guide.html">Configuration Guide</a> for full details.</p>
 
 <h3>Scheduled jobs (auto-managed)</h3>
 <p>The package includes three scheduled jobs, automatically registered by the post-install handler:</p>
 <ul>
-<li><code>LogPurgeSchedulable</code> — purges RouteForce log records older than the configured retention period</li>
-<li><code>UsageAggregationSchedulable</code> — aggregates feature usage statistics</li>
-<li><code>UsagePurgeBatch</code> — purges aged usage tracking records on a weekly schedule</li>
+<li><code>LogPurgeSchedulable</code>: purges RouteForce log records older than the configured retention period</li>
+<li><code>UsageAggregationSchedulable</code>: aggregates feature usage statistics</li>
+<li><code>UsagePurgeBatch</code>: purges aged usage tracking records on a weekly schedule</li>
 </ul>
 <p>No manual scheduling is required. These jobs are registered automatically when the package is installed or upgraded.</p>
 <hr>
@@ -556,8 +555,8 @@ WHERE DeveloperName = 'Default'
 <pre><code>Account.Industry,Account.Type</code></pre>
 <p>You can configure filters in <strong>two ways</strong>:</p>
 <ul>
-<li><strong>RouteForceConfig__mdt</strong> — edit the <code>FilterFields__c</code> field on the Default record</li>
-<li><strong>Lightning App Builder</strong> — set the <code>filterFields</code> property on the RouteForce component (overrides the CMDT value)</li>
+<li><strong>RouteForceConfig__mdt</strong>: edit the <code>FilterFields__c</code> field on the Default record</li>
+<li><strong>Lightning App Builder</strong>: set the <code>filterFields</code> property on the RouteForce component (overrides the CMDT value)</li>
 </ul>
 <h3>Filter field syntax</h3>
 <p>Each filter is an <code>Object.FieldName</code> path, comma-separated. Examples:</p>
@@ -566,11 +565,11 @@ WHERE DeveloperName = 'Default'
 <pre><code>Opportunity.Account.Industry</code></pre>
 <h3>Supported field types</h3>
 <ul>
-<li><strong>Picklist</strong> — renders as a dropdown</li>
-<li><strong>Multi-Select Picklist</strong> — renders as checkboxes</li>
-<li><strong>Boolean (Checkbox)</strong> — renders as a toggle</li>
+<li><strong>Picklist</strong>: renders as a dropdown</li>
+<li><strong>Multi-Select Picklist</strong>: renders as checkboxes</li>
+<li><strong>Boolean (Checkbox)</strong>: renders as a toggle</li>
 </ul>
-<div class="note"><strong>Note:</strong> There is no hard limit on the number of filters. Add as many as your team needs — but keep it practical. Too many filters can slow the UI and confuse field reps.</div>
+<div class="note"><strong>Note:</strong> There is no hard limit on the number of filters. Add as many as your team needs, but keep it practical. Too many filters can slow the UI and confuse field reps.</div>
 <hr>
 
 <!-- ======================================================== -->
@@ -657,12 +656,12 @@ WHERE DeveloperName = 'Default'
 <tbody>
 <tr>
 <td><strong>RouteForceConfig__mdt</strong> (org-wide)</td>
-<td>Product <strong>behavior</strong> — feature toggles, map defaults, query filters, visit report fields, retention settings</td>
+<td>Product <strong>behavior</strong>: feature toggles, map defaults, query filters, visit report fields, retention settings</td>
 <td>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Default</td>
 </tr>
 <tr>
 <td><strong>App Builder properties</strong> (per page)</td>
-<td>Visual <strong>presentation</strong> — which filter fields appear, legend colors by record type, marker popup content, multi-select rendering, address prefix</td>
+<td>Visual <strong>presentation</strong>: which filter fields appear, legend colors by record type, marker popup content, multi-select rendering, address prefix</td>
 <td>Lightning App Builder (on the RouteForce component)</td>
 </tr>
 </tbody>
@@ -674,7 +673,7 @@ WHERE DeveloperName = 'Default'
 <strong>Limits and defaults (zoom, radius)?</strong> → CMDT RouteForceConfig.Default<br>
 <strong>Custom action buttons?</strong> → CMDT RouteForceAction records<br><br>
 Only <code>addressFieldPrefix</code> and <code>filterFields</code> cascade: App Builder overrides CMDT. Everything else is exclusive to one layer.<br><br>
-For the complete reference with presets, see the <a href="configuration-guide.html#config-model">Configuration Guide — Configuration Model</a>.
+For the complete reference with presets, see the <a href="configuration-guide.html#config-model">Configuration Guide: Configuration Model</a>.
 </div>
 
 <h3>Cloning the RouteForce page (recommended)</h3>
@@ -685,11 +684,11 @@ For the complete reference with presets, see the <a href="configuration-guide.ht
 <li>Click <strong>Save As</strong> to create your own copy (e.g., <code>RouteForce_MyCompany</code>).</li>
 <li>Click the RouteForce component on the canvas to adjust its properties:
 <ul>
-<li><strong>Filter fields</strong> — which filter fields appear in the sidebar</li>
-<li><strong>Legend fields and values</strong> — marker color assignment for Accounts, Opportunities, and Leads</li>
-<li><strong>Marker popup fields</strong> — which fields display when clicking a marker</li>
-<li><strong>Multi-select fields</strong> — which filters render as checkbox lists</li>
-<li><strong>Address prefix</strong> — override Shipping/Billing for this page</li>
+<li><strong>Filter fields</strong>: which filter fields appear in the sidebar</li>
+<li><strong>Legend fields and values</strong>: marker color assignment for Accounts, Opportunities, and Leads</li>
+<li><strong>Marker popup fields</strong>: which fields display when clicking a marker</li>
+<li><strong>Multi-select fields</strong>: which filters render as checkbox lists</li>
+<li><strong>Address prefix</strong>: override Shipping/Billing for this page</li>
 </ul>
 </li>
 <li>Click <strong>Save</strong>, then <strong>Activation</strong>.</li>
@@ -699,27 +698,27 @@ For the complete reference with presets, see the <a href="configuration-guide.ht
 </ol>
 
 <h3>Embedding the map on Account, Lead, or Opportunity pages</h3>
-<p>The RouteForce component can be placed directly on any <strong>Account</strong>, <strong>Lead</strong>, or <strong>Opportunity</strong> record page. When placed on a record page, the map <strong>automatically centers on the current record's location</strong> and loads nearby records — no additional configuration needed.</p>
+<p>The RouteForce component can be placed directly on any <strong>Account</strong>, <strong>Lead</strong>, or <strong>Opportunity</strong> record page. When placed on a record page, the map <strong>automatically centers on the current record's location</strong> and loads nearby records, no additional configuration needed.</p>
 <p>This gives field reps an instant geographic view of their territory right from any record they are working on.</p>
 <ol>
 <li>Go to <strong>Setup &gt; Lightning App Builder</strong>.</li>
 <li>Open (or create) a <strong>Record Page</strong> for Account, Lead, or Opportunity.</li>
 <li>Search for <strong>routeforce</strong> in the component panel and drag it onto the page.</li>
-<li>Configure the component properties (filter fields, legend, marker popups) — the same properties as on the App Page.</li>
+<li>Configure the component properties (filter fields, legend, marker popups), the same properties as on the App Page.</li>
 <li>Save and activate the page for the appropriate record types or profiles.</li>
 </ol>
-<div class="note"><strong>How it works:</strong> On a record page, RouteForce receives the record ID automatically from Salesforce. It uses the record's geolocation to center the map and immediately loads items around that location — giving the user a contextual map view without any manual search.</div>
+<div class="note"><strong>How it works:</strong> On a record page, RouteForce receives the record ID automatically from Salesforce. It uses the record's geolocation to center the map and immediately loads items around that location, giving the user a contextual map view without any manual search.</div>
 
 <h3>Going further</h3>
 <p>Beyond the default app and record pages, the RouteForce LWC component (<code>routeforce</code>) is fully reusable. You can:</p>
 <ul>
-<li><strong>Create dedicated App Pages</strong> — build separate pages with different configurations for different teams or use cases</li>
-<li><strong>Build your own Lightning App</strong> — create a custom app with pages containing the <code>routeforce</code> component</li>
-<li><strong>Add to Home Page</strong> — place the map on a Lightning Home Page for instant territory overview</li>
-<li><strong>Clone layouts, reports, and dashboards</strong> — use Save As on any managed layout, report, or dashboard to create your own version</li>
-<li><strong>Use a configuration preset</strong> — the <a href="configuration-guide.html#presets">Configuration Guide</a> includes 4 ready-to-use presets (Account-only, Sales team, Prospecting, Full operations) with exact values to copy-paste</li>
+<li><strong>Create dedicated App Pages</strong>: build separate pages with different configurations for different teams or use cases</li>
+<li><strong>Build your own Lightning App</strong>: create a custom app with pages containing the <code>routeforce</code> component</li>
+<li><strong>Add to Home Page</strong>: place the map on a Lightning Home Page for instant territory overview</li>
+<li><strong>Clone layouts, reports, and dashboards</strong>: use Save As on any managed layout, report, or dashboard to create your own version</li>
+<li><strong>Use a configuration preset</strong>: the <a href="configuration-guide.html#presets">Configuration Guide</a> includes 4 ready-to-use presets (Account-only, Sales team, Prospecting, Full operations) with exact values to copy-paste</li>
 </ul>
-<div class="note"><strong>Summary:</strong> RouteForceConfig__mdt controls product behavior (org-wide). The App Builder controls visual presentation (per page). Both should be configured during initial setup. The managed app serves as a starting template — clone what you need and customize. See the <a href="configuration-guide.html">Configuration Guide</a> for the complete reference.</div>
+<div class="note"><strong>Summary:</strong> RouteForceConfig__mdt controls product behavior (org-wide). The App Builder controls visual presentation (per page). Both should be configured during initial setup. The managed app serves as a starting template; clone what you need and customize. See the <a href="configuration-guide.html">Configuration Guide</a> for the complete reference.</div>
 <hr>
 
 <!-- ======================================================== -->
@@ -848,12 +847,12 @@ LIMIT 20
 </tr>
 </thead>
 <tbody><tr>
-<td>RouteForce — Field Activity</td>
-<td>Sales manager dashboard — visit activity, on-site compliance, route efficiency, and team performance</td>
+<td>RouteForce: Field Activity</td>
+<td>Sales manager dashboard: visit activity, on-site compliance, route efficiency, and team performance</td>
 </tr>
 <tr>
-<td>RouteForce — Adoption &amp; Usage</td>
-<td>Admin dashboard — feature adoption, user activity, system health, and error monitoring</td>
+<td>RouteForce: Adoption &amp; Usage</td>
+<td>Admin dashboard: feature adoption, user activity, system health, and error monitoring</td>
 </tr>
 </tbody></table>
 
@@ -868,7 +867,7 @@ LIMIT 20
 </ul>
 <p>Find all reports in the <strong>RouteForce</strong> folder. Dashboards are in the <strong>RouteForce</strong> folder. Managers with <code>RouteForce_Manager</code> can view team-wide data; users with <code>RouteForce_User</code> see only their own records.</p>
 
-<h3>SOQL check — verify report folder</h3>
+<h3>SOQL check: verify report folder</h3>
 <pre><code class="language-sql">SELECT Id, DeveloperName, Name
 FROM Folder
 WHERE DeveloperName LIKE 'RouteForce%'
@@ -878,7 +877,7 @@ AND Type = 'Report'
 
 <!-- ======================================================== -->
 <h2>12. Recommended rollout order</h2>
-<h3>Phase 1 — Admin validation (1-2 days)</h3>
+<h3>Phase 1: Admin validation (1-2 days)</h3>
 <ul>
 <li>Install the package</li>
 <li>Assign <code>RouteForce_Admin</code> to yourself</li>
@@ -888,7 +887,7 @@ AND Type = 'Report'
 <li>Complete the full validation checklist (Section 10)</li>
 <li>Review dashboards and reports</li>
 </ul>
-<h3>Phase 2 — Pilot users (1-2 weeks)</h3>
+<h3>Phase 2: Pilot users (1-2 weeks)</h3>
 <ul>
 <li>Assign <code>RouteForce_User</code> to a small group of field reps (3-5 users)</li>
 <li>Assign <code>RouteForce_Manager</code> to their direct manager</li>
@@ -896,7 +895,7 @@ AND Type = 'Report'
 <li>Adjust defaults in RouteForceConfig__mdt, or clone the FlexiPage to customize (see Section 8)</li>
 <li>Test visit reports with real field data</li>
 </ul>
-<h3>Phase 3 — Broader deployment</h3>
+<h3>Phase 3: Broader deployment</h3>
 <ul>
 <li>Assign permission sets to remaining users</li>
 <li>Train users on route creation, optimization, and check-in</li>
