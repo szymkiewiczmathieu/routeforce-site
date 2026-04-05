@@ -143,12 +143,10 @@ These are high-volume keywords where RouteForce has NO presence yet. Winning eve
 - [ ] This is top-of-funnel awareness content. Won't convert directly but drives brand discovery.
 - [ ] 2,500+ words
 
-### 1.4 NEW: "Sales territory mapping: how to visualize and manage sales territories"
-- [ ] Target: "sales territory mapping" (320/mo), "territory management salesforce" (390/mo), "salesforce territory mapping" (30/mo)
-- [ ] Combined: ~740/mo. Territory is adjacent to route planning and captures a different buying stage.
-- [ ] Angle: how territory mapping works, Salesforce native options, standalone tools, heatmaps and coverage analysis.
-- [ ] Competition index: 14-34 (low to medium). Very accessible.
-- [ ] 1,500+ words
+### 1.4 DONE: "Sales territory mapping: how to visualize and manage sales territories"
+- [x] Target: "sales territory mapping" (320/mo), "territory management salesforce" (390/mo), "salesforce territory mapping" (30/mo)
+- [x] Combined: ~740/mo. New article blog/sales-territory-mapping.html, ~2,000 words
+- [x] 5-tool comparison table, practical territory planning steps, honest RouteForce positioning
 
 ## Priority 2: Salesforce-specific high-intent keywords
 
@@ -157,11 +155,10 @@ These are high-volume keywords where RouteForce has NO presence yet. Winning eve
 - [x] Added comparison table (RouteForce vs SF Maps vs Badger Maps vs SPOTIO), decision framework, internal links
 - [x] ~800 words added
 
-### 2.2 NEW: "Salesforce Maps alternatives compared: honest field team guide"
-- [ ] Target: "salesforce maps alternative" (30/mo, comp 9 = very low)
-- [ ] We're pos 47.7. SPOTIO/Leadbeam/G2 listicles dominate.
-- [ ] Format: genuine multi-product comparison. Be factual about competitors.
-- [ ] 1,500+ words
+### 2.2 DONE: "Salesforce Maps alternatives compared: 6 tools for field teams in 2026"
+- [x] Target: "salesforce maps alternative" (30/mo, comp 9)
+- [x] New article blog/salesforce-maps-alternatives-compared.html, ~3,000 words
+- [x] Genuine 7-tool comparison (SF Maps + 6 alternatives) with pricing table and decision framework
 
 ### 2.3 DONE: "RouteForce vs Badger Maps: which route planner for Salesforce teams?"
 - [x] Target: "badger maps alternative" (20/mo, $23.90 CPC), "badger maps pricing" (40/mo, comp 32)
