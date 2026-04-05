@@ -11,7 +11,7 @@
 </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RouteForce + Screen Flows + LWC: extensibility for field teams inside Salesforce</title>
+  <title>RouteForce + Screen Flows + LWC in Salesforce</title>
   <meta name="description" content="How RouteForce combines Salesforce Screen Flows and Lightning Web Components to support richer field workflows directly from the map.">
   <link rel="canonical" href="https://routeforce.app/blog/routeforce-screen-flows-lwc.html">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
@@ -32,7 +32,7 @@
     "@type": "BlogPosting",
     "headline": "RouteForce + Screen Flows + LWC: extensibility for field teams inside Salesforce",
     "datePublished": "2026-04-03",
-    "dateModified": "2026-04-03",
+    "dateModified": "2026-04-05",
     "author": {"@type": "Organization", "name": "RouteForce"},
     "publisher": {"@type": "Organization", "name": "RouteForce", "url": "https://routeforce.app"},
     "description": "A practical look at how RouteForce, Screen Flows, and Lightning Web Components support extensible field workflows inside Salesforce.",
@@ -96,6 +96,7 @@
     <h2>Why extensibility matters for field teams</h2>
     <p>Field reps do not only need route planning. They often need to launch additional workflows from the same Salesforce context: a shelf audit, a product availability check, a survey, a reorder form, or a custom visit note flow.</p>
     <p>If those workflows live outside Salesforce, teams end up splitting planning, execution, and reporting across too many tools.</p>
+    <p>Screen Flows and Lightning Web Components are the standard extensibility mechanism for the Lightning platform. As Salesforce doubles down on low-code and no-code tooling, the ability to build field workflows declaratively -- without custom Apex -- becomes a competitive advantage for teams that want to iterate quickly.</p>
 
     <h2>What RouteForce enables</h2>
     <p>RouteForce can trigger business workflows directly from the map through:</p>
@@ -107,13 +108,15 @@
     <p>That means a field rep can select an account on the map and immediately open the right business action without leaving the Salesforce environment.</p>
 
     <h2>What this looks like in practice</h2>
-    <p>A field rep taps a store, account, or lead on the map and launches a workflow adapted to the visit.</p>
+    <p>A field rep taps a store, account, or lead on the map and launches a workflow adapted to the visit. Because RouteForce supports Account, Lead, and Opportunity records on the map, the same extensibility model covers the most common field scenarios.</p>
     <ul>
-      <li>price checks and competitor surveys</li>
-      <li>shelf audits or visit checklists</li>
-      <li>product availability validation</li>
-      <li>quick reorder or follow-up forms</li>
+      <li>visit report completion at check-out, with configurable fields and next actions</li>
+      <li>order capture or reorder forms launched directly from a customer marker</li>
+      <li>lead qualification flows triggered from a lead pin on the map</li>
+      <li>shelf audits, competitor surveys, or product availability checks</li>
+      <li>price verification checklists</li>
     </ul>
+    <p>Because these flows are built declaratively, admins can adjust them without developer involvement -- a direct benefit of the low-code/no-code approach that Salesforce promotes across the Lightning platform.</p>
 
     <h2>Simple architecture, practical result</h2>
     <p>The extensibility model is straightforward:</p>
@@ -132,6 +135,7 @@
 
     <h2>Conclusion</h2>
     <p>If your field workflow depends on custom business actions, the real question is not only whether your route planning tool can calculate stops. It is whether it can adapt to the way your Salesforce org actually works.</p>
+    <p>With 87% of sales organizations now using some form of AI in their sales cycle, and Salesforce investing heavily in Agentforce for field service, the ability to plug custom flows into the field workflow is only going to become more important.</p>
     <p>That is where RouteForce, Screen Flows, and LWC become operationally useful together.</p>
 
     <div class="blog-cta" style="background:linear-gradient(135deg,#4f46e5,#3730a3);border-radius:20px;padding:44px;text-align:center;margin:56px 0 0;color:white;box-shadow:0 20px 60px rgba(49,46,129,0.30);">

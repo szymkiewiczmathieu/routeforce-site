@@ -11,7 +11,7 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>How to optimize field sales routes in Salesforce (2026 guide)</title>
+    <title>Optimize Field Sales Routes in Salesforce (2026)</title>
     <meta name="description" content="A practical guide to optimizing field sales routes in Salesforce. Plan routes, create visits, execute, and report — all without leaving Salesforce.">
     <link rel="canonical" href="https://routeforce.app/blog/optimize-field-sales-routes-salesforce.html">
     <link rel="icon" type="image/svg+xml" href="../favicon.svg"/><link rel="icon" type="image/x-icon" href="../favicon.ico">
@@ -90,14 +90,14 @@
             <li><strong>It produces bad routes.</strong> A human looking at a map cannot calculate the fastest sequence across 8-12 stops. They guess, and they guess wrong.</li>
             <li><strong>It breaks the data loop.</strong> Visit data lives in a spreadsheet or in the rep's head. The manager has no dashboard, no GPS confirmation, no way to know what actually happened.</li>
         </ul>
-        <p>The irony is that the CRM already has all the data: account addresses, last visit dates, open opportunities, territories. The problem is that there is no bridge between the CRM data and the actual driving route.</p>
+        <p>The irony is that the CRM already has all the data: account addresses, last visit dates, open opportunities, territories. But Salesforce does not include built-in route optimization. There is no native bridge between the CRM data and the actual driving route, which is why teams end up cobbling together external tools.</p>
 
         <h2>Why route optimization matters: the numbers</h2>
         <p>Route optimization is not about shaving a few minutes off a commute. It compounds across your team and across the year.</p>
         <ul>
             <li><strong>Typically 30 to 45 minutes saved per rep per day</strong> on planning and backtracking. Over a 5-day week, that can mean 2.5 to 3.75 hours recovered.</li>
             <li><strong>Often 2 to 4 extra visits per week per rep</strong>, because routes are shorter and planning is faster.</li>
-            <li><strong>Up to 15-20% reduction in kilometers driven</strong>, which can mean lower fuel costs, less wear on vehicles, and a smaller carbon footprint.</li>
+            <li><strong>20-30% reduction in drive time</strong> according to industry benchmarks, which also means lower fuel costs, less wear on vehicles, and a smaller carbon footprint.</li>
             <li><strong>Accurate visit data</strong> flowing back into Salesforce, giving managers real visibility.</li>
         </ul>
         <p>For a team of 10 reps, that can translate to 20 to 40 additional customer visits every week, depending on route length and planning habits. Over a quarter, the difference in pipeline coverage tends to be significant.</p>
@@ -112,7 +112,7 @@
         <p>Most route optimization tools charge per user per month. At $50-75 or more per user, the math gets painful fast for a 20-person team. Look for <strong>flat org-level pricing</strong> that covers your entire team regardless of size. RouteForce, for example, is priced at a flat rate per Salesforce org, not per seat.</p>
 
         <h3>Optimization quality</h3>
-        <p>Some tools just plot pins on a map and call it "route planning." Real optimization means the tool calculates the best stop sequence based on travel time, time windows, and constraints. RouteForce uses the VROOM optimization engine, an open-source vehicle routing solver that handles multi-stop sequencing with real-world road data.</p>
+        <p>Some tools just plot pins on a map and call it "route planning." Real optimization means the tool calculates the best stop sequence based on travel time, time windows, traffic patterns, and constraints like visit duration, lunch breaks, and territory priorities. RouteForce uses the VROOM optimization engine, an open-source vehicle routing solver that handles multi-stop sequencing with real-world road data and supports worldwide routing out of the box.</p>
 
         <h3>Closed-loop reporting</h3>
         <p>Planning a route is only half the job. The tool should also handle GPS check-ins, visit reports, and Salesforce Event creation so managers can measure what actually happened, not just what was planned.</p>
@@ -141,11 +141,11 @@
         <h3>5. Create Salesforce Events in bulk</h3>
         <p>Once you are satisfied with the route, one click creates a <strong>Salesforce Event for each stop</strong> with the correct time, duration, and account association. No manual data entry. The events appear in the rep's Salesforce calendar and in any reporting dashboard you have built.</p>
 
-        <h3>6. Export to Google Maps</h3>
-        <p>For actual turn-by-turn navigation, RouteForce exports the optimized stop sequence directly to <strong>Google Maps</strong> on the rep's phone. The rep taps the export button, Google Maps opens with all stops pre-loaded in the right order, and they start driving.</p>
+        <h3>6. Export to Google Maps and go mobile</h3>
+        <p>For actual turn-by-turn navigation, RouteForce exports the optimized stop sequence directly to <strong>Google Maps</strong> on the rep's phone. The rep taps the export button, Google Maps opens with all stops pre-loaded in the right order, and they start driving. Since field reps spend most of their day in the field rather than at a desk, this mobile-first handoff is critical. The entire execute-and-report loop happens from the phone, not from a laptop back at the office.</p>
 
         <h2>GPS check-in and visit reports: closing the loop</h2>
-        <p>Planning is only valuable if you can verify execution. RouteForce includes a GPS check-in feature that records when and where a rep arrived at each stop. The check-in data is written back to Salesforce as a record linked to the account.</p>
+        <p>Planning is only valuable if you can verify execution. Check-in/check-out with GPS verification is becoming the standard for field execution tracking, and RouteForce builds this in natively. The GPS check-in feature records when and where a rep arrived at each stop, and the check-in data is written back to Salesforce as a record linked to the account.</p>
         <p>After each visit, reps can fill in a <strong>visit report</strong> directly from the RouteForce interface. Since RouteForce supports Salesforce Screen Flows and Lightning Web Components as custom actions, you can embed any business form (shelf audit, order entry, competitor pricing survey) directly in the visit workflow.</p>
         <p>The result: every visit has a timestamp, a GPS coordinate, and a structured report. No more "trust me, I visited 8 accounts today."</p>
 
