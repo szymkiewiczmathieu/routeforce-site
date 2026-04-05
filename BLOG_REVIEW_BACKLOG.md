@@ -75,3 +75,168 @@ For each article review pass:
 3. premium upgrade if needed
 4. push with clear commit
 5. move article status forward in this backlog
+
+---
+---
+
+# SEO Content Backlog (data-driven)
+
+Data sources: GSC analytics (2026-03-06 to 2026-04-02) | DataForSEO keyword volumes (US, April 2026) | SERP analysis.
+
+## Keyword volume reality (DataForSEO, US market)
+
+| Keyword | Monthly Vol | CPC $ | Competition | Our GSC pos |
+|---------|-----------|-------|-------------|-------------|
+| route planner app | 1,600 | $6.87 | 49 | - |
+| route optimization software | 1,300 | $47.52 | 23 | - |
+| route planning software | 1,000 | $31.61 | 21 | - |
+| salesforce maps | 1,000 | $12.71 | 33 | - |
+| territory management salesforce | 390 | $6.37 | 14 | - |
+| sales route planning | 320 | $21.40 | 49 | - |
+| sales route planner | 320 | $21.40 | 49 | - |
+| sales rep route planner | 320 | $21.40 | 49 | - |
+| sales territory mapping | 320 | $9.47 | 34 | - |
+| sales mapping software | 210 | $45.22 | 33 | - |
+| field sales management | 170 | $0.06 | 8 | - |
+| salesforce maps pricing | 140 | $12.41 | 20 | 35.5 |
+| field sales software | 110 | $41.98 | 31 | - |
+| field sales app | 90 | $20.26 | 21 | - |
+| salesforce mapping tool | 70 | $35.75 | 69 | - |
+| badger maps pricing | 40 | $10.76 | 32 | - |
+| salesforce maps alternative | 30 | - | 9 | 47.7 |
+| route planner for salesforce | 30 | - | - | 40.9 |
+| sales route optimization | 30 | $51.62 | 52 | 76 |
+| field service route optimization | 30 | - | 22 | 93.6 |
+| salesforce territory mapping | 30 | $8.92 | 23 | - |
+| badger maps alternative | 20 | $23.90 | 82 | - |
+| salesforce maps cost | 20 | $14.61 | 38 | 31 |
+| salesforce route optimization | 10 | $29.30 | 38 | 26 |
+| salesforce route planning | 10 | $16.79 | 75 | 44 |
+
+Key insight: the high-volume keywords are GENERIC ("route planner app" 1,600, "route optimization software" 1,300). Salesforce-specific keywords are low volume (10-30). The strategy should target both: generic pages to capture wide funnel, Salesforce-specific for high intent.
+
+## GSC baseline (28 days)
+- 362 impressions, 17 clicks, 4.7% CTR
+- 0 clicks on non-branded queries (only "routeforce" / "route force" get clicks)
+- Top query "route planner for salesforce" = 109 impressions but position 40.9
+
+## Priority 1: High-volume generic keywords (biggest traffic potential)
+
+These are high-volume keywords where RouteForce has NO presence yet. Winning even page 2 on these would 10x current traffic.
+
+### 1.1 DONE: "Sales route planner: the complete comparison for field teams"
+- [x] Target: "sales route planner" (320/mo), "sales rep route planner" (320/mo), "sales route planning" (320/mo)
+- [x] Combined volume: ~960/mo across variants. This is the biggest opportunity.
+- [x] Rewritten blog/sales-route-planner.html from ~700 to ~2,800 words with 5-tool comparison table
+- [x] Competition index: 49 (medium)
+
+### 1.2 DONE: "Salesforce Maps pricing: what it actually costs for field teams (2026)"
+- [x] Target: "salesforce maps pricing" (140/mo), "salesforce maps cost" (20/mo)
+- [x] Combined: ~160/mo. High buyer intent, $12+ CPC.
+- [x] New article blog/salesforce-maps-pricing-breakdown.html, ~1,800 words with TCO tables
+- [x] Competition index: 20 (LOW). Quick win.
+
+### 1.3 NEW: "Route optimization software: the buyer's guide for field teams"
+- [ ] Target: "route optimization software" (1,300/mo, $47.52 CPC)
+- [ ] Massive volume but generic. Competition index 23 (surprisingly low).
+- [ ] Angle: comprehensive buyer's guide. Categories of route optimization (delivery vs sales vs field service), key evaluation criteria, comparison of top solutions, when Salesforce-native matters.
+- [ ] This is top-of-funnel awareness content. Won't convert directly but drives brand discovery.
+- [ ] 2,500+ words
+
+### 1.4 NEW: "Sales territory mapping: how to visualize and manage sales territories"
+- [ ] Target: "sales territory mapping" (320/mo), "territory management salesforce" (390/mo), "salesforce territory mapping" (30/mo)
+- [ ] Combined: ~740/mo. Territory is adjacent to route planning and captures a different buying stage.
+- [ ] Angle: how territory mapping works, Salesforce native options, standalone tools, heatmaps and coverage analysis.
+- [ ] Competition index: 14-34 (low to medium). Very accessible.
+- [ ] 1,500+ words
+
+## Priority 2: Salesforce-specific high-intent keywords
+
+### 2.1 REWRITE: salesforce-route-planning.html
+- [ ] Target: "route planner for salesforce" (30/mo vol, but 109 GSC impressions = Google shows us), "salesforce route planning" (10/mo), "salesforce route optimization" (10/mo)
+- [ ] We're already pos 26-44 on these. Push to top 10 with stronger content.
+- [ ] Add comparison table, decision framework, more internal links from blog
+- [ ] 800-1000 words added
+
+### 2.2 NEW: "Salesforce Maps alternatives compared: honest field team guide"
+- [ ] Target: "salesforce maps alternative" (30/mo, comp 9 = very low)
+- [ ] We're pos 47.7. SPOTIO/Leadbeam/G2 listicles dominate.
+- [ ] Format: genuine multi-product comparison. Be factual about competitors.
+- [ ] 1,500+ words
+
+### 2.3 NEW: "RouteForce vs Badger Maps: which route planner for Salesforce teams?"
+- [ ] Target: "badger maps alternative" (20/mo, $23.90 CPC, comp 82 = HIGH)
+- [ ] Also captures: "badger maps pricing" (40/mo, comp 32)
+- [ ] High CPC = high commercial intent. Worth the competition.
+- [ ] Head-to-head: native SF vs external, flat-rate vs per-user, data residency
+- [ ] 1,200+ words
+
+### 2.4 STRENGTHEN: field-sales-route-optimization.html
+- [ ] Target: "sales route optimization" (30/mo, $51.62 CPC!), "field service route optimization" (30/mo)
+- [ ] We're pos 76-94. Add 500+ words, field service section, FAQ.
+- [ ] $51 CPC = extremely valuable traffic
+
+## Priority 3: Funnel completion (decision + activation)
+
+### 3.1 NEW: "How to build the business case for sales route optimization"
+- [ ] Target: "field sales software" (110/mo, $41.98 CPC), "field sales management" (170/mo)
+- [ ] Decision-stage for internal champions. ROI calculator, TCO comparison, time saved metrics.
+- [ ] 1,200+ words
+
+### 3.2 NEW: "How to set up route planning in Salesforce: install to first route"
+- [ ] Activation content. Step-by-step, free tier.
+- [ ] Low search volume but high conversion value (removes friction)
+- [ ] 800-1,000 words
+
+### 3.3 NEW: "Field sales app: what mobile field teams need from their tools"
+- [ ] Target: "field sales app" (90/mo, $20.26 CPC, comp 21 = LOW)
+- [ ] Angle: mobile-first field sales. RouteForce in Salesforce Mobile App vs standalone apps.
+- [ ] 1,000+ words
+
+## Priority 4: Content consolidation (fix cannibalization)
+
+### 4.1 MERGE: Pricing articles (4 articles, heavy overlap)
+- [ ] Keep: flat-pricing-vs-per-user-salesforce-field-tools.html (most detailed)
+- [ ] Merge unique content from: fixed-org-pricing-vs-per-user-field-sales-software.html, salesforce-maps-pricing-alternative.html, salesforce-route-planning-pricing.html
+- [ ] 301 redirect the 3 others to the canonical
+- [ ] Risk: temporary ranking dip, mitigated by quality improvement
+
+### 4.2 MERGE: Salesforce Maps alternative articles
+- [ ] salesforce-maps-alternative.html + what-to-compare-before-replacing-salesforce-maps.html
+- [ ] Replace both with the new listicle from 2.2
+
+## Priority 5: Off-site / authority building
+
+### 5.1 Get listed in competitor listicles
+- [ ] RouteForce appears in ZERO third-party listicles (SPOTIO, Leadbeam, G2, Capterra, TrustRadius, Software Advice, GetApp)
+- [ ] Create profiles on G2, Capterra, TrustRadius, GetApp
+- [ ] Submit for inclusion in Software Advice
+- [ ] This is the single highest-leverage SEO action after on-site content
+
+### 5.2 AppExchange reviews
+- [ ] Push free tier users to leave reviews
+- [ ] 10-15 reviews at 4.5+ stars enables aggregateRating in schema
+- [ ] Then add rating to homepage JSON-LD
+
+### 5.3 Salesforce community presence
+- [ ] Post on Salesforce Ben, SF Stack Exchange, Trailblazer Community
+- [ ] Guest posts on SF-adjacent blogs
+- [ ] Each = backlink + brand signal
+
+## Execution timeline (data-prioritized)
+
+| Week | Action | Target keyword volume | Expected impact |
+|------|--------|----------------------|-----------------|
+| 1 | 1.2 Salesforce Maps pricing article | 160/mo, comp 20 | Quick win, already pos 35 |
+| 1 | 1.1 Rewrite sales-route-planner.html | 960/mo, comp 49 | Biggest volume opportunity |
+| 2 | 2.1 Rewrite salesforce-route-planning.html | 50/mo but 109 GSC imp | Improve top GSC query |
+| 2 | 2.3 RouteForce vs Badger Maps | 60/mo, $24 CPC | High commercial value |
+| 3 | 1.4 Sales territory mapping guide | 740/mo, comp 14-34 | Large volume, low competition |
+| 3 | 2.2 Salesforce Maps alternatives listicle | 30/mo, comp 9 | Very low competition |
+| 4 | 1.3 Route optimization software guide | 1,300/mo, comp 23 | Massive volume top-of-funnel |
+| 4 | 4.1 Consolidate pricing articles | - | Fix cannibalization |
+| 5 | 3.1 Business case / ROI article | 280/mo combined | Decision-stage |
+| 5 | 3.3 Field sales app guide | 90/mo, comp 21 | Mobile angle, low comp |
+| 6 | 2.4 Strengthen field-sales-route-optimization | 60/mo, $51 CPC | Highest CPC keyword |
+| 6 | 3.2 Setup guide blog post | Low vol | Activation |
+| Ongoing | 5.1-5.3 Off-site presence | - | Authority + backlinks |
