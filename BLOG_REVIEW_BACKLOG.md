@@ -163,17 +163,16 @@ These are high-volume keywords where RouteForce has NO presence yet. Winning eve
 - [x] New article blog/routeforce-vs-badger-maps.html, ~1,500 words with pricing tables and honest comparison
 - [x] Badger pricing confirmed: $58/user Business, $95/user Enterprise + add-ons
 
-### 2.4 STRENGTHEN: field-sales-route-optimization.html
-- [ ] Target: "sales route optimization" (30/mo, $51.62 CPC!), "field service route optimization" (30/mo)
-- [ ] We're pos 76-94. Add 500+ words, field service section, FAQ.
-- [ ] $51 CPC = extremely valuable traffic
+### 2.4 DONE: field-sales-route-optimization.html strengthened
+- [x] Target: "sales route optimization" (30/mo, $51.62 CPC!), "field service route optimization" (30/mo)
+- [x] Added field service section, ROI section, 2 new FAQs, internal links. ~600 words added.
 
 ## Priority 3: Funnel completion (decision + activation)
 
-### 3.1 NEW: "How to build the business case for sales route optimization"
-- [ ] Target: "field sales software" (110/mo, $41.98 CPC), "field sales management" (170/mo)
-- [ ] Decision-stage for internal champions. ROI calculator, TCO comparison, time saved metrics.
-- [ ] 1,200+ words
+### 3.1 DONE: "How to build the business case for sales route optimization"
+- [x] Target: "field sales software" (110/mo, $41.98 CPC), "field sales management" (170/mo)
+- [x] New article blog/business-case-sales-route-optimization.html, ~1,500 words
+- [x] ROI calculator (7:1 ratio, payback under 6 weeks), objection handling table, CFO tips
 
 ### 3.2 NEW: "How to set up route planning in Salesforce: install to first route"
 - [ ] Activation content. Step-by-step, free tier.

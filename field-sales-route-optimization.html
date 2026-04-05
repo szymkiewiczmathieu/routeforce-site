@@ -105,6 +105,8 @@
                 <li><a href="#how-optimization-works">How route optimization works</a></li>
                 <li><a href="#crm-integration">Why CRM integration matters</a></li>
                 <li><a href="#mobile-field">Mobile optimization for the field</a></li>
+                <li><a href="#field-service">Field service route optimization vs field sales</a></li>
+                <li><a href="#roi">What route optimization saves field teams</a></li>
                 <li><a href="#routeforce-approach">The RouteForce approach</a></li>
                 <li><a href="#getting-started">Getting started</a></li>
                 <li><a href="#faq">Frequently asked questions</a></li>
@@ -200,6 +202,46 @@
             <p>One of the most valuable field features is finding nearby accounts. When a meeting finishes early or gets cancelled, reps can instantly see which Salesforce accounts are nearby and add a spontaneous visit to their day.</p>
         </section>
 
+        <section id="field-service" style="margin-bottom:3rem">
+            <h2>Field service route optimization vs field sales</h2>
+            <p>The terms "field service route optimization" and "field sales route optimization" often appear interchangeably, but they describe different workflows with different priorities.</p>
+
+            <h3>Field service: technicians, SLAs, and emergency dispatch</h3>
+            <p>Field service teams send technicians to customer sites for installation, maintenance, or repair. Their scheduling is driven by <strong>service-level agreements (SLAs)</strong>, equipment availability, and skill-based assignment. A broken HVAC unit in July cannot wait until Thursday because the route looks better that day. Dispatchers need to handle emergency calls mid-day, reassign jobs when a technician runs late, and track parts inventory per van.</p>
+            <p>Dedicated field service platforms like ServiceTitan and WorkWave are built for exactly this. They include dispatch boards, work order management, parts tracking, and customer self-service portals. If your team's primary job is reactive maintenance with strict SLA windows, those tools are worth evaluating.</p>
+
+            <h3>Field sales: account visits, relationships, and territory coverage</h3>
+            <p>Field sales teams visit prospects and existing customers to build relationships, close deals, and ensure account coverage across a territory. Their planning is driven by <strong>pipeline value, visit frequency targets, and geographic density</strong>. A rep might need to visit 8 accounts in Lyon this week, prioritized by deal stage and days since last contact. There is rarely an emergency dispatch scenario.</p>
+
+            <h3>When one tool can serve both</h3>
+            <p>Some organizations have hybrid teams. A medical device company might send the same rep to both sell new equipment and check on installed units. A building materials distributor might combine sales calls with delivery coordination. If these teams already use Salesforce as their system of record, a single route optimization tool inside the CRM can handle both visit types. RouteForce works for any Salesforce account-based visit planning, whether the visit is a sales call, a service check, or a delivery confirmation. The key requirement is that the accounts and contacts live in Salesforce.</p>
+        </section>
+
+        <section id="roi" style="margin-bottom:3rem">
+            <h2>What route optimization saves field teams</h2>
+            <p>Route optimization is easy to justify financially because the savings are measurable from week one. Here are the numbers that field sales managers typically see after deploying optimization software.</p>
+
+            <h3>Drive time reduction: 20-30%</h3>
+            <p>Industry benchmarks consistently show that algorithm-optimized routes reduce total driving time by 20% to 30% compared to manually planned routes. For a rep who drives 3 hours per day, that means 36 to 54 minutes back in the schedule, every day.</p>
+
+            <h3>Extra visits: 2-4 per rep per week</h3>
+            <p>The time saved on driving converts directly into additional customer visits. Most teams report 2 to 4 extra visits per rep per week after switching to optimized routing. Over a quarter, that is 26 to 52 additional customer touchpoints per rep.</p>
+
+            <h3>Morning planning: 30-45 minutes saved daily</h3>
+            <p>Manual route planning typically consumes 30 to 45 minutes each morning. With optimization software, planning drops to under 5 minutes: select accounts, click optimize, click create events. That is roughly 2 to 3 hours per week returned to selling time.</p>
+
+            <h3>Fuel and vehicle costs</h3>
+            <p>A field rep driving 30,000 km per year who reduces mileage by 20% saves 6,000 km annually. At an average cost of €0.30 per km (fuel, wear, insurance), that is €1,800 saved per rep per year. For a team of 10 reps, the annual saving is €18,000 on vehicle costs alone.</p>
+
+            <h3>Faster ramp-up for new reps</h3>
+            <p>New hires no longer need months to "learn the territory" through trial and error. The optimization tool shows them where to go and in what order from day one. Territory knowledge shifts from the rep's memory to the system, reducing ramp-up time and protecting the company when experienced reps leave.</p>
+
+            <div style="background:#f0f0ff;border-radius:12px;padding:1.5rem;margin:2rem 0;border-left:4px solid #6366f1">
+                <p style="margin:0;font-weight:600;color:#1e293b">Calculate your own ROI</p>
+                <p style="margin:0.5rem 0 0;color:#475569">Multiply your number of reps by 2-4 extra visits per week, then multiply by your average deal value. Compare that revenue upside against RouteForce's flat €599/month cost. Most teams see payback within the first month.</p>
+            </div>
+        </section>
+
         <section id="routeforce-approach" style="margin-bottom:3rem">
             <h2>The RouteForce approach</h2>
             <p>RouteForce is a 100% native Salesforce application (managed package 2GP) that brings route optimization directly into your Salesforce org.</p>
@@ -252,6 +294,14 @@
                     <button class="faq-question" aria-expanded="false"><span>What Salesforce objects does RouteForce use?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
                     <div class="faq-answer"><p>RouteForce works with the standard Account object (with Contact sub-queries). It creates standard Salesforce Events for scheduled visits. No custom objects are required for basic usage.</p></div>
                 </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false"><span>How does field service route optimization differ from sales route optimization?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-answer"><p>Field service optimization focuses on technician dispatch, SLA compliance, emergency rescheduling, and parts tracking. Sales route optimization focuses on account coverage, visit frequency, territory planning, and pipeline-driven prioritization. Both benefit from algorithmic routing, but the scheduling constraints and business rules differ. Tools like ServiceTitan and WorkWave specialize in field service dispatch, while RouteForce is built for Salesforce-based sales and hybrid teams.</p></div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question" aria-expanded="false"><span>What ROI can I expect from route optimization software?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+                    <div class="faq-answer"><p>Most field teams see a 20-30% reduction in drive time, 2-4 extra customer visits per rep per week, and 30-45 minutes saved on daily planning. For vehicle costs, a rep driving 30,000 km/year who reduces mileage by 20% saves roughly 6,000 km and around €1,800 per year in fuel and wear. At €599/month for up to 20 users, most teams reach payback within the first month.</p></div>
+                </div>
             </div>
         </section>
 
@@ -271,7 +321,9 @@
     {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
         {"@type":"Question","name":"Does RouteForce work outside of Europe?","acceptedAnswer":{"@type":"Answer","text":"Yes. RouteForce provides worldwide coverage. All calculations run on RouteForce's own infrastructure."}},
         {"@type":"Question","name":"Can I use RouteForce on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. Fully responsive, works in Salesforce mobile app or any mobile browser. GPS geolocation and navigation handoff included."}},
-        {"@type":"Question","name":"What Salesforce objects does RouteForce use?","acceptedAnswer":{"@type":"Answer","text":"Standard Account object with Contact sub-queries. Creates standard Salesforce Events for scheduled visits."}}
+        {"@type":"Question","name":"What Salesforce objects does RouteForce use?","acceptedAnswer":{"@type":"Answer","text":"Standard Account object with Contact sub-queries. Creates standard Salesforce Events for scheduled visits."}},
+        {"@type":"Question","name":"How does field service route optimization differ from sales route optimization?","acceptedAnswer":{"@type":"Answer","text":"Field service optimization focuses on technician dispatch, SLA compliance, and emergency rescheduling. Sales route optimization focuses on account coverage, visit frequency, and pipeline-driven prioritization. Both benefit from algorithmic routing, but the scheduling constraints differ."}},
+        {"@type":"Question","name":"What ROI can I expect from route optimization software?","acceptedAnswer":{"@type":"Answer","text":"Most field teams see a 20-30% reduction in drive time, 2-4 extra customer visits per rep per week, and 30-45 minutes saved on daily planning. A rep driving 30,000 km/year who reduces mileage by 20% saves roughly 6,000 km and around €1,800 per year."}}
     ]}
     </script>
 
@@ -283,6 +335,9 @@
     <li><a href="blog/salesforce-maps-alternative.html" style="color:#9099ff;text-decoration:none;">Salesforce Maps alternative: a native option for route planning &rarr;</a></li>
     <li><a href="blog/optimize-field-sales-routes-salesforce.html" style="color:#9099ff;text-decoration:none;">How to optimize field sales routes in Salesforce (2026 guide) &rarr;</a></li>
     <li><a href="blog/sales-route-planner.html" style="color:#9099ff;text-decoration:none;">Sales route planner: what teams should compare before they buy &rarr;</a></li>
+    <li><a href="blog/route-optimization-software.html" style="color:#9099ff;text-decoration:none;">Route optimization software buyer's guide (2026) &rarr;</a></li>
+    <li><a href="blog/routeforce-vs-badger-maps.html" style="color:#9099ff;text-decoration:none;">RouteForce vs Badger Maps: detailed comparison &rarr;</a></li>
+    <li><a href="blog/salesforce-maps-pricing-breakdown.html" style="color:#9099ff;text-decoration:none;">Salesforce Maps pricing breakdown: what it actually costs &rarr;</a></li>
   </ul>
 </section>
 
