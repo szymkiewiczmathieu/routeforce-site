@@ -11,8 +11,8 @@
   gtag('js', new Date());
   gtag('config', 'AW-18063754907');
 </script>
-<title>RouteForce — Salesforce-Native Mapping & Route Optimization</title>
-<meta name="description" content="The only 100% Salesforce-native mapping app for field sales teams. Visualize accounts, plan optimized routes, and track visits — all inside Salesforce."/>
+<title>RouteForce | Salesforce-Native Mapping & Route Optimization</title>
+<meta name="description" content="The only 100% Salesforce-native route planner for field sales teams. Visualize accounts, optimize routes, and track visits — all inside Salesforce."/>
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/><link rel="icon" type="image/x-icon" href="favicon.ico"/>
 <link rel="canonical" href="https://routeforce.app"/>
 <!-- Open Graph -->
@@ -61,6 +61,114 @@
   body { font-family: 'Inter', system-ui, sans-serif; }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   html { scroll-behavior: smooth; }
+
+  /* ===== LINEAR/VERCEL HERO BACKGROUND ===== */
+
+  /* Dot grid pattern */
+  .hero-section {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(99, 102, 241, 0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Animated glow orbs */
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform, opacity;
+  }
+  .hero-orb-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
+    top: -10%; left: -10%;
+    animation: orbFloat1 8s ease-in-out infinite;
+  }
+  .hero-orb-2 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
+    bottom: -15%; right: -5%;
+    animation: orbFloat2 10s ease-in-out infinite;
+  }
+  .hero-orb-3 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+    top: 30%; right: 25%;
+    animation: orbFloat3 12s ease-in-out infinite;
+  }
+  @keyframes orbFloat1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, 30px) scale(1.05); }
+    66% { transform: translate(-20px, -15px) scale(0.95); }
+  }
+  @keyframes orbFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-30px, -20px) scale(1.08); }
+    66% { transform: translate(25px, 15px) scale(0.92); }
+  }
+  @keyframes orbFloat3 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+    50% { transform: translate(-40px, 25px) scale(1.1); opacity: 1; }
+  }
+
+  /* Animated beam line (Linear-style) */
+  .hero-beam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), rgba(6, 182, 212, 0.5), transparent);
+    animation: beamSlide 6s ease-in-out infinite;
+    z-index: 1;
+  }
+  @keyframes beamSlide {
+    0% { transform: translateX(-100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+  }
+
+  /* Subtle noise grain overlay */
+  .hero-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* Ensure hero content is above orbs */
+  .hero-section > * { position: relative; z-index: 2; }
+
+  /* Enhanced gradient text with shimmer */
+  .gradient-text-animated {
+    background: linear-gradient(90deg, #818cf8, #06b6d4, #a78bfa, #818cf8);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShimmer 6s ease infinite;
+  }
+  @keyframes gradientShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
 
   /* Glow effects */
   .glow-primary { box-shadow: 0 0 80px rgba(99, 102, 241, 0.15), 0 0 160px rgba(99, 102, 241, 0.05); }
@@ -215,7 +323,12 @@
 <main>
 
   <!-- ===== HERO (split layout) ===== -->
-  <section class="pt-28 pb-12 lg:pt-36 lg:pb-20 px-6 lg:px-8 max-w-7xl mx-auto min-h-[90vh] flex items-center">
+  <section class="hero-section pt-28 pb-12 lg:pt-36 lg:pb-20 px-6 lg:px-8 max-w-7xl mx-auto min-h-[90vh] flex items-center">
+    <!-- Animated background elements -->
+    <div class="hero-beam"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
 
       <!-- Left: Text -->
@@ -226,7 +339,7 @@
         </div>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.08] mb-6">
           Map your customers.<br/>
-          <span class="gradient-text">Optimize your routes.</span>
+          <span class="gradient-text-animated">Optimize your routes.</span>
         </h1>
         <p class="text-lg text-on-surface-variant max-w-lg leading-relaxed mb-8">
           Plan routes, check in on-site, fill visit reports — all inside Salesforce. Save 30+ min per rep per day.
@@ -291,23 +404,25 @@
   </section>
 
   <!-- ===== SOCIAL PROOF BAR ===== -->
-  <section class="py-16 px-6 border-y border-outline-variant/50">
-    <div class="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-6 text-on-surface-variant">
-      <div class="text-center">
-        <div class="text-2xl font-bold text-on-surface">599€</div>
-        <div class="text-xs">excl. tax / month · annual billing</div>
-      </div>
-      <div class="text-center">
-        <div class="text-2xl font-bold text-on-surface">100%</div>
-        <div class="text-xs">Salesforce native</div>
-      </div>
-      <div class="text-center">
-        <div class="text-2xl font-bold text-on-surface">Up to 20</div>
-        <div class="text-xs">users in standard pricing</div>
-      </div>
-      <div class="text-center">
-        <div class="text-2xl font-bold text-on-surface">Free app</div>
-        <div class="text-xs">install first, unlock premium later</div>
+  <section class="py-12 px-6 border-y border-outline-variant/50 bg-surface-container-low/30">
+    <div class="max-w-5xl mx-auto">
+      <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-on-surface-variant text-sm">
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent text-base">verified</span>
+          <span>Salesforce AppExchange listed</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary-light text-base">security</span>
+          <span>GDPR-compliant · hosted in France</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-accent text-base">public</span>
+          <span>Worldwide routing coverage</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-primary-light text-base">credit_card_off</span>
+          <span>No per-user fees</span>
+        </div>
       </div>
     </div>
   </section>
@@ -328,11 +443,13 @@
         <span class="material-symbols-outlined text-accent text-2xl mb-4 block">route</span>
         <h3 class="font-semibold text-lg mb-2">Route Optimization</h3>
         <p class="text-on-surface-variant text-sm leading-relaxed">Smart route planning with time windows, lunch breaks, and distance constraints.</p>
+        <a href="field-sales-route-optimization.html" class="text-primary-light text-xs mt-2 inline-block hover:underline">Learn more &rarr;</a>
       </div>
       <div class="feature-card rounded-xl p-6">
         <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">event</span>
         <h3 class="font-semibold text-lg mb-2">Auto Event Creation</h3>
         <p class="text-on-surface-variant text-sm leading-relaxed">Turn optimized routes into Salesforce Events automatically — no re-typing needed.</p>
+        <a href="visit-planning-salesforce.html" class="text-primary-light text-xs mt-2 inline-block hover:underline">Learn more &rarr;</a>
       </div>
       <div class="feature-card rounded-xl p-6">
         <span class="material-symbols-outlined text-accent text-2xl mb-4 block">location_on</span>
@@ -639,6 +756,8 @@
         <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a>
         <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing">Pricing</a>
         <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="use-cases.html">Use Cases</a>
+        <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="salesforce-route-planning.html">Route Planning</a>
+        <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="field-sales-route-optimization.html">Route Optimization</a>
         <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/">Docs</a>
         <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="blog/">Blog</a>
       </div>
