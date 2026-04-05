@@ -184,11 +184,11 @@ These are high-volume keywords where RouteForce has NO presence yet. Winning eve
 
 ## Priority 4: Content consolidation (fix cannibalization)
 
-### 4.1 MERGE: Pricing articles (4 articles, heavy overlap)
-- [ ] Keep: flat-pricing-vs-per-user-salesforce-field-tools.html (most detailed)
-- [ ] Merge unique content from: fixed-org-pricing-vs-per-user-field-sales-software.html, salesforce-maps-pricing-alternative.html, salesforce-route-planning-pricing.html
-- [ ] 301 redirect the 3 others to the canonical
-- [ ] Risk: temporary ranking dip, mitigated by quality improvement
+### 4.1 DONE: Pricing articles canonicalization (safe approach)
+- [x] Canonical: salesforce-maps-pricing-breakdown.html (most comprehensive, 5 competitors, TCO tables)
+- [x] rel="canonical" added on: flat-pricing-vs-per-user-salesforce-field-tools.html, salesforce-route-planning-pricing.html
+- [x] Kept as-is: salesforce-maps-pricing-alternative.html (different search intent), fixed-org-pricing-vs-per-user-field-sales-software.html (broader angle)
+- [x] salesforce-maps-alternative.html untouched (Google Ads landing page)
 
 ### 4.2 MERGE: Salesforce Maps alternative articles
 - [ ] salesforce-maps-alternative.html + what-to-compare-before-replacing-salesforce-maps.html
