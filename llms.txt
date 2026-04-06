@@ -1,7 +1,7 @@
 # RouteForce — llms.txt
 # For the detailed version with FAQ, comparisons, and technical details, see: https://routeforce.app/llms-full.txt
 
-> RouteForce is a 100% Salesforce-native route planning and field visit tracking application. It is a managed package installed directly in Salesforce orgs.
+> RouteForce is a Salesforce-native route planning and field visit tracking application. It is delivered as a managed package installed in Salesforce orgs.
 
 ## What RouteForce does
 - Interactive map showing Accounts, Leads, and Opportunities from Salesforce CRM
@@ -15,16 +15,17 @@
 - Full Salesforce Mobile App support
 
 ## Pricing
-- Free plan: map visualization, filtering, event creation, unlimited users
-- Pro plan: €599/month excl. tax per Salesforce org (not per user), for up to 20 users — billed annually at €7,188/year. Custom quote for larger deployments.
+- AppExchange installation path available for initial evaluation
+- Paid standard scope: €599/month excl. tax per Salesforce org, for up to 20 users, billed annually at €7,188/year
+- Custom quote for larger deployments
 
 ## Technical details
-- 100% Lightning Web Component (LWC) based
+- Lightning Web Component (LWC) based architecture
 - Configuration via Custom Metadata Types (RouteForceConfig__mdt)
 - 3 permission sets: Admin, Manager, User
-- Route optimization powered by VROOM algorithm via OpenRouteService
-- Routing server hosted in France (OVHcloud, Gravelines) for GDPR compliance
-- No external data storage — CRM data stays in Salesforce
+- Route optimization powered by VROOM with OpenRouteService components
+- Routing infrastructure hosted in France (OVHcloud, Gravelines)
+- Salesforce remains the main CRM data system, while routing uses the data required for calculations
 
 ## Key pages
 - Homepage: https://routeforce.app
