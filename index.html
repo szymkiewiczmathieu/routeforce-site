@@ -368,7 +368,7 @@
                 <div class="bg-surface-container rounded-md px-3 py-1 text-xs text-on-surface-variant/50 text-center truncate">Salesforce Lightning · RouteForce map and route planning</div>
               </div>
             </div>
-            <button type="button" onclick="openLightbox('assets/screenshots-user/routeforce-salesforce-map-ui.jpg')" class="block w-full text-left cursor-zoom-in bg-transparent border-0 p-0">
+            <button type="button" class="block w-full text-left cursor-zoom-in bg-transparent border-0 p-0 js-open-lightbox-direct" data-lightbox-src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" data-lightbox-alt="RouteForce inside Salesforce Lightning with filters, map, route planning, and visit list">
               <img src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="RouteForce inside Salesforce Lightning with filters, map, route planning, and visit list" class="w-full h-auto"/>
             </button>
           </div>
@@ -765,6 +765,13 @@
     img.addEventListener('click', () => {
       document.getElementById('lightbox-img').src = img.src;
       document.getElementById('lightbox-img').alt = img.alt || 'Full-size screenshot';
+      document.getElementById('lightbox').classList.add('active');
+    });
+  });
+  document.querySelectorAll('.js-open-lightbox-direct').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('lightbox-img').src = btn.dataset.lightboxSrc;
+      document.getElementById('lightbox-img').alt = btn.dataset.lightboxAlt || 'Full-size screenshot';
       document.getElementById('lightbox').classList.add('active');
     });
   });
