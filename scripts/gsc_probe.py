@@ -24,7 +24,9 @@ import os
 import sys
 from datetime import date, timedelta
 
-SA_KEY_PATH = os.environ.get("GSC_SERVICE_ACCOUNT_JSON", "")
+# Default path to service account key if env var is not set
+_default_sa = os.path.expanduser("~/.openclaw/secrets/gsc-mcp-routeforce.json")
+SA_KEY_PATH = os.environ.get("GSC_SERVICE_ACCOUNT_JSON", _default_sa if os.path.isfile(_default_sa) else "")
 SITE_URL = os.environ.get("GSC_SITE_URL", "sc-domain:routeforce.app")
 DAYS = int(os.environ.get("GSC_DAYS", "28"))
 

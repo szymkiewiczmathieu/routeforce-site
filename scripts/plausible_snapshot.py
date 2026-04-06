@@ -21,6 +21,16 @@ from datetime import date, timedelta
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 
+# Auto-load secrets if env vars are not already set
+_secrets_file = os.path.expanduser("~/.openclaw/secrets/plausible.env")
+if os.path.isfile(_secrets_file):
+    with open(_secrets_file) as _f:
+        for _line in _f:
+            _line = _line.strip()
+            if _line and not _line.startswith("#") and "=" in _line:
+                _k, _v = _line.split("=", 1)
+                os.environ.setdefault(_k.strip(), _v.strip())
+
 API_HOST = os.environ.get("PLAUSIBLE_API_HOST", os.environ.get("PLAUSIBLE_BASE_URL", "")).rstrip("/")
 API_KEY = os.environ.get("PLAUSIBLE_API_KEY", "")
 SITE_ID = os.environ.get("PLAUSIBLE_SITE_ID", "routeforce.app")
