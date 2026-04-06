@@ -21,7 +21,7 @@ from datetime import date, timedelta
 from urllib.request import Request, urlopen
 from urllib.error import HTTPError
 
-API_HOST = os.environ.get("PLAUSIBLE_API_HOST", "").rstrip("/")
+API_HOST = os.environ.get("PLAUSIBLE_API_HOST", os.environ.get("PLAUSIBLE_BASE_URL", "")).rstrip("/")
 API_KEY = os.environ.get("PLAUSIBLE_API_KEY", "")
 SITE_ID = os.environ.get("PLAUSIBLE_SITE_ID", "routeforce.app")
 

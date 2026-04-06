@@ -25,7 +25,7 @@ import sys
 from datetime import date, timedelta
 
 SA_KEY_PATH = os.environ.get("GSC_SERVICE_ACCOUNT_JSON", "")
-SITE_URL = os.environ.get("GSC_SITE_URL", "https://routeforce.app/")
+SITE_URL = os.environ.get("GSC_SITE_URL", "sc-domain:routeforce.app")
 DAYS = int(os.environ.get("GSC_DAYS", "28"))
 
 if not SA_KEY_PATH:
