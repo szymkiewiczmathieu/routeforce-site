@@ -119,35 +119,34 @@
             <section>
                 <h2>What breaks when route planning lives outside the CRM</h2>
                 <h3>1. Data gets duplicated</h3>
-                <p>Teams export accounts, copy addresses, or recreate context outside Salesforce. Every extra step creates friction and errors. When reps use tools like Badger Maps, Route4Me, or Google Maps alongside Salesforce, account data lives in two places. Sync delays mean one system is always behind the other, and duplicate or conflicting records become routine.</p>
+                <p>Teams export accounts, copy addresses, or recreate context outside Salesforce. When reps use Badger Maps, Route4Me, or Google Maps alongside Salesforce, account data lives in two places. Sync delays mean one system is always behind the other.</p>
 
-                <h3>2. Reps maintain two tools instead of one</h3>
-                <p>When route planning happens externally, reps toggle between their Salesforce mobile app and a separate mapping tool throughout the day. That means two logins, two interfaces, and two sets of data to keep in sync. In practice, the external tool gets the route planning while Salesforce gets neglected for visit logging and reporting.</p>
+                <h3>2. Reps switch between two tools all day</h3>
+                <p>Two logins, two interfaces, two sets of data to reconcile. In practice, the external tool gets the route planning and Salesforce gets neglected for visit logging. That split is where CRM data quality starts to slip.</p>
 
-                <h3>3. Route planning loses CRM context</h3>
-                <p>An external route tool does not naturally understand account priority, last visit date, opportunity stage, owner, or your custom Salesforce fields. Reps may still get a route, but not always the right one for the business.</p>
+                <h3>3. The route ignores CRM context</h3>
+                <p>An external tool does not know account priority, last visit date, opportunity stage, or custom Salesforce fields. Reps get a geographically short route, but not necessarily the right one for the business.</p>
 
                 <h3>4. Event creation stays manual</h3>
-                <p>Even when the route is ready, reps often still need to recreate the day in Salesforce. That is where field planning turns into admin work.</p>
+                <p>Even when the route is ready, reps still need to create Salesforce Events one by one. That step is where planning turns into admin work, and where most reps start cutting corners.</p>
 
-                <h3>5. Reporting becomes inconsistent</h3>
-                <p>If planning, execution, and reporting are split across multiple tools, follow-up quality drops. Some visits are logged late. Others are logged poorly. Some are never logged at all.</p>
+                <h3>5. Reporting becomes patchy</h3>
+                <p>When planning, execution, and logging happen in different systems, visit records are late, incomplete, or missing. Dashboards show a partial picture. Follow-up suffers.</p>
 
-                <h3>6. Managers lose visibility</h3>
-                <p>When field activity is split between Salesforce and an external tool, managers cannot get a complete picture from Salesforce reports and dashboards alone. They end up chasing reps for updates or relying on a second reporting layer, which adds overhead and delays decision-making.</p>
+                <h3>6. Managers lose real-time visibility</h3>
+                <p>If field activity is scattered, managers cannot pull a clean picture from Salesforce alone. They chase reps for updates or build a parallel reporting layer, which creates overhead and slows decisions.</p>
+
+                <div style="background:#18181b;border:1px solid #27272a;border-radius:12px;padding:1.5rem;margin:2rem 0;">
+                    <h3 style="margin-top:0;color:#fafafa;">What this looks like in practice</h3>
+                    <p style="color:#a1a1aa;line-height:1.7;">A rep starts Monday by exporting 15 accounts from Salesforce into a spreadsheet. She pastes addresses into Google Maps, reorders the stops manually, and drives. Between visits she checks the Salesforce app for contact details, then switches back to Maps for directions. By 5 PM she has visited 7 accounts but only logged 3 Events because creating them takes too long on mobile. Her manager sees 3 visits in Salesforce and assumes it was a slow day. The real problem is not productivity. It is that the workflow made accurate reporting harder than skipping it.</p>
+                </div>
             </section>
 
             <section>
-                <h2>Why native Salesforce workflow changes field execution</h2>
-                <p>When route planning is native to Salesforce, planning becomes part of the same system that already holds accounts, ownership, visit history, opportunities, and activity tracking.</p>
-                <p>That changes the daily workflow:</p>
-                <ul>
-                    <li>accounts are selected directly from Salesforce</li>
-                    <li>routes are planned with CRM context in mind</li>
-                    <li>visits and events are created without leaving the platform</li>
-                    <li>check-in, check-out, and visit reporting stay connected to the same workflow</li>
-                </ul>
-                <p>The result is not only a better route. It is a cleaner field execution loop.</p>
+                <h2>What changes when planning stays inside Salesforce</h2>
+                <p>When route planning is native, the rep works in one system. Account selection, route building, Event creation, and visit reporting all happen inside the same CRM that stores the data managers need.</p>
+                <p>Going back to the example above: the same rep could select her 15 accounts directly on a map inside Salesforce, optimize the day in one click, and create all 7 Events in bulk before leaving the office. After each visit, check-in and notes stay tied to the same records. Her manager sees the full picture in real time without asking for updates.</p>
+                <p>The gain is not a fancier map. It is that the workflow no longer punishes accurate reporting.</p>
             </section>
 
             <section>
@@ -179,9 +178,7 @@
             </section>
 
             <section>
-                <h2>Conclusion</h2>
-                <p>If your team already lives in Salesforce, the real question is not whether an external route app can calculate a sequence. The real question is whether you want planning, visit creation, field execution, and reporting split across multiple systems.</p>
-                <p>For many teams, that is exactly where efficiency gets lost.</p>
+                <p>If your team already runs from Salesforce, the question is not whether an external app can calculate a route. It is whether splitting planning, event creation, and reporting across two systems is costing you more than you think.</p>
             </section>
 
             <div class="blog-cta">
