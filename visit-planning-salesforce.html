@@ -50,7 +50,7 @@
     </nav>
     <div style="display:flex;align-items:center;gap:8px;">
       <a href="docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.875rem;" id="docsLink">Docs</a>
-      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.875rem;">Start Free</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.875rem;">Install RouteForce from AppExchange</a>
       <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
         <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
       </button>
@@ -65,7 +65,7 @@
       <a href="blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
       <a href="consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
       <a href="docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
-      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Start Free</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Install RouteForce from AppExchange</a>
     </nav>
   </div>
   <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
@@ -74,80 +74,91 @@
     <header class="hero" style="padding-bottom:2rem">
         <div class="container">
             <div class="hero-content" style="max-width:800px">
-                <div class="hero-badge">Salesforce visit automation</div>
-                <h1>Visit Planning for Salesforce: how to create more useful events with less admin work</h1>
-                <p class="hero-subtitle">For field teams that want faster visit creation, cleaner CRM activity, and a map that turns directly into an operational calendar inside Salesforce.</p>
-                <p style="margin-top:14px;color:var(--gray-500);max-width:720px;">RouteForce can also be placed directly on record pages, app pages, home pages, and more, so visit planning stays inside the Salesforce workflow your team already uses.</p>
+                <div class="hero-badge">Salesforce-native visit planning</div>
+                <h1>Plan field visits in Salesforce without bouncing between list views, Google Maps, and manual event creation</h1>
+                <p class="hero-subtitle">RouteForce helps field teams choose the right accounts, build a workable day plan, and create Salesforce Events in bulk from the same map, inside the CRM.</p>
+                <p style="margin-top:14px;color:#a1a1aa;max-width:720px;">That matters because visit planning is usually not blocked by routing logic. It is blocked by slow account selection, repetitive calendar admin, and weak visibility once the plan leaves Salesforce.</p>
                 <div class="hero-cta">
                     <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary btn-lg">Install RouteForce from AppExchange</a>
-                    <a href="native-integration-salesforce.html" class="btn btn-outline btn-lg">See native integration</a>
+                    <a href="pricing.html" class="btn btn-outline btn-lg">See pricing</a>
                 </div>
             </div>
         </div>
     </header>
 
     <article class="container" style="max-width:800px;margin:0 auto;padding:3rem 1.5rem">
-        <section style="margin-bottom:3rem;background:#f8fafc;border-radius:16px;padding:1.5rem 1.5rem 0.5rem;">
-            <h2>RouteForce in 4 clear answers</h2>
-            <div class="features-grid">
-                <div class="feature-card"><h3>What is it?</h3><p>RouteForce automates account selection, route optimization and Salesforce Event creation in one workflow.</p></div>
-                <div class="feature-card"><h3>Who is it for?</h3><p>For field teams that schedule customer visits in Salesforce and want to reduce manual admin work.</p></div>
-                <div class="feature-card"><h3>How much does it cost?</h3><p>€599/month excluding tax for Salesforce orgs with up to 20 users, with no per-user pricing in that standard scope.</p></div>
-                <div class="feature-card"><h3>What is the main gain?</h3><p>Create Salesforce Events in bulk from the map, with the right accounts, contacts, times and addresses.</p></div>
+        <section style="margin-bottom:3rem;background:#18181b;border:1px solid #27272a;border-radius:16px;padding:1.5rem;">
+            <h2 style="margin-bottom:1rem;">What this page should answer</h2>
+            <div style="display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+                <div style="background:#111114;border:1px solid #27272a;border-radius:14px;padding:18px;">
+                    <h3 style="margin:0 0 8px;color:#fafafa;font-size:1rem;">What changes operationally?</h3>
+                    <p style="margin:0;color:#a1a1aa;line-height:1.65;">Reps select accounts, optimize the day, and create Events from one workflow instead of hopping between three tools.</p>
+                </div>
+                <div style="background:#111114;border:1px solid #27272a;border-radius:14px;padding:18px;">
+                    <h3 style="margin:0 0 8px;color:#fafafa;font-size:1rem;">Who benefits most?</h3>
+                    <p style="margin:0;color:#a1a1aa;line-height:1.65;">Sales teams, merchandisers, and field managers already working in Salesforce and tired of calendar admin.</p>
+                </div>
+                <div style="background:#111114;border:1px solid #27272a;border-radius:14px;padding:18px;">
+                    <h3 style="margin:0 0 8px;color:#fafafa;font-size:1rem;">What is the pricing logic?</h3>
+                    <p style="margin:0;color:#a1a1aa;line-height:1.65;">Free app first, then premium unlock at €599/month excluding tax for the standard scope up to 20 users.</p></div>
+                <div style="background:#111114;border:1px solid #27272a;border-radius:14px;padding:18px;">
+                    <h3 style="margin:0 0 8px;color:#fafafa;font-size:1rem;">What is the concrete gain?</h3>
+                    <p style="margin:0;color:#a1a1aa;line-height:1.65;">More visits planned with less admin, cleaner Event data, and better visibility for managers inside Salesforce.</p>
+                </div>
             </div>
         </section>
 
-        <nav aria-label="Table of contents" style="background:#f8fafc;border-radius:12px;padding:1.5rem;margin-bottom:3rem">
-            <h2 style="font-size:1.1rem;margin-bottom:1rem">Table of Contents</h2>
-            <ol style="padding-left:1.25rem;line-height:2">
-                <li><a href="#what-is">What is visit planning in Salesforce?</a></li>
-                <li><a href="#manual-problem">The problem with manual visit scheduling</a></li>
-                <li><a href="#automated-workflow">The automated visit planning workflow</a></li>
-                <li><a href="#bulk-events">Bulk Salesforce Event creation</a></li>
-                <li><a href="#smart-selection">Smart account selection with filters</a></li>
-                <li><a href="#tracking">Visit tracking and coverage analysis</a></li>
-                <li><a href="#routeforce">How RouteForce handles visit planning</a></li>
-                <li><a href="#faq">Frequently asked questions</a></li>
+        <nav aria-label="Table of contents" style="background:#18181b;border:1px solid #27272a;border-radius:12px;padding:1.5rem;margin-bottom:3rem">
+            <h2 style="font-size:1.1rem;margin-bottom:1rem">On this page</h2>
+            <ol style="padding-left:1.25rem;line-height:2;color:#a1a1aa;">
+                <li><a href="#what-is">What visit planning inside Salesforce actually means</a></li>
+                <li><a href="#manual-problem">Why the usual process breaks down</a></li>
+                <li><a href="#automated-workflow">What a better workflow looks like</a></li>
+                <li><a href="#bulk-events">Why bulk Event creation matters</a></li>
+                <li><a href="#smart-selection">How teams choose the right accounts</a></li>
+                <li><a href="#tracking">How managers keep visibility after planning</a></li>
+                <li><a href="#routeforce">Where RouteForce fits</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ol>
         </nav>
 
         <section id="what-is" style="margin-bottom:3rem">
-            <h2>What is visit planning in Salesforce?</h2>
-            <p>Visit planning means deciding which customers to visit, when, and in what order, then recording those visits in the Salesforce calendar. For field teams, it links commercial strategy with daily execution.</p>
-            <p>Effective visit planning in Salesforce involves three components:</p>
+            <h2>What visit planning inside Salesforce actually means</h2>
+            <p>Visit planning is not just route optimization. It is the full job of deciding who should be visited, when those visits should happen, in what order the day should run, and how that plan becomes real Salesforce activity.</p>
+            <p>In practice, most teams need three things to happen cleanly:</p>
             <ul>
-                <li><strong>Account selection:</strong> Identifying which accounts need a visit based on CRM data (last visit date, opportunity stage, account tier, territory)</li>
-                <li><strong>Route optimization:</strong> Arranging the selected accounts in the most efficient visiting sequence to minimize travel time</li>
-                <li><strong>Event creation:</strong> Recording the planned visits as Salesforce Events with the correct account, contact, time and location</li>
+                <li><strong>Account selection:</strong> identify which accounts deserve a visit based on territory, recency, opportunity stage, account type, or custom CRM fields</li>
+                <li><strong>Day planning:</strong> build a route that is realistic for the rep, not just mathematically short</li>
+                <li><strong>Event creation:</strong> turn the plan into usable Salesforce Events with the right account, contact, address, and time slots</li>
             </ul>
-            <p>When these three steps are integrated in a single tool inside Salesforce, visit planning becomes fast, data-driven and traceable.</p>
+            <p>If one of those steps happens outside Salesforce, the workflow usually slows down. The route may exist, but execution quality drops because the calendar, reporting, and follow-up no longer stay aligned.</p>
         </section>
 
         <section id="manual-problem" style="margin-bottom:3rem">
-            <h2>The problem with manual visit scheduling</h2>
-            <p>Without a dedicated tool, field reps often follow a tedious manual process:</p>
+            <h2>Why the usual process breaks down</h2>
+            <p>Without a proper workflow, reps bounce between list views, spreadsheets, Google Maps, and the Salesforce calendar. None of those tools is wrong on its own. The problem is the handoff between them.</p>
             <ol>
-                <li>Review accounts in Salesforce list views or reports</li>
-                <li>Identify accounts needing a visit (mental checklist or spreadsheet)</li>
-                <li>Open Google Maps to estimate travel times</li>
-                <li>Go back to Salesforce to create individual Events</li>
-                <li>Manually enter account name, contact, time, duration and address for each event</li>
+                <li>Review accounts in Salesforce reports or list views</li>
+                <li>Guess which accounts should make the cut this week</li>
+                <li>Open an external map to estimate travel</li>
+                <li>Come back to Salesforce and create Events one by one</li>
+                <li>Re-enter details that already existed in the CRM</li>
             </ol>
-            <p>This process takes time, creates errors, lacks geographic context, and often degrades CRM data quality.</p>
+            <p>That is where time disappears. It also creates weak data. If Event creation is slow, reps postpone it, simplify it, or skip part of it. Managers then see activity records that are incomplete, late, or uneven across the team.</p>
         </section>
 
         <section id="automated-workflow" style="margin-bottom:3rem">
-            <h2>The automated visit planning workflow</h2>
-            <p>A native Salesforce visit planning tool transforms the process into a visual, streamlined workflow:</p>
+            <h2>What a better workflow looks like</h2>
+            <p>A good Salesforce-native workflow should reduce clicks, reduce re-entry, and keep the planning logic attached to the CRM records that drive the day.</p>
 
             <h3>Step 1: Visualize accounts on the map</h3>
-            <p>All Salesforce accounts with GPS coordinates (Latitude/Longitude) appear on an interactive map. Color-coding by account type (prospect, client, partner) or custom field values provides instant visual context. Smart clustering groups nearby accounts at higher zoom levels.</p>
+            <p>Accounts with coordinates appear on an interactive map, so reps can see density, gaps, and practical travel zones instead of reading the day as a flat list. Color coding helps, but the real gain is context. A rep can see immediately whether the day is geographically coherent.</p>
 
             <h3>Step 2: Filter and select accounts</h3>
-            <p>Use saved filter combinations to show only the accounts that matter: "Clients not visited in 30 days in my territory" or "High-potential prospects in my area." Select accounts directly on the map.</p>
+            <p>Use saved filters to narrow the map to accounts that actually matter: clients not visited in 30 days, high-potential prospects, renewal targets, or territory-specific priorities. The point is not fancy filtering. The point is picking accounts from CRM logic instead of memory.</p>
 
             <h3>Step 3: Set visit parameters</h3>
-            <p>Configure the planning parameters in the side panel:</p>
+            <p>Then set the practical constraints for the day:</p>
             <ul>
                 <li>Departure point (GPS position or a specific Salesforce account)</li>
                 <li>Date and start time</li>
@@ -157,17 +168,18 @@
             </ul>
 
             <h3>Step 4: Optimize the route</h3>
-            <p>Click "Optimize route" and the algorithm calculates the best visiting sequence, minimizing total travel time while respecting all constraints. The optimized route appears traced on the map with numbered stops.</p>
+            <p>Once those constraints are set, the route can be optimized into a sequence that is actually usable. That matters more than a theoretical shortest path. A field rep needs a day plan they can follow, not an academic routing result.</p>
 
             <h3>Step 5: Create Salesforce Events in bulk</h3>
-            <p>One click creates all the Salesforce Events. Each event is pre-filled with: the correct Account, primary Contact, calculated start and end time, and the account's address. No manual data entry needed.</p>
+            <p>Then comes the step that usually creates the most admin burden: Event creation. A better workflow creates the Salesforce Events in bulk with the correct Account, Contact, address, and estimated timing already filled in. That is where the time saving becomes real.</p>
         </section>
 
         <section id="bulk-events" style="margin-bottom:3rem">
-            <h2>Bulk Salesforce Event creation</h2>
-            <p>The biggest productivity gain comes from bulk event creation. Instead of creating each calendar entry individually, one click generates all planned visits as Salesforce Events.</p>
+            <h2>Why bulk Event creation matters</h2>
+            <p>The biggest gain is usually not the map itself. It is the removal of repetitive calendar admin. If every visit still has to be created manually, the team keeps most of the operational pain.</p>
+            <p>Bulk Event creation changes that. Instead of building each calendar entry by hand, the rep validates the route and creates the visit plan in one move.</p>
 
-            <h3>What gets created automatically</h3>
+            <h3>What should be created automatically</h3>
             <ul>
                 <li><strong>Event Subject:</strong> Visit type and account name</li>
                 <li><strong>Related Account:</strong> Automatically linked to the Salesforce Account record</li>
@@ -177,12 +189,13 @@
             </ul>
 
             <h3>Why this matters for data quality</h3>
-            <p>When creating visits becomes simple, reps do it more consistently. That means cleaner activity records, better management visibility, and more reliable follow-up data.</p>
+            <p>When Event creation becomes fast, reps are much more likely to keep the calendar accurate. That leads to cleaner activity history, better manager visibility, and fewer debates later about what was actually planned versus what was actually done.</p>
         </section>
 
         <section id="smart-selection" style="margin-bottom:3rem">
-            <h2>Smart account selection with filters</h2>
-            <p>Visit planning is only as good as the accounts you choose to visit. Smart filtering ensures reps focus on the right accounts.</p>
+            <h2>How teams choose the right accounts</h2>
+            <p>Visit planning gets weak fast when account selection relies on habit. The map can be beautiful and the route can be short, but the day still underperforms if the wrong accounts were chosen.</p>
+            <p>That is why filtering matters. It keeps visit planning tied to commercial priorities instead of whatever a rep happens to remember.</p>
 
             <h3>Common filter strategies</h3>
             <ul>
@@ -193,29 +206,30 @@
             </ul>
 
             <h3>Saved filter combinations</h3>
-            <p>Reps save their common filter combinations for instant reuse. "Monday prospecting route" or "Monthly client check-ins" become one-click presets.</p>
+            <p>Saved combinations make the workflow repeatable. A team can keep presets such as "monthly client check-ins" or "prospects in my area this week" without rebuilding the same selection logic every morning.</p>
         </section>
 
         <section id="tracking" style="margin-bottom:3rem">
-            <h2>Visit tracking and coverage analysis</h2>
+            <h2>How managers keep visibility after planning</h2>
 
             <h3>Route history</h3>
-            <p>Every planned route is automatically saved: date, distance, duration and number of stops. Reps can reload any of their last 20 routes in one click. This is useful for recurring visit patterns: reload last week's route and adjust.</p>
+            <p>Saved route history helps teams reuse a previous plan instead of starting from zero each time. That is useful for recurring territory rounds, recurring client visits, or weekly prospecting structures that need only light adjustments.</p>
 
             <h3>Coverage visualization</h3>
-            <p>The interactive map shows which areas are being covered and which are not. Managers can zoom out to see national coverage patterns or zoom in to analyze specific territories.</p>
+            <p>The map also makes coverage easier to read. Managers can see where activity is concentrated, where gaps are forming, and whether the team is actually covering the territory the way the business expects.</p>
 
             <h3>Salesforce reporting</h3>
-            <p>Since all visits are recorded as standard Salesforce Events, your existing Salesforce reports and dashboards work out of the box. Track visit frequency per account, rep activity levels and territory coverage without any additional tooling.</p>
+            <p>Because visits are stored as standard Salesforce Events, reporting stays inside the CRM. That keeps dashboards, manager reviews, and follow-up workflows tied to the same source of truth instead of a side spreadsheet or external planner.</p>
         </section>
 
         <section id="routeforce" style="margin-bottom:3rem">
-            <h2>How RouteForce handles visit planning</h2>
-            <p>RouteForce is a native Salesforce managed package (2GP) that covers the full visit planning workflow:</p>
+            <h2>Where RouteForce fits</h2>
+            <p>RouteForce is a native Salesforce managed package built for teams that want route planning and field execution to stay inside Salesforce, not next to it.</p>
+            <p>For visit planning specifically, it covers the core workflow:</p>
             <ul>
                 <li>Interactive map with all Account locations and smart clustering</li>
-                <li>Dynamic and saved filters on any Salesforce field</li>
-                <li>Route optimization powered by VROOM (open-source VRP solver)</li>
+                <li>Flexible and saved filters on any Salesforce field</li>
+                <li>Route optimization powered by VROOM</li>
                 <li>One-click bulk Salesforce Event creation</li>
                 <li>Route history with distance, duration and stops</li>
                 <li>GPS-based nearby accounts for spontaneous visits</li>
@@ -224,13 +238,14 @@
             </ul>
 
             <h3>Pricing</h3>
-            <p>Start with the free app, then unlock premium capabilities at €599/month excluding tax for Salesforce orgs with up to 20 users. Setup starts at €0 (Self-Setup) or €3,000 (Fully Managed with training). Larger deployments are quoted separately.</p>
+            <p>You can start with the free app on AppExchange, then unlock premium capabilities at €599 per month excluding tax for Salesforce orgs in the standard scope up to 20 users. Setup can stay self-serve or move to a managed setup package when the rollout needs more help. Larger deployments are quoted separately.</p>
 
-            
-            <div style="background:#f0f0ff;border-radius:12px;padding:1.5rem;margin:2rem 0;border-left:4px solid #6366f1">
-                <p style="margin:0;font-weight:600;color:#1e293b">Ready for production deployments</p>
-                <p style="margin:0.5rem 0 0;color:#475569">Designed for Salesforce-driven organizations looking for a reliable visit planning solution with predictable costs.</p>
+            <div style="background:rgba(99,102,241,0.08);border-radius:12px;padding:1.5rem;margin:2rem 0;border-left:4px solid #6366f1">
+                <p style="margin:0;font-weight:600;color:#fafafa">A better fit for teams that already run the field from Salesforce</p>
+                <p style="margin:0.5rem 0 0;color:#a1a1aa">If the team lives in Salesforce, visit planning should live there too. That is the whole point.</p>
             </div>
+
+            <p><a href="pricing.html" style="color:#9099ff;font-weight:500;">→ See pricing</a><br><a href="salesforce-route-planning.html" style="color:#9099ff;font-weight:500;">→ Salesforce route planning</a><br><a href="native-integration-salesforce.html" style="color:#9099ff;font-weight:500;">→ Why native integration matters</a></p>
         </section>
 
         <section id="faq" style="margin-bottom:3rem">
@@ -255,10 +270,13 @@
             </div>
         </section>
 
-        <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:16px;padding:2.5rem;text-align:center;color:#fff;margin:3rem 0">
-            <h2 style="color:#fff;margin-bottom:0.5rem">Ready to automate visit planning in Salesforce?</h2>
-            <p style="opacity:0.9;margin-bottom:1.5rem">See how RouteForce turns account selection into calendar events in seconds.</p>
-            <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary btn-lg" style="background:#ffffff;color:#1e1b4b !important;border:2px solid #ffffff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;box-shadow:0 14px 34px rgba(15,23,42,0.22);border-radius:10px">Install RouteForce from AppExchange</a>
+        <div style="background:linear-gradient(135deg,#4f46e5,#312e81);border:1px solid rgba(165,180,252,0.24);border-radius:18px;padding:2.5rem;text-align:center;color:#fff;margin:3rem 0;box-shadow:0 18px 50px rgba(15,23,42,0.28)">
+            <h2 style="color:#fff;margin-bottom:0.6rem">Want visit planning to stay inside Salesforce from selection to calendar?</h2>
+            <p style="opacity:0.92;margin-bottom:1.5rem;max-width:680px;margin-left:auto;margin-right:auto;">Install the free app, test the workflow on your own accounts, then decide if premium visit planning and route optimization make sense for your rollout.</p>
+            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary btn-lg" style="background:#ffffff;color:#1e1b4b !important;border:2px solid #ffffff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;box-shadow:0 14px 34px rgba(15,23,42,0.22);border-radius:10px">Install RouteForce from AppExchange</a>
+                <a href="pricing.html" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,0.55);color:#fff;">See pricing</a>
+            </div>
         </div>
 
         <nav style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem">

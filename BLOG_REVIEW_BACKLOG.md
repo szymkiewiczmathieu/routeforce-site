@@ -2,6 +2,8 @@
 
 Goal: review **every blog article** for premium visual quality, public-truth consistency, and stronger decision-grade content.
 
+Latest pass note: resumed full-audit cleanup on 2026-04-06. After rechecking the backlog set, the remaining concrete issues found were technical cleanup items, not net-new content rewrites: two pages still referenced a missing local `../script.js`, and one pricing article still had the `LLMs.txt` link incorrectly placed inside a `<style>` block. Those were corrected in this pass.
+
 ## Review standard
 Each article must be checked for:
 - premium visual rendering
