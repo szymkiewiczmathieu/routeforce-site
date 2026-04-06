@@ -109,6 +109,18 @@
                 <p>If you are looking for a <strong>Salesforce Maps alternative</strong>, the wrong way to buy is to compare only feature lists. Mapping, routes, visits, reports, mobile, filters.</p>
                 <p>That sounds reasonable, but it misses the real decision. The most important comparison is not feature count. It is whether the replacement creates a cleaner field workflow, a more defendable rollout path, and less friction for reps once the route is built.</p>
                 <p>In practice, buyers should compare workflow quality, rollout logic, pricing model, and what happens after the route is built.</p>
+                <div style="margin:1.5rem 0 0;background:#111114;border:1px solid #27272a;border-radius:18px;overflow:hidden;box-shadow:0 18px 48px rgba(0,0,0,0.24);">
+                    <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;background:#18181b;border-bottom:1px solid #27272a;">
+                        <span style="width:10px;height:10px;border-radius:999px;background:rgba(239,68,68,0.7);"></span>
+                        <span style="width:10px;height:10px;border-radius:999px;background:rgba(245,158,11,0.7);"></span>
+                        <span style="width:10px;height:10px;border-radius:999px;background:rgba(34,197,94,0.7);"></span>
+                        <span style="margin-left:12px;color:#a1a1aa;font-size:0.85rem;">Salesforce Lightning, RouteForce route planning workspace</span>
+                    </div>
+                    <button type="button" onclick="openLightbox('../assets/screenshots-user/routeforce-salesforce-map-ui.jpg')" style="display:block;width:100%;padding:0;background:none;border:0;cursor:zoom-in;text-align:left;">
+                        <img src="../assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="RouteForce inside Salesforce Lightning with filters, map, and route planning workspace" style="display:block;width:100%;height:auto;"/>
+                    </button>
+                </div>
+                <p style="margin-top:12px;color:#a1a1aa;line-height:1.7;">This matters because a Salesforce Maps alternative should look real inside Salesforce, not just sound good in comparison copy. Click to expand.</p>
             </section>
 
             <section>
@@ -240,8 +252,15 @@
   </div>
   <div style="max-width:1200px;margin:32px auto 0;padding-top:24px;border-top:1px solid #1e1e22;color:#71717a;font-size:0.75rem;">&copy; 2026 RouteForce. All rights reserved.</div>
 </footer>
+<div id="lightbox" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.92);z-index:9999;align-items:center;justify-content:center;padding:24px;" onclick="closeLightbox(event)">
+  <button onclick="closeLightbox(event)" style="position:absolute;top:18px;right:22px;background:rgba(255,255,255,0.12);color:#fff;border:none;border-radius:999px;width:42px;height:42px;font-size:24px;cursor:pointer">&times;</button>
+  <img id="lightbox-img" src="" alt="Expanded RouteForce screenshot" style="max-width:95vw;max-height:92vh;border-radius:14px;box-shadow:0 24px 80px rgba(0,0,0,0.45);"/>
+</div>
 <script>
 window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+function openLightbox(src){document.getElementById('lightbox-img').src=src;document.getElementById('lightbox').style.display='flex';document.body.style.overflow='hidden';}
+function closeLightbox(event){if(event.target.id==='lightbox'||event.target.tagName==='BUTTON'){document.getElementById('lightbox').style.display='none';document.getElementById('lightbox-img').src='';document.body.style.overflow='';}}
+document.addEventListener('keydown',function(event){if(event.key==='Escape'){document.getElementById('lightbox').style.display='none';document.getElementById('lightbox-img').src='';document.body.style.overflow='';}});
 document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach(function(link){
   link.addEventListener('click',function(){
     window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
