@@ -35,13 +35,13 @@
 <body style="background:#09090b;color:#e4e4e7;">
 <header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
   <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px;max-width:1280px;margin:0 auto;">
-    <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
+    <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
       <img src="assets/logo-site-brand.png" alt="RouteForce" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;"/>
       <span style="font-size:1.125rem;font-weight:800;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">RouteForce</span>
     </a>
     <nav id="desktopNav" style="display:flex;gap:20px;align-items:center;font-size:0.875rem;white-space:nowrap;">
-      <a href="index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
       <a href="use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
       <a href="blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
       <a href="consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
@@ -56,8 +56,8 @@
   </div>
   <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
     <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
-      <a href="index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
       <a href="use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
       <a href="blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
       <a href="consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
@@ -184,6 +184,29 @@
   </div>
 </section>
 
+<section style="margin-bottom:3rem;background:#111114;border:1px solid #27272a;border-radius:20px;padding:1.6rem;box-shadow:0 18px 48px rgba(0,0,0,0.18);">
+  <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;">
+    <div style="max-width:760px;">
+      <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid rgba(99,102,241,0.28);border-radius:999px;background:rgba(99,102,241,0.08);color:#a5b4fc;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;">5-star reviews on AppExchange</div>
+      <h2 style="margin:0 0 10px;color:#fafafa;">Buyers are also reassured by the public review signal</h2>
+      <p style="margin:0;color:#a1a1aa;line-height:1.75;max-width:760px;">The themes are consistent: native Salesforce routing, quick onboarding, and documentation that helps teams get operational fast. We keep reviewer identities private here, but the review signal is public on AppExchange.</p>
+    </div>
+    <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;background:#6366f1;color:#fff;text-decoration:none;font-weight:700;white-space:nowrap;">See reviews on AppExchange</a>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px;">
+    <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:18px;">
+      <div style="color:#fbbf24;font-size:1rem;margin-bottom:10px;">★★★★★</div>
+      <p style="margin:0 0 10px;color:#fafafa;font-weight:700;line-height:1.5;">“Great native routing experience inside Salesforce.”</p>
+      <p style="margin:0;color:#a1a1aa;line-height:1.7;font-size:0.95rem;">Strong signal on native UX, routing usefulness, and fit inside the Salesforce workflow.</p>
+    </div>
+    <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:18px;">
+      <div style="color:#fbbf24;font-size:1rem;margin-bottom:10px;">★★★★★</div>
+      <p style="margin:0 0 10px;color:#fafafa;font-weight:700;line-height:1.5;">“Easy to install, quick to onboard, and well documented.”</p>
+      <p style="margin:0;color:#a1a1aa;line-height:1.7;font-size:0.95rem;">Strong signal on setup speed, onboarding quality, and documentation clarity.</p>
+    </div>
+  </div>
+</section>
+
 <section class="faq-section" id="faq">
   <div class="container">
     <div class="section-header"><h2>FAQ: RouteForce pricing</h2><p>The most common questions before a pricing decision.</p></div>
@@ -207,8 +230,8 @@
     <div style="display:flex;gap:48px;font-size:0.875rem;">
       <div style="display:flex;flex-direction:column;gap:8px;">
         <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Product</span>
-        <a href="index.html#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-        <a href="index.html#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+        <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+        <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
         <a href="docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
         <a href="blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
         <a href="consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
