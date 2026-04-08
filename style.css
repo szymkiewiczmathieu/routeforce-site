@@ -2714,7 +2714,7 @@ img {
 }
 
 .blog-index-lead {
-    max-width: 760px;
+    max-width: 820px;
 }
 
 .blog-index-kicker {
@@ -2743,7 +2743,7 @@ img {
     color: #a1a1aa;
     font-size: 1.12rem;
     line-height: 1.78;
-    max-width: 720px;
+    max-width: 760px;
 }
 
 .blog-start-grid {
@@ -2791,6 +2791,11 @@ img {
     .blog-index-hero-premium {
         padding: 96px 0 60px;
     }
+}
+
+.blog-content > .container,
+article.container {
+    max-width: 940px !important;
 }
 
 /* Blog article content styles */
