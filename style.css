@@ -2922,9 +2922,11 @@ img {
 }
 
 .blog-hero-sidecard-muted {
-    background: #111114;
-    border: 1px solid #27272a;
-    box-shadow: none;
+    background:
+        radial-gradient(circle at top right, rgba(99,102,241,0.12), transparent 52%),
+        linear-gradient(180deg, #151519 0%, #111114 100%);
+    border: 1px solid rgba(99,102,241,0.18);
+    box-shadow: 0 18px 42px rgba(0,0,0,0.2);
 }
 
 .blog-hero-sidecard-label {
@@ -2960,6 +2962,17 @@ img {
     color: #c7d2fe;
     text-decoration: none;
     font-weight: 600;
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 14px;
+    padding: 12px 14px;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.blog-hero-linklist a:hover {
+    background: rgba(99,102,241,0.08);
+    border-color: rgba(99,102,241,0.22);
+    transform: translateY(-1px);
 }
 
 .blog-index-hero-premium {
@@ -3063,6 +3076,12 @@ article.container {
     max-width: 940px !important;
 }
 
+.blog-content > .container.premium-article,
+.blog-article > .container.premium-article,
+article.container.premium-article {
+    max-width: 980px !important;
+}
+
 /* Blog article content styles */
 .blog-content h2, .blog-article h2, article.container h2 {
     font-size: 1.5rem;
@@ -3096,4 +3115,48 @@ article.container {
     border-radius: 0 8px 8px 0;
     color: #d4d4d8;
     font-style: italic;
+}
+
+.blog-content table, .blog-article table, article.container table {
+    width: 100%;
+    border-collapse: separate !important;
+    border-spacing: 0;
+    background: #111114;
+    border: 1px solid #27272a;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 48px rgba(0,0,0,0.18);
+}
+
+.blog-content table thead, .blog-article table thead, article.container table thead {
+    background: #16161a;
+}
+
+.blog-content table th, .blog-article table th, article.container table th {
+    padding: 14px 16px !important;
+    color: #c7d2fe !important;
+    font-weight: 700;
+    font-size: 0.92rem !important;
+    border-bottom: 1px solid #27272a;
+    vertical-align: bottom;
+}
+
+.blog-content table td, .blog-article table td, article.container table td {
+    padding: 14px 16px !important;
+    color: #e4e4e7 !important;
+    font-size: 0.94rem !important;
+    border-bottom: 1px solid #1f1f23;
+    vertical-align: top;
+}
+
+.blog-content table tbody tr:nth-child(even):not([style*="background"]),
+.blog-article table tbody tr:nth-child(even):not([style*="background"]),
+article.container table tbody tr:nth-child(even):not([style*="background"]) {
+    background: rgba(255,255,255,0.015);
+}
+
+.blog-content table tbody tr:last-child td,
+.blog-article table tbody tr:last-child td,
+article.container table tbody tr:last-child td {
+    border-bottom: none;
 }
