@@ -42,13 +42,13 @@
 
     .pricing-hero-layout {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(360px, 0.92fr);
-      gap: 36px;
+      grid-template-columns: 1fr;
+      gap: 32px;
       align-items: start;
     }
 
     .pricing-hero-copy {
-      max-width: 780px;
+      max-width: 920px;
     }
 
     .pricing-hero .hero-badge {
@@ -57,14 +57,15 @@
     }
 
     .pricing-hero h1 {
-      max-width: none;
+      max-width: 980px;
       margin-bottom: 18px;
       text-align: left;
-      font-size: clamp(3rem, 4.9vw, 4.4rem);
+      font-size: clamp(2.8rem, 4.4vw, 4.1rem);
+      line-height: 1.02;
     }
 
     .pricing-hero .hero-subtitle {
-      max-width: 720px;
+      max-width: 760px;
       margin: 0 0 28px;
       text-align: left;
       font-size: 1.15rem;
@@ -91,7 +92,9 @@
 
     .pricing-hero-side {
       display: grid;
+      grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.35fr);
       gap: 14px;
+      align-items: stretch;
     }
 
     .pricing-hero-card-grid {
@@ -111,6 +114,7 @@
       background: linear-gradient(180deg, rgba(99,102,241,0.16), rgba(99,102,241,0.08));
       border-color: rgba(99,102,241,0.34);
       box-shadow: 0 22px 52px rgba(0,0,0,0.24);
+      min-height: 100%;
     }
 
     .pricing-hero-card-label {
@@ -144,13 +148,12 @@
     }
 
     @media (max-width: 980px) {
-      .pricing-hero-layout {
-        grid-template-columns: 1fr;
-        gap: 28px;
-      }
-
       .pricing-hero-copy {
         max-width: 860px;
+      }
+
+      .pricing-hero-side {
+        grid-template-columns: 1fr;
       }
 
       .pricing-hero h1,
@@ -173,6 +176,10 @@
     @media (max-width: 640px) {
       .pricing-hero-card-grid {
         grid-template-columns: 1fr;
+      }
+
+      .pricing-hero {
+        padding: 80px 0 72px;
       }
     }
   </style>
