@@ -2019,6 +2019,20 @@ img {
     border-color: rgba(99,102,241,0.28);
 }
 
+.premium-article {
+    max-width: 860px !important;
+}
+
+.premium-article p,
+.premium-article li {
+    font-size: 1.03rem;
+    line-height: 1.82;
+}
+
+.premium-article h2 {
+    scroll-margin-top: 110px;
+}
+
 @media (max-width: 980px) {
     .premium-hero-grid,
     .premium-hero-card-grid {
