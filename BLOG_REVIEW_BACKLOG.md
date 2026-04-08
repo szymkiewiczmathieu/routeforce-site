@@ -193,8 +193,8 @@ These are high-volume keywords where RouteForce has NO presence yet. Winning eve
 - [x] salesforce-maps-alternative.html untouched (Google Ads landing page)
 
 ### 4.2 MERGE: Salesforce Maps alternative articles
-- [ ] salesforce-maps-alternative.html + what-to-compare-before-replacing-salesforce-maps.html
-- [ ] Replace both with the new listicle from 2.2
+- [x] Internal editorial links consolidated toward `salesforce-maps-alternatives-compared.html` as the main comparison asset.
+- [x] Kept `salesforce-maps-alternative.html` live as a narrower landing page instead of deleting it, to preserve optional paid/landing usage while reducing internal duplication pressure.
 
 ## Priority 5: Off-site / authority building
 
