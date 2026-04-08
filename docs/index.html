@@ -14,62 +14,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .docs-hero {
-            padding: 100px 0 50px;
-            background: linear-gradient(135deg, #131316 0%, #09090b 100%);
-        }
-        .docs-hero .container { max-width: 900px; }
-        .docs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 24px;
-            margin-top: 48px;
-            padding-bottom: 80px;
-        }
-        .docs-card {
-            background: #18181b;
-            border: 1px solid var(--gray-200);
-            border-radius: 12px;
-            padding: 28px;
-            text-decoration: none;
-            color: inherit;
-            transition: box-shadow 0.2s, transform 0.2s;
-        }
-        .docs-card:hover {
-            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
-            transform: translateY(-2px);
-        }
         .docs-card-icon {
             font-size: 2rem;
             margin-bottom: 16px;
         }
-        .docs-card h2 {
+        .premium-doc-card h2 {
             font-size: 1.15rem;
             font-weight: 700;
-            color: var(--gray-900);
+            color: #fafafa;
             margin-bottom: 8px;
         }
-        .docs-card p {
+        .premium-doc-card p {
             font-size: 0.9rem;
-            color: var(--gray-600);
+            color: #a1a1aa;
             line-height: 1.6;
             margin-bottom: 16px;
         }
         .docs-badge {
-            display: inline-block;
-            background: var(--primary-100);
-            color: var(--primary-700);
+            display: inline-flex;
+            align-items: center;
+            background: rgba(99,102,241,0.12);
+            border: 1px solid rgba(99,102,241,0.22);
+            color: #c7d2fe;
             padding: 3px 10px;
             border-radius: 20px;
             font-size: 0.78rem;
             font-weight: 600;
         }
         .install-box {
-            background: linear-gradient(135deg, #6366f1, #4f46e5);
+            background: linear-gradient(135deg, rgba(99,102,241,0.9), rgba(79,70,229,0.8));
             color: white;
-            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
             padding: 2rem;
-            margin: 0 0 40px;
+            margin: 0;
+            box-shadow: 0 22px 56px rgba(0,0,0,0.22);
         }
         .install-box h2 { color: white; font-size: 1.25rem; margin-bottom: 8px; }
         .install-box p { color: rgba(255,255,255,0.85); font-size: 0.93rem; margin-bottom: 16px; }
@@ -77,7 +56,7 @@
         .install-links a {
             display: inline-block;
             background: #18181b;
-            color: var(--primary-700);
+            color: #c7d2fe;
             padding: 10px 20px;
             border-radius: 8px;
             font-weight: 700;
@@ -148,68 +127,84 @@
   <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
 </header>
 
-    <section class="docs-hero">
+    <section class="premium-hero">
         <div class="container">
-            <h1>RouteForce Documentation</h1>
-            <p style="font-size:1.1rem;color:var(--gray-600);margin-top:12px;">Installation, field adoption, advanced configuration, and trust pages for buyers, Salesforce admins, and field teams.</p>
+            <div class="premium-hero-grid">
+                <div class="premium-hero-copy">
+                    <div class="premium-hero-kicker">Docs & trust</div>
+                    <h1>RouteForce documentation for admins, field teams, and buyers</h1>
+                    <p class="premium-hero-lead">Installation, field adoption, advanced configuration, and trust pages in one Salesforce-native documentation hub. This is the fastest path from evaluation to rollout.</p>
+                    <div class="premium-bullets">
+                        <div class="premium-bullet"><span>•</span><span><strong>Start here:</strong> setup, user guide, and configuration guide cover the product path end to end.</span></div>
+                        <div class="premium-bullet"><span>•</span><span><strong>Trust layer:</strong> privacy, DPA, and terms are grouped alongside the docs buyers ask for during evaluation.</span></div>
+                        <div class="premium-bullet"><span>•</span><span><strong>Buying logic:</strong> install the package first, then expand into premium route optimization and advanced execution.</span></div>
+                    </div>
+                    <div class="premium-cta-row">
+                        <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary btn-lg">Install RouteForce from AppExchange</a>
+                        <a href="../pricing.html" class="btn btn-outline btn-lg">See pricing</a>
+                    </div>
+                </div>
+                <div class="premium-hero-rail">
+                    <div class="install-box">
+                        <h2>Install RouteForce</h2>
+                        <p>Install the managed package in your Salesforce org in one click. Start free with map visualization and meeting creation, then unlock premium features for route optimization, GPS visit execution, and advanced dashboards.</p>
+                        <div class="install-links">
+                            <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener" data-plausible-event="install_package_docs_production">Production / Developer Edition: Install V7.8.0</a>
+                            <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener" class="secondary" data-plausible-event="install_package_docs_sandbox">Sandbox: Install V7.8.0</a>
+                        </div>
+                    </div>
+                    <div class="premium-hero-card">
+                        <div class="premium-hero-card-label">Key RouteForce resources</div>
+                        <div class="blog-hero-linklist" style="margin-top:0;">
+                            <a href="../pricing.html">Pricing</a>
+                            <a href="../salesforce-route-planning.html">Route planning</a>
+                            <a href="../visit-planning-salesforce.html">Visit planning</a>
+                            <a href="../field-sales-route-optimization.html">Field execution</a>
+                            <a href="../flat-rate-route-optimization.html">Flat-rate model</a>
+                            <a href="../native-integration-salesforce.html">Native integration</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <div class="docs-grid" style="margin-top:32px;">
-                <a href="setup-guide.html" class="docs-card">
+    <section class="features-section" style="padding-top:28px;">
+        <div class="container">
+            <div class="premium-docs-grid" style="margin-bottom:28px;">
+                <a href="setup-guide.html" class="premium-doc-card">
                     <div class="docs-card-icon">🔧</div>
                     <h2>Setup Guide</h2>
                     <p>Package installation, permission set assignment, onboarding flow, free vs premium setup, dashboard verification, and first rollout steps for Salesforce administrators.</p>
                     <span class="docs-badge">Administrators · V7.8.0</span>
                 </a>
-                <a href="user-guide.html" class="docs-card">
+                <a href="user-guide.html" class="premium-doc-card">
                     <div class="docs-card-icon">📖</div>
                     <h2>User Guide</h2>
                     <p>Daily RouteForce usage: map exploration, filters, route building, free app usage, premium features, check-in / check-out, native dashboards, and history reuse.</p>
                     <span class="docs-badge">Field users · V7.8.0</span>
                 </a>
-                <a href="configuration-guide.html" class="docs-card">
+                <a href="configuration-guide.html" class="premium-doc-card">
                     <div class="docs-card-icon">⚙️</div>
                     <h2>Configuration Guide</h2>
-                    <p>Two-layer config model (App Builder + CMDT), deployment patterns, clone-and-compose guide, App Builder property reference, 4 copy-paste presets, and complete field reference for all 36 settings.</p>
+                    <p>Two-layer config model, deployment patterns, clone-and-compose guide, App Builder property reference, copy-paste presets, and full field reference.</p>
                     <span class="docs-badge">Advanced admins · V7.8.0</span>
                 </a>
             </div>
 
-            <div class="features-section" style="padding:10px 0 0;">
-                <div class="section-header">
-                    <h2>RouteForce in 4 clear answers</h2>
-                    <p>The trust signals buyers and admins want before they install.</p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card"><h3>What is RouteForce?</h3><p>A native Salesforce route planning product packaged as a cleaner 2GP app, built for field teams.</p></div>
-                    <div class="feature-card"><h3>What do you get?</h3><p>Interactive map, route planning, field execution, shared filters, heatmap, and native analytics.</p></div>
-                    <div class="feature-card"><h3>How do you buy?</h3><p>Start with the installable plan, then request premium access for route optimization and advanced execution.</p></div>
-                    <div class="feature-card"><h3>Where can I verify trust?</h3><p>Use the Privacy Policy, DPA, and Terms & Conditions pages to review the contractual and data-processing framework.</p></div>
+            <div class="premium-summary-shell" style="margin-bottom:28px;">
+                <h2 style="margin-bottom:0.6rem;">RouteForce in 4 clear answers</h2>
+                <p style="color:#a1a1aa;max-width:760px;margin-bottom:1.5rem;">The trust signals buyers and admins want before they install.</p>
+                <div class="premium-summary-grid">
+                    <div class="premium-summary-card"><h3>What is RouteForce?</h3><p>A native Salesforce route planning product packaged as a cleaner 2GP app, built for field teams.</p></div>
+                    <div class="premium-summary-card"><h3>What do you get?</h3><p>Interactive map, route planning, field execution, shared filters, heatmap, and native analytics.</p></div>
+                    <div class="premium-summary-card"><h3>How do you buy?</h3><p>Start with the installable plan, then request premium access for route optimization and advanced execution.</p></div>
+                    <div class="premium-summary-card"><h3>Where can I verify trust?</h3><p>Use the Privacy Policy, DPA, and Terms & Conditions pages to review the contractual and data-processing framework.</p></div>
                 </div>
             </div>
 
-            <div style="margin:24px 0 32px; padding:20px; border:1px solid #27272a; border-radius:16px; background:#111114;">
-                <p style="margin:0 0 12px; color:#fafafa; font-weight:700;">Key RouteForce resources</p>
-                <div style="display:flex; flex-wrap:wrap; gap:10px 16px;">
-                    <a href="../pricing.html" style="color:#9099ff; text-decoration:none;">Pricing</a>
-                    <a href="../salesforce-route-planning.html" style="color:#9099ff; text-decoration:none;">Route planning</a>
-                    <a href="../visit-planning-salesforce.html" style="color:#9099ff; text-decoration:none;">Visit planning</a>
-                    <a href="../field-sales-route-optimization.html" style="color:#9099ff; text-decoration:none;">Field execution</a>
-                    <a href="../flat-rate-route-optimization.html" style="color:#9099ff; text-decoration:none;">Flat-rate model</a>
-                    <a href="../native-integration-salesforce.html" style="color:#9099ff; text-decoration:none;">Native integration</a>
-                </div>
-            </div>
-
-            <div class="install-box">
-                <h2>Install RouteForce</h2>
-                <p>Install the managed package in your Salesforce org in one click. Start free with map visualization and meeting creation, then unlock premium features for route optimization, GPS visit execution, and advanced dashboards.</p>
-                <div class="install-links">
-                    <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener" data-plausible-event="install_package_docs_production">Production / Developer Edition: Install V7.8.0</a>
-                    <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener" class="secondary" data-plausible-event="install_package_docs_sandbox">Sandbox: Install V7.8.0</a>
-                </div>
-            </div>
-
-            <p style="text-align:center;color:var(--gray-500);font-size:0.9rem;padding-bottom:60px;">
-                Questions? <a href="mailto:contact@routeforce.app" style="color:var(--primary);">contact@routeforce.app</a>
+            <p style="text-align:center;color:#71717a;font-size:0.9rem;padding-bottom:60px;">
+                Questions? <a href="mailto:contact@routeforce.app" style="color:#9099ff;">contact@routeforce.app</a>
             </p>
         </div>
     </section>

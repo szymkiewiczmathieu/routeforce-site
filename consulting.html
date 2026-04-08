@@ -79,15 +79,43 @@
   <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
 </header>
 
-<!-- Hero -->
-<section class="hero" style="padding:100px 0 60px;background:linear-gradient(135deg,#1e1b4b 0%,#09090b 100%);">
-  <div class="container" style="max-width:900px;text-align:center;">
-    <div style="display:inline-block;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.2);border-radius:999px;padding:6px 16px;margin-bottom:24px;">
-      <span style="font-size:0.75rem;font-weight:600;color:#9099ff;">Consulting & Services</span>
+<section class="premium-hero">
+  <div class="container">
+    <div class="premium-hero-grid">
+      <div class="premium-hero-copy">
+        <div class="premium-hero-kicker">Consulting & services</div>
+        <h1>You focus on selling, we handle the Salesforce work around RouteForce</h1>
+        <p class="premium-hero-lead">Beyond the RouteForce setup, some orgs need custom Screen Flows, Lightning Web Components, automation, dashboards, or rollout help. This page is the consulting path for teams that want RouteForce plus tailored Salesforce execution.</p>
+        <div class="premium-bullets">
+          <div class="premium-bullet"><span>•</span><span><strong>Two entry points:</strong> turnkey RouteForce setup when you want speed, or custom Salesforce consulting when the org needs more than standard configuration.</span></div>
+          <div class="premium-bullet"><span>•</span><span><strong>Best fit:</strong> teams with deployment pressure, specific workflow gaps, or internal bandwidth constraints on Salesforce delivery.</span></div>
+          <div class="premium-bullet"><span>•</span><span><strong>Commercial logic:</strong> a fixed setup offer for the standard path, then scoped consulting when the work becomes custom.</span></div>
+        </div>
+        <div class="premium-cta-row">
+          <a href="#contact" class="btn btn-primary btn-lg">Describe your project</a>
+          <a href="#setup-vs-consulting" class="btn btn-outline btn-lg">See delivery options</a>
+        </div>
+      </div>
+      <div class="premium-hero-rail">
+        <div class="premium-hero-card primary">
+          <div class="premium-hero-card-label">Turnkey setup</div>
+          <div class="premium-hero-card-price">€3,000</div>
+          <div class="premium-hero-card-copy">One-time setup path for orgs that want RouteForce installed, configured, validated, and brought to production quickly.</div>
+        </div>
+        <div class="premium-hero-card-grid">
+          <div class="premium-hero-card">
+            <div class="premium-hero-card-label">Custom consulting</div>
+            <div class="premium-hero-card-title">Scoped on quote</div>
+            <div class="premium-hero-card-copy">For Screen Flows, LWC work, integrations, data prep, dashboards, and org-specific deployment constraints.</div>
+          </div>
+          <div class="premium-hero-card">
+            <div class="premium-hero-card-label">Why it helps</div>
+            <div class="premium-hero-card-title">Faster path to production</div>
+            <div class="premium-hero-card-copy">Less admin friction, fewer rollout mistakes, and clearer ownership between standard product setup and custom Salesforce work.</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <h1 style="font-size:2.5rem;font-weight:800;color:#fafafa;line-height:1.15;margin-bottom:16px;">You focus on selling.<br/>We handle the Salesforce work.</h1>
-    <p style="font-size:1.15rem;color:#a1a1aa;max-width:650px;margin:0 auto 32px;line-height:1.7;">Beyond the RouteForce setup, you need custom Screen Flows, LWC integrations, or Salesforce development? Tell us your needs. We build it for you.</p>
-    <a href="#contact" class="btn btn-primary btn-lg" style="background:#6366f1;color:white;padding:14px 32px;border-radius:12px;font-weight:600;text-decoration:none;font-size:1rem;">Describe your project</a>
   </div>
 </section>
 
@@ -99,7 +127,7 @@
     </div>
 
     <!-- Setup vs Consulting split -->
-    <div class="consulting-split">
+    <div class="consulting-split" id="setup-vs-consulting">
       <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:32px;">
         <div style="font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:#06b6d4;margin-bottom:16px;">Product setup</div>
         <h3 style="font-size:1.4rem;font-weight:800;color:#fafafa;margin-bottom:8px;">Turnkey Setup</h3>
