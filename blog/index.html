@@ -49,11 +49,20 @@
             text-decoration: none;
             color: inherit;
             display: block;
+            position: relative;
+            overflow: hidden;
         }
         .blog-card:hover {
             box-shadow: 0 18px 44px rgba(0,0,0,0.18);
             transform: translateY(-3px);
             border-color: rgba(99,102,241,0.28);
+        }
+        .blog-grid > .blog-card:nth-child(-n+3) {
+            background:
+                radial-gradient(circle at top right, rgba(99,102,241,0.12), transparent 52%),
+                linear-gradient(180deg, #151519 0%, #111114 100%);
+            border-color: rgba(99,102,241,0.24);
+            box-shadow: 0 18px 44px rgba(0,0,0,0.16);
         }
         .blog-card-tag {
             background: rgba(99,102,241,0.12);
@@ -89,6 +98,68 @@
             color: #c7d2fe;
             font-weight: 600;
             font-size: 0.9rem;
+        }
+
+        @media (max-width: 640px) {
+            .blog-index-hero-premium {
+                padding: 92px 0 48px;
+            }
+
+            .blog-index-subtitle {
+                font-size: 1rem;
+                line-height: 1.68;
+            }
+
+            .blog-hero-sidecard {
+                padding: 20px;
+            }
+
+            .blog-start-link {
+                padding: 12px 14px;
+            }
+
+            .blog-list-section {
+                padding: 36px 0 84px;
+            }
+
+            .blog-grid {
+                gap: 16px;
+                margin-top: 28px;
+            }
+
+            .blog-card {
+                padding: 22px 20px;
+                border-radius: 18px;
+            }
+
+            .blog-grid > .blog-card:nth-child(-n+3) {
+                padding: 24px 22px;
+            }
+
+            .blog-card h2 {
+                font-size: 1.05rem;
+                margin-bottom: 10px;
+            }
+
+            .blog-card p {
+                font-size: 0.92rem;
+                line-height: 1.55;
+                margin-bottom: 14px;
+                display: -webkit-box;
+                -webkit-box-orient: vertical;
+                -webkit-line-clamp: 2;
+                overflow: hidden;
+            }
+
+            .blog-grid > .blog-card:nth-child(-n+3) p {
+                -webkit-line-clamp: 3;
+            }
+
+            .blog-card-meta {
+                font-size: 0.78rem;
+                gap: 10px;
+                flex-wrap: wrap;
+            }
         }
     </style>
 </head>
