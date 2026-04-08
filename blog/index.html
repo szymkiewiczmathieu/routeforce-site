@@ -40,6 +40,42 @@
             gap: 28px;
             margin-top: 40px;
         }
+        .blog-section-intro {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            gap: 20px;
+            margin: 18px 0 12px;
+        }
+        .blog-section-label {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(99,102,241,0.08);
+            border: 1px solid rgba(99,102,241,0.18);
+            color: #c7d2fe;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .blog-section-title {
+            color: #fafafa;
+            font-size: 1.45rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 8px;
+        }
+        .blog-section-copy {
+            color: #a1a1aa;
+            max-width: 720px;
+            line-height: 1.65;
+        }
+        .blog-grid-secondary {
+            margin-top: 24px;
+        }
         .blog-index-signal-row {
             display: flex;
             flex-wrap: wrap;
@@ -142,6 +178,24 @@
             color: #8f8f98;
             display: flex;
             gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .blog-card-meta span {
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+        }
+        .blog-card-meta span:nth-child(2) {
+            min-height: auto;
+            padding: 0;
+            background: none;
+            border: 0;
+            color: #52525b;
         }
         .blog-card-readmore {
             color: #c7d2fe;
@@ -189,6 +243,21 @@
 
             .blog-list-section {
                 padding: 36px 0 84px;
+            }
+
+            .blog-section-intro {
+                display: block;
+                margin: 8px 0 10px;
+            }
+
+            .blog-section-title {
+                font-size: 1.18rem;
+                margin-bottom: 6px;
+            }
+
+            .blog-section-copy {
+                font-size: 0.95rem;
+                line-height: 1.6;
             }
 
             .blog-grid {
@@ -304,6 +373,13 @@
 
     <section class="blog-list-section">
         <div class="container">
+            <div class="blog-section-intro">
+                <div>
+                    <div class="blog-section-label">Featured reads</div>
+                    <h2 class="blog-section-title">Start with the strongest decision-making pages</h2>
+                    <p class="blog-section-copy">These articles do the most work for pricing, replacement logic, and rollout conversations before a RouteForce evaluation.</p>
+                </div>
+            </div>
             <div class="blog-grid">
 
                 <a href="flat-pricing-vs-per-user-salesforce-field-tools.html" class="blog-card">
@@ -338,6 +414,17 @@
                         <span>6 min</span>
                     </div>
                 </a>
+            </div>
+
+            <div class="blog-section-intro">
+                <div>
+                    <div class="blog-section-label">More articles</div>
+                    <h2 class="blog-section-title">Guides, tutorials, and buyer education</h2>
+                    <p class="blog-section-copy">Everything else stays here for deeper research, setup paths, and market comparison work without losing the premium rhythm.</p>
+                </div>
+            </div>
+
+            <div class="blog-grid blog-grid-secondary">
 
                 <a href="how-to-set-up-route-planning-salesforce.html" class="blog-card">
                     <span class="blog-card-tag">Tutorial</span>
