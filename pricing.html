@@ -70,6 +70,7 @@
       margin: 0 0 28px;
       text-align: left;
       font-size: 1.15rem;
+      color: #d4d4d8;
     }
 
     .pricing-hero-points {
@@ -83,6 +84,7 @@
       display: flex;
       gap: 10px;
       align-items: flex-start;
+      color: #e4e4e7;
     }
 
     .pricing-hero .hero-cta {
@@ -143,7 +145,7 @@
     }
 
     .pricing-hero-card-copy {
-      color: #a1a1aa;
+      color: #d4d4d8;
       font-size: 0.97rem;
       line-height: 1.55;
     }
@@ -175,6 +177,20 @@
     }
 
     @media (max-width: 640px) {
+      .pricing-hero .hero-subtitle {
+        font-size: 1.02rem;
+      }
+
+      .pricing-hero .hero-cta {
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .pricing-hero .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
       .pricing-hero-card-grid {
         grid-template-columns: 1fr;
       }
