@@ -76,6 +76,39 @@
         .blog-grid-secondary {
             margin-top: 24px;
         }
+        .blog-list-actions {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 28px;
+        }
+        .blog-load-more {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 13px 20px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.08);
+            color: #e4e4e7;
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+        }
+        .blog-load-more:hover {
+            background: rgba(99,102,241,0.08);
+            border-color: rgba(99,102,241,0.22);
+            transform: translateY(-1px);
+        }
+        .blog-load-more-count {
+            color: #a5b4fc;
+            font-weight: 600;
+        }
+        .blog-card.is-collapsed {
+            display: none;
+        }
         .blog-index-signal-row {
             display: flex;
             flex-wrap: wrap;
@@ -263,6 +296,14 @@
             .blog-grid {
                 gap: 16px;
                 margin-top: 28px;
+            }
+
+            .blog-list-actions {
+                margin-top: 20px;
+            }
+
+            .blog-load-more {
+                width: 100%;
             }
 
             .blog-card {
@@ -670,6 +711,12 @@
 
 
             </div>
+            <div class="blog-list-actions">
+                <button class="blog-load-more" type="button" id="blogLoadMore" hidden>
+                    <span>Show more articles</span>
+                    <span class="blog-load-more-count" id="blogLoadMoreCount"></span>
+                </button>
+            </div>
         </div>
     </section>
 
@@ -718,6 +765,30 @@ document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail
     window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
   });
 });
+
+(function(){
+  var grid = document.querySelector('.blog-grid-secondary');
+  var button = document.getElementById('blogLoadMore');
+  var count = document.getElementById('blogLoadMoreCount');
+  if (!grid || !button || !count) return;
+
+  var cards = Array.prototype.slice.call(grid.querySelectorAll('.blog-card'));
+  var initialVisible = window.matchMedia('(max-width: 640px)').matches ? 8 : 12;
+  if (cards.length <= initialVisible) return;
+
+  cards.forEach(function(card, index){
+    if (index >= initialVisible) card.classList.add('is-collapsed');
+  });
+
+  var hiddenCount = cards.length - initialVisible;
+  count.textContent = '(' + hiddenCount + ' more)';
+  button.hidden = false;
+
+  button.addEventListener('click', function(){
+    cards.forEach(function(card){ card.classList.remove('is-collapsed'); });
+    button.hidden = true;
+  });
+})();
 </script>
 </body>
 </html>
