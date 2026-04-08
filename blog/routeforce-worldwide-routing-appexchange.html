@@ -47,12 +47,12 @@
 </head>
 <body style="background:#09090b;color:#e4e4e7;">
 <header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
-  <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px;max-width:1280px;margin:0 auto;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
     <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
       <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;"/>
       <span style="font-size:1.125rem;font-weight:800;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">RouteForce</span>
     </a>
-    <nav id="desktopNav" style="display:flex;gap:20px;align-items:center;font-size:0.875rem;white-space:nowrap;">
+    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.95rem;white-space:nowrap;">
       <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
       <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
       <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
@@ -61,8 +61,8 @@
       <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
     </nav>
     <div style="display:flex;align-items:center;gap:8px;">
-      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.875rem;" id="docsLink">Docs</a>
-      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.875rem;">Install RouteForce from AppExchange</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Install RouteForce from AppExchange</a>
       <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
         <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
       </button>
@@ -83,16 +83,30 @@
   <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
 </header>
 
-<section class="blog-hero" style="padding:120px 0 60px;background:linear-gradient(135deg,var(--primary-50) 0%,#09090b 100%);">
-  <div class="container" style="max-width:800px;">
-    <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;font-size:0.875rem;color:#a1a1aa;">
-      <span style="background:#6366f1;color:white;padding:4px 12px;border-radius:20px;font-weight:600;font-size:0.75rem;">Product</span>
+<section class="blog-hero blog-hero-premium">
+  <div class="container">
+    <div class="blog-hero-premium-grid">
+      <div class="blog-hero-copy">
+        <div class="blog-kicker-row">
+      <span class="blog-kicker-chip">Product</span>
       <time datetime="2026-04-02">April 2, 2026</time>
       <span>&middot;</span>
       <span>6 min read</span>
     </div>
     <h1>RouteForce: Salesforce-native field execution with global routing</h1>
-    <p style="font-size:1.2rem;color:var(--gray-600);margin-top:16px;line-height:1.7;">RouteForce sharpens the product around one clear promise: start from the AppExchange install path in Salesforce, then move to the paid scope for route optimization and richer field execution when your team is ready.</p>
+    <p class="blog-hero-summary">RouteForce sharpens the product around one clear promise: start from the AppExchange install path in Salesforce, then move to the paid scope for route optimization and richer field execution when your team is ready.</p>
+      </div>
+      <aside class="blog-hero-sidecard blog-hero-sidecard-muted">
+        <div class="blog-hero-sidecard-label">Quick access</div>
+        <div class="blog-hero-sidecard-title">Stay close to the buying path</div>
+        <p class="blog-hero-sidecard-copy">Use the article for context, then jump straight into pricing, product positioning, or AppExchange install when you want to evaluate RouteForce seriously.</p>
+        <div class="blog-hero-linklist">
+          <a href="../pricing.html">See RouteForce pricing</a>
+          <a href="../salesforce-route-planning.html">Explore route planning</a>
+          <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Install from AppExchange</a>
+        </div>
+      </aside>
+    </div>
   </div>
 </section>
 

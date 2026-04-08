@@ -33,33 +33,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        .blog-index-hero {
-            padding: 120px 0 60px;
-            background: linear-gradient(135deg, #131316 0%, #09090b 100%);
-            text-align: center;
-        }
-        .blog-index-hero h1 { margin-bottom: 16px; }
-        .blog-index-hero p { color: var(--gray-600); font-size: 1.1rem; max-width: 560px; margin: 0 auto; }
         .blog-list-section { padding: 60px 0 100px; }
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 32px;
+            gap: 28px;
             margin-top: 40px;
         }
         .blog-card {
-            background: #18181b;
-            border: 1px solid var(--gray-200);
-            border-radius: 16px;
+            background: #111114;
+            border: 1px solid #27272a;
+            border-radius: 20px;
             padding: 32px;
-            transition: box-shadow 0.2s, transform 0.2s;
+            transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
             text-decoration: none;
             color: inherit;
             display: block;
         }
         .blog-card:hover {
-            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
-            transform: translateY(-2px);
+            box-shadow: 0 18px 44px rgba(0,0,0,0.18);
+            transform: translateY(-3px);
+            border-color: rgba(99,102,241,0.28);
         }
         .blog-card-tag {
             background: var(--primary-100);
@@ -99,12 +93,12 @@
 </head>
 <body style="background:#09090b;color:#e4e4e7;">
 <header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
-  <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px;max-width:1280px;margin:0 auto;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
     <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
       <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;"/>
       <span style="font-size:1.125rem;font-weight:800;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">RouteForce</span>
     </a>
-    <nav id="desktopNav" style="display:flex;gap:20px;align-items:center;font-size:0.875rem;white-space:nowrap;">
+    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.95rem;white-space:nowrap;">
       <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
       <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
       <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
@@ -113,8 +107,8 @@
       <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
     </nav>
     <div style="display:flex;align-items:center;gap:8px;">
-      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.875rem;" id="docsLink">Docs</a>
-      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.875rem;">Install RouteForce from AppExchange</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Install RouteForce from AppExchange</a>
       <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
         <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
       </button>
@@ -135,29 +129,30 @@
   <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
 </header>
 
-    <section class="blog-index-hero">
-        <div class="container" style="max-width:860px;">
-            <h1>RouteForce Blog</h1>
-            <p>Comparisons, guides, and field insights for Salesforce teams that need route planning, visit execution, clearer pricing logic, and a more deployable field workflow.</p>
+    <section class="blog-index-hero-premium">
+        <div class="container">
+            <div class="blog-index-hero-grid">
+                <div class="blog-index-lead">
+                    <div class="blog-index-kicker">Editorial hub</div>
+                    <h1>RouteForce Blog</h1>
+                    <p class="blog-index-subtitle">Comparisons, guides, and field insights for Salesforce teams that need route planning, visit execution, clearer pricing logic, and a more deployable field workflow.</p>
+                </div>
+                <aside class="blog-hero-sidecard">
+                    <div class="blog-hero-sidecard-label">Start here</div>
+                    <div class="blog-hero-sidecard-title">Keep the core journey close</div>
+                    <p class="blog-hero-sidecard-copy">Use the blog to understand the market, then jump directly into pricing, setup, and product pages without losing the evaluation thread.</p>
+                    <div class="blog-start-grid">
+                        <a class="blog-start-link" href="../pricing.html"><strong>Pricing</strong><span>Flat org pricing and commercial logic</span></a>
+                        <a class="blog-start-link" href="../salesforce-route-planning.html"><strong>Route planning</strong><span>Product story and main value prop</span></a>
+                        <a class="blog-start-link" href="../native-integration-salesforce.html"><strong>Native integration</strong><span>Why the Salesforce-native angle matters</span></a>
+                        <a class="blog-start-link" href="../docs/setup-guide.html"><strong>Setup guide</strong><span>Install and onboard faster</span></a>
+                    </div>
+                </aside>
+            </div>
         </div>
     </section>
 
     <section class="blog-list-section">
-        <div class="container" style="margin-bottom:32px;">
-            <div style="padding:20px; border:1px solid #27272a; border-radius:16px; background:#111114;">
-                <p style="margin:0 0 12px; color:#fafafa; font-weight:700;">Start here</p>
-                <div style="display:flex; flex-wrap:wrap; gap:10px 16px;">
-                    <a href="../pricing.html" style="color:#9099ff; text-decoration:none;">Pricing</a>
-                    <a href="../salesforce-route-planning.html" style="color:#9099ff; text-decoration:none;">Route planning</a>
-                    <a href="../native-integration-salesforce.html" style="color:#9099ff; text-decoration:none;">Native integration</a>
-                    <a href="../visit-planning-salesforce.html" style="color:#9099ff; text-decoration:none;">Visit planning</a>
-                    <a href="../docs/setup-guide.html" style="color:#9099ff; text-decoration:none;">Setup guide</a>
-                    <a href="../docs/user-guide.html" style="color:#9099ff; text-decoration:none;">User guide</a>
-                    <a href="optimize-field-sales-routes-salesforce.html" style="color:#9099ff; text-decoration:none;">Optimization guide</a>
-                </div>
-            </div>
-        </div>
-
         <div class="container">
             <div class="blog-grid">
 
