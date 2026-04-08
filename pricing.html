@@ -32,42 +32,159 @@
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg">
   <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
   <style>
-    .pricing-hero .container {
-      display: block;
+    .pricing-hero {
+      padding: 96px 0 88px;
     }
 
-    .pricing-hero .hero-content {
-      max-width: 1040px;
-      margin: 0 auto;
+    .pricing-hero .container {
+      max-width: 1280px;
+    }
+
+    .pricing-hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(340px, 0.9fr);
+      gap: 44px;
+      align-items: start;
+    }
+
+    .pricing-hero-copy {
+      max-width: 720px;
     }
 
     .pricing-hero .hero-badge {
-      display: table;
-      margin: 0 auto 20px;
+      display: inline-flex;
+      margin: 0 0 18px;
     }
 
-    .pricing-hero h1,
+    .pricing-hero h1 {
+      max-width: none;
+      margin-bottom: 18px;
+      text-align: left;
+      font-size: clamp(3rem, 4.9vw, 4.4rem);
+    }
+
     .pricing-hero .hero-subtitle {
-      max-width: 900px;
-      margin-left: auto;
-      margin-right: auto;
-      text-align: center;
+      max-width: 680px;
+      margin: 0 0 28px;
+      text-align: left;
+      font-size: 1.12rem;
+    }
+
+    .pricing-hero-points {
+      display: grid;
+      gap: 12px;
+      margin: 0 0 28px;
+      max-width: 680px;
+    }
+
+    .pricing-hero-point {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
     }
 
     .pricing-hero .hero-cta {
-      justify-content: center;
+      justify-content: flex-start;
       flex-wrap: wrap;
+      margin-bottom: 0;
+    }
+
+    .pricing-hero-side {
+      display: grid;
+      gap: 14px;
+    }
+
+    .pricing-hero-card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .pricing-hero-card {
+      background: #111114;
+      border: 1px solid #27272a;
+      border-radius: 20px;
+      padding: 20px;
+    }
+
+    .pricing-hero-card.primary {
+      background: linear-gradient(180deg, rgba(99,102,241,0.16), rgba(99,102,241,0.08));
+      border-color: rgba(99,102,241,0.34);
+      box-shadow: 0 22px 52px rgba(0,0,0,0.24);
+    }
+
+    .pricing-hero-card-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: #a5b4fc;
+      margin-bottom: 8px;
+    }
+
+    .pricing-hero-card-price {
+      font-size: 2.7rem;
+      font-weight: 800;
+      color: #fafafa;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .pricing-hero-card-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fafafa;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .pricing-hero-card-copy {
+      color: #a1a1aa;
+      font-size: 0.97rem;
+      line-height: 1.55;
+    }
+
+    @media (max-width: 980px) {
+      .pricing-hero-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .pricing-hero-copy {
+        max-width: 860px;
+      }
+
+      .pricing-hero h1,
+      .pricing-hero .hero-subtitle {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .pricing-hero .hero-badge {
+        display: table;
+        margin: 0 auto 18px;
+      }
+
+      .pricing-hero .hero-cta {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .pricing-hero-card-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body style="background:#09090b;color:#e4e4e7;">
 <header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
-  <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 24px;max-width:1280px;margin:0 auto;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
     <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
       <img src="assets/logo-site-brand.png" alt="RouteForce" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;"/>
       <span style="font-size:1.125rem;font-weight:800;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">RouteForce</span>
     </a>
-    <nav id="desktopNav" style="display:flex;gap:20px;align-items:center;font-size:0.875rem;white-space:nowrap;">
+    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.95rem;white-space:nowrap;">
       <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
       <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
       <a href="use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
@@ -75,8 +192,8 @@
       <a href="consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
     </nav>
     <div style="display:flex;align-items:center;gap:8px;">
-      <a href="docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.875rem;" id="docsLink">Docs</a>
-      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:8px 16px;border-radius:8px;font-weight:600;text-decoration:none;font-size:0.875rem;">Install RouteForce from AppExchange</a>
+      <a href="docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Install RouteForce from AppExchange</a>
       <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
         <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
       </button>
@@ -97,34 +214,38 @@
 
 <header class="hero pricing-hero">
   <div class="container">
-    <div class="hero-content" style="max-width:860px;margin:0 auto;">
-      <div class="hero-badge">Flat org pricing · annual billing · Salesforce-native field execution</div>
-      <h1>RouteForce pricing stays simple when you need real field execution inside Salesforce</h1>
-      <p class="hero-subtitle">RouteForce is priced for Salesforce teams that want route planning, visit execution, and operational visibility inside the CRM, without turning every rollout discussion into a seat-count negotiation.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px;margin:28px 0 32px;max-width:860px;">
-        <div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.22);border-radius:18px;padding:18px 18px 16px;">
-          <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Standard pricing</div>
-          <div style="font-size:2rem;font-weight:800;color:#fafafa;line-height:1;">€599</div>
-          <div style="margin-top:8px;color:#a1a1aa;font-size:0.95rem;">excluding tax / month, billed annually</div>
+    <div class="pricing-hero-layout">
+      <div class="pricing-hero-copy">
+        <div class="hero-badge">Flat org pricing · annual billing · Salesforce-native field execution</div>
+        <h1>RouteForce pricing stays simple when you need real field execution inside Salesforce</h1>
+        <p class="hero-subtitle">RouteForce is priced for Salesforce teams that want route planning, visit execution, and operational visibility inside the CRM, without turning every rollout discussion into a seat-count negotiation.</p>
+        <div class="pricing-hero-points">
+          <div class="pricing-hero-point"><span style="color:var(--primary-700); font-weight:800;">•</span><span><strong>€599 excluding tax per month</strong> for Salesforce orgs with up to 20 users</span></div>
+          <div class="pricing-hero-point"><span style="color:var(--primary-700); font-weight:800;">•</span><span><strong>No per-user pricing</strong> within the standard 20-user scope</span></div>
+          <div class="pricing-hero-point"><span style="color:var(--primary-700); font-weight:800;">•</span><span><strong>Larger deployments</strong> are quoted separately</span></div>
+          <div class="pricing-hero-point"><span style="color:var(--primary-700); font-weight:800;">•</span><span><strong>Install from AppExchange first</strong>, then move to the paid scope when advanced capabilities are needed</span></div>
         </div>
-        <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:18px 18px 16px;">
-          <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Commercial logic</div>
-          <div style="font-size:1.1rem;font-weight:700;color:#fafafa;line-height:1.35;">Flat org pricing</div>
-          <div style="margin-top:8px;color:#a1a1aa;font-size:0.95rem;">no per-user pricing in the standard scope</div>
+        <div class="hero-cta"><a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary btn-lg">Install RouteForce from AppExchange</a><a href="blog/salesforce-maps-pricing-breakdown.html" class="btn btn-outline btn-lg">Compare with Salesforce Maps pricing</a></div>
+      </div>
+      <div class="pricing-hero-side">
+        <div class="pricing-hero-card primary">
+          <div class="pricing-hero-card-label">Standard pricing</div>
+          <div class="pricing-hero-card-price">€599</div>
+          <div class="pricing-hero-card-copy">excluding tax / month, billed annually for Salesforce orgs with up to 20 users.</div>
         </div>
-        <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:18px 18px 16px;">
-          <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Entry point</div>
-          <div style="font-size:1.1rem;font-weight:700;color:#fafafa;line-height:1.35;">AppExchange entry point</div>
-          <div style="margin-top:8px;color:#a1a1aa;font-size:0.95rem;">install first, then move to the paid scope when needed</div>
+        <div class="pricing-hero-card-grid">
+          <div class="pricing-hero-card">
+            <div class="pricing-hero-card-label">Commercial logic</div>
+            <div class="pricing-hero-card-title">Flat org pricing</div>
+            <div class="pricing-hero-card-copy">No per-user pricing in the standard scope, which keeps rollout approval simpler.</div>
+          </div>
+          <div class="pricing-hero-card">
+            <div class="pricing-hero-card-label">Entry point</div>
+            <div class="pricing-hero-card-title">AppExchange first</div>
+            <div class="pricing-hero-card-copy">Install from AppExchange, validate fast, then move into the paid scope when needed.</div>
+          </div>
         </div>
       </div>
-      <div style="display:grid; gap:12px; margin-bottom:32px; max-width:760px;">
-        <div style="display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--primary-700); font-weight:800;">•</span><span><strong>€599 excluding tax per month</strong> for Salesforce orgs with up to 20 users</span></div>
-        <div style="display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--primary-700); font-weight:800;">•</span><span><strong>No per-user pricing</strong> within the standard 20-user scope</span></div>
-        <div style="display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--primary-700); font-weight:800;">•</span><span><strong>Larger deployments</strong> are quoted separately</span></div>
-        <div style="display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--primary-700); font-weight:800;">•</span><span><strong>Install from AppExchange first</strong>, then move to the paid scope when advanced capabilities are needed</span></div>
-      </div>
-      <div class="hero-cta"><a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary btn-lg">Install RouteForce from AppExchange</a><a href="blog/salesforce-maps-pricing-breakdown.html" class="btn btn-outline btn-lg">Compare with Salesforce Maps pricing</a></div>
     </div>
   </div>
 </header>
