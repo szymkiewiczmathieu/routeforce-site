@@ -123,15 +123,41 @@
             <p style="margin-top:12px;color:#a1a1aa;line-height:1.7;">This is the part that matters visually. Buyers can see that visit planning is not a theoretical workflow here, it is a real Salesforce screen with filters, route context, and planned stops in the same view. Click to expand.</p>
         </section>
 
+        <section id="switching-case" style="margin-bottom:3rem;background:#111114;border:1px solid #27272a;border-radius:18px;padding:1.6rem;box-shadow:0 18px 48px rgba(0,0,0,0.18)">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:1.25rem">
+                <div style="max-width:760px">
+                    <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid rgba(99,102,241,0.28);border-radius:999px;background:rgba(99,102,241,0.08);color:#a5b4fc;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px">Why teams switch</div>
+                    <h2 style="margin:0 0 0.6rem;color:#fafafa;">Why teams replace the manual planning stack</h2>
+                    <p style="margin:0;color:#a1a1aa;max-width:760px;line-height:1.75;">Most teams do not lose time because they lack a map. They lose time because account selection, route sequencing, and Event creation happen in different places, then fall apart in the handoff back to Salesforce.</p>
+                </div>
+            </div>
+            <div style="display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));">
+                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:18px;">
+                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#86efac;margin-bottom:8px;">For reps</div>
+                    <p style="margin:0;color:#cbd5e1;line-height:1.7;">Less bouncing between list views, Google Maps, and manual calendar work before the day can even start.</p>
+                </div>
+                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:18px;">
+                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#fcd34d;margin-bottom:8px;">For managers</div>
+                    <p style="margin:0;color:#cbd5e1;line-height:1.7;">Better visibility into planned coverage, recurring visit discipline, and what is actually happening in the field.</p>
+                </div>
+                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:18px;">
+                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">For Salesforce admins</div>
+                    <p style="margin:0;color:#cbd5e1;line-height:1.7;">Cleaner Event data, fewer side spreadsheets, and less pressure to stitch together a workflow from unrelated tools.</p>
+                </div>
+            </div>
+        </section>
+
         <nav aria-label="Table of contents" style="background:#18181b;border:1px solid #27272a;border-radius:12px;padding:1.5rem;margin-bottom:3rem">
             <h2 style="font-size:1.1rem;margin-bottom:1rem">On this page</h2>
             <ol style="padding-left:1.25rem;line-height:2;color:#a1a1aa;">
+                <li><a href="#switching-case">Why teams replace the manual stack</a></li>
                 <li><a href="#what-is">What visit planning inside Salesforce actually means</a></li>
                 <li><a href="#manual-problem">Why the usual process breaks down</a></li>
                 <li><a href="#automated-workflow">What a better workflow looks like</a></li>
                 <li><a href="#bulk-events">Why bulk Event creation matters</a></li>
                 <li><a href="#smart-selection">How teams choose the right accounts</a></li>
                 <li><a href="#tracking">How managers keep visibility after planning</a></li>
+                <li><a href="#best-fit">Who gets value first</a></li>
                 <li><a href="#routeforce">Where RouteForce fits</a></li>
                 <li><a href="#faq">FAQ</a></li>
             </ol>
@@ -235,6 +261,40 @@
 
             <h3>Salesforce reporting</h3>
             <p>Because visits are stored as standard Salesforce Events, reporting stays inside the CRM. That keeps dashboards, manager reviews, and follow-up workflows tied to the same source of truth instead of a side spreadsheet or external planner.</p>
+        </section>
+
+        <section id="best-fit" style="margin-bottom:3rem;">
+            <h2>Who gets value first</h2>
+            <p>The best fit is not every field team. It is the team where visit planning happens often enough, Salesforce already matters operationally, and the cost of messy planning is visible to more than just the reps.</p>
+            <div style="overflow-x:auto;margin:24px 0;">
+                <table style="width:100%;border-collapse:collapse;font-size:0.95rem;min-width:720px;">
+                    <thead>
+                        <tr style="border-bottom:2px solid #27272a;">
+                            <th style="text-align:left;padding:12px 16px;color:#a5b4fc;font-weight:700;">Team profile</th>
+                            <th style="text-align:left;padding:12px 16px;color:#a5b4fc;font-weight:700;">Why it fits</th>
+                            <th style="text-align:left;padding:12px 16px;color:#a5b4fc;font-weight:700;">What usually triggers evaluation</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom:1px solid #27272a;">
+                            <td style="padding:14px 16px;color:#fafafa;font-weight:600;vertical-align:top;">Field sales teams with recurring account rounds</td>
+                            <td style="padding:14px 16px;color:#a1a1aa;vertical-align:top;">Coverage discipline, account prioritization, and bulk Event creation matter every week.</td>
+                            <td style="padding:14px 16px;color:#a1a1aa;vertical-align:top;">Managers want more visits, better territory follow-through, and less rep admin.</td>
+                        </tr>
+                        <tr style="border-bottom:1px solid #27272a;">
+                            <td style="padding:14px 16px;color:#fafafa;font-weight:600;vertical-align:top;">Merchandising, retail, or distribution teams</td>
+                            <td style="padding:14px 16px;color:#a1a1aa;vertical-align:top;">The day depends on stop density, repeat visits, and fast replanning inside the same CRM workflow.</td>
+                            <td style="padding:14px 16px;color:#a1a1aa;vertical-align:top;">Planning time is eating into selling time and route quality varies too much by rep.</td>
+                        </tr>
+                        <tr>
+                            <td style="padding:14px 16px;color:#fafafa;font-weight:600;vertical-align:top;">Salesforce-driven teams considering broader rollout</td>
+                            <td style="padding:14px 16px;color:#a1a1aa;vertical-align:top;">The CRM is already the system of record, so keeping planning and execution native reduces rollout friction.</td>
+                            <td style="padding:14px 16px;color:#a1a1aa;vertical-align:top;">Buyers want a clearer path from AppExchange test to paid scope without rebuilding process elsewhere.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p style="color:#a1a1aa;line-height:1.75;">If planning is occasional, the team is tiny, or execution mostly happens outside Salesforce, the problem may be lighter than RouteForce is designed to solve. That is useful to say plainly, because the real win is when native planning and CRM follow-through matter together.</p>
         </section>
 
         <section id="routeforce" style="margin-bottom:3rem">
