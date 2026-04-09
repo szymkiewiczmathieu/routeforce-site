@@ -6,7 +6,7 @@
 ## What RouteForce does
 - Interactive map showing Accounts, Leads, and Opportunities from Salesforce CRM
 - Route optimization with configurable time windows, lunch breaks, and visit duration
-- GPS check-in/check-out with visit reports (result, satisfaction, next action, order amount)
+- GPS check-in/check-out with visit reports (result, next action, notes, satisfaction, order amount, next visit date)
 - Heatmap visualization and bulk lasso-select for batch operations
 - 2 dashboards and 18 native Salesforce reports included
 - Route history with replay functionality

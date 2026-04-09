@@ -12,7 +12,7 @@ RouteForce helps field sales teams plan visits, optimize driving routes, and tra
 - **Interactive map**: display Accounts, Leads, Opportunities (or any object with address/geolocation) on a single map with clustering, coloring, and real-time filters
 - **Route optimization**: VROOM-based algorithm considers time windows, lunch breaks, visit durations, and distance constraints to calculate efficient multi-stop routes
 - **Auto event creation**: convert an optimized route into Salesforce Events in one click — no re-typing
-- **GPS check-in/check-out**: verified field visits with configurable checkout forms (result, satisfaction, next action, order amount, custom fields via Screen Flows)
+- **GPS check-in/check-out**: verified field visits with configurable checkout forms (result, next action, notes, satisfaction, order amount, next visit date, plus admin-defined custom fields)
 - **Visit reports**: structured post-visit data linked to the Salesforce record
 - **Heatmap & lasso select**: visualize density and batch-select records on the map
 - **Saved filters**: save, name, and share filter configurations across teams
