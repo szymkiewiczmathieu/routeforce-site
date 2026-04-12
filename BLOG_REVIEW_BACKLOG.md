@@ -2,7 +2,7 @@
 
 Goal: review **every blog article** for premium visual quality, public-truth consistency, and stronger decision-grade content.
 
-Latest pass note: resumed full-audit cleanup on 2026-04-06. After rechecking the backlog set, the remaining concrete issues found were technical cleanup items, not net-new content rewrites: two pages still referenced a missing local `../script.js`, and one pricing article still had the `LLMs.txt` link incorrectly placed inside a `<style>` block. Those were corrected in this pass.
+Latest pass note: full on-site cleanup rechecked on 2026-04-12. The remaining actionable site pages in this SEO/GEO pass were strengthened and normalized, including `blog/salesforce-maps-alternative.html`, `blog/field-route-planning-software.html`, `blog/visit-planning-software-salesforce.html`, and structured comparison schema on `blog/salesforce-maps-alternatives-compared.html`. At this point, the remaining backlog items below are off-site authority tasks, review generation, and outreach, not unresolved on-site page debt.
 
 ## Review standard
 Each article must be checked for:
@@ -197,6 +197,8 @@ These are high-volume keywords where RouteForce has NO presence yet. Winning eve
 - [x] Kept `salesforce-maps-alternative.html` live as a narrower landing page instead of deleting it, to preserve optional paid/landing usage while reducing internal duplication pressure.
 
 ## Priority 5: Off-site / authority building
+
+Status note: these items require external accounts, submissions, or outreach. They are intentionally not auto-executed from the site repo without explicit go-ahead.
 
 ### 5.1 Get listed in competitor listicles
 - [ ] RouteForce appears in ZERO third-party listicles (SPOTIO, Leadbeam, G2, Capterra, TrustRadius, Software Advice, GetApp)
