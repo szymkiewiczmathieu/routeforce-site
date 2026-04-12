@@ -84,3 +84,45 @@ Référence visuelle: `pricing.html`
 - garder des cartes dark cohérentes
 - harmoniser les CTA vers la même famille de messages
 - éviter les surfaces claires parasites si elles cassent le thème
+
+## Look & feel follow-up queue (2026-04-12 live audit)
+
+### P1, highest-impact visual fixes
+1. **Long SEO money pages on mobile**
+   - `salesforce-route-planning.html`
+   - `field-sales-route-optimization.html`
+   - `visit-planning-salesforce.html`
+   - Problem: too many same-weight dark blocks, long uninterrupted reading runs, comparison/table sections that feel heavy on mobile.
+   - Goal: stronger rhythm, shorter section intros, clearer section breaks, lighter mobile spacing, and more visible CTA progression.
+2. **Long comparison articles**
+   - `blog/salesforce-maps-alternatives-compared.html`
+   - `blog/route-optimization-software.html`
+   - `blog/salesforce-maps-alternative.html`
+   - Problem: premium theme holds, but editorial feel drops into dense SEO-document mode.
+   - Goal: make these pages feel curated and premium, not just exhaustive.
+3. **Bottom-of-page conversion fatigue**
+   - affects most long templates above
+   - Problem: late-page CTA zones arrive after too much visual repetition.
+   - Goal: sharper end-state CTA, stronger proof/benefit summary before the final ask.
+
+### P2, worthwhile next polish
+4. **Blog/article template variety**
+   - `blog/index.html` is good, but article templates need more visual contrast between summary cards, prose sections, tables, FAQs, and CTA bands.
+5. **Consulting page conversion polish**
+   - `consulting.html`
+   - Problem: structurally solid, but the lower conversion area can feel flatter than pricing/home.
+6. **Docs hub premium continuity on mobile**
+   - `docs/index.html`
+   - Problem: clean and readable, but still more functional than premium in the mobile flow.
+
+### P3, optional after the main pass
+7. Tighten card density and section spacing on secondary blog pages not yet rechecked live in this audit.
+8. Add more visual “rest moments” on very long pages: summary strips, quote/proof modules, or cleaner checkpoint blocks.
+
+## Cross-template design rules for the next pass
+- break long pages into clearer chapters with more vertical rhythm
+- stop stacking too many border-only dark cards with identical visual weight
+- shorten intros before bullets/tables when intent is transactional
+- make mobile tables/comparison blocks easier to scan or chunk
+- keep CTA energy rising through the page instead of peaking only near the top
+- preserve `pricing.html` as the gold reference for decisiveness and visual authority

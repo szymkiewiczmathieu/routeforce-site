@@ -86,7 +86,7 @@
         </div>
     </header>
 
-    <article class="container" style="max-width:800px;margin:0 auto;padding:3rem 1.5rem">
+    <article class="container longform-rhythm" style="max-width:800px;margin:0 auto;padding:3rem 1.5rem">
         <section style="margin-bottom:3rem;background:#18181b;border:1px solid #27272a;border-radius:16px;padding:1.5rem;">
             <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:1rem;">
                 <h2 style="margin:0;">Quick answer</h2>
@@ -195,28 +195,17 @@
         <section id="automated-workflow" style="margin-bottom:3rem">
             <h2>What a better workflow looks like</h2>
             <p>A good Salesforce-native workflow should reduce clicks, reduce re-entry, and keep the planning logic attached to the CRM records that drive the day.</p>
-
-            <h3>Step 1: Visualize accounts on the map</h3>
-            <p>Accounts with coordinates appear on an interactive map, so reps can see density, gaps, and practical travel zones instead of reading the day as a flat list. Color coding helps, but the real gain is context. A rep can see immediately whether the day is geographically coherent.</p>
-
-            <h3>Step 2: Filter and select accounts</h3>
-            <p>Use saved filters to narrow the map to accounts that actually matter: clients not visited in 30 days, high-potential prospects, renewal targets, or territory-specific priorities. The point is not fancy filtering. The point is picking accounts from CRM logic instead of memory.</p>
-
-            <h3>Step 3: Set visit parameters</h3>
-            <p>Then set the practical constraints for the day:</p>
-            <ul>
-                <li>Departure point (GPS position or a specific Salesforce account)</li>
-                <li>Date and start time</li>
-                <li>End of day time</li>
-                <li>Lunch break window and duration</li>
-                <li>Default visit duration per account</li>
-            </ul>
-
-            <h3>Step 4: Optimize the route</h3>
-            <p>Once those constraints are set, the route can be optimized into a sequence that is actually usable. That matters more than a theoretical shortest path. A field rep needs a day plan they can follow, not an academic routing result.</p>
-
-            <h3>Step 5: Create Salesforce Events in bulk</h3>
-            <p>Then comes the step that usually creates the most admin burden: Event creation. A better workflow creates the Salesforce Events in bulk with the correct Account, Contact, address, and estimated timing already filled in. That is where the time saving becomes real.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:24px 0 24px;">
+                <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:18px 18px 16px;"><div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Step 1</div><div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px;">Visualize accounts on the map</div><div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7;">Reps see density, gaps, and practical travel zones instead of trying to imagine the day from a list view.</div></div>
+                <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:18px 18px 16px;"><div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Step 2</div><div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px;">Filter the accounts that actually matter</div><div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7;">Saved filters keep the shortlist tied to CRM logic, not memory: recency, territory, potential, renewals, or campaign focus.</div></div>
+                <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:18px 18px 16px;"><div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Step 3</div><div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px;">Set real-world day constraints</div><div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7;">Departure point, start time, end of day, lunch break, and default visit duration make the route realistic instead of theoretical.</div></div>
+                <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:18px 18px 16px;"><div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Step 4</div><div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px;">Optimize the route into a usable day</div><div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7;">The real win is a day plan the rep can actually follow, not just a mathematically short route that ignores execution reality.</div></div>
+                <div style="background:#111114;border:1px solid rgba(99,102,241,0.22);border-radius:18px;padding:18px 18px 16px;"><div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Step 5</div><div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px;">Create Salesforce Events in bulk</div><div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7;">This is where time savings become real: one move turns the plan into usable CRM activity with the right context already attached.</div></div>
+            </div>
+            <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:18px 18px 16px;">
+                <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Typical constraints for the day</div>
+                <div style="display:flex;flex-wrap:wrap;gap:10px 12px;"><span style="display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.22);color:#c7d2fe;font-size:0.9rem;">Departure point</span><span style="display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.22);color:#c7d2fe;font-size:0.9rem;">Start time</span><span style="display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.22);color:#c7d2fe;font-size:0.9rem;">End of day</span><span style="display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.22);color:#c7d2fe;font-size:0.9rem;">Lunch break</span><span style="display:inline-flex;padding:8px 12px;border-radius:999px;background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.22);color:#c7d2fe;font-size:0.9rem;">Visit duration</span></div>
+            </div>
         </section>
 
         <section id="bulk-events" style="margin-bottom:3rem">
@@ -256,15 +245,11 @@
 
         <section id="tracking" style="margin-bottom:3rem">
             <h2>How managers keep visibility after planning</h2>
-
-            <h3>Route history</h3>
-            <p>Saved route history helps teams reuse a previous plan instead of starting from zero each time. That is useful for recurring territory rounds, recurring client visits, or weekly prospecting structures that need only light adjustments.</p>
-
-            <h3>Coverage visualization</h3>
-            <p>The map also makes coverage easier to read. Managers can see where activity is concentrated, where gaps are forming, and whether the team is actually covering the territory the way the business expects.</p>
-
-            <h3>Salesforce reporting</h3>
-            <p>Because visits are stored as standard Salesforce Events, reporting stays inside the CRM. That keeps dashboards, manager reviews, and follow-up workflows tied to the same source of truth instead of a side spreadsheet or external planner.</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:20px;">
+                <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:18px 18px 16px;"><div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Route history</div><div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px;">Recurring rounds become reusable</div><div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7;">Teams do not need to rebuild every route from zero when territories, account cycles, and weekly structures repeat.</div></div>
+                <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:18px 18px 16px;"><div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Coverage visualization</div><div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px;">Gaps show up faster on the map</div><div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7;">Managers can see where activity is concentrated, where gaps are forming, and whether the plan matches the intended territory logic.</div></div>
+                <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:18px 18px 16px;"><div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Salesforce reporting</div><div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px;">No reporting split-brain</div><div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7;">Visits stay as standard Salesforce Events, so dashboards, manager reviews, and follow-up workflows stay anchored in the same CRM source.</div></div>
+            </div>
         </section>
 
         <section id="best-fit" style="margin-bottom:3rem;">
@@ -346,6 +331,27 @@
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false"><span>How many visits can I plan at once?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
                     <div class="faq-answer"><p>RouteForce handles typical daily visit plans effectively. Select your accounts on the map, set your time constraints, and the optimizer calculates the best visiting sequence.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin:3rem 0;background:#111114;border:1px solid #27272a;border-radius:18px;padding:1.6rem;box-shadow:0 18px 48px rgba(0,0,0,0.18)">
+            <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:1rem;">
+                <h2 style="font-size:1.05rem;margin:0;color:#fafafa;">If you are down here, the real question is simple</h2>
+                <span style="font-size:0.8rem;color:#a1a1aa;text-transform:uppercase;letter-spacing:0.04em;">Closing check</span>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
+                <div style="background:#18181b;border:1px solid rgba(99,102,241,0.22);border-radius:16px;padding:16px;">
+                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Selection</div>
+                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;">Can reps choose the right Salesforce accounts without leaving the CRM?</div>
+                </div>
+                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:16px;">
+                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Planning</div>
+                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;">Can the route become a realistic day, not just a theoretical path?</div>
+                </div>
+                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:16px;">
+                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Execution</div>
+                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;">Can that plan turn into Salesforce Events fast enough that reps actually keep it clean?</div>
                 </div>
             </div>
         </section>
