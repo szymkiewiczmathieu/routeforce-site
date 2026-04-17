@@ -31,7 +31,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>/* dark-page-override */ body{background:#09090b!important;color:#e4e4e7!important} .hero,.blog-hero,.page-hero{background:linear-gradient(135deg,#1e1b4b 0%,#09090b 100%)!important} .hero h1,.blog-hero h1,.page-hero h1{color:#fafafa!important} .hero p,.blog-hero p,.page-hero p{color:#a1a1aa!important} .section-header h2{color:#fafafa!important} .section-header p{color:#a1a1aa!important} .feature-card,.trust-card,.pricing-card,.comparison-card,.step-card,.faq-item{background:#18181b!important;border-color:#27272a!important;color:#e4e4e7!important} .feature-card h3,.trust-card h3,.pricing-card h3,.step-card h3{color:#fafafa!important} .feature-card p,.trust-card p,.pricing-card p,.step-card p{color:#a1a1aa!important} .features-section,.trust-section,.comparison-section,.steps-section,.faq-section,.pricing-section{background:#09090b!important} .footer{background:#09090b!important;border-color:#27272a!important} .footer a,.footer p,.footer span{color:#a1a1aa!important} table th{background:#1e1e22!important;color:#fafafa!important;border-color:#27272a!important} table td{background:#131316!important;color:#a1a1aa!important;border-color:#27272a!important} a{color:#9099ff} .btn-primary{background:#6366f1!important;border-color:#6366f1!important} .badge,.tag{background:rgba(99,102,241,0.15)!important;color:#9099ff!important} hr{border-color:#27272a!important} blockquote{border-color:#6366f1!important;background:rgba(99,102,241,0.06)!important;color:#a1a1aa!important} .cta-box,.blog-cta{background:linear-gradient(135deg,#4f46e5,#3730a3)!important} .highlight,.callout,.info-box{background:rgba(99,102,241,0.06)!important;border-color:#6366f1!important}</style>
+<style>/* dark-page-override */ body{background:#09090b!important;color:#e4e4e7!important} .hero,.blog-hero,.page-hero{background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(99,102,241,0.12),transparent 60%),linear-gradient(180deg,#0d0d12 0%,#09090b 100%)!important} .hero h1,.blog-hero h1,.page-hero h1{color:#fafafa!important} .hero p,.blog-hero p,.page-hero p{color:#a1a1aa!important} .section-header h2{color:#fafafa!important} .section-header p{color:#a1a1aa!important} .feature-card,.trust-card,.pricing-card,.comparison-card,.step-card,.faq-item{background:#18181b!important;border-color:#27272a!important;color:#e4e4e7!important} .feature-card h3,.trust-card h3,.pricing-card h3,.step-card h3{color:#fafafa!important} .feature-card p,.trust-card p,.pricing-card p,.step-card p{color:#a1a1aa!important} .features-section,.trust-section,.comparison-section,.steps-section,.faq-section,.pricing-section{background:#09090b!important} .footer{background:#09090b!important;border-color:#27272a!important} .footer a,.footer p,.footer span{color:#a1a1aa!important} table th{background:#1e1e22!important;color:#fafafa!important;border-color:#27272a!important} table td{background:#131316!important;color:#a1a1aa!important;border-color:#27272a!important} a{color:#9099ff} .btn-primary{background:#6366f1!important;border-color:#6366f1!important} .badge,.tag{background:rgba(99,102,241,0.15)!important;color:#9099ff!important} hr{border-color:#27272a!important} blockquote{border-color:#6366f1!important;background:rgba(99,102,241,0.06)!important;color:#a1a1aa!important} .cta-box,.blog-cta{background:linear-gradient(135deg,#4f46e5,#3730a3)!important} .highlight,.callout,.info-box{background:rgba(99,102,241,0.06)!important;border-color:#6366f1!important}</style>
 </head>
 <body style="background:#09090b;color:#e4e4e7;">
 <header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
@@ -390,36 +390,41 @@
     ]}
     </script>
 
-    <footer style="border-top:1px solid #27272a;padding:48px 24px;background:#09090b;">
-  <div style="max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;">
+    <footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
     <div>
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
-        <img src="assets/logo-site-brand.png" alt="RouteForce" style="width:24px;height:24px;border-radius:6px;"/>
-        <span style="font-weight:700;color:#fafafa;">RouteForce</span>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <img src="assets/logo-site-brand.png" alt="RouteForce" style="width:28px;height:28px;border-radius:8px;"/>
+        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">RouteForce</span>
       </div>
-      <p style="color:#71717a;font-size:0.875rem;max-width:280px;">Salesforce-native route optimization for field sales teams.</p>
+      <p style="color:#a1a1aa;font-size:0.9rem;line-height:1.6;max-width:280px;margin:0 0 16px;">Salesforce-native route optimization for field sales teams.</p>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:inline-flex;align-items:center;gap:6px;background:#6366f1;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">Install from AppExchange</a>
     </div>
-    <div style="display:flex;gap:48px;font-size:0.875rem;">
-      <div style="display:flex;flex-direction:column;gap:8px;">
-        <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Product</span>
-        <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-        <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-        <a href="use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
-        <a href="docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
-        <a href="blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:8px;">
-        <span style="font-weight:600;color:#fafafa;margin-bottom:4px;">Company</span>
-        <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
-        <a href="consulting.html" style="color:#9099ff;text-decoration:none;font-weight:600;">Consulting</a>
-        <a href="docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
-        <a href="docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
-        <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" style="color:#a1a1aa;text-decoration:none;">Status</a>
-      </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Product</span>
+      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="/use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="/native-integration-salesforce.html" style="color:#a1a1aa;text-decoration:none;">Integration</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Resources</span>
+      <a href="/blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="/docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="/consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="/flat-rate-route-optimization.html" style="color:#a1a1aa;text-decoration:none;">Flat-rate ROI</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Company</span>
+      <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
+      <a href="/docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
+      <a href="/docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
+      <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" style="color:#a1a1aa;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Status <span style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span></a>
     </div>
   </div>
-  <div style="max-width:1200px;margin:32px auto 0;padding-top:24px;border-top:1px solid #1e1e22;color:#71717a;font-size:0.75rem;">
-    &copy; 2026 RouteForce. All rights reserved.
+  <div style="max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e1e22;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#71717a;font-size:0.8rem;">
+    <span>&copy; 2026 RouteForce. All rights reserved.</span>
+    <span>Built natively on Salesforce. AppExchange managed package.</span>
   </div>
 </footer>
 <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
