@@ -3154,40 +3154,43 @@ img {
 
 .blog-content > .container,
 article.container {
-    max-width: 1020px !important;
+    max-width: 780px !important;
 }
 
 .blog-content > .container.premium-article,
 .blog-article > .container.premium-article,
 article.container.premium-article {
-    max-width: 1060px !important;
+    max-width: 820px !important;
 }
 
 /* Blog article content styles */
 .blog-content h2, .blog-article h2, article.container h2 {
-    font-size: 1.68rem;
+    font-size: 1.85rem;
     font-weight: 700;
-    margin: 64px 0 22px;
+    margin: 72px 0 24px;
     color: #fafafa;
-    letter-spacing: -0.015em;
-    line-height: 1.25;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
 }
 .blog-content h3, .blog-article h3, article.container h3 {
-    font-size: 1.26rem;
-    font-weight: 600;
-    margin: 38px 0 16px;
+    font-size: 1.32rem;
+    font-weight: 700;
+    margin: 44px 0 18px;
     color: #ececf0;
-    line-height: 1.35;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
 }
 .blog-content p, .blog-article p, article.container p {
-    font-size: 1.08rem;
-    line-height: 1.92;
-    color: #dbdbe1;
-    margin-bottom: 24px;
+    font-size: 1.13rem;
+    line-height: 1.78;
+    color: #d4d4d8;
+    margin-bottom: 26px;
+    letter-spacing: 0.005em;
 }
-.blog-content ul, .blog-article ul, article.container ul { list-style: disc; padding-left: 26px; margin-bottom: 28px; }
-.blog-content ol, .blog-article ol, article.container ol { list-style: decimal; padding-left: 26px; margin-bottom: 28px; }
-.blog-content li, .blog-article li, article.container li { margin-bottom: 12px; color: #dbdbe1; line-height: 1.86; font-size: 1.06rem; }
+.blog-content ul, .blog-article ul, article.container ul { list-style: disc; padding-left: 28px; margin-bottom: 30px; }
+.blog-content ol, .blog-article ol, article.container ol { list-style: decimal; padding-left: 28px; margin-bottom: 30px; }
+.blog-content li, .blog-article li, article.container li { margin-bottom: 14px; color: #d4d4d8; line-height: 1.78; font-size: 1.1rem; }
+.blog-content li::marker, .blog-article li::marker, article.container li::marker { color: #9099ff; }
 .blog-content strong, .blog-article strong, article.container strong { color: #fafafa; font-weight: 600; }
 .blog-content section, .blog-article section, article.container section { margin-bottom: 28px; }
 .blog-content blockquote, .blog-article blockquote, article.container blockquote {
