@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Guide utilisateur RouteForce pour les commerciaux terrain et managers : carte, planification de tournées, exécution des visites, et reporting dans Salesforce." />
+  <link rel="canonical" href="https://routeforce.app/docs/user-guide-fr.html" />
+  <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/user-guide.html" />
+  <link rel="alternate" hreflang="fr" href="https://routeforce.app/docs/user-guide-fr.html" />
+  <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/user-guide.html" />
+  <title>Guide utilisateur RouteForce | V7.13.0-1</title>
+  <style>
+    @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
+    :root {
+      --rf-blue: #0f4c81;
+      --rf-blue-dark: #0b365d;
+      --rf-sky: #1f77c7;
+      --rf-text: #1d2733;
+      --rf-muted: #5b6773;
+      --rf-line: #d8e0e8;
+      --rf-soft: #f4f8fb;
+      --rf-accent: #e8f1fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--rf-text);
+      font-size: 10.5pt;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .cover {
+      min-height: 240mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+      background: linear-gradient(135deg, #1e1b4b 0%, #09090b 100%);
+      border: 1px solid var(--rf-line);
+      padding: 20mm;
+    }
+    .cover-top { display:flex; align-items:center; justify-content:space-between; gap: 16px; }
+    .cover img.logo { max-width: 180px; max-height: 44px; object-fit: contain; }
+    .logo-icon { width: 44px; height: 44px; color: var(--rf-blue-dark); flex: 0 0 auto; display:block; }
+    .badge { color: white; background: var(--rf-blue); padding: 6px 10px; border-radius: 999px; font-size: 9pt; }
+    .hero { margin-top: 20mm; }
+    .hero h1 { font-size: 28pt; line-height: 1.1; margin: 0 0 10px; color: var(--rf-blue-dark); }
+    .hero p { font-size: 13pt; color: var(--rf-muted); margin: 0 0 14px; }
+    .meta { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 20mm; }
+    .meta .card { background: #18181b; border: 1px solid var(--rf-line); border-radius: 10px; padding: 10px 12px; }
+    .meta .label { font-size: 8.5pt; letter-spacing: .04em; text-transform: uppercase; color: var(--rf-muted); }
+    .meta .value { margin-top: 4px; font-weight: bold; color: var(--rf-blue-dark); }
+    .cover-footer { border-top: 2px solid var(--rf-blue); padding-top: 10px; color: var(--rf-muted); font-size: 9pt; }
+    .content { counter-reset: h2; }
+    h1, h2, h3, h4 { color: var(--rf-blue-dark); page-break-after: avoid; }
+    h1 { font-size: 21pt; border-bottom: 3px solid var(--rf-blue); padding-bottom: 8px; margin: 0 0 12px; }
+    h2 { font-size: 15pt; margin-top: 24px; padding: 8px 10px; background: var(--rf-soft); border-left: 4px solid var(--rf-blue); }
+    h3 { font-size: 12pt; margin-top: 18px; }
+    p, li { orphans: 3; widows: 3; }
+    a { color: var(--rf-sky); text-decoration: none; }
+    table { width: 100%; border-collapse: collapse; color: #e4e4e7; margin: 12px 0 18px; font-size: 9.5pt; }
+    th, td { border: 1px solid var(--rf-line); padding: 7px 8px; vertical-align: top; }
+    th { color: #fafafa;  background: var(--rf-accent); text-align: left; }
+    tr:nth-child(even) td { background: #131316; }
+    code { background: #27272a; padding: 1px 4px; border-radius: 4px; font-family: "Courier New", monospace; font-size: .92em; }
+    pre { background: #0f172a; color: #e5eef8; padding: 12px; border-radius: 8px; overflow: auto; white-space: pre-wrap; }
+    pre code { background: transparent; padding: 0; color: inherit; }
+    blockquote { border-left: 4px solid var(--rf-blue); margin: 14px 0; padding: 6px 12px; background: var(--rf-soft); color: var(--rf-muted); }
+    img { max-width: 100%; display:block; margin: 12px auto 18px; border: 1px solid var(--rf-line); border-radius: 10px; box-shadow: 0 8px 18px rgba(0,0,0,.06); }
+    hr { border: 0; border-top: 1px solid var(--rf-line); margin: 18px 0; }
+    ul, ol { padding-left: 22px; }
+    .note {
+      background: rgba(99, 102, 241, 0.08); border: 1px solid #27272a; border-radius: 8px; padding: 10px 12px; margin: 14px 0 18px;
+    }
+    .tip {
+      background: rgba(34, 197, 94, 0.08); border: 1px solid #27272a; border-radius: 8px; padding: 10px 12px; margin: 14px 0 18px;
+    }
+    .warning {
+      background: rgba(245, 158, 11, 0.08); border: 1px solid #27272a; border-radius: 8px; padding: 10px 12px; margin: 14px 0 18px;
+    }
+    .small-muted { color: var(--rf-muted); font-size: 9pt; }
+    .screenshot-placeholder {
+      background: #18181b; border: 2px dashed #27272a; border-radius: 10px; padding: 40px 20px;
+      text-align: center; color: #71717a; font-size: 10pt; margin: 12px 0 18px;
+    }
+    .toc { margin: 18px 0 24px; }
+    .toc ol { counter-reset: toc-item; list-style: none; padding-left: 0; }
+    .toc li { counter-increment: toc-item; padding: 4px 0; }
+    .toc li::before { content: counter(toc-item) ". "; font-weight: bold; }
+    .toc a { color: inherit; }
+    .lang-switch {
+      display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px;
+      background: rgba(99, 102, 241, 0.12); border: 1px solid #6366f1;
+      border-radius: 999px; font-size: 0.85rem; color: #6366f1;
+      text-decoration: none; margin: 0 0 16px;
+    }
+    .lang-switch:hover { background: rgba(99, 102, 241, 0.2); }
+  </style>
+  <meta name="robots" content="index, follow">
+    <meta name="description" content="Guide utilisateur RouteForce V7.13.0-1 : visualisation cartographique, filtres, planification de tournées, check-in/check-out, comptes-rendus de visite et historique dans Salesforce.">
+  <link rel="canonical" href="https://routeforce.app/docs/user-guide-fr.html">
+  <meta property="og:title" content="Guide utilisateur RouteForce V7.13.0-1">
+  <meta property="og:site_name" content="RouteForce">
+  <meta property="og:description" content="Guide utilisateur complet de l'app de tournées commerciales RouteForce sur Salesforce.">
+  <meta property="og:url" content="https://routeforce.app/docs/user-guide-fr.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Guide utilisateur RouteForce V7.13.0-1"/>
+  <meta name="twitter:description" content="Guide utilisateur RouteForce V7.13.0-1 : visualisation cartographique, filtres, planification de tournées, check-in/check-out, comptes-rendus de visite et historique dans Salesforce.">
+  <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Guide utilisateur RouteForce V7.13.0-1","url":"https://routeforce.app/docs/user-guide-fr.html","description":"Guide utilisateur RouteForce V7.13.0-1 : visualisation cartographique, filtres, planification de tournées, check-in/check-out, comptes-rendus de visite et historique dans Salesforce.","publisher":{"@type":"Organization","name":"RouteForce","url":"https://routeforce.app"},"inLanguage":"fr"}</script>
+<link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+<link rel="stylesheet" href="guide-dark.css"/>
+<script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18063754907');
+</script>
+</head>
+<body style="background:#09090b;color:#e4e4e7;">
+<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
+    <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
+      <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;"/>
+      <span style="font-size:1.125rem;font-weight:800;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">RouteForce</span>
+    </a>
+    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.875rem;">
+      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Install from AppExchange</a>
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
+    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
+      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Install from AppExchange</a>
+    </nav>
+  </div>
+  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
+</header>
+  <section class="cover">
+    <div>
+      <div class="cover-top">
+        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+  <path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="8" cy="20" r="2.5" fill="currentColor"/>
+  <circle cx="14" cy="10" r="2.5" fill="currentColor"/>
+  <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
+  <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
+</svg>
+        <div class="badge">Guide utilisateur</div>
+      </div>
+      <div class="hero">
+        <h1>Guide utilisateur RouteForce</h1>
+        <p>Guide quotidien des opérations terrain pour commerciaux et managers</p>
+      </div>
+      <div class="meta">
+        <div class="card"><div class="label">Produit</div><div class="value">RouteForce pour Salesforce</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">V7.13.0-1 | Avril 2026</div></div>
+        <div class="card"><div class="label">Public</div><div class="value">Commerciaux terrain &amp; managers</div></div>
+      </div>
+    </div>
+    <div class="cover-footer">RouteForce pour Salesforce | contact@routeforce.app | https://routeforce.app</div>
+  </section>
+
+  <main class="content">
+    <a href="user-guide.html" class="lang-switch">🇬🇧 Read in English</a>
+
+    <div class="note"><strong>RouteForce V7.13.0-1</strong> : Ce guide couvre toutes les fonctionnalités disponibles pour les commerciaux terrain et leurs managers. Gardez-le comme référence quotidienne.</div>
+
+    <p><strong>Version :</strong> V7.13.0-1 | Avril 2026<br><strong>Public :</strong> Commerciaux terrain, managers de territoire<br><strong>Plateforme :</strong> Salesforce Desktop &amp; Salesforce Mobile App</p>
+    <p>RouteForce est un outil de tournées cartographique intégré nativement dans Salesforce. Il vous permet de visualiser votre territoire, filtrer vos enregistrements, planifier des tournées optimisées, effectuer des visites avec vérification GPS, et conserver un historique complet — le tout sans quitter Salesforce.</p>
+
+    <nav class="toc">
+      <h2>Sommaire</h2>
+      <ul style="list-style:none;padding-left:0;">
+        <li><a href="#getting-started">Premiers pas</a></li>
+        <li><a href="#map">La carte</a></li>
+        <li><a href="#marker-popups">Popups de markers et actions</a></li>
+        <li><a href="#filters">Filtrer les enregistrements</a></li>
+        <li><a href="#saved-filters">Sauvegarder et partager des filtres</a></li>
+        <li><a href="#route-planning">Planification de tournée</a></li>
+        <li><a href="#optimization">Optimisation de tournée</a></li>
+        <li><a href="#export">Exporter les tournées</a></li>
+        <li><a href="#events">Créer des événements Salesforce</a></li>
+        <li><a href="#agenda">Agenda du jour (panneau Événements)</a></li>
+        <li><a href="#checkin-checkout">Check-in / Check-out (comptes-rendus de visite)</a></li>
+        <li><a href="#route-history">Historique des tournées</a></li>
+        <li><a href="#heatmap">Heatmap (carte de chaleur)</a></li>
+        <li><a href="#bulk-select">Sélection multiple (rectangle)</a></li>
+        <li><a href="#quick-text">Quick Text pour les notes de visite</a></li>
+        <li><a href="#mobile">Utilisation mobile</a></li>
+        <li><a href="#troubleshooting">Dépannage</a></li>
+        <li><a href="#best-practices">Bonnes pratiques</a></li>
+        <li><a href="#support">Support</a></li>
+      </ul>
+    </nav>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="getting-started">1. Premiers pas</h2>
+
+    <h3>Ouvrir RouteForce</h3>
+    <ol>
+      <li>Cliquez sur le <strong>Lanceur d'application</strong> (icône gaufre) dans Salesforce.</li>
+      <li>Tapez <strong>RouteForce</strong> et sélectionnez l'application.</li>
+      <li>La carte se charge automatiquement avec vos enregistrements géocodés.</li>
+    </ol>
+
+    <img src="../assets/screenshots-2026/screen-01.jpg" alt="Interface principale RouteForce" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
+
+    <h3>Vue d'ensemble de l'interface</h3>
+    <table>
+      <thead>
+        <tr><th>Zone</th><th>Rôle</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Carte</strong></td><td>Carte interactive affichant les Comptes, Pistes et Opportunités sous forme de markers colorés</td></tr>
+        <tr><td><strong>Panneau Filtres</strong> (à gauche)</td><td>Restreindre les enregistrements affichés sur la carte</td></tr>
+        <tr><td><strong>Panneau Tournée</strong> (à droite)</td><td>Construire, optimiser et gérer les étapes de votre tournée</td></tr>
+        <tr><td><strong>Panneau Événements</strong></td><td>Voir les événements de calendrier du jour sur la carte</td></tr>
+        <tr><td><strong>Panneau Historique</strong></td><td>Parcourir et recharger les tournées sauvegardées</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Onglets principaux</h3>
+    <ul>
+      <li><strong>RouteForce</strong> : la carte en direct et l'espace de planification</li>
+      <li><strong>Historique des tournées</strong> : toutes les tournées précédemment sauvegardées</li>
+      <li><strong>Filtres sauvegardés</strong> : presets de filtres réutilisables que vous avez créés ou qui vous ont été partagés</li>
+      <li><strong>Comptes-rendus de visite</strong> : enregistrements de check-in/check-out et résultats des visites</li>
+      <li><strong>Configuration</strong> : paramètres réservés aux admins (non couvert dans ce guide)</li>
+    </ul>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="map">2. La carte</h2>
+
+    <p>La carte est le cœur de RouteForce. Elle affiche trois types d'objets simultanément pour vous donner une vue complète de votre territoire en un coup d'œil.</p>
+
+    <h3>Affichage multi-objets</h3>
+    <p>RouteForce affiche les <strong>Comptes</strong>, <strong>Pistes</strong> et <strong>Opportunités</strong> sur la carte en même temps. Chaque type d'objet utilise une couleur de marker distincte pour les distinguer instantanément.</p>
+
+    <table>
+      <thead>
+        <tr><th>Couleur du marker</th><th>Objet</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Tons bleus</td><td>Comptes</td></tr>
+        <tr><td>Tons turquoise / vert</td><td>Pistes</td></tr>
+        <tr><td>Tons orange / rouge</td><td>Opportunités</td></tr>
+        <tr><td>Violet / icône calendrier</td><td>Événements (lorsque chargés)</td></tr>
+      </tbody>
+    </table>
+
+    <img src="../assets/screenshots-2026/screen-07.jpg" alt="Carte avec markers" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
+
+    <h3>Couches cartographiques</h3>
+    <p>Basculez entre les styles de carte via le sélecteur de fond de plan en haut à droite :</p>
+    <ul>
+      <li><strong>Standard</strong> : carte de rues sobre, idéale pour la planification quotidienne</li>
+<li><strong>Satellite</strong> : imagerie aérienne, utile pour repérer des bâtiments ou des sites ruraux</li>
+<li><strong>Terrain</strong> : vue topographique, utile pour les territoires à fort relief</li>
+    </ul>
+
+    <h3>Clustering</h3>
+    <p>Lorsque de nombreux markers sont proches, RouteForce les regroupe en <strong>clusters</strong>. Un cluster affiche le nombre d'enregistrements qu'il contient. Cliquez sur un cluster pour zoomer et révéler les markers individuels.</p>
+    <ul>
+      <li>Le rayon de clustering est défini à <strong>60 pixels</strong> par défaut (configurable par votre admin).</li>
+      <li>En zoomant, les clusters se décomposent automatiquement en markers individuels.</li>
+    </ul>
+
+    <h3>Contrôles de la carte</h3>
+    <table>
+      <thead>
+        <tr><th>Contrôle</th><th>Fonction</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Zoom + / -</strong></td><td>Zoomer ou dézoomer (niveau de zoom par défaut : 10)</td></tr>
+        <tr><td><strong>Plein écran</strong></td><td>Étendre la carte à toute la fenêtre du navigateur</td></tr>
+        <tr><td><strong>Ma position</strong></td><td>Centrer la carte sur votre position GPS actuelle</td></tr>
+        <tr><td><strong>Sélecteur de fond</strong></td><td>Basculer entre Standard, Satellite et Terrain</td></tr>
+        <tr><td><strong>Échelle</strong></td><td>Affiche la distance approximative sur la carte</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Source d'adresse</h3>
+    <p>Les markers sont placés à partir des adresses géocodées. Votre admin configure si RouteForce utilise l'<strong>adresse de livraison</strong> ou l'<strong>adresse de facturation</strong> pour les Comptes. Si un enregistrement n'a pas de coordonnées valides, il n'apparaîtra pas sur la carte.</p>
+
+    <div class="tip"><strong>Astuce :</strong> Si un enregistrement manque sur la carte, vérifiez qu'il dispose d'une adresse valide avec latitude et longitude renseignées.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="marker-popups">3. Popups de markers et actions</h2>
+
+    <p>Cliquez sur n'importe quel marker pour ouvrir son popup. Le popup affiche les informations clés et donne accès à des actions rapides, sans quitter la carte.</p>
+
+    <img src="../assets/screenshots-2026/marker-popup.png" alt="Popup d'un marker RouteForce : détails compte, téléphone, propriétaire, dernière visite, créer un événement" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;max-width:500px;"/>
+
+    <h3>Ce que vous voyez dans le popup</h3>
+    <p>Le popup fonctionne pour les <strong>Comptes, Pistes et Opportunités</strong>. Chacun affiche :</p>
+    <ul>
+      <li><strong>Nom de l'enregistrement</strong> : lien cliquable en haut, code couleur par type (bleu pour Compte, vert pour Piste, orange pour Opportunité). Ouvre l'enregistrement Salesforce complet.</li>
+      <li><strong>Adresse</strong> : avec un lien d'itinéraire qui ouvre Google Maps avec navigation guidée vers ce lieu</li>
+      <li><strong>Numéro de téléphone</strong> : tap pour appeler directement (click-to-call, en vert)</li>
+      <li><strong>Propriétaire</strong> : l'utilisateur Salesforce assigné à cet enregistrement</li>
+      <li><strong>Date de dernière visite</strong> : date du dernier check-in. Devient <strong>rouge</strong> avec un compteur de "jours" si la visite est en retard (selon le seuil défini par votre admin)</li>
+      <li><strong>Dernier compte-rendu de visite</strong> : si un compte-rendu existe, affiche le résultat (Positif/Neutre/Négatif) avec un lien pour ouvrir le rapport complet</li>
+      <li><strong>Champs additionnels</strong> : champs supplémentaires configurés par votre admin (industrie, type, étape, etc.)</li>
+      <li><strong>Pour les Opportunités</strong> : affiche aussi le nom du Compte parent en lien cliquable</li>
+    </ul>
+
+    <h3>Actions disponibles</h3>
+    <table>
+      <thead>
+        <tr><th>Action</th><th>Effet</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Créer un événement</strong></td><td>Bouton vert au bas du popup. Crée un Événement Salesforce lié à cet enregistrement (Compte, Piste ou Opportunité) : planifiez une visite en un tap.</td></tr>
+        <tr><td><strong>Click-to-Call</strong></td><td>Tapez sur le numéro de téléphone pour appeler depuis votre appareil. Sur mobile, lance le composeur téléphonique.</td></tr>
+        <tr><td><strong>Naviguer</strong></td><td>Tapez sur l'icône d'itinéraire à côté de l'adresse pour ouvrir Google Maps avec un itinéraire vers ce lieu.</td></tr>
+        <tr><td><strong>Ouvrir l'enregistrement</strong></td><td>Cliquez sur le nom du compte pour ouvrir l'enregistrement Salesforce complet dans un nouvel onglet.</td></tr>
+        <tr><td><strong>Actions personnalisées</strong></td><td>Votre admin peut ajouter des boutons supplémentaires (Screen Flows), par exemple un formulaire de commande rapide ou un sondage client.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Recherche de contacts (Étapes de tournée)</h3>
+    <p>Lorsque vous ajoutez un Compte à votre tournée, la carte d'étape peut afficher les <strong>Contacts liés</strong> à ce compte. Cela vous permet de voir qui appeler ou rencontrer avant d'y aller. Cette fonction est contrôlée par votre admin (<code>ContactLookupEnabled</code>) et apparaît dans le panneau Tournée, pas dans le popup carte.</p>
+
+    <h3>Actions personnalisées (configurées par l'admin)</h3>
+    <p>Les admins peuvent ajouter des boutons d'action personnalisés au popup via la métadonnée <strong>RouteForceAction__mdt</strong>. Ils lancent des Screen Flows directement depuis le popup, par exemple un sondage de prix, un audit de linéaire ou un formulaire de réassort. Voir le <a href="configuration-guide.html">Configuration Guide</a> pour les détails.</p>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="filters">4. Filtrer les enregistrements</h2>
+
+    <p>Le panneau Filtres vous permet de contrôler exactement quels enregistrements apparaissent sur la carte. Utilisez-le pour vous concentrer sur un segment de territoire, un type de client ou une liste de relances.</p>
+
+    <img src="../assets/screenshots-2026/screen-02.jpg" alt="Panneau de filtres" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
+
+    <h3>Champs de filtre par défaut</h3>
+    <p>RouteForce livre <strong>2 filtres par défaut</strong> :</p>
+    <ul>
+      <li><strong>Compte.Industrie</strong></li>
+      <li><strong>Compte.Type</strong></li>
+    </ul>
+    <p>Votre admin peut ajouter autant de filtres que nécessaire : soit via <strong>RouteForceConfig__mdt</strong> (<code>FilterFields__c</code>), soit via <strong>Lightning App Builder</strong> (FlexiPage). Les filtres sont des chemins de champs séparés par des virgules, par exemple :</p>
+    <code>Account.Industry,Account.Type,Opportunity.StageName,Lead.Status,Opportunity.Account.Industry</code>
+    <p style="margin-top:8px;">Les filtres cross-objet sont supportés (ex. <code>Opportunity.Account.Industry</code>).</p>
+
+    <h3>Types de champs supportés</h3>
+    <ul>
+      <li><strong>Liste de sélection</strong> : choisir une ou plusieurs valeurs dans un dropdown</li>
+      <li><strong>Liste de sélection multiple</strong> : choisir plusieurs valeurs avec des cases à cocher</li>
+      <li><strong>Booléen (case à cocher)</strong> : activer/désactiver</li>
+    </ul>
+
+    <h3>Filtre "Non visité depuis"</h3>
+    <p>Ce filtre spécial met en avant les enregistrements <strong>non visités depuis un certain nombre de jours</strong>. Le seuil par défaut est de <strong>30 jours</strong>. Utilisez-le pour identifier les comptes ou pistes négligés qui demandent de l'attention.</p>
+
+    <h3>Comment utiliser les filtres</h3>
+    <ol>
+      <li>Ouvrez le <strong>panneau Filtres</strong> à gauche.</li>
+      <li>Définissez une ou plusieurs valeurs de filtre.</li>
+      <li>Cliquez sur <strong>Appliquer</strong> pour rafraîchir la carte.</li>
+      <li>La carte affiche désormais uniquement les enregistrements correspondant à vos critères.</li>
+    </ol>
+
+    <div class="tip"><strong>Astuce :</strong> Combinez plusieurs filtres pour cibler votre territoire. Par exemple, filtre Industrie = "Manufacture" et Évaluation = "Hot" pour voir vos comptes industriels les plus prometteurs.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="saved-filters">5. Sauvegarder et partager des filtres</h2>
+
+    <p>Lorsque vous trouvez une combinaison de filtres que vous utilisez régulièrement, sauvegardez-la en preset pour la réappliquer en un clic.</p>
+
+    <h3>Sauvegarder un preset de filtre</h3>
+    <ol>
+      <li>Configurez vos filtres exactement comme souhaité.</li>
+      <li>Cliquez sur <strong>Sauvegarder le filtre</strong> dans le panneau Filtres.</li>
+      <li>Saisissez un nom descriptif (ex. "Comptes Manufacture Hot - Nord").</li>
+      <li>Choisissez la visibilité : cochez <strong>Rendre visible à tous les utilisateurs</strong> pour partager à toute l'org, ou laissez décoché pour le garder privé.</li>
+      <li>Cliquez sur <strong>Sauvegarder</strong>.</li>
+    </ol>
+
+    <h3>Charger un filtre sauvegardé</h3>
+    <ol>
+      <li>Ouvrez le menu déroulant <strong>Filtres sauvegardés</strong>. Les filtres sont groupés : <strong>Mes filtres</strong> (les vôtres) et <strong>Filtres partagés</strong> (créés par d'autres).</li>
+      <li>Sélectionnez un preset. RouteForce applique immédiatement toutes les valeurs de filtre et rafraîchit la carte.</li>
+      <li>Un badge de propriété apparaît sous le menu indiquant si le filtre actif est <strong>Privé</strong>, <strong>Visible à tous</strong>, ou <strong>partagé par [nom du propriétaire]</strong>.</li>
+    </ol>
+
+    <h3>Supprimer un filtre sauvegardé</h3>
+    <ol>
+      <li>Sélectionnez le preset depuis le menu déroulant.</li>
+      <li>Cliquez sur le bouton <strong>Supprimer</strong>. Ce bouton est uniquement actif pour les filtres que vous avez créés ; si le filtre appartient à un autre utilisateur, le bouton est désactivé avec une infobulle explicative.</li>
+      <li>Confirmez la suppression.</li>
+    </ol>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="route-planning">6. Planification de tournée</h2>
+
+    <p>Le panneau Tournée est l'endroit où vous construisez votre plan terrain quotidien. Ajoutez les étapes que vous souhaitez visiter, organisez-les dans l'ordre, configurez la temporalité, et laissez RouteForce s'occuper du reste.</p>
+
+    <img src="../assets/screenshots-2026/screen-04.jpg" alt="Panneau Tournée avec étapes" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
+
+    <h3>Ajouter des étapes</h3>
+    <p>Deux façons d'ajouter des étapes à votre tournée :</p>
+    <ul>
+      <li><strong>Depuis la carte :</strong> en mode tournée, cliquez sur n'importe quel marker pour l'ajouter directement comme étape.</li>
+      <li><strong>Depuis la recherche :</strong> utilisez la barre de recherche du panneau Tournée pour trouver un enregistrement par nom, puis ajoutez-le.</li>
+    </ul>
+    <p>Chaque étape affiche son numéro de séquence, le nom de l'enregistrement, la ville et le type (Compte, Piste ou Opportunité).</p>
+
+    <h3>Réordonner les étapes</h3>
+    <ul>
+      <li><strong>Glisser-déposer</strong> : saisissez une étape et déplacez-la à une nouvelle position dans la liste.</li>
+      <li>La carte met à jour le tracé de la tournée en temps réel à mesure que vous réordonnez.</li>
+    </ul>
+
+    <h3>Annuler / Refaire</h3>
+    <p>Une erreur ? Utilisez les boutons <strong>Annuler</strong> et <strong>Refaire</strong> en haut du panneau Tournée pour revenir en arrière ou avancer dans vos modifications récentes.</p>
+
+    <h3>Supprimer une étape</h3>
+    <p>Cliquez sur l'<strong>icône poubelle</strong> à côté d'une étape pour la retirer de la tournée.</p>
+
+    <h3>Paramètres de tournée</h3>
+    <p>Avant d'optimiser, configurez ces paramètres temporels pour obtenir des estimations d'arrivée réalistes :</p>
+    <table>
+      <thead>
+        <tr><th>Paramètre</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Heure de départ</strong></td><td>Heure à laquelle vous prévoyez de partir pour votre première étape</td></tr>
+        <tr><td><strong>Durée de visite</strong></td><td>Temps moyen passé à chaque étape (utilisé pour le calcul des heures d'arrivée)</td></tr>
+        <tr><td><strong>Pause déjeuner</strong></td><td>Plage horaire réservée au déjeuner ; l'optimiseur ne planifiera pas de visites pendant ce créneau</td></tr>
+        <tr><td><strong>Fin de journée</strong></td><td>Heure limite des visites ; les étapes au-delà seront signalées</td></tr>
+        <tr><td><strong>Éviter les péages</strong></td><td>Contourner les routes à péage si possible</td></tr>
+        <tr><td><strong>Éviter les autoroutes</strong></td><td>Privilégier les routes secondaires (utile pour les territoires ruraux)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warning"><strong>Limite :</strong> une tournée supporte jusqu'à <strong>50 étapes</strong>. Si vous en avez besoin de plus, scindez votre plan en plusieurs tournées (ex. matin et après-midi).</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="optimization">7. Optimisation de tournée</h2>
+
+    <p>Une fois que vous avez au moins deux étapes et un point de départ, cliquez sur <strong>Optimiser</strong> pour laisser RouteForce calculer l'ordre le plus efficace.</p>
+
+    <img src="../assets/screenshots-2026/screen-04.jpg" alt="Panneau Tournée après optimisation avec étapes réordonnées" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
+
+    <h3>Ce qui se passe lors de l'optimisation</h3>
+    <ol>
+      <li>RouteForce envoie vos étapes au moteur d'optimisation (algorithme VROOM via OpenRouteService).</li>
+      <li>Les étapes sont <strong>réordonnées</strong> pour minimiser le temps total de trajet et la distance.</li>
+      <li>La tournée optimisée est <strong>dessinée sur la carte</strong> sous forme de tracé coloré reliant chaque étape dans l'ordre.</li>
+      <li>Les <strong>heures d'arrivée estimées</strong> sont calculées pour chaque étape, en respectant l'heure de départ, la durée de visite, la pause déjeuner et la fin de journée.</li>
+      <li>Un <strong>résumé de tournée</strong> apparaît avec la distance totale (en km) et la durée totale.</li>
+    </ol>
+
+    <h3>Après l'optimisation</h3>
+    <p>Vous pouvez encore ajuster après optimisation :</p>
+    <ul>
+      <li>Réordonner manuellement les étapes si vous préférez une autre séquence.</li>
+      <li>Ajouter ou retirer des étapes et ré-optimiser.</li>
+      <li>Modifier les paramètres (heure de départ, pause déjeuner, etc.) et optimiser à nouveau.</li>
+    </ul>
+
+    <div class="tip"><strong>Astuce :</strong> l'optimisation est meilleure avec des paramètres réalistes. Définissez votre vraie heure de départ et votre durée de visite avant de cliquer sur Optimiser pour obtenir des estimations utiles.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="export">8. Exporter les tournées</h2>
+
+    <p>Après avoir construit ou optimisé une tournée, vous pouvez l'exporter pour la navigation ou le reporting.</p>
+
+    <h3>Exporter vers Google Maps</h3>
+    <p>Cliquez sur <strong>Exporter vers Google Maps</strong> pour ouvrir la tournée dans Google Maps avec toutes vos étapes en points de passage. Vous obtenez la navigation guidée pour votre journée terrain.</p>
+    <ul>
+      <li>Sur desktop, Google Maps s'ouvre dans un nouvel onglet.</li>
+      <li>Sur mobile, l'app Google Maps s'ouvre directement pour la navigation en temps réel.</li>
+    </ul>
+
+    <h3>Exporter en CSV</h3>
+    <p>Cliquez sur <strong>Exporter CSV</strong> pour télécharger un tableur avec les détails de la tournée :</p>
+    <table>
+      <thead>
+        <tr><th>Colonne</th><th>Contenu</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Numéro d'étape</td><td>Position dans la séquence de la tournée</td></tr>
+        <tr><td>Nom de l'enregistrement</td><td>Nom du Compte, de la Piste ou de l'Opportunité</td></tr>
+        <tr><td>Ville</td><td>Ville de l'adresse de l'enregistrement</td></tr>
+        <tr><td>Heure d'arrivée</td><td>Estimation basée sur l'optimisation</td></tr>
+        <tr><td>Contact</td><td>Contact assigné (si disponible)</td></tr>
+        <tr><td>Distance</td><td>Distance depuis l'étape précédente</td></tr>
+        <tr><td>Durée</td><td>Temps de trajet depuis l'étape précédente</td></tr>
+      </tbody>
+    </table>
+
+    <div class="note"><strong>Note :</strong> l'export CSV nécessite une tournée optimisée. Si vous n'avez pas encore cliqué sur Optimiser, l'export peut être vide.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="events">9. Créer des événements Salesforce</h2>
+
+    <p>RouteForce peut créer des Événements Salesforce directement depuis vos étapes de tournée, pour que votre calendrier reflète votre plan terrain.</p>
+
+    <h3>Créer des événements depuis une tournée</h3>
+    <ol>
+      <li>Construisez et optimisez votre tournée.</li>
+      <li>Cliquez sur <strong>Créer des événements</strong> (ou <strong>Créer des visites</strong>).</li>
+      <li>Les événements créés depuis les popups markers utilisent le flow <strong>RF_CreateEvent</strong>.</li>
+      <li>Chaque événement inclut :
+        <ul>
+          <li>Sujet : le nom du compte ou de l'enregistrement</li>
+          <li>Heures de début et de fin (basées sur les estimations d'optimisation)</li>
+          <li>Enregistrement lié (Compte, Piste ou Opportunité)</li>
+          <li>Lieu</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Création d'événements en masse</h3>
+    <p>Après optimisation, vous pouvez créer des événements pour <strong>toutes les étapes en une fois</strong> plutôt qu'un par un. La création en masse depuis le panneau Tournée utilise un Apex direct (<code>RouteService.createRouteEvents</code>) pour la performance. C'est le moyen le plus rapide de remplir votre calendrier de la journée.</p>
+
+    <h3>Détection de chevauchement de calendrier</h3>
+    <p>RouteForce vérifie votre calendrier Salesforce existant avant de créer les événements. Si un nouvel événement chevauche un existant, vous verrez un <strong>avertissement</strong> pour ajuster la temporalité ou sauter cette étape.</p>
+
+    <img src="../assets/screenshots-2026/screen-05.jpg" alt="Événements et agenda" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="agenda">10. Agenda du jour (panneau Événements)</h2>
+
+    <p>Le panneau Événements vous donne une vue rapide de vos événements Salesforce du jour, affichés directement sur la carte.</p>
+
+    <h3>Comment l'utiliser</h3>
+    <ol>
+      <li>Ouvrez le <strong>panneau Événements</strong>.</li>
+      <li>Les événements du jour sont chargés automatiquement et affichés en markers sur la carte.</li>
+      <li>Utilisez le toggle <strong>Afficher/Masquer les événements</strong> pour contrôler la visibilité des markers.</li>
+    </ol>
+
+    <h3>Détails d'un événement</h3>
+    <p>Cliquez sur un marker d'événement pour voir :</p>
+    <ul>
+      <li>Sujet et heure de l'événement</li>
+      <li>Enregistrement lié (Compte, Piste, Opportunité)</li>
+      <li>Lieu</li>
+      <li>Boutons d'action rapide (ouvrir l'enregistrement, naviguer, check-in)</li>
+    </ul>
+
+    <div class="tip"><strong>Astuce :</strong> commencez chaque matin en ouvrant le panneau Événements. Vous obtenez une vue visuelle des endroits où vous devez être dans la journée.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="checkin-checkout">11. Check-in / Check-out (comptes-rendus de visite)</h2>
+
+    <p>Le système de check-in/check-out vous permet d'enregistrer vos visites en temps réel, avec vérification GPS et un compte-rendu structuré.</p>
+
+    <img src="../assets/screenshots-2026/screen-03.jpg" alt="Compte-rendu de visite check-in" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
+
+    <h3>Étape 1 : Check-in</h3>
+    <ol>
+      <li>À votre arrivée chez le client, ouvrez le marker d'événement ou l'événement depuis le panneau Événements.</li>
+      <li>Cliquez sur <strong>Check-in</strong>.</li>
+      <li>RouteForce capture votre <strong>position GPS</strong> et vérifie que vous êtes à proximité du lieu.
+        <ul>
+          <li>Le rayon de détection on-site est de <strong>500 mètres</strong> par défaut (configurable par votre admin).</li>
+          <li>La précision GPS est affichée pour que vous sachiez quel niveau de précision a été obtenu.</li>
+        </ul>
+      </li>
+      <li>RouteForce crée un enregistrement <strong>VisitReport__c</strong> léger avec vos coordonnées GPS et l'horodatage uniquement.</li>
+    </ol>
+
+    <div class="note"><strong>Calendrier préservé :</strong> le check-in ne <strong>modifie pas</strong> le Sujet ou la Description de l'Événement. Vos données calendrier restent propres pour la synchro Outlook/Exchange. Toutes les données de check-in sont stockées dans l'enregistrement Compte-rendu de visite lié à l'Événement.</div>
+
+    <h3>Contexte de la visite précédente</h3>
+    <p>Lors du check-in, RouteForce vous montre un résumé de la <strong>visite précédente</strong> chez ce client (si elle existe). Cela inclut la date, le résultat et les notes de la dernière visite, pour que vous ayez du contexte avant la réunion.</p>
+
+    <h3>Étape 2 : Compléter le compte-rendu</h3>
+    <p>Après votre rendez-vous, remplissez le compte-rendu. Le formulaire affiche <strong>3 champs standards</strong> (Résultat, Action suivante, Notes) plus des <strong>champs personnalisés configurables par l'admin</strong>. Par défaut, les champs personnalisés incluent Satisfaction, Montant de commande et Date de prochaine visite ; votre admin peut modifier cela via <code>VisitReportCustomFields__c</code> dans RouteForceConfig__mdt.</p>
+
+    <table>
+      <thead>
+        <tr><th>Champ</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Résultat</strong></td><td>Issue globale de la visite. Champ texte ; les options disponibles sont configurées par votre admin via <code>VisitResultOptions__c</code>. Options par défaut : <em>Positif</em>, <em>Neutre</em>, <em>Négatif</em>, <em>Sans réponse</em>.</td></tr>
+        <tr><td><strong>Action suivante</strong></td><td>Quelle action de relance est nécessaire (ex. envoyer un devis, planifier une démo)</td></tr>
+        <tr><td><strong>Notes</strong></td><td>Champ rich text libre pour les notes détaillées de visite (supporte les Quick Text, voir <a href="#quick-text">Section 15</a>)</td></tr>
+        <tr><td><strong>Satisfaction</strong> <span class="small-muted">(champ personnalisé)</span></td><td>Niveau de satisfaction client observé pendant la visite</td></tr>
+        <tr><td><strong>Montant de commande</strong> <span class="small-muted">(champ personnalisé)</span></td><td>Si une commande a été passée, saisir le montant</td></tr>
+        <tr><td><strong>Date de prochaine visite</strong> <span class="small-muted">(champ personnalisé)</span></td><td>Quand le client devrait être visité à nouveau</td></tr>
+      </tbody>
+    </table>
+
+    <h3>Étape 3 : Check-out</h3>
+    <ol>
+      <li>Cliquez sur <strong>Check-out</strong> quand vous êtes prêt à partir.</li>
+      <li>RouteForce met à jour le <strong>VisitReport__c</strong> existant avec le résultat, les notes, l'action suivante et l'horodatage de check-out.</li>
+      <li>RouteForce calcule automatiquement la <strong>durée de visite</strong> (entre check-in et check-out).</li>
+    </ol>
+
+    <h3>Après le check-out</h3>
+    <ul>
+      <li>L'enregistrement <strong>Compte-rendu de visite</strong>, créé au check-in et complété au check-out, est lié au Compte/Piste/Opportunité.</li>
+      <li>Un <strong>lien Google Maps</strong> vers le lieu de check-in est sauvegardé pour référence.</li>
+      <li>Votre manager peut consulter les comptes-rendus depuis l'onglet <strong>Comptes-rendus de visite</strong>.</li>
+    </ul>
+
+    <div class="warning"><strong>Important :</strong> faites toujours le check-out avant de partir. Si vous oubliez, la durée de visite ne sera pas calculée correctement.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="route-history">12. Historique des tournées</h2>
+
+    <p>Chaque tournée que vous construisez est <strong>sauvegardée automatiquement</strong>. Vous pouvez parcourir les tournées passées, les rejouer sur la carte et les réutiliser comme modèles pour de futures journées.</p>
+
+    <h3>Parcourir les tournées passées</h3>
+    <ol>
+      <li>Ouvrez l'onglet <strong>Historique des tournées</strong>.</li>
+      <li>Les tournées sont listées par date, les plus récentes en premier.</li>
+      <li>Chaque entrée affiche :
+        <ul>
+          <li>Nom de la tournée (si nommage activé) ou date</li>
+          <li>Nombre d'étapes</li>
+          <li>Distance totale (km)</li>
+          <li>Durée totale</li>
+          <li>Si elle a été optimisée</li>
+        </ul>
+      </li>
+    </ol>
+
+    <h3>Rejouer une tournée sur la carte</h3>
+    <p>Sélectionnez une tournée passée pour la <strong>rejouer sur la carte</strong>. Le tracé, les étapes et la séquence sont affichés tels qu'ils étaient. Utile pour :</p>
+    <ul>
+      <li>Revoir ce que vous avez fait un jour donné</li>
+      <li>Montrer à votre manager votre couverture territoriale</li>
+      <li>Recharger une tournée éprouvée comme point de départ pour une nouvelle journée</li>
+    </ul>
+
+    <h3>Nommage des tournées</h3>
+    <p>Si votre admin a activé le <strong>nommage des tournées</strong> (EnableHistoryNaming), vous pouvez donner à chaque tournée un nom descriptif (ex. "Secteur Nord - Tour Lundi"). Cela facilite la recherche d'une tournée spécifique plus tard.</p>
+
+    <h3>Supprimer une tournée</h3>
+    <p>Sélectionnez une tournée et cliquez sur <strong>Supprimer</strong> pour la retirer de votre historique. Cette action est irréversible.</p>
+
+    <img src="../assets/screenshots-2026/screen-06.jpg" alt="Historique des tournées" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="heatmap">13. Heatmap (carte de chaleur)</h2>
+
+    <p>La superposition Heatmap fournit une vue visuelle de la densité de vos enregistrements. Les zones avec beaucoup d'enregistrements apparaissent en couleurs chaudes (rouge, forte densité), tandis que les zones clairsemées apparaissent en indigo/violet (faible densité), avec une transition par les ambres entre les deux.</p>
+
+    <h3>Comment l'utiliser</h3>
+    <ol>
+      <li>Cliquez sur le bouton toggle <strong>Heatmap</strong> dans la barre d'outils.</li>
+      <li>La superposition heatmap apparaît au-dessus de la carte.</li>
+      <li>Cliquez à nouveau pour la désactiver et revenir aux markers individuels.</li>
+    </ol>
+
+    <h3>Quand l'utiliser</h3>
+    <ul>
+      <li>Identifier les zones de votre territoire avec la plus forte concentration d'enregistrements.</li>
+      <li>Repérer les zones sous-couvertes avec peu de comptes ou pistes.</li>
+      <li>Planifier des journées de tournée autour des zones à forte densité pour gagner en efficacité.</li>
+    </ul>
+
+    <div class="note"><strong>Note :</strong> la fonction Heatmap doit être activée par votre admin (EnableHeatmap). Si vous ne voyez pas le toggle, demandez-lui de l'activer.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="bulk-select">14. Sélection multiple (rectangle)</h2>
+
+    <p>L'outil de sélection rectangulaire vous permet de sélectionner plusieurs enregistrements sur la carte en une fois en dessinant une zone de sélection.</p>
+
+    <img src="../assets/screenshots-2026/lasso-select.png" alt="Sélection multiple : zone glissée pour ajouter des étapes à la tournée" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
+
+    <h3>Comment l'utiliser</h3>
+    <ol>
+      <li>Cliquez sur <strong>Sélectionner une zone</strong> dans la barre d'outils.</li>
+      <li>Cliquez et glissez sur la carte pour dessiner un rectangle autour des enregistrements à sélectionner.</li>
+      <li>Tous les markers à l'intérieur du rectangle sont sélectionnés et mis en évidence.</li>
+    </ol>
+
+    <h3>Que faire avec une sélection</h3>
+    <ul>
+      <li><strong>Tout ajouter à la tournée</strong> : ajoute chaque enregistrement sélectionné comme étape en une action.</li>
+      <li><strong>Opérations en masse</strong> : selon la configuration de votre admin, d'autres actions peuvent être disponibles.</li>
+    </ul>
+
+    <div class="tip"><strong>Astuce :</strong> utilisez la sélection rectangulaire pour construire rapidement une tournée pour un quartier ou une zone industrielle. Dessinez autour de la zone, ajoutez tout à votre tournée, puis optimisez.</div>
+
+    <div class="note"><strong>Note :</strong> la sélection multiple doit être activée par votre admin (EnableBulkSelect). Si vous ne voyez pas le bouton Sélectionner une zone, demandez-lui de l'activer.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="quick-text">15. Quick Text pour les notes de visite</h2>
+
+    <p>Quick Text fournit des modèles de texte prédéfinis insérables dans le champ Notes pendant le check-in/check-out. Cela fait gagner du temps et garantit un reporting cohérent.</p>
+
+    <h3>Comment l'utiliser</h3>
+    <ol>
+      <li>Pendant le check-in ou check-out, cliquez dans le champ <strong>Notes</strong>.</li>
+      <li>Cliquez sur le bouton <strong>Quick Text</strong> (ou cherchez l'icône modèle).</li>
+      <li>Sélectionnez un modèle dans la liste.</li>
+      <li>Le texte du modèle est inséré dans le champ Notes.</li>
+      <li>Modifiez le texte inséré pour ajouter des détails spécifiques.</li>
+    </ol>
+
+    <h3>Support du rich text</h3>
+    <p>Le champ Notes supporte le <strong>formatage rich text</strong> : gras, italique, puces et plus. Les modèles Quick Text peuvent inclure du formatage pour que vos notes soient professionnelles et bien structurées.</p>
+
+    <div class="note"><strong>Note :</strong> Quick Text doit être activé par votre admin (<code>QuickTextEnabled__c</code>). Les modèles sont des enregistrements Quick Text Salesforce standards, gérés dans <strong>Configuration &gt; Quick Text</strong>, pas dans la configuration RouteForce.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="mobile">16. Utilisation mobile</h2>
+
+    <p>RouteForce est totalement fonctionnel sur l'<strong>application Salesforce Mobile</strong>. La carte, les tournées, le check-in et les comptes-rendus marchent tous sur votre téléphone.</p>
+
+    <img src="../assets/screenshots-2026/mobile-map.png" alt="RouteForce sur Salesforce Mobile : carte avec clusters et bouton FAB" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;max-width:350px;"/>
+
+    <h3>Vue d'ensemble de l'interface mobile</h3>
+    <p>La vue mobile affiche la carte interactive complète avec vos comptes, pistes et opportunités sous forme de markers et clusters (cercles verts numérotés). La carte supporte le <strong>pincement pour zoomer</strong> et le <strong>glissement</strong> pour naviguer.</p>
+
+    <h3>Le bouton FAB (bouton +)</h3>
+    <p>Le <strong>bouton d'action flottant (FAB)</strong> indigo en bas à droite est votre hub d'actions principal sur mobile. Tapez dessus pour accéder à :</p>
+    <ul>
+      <li><strong>Filtres</strong> : ouvrir le panneau de filtres pour réduire les enregistrements visibles</li>
+      <li><strong>Ma position</strong> : centrer la carte sur votre position GPS actuelle</li>
+      <li><strong>Tournée</strong> : ouvrir le planificateur pour ajouter des étapes et optimiser</li>
+      <li><strong>Historique</strong> : parcourir et rejouer vos tournées passées</li>
+      <li><strong>Afficher mes événements</strong> : basculer l'affichage des événements du jour sur la carte</li>
+      <li><strong>Sélection multiple</strong> : dessiner un rectangle pour sélectionner plusieurs enregistrements (si activé par l'admin)</li>
+      <li><strong>Masquer les markers</strong> : masquer temporairement tous les markers pour voir la carte clairement (si activé)</li>
+    </ul>
+    <div class="note"><strong>Note :</strong> certaines actions peuvent ne pas apparaître selon la configuration de votre admin.</div>
+    <p>Le <strong>bouton info</strong> (en bas à gauche) affiche la légende de la carte et les codes couleur des différents types de markers.</p>
+
+    <h3>Workflows mobiles clés</h3>
+    <table>
+      <thead>
+        <tr><th>Workflow</th><th>Comment ça marche sur mobile</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Check-in GPS</strong></td><td>Utilise le GPS du téléphone pour une vérification de position précise. La détection on-site (rayon 500m) fonctionne avec une meilleure précision qu'en desktop.</td></tr>
+        <tr><td><strong>Click-to-Call</strong></td><td>Tapez sur un numéro de téléphone dans un popup : lance directement un appel.</td></tr>
+        <tr><td><strong>Naviguer</strong></td><td>Tapez sur "Naviguer" sur un marker : ouvre Google Maps avec navigation guidée.</td></tr>
+        <tr><td><strong>Comptes-rendus</strong></td><td>Remplissez les formulaires de check-in/check-out sur votre téléphone immédiatement après chaque visite. Tous les champs (résultat, satisfaction, action suivante, notes) sont optimisés tactile.</td></tr>
+        <tr><td><strong>Export de tournée</strong></td><td>Exportez votre tournée optimisée vers Google Maps : lance l'app pour la navigation en temps réel entre étapes.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="tip"><strong>Astuce :</strong> planifiez et optimisez votre tournée sur desktop avant de partir. Sur mobile, utilisez le bouton FAB pour suivre votre tournée, faire les check-ins à chaque étape et remplir les comptes-rendus en mouvement.</div>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="troubleshooting">17. Dépannage</h2>
+
+    <table>
+      <thead>
+        <tr><th>Problème</th><th>Que vérifier</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Aucun marker n'apparaît sur la carte</td>
+          <td>Les enregistrements doivent avoir des coordonnées latitude/longitude valides. Demandez à votre admin de vérifier que le géocodage tourne.</td>
+        </tr>
+        <tr>
+          <td>La carte ne se charge pas</td>
+          <td>Vérifiez votre connexion internet. Si le problème persiste, demandez à votre admin de vérifier la licence RouteForce et les paramètres de site distant.</td>
+        </tr>
+        <tr>
+          <td>L'optimisation de tournée échoue</td>
+          <td>Réduisez le nombre d'étapes (max 50) et réessayez. Vérifiez que toutes les étapes ont des adresses valides.</td>
+        </tr>
+        <tr>
+          <td>Les événements n'apparaissent pas sur la carte</td>
+          <td>Vérifiez que vous avez des Événements pour aujourd'hui dans votre calendrier Salesforce. Essayez le toggle Afficher/Masquer.</td>
+        </tr>
+        <tr>
+          <td>Le bouton Check-in est grisé</td>
+          <td>Vous êtes peut-être trop loin (hors du rayon de 500m). Rapprochez-vous et réessayez. Si vous êtes sur place, vérifiez que le GPS est activé sur votre appareil.</td>
+        </tr>
+        <tr>
+          <td>Le check-in dit "Précision GPS faible"</td>
+          <td>Déplacez-vous vers un espace dégagé loin des grands bâtiments. Attendez quelques secondes la stabilisation du GPS, puis réessayez.</td>
+        </tr>
+        <tr>
+          <td>L'export CSV est vide</td>
+          <td>Vous devez d'abord optimiser la tournée. Construisez vos étapes, cliquez sur Optimiser, puis exportez.</td>
+        </tr>
+        <tr>
+          <td>Les changements de filtre n'ont aucun effet</td>
+          <td>Assurez-vous de cliquer sur <strong>Appliquer</strong> après avoir modifié les valeurs de filtre.</td>
+        </tr>
+        <tr>
+          <td>Le bouton Heatmap ou Sélectionner une zone est absent</td>
+          <td>Ces fonctions sont optionnelles. Demandez à votre admin de les activer dans la configuration RouteForce.</td>
+        </tr>
+        <tr>
+          <td>Les modèles Quick Text n'apparaissent pas</td>
+          <td>Quick Text doit être activé par votre admin. Contactez-le pour vérifier la configuration.</td>
+        </tr>
+        <tr>
+          <td>Un enregistrement spécifique manque sur la carte</td>
+          <td>L'enregistrement n'a peut-être pas d'adresse géocodée, ou il est filtré. Effacez tous les filtres et vérifiez s'il apparaît.</td>
+        </tr>
+        <tr>
+          <td>L'historique de tournées est vide</td>
+          <td>Les tournées sont sauvegardées quand vous les construisez. Si vous n'en avez jamais créé, l'historique est vide.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="best-practices">18. Bonnes pratiques</h2>
+
+    <h3>Planifier votre journée</h3>
+    <ul>
+      <li>Commencez chaque matin en ouvrant RouteForce et en revoyant votre <strong>Agenda du jour</strong>.</li>
+      <li>Utilisez le filtre <strong>"Non visité depuis"</strong> pour identifier les comptes nécessitant de l'attention.</li>
+      <li>Restez réaliste : <strong>5 à 10 étapes</strong> par journée est typique. Ne surchargez pas votre planning.</li>
+      <li>Définissez <strong>l'heure de départ</strong> et la <strong>durée de visite</strong> précises avant d'optimiser pour des estimations fiables.</li>
+      <li>Exportez votre tournée optimisée vers <strong>Google Maps</strong> avant de quitter le bureau.</li>
+    </ul>
+
+    <h3>Sur le terrain</h3>
+    <ul>
+      <li><strong>Faites le check-in immédiatement</strong> à l'arrivée chez chaque client. N'attendez pas la fin de journée.</li>
+      <li><strong>Faites le check-out avant de partir</strong> pour que la durée de visite soit calculée correctement.</li>
+      <li>Utilisez les modèles <strong>Quick Text</strong> pour accélérer la prise de notes tout en gardant des comptes-rendus cohérents.</li>
+      <li>Utilisez le <strong>Click-to-Call</strong> du popup pour appeler avant de rouler vers une étape.</li>
+      <li>Si une étape est annulée, retirez-la de votre tournée et ré-optimisez.</li>
+    </ul>
+
+    <h3>Gérer son territoire</h3>
+    <ul>
+      <li><strong>Sauvegardez des presets de filtres</strong> pour les vues récurrentes (ex. "Comptes Stratégiques - Est", "Nouvelles Pistes - Ce mois").</li>
+      <li>Partagez les filtres utiles en <strong>presets publics</strong> pour que votre équipe en bénéficie.</li>
+      <li>Utilisez la <strong>Heatmap</strong> pour visualiser la densité des comptes et repérer les zones de couverture insuffisante.</li>
+      <li>Revoyez votre <strong>Historique des tournées</strong> chaque semaine pour vérifier la couverture équilibrée.</li>
+      <li>Nommez vos tournées (si activé) pour les retrouver facilement plus tard.</li>
+    </ul>
+
+    <h3>Pour les managers</h3>
+    <ul>
+      <li>Consultez les <strong>Comptes-rendus de visite</strong> pour suivre l'activité de l'équipe et les résultats.</li>
+      <li>Utilisez l'onglet <strong>Historique des tournées</strong> pour voir les zones couvertes par vos commerciaux.</li>
+      <li>Vérifiez les <strong>durées de visite</strong> et les <strong>résultats</strong> pour identifier des opportunités de coaching.</li>
+      <li>Créez des <strong>presets de filtres publics</strong> pour standardiser la segmentation territoriale de votre équipe.</li>
+    </ul>
+
+    <hr>
+
+    <!-- ============================================================ -->
+    <h2 id="support">19. Support</h2>
+
+    <p>Si vous rencontrez un problème non couvert dans ce guide :</p>
+    <ol>
+      <li>Consultez la section <a href="#troubleshooting">Dépannage</a> ci-dessus.</li>
+      <li>Contactez votre <strong>administrateur Salesforce</strong> ; il peut vérifier votre configuration et vos permissions.</li>
+      <li>Si le problème persiste, contactez le <strong>support RouteForce</strong> à <a href="mailto:contact@routeforce.app">contact@routeforce.app</a>.</li>
+    </ol>
+
+    <hr>
+    <p class="small-muted" style="text-align:center; margin-top: 24px;">RouteForce V7.13.0-1 | Guide utilisateur | Avril 2026<br>https://routeforce.app</p>
+
+  </main>
+<footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <img src="/assets/logo-site-brand.png" alt="RouteForce" style="width:28px;height:28px;border-radius:8px;"/>
+        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">RouteForce</span>
+      </div>
+      <p style="color:#a1a1aa;font-size:0.9rem;line-height:1.6;max-width:280px;margin:0 0 16px;">Salesforce-native route optimization for field sales teams.</p>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:inline-flex;align-items:center;gap:6px;background:#6366f1;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">Install from AppExchange</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Product</span>
+      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="/use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="/native-integration-salesforce.html" style="color:#a1a1aa;text-decoration:none;">Integration</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Resources</span>
+      <a href="/blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="/docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="/consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="/flat-rate-route-optimization.html" style="color:#a1a1aa;text-decoration:none;">Flat-rate ROI</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Company</span>
+      <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
+      <a href="/docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
+      <a href="/docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
+      <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" style="color:#a1a1aa;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Status <span style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span></a>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e1e22;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#71717a;font-size:0.8rem;">
+    <span>&copy; 2026 RouteForce. All rights reserved.</span>
+    <span>Built natively on Salesforce. AppExchange managed package.</span>
+  </div>
+</footer>
+<script>
+window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach(function(link){
+  link.addEventListener('click',function(){
+    window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
+  });
+});
+</script>
+</body>
+</html>
