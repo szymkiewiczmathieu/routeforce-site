@@ -7,7 +7,7 @@
   <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html" />
   <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/configuration-guide.html" />
   <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/configuration-guide.html" />
-  <title>RouteForce Configuration Guide | V7.12.0-1</title>
+  <title>RouteForce Configuration Guide | V7.13.0-1</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -77,19 +77,19 @@
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
   </style>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="RouteForce V7.12.0-1 Configuration Guide: Reference for RouteForceConfig__mdt, RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
+    <meta name="description" content="RouteForce V7.13.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
   <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html">
-  <meta property="og:title" content="RouteForce Configuration Guide | V7.12.0-1">
+  <meta property="og:title" content="RouteForce Configuration Guide | V7.13.0-1">
   <meta property="og:site_name" content="RouteForce">
   <meta property="og:description" content="Advanced admin guide for RouteForceConfig__mdt and RouteForceAction__mdt configuration.">
   <meta property="og:url" content="https://routeforce.app/docs/configuration-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="RouteForce Configuration Guide | V7.12.0-1"/>
-  <meta name="twitter:description" content="RouteForce V7.12.0-1 Configuration Guide: Reference for RouteForceConfig__mdt, RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
+  <meta name="twitter:title" content="RouteForce Configuration Guide | V7.13.0-1"/>
+  <meta name="twitter:description" content="RouteForce V7.13.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"RouteForce Configuration Guide | V7.12.0-1","url":"https://routeforce.app/docs/configuration-guide.html","description":"RouteForce V7.12.0-1 Configuration Guide: Reference for RouteForceConfig__mdt, RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"RouteForce","url":"https://routeforce.app"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"RouteForce Configuration Guide | V7.13.0-1","url":"https://routeforce.app/docs/configuration-guide.html","description":"RouteForce V7.13.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"RouteForce","url":"https://routeforce.app"}}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -155,15 +155,16 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">RouteForce for Salesforce</div></div>
-        <div class="card"><div class="label">Version</div><div class="value">V7.12.0-1 | April 2026</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">V7.13.0-1 | April 2026</div></div>
         <div class="card"><div class="label">Audience</div><div class="value">Salesforce Administrators</div></div>
       </div>
     </div>
     <div class="cover-footer">RouteForce for Salesforce | Advanced Configuration Reference | contact@routeforce.app</div>
   </section>
   <main class="content">
-    <div class="note"><strong>RouteForce V7.12.0-1: Configuration Guide.</strong> This document covers the two-layer configuration model (App Builder + Custom Metadata), deployment patterns, the complete field reference for RouteForceConfig__mdt and RouteForceAction__mdt, and ready-to-use configuration presets.</div>
-    <p><strong>Version:</strong> V7.12.0-1 | April 2026<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> RouteForce for Salesforce (managed package)</p>
+    <div class="note"><strong>What's new in V7.13.0-1 — CMDT-first configuration.</strong> Map legend, marker colors, popup fields, and multi-select filters are now configured in <strong>Custom Metadata Types</strong> (<code>RouteForceConfig.Default</code>) instead of FlexiPage / App Builder properties. The packaged FlexiPages ship with no default properties set — they pull from CMDT. The App Builder path is still supported as a per-page override (see <a href="#flexipage">Section 4 — FlexiPage Configuration</a>). Migration is automatic for fresh installs and backward-compatible for existing subscribers (see Migration Notes below).</div>
+    <div class="note"><strong>RouteForce V7.13.0-1: Configuration Guide.</strong> This document covers the two-layer configuration model (CMDT-first + App Builder override), deployment patterns, the complete field reference for RouteForceConfig__mdt (44 fields) and RouteForceAction__mdt, and ready-to-use configuration presets.</div>
+    <p><strong>Version:</strong> V7.13.0-1 | April 2026<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> RouteForce for Salesforce (managed package)</p>
 
 <h2>Table of Contents</h2>
 <ol>
@@ -172,7 +173,7 @@
 <li><a href="#customize-workspace">Customizing the Global Workspace</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
 <li><a href="#app-builder">App Builder Property Reference</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
 <li><a href="#architecture">Configuration Architecture</a></li>
-<li><a href="#config-mdt">RouteForceConfig__mdt: Complete Field Reference (36 fields)</a></li>
+<li><a href="#config-mdt">RouteForceConfig__mdt: Complete Field Reference (44 fields)</a></li>
 <li><a href="#action-mdt">RouteForceAction__mdt: Custom Actions Reference</a></li>
 <li><a href="#flexipage">FlexiPage Configuration (App Builder)</a></li>
 <li><a href="#shared-filters">Shared Filters (SavedFilter__c)</a></li>
@@ -188,7 +189,7 @@
 <li><a href="#presets">Configuration Presets</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
 <li><a href="#examples">Configuration Examples</a></li>
 <li><a href="#troubleshooting">Troubleshooting</a></li>
-<li><a href="#quick-reference">Quick Reference: All 36 Defaults</a></li>
+<li><a href="#quick-reference">Quick Reference: All 44 Defaults</a></li>
 </ol>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
@@ -208,43 +209,45 @@
 
 <h3>Ownership rule</h3>
 <table>
-<thead><tr><th>Setting type</th><th>Owner</th><th>Override behavior</th></tr></thead>
+<thead><tr><th>Setting type</th><th>Default owner (since 7.13.0)</th><th>Override behavior</th></tr></thead>
 <tbody>
-<tr><td><strong>What data appears on the map</strong> (fields, filters, colors, popups)</td><td>App Builder</td><td>Overrides CMDT when set; if blank, falls back to CMDT</td></tr>
+<tr><td><strong>What data appears on the map</strong> (fields, filters, colors, popups)</td><td>CMDT <code>RouteForceConfig.Default</code></td><td>App Builder property overrides CMDT when set on a specific page</td></tr>
 <tr><td><strong>How the product behaves</strong> (features, limits, defaults, toggles)</td><td>CMDT</td><td>Not overridable from App Builder</td></tr>
 <tr><td><strong>Custom action buttons</strong> (Flow triggers in popups)</td><td>CMDT (RouteForceAction)</td><td>Not overridable from App Builder</td></tr>
 </tbody>
 </table>
 
 <div class="note"><strong>Decision tree: "Where do I change this?"</strong><br><br>
-<strong>Is it about WHICH FIELDS / FILTERS / COLORS appear?</strong> → App Builder properties (per-page). Falls back to CMDT if left blank.<br><br>
-<strong>Is it about enabling/disabling a FEATURE?</strong> → CMDT RouteForceConfig.Default<br><br>
-<strong>Is it about LIMITS or DEFAULTS (zoom, radius, days)?</strong> → CMDT RouteForceConfig.Default<br><br>
-<strong>Is it about CUSTOM ACTION BUTTONS in popups?</strong> → CMDT RouteForceAction records
+<strong>Org-wide change (most cases) →</strong> CMDT <code>RouteForceConfig.Default</code> — Setup → Custom Metadata Types → RouteForce Config → Manage Records → Default<br><br>
+<strong>Per-page override (e.g. a Lead record page that needs different filters) →</strong> Set the App Builder property on that specific page<br><br>
+<strong>Custom action buttons in popups →</strong> CMDT <code>RouteForceAction</code> records
 </div>
 
 <h3>Override cascade</h3>
-<pre><code>App Builder property (if set)
+<pre><code>App Builder property (if set on this page)
   ↓ fallback
-CMDT RouteForceConfig.Default (if set)
+CMDT RouteForceConfig.Default (org-wide source of truth)
   ↓ fallback
 Hardcoded product default</code></pre>
-<p>Only two fields follow this cascade: <strong>addressFieldPrefix</strong> and <strong>filterFields</strong>. All other fields are exclusively App Builder or exclusively CMDT.</p>
+<p><strong>Since 7.13.0, this cascade applies to all 9 visual configuration parameters</strong>: <code>addressFieldPrefix</code>, <code>filterFields</code>, <code>typeField</code> / <code>typeValues</code>, <code>oppTypeField</code> / <code>oppTypeValues</code>, <code>leadTypeField</code> / <code>leadTypeValues</code>, <code>forceMultiPicklist</code>, and <code>markerFields</code>. Each has a matching CMDT field on <code>RouteForceConfig__mdt</code> (see Section 5). The packaged FlexiPages ship with no properties set — defaults come from CMDT.</p>
 
 <h3>Quick reference map</h3>
 <pre><code>┌─────────────────────────────────────────────────────────┐
 │                  ROUTEFORCE CONFIG MAP                   │
 ├─────────────────────────┬───────────────────────────────┤
 │     APP BUILDER         │         CMDT                  │
-│     (per page)          │         (org-wide)            │
+│  (per-page override)    │     (org-wide default)        │
 ├─────────────────────────┼───────────────────────────────┤
 │ addressFieldPrefix  ──► │ AddressFieldPrefix__c         │
 │ filterFields        ──► │ FilterFields__c               │
-│ typeField/Values        │                               │
-│ oppTypeField/Values     │                               │
-│ leadTypeField/Values    │                               │
-│ forceMultiPicklist      │                               │
-│ markerFields            │                               │
+│ typeField           ──► │ TypeField__c                  │
+│ typeValues          ──► │ TypeValues__c                 │
+│ oppTypeField        ──► │ OppTypeField__c               │
+│ oppTypeValues       ──► │ OppTypeValues__c              │
+│ leadTypeField       ──► │ LeadTypeField__c              │
+│ leadTypeValues      ──► │ LeadTypeValues__c             │
+│ forceMultiPicklist  ──► │ ForceMultiPicklist__c         │
+│ markerFields        ──► │ MarkerFields__c               │
 │                         │ Enable*__c (feature flags)    │
 │                         │ Default*__c (map settings)    │
 │                         │ *QueryFields__c (data shape)  │
@@ -252,9 +255,27 @@ Hardcoded product default</code></pre>
 │                         │ VisitReport*__c (visit config)│
 │                         │ RouteForceAction__mdt (flows) │
 ├─────────────────────────┴───────────────────────────────┤
-│  ──► = App Builder overrides CMDT when set              │
-│  All others = exclusive to their layer                  │
+│  ──► = App Builder property overrides CMDT when set     │
+│  All other CMDT fields = no App Builder counterpart     │
 └─────────────────────────────────────────────────────────┘</code></pre>
+
+<h3>Migration notes — Upgrading to 7.13.0</h3>
+<table>
+<thead><tr><th>Scenario</th><th>What happens</th><th>Action needed</th></tr></thead>
+<tbody>
+<tr><td><strong>Fresh install</strong></td><td><code>RouteForceConfig.Default</code> is created with sensible defaults for all 9 visual params</td><td>None — works out of the box. Adjust CMDT to match your org.</td></tr>
+<tr><td><strong>Upgrade from 7.12.0 (kept default FlexiPage)</strong></td><td>Packaged FlexiPages now ship with no properties set. CMDT defaults apply.</td><td>None if you accept the new defaults. Otherwise edit CMDT.</td></tr>
+<tr><td><strong>Upgrade from 7.12.0 (cloned the FlexiPage)</strong></td><td>Your cloned FlexiPage keeps its hardcoded properties — they continue to override CMDT (cascade unchanged)</td><td>Optional: clear the App Builder properties on your cloned FlexiPage to switch to the CMDT source of truth, then edit CMDT.</td></tr>
+</tbody>
+</table>
+<p><strong>No breakage</strong> on saved filters, route history, check-in, visit reports, or custom actions. The migration only changes <em>where the visual configuration defaults live</em>, not the runtime behavior.</p>
+
+<div class="note"><strong>⚠️ Important — CMDT page layout is not auto-updated on upgrade.</strong> Salesforce managed-package upgrades create the 8 new CMDT fields in the subscriber org, but they do <strong>not</strong> automatically add them to the existing CMDT page layout. After upgrading to 7.13.0, the new fields exist (and the LWC reads them via Apex), but they will not be visible in the <em>edit</em> screen of <code>RouteForceConfig.Default</code> until you do one of the following:<br><br>
+<strong>Option 1 — Edit the layout manually (recommended, preserves your customizations):</strong><br>
+Setup → Custom Metadata Types → RouteForce Config → <strong>Page Layouts</strong> → Edit the default layout → drag the 8 new fields (<code>TypeField__c</code>, <code>TypeValues__c</code>, <code>OppTypeField__c</code>, <code>OppTypeValues__c</code>, <code>LeadTypeField__c</code>, <code>LeadTypeValues__c</code>, <code>ForceMultiPicklist__c</code>, <code>MarkerFields__c</code>) into the relevant sections (Account / Lead / Opportunity / Marker Display) → Save.<br><br>
+<strong>Option 2 — Uninstall + reinstall the package:</strong><br>
+This brings the new layout in but <strong>destroys all your CMDT customizations</strong>, saved filters metadata, and any data dependent on the package. Only do this on a fresh sandbox or if you have nothing to lose.<br><br>
+<strong>Workaround in the meantime:</strong> you can still set the new field values without the layout — go to <strong>Setup → Object Manager → Route Force Config → Fields & Relationships</strong>, click each new field, then use the <strong>API name</strong> to set the value directly via Workbench / Data Loader / a quick Apex script. The values will be picked up by the LWC immediately.</div>
 
 <!-- ═══════════════════════════════════════════════════════════ -->
 <!-- NEW SECTION: Deployment Patterns                            -->
@@ -527,7 +548,8 @@ Hardcoded product default</code></pre>
 <hr>
 
 <h2 id="config-mdt">2. RouteForceConfig__mdt: Complete Field Reference</h2>
-<p>The central configuration record. All 36 settings reside in the <strong>Default</strong> record (<code>RouteForceConfig__mdt.Default</code>). Each field is documented below, organized by category.</p>
+<p>The central configuration record. All 44 settings reside in the <strong>Default</strong> record (<code>RouteForceConfig__mdt.Default</code>). Each field is documented below, organized by category.</p>
+<p><strong>Section 2.7 (Map Legend &amp; Marker Display) is new in 7.13.0</strong> — it documents the 8 fields that hold the org-wide defaults for marker color segmentation, popup fields, and multi-select filter rendering. Before 7.13.0 these were configured exclusively as App Builder properties on the FlexiPage.</p>
 
 <h3>2.1 Map Settings (7 fields)</h3>
 <p>Control the initial map appearance, clustering behavior, and display mode.</p>
@@ -842,6 +864,70 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tbody>
 </table>
 
+<h3>2.7 Map Legend &amp; Marker Display (8 fields, NEW in 7.13.0)</h3>
+<p>Org-wide defaults for marker color segmentation (Account / Opportunity / Lead), popup field display, and multi-select filter rendering. Each field is overridable per-page via the matching App Builder property (see <a href="#flexipage">Section 4 — FlexiPage Configuration</a>).</p>
+<table>
+<thead>
+<tr>
+<th>Field API Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TypeField__c</code></td>
+<td>Text(255)</td>
+<td><code>Type</code></td>
+<td>Account field API name used for marker color segmentation. Each distinct value in <code>TypeValues__c</code> gets a unique color from the cool palette. Leave blank for uniform Account markers.</td>
+</tr>
+<tr>
+<td><code>TypeValues__c</code></td>
+<td>Text(255)</td>
+<td><code>Customer - Direct,Customer - Channel,Prospect,Other</code></td>
+<td>Comma-separated values for Account marker colors. <strong>Order determines color assignment</strong> (first value = first color). Values must match the field set in <code>TypeField__c</code>.</td>
+</tr>
+<tr>
+<td><code>OppTypeField__c</code></td>
+<td>Text(255)</td>
+<td><code>StageName</code></td>
+<td>Opportunity field for marker color segmentation. Each value in <code>OppTypeValues__c</code> gets a warm-toned color. Requires <code>EnableOpportunities__c = true</code>.</td>
+</tr>
+<tr>
+<td><code>OppTypeValues__c</code></td>
+<td>Text(255)</td>
+<td><code>Prospecting,Qualification,Needs Analysis,Value Proposition,Negotiation/Review,Closed Won,Closed Lost</code></td>
+<td>Comma-separated values for Opportunity marker colors. Order = color order. Values must match the field set in <code>OppTypeField__c</code>.</td>
+</tr>
+<tr>
+<td><code>LeadTypeField__c</code></td>
+<td>Text(255)</td>
+<td><code>Status</code></td>
+<td>Lead field for marker color segmentation. Each value in <code>LeadTypeValues__c</code> gets a cool-toned color. Requires <code>EnableLeads__c = true</code>.</td>
+</tr>
+<tr>
+<td><code>LeadTypeValues__c</code></td>
+<td>Text(255)</td>
+<td><code>Open - Not Contacted,Working - Contacted,Closed - Converted,Closed - Not Converted</code></td>
+<td>Comma-separated values for Lead marker colors. Order = color order. Values must match the field set in <code>LeadTypeField__c</code>.</td>
+</tr>
+<tr>
+<td><code>ForceMultiPicklist__c</code></td>
+<td>Text(255)</td>
+<td><code>Industry,Type</code></td>
+<td>Picklist filter fields rendered as <strong>multi-select checkboxes</strong> instead of single-select dropdowns. Comma-separated field API names without object prefix. Only applies to fields already listed in <code>FilterFields__c</code>.</td>
+</tr>
+<tr>
+<td><code>MarkerFields__c</code></td>
+<td>Text(255)</td>
+<td><code>Phone,Industry,Website,Opportunity.StageName,Opportunity.Amount,Opportunity.CloseDate,Lead.Company,Lead.LeadSource,Lead.Status,Lead.Email</code></td>
+<td>Fields displayed in marker popups when a pin is clicked. Account fields have no prefix; Opportunity/Lead fields use <code>{Object}.{Field}</code> syntax. Supports any field type.</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><strong>Override on a specific FlexiPage:</strong> Set the matching App Builder property (<code>typeField</code>, <code>typeValues</code>, <code>oppTypeField</code>, <code>oppTypeValues</code>, <code>leadTypeField</code>, <code>leadTypeValues</code>, <code>forceMultiPicklist</code>, or <code>markerFields</code>) on the <code>routeforce</code> component in Lightning App Builder. The App Builder value takes precedence over CMDT for that page only.</div>
+
 <hr>
 
 <h2 id="action-mdt">3. RouteForceAction__mdt: Custom Actions Reference</h2>
@@ -1024,9 +1110,11 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 
 <hr>
 
-<h2 id="flexipage">4. FlexiPage Configuration (App Builder)</h2>
-<p>While <code>RouteForceConfig__mdt</code> controls product <strong>behavior</strong> (feature toggles, query filters, map defaults), the FlexiPage properties control the visual <strong>presentation</strong>: which filters appear, how the legend is colored, what fields show in marker popups. <strong>Both should be configured during initial setup.</strong></p>
-<p>The default RouteForce page ships with generic settings and serves as a template. We <strong>recommend cloning it</strong> to match your organization's data model (see 4.3 Option B). The RouteForce LWC component (<code>routeforce</code>) is fully reusable; you can also place it on Record Pages (Account, Lead, Opportunity), custom App Pages, or your own Lightning Apps.</p>
+<h2 id="flexipage">4. FlexiPage Configuration (App Builder) — Override Path</h2>
+<div class="note"><strong>Since 7.13.0, App Builder properties are an override path, not the primary configuration.</strong> The packaged FlexiPages (<code>RouteForce</code> app page and <code>Lead_Record_Page</code>) ship with <strong>no properties set</strong> — defaults come from <code>RouteForceConfig.Default</code> (see Section 2.7). Configure the FlexiPage properties below <strong>only when you need different filters / colors / popup fields on a specific page</strong> (e.g. a Lead record page that needs a Lead-only filter set instead of the cross-object default).</div>
+<p>The properties below take precedence over their CMDT counterparts when set. Leave them blank to inherit from <code>RouteForceConfig.Default</code>. The mapping is one-to-one (see Section 1 — Quick reference map).</p>
+<p>The RouteForce LWC component (<code>routeforce</code>) is fully reusable; you can place it on Record Pages (Account, Lead, Opportunity), custom App Pages, Tabs, the Utility Bar, or in your own Lightning Apps.</p>
+<p><strong>Record Page integration:</strong> When placed on an Account, Lead, or Opportunity record page, the map <strong>automatically centers on the current record</strong> and loads nearby items. This gives field reps a contextual geographic view directly from any record, with no manual search needed.</p>
 <p><strong>Record Page integration:</strong> When placed on an Account, Lead, or Opportunity record page, the map <strong>automatically centers on the current record</strong> and loads nearby items. This gives field reps a contextual geographic view directly from any record, with no manual search needed. The same component properties (filters, legend, popup fields) are available for configuration.</p>
 
 <h3>4.1 Filter Fields Configuration</h3>
@@ -2354,7 +2442,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 
 <hr>
 
-<h2 id="quick-reference">17. Quick Reference: All 36 Default Values</h2>
+<h2 id="quick-reference">17. Quick Reference: All 44 Default Values</h2>
 
 <h3>Map Settings (7)</h3>
 <table>
@@ -2572,7 +2660,51 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 </tbody>
 </table>
 
-<p class="small-muted"><strong>Total: 36 fields</strong> (7 Map + 11 Feature Toggles + 2 Route + 8 Filter + 5 Visit Report + 3 System)</p>
+<h3>Map Legend &amp; Marker Display (8) — NEW in 7.13.0</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TypeField__c</code></td>
+<td><code>Type</code></td>
+</tr>
+<tr>
+<td><code>TypeValues__c</code></td>
+<td><code>Customer - Direct,Customer - Channel,Prospect,Other</code></td>
+</tr>
+<tr>
+<td><code>OppTypeField__c</code></td>
+<td><code>StageName</code></td>
+</tr>
+<tr>
+<td><code>OppTypeValues__c</code></td>
+<td><code>Prospecting,Qualification,Needs Analysis,Value Proposition,Negotiation/Review,Closed Won,Closed Lost</code></td>
+</tr>
+<tr>
+<td><code>LeadTypeField__c</code></td>
+<td><code>Status</code></td>
+</tr>
+<tr>
+<td><code>LeadTypeValues__c</code></td>
+<td><code>Open - Not Contacted,Working - Contacted,Closed - Converted,Closed - Not Converted</code></td>
+</tr>
+<tr>
+<td><code>ForceMultiPicklist__c</code></td>
+<td><code>Industry,Type</code></td>
+</tr>
+<tr>
+<td><code>MarkerFields__c</code></td>
+<td><code>Phone,Industry,Website,Opportunity.StageName,Opportunity.Amount,Opportunity.CloseDate,Lead.Company,Lead.LeadSource,Lead.Status,Lead.Email</code></td>
+</tr>
+</tbody>
+</table>
+
+<p class="small-muted"><strong>Total: 44 fields</strong> (7 Map + 11 Feature Toggles + 2 Route + 8 Filter + 5 Visit Report + 3 System + 8 Map Legend &amp; Marker Display)</p>
 
   </main>
 <footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
