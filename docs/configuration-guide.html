@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Advanced RouteForce configuration guide for Salesforce admins, covering metadata, routing behavior, filters, actions, and deployment settings." />
+  <meta name="description" content="Advanced Tourvia configuration guide for Salesforce admins, covering metadata, routing behavior, filters, actions, and deployment settings." />
   <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html" />
   <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/configuration-guide.html" />
   <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/configuration-guide.html" />
-  <title>RouteForce Configuration Guide | V7.13.0-1</title>
+  <title>Tourvia Configuration Guide | V7.13.0-1</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -77,19 +77,19 @@
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
   </style>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="RouteForce V7.13.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
+    <meta name="description" content="Tourvia V7.13.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
   <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html">
-  <meta property="og:title" content="RouteForce Configuration Guide | V7.13.0-1">
-  <meta property="og:site_name" content="RouteForce">
+  <meta property="og:title" content="Tourvia Configuration Guide | V7.13.0-1">
+  <meta property="og:site_name" content="Tourvia">
   <meta property="og:description" content="Advanced admin guide for RouteForceConfig__mdt and RouteForceAction__mdt configuration.">
   <meta property="og:url" content="https://routeforce.app/docs/configuration-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="RouteForce Configuration Guide | V7.13.0-1"/>
-  <meta name="twitter:description" content="RouteForce V7.13.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
+  <meta name="twitter:title" content="Tourvia Configuration Guide | V7.13.0-1"/>
+  <meta name="twitter:description" content="Tourvia V7.13.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"RouteForce Configuration Guide | V7.13.0-1","url":"https://routeforce.app/docs/configuration-guide.html","description":"RouteForce V7.13.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"RouteForce","url":"https://routeforce.app"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Configuration Guide | V7.13.0-1","url":"https://routeforce.app/docs/configuration-guide.html","description":"Tourvia V7.13.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -105,8 +105,8 @@
 <header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
   <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
     <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
-      <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;"/>
-      <span style="font-size:1.125rem;font-weight:800;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">RouteForce</span>
+      <img src="../assets/logo-site-brand.png" alt="Tourvia" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;"/>
+      <span style="font-size:1.125rem;font-weight:800;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tourvia</span>
     </a>
     <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.875rem;">
       <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
@@ -150,21 +150,21 @@
         <div class="badge">Advanced Admin Guide</div>
       </div>
       <div class="hero">
-        <h1>RouteForce Configuration Guide</h1>
+        <h1>Tourvia Configuration Guide</h1>
         <p>Complete reference for RouteForceConfig__mdt and RouteForceAction__mdt</p>
       </div>
       <div class="meta">
-        <div class="card"><div class="label">Product</div><div class="value">RouteForce for Salesforce</div></div>
+        <div class="card"><div class="label">Product</div><div class="value">Tourvia for Salesforce</div></div>
         <div class="card"><div class="label">Version</div><div class="value">V7.13.0-1 | April 2026</div></div>
         <div class="card"><div class="label">Audience</div><div class="value">Salesforce Administrators</div></div>
       </div>
     </div>
-    <div class="cover-footer">RouteForce for Salesforce | Advanced Configuration Reference | contact@routeforce.app</div>
+    <div class="cover-footer">Tourvia for Salesforce | Advanced Configuration Reference | contact@routeforce.app</div>
   </section>
   <main class="content">
     <div class="note"><strong>What's new in V7.13.0-1 — CMDT-first configuration.</strong> Map legend, marker colors, popup fields, and multi-select filters are now configured in <strong>Custom Metadata Types</strong> (<code>RouteForceConfig.Default</code>) instead of FlexiPage / App Builder properties. The packaged FlexiPages ship with no default properties set — they pull from CMDT. The App Builder path is still supported as a per-page override (see <a href="#flexipage">Section 4 — FlexiPage Configuration</a>). Migration is automatic for fresh installs and backward-compatible for existing subscribers (see Migration Notes below).</div>
-    <div class="note"><strong>RouteForce V7.13.0-1: Configuration Guide.</strong> This document covers the two-layer configuration model (CMDT-first + App Builder override), deployment patterns, the complete field reference for RouteForceConfig__mdt (44 fields) and RouteForceAction__mdt, and ready-to-use configuration presets.</div>
-    <p><strong>Version:</strong> V7.13.0-1 | April 2026<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> RouteForce for Salesforce (managed package)</p>
+    <div class="note"><strong>Tourvia V7.13.0-1: Configuration Guide.</strong> This document covers the two-layer configuration model (CMDT-first + App Builder override), deployment patterns, the complete field reference for RouteForceConfig__mdt (44 fields) and RouteForceAction__mdt, and ready-to-use configuration presets.</div>
+    <p><strong>Version:</strong> V7.13.0-1 | April 2026<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> Tourvia for Salesforce (managed package)</p>
 
 <h2>Table of Contents</h2>
 <ol>
@@ -197,7 +197,7 @@
 <!-- ═══════════════════════════════════════════════════════════ -->
 <hr>
 <h2 id="config-model">1. Configuration Model: Where Does Each Setting Live?</h2>
-<p>RouteForce has <strong>two configuration layers</strong> with clear ownership:</p>
+<p>Tourvia has <strong>two configuration layers</strong> with clear ownership:</p>
 
 <table>
 <thead><tr><th>Layer</th><th>Where</th><th>Scope</th><th>How to edit</th></tr></thead>
@@ -218,7 +218,7 @@
 </table>
 
 <div class="note"><strong>Decision tree: "Where do I change this?"</strong><br><br>
-<strong>Org-wide change (most cases) →</strong> CMDT <code>RouteForceConfig.Default</code> — Setup → Custom Metadata Types → RouteForce Config → Manage Records → Default<br><br>
+<strong>Org-wide change (most cases) →</strong> CMDT <code>RouteForceConfig.Default</code> — Setup → Custom Metadata Types → Tourvia Config → Manage Records → Default<br><br>
 <strong>Per-page override (e.g. a Lead record page that needs different filters) →</strong> Set the App Builder property on that specific page<br><br>
 <strong>Custom action buttons in popups →</strong> CMDT <code>RouteForceAction</code> records
 </div>
@@ -272,7 +272,7 @@ Hardcoded product default</code></pre>
 
 <div class="note"><strong>⚠️ Important — CMDT page layout is not auto-updated on upgrade.</strong> Salesforce managed-package upgrades create the 8 new CMDT fields in the subscriber org, but they do <strong>not</strong> automatically add them to the existing CMDT page layout. After upgrading to 7.13.0, the new fields exist (and the LWC reads them via Apex), but they will not be visible in the <em>edit</em> screen of <code>RouteForceConfig.Default</code> until you do one of the following:<br><br>
 <strong>Option 1 — Edit the layout manually (recommended, preserves your customizations):</strong><br>
-Setup → Custom Metadata Types → RouteForce Config → <strong>Page Layouts</strong> → Edit the default layout → drag the 8 new fields (<code>TypeField__c</code>, <code>TypeValues__c</code>, <code>OppTypeField__c</code>, <code>OppTypeValues__c</code>, <code>LeadTypeField__c</code>, <code>LeadTypeValues__c</code>, <code>ForceMultiPicklist__c</code>, <code>MarkerFields__c</code>) into the relevant sections (Account / Lead / Opportunity / Marker Display) → Save.<br><br>
+Setup → Custom Metadata Types → Tourvia Config → <strong>Page Layouts</strong> → Edit the default layout → drag the 8 new fields (<code>TypeField__c</code>, <code>TypeValues__c</code>, <code>OppTypeField__c</code>, <code>OppTypeValues__c</code>, <code>LeadTypeField__c</code>, <code>LeadTypeValues__c</code>, <code>ForceMultiPicklist__c</code>, <code>MarkerFields__c</code>) into the relevant sections (Account / Lead / Opportunity / Marker Display) → Save.<br><br>
 <strong>Option 2 — Uninstall + reinstall the package:</strong><br>
 This brings the new layout in but <strong>destroys all your CMDT customizations</strong>, saved filters metadata, and any data dependent on the package. Only do this on a fresh sandbox or if you have nothing to lose.<br><br>
 <strong>Workaround in the meantime:</strong> you can still set the new field values without the layout — go to <strong>Setup → Object Manager → Route Force Config → Fields & Relationships</strong>, click each new field, then use the <strong>API name</strong> to set the value directly via Workbench / Data Loader / a quick Apex script. The values will be picked up by the LWC immediately.</div>
@@ -282,7 +282,7 @@ This brings the new layout in but <strong>destroys all your CMDT customizations<
 <!-- ═══════════════════════════════════════════════════════════ -->
 <hr>
 <h2 id="deployment-patterns">2. Deployment Patterns</h2>
-<p>RouteForce supports two deployment models. Both are first-class.</p>
+<p>Tourvia supports two deployment models. Both are first-class.</p>
 
 <h3>Pattern A: Contextual (Record Page)</h3>
 <p>Best for teams that work from Account/Lead/Opportunity record pages.</p>
@@ -326,36 +326,36 @@ This brings the new layout in but <strong>destroys all your CMDT customizations<
 <!-- ═══════════════════════════════════════════════════════════ -->
 <hr>
 <h2 id="customize-workspace">3. Customizing the Global Workspace</h2>
-<p>The packaged RouteForce app includes a <strong>default App Page</strong> with pre-configured values. Because it is a managed-package page, you cannot edit it directly in customer orgs. Use the <strong>clone-and-compose</strong> pattern below.</p>
+<p>The packaged Tourvia app includes a <strong>default App Page</strong> with pre-configured values. Because it is a managed-package page, you cannot edit it directly in customer orgs. Use the <strong>clone-and-compose</strong> pattern below.</p>
 
 <h3>Step 1: Create your own App Page</h3>
 <ol>
 <li><strong>Setup</strong> → <strong>Lightning App Builder</strong> → <strong>New</strong> → <strong>App Page</strong></li>
 <li>Choose <strong>One Region</strong> layout</li>
-<li>Drag the <strong>RouteForce</strong> component onto the page</li>
+<li>Drag the <strong>Tourvia</strong> component onto the page</li>
 <li>Configure the App Builder properties to match your org (see <a href="#app-builder">Section 4</a>)</li>
-<li><strong>Save</strong> → name it (e.g., "RouteForce Custom")</li>
+<li><strong>Save</strong> → name it (e.g., "Tourvia Custom")</li>
 <li><strong>Activation</strong> → choose where to expose it (App Page, Tab)</li>
 </ol>
 
 <h3>Step 2: Create a Tab for your page</h3>
 <ol>
 <li><strong>Setup</strong> → <strong>Tabs</strong> → <strong>Lightning Page Tabs</strong> → <strong>New</strong></li>
-<li>Select your new page → give it a label (e.g., "RouteForce")</li>
-<li>Choose the RouteForce icon (or any preferred icon)</li>
+<li>Select your new page → give it a label (e.g., "Tourvia")</li>
+<li>Choose the Tourvia icon (or any preferred icon)</li>
 </ol>
 
 <h3>Step 3: Add to your App</h3>
-<p><strong>Option A: Use the packaged RouteForce app</strong> (recommended):</p>
+<p><strong>Option A: Use the packaged Tourvia app</strong> (recommended):</p>
 <ol>
-<li><strong>Setup</strong> → <strong>App Manager</strong> → find <strong>RouteForce</strong> → <strong>Edit</strong></li>
+<li><strong>Setup</strong> → <strong>App Manager</strong> → find <strong>Tourvia</strong> → <strong>Edit</strong></li>
 <li>In <strong>Navigation Items</strong>, add your new tab</li>
-<li>Optionally remove the default RouteForce tab if you want full control</li>
+<li>Optionally remove the default Tourvia tab if you want full control</li>
 </ol>
 <p><strong>Option B: Create your own app shell:</strong></p>
 <ol>
 <li><strong>Setup</strong> → <strong>App Manager</strong> → <strong>New Lightning App</strong></li>
-<li>Add your custom RouteForce tab + any other tabs you need</li>
+<li>Add your custom Tourvia tab + any other tabs you need</li>
 <li>Assign to the right profiles/permission sets</li>
 </ol>
 
@@ -518,7 +518,7 @@ This brings the new layout in but <strong>destroys all your CMDT customizations<
 <hr>
 
 <h2 id="architecture">1. Configuration Architecture</h2>
-<p>RouteForce uses a <strong>Custom Metadata Type-first</strong> approach. All configurable application settings are stored in two CMDTs:</p>
+<p>Tourvia uses a <strong>Custom Metadata Type-first</strong> approach. All configurable application settings are stored in two CMDTs:</p>
 <ul>
 <li><strong>RouteForceConfig__mdt</strong>: 36 fields controlling map behavior, features, queries, visit reports, and system settings</li>
 <li><strong>RouteForceAction__mdt</strong>: Custom action buttons displayed in marker popups (one record per action)</li>
@@ -1089,7 +1089,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </table>
 
 <h3>3.4 Flow Input Variables</h3>
-<p>RouteForce passes the following input variables to the launched Screen Flow:</p>
+<p>Tourvia passes the following input variables to the launched Screen Flow:</p>
 <table>
 <thead>
 <tr>
@@ -1111,14 +1111,14 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <hr>
 
 <h2 id="flexipage">4. FlexiPage Configuration (App Builder) — Override Path</h2>
-<div class="note"><strong>Since 7.13.0, App Builder properties are an override path, not the primary configuration.</strong> The packaged FlexiPages (<code>RouteForce</code> app page and <code>Lead_Record_Page</code>) ship with <strong>no properties set</strong> — defaults come from <code>RouteForceConfig.Default</code> (see Section 2.7). Configure the FlexiPage properties below <strong>only when you need different filters / colors / popup fields on a specific page</strong> (e.g. a Lead record page that needs a Lead-only filter set instead of the cross-object default).</div>
+<div class="note"><strong>Since 7.13.0, App Builder properties are an override path, not the primary configuration.</strong> The packaged FlexiPages (<code>Tourvia</code> app page and <code>Lead_Record_Page</code>) ship with <strong>no properties set</strong> — defaults come from <code>RouteForceConfig.Default</code> (see Section 2.7). Configure the FlexiPage properties below <strong>only when you need different filters / colors / popup fields on a specific page</strong> (e.g. a Lead record page that needs a Lead-only filter set instead of the cross-object default).</div>
 <p>The properties below take precedence over their CMDT counterparts when set. Leave them blank to inherit from <code>RouteForceConfig.Default</code>. The mapping is one-to-one (see Section 1 — Quick reference map).</p>
-<p>The RouteForce LWC component (<code>routeforce</code>) is fully reusable; you can place it on Record Pages (Account, Lead, Opportunity), custom App Pages, Tabs, the Utility Bar, or in your own Lightning Apps.</p>
+<p>The Tourvia LWC component (<code>routeforce</code>) is fully reusable; you can place it on Record Pages (Account, Lead, Opportunity), custom App Pages, Tabs, the Utility Bar, or in your own Lightning Apps.</p>
 <p><strong>Record Page integration:</strong> When placed on an Account, Lead, or Opportunity record page, the map <strong>automatically centers on the current record</strong> and loads nearby items. This gives field reps a contextual geographic view directly from any record, with no manual search needed.</p>
 <p><strong>Record Page integration:</strong> When placed on an Account, Lead, or Opportunity record page, the map <strong>automatically centers on the current record</strong> and loads nearby items. This gives field reps a contextual geographic view directly from any record, with no manual search needed. The same component properties (filters, legend, popup fields) are available for configuration.</p>
 
 <h3>4.1 Filter Fields Configuration</h3>
-<p>The RouteForce component accepts a <strong>single comma-separated string</strong> of filter field paths: either via the <code>filterFields</code> App Builder property or via <code>FilterFields__c</code> in RouteForceConfig__mdt. There are no numbered slots. Each field path uses one of three syntaxes:</p>
+<p>The Tourvia component accepts a <strong>single comma-separated string</strong> of filter field paths: either via the <code>filterFields</code> App Builder property or via <code>FilterFields__c</code> in RouteForceConfig__mdt. There are no numbered slots. Each field path uses one of three syntaxes:</p>
 <table>
 <thead>
 <tr>
@@ -1165,13 +1165,13 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <p><strong>Option B: via Lightning App Builder</strong> (overrides CMDT):</p>
 <ol>
 <li>Open <strong>Setup > Lightning App Builder</strong></li>
-<li>Find the <strong>RouteForce</strong> page and open it</li>
+<li>Find the <strong>Tourvia</strong> page and open it</li>
 <li>Click <strong>Clone</strong> (or <strong>Save As</strong>) to create your own copy</li>
-<li>Click the RouteForce component, then in the properties panel set the <code>filterFields</code> property to your comma-separated field paths</li>
+<li>Click the Tourvia component, then in the properties panel set the <code>filterFields</code> property to your comma-separated field paths</li>
 <li>Configure any other properties as needed (legend, marker fields, etc.)</li>
-<li>Click <strong>Save</strong>, then <strong>Activation</strong>. Create a custom tab for this page and add it to the RouteForce app via <strong>Setup > App Manager > RouteForce > Edit > Navigation Items</strong>.</li>
+<li>Click <strong>Save</strong>, then <strong>Activation</strong>. Create a custom tab for this page and add it to the Tourvia app via <strong>Setup > App Manager > Tourvia > Edit > Navigation Items</strong>.</li>
 </ol>
-<div class="note"><strong>Note:</strong> The default RouteForce page is part of the managed package and cannot be edited directly. Your cloned page replaces it when added to the app navigation.</div>
+<div class="note"><strong>Note:</strong> The default Tourvia page is part of the managed package and cannot be edited directly. Your cloned page replaces it when added to the app navigation.</div>
 <div class="warning"><strong>Important:</strong> Only Picklist, Multi-Picklist, and Boolean (Checkbox) fields are supported. Text, Number, and Date fields will not render as filters.</div>
 
 <h3>4.4 Legend Configuration</h3>
@@ -1382,7 +1382,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <hr>
 
 <h2 id="address-enrichment">6. Address Enrichment (France Only)</h2>
-<p>RouteForce integrates with the <strong>BAN API</strong> (Base Adresse Nationale) to enrich French addresses with latitude/longitude coordinates.</p>
+<p>Tourvia integrates with the <strong>BAN API</strong> (Base Adresse Nationale) to enrich French addresses with latitude/longitude coordinates.</p>
 
 <h3>6.1 Overview</h3>
 <ul>
@@ -1394,7 +1394,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 
 <h3>6.2 How to Use</h3>
 <ol>
-<li>Navigate to the <strong>Configuration</strong> tab (requires RouteForce Admin permission set)</li>
+<li>Navigate to the <strong>Configuration</strong> tab (requires Tourvia Admin permission set)</li>
 <li>Open the <strong>Address Enrichment</strong> panel</li>
 <li>Select the target object: <strong>Account</strong> or <strong>Lead</strong></li>
 <li>The batch processes <strong>95 records per batch</strong> (hard limit due to Salesforce callout governor limits)</li>
@@ -1440,7 +1440,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <hr>
 
 <h2 id="usage-tracking">7. Usage Tracking</h2>
-<p>When <code>EnableUsageTracking__c</code> is set to <code>true</code>, RouteForce automatically tracks feature usage to help managers understand adoption and identify training needs.</p>
+<p>When <code>EnableUsageTracking__c</code> is set to <code>true</code>, Tourvia automatically tracks feature usage to help managers understand adoption and identify training needs.</p>
 
 <h3>7.1 Tracked Events</h3>
 <table>
@@ -1497,7 +1497,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <li>Feature adoption rates (percentage of users using each feature)</li>
 <li>Check-in completion rates</li>
 </ul>
-<p>Access the dashboard from the <strong>Configuration</strong> tab (requires RouteForce Admin permission set).</p>
+<p>Access the dashboard from the <strong>Configuration</strong> tab (requires Tourvia Admin permission set).</p>
 
 <h3>7.4 Disabling Usage Tracking</h3>
 <p>Set <code>EnableUsageTracking__c</code> to <code>false</code> on the <code>RouteForceConfig__mdt.Default</code> record. This immediately stops all event tracking. Existing aggregated data is retained until manually deleted or purged by the LogPurgeSchedulable job.</p>
@@ -1505,7 +1505,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <hr>
 
 <h2 id="scheduled-jobs">8. Scheduled Jobs</h2>
-<p>RouteForce includes three schedulable Apex jobs, automatically registered by the post-install handler during install or upgrade.</p>
+<p>Tourvia includes three schedulable Apex jobs, automatically registered by the post-install handler during install or upgrade.</p>
 
 <h3>8.1 UsageAggregationSchedulable</h3>
 <table>
@@ -1532,7 +1532,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </table>
 <p>If a job is missing in a damaged org or after manual cleanup, you can restore it via Anonymous Apex:</p>
 <pre><code>System.schedule(
-  'RouteForce Usage Aggregation',
+  'Tourvia Usage Aggregation',
   '0 0 1 * * ?',
   new routeforce.UsageAggregationSchedulable()
 );</code></pre>
@@ -1562,7 +1562,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </table>
 <p>If this job is missing, restore it via Anonymous Apex:</p>
 <pre><code>System.schedule(
-  'RouteForce Log Purge',
+  'Tourvia Log Purge',
   '0 0 2 * * ?',
   new routeforce.LogPurgeSchedulable()
 );</code></pre>
@@ -1592,19 +1592,19 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </table>
 <p>If this job is missing, restore it via Anonymous Apex:</p>
 <pre><code>System.schedule(
-  'RouteForce Usage Purge',
+  'Tourvia Usage Purge',
   '0 0 3 ? * SUN',
   new routeforce.UsagePurgeBatch()
 );</code></pre>
 
-<div class="warning"><strong>Important:</strong> Manual scheduling is normally not required. After install or upgrade, verify the three RouteForce scheduled jobs exist in <strong>Setup &gt; Scheduled Jobs</strong>. Use the Anonymous Apex snippets above only if you need to restore a missing job.</div>
+<div class="warning"><strong>Important:</strong> Manual scheduling is normally not required. After install or upgrade, verify the three Tourvia scheduled jobs exist in <strong>Setup &gt; Scheduled Jobs</strong>. Use the Anonymous Apex snippets above only if you need to restore a missing job.</div>
 
 <hr>
 
 <h2 id="permission-sets">9. Permission Sets</h2>
 
-<h3>9.1 RouteForce Admin</h3>
-<p><strong>Target:</strong> Salesforce Administrators responsible for configuring RouteForce.</p>
+<h3>9.1 Tourvia Admin</h3>
+<p><strong>Target:</strong> Salesforce Administrators responsible for configuring Tourvia.</p>
 <table>
 <thead>
 <tr>
@@ -1627,16 +1627,16 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tr>
 <tr>
 <td><strong>Tabs</strong></td>
-<td>RouteForce, History, Saved Filters, Visit Reports, <strong>Configuration</strong>, <strong>Licence</strong></td>
+<td>Tourvia, History, Saved Filters, Visit Reports, <strong>Configuration</strong>, <strong>Licence</strong></td>
 </tr>
 <tr>
 <td><strong>App</strong></td>
-<td>RouteForce visible</td>
+<td>Tourvia visible</td>
 </tr>
 </tbody>
 </table>
 
-<h3>9.2 RouteForce Manager</h3>
+<h3>9.2 Tourvia Manager</h3>
 <p><strong>Target:</strong> Sales managers and team leads.</p>
 <table>
 <thead>
@@ -1664,17 +1664,17 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tr>
 <tr>
 <td><strong>Tabs</strong></td>
-<td>RouteForce, History, Saved Filters, Visit Reports</td>
+<td>Tourvia, History, Saved Filters, Visit Reports</td>
 </tr>
 <tr>
 <td><strong>App</strong></td>
-<td>RouteForce visible</td>
+<td>Tourvia visible</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Key difference from User:</strong> Managers have <code>viewAllRecords</code> on History__c, VisitReport__c, and RouteForceUsageSummary__c, allowing them to see team activity and reports. They do <strong>not</strong> have access to admin tabs (Configuration, Licence).</p>
 
-<h3>9.3 RouteForce User</h3>
+<h3>9.3 Tourvia User</h3>
 <p><strong>Target:</strong> Sales Reps and field users.</p>
 <table>
 <thead>
@@ -1698,11 +1698,11 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tr>
 <tr>
 <td><strong>Tabs</strong></td>
-<td>RouteForce, History, Saved Filters, Visit Reports</td>
+<td>Tourvia, History, Saved Filters, Visit Reports</td>
 </tr>
 <tr>
 <td><strong>App</strong></td>
-<td>RouteForce visible</td>
+<td>Tourvia visible</td>
 </tr>
 </tbody>
 </table>
@@ -1712,7 +1712,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <p>Via Setup UI:</p>
 <ol>
 <li><strong>Setup > Permission Sets</strong></li>
-<li>Click <strong>RouteForce Admin</strong> or <strong>RouteForce User</strong></li>
+<li>Click <strong>Tourvia Admin</strong> or <strong>Tourvia User</strong></li>
 <li>Click <strong>Manage Assignments > Add Assignments</strong></li>
 <li>Select users > <strong>Assign</strong></li>
 </ol>
@@ -1750,7 +1750,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 </table>
 <p><strong>Geocoding options:</strong></p>
 <ul>
-<li><strong>BAN API enrichment</strong> (France only): built into RouteForce, see <a href="#address-enrichment">Section 6</a></li>
+<li><strong>BAN API enrichment</strong> (France only): built into Tourvia, see <a href="#address-enrichment">Section 6</a></li>
 <li><strong>Salesforce Data.com Clean</strong>: automatic geocoding (requires licence)</li>
 <li><strong>Third-party tools</strong>: Geocodio, Google Geocoding API, or similar batch geocoders</li>
 </ul>
@@ -1760,7 +1760,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <p>Leads use their standard <code>Latitude</code> and <code>Longitude</code> fields (part of the Lead Address compound field).</p>
 
 <h3>10.3 Opportunity Geocoding</h3>
-<p>Opportunities do <strong>not</strong> have their own address. RouteForce uses the <strong>parent Account's address</strong> (via the AccountId relationship). The parent Account must be geocoded.</p>
+<p>Opportunities do <strong>not</strong> have their own address. Tourvia uses the <strong>parent Account's address</strong> (via the AccountId relationship). The parent Account must be geocoded.</p>
 
 <h3>10.4 Events</h3>
 <p>Events appear on the map when they have a <strong>related record</strong> (WhatId or WhoId) with geocoded coordinates. Events without a geocoded related record appear in the calendar panel but not on the map.</p>
@@ -1768,7 +1768,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <hr>
 
 <h2 id="remote-sites">11. Remote Site Settings</h2>
-<p>RouteForce requires callout access to external services:</p>
+<p>Tourvia requires callout access to external services:</p>
 <table>
 <thead>
 <tr>
@@ -1891,7 +1891,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <tbody>
 <tr>
 <td><strong>Licence Key</strong></td>
-<td>RouteForce licence validation</td>
+<td>Tourvia licence validation</td>
 <td><code>InternalConfig__c.LicenceKey__c</code></td>
 </tr>
 <tr>
@@ -1922,7 +1922,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <hr>
 
 <h2 id="onboarding">14. Onboarding Wizard (RF_Onboarding)</h2>
-<p>The onboarding wizard is a Screen Flow accessible from the <strong>Configuration</strong> tab (RouteForce Admin only). It walks through all essential settings in 6 steps.</p>
+<p>The onboarding wizard is a Screen Flow accessible from the <strong>Configuration</strong> tab (Tourvia Admin only). It walks through all essential settings in 6 steps.</p>
 
 <h3>Step 1: API Keys</h3>
 <table>
@@ -1937,7 +1937,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 <tr>
 <td>Licence Key</td>
 <td>Yes</td>
-<td>Your RouteForce licence key (provided by RouteForce support)</td>
+<td>Your Tourvia licence key (provided by Tourvia support)</td>
 </tr>
 <tr>
 <td>ORS API Key</td>
@@ -2711,8 +2711,8 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
   <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-        <img src="/assets/logo-site-brand.png" alt="RouteForce" style="width:28px;height:28px;border-radius:8px;"/>
-        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">RouteForce</span>
+        <img src="/assets/logo-site-brand.png" alt="Tourvia" style="width:28px;height:28px;border-radius:8px;"/>
+        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">Tourvia</span>
       </div>
       <p style="color:#a1a1aa;font-size:0.9rem;line-height:1.6;max-width:280px;margin:0 0 16px;">Salesforce-native route optimization for field sales teams.</p>
       <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:inline-flex;align-items:center;gap:6px;background:#6366f1;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">Install from AppExchange</a>
@@ -2740,7 +2740,7 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
     </div>
   </div>
   <div style="max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e1e22;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#71717a;font-size:0.8rem;">
-    <span>&copy; 2026 RouteForce. All rights reserved.</span>
+    <span>&copy; 2026 Tourvia. All rights reserved.</span>
     <span>Built natively on Salesforce. AppExchange managed package.</span>
   </div>
 </footer>
