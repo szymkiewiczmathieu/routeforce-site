@@ -19,7 +19,7 @@
     <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
     <link rel="stylesheet" href="../style.css">
     <meta property="og:title" content="How to optimize field sales routes in Salesforce (2026 guide)">
-    <meta property="og:site_name" content="RouteForce">
+    <meta property="og:site_name" content="Tourvia">
     <meta property="og:description" content="A practical guide to optimizing field sales routes directly in Salesforce. Plan routes, create visits, execute in the field, and complete reporting without leaving Salesforce.">
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://routeforce.app/blog/optimize-field-sales-routes-salesforce.html">
@@ -35,8 +35,8 @@
 <header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
   <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
     <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
-      <img src="../assets/logo-site-brand.png" alt="RouteForce" style="width:32px;height:32px;border-radius:10px;flex-shrink:0;"/>
-      <span style="font-size:1.125rem;font-weight:700;letter-spacing:-0.02em;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">RouteForce</span>
+      <img src="../assets/logo-site-brand.png" alt="Tourvia" style="width:32px;height:32px;border-radius:10px;flex-shrink:0;"/>
+      <span style="font-size:1.125rem;font-weight:700;letter-spacing:-0.02em;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tourvia</span>
     </a>
     <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.95rem;white-space:nowrap;">
       <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
@@ -80,14 +80,14 @@
             <span>7 min read</span>
         </div>
         <h1>How to optimize field sales routes in Salesforce (2026 guide)</h1>
-        <p class="blog-hero-summary">Your reps already live in Salesforce. Their routes should too. This guide walks through the problem, what to look for in a route planning tool, and a concrete step-by-step workflow using RouteForce.</p>
+        <p class="blog-hero-summary">Your reps already live in Salesforce. Their routes should too. This guide walks through the problem, what to look for in a route planning tool, and a concrete step-by-step workflow using Tourvia.</p>
       </div>
       <aside class="blog-hero-sidecard blog-hero-sidecard-muted">
         <div class="blog-hero-sidecard-label">Quick access</div>
         <div class="blog-hero-sidecard-title">Stay close to the buying path</div>
-        <p class="blog-hero-sidecard-copy">Use the article for context, then jump straight into pricing, product positioning, or AppExchange install when you want to evaluate RouteForce seriously.</p>
+        <p class="blog-hero-sidecard-copy">Use the article for context, then jump straight into pricing, product positioning, or AppExchange install when you want to evaluate Tourvia seriously.</p>
         <div class="blog-hero-linklist">
-          <a href="../pricing.html">See RouteForce pricing</a>
+          <a href="../pricing.html">See Tourvia pricing</a>
           <a href="../salesforce-route-planning.html">Explore route planning</a>
           <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Install from AppExchange</a>
         </div>
@@ -126,19 +126,19 @@
         <p>An external tool (standalone web app, mobile app outside Salesforce) means another login, another data sync, another vendor to manage. A <strong>Salesforce-native tool</strong> reads your CRM data directly, writes events back to the calendar, and respects your sharing rules. That usually means less manual export work and fewer moving parts for admins.</p>
 
         <h3>Per-user pricing vs. flat pricing</h3>
-        <p>Most route optimization tools charge per user per month. At $50-75 or more per user, the math gets painful fast for a 20-person team. Look for <strong>flat org-level pricing</strong> that covers your entire team regardless of size. RouteForce, for example, is priced at a flat rate per Salesforce org, not per seat.</p>
+        <p>Most route optimization tools charge per user per month. At $50-75 or more per user, the math gets painful fast for a 20-person team. Look for <strong>flat org-level pricing</strong> that covers your entire team regardless of size. Tourvia, for example, is priced at a flat rate per Salesforce org, not per seat.</p>
 
         <h3>Optimization quality</h3>
-        <p>Some tools just plot pins on a map and call it "route planning." Real optimization means the tool calculates the best stop sequence based on travel time, time windows, traffic patterns, and constraints like visit duration, lunch breaks, and territory priorities. RouteForce uses the VROOM optimization engine, an open-source vehicle routing solver that handles multi-stop sequencing with real-world road data and supports worldwide routing out of the box.</p>
+        <p>Some tools just plot pins on a map and call it "route planning." Real optimization means the tool calculates the best stop sequence based on travel time, time windows, traffic patterns, and constraints like visit duration, lunch breaks, and territory priorities. Tourvia uses the VROOM optimization engine, an open-source vehicle routing solver that handles multi-stop sequencing with real-world road data and supports worldwide routing out of the box.</p>
 
         <h3>Closed-loop reporting</h3>
         <p>Planning a route is only half the job. The tool should also handle GPS check-ins, visit reports, and Salesforce Event creation so managers can measure what actually happened, not just what was planned.</p>
 
-        <h2>Step by step: planning an optimized day with RouteForce</h2>
+        <h2>Step by step: planning an optimized day with Tourvia</h2>
         <p>Here is how a rep or manager goes from "I need to visit these accounts" to "my optimized day is in my calendar" in under 5 minutes.</p>
 
         <h3>1. Filter accounts on the map</h3>
-        <p>Open RouteForce from the Salesforce app launcher. The map loads your accounts (or leads, contacts, or any object with an address). Use list views and filters to narrow down: territory, last visit date, opportunity stage, account type. Only the relevant pins appear on the map.</p>
+        <p>Open Tourvia from the Salesforce app launcher. The map loads your accounts (or leads, contacts, or any object with an address). Use list views and filters to narrow down: territory, last visit date, opportunity stage, account type. Only the relevant pins appear on the map.</p>
 
         <h3>2. Select your stops</h3>
         <p>Click individual pins to add them to your route, or use the <strong>lasso tool</strong> to draw a selection around a geographic area. You can also select stops directly from the list panel. The route panel shows your selected stops in real time.</p>
@@ -153,21 +153,21 @@
         </ul>
 
         <h3>4. Optimize and preview</h3>
-        <p>Hit the optimize button. RouteForce sends the stops and constraints to the VROOM routing engine, which calculates the optimal visit sequence considering real road distances and travel times. The result appears on the map as a reordered route with estimated arrival times and total driving time. You can drag stops to adjust manually if needed.</p>
+        <p>Hit the optimize button. Tourvia sends the stops and constraints to the VROOM routing engine, which calculates the optimal visit sequence considering real road distances and travel times. The result appears on the map as a reordered route with estimated arrival times and total driving time. You can drag stops to adjust manually if needed.</p>
 
         <h3>5. Create Salesforce Events in bulk</h3>
         <p>Once you are satisfied with the route, one click creates a <strong>Salesforce Event for each stop</strong> with the correct time, duration, and account association. No manual data entry. The events appear in the rep's Salesforce calendar and in any reporting dashboard you have built.</p>
 
         <h3>6. Export to Google Maps and go mobile</h3>
-        <p>For actual turn-by-turn navigation, RouteForce exports the optimized stop sequence directly to <strong>Google Maps</strong> on the rep's phone. The rep taps the export button, Google Maps opens with all stops pre-loaded in the right order, and they start driving. Since field reps spend most of their day in the field rather than at a desk, this mobile-first handoff is critical. The entire execute-and-report loop happens from the phone, not from a laptop back at the office.</p>
+        <p>For actual turn-by-turn navigation, Tourvia exports the optimized stop sequence directly to <strong>Google Maps</strong> on the rep's phone. The rep taps the export button, Google Maps opens with all stops pre-loaded in the right order, and they start driving. Since field reps spend most of their day in the field rather than at a desk, this mobile-first handoff is critical. The entire execute-and-report loop happens from the phone, not from a laptop back at the office.</p>
 
         <h2>GPS check-in and visit reports: closing the loop</h2>
-        <p>Planning is only valuable if you can verify execution. Check-in/check-out with GPS verification is becoming the standard for field execution tracking, and RouteForce builds this in natively. The GPS check-in feature records when and where a rep arrived at each stop, and the check-in data is written back to Salesforce as a record linked to the account.</p>
-        <p>After each visit, reps can fill in a <strong>visit report</strong> directly from the RouteForce interface. Since RouteForce supports Salesforce Screen Flows and Lightning Web Components as custom actions, you can embed any business form (shelf audit, order entry, competitor pricing survey) directly in the visit workflow.</p>
+        <p>Planning is only valuable if you can verify execution. Check-in/check-out with GPS verification is becoming the standard for field execution tracking, and Tourvia builds this in natively. The GPS check-in feature records when and where a rep arrived at each stop, and the check-in data is written back to Salesforce as a record linked to the account.</p>
+        <p>After each visit, reps can fill in a <strong>visit report</strong> directly from the Tourvia interface. Since Tourvia supports Salesforce Screen Flows and Lightning Web Components as custom actions, you can embed any business form (shelf audit, order entry, competitor pricing survey) directly in the visit workflow.</p>
         <p>The result: every visit has a timestamp, a GPS coordinate, and a structured report. No more "trust me, I visited 8 accounts today."</p>
 
         <h2>Measuring results with native dashboards</h2>
-        <p>Because RouteForce writes data back to standard Salesforce objects (Events, custom objects for check-ins), you can build dashboards with native Salesforce reporting tools. No external BI tool required.</p>
+        <p>Because Tourvia writes data back to standard Salesforce objects (Events, custom objects for check-ins), you can build dashboards with native Salesforce reporting tools. No external BI tool required.</p>
         <p>Useful metrics to track:</p>
         <ul>
             <li><strong>Visits per rep per week</strong> (are they increasing?)</li>
@@ -179,12 +179,12 @@
         <p>These dashboards give sales managers the visibility they need without adding any reporting burden to the reps themselves.</p>
 
         <h2>Getting started</h2>
-        <p>RouteForce is available on the Salesforce AppExchange. Install the free app, explore the interface, then unlock premium features with a RouteForce licence. Installation takes about 5 minutes, and the setup guide walks you through permission sets, map configuration, and your first optimized route.</p>
+        <p>Tourvia is available on the Salesforce AppExchange. Install the free app, explore the interface, then unlock premium features with a Tourvia licence. Installation takes about 5 minutes, and the setup guide walks you through permission sets, map configuration, and your first optimized route.</p>
         <p>Start with the free app on AppExchange, then unlock premium route optimization at <strong>&euro;599/month per org</strong> for Salesforce orgs with up to 20 users. Larger deployments are quoted separately.</p>
 
         <div class="blog-cta">
             <h3>Ready to stop wasting time on manual route planning?</h3>
-            <p>Install RouteForce from the AppExchange and give your field team optimized routes inside Salesforce.</p>
+            <p>Install Tourvia from the AppExchange and give your field team optimized routes inside Salesforce.</p>
             <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn-cta-primary">Install from AppExchange</a>
             <a href="../salesforce-route-planning.html" class="btn-cta-secondary">See route planning</a>
         </div>
@@ -196,8 +196,8 @@
   <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-        <img src="/assets/logo-site-brand.png" alt="RouteForce" style="width:28px;height:28px;border-radius:8px;"/>
-        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">RouteForce</span>
+        <img src="/assets/logo-site-brand.png" alt="Tourvia" style="width:28px;height:28px;border-radius:8px;"/>
+        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">Tourvia</span>
       </div>
       <p style="color:#a1a1aa;font-size:0.9rem;line-height:1.6;max-width:280px;margin:0 0 16px;">Salesforce-native route optimization for field sales teams.</p>
       <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:inline-flex;align-items:center;gap:6px;background:#6366f1;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">Install from AppExchange</a>
@@ -225,7 +225,7 @@
     </div>
   </div>
   <div style="max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e1e22;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#71717a;font-size:0.8rem;">
-    <span>&copy; 2026 RouteForce. All rights reserved.</span>
+    <span>&copy; 2026 Tourvia. All rights reserved.</span>
     <span>Built natively on Salesforce. AppExchange managed package.</span>
   </div>
 </footer>
@@ -239,7 +239,7 @@ document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail
 });
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to optimize field sales routes in Salesforce (2026 guide)","description":"A practical guide to optimizing field sales routes in Salesforce. Plan routes, create visits, execute, and report, all without leaving Salesforce.","author":{"@type":"Organization","name":"RouteForce"},"publisher":{"@type":"Organization","name":"RouteForce","url":"https://routeforce.app"},"datePublished":"2026-04-03","image":"https://routeforce.app/assets/screenshots-2026/screen-01.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://routeforce.app/blog/optimize-field-sales-routes-salesforce.html"}}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to optimize field sales routes in Salesforce (2026 guide)","description":"A practical guide to optimizing field sales routes in Salesforce. Plan routes, create visits, execute, and report, all without leaving Salesforce.","author":{"@type":"Organization","name":"Tourvia"},"publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"},"datePublished":"2026-04-03","image":"https://routeforce.app/assets/screenshots-2026/screen-01.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://routeforce.app/blog/optimize-field-sales-routes-salesforce.html"}}
 </script>
 </body>
 </html>

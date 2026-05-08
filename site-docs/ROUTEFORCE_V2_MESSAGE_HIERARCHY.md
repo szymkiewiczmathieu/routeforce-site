@@ -1,4 +1,4 @@
-# RouteForce v2 — Message Hierarchy
+# Tourvia v2 — Message Hierarchy
 
 Updated: 2026-04-02
 Source basis: current root site + validated product claims confirmed by routeforce-dev.
@@ -8,7 +8,7 @@ Source basis: current root site + validated product claims confirmed by routefor
 **Plan routes, create visits, execute in the field, and complete reporting — without leaving Salesforce.**
 
 Expanded version:
-RouteForce helps field teams plan routes, create visits and events, execute check-in/check-out, and complete visit reporting inside Salesforce, with fixed org pricing instead of per-user licences.
+Tourvia helps field teams plan routes, create visits and events, execute check-in/check-out, and complete visit reporting inside Salesforce, with fixed org pricing instead of per-user licences.
 
 ## 2. The three repeatable proof pillars
 
@@ -61,7 +61,7 @@ Angle: native Salesforce field execution with fixed org pricing.
 Angle: pricing that scales with the org, not with seat count.
 
 ### use-cases.html
-Angle: where RouteForce creates the most value for Salesforce field teams.
+Angle: where Tourvia creates the most value for Salesforce field teams.
 
 ### salesforce-route-planning.html
 Angle: route planning inside Salesforce, not outside the CRM.

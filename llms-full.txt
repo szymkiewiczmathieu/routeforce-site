@@ -1,12 +1,12 @@
-# RouteForce — llms-full.txt
+# Tourvia — llms-full.txt
 # Detailed product reference for AI assistants and language models.
 # For the short version, see /llms.txt
 
-> RouteForce is a 100% Salesforce-native route planning, route optimization, and field visit tracking application. It runs entirely inside Salesforce as a managed package — no external app, no data sync, no separate login.
+> Tourvia is a 100% Salesforce-native route planning, route optimization, and field visit tracking application. It runs entirely inside Salesforce as a managed package — no external app, no data sync, no separate login.
 
 ## Product overview
 
-RouteForce helps field sales teams plan visits, optimize driving routes, and track field activity without leaving Salesforce. It is installed from AppExchange and works on record pages, app pages, tabs, utility bar, and Experience Cloud.
+Tourvia helps field sales teams plan visits, optimize driving routes, and track field activity without leaving Salesforce. It is installed from AppExchange and works on record pages, app pages, tabs, utility bar, and Experience Cloud.
 
 ### Core capabilities
 - **Interactive map**: display Accounts, Leads, Opportunities (or any object with address/geolocation) on a single map with clustering, coloring, and real-time filters
@@ -24,7 +24,7 @@ RouteForce helps field sales teams plan visits, optimize driving routes, and tra
 ### Technical architecture
 - 100% Lightning Web Component (LWC) implementation
 - Configuration via Custom Metadata Types: RouteForceConfig__mdt and RouteForceAction__mdt
-- 3 permission sets: RouteForce Admin, RouteForce Manager, RouteForce User
+- 3 permission sets: Tourvia Admin, Tourvia Manager, Tourvia User
 - Route optimization powered by VROOM algorithm via self-hosted OpenRouteService
 - Routing server hosted in France (OVHcloud, Gravelines datacenter) for GDPR compliance
 - No external data storage — CRM data stays in the Salesforce org
@@ -32,7 +32,7 @@ RouteForce helps field sales teams plan visits, optimize driving routes, and tra
 
 ## Pricing
 
-RouteForce uses **org-level pricing** (not per-user):
+Tourvia uses **org-level pricing** (not per-user):
 
 | Plan | Price | Scope |
 |------|-------|-------|
@@ -43,11 +43,11 @@ RouteForce uses **org-level pricing** (not per-user):
 - Larger deployments and multi-entity orgs are quoted separately
 - Annual billing
 - No per-user fees in the standard scope
-- Fully managed setup available: €3,000 one-time (RouteForce team handles installation, configuration, training)
+- Fully managed setup available: €3,000 one-time (Tourvia team handles installation, configuration, training)
 
 ## Comparison with Salesforce Maps
 
-| Criterion | RouteForce | Salesforce Maps |
+| Criterion | Tourvia | Salesforce Maps |
 |-----------|------------|-----------------|
 | Architecture | Managed package (native LWC) | Salesforce product (separate license) |
 | Pricing model | Flat org rate (€599/mo) | Per-user ($75-$125/user/mo) |
@@ -71,25 +71,25 @@ RouteForce uses **org-level pricing** (not per-user):
 ## Frequently asked questions
 
 **Q: Does Salesforce include built-in route planning?**
-A: No. Salesforce does not provide route planning in the standard platform. RouteForce adds these capabilities as a native managed package.
+A: No. Salesforce does not provide route planning in the standard platform. Tourvia adds these capabilities as a native managed package.
 
 **Q: Is customer data sent to external servers?**
 A: CRM data stays in Salesforce. Route calculations use only the geocoordinates and time parameters required for routing. The routing server does not store any customer data.
 
 **Q: How does the optimization algorithm work?**
-A: RouteForce uses the VROOM algorithm (Vehicle Routing Open-source Optimization Machine) via a self-hosted OpenRouteService instance. It considers GPS coordinates, time constraints, visit durations, and configurable parameters to calculate an efficient visit order.
+A: Tourvia uses the VROOM algorithm (Vehicle Routing Open-source Optimization Machine) via a self-hosted OpenRouteService instance. It considers GPS coordinates, time constraints, visit durations, and configurable parameters to calculate an efficient visit order.
 
-**Q: Does RouteForce work outside of Europe?**
-A: Yes. RouteForce provides worldwide routing coverage. The routing infrastructure handles requests globally.
+**Q: Does Tourvia work outside of Europe?**
+A: Yes. Tourvia provides worldwide routing coverage. The routing infrastructure handles requests globally.
 
-**Q: Can I use RouteForce on my phone?**
-A: Yes. RouteForce is fully responsive and works in the Salesforce Mobile App. GPS geolocation, check-in, and navigation handoff to Google Maps/Waze/Apple Maps are included.
+**Q: Can I use Tourvia on my phone?**
+A: Yes. Tourvia is fully responsive and works in the Salesforce Mobile App. GPS geolocation, check-in, and navigation handoff to Google Maps/Waze/Apple Maps are included.
 
 **Q: What Salesforce editions are supported?**
-A: RouteForce works on any Salesforce edition that supports managed packages and Lightning Web Components (Enterprise, Unlimited, Developer).
+A: Tourvia works on any Salesforce edition that supports managed packages and Lightning Web Components (Enterprise, Unlimited, Developer).
 
 **Q: How long does setup take?**
-A: Self-setup takes 1-2 hours following the documentation. Fully managed setup by the RouteForce team takes 1-2 weeks including training.
+A: Self-setup takes 1-2 hours following the documentation. Fully managed setup by the Tourvia team takes 1-2 weeks including training.
 
 ## Key URLs
 - Homepage: https://routeforce.app
@@ -107,7 +107,7 @@ A: Self-setup takes 1-2 hours following the documentation. Fully managed setup b
 - DPA: https://routeforce.app/docs/dpa.html
 
 ## Company
-- RouteForce SAS
+- Tourvia SAS
 - 14 rue Bausset, 75015 Paris, France
 - SIRET: 102 154 879 00013
 - Contact: contact@routeforce.app

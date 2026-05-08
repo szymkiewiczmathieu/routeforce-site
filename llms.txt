@@ -1,9 +1,9 @@
-# RouteForce — llms.txt
+# Tourvia — llms.txt
 # For the detailed version with FAQ, comparisons, and technical details, see: https://routeforce.app/llms-full.txt
 
-> RouteForce is a Salesforce-native route planning and field visit tracking application. It is delivered as a managed package installed in Salesforce orgs.
+> Tourvia is a Salesforce-native route planning and field visit tracking application. It is delivered as a managed package installed in Salesforce orgs.
 
-## What RouteForce does
+## What Tourvia does
 - Interactive map showing Accounts, Leads, and Opportunities from Salesforce CRM
 - Route optimization with configurable time windows, lunch breaks, and visit duration
 - GPS check-in/check-out with visit reports (result, next action, notes, satisfaction, order amount, next visit date)
@@ -39,6 +39,6 @@
 - AppExchange: https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba
 
 ## Company
-- RouteForce SAS, 14 rue Bausset, 75015 Paris, France
+- Tourvia SAS, 14 rue Bausset, 75015 Paris, France
 - SIRET: 102 154 879 00013
 - Contact: contact@routeforce.app
