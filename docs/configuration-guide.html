@@ -7,7 +7,7 @@
   <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html" />
   <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/configuration-guide.html" />
   <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/configuration-guide.html" />
-  <title>Tourvia Configuration Guide | V1.0.0-1</title>
+  <title>Tourvia Configuration Guide | V1.2.0-1</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -77,19 +77,19 @@
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
   </style>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="Tourvia V1.0.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
+    <meta name="description" content="Tourvia V1.2.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
   <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html">
-  <meta property="og:title" content="Tourvia Configuration Guide | V1.0.0-1">
+  <meta property="og:title" content="Tourvia Configuration Guide | V1.2.0-1">
   <meta property="og:site_name" content="Tourvia">
   <meta property="og:description" content="Advanced admin guide for RouteForceConfig__mdt and RouteForceAction__mdt configuration.">
   <meta property="og:url" content="https://routeforce.app/docs/configuration-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Tourvia Configuration Guide | V1.0.0-1"/>
-  <meta name="twitter:description" content="Tourvia V1.0.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
+  <meta name="twitter:title" content="Tourvia Configuration Guide | V1.2.0-1"/>
+  <meta name="twitter:description" content="Tourvia V1.2.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Configuration Guide | V1.0.0-1","url":"https://routeforce.app/docs/configuration-guide.html","description":"Tourvia V1.0.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Configuration Guide | V1.2.0-1","url":"https://routeforce.app/docs/configuration-guide.html","description":"Tourvia V1.2.0-1 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -155,16 +155,16 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">Tourvia for Salesforce</div></div>
-        <div class="card"><div class="label">Version</div><div class="value">V1.0.0-1 | May 2026</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">V1.2.0-1 | May 2026</div></div>
         <div class="card"><div class="label">Audience</div><div class="value">Salesforce Administrators</div></div>
       </div>
     </div>
     <div class="cover-footer">Tourvia for Salesforce | Advanced Configuration Reference | contact@routeforce.app</div>
   </section>
   <main class="content">
-    <div class="note"><strong>What's new in V1.0.0-1 — CMDT-first configuration.</strong> Map legend, marker colors, popup fields, and multi-select filters are now configured in <strong>Custom Metadata Types</strong> (<code>RouteForceConfig.Default</code>) instead of FlexiPage / App Builder properties. The packaged FlexiPages ship with no default properties set — they pull from CMDT. The App Builder path is still supported as a per-page override (see <a href="#flexipage">Section 4 — FlexiPage Configuration</a>). Migration is automatic for fresh installs and backward-compatible for existing subscribers (see Migration Notes below).</div>
-    <div class="note"><strong>Tourvia V1.0.0-1: Configuration Guide.</strong> This document covers the two-layer configuration model (CMDT-first + App Builder override), deployment patterns, the complete field reference for RouteForceConfig__mdt (44 fields) and RouteForceAction__mdt, and ready-to-use configuration presets.</div>
-    <p><strong>Version:</strong> V1.0.0-1 | May 2026<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> Tourvia for Salesforce (managed package)</p>
+    <div class="note"><strong>What's new in V1.2.0-1 — CMDT-first configuration.</strong> Map legend, marker colors, popup fields, and multi-select filters are now configured in <strong>Custom Metadata Types</strong> (<code>RouteForceConfig.Default</code>) instead of FlexiPage / App Builder properties. The packaged FlexiPages ship with no default properties set — they pull from CMDT. The App Builder path is still supported as a per-page override (see <a href="#flexipage">Section 4 — FlexiPage Configuration</a>). Migration is automatic for fresh installs and backward-compatible for existing subscribers (see Migration Notes below).</div>
+    <div class="note"><strong>Tourvia V1.2.0-1: Configuration Guide.</strong> This document covers the two-layer configuration model (CMDT-first + App Builder override), deployment patterns, the complete field reference for RouteForceConfig__mdt (44 fields) and RouteForceAction__mdt, and ready-to-use configuration presets.</div>
+    <p><strong>Version:</strong> V1.2.0-1 | May 2026<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> Tourvia for Salesforce (managed package)</p>
 
 <h2>Table of Contents</h2>
 <ol>
@@ -175,7 +175,7 @@
 <li><a href="#architecture">Configuration Architecture</a></li>
 <li><a href="#config-mdt">RouteForceConfig__mdt: Complete Field Reference (44 fields)</a></li>
 <li><a href="#action-mdt">RouteForceAction__mdt: Custom Actions Reference</a></li>
-<li><a href="#event-default-mdt">RouteForceEventDefault__mdt: Event Field Defaults</a> <span style="color:#9099ff;font-size:0.85em;">NEW V1.1.0</span></li>
+<li><a href="#event-default-mdt">RouteForceEventDefault__mdt: Event Field Defaults</a> <span style="color:#9099ff;font-size:0.85em;">NEW V1.2.0</span></li>
 <li><a href="#flexipage">FlexiPage Configuration (App Builder)</a></li>
 <li><a href="#shared-filters">Shared Filters (SavedFilter__c)</a></li>
 <li><a href="#address-enrichment">Address Enrichment (France only)</a></li>
@@ -1111,9 +1111,9 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 
 <hr>
 
-<h2 id="event-default-mdt">3.bis RouteForceEventDefault__mdt: Event Field Defaults <span style="color:#9099ff;font-size:0.7em;">NEW in V1.1.0</span></h2>
+<h2 id="event-default-mdt">3.bis RouteForceEventDefault__mdt: Event Field Defaults <span style="color:#9099ff;font-size:0.7em;">NEW in V1.2.0</span></h2>
 
-<p>When a user saves a tournée from route mode, Tourvia inserts Salesforce <code>Event</code> records. If your org has <strong>validation rules requiring custom Event fields</strong> (e.g. <code>Motif__c</code>, <code>Type_Evenement__c</code>, <code>Categorie__c</code>…), the insert is rejected by the VR. With V1.1.0, Tourvia surfaces a clear error toast with the VR message instead of the previous misleading "All visits already exist" warning, and provides this CMDT so admins can pre-fill those required fields without touching code.</p>
+<p>When a user saves a tournée from route mode, Tourvia inserts Salesforce <code>Event</code> records. If your org has <strong>validation rules requiring custom Event fields</strong> (e.g. <code>Motif__c</code>, <code>Type_Evenement__c</code>, <code>Categorie__c</code>…), the insert is rejected by the VR. With V1.2.0, Tourvia surfaces a clear error toast with the VR message instead of the previous misleading "All visits already exist" warning, and provides this CMDT so admins can pre-fill those required fields without touching code.</p>
 
 <p>Edit in <strong>Setup → Custom Metadata Types → Tourvia Event Default → Manage Records</strong>. Create one record per Event field to pre-fill.</p>
 
@@ -1142,7 +1142,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <tr><td><code>Type_Evenement_Default</code></td><td><code>Type_Evenement__c</code></td><td><code>RDV physique</code></td><td>✓</td></tr>
 </tbody>
 </table>
-<div class="note">These records are <strong>subscriber-controlled</strong> (<code>protected=false</code>) — edit, disable or delete them freely. They are <strong>no-ops if your org doesn't have those fields on Event</strong>, so installing V1.1.0 is safe regardless of your Event schema.</div>
+<div class="note">These records are <strong>subscriber-controlled</strong> (<code>protected=false</code>) — edit, disable or delete them freely. They are <strong>no-ops if your org doesn't have those fields on Event</strong>, so installing V1.2.0 is safe regardless of your Event schema.</div>
 
 <h3>What happens if a VR still blocks the insert</h3>
 <p>If a validation rule rejects the Event despite the defaults (e.g. unrelated VR, or a <code>DefaultValue</code> that doesn't match a restricted picklist value), the user now gets an explicit <strong>error toast</strong> with the actual server message — they (or their admin) can act on it. The same message is logged in <code>RouteForceLog__c</code>.</p>
