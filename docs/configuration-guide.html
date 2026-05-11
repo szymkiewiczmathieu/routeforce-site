@@ -175,6 +175,7 @@
 <li><a href="#architecture">Configuration Architecture</a></li>
 <li><a href="#config-mdt">RouteForceConfig__mdt: Complete Field Reference (44 fields)</a></li>
 <li><a href="#action-mdt">RouteForceAction__mdt: Custom Actions Reference</a></li>
+<li><a href="#event-default-mdt">RouteForceEventDefault__mdt: Event Field Defaults</a> <span style="color:#9099ff;font-size:0.85em;">NEW V1.1.0</span></li>
 <li><a href="#flexipage">FlexiPage Configuration (App Builder)</a></li>
 <li><a href="#shared-filters">Shared Filters (SavedFilter__c)</a></li>
 <li><a href="#address-enrichment">Address Enrichment (France only)</a></li>
@@ -1107,6 +1108,44 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tbody>
 </table>
 <div class="note"><strong>Tip:</strong> Design your Screen Flows to accept a <code>recordId</code> input variable of type Text. Use a Get Records element to retrieve the full record at the start of the Flow.</div>
+
+<hr>
+
+<h2 id="event-default-mdt">3.bis RouteForceEventDefault__mdt: Event Field Defaults <span style="color:#9099ff;font-size:0.7em;">NEW in V1.1.0</span></h2>
+
+<p>When a user saves a tournée from route mode, Tourvia inserts Salesforce <code>Event</code> records. If your org has <strong>validation rules requiring custom Event fields</strong> (e.g. <code>Motif__c</code>, <code>Type_Evenement__c</code>, <code>Categorie__c</code>…), the insert is rejected by the VR. With V1.1.0, Tourvia surfaces a clear error toast with the VR message instead of the previous misleading "All visits already exist" warning, and provides this CMDT so admins can pre-fill those required fields without touching code.</p>
+
+<p>Edit in <strong>Setup → Custom Metadata Types → Tourvia Event Default → Manage Records</strong>. Create one record per Event field to pre-fill.</p>
+
+<table>
+<thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>FieldApiName__c</code></td><td>Text(255)</td><td>yes</td><td>API name of the custom Event field to fill (e.g. <code>Motif__c</code>). If the field does not exist in your org, the record is silently skipped (no error, logged in <code>RouteForceLog__c</code>).</td></tr>
+<tr><td><code>DefaultValue__c</code></td><td>Text(255)</td><td>yes</td><td>Value to assign. For picklists, use the exact API name of a value. For dates <code>yyyy-MM-dd</code>, datetimes <code>yyyy-MM-dd HH:mm:ss</code>, booleans <code>true</code>/<code>false</code>.</td></tr>
+<tr><td><code>IsActive__c</code></td><td>Boolean</td><td>—</td><td>Uncheck to disable a default without deleting it.</td></tr>
+</tbody>
+</table>
+
+<h3>How it works</h3>
+<p>Just before inserting Events from route mode, <code>RouteService.applyEventDefaults</code> reads all <strong>active</strong> records of this CMDT. For each record:</p>
+<ol>
+<li>Looks up <code>FieldApiName__c</code> on the <code>Event</code> SObject</li>
+<li>If the field exists and the Event has no value set → assigns <code>DefaultValue__c</code> (with type coercion: picklist/text → string, date → Date, etc.)</li>
+<li>If the field doesn't exist → logs a warning in <code>RouteForceLog__c</code> and <strong>continues</strong> (zero impact on event creation in orgs without those fields)</li>
+</ol>
+
+<h3>Default records shipped with the package</h3>
+<table>
+<thead><tr><th>Record DeveloperName</th><th>FieldApiName</th><th>DefaultValue</th><th>Active</th></tr></thead>
+<tbody>
+<tr><td><code>Motif_Default</code></td><td><code>Motif__c</code></td><td><code>Produit</code></td><td>✓</td></tr>
+<tr><td><code>Type_Evenement_Default</code></td><td><code>Type_Evenement__c</code></td><td><code>RDV physique</code></td><td>✓</td></tr>
+</tbody>
+</table>
+<div class="note">These records are <strong>subscriber-controlled</strong> (<code>protected=false</code>) — edit, disable or delete them freely. They are <strong>no-ops if your org doesn't have those fields on Event</strong>, so installing V1.1.0 is safe regardless of your Event schema.</div>
+
+<h3>What happens if a VR still blocks the insert</h3>
+<p>If a validation rule rejects the Event despite the defaults (e.g. unrelated VR, or a <code>DefaultValue</code> that doesn't match a restricted picklist value), the user now gets an explicit <strong>error toast</strong> with the actual server message — they (or their admin) can act on it. The same message is logged in <code>RouteForceLog__c</code>.</p>
 
 <hr>
 
