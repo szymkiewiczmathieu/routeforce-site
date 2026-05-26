@@ -13,7 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Native Salesforce Integration | Tourvia</title>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="Tourvia is a Salesforce-native component for record pages, app pages, tabs, utility bar, and Experience Cloud. No-code setup.">
+    <meta name="description" content="Tourvia is a Salesforce-native component for Account, Lead, Opportunity, and Campaign pages, plus app pages, tabs, utility bar, and Experience Cloud. No-code setup.">
   <link rel="canonical" href="https://routeforce.app/native-integration-salesforce.html">
   <link rel="alternate" hreflang="en" href="https://routeforce.app/native-integration-salesforce.html">
   <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
@@ -76,9 +76,9 @@
       <div class="premium-hero-copy">
         <div class="premium-hero-kicker">Native integration</div>
         <h1>Tourvia works where Salesforce teams already work</h1>
-        <p class="premium-hero-lead">Tourvia is not only a managed package you install. It is a Salesforce-native component that admins can place, configure, and adapt across record pages, app pages, home pages, tabs, utility bar, and Experience Cloud, without custom code.</p>
+        <p class="premium-hero-lead">Tourvia is not only a managed package you install. It is a Salesforce-native component that admins can place, configure, and adapt across Account, Lead, Opportunity, and Campaign record pages, app pages, home pages, tabs, utility bar, and Experience Cloud, without custom code.</p>
         <div class="premium-bullets">
-          <div class="premium-bullet"><span>•</span><span><strong>Deployment story:</strong> it works inside the org instead of adding another disconnected operational layer.</span></div>
+        <div class="premium-bullet"><span>•</span><span><strong>Deployment story:</strong> it works inside the org instead of adding another disconnected operational layer, including Campaign Member mapping from Campaign pages.</span></div>
           <div class="premium-bullet"><span>•</span><span><strong>Admin workflow:</strong> behavior lives in metadata, while presentation stays manageable in Lightning App Builder.</span></div>
           <div class="premium-bullet"><span>•</span><span><strong>Buying logic:</strong> native placement and reusable workflow logic make rollout easier to defend for real Salesforce teams.</span></div>
         </div>
@@ -90,7 +90,7 @@
       <div class="premium-hero-rail">
         <div class="premium-hero-card primary">
           <div class="premium-hero-card-label">Placement flexibility</div>
-          <div class="premium-hero-card-title">Record pages, app pages, tabs, utility bar, and Experience Cloud</div>
+          <div class="premium-hero-card-title">Record pages, Campaign pages, app pages, tabs, utility bar, and Experience Cloud</div>
           <div class="premium-hero-card-copy">The product can sit close to the exact Salesforce workflow where planning and execution already happen, instead of forcing reps into a separate product context.</div>
         </div>
         <div class="premium-hero-card-grid">
@@ -113,7 +113,7 @@
 <section class="blog-content" style="padding:60px 0 100px;">
   <div class="container" style="max-width:900px;">
     <h2>Record page integration without workflow disruption</h2>
-    <p>The Tourvia component can be placed directly on Account, Lead, or Opportunity pages. The map centers automatically on the current record geolocation and loads nearby records, so reps get a contextual geographic view directly from the record they are already using.</p>
+    <p>The Tourvia component can be placed directly on Account, Lead, Opportunity, or Campaign pages. On Account, Lead, and Opportunity pages, the map centers automatically on the current record geolocation and loads nearby records, so reps get a contextual geographic view directly from the record they are already using. On Campaign pages, Tourvia can display the campaign's members on the map.</p>
     <p>That means the user does not need to leave the record workflow just to understand geographic context or nearby accounts.</p>
 
     <h2>Two layers of configuration, no code required</h2>
@@ -126,7 +126,7 @@
 
     <h2>Managed package, then adaptable where the team already operates</h2>
     <p>The package installs cleanly, then admins can adapt pages, layouts, and reporting surfaces to match the reality of the org instead of forcing teams into a disconnected tool.</p>
-    <p>Tourvia is exposed for <strong>Account, Lead, and Opportunity record pages</strong>, and can also be placed on <strong>Lightning App Pages, Home Pages, Tabs, the Utility Bar, and Experience Cloud pages</strong>.</p>
+    <p>Tourvia is exposed for <strong>Account, Lead, Opportunity, and Campaign record pages</strong>, and can also be placed on <strong>Lightning App Pages, Home Pages, Tabs, the Utility Bar, and Experience Cloud pages</strong>.</p>
 
     <h2>Why this matters commercially</h2>
     <p>For Salesforce admins and business stakeholders, this flexibility changes the buying story. Tourvia is not only a route planning product. It is a native operational component that can adapt to the real structure of the org.</p>
@@ -149,6 +149,11 @@
         <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Opportunity pages</div>
         <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Deal-level field context</div>
         <div style="color:#a1a1aa;font-size:0.92rem;">Useful when field reps manage deals that require on-site engagement. The map shows the deal location and nearby accounts that could be visited in the same trip.</div>
+      </div>
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Campaign pages</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Campaign Member coverage</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">Marketing or field teams can open a Campaign and see its Lead and Contact members on the map, geolocated from the parent Lead or Contact address.</div>
       </div>
       <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
         <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Home pages</div>
@@ -312,7 +317,7 @@ document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail
 });
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does installing Tourvia require custom Apex code?","acceptedAnswer":{"@type":"Answer","text":"No. Tourvia installs as a managed package from AppExchange and is configured entirely through Lightning App Builder and Custom Metadata Types. No Apex development is required for installation, configuration, or ongoing administration."}},{"@type":"Question","name":"Can Tourvia be placed on custom object pages?","acceptedAnswer":{"@type":"Answer","text":"Tourvia is natively exposed for Account, Lead, and Opportunity record pages. It can also be placed on Lightning App Pages, Home Pages, Tabs, the Utility Bar, and Experience Cloud pages. Placement on fully custom objects depends on your configuration and the address field structure available."}},{"@type":"Question","name":"Does Tourvia respect Salesforce sharing rules and field-level security?","acceptedAnswer":{"@type":"Answer","text":"Yes. Because Tourvia queries data through standard SOQL and uses Lightning Data Service, it operates within the org's sharing rules and field-level security settings. Users only see records they have access to in Salesforce, with no workaround or bypass."}},{"@type":"Question","name":"Does the native integration work in sandboxes and scratch orgs?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tourvia can be installed and tested in sandbox environments before deploying to production. Configuration through Custom Metadata Types can be moved between environments using standard Salesforce deployment tools including change sets and the Salesforce CLI."}},{"@type":"Question","name":"What happens to Tourvia when Salesforce releases updates?","acceptedAnswer":{"@type":"Answer","text":"Tourvia is tested against Salesforce releases as part of the managed package maintenance included in the subscription. Compatibility updates are delivered through the managed package channel, not through manual re-deployments by your team."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does installing Tourvia require custom Apex code?","acceptedAnswer":{"@type":"Answer","text":"No. Tourvia installs as a managed package from AppExchange and is configured entirely through Lightning App Builder and Custom Metadata Types. No Apex development is required for installation, configuration, or ongoing administration."}},{"@type":"Question","name":"Can Tourvia be placed on custom object pages?","acceptedAnswer":{"@type":"Answer","text":"Tourvia is natively exposed for Account, Lead, Opportunity, and Campaign record pages. It can also be placed on Lightning App Pages, Home Pages, Tabs, the Utility Bar, and Experience Cloud pages. Placement on fully custom objects depends on your configuration and the address field structure available."}},{"@type":"Question","name":"Can Tourvia map Campaign Members?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tourvia can display Campaign Members from Campaign record pages or from the global app map through a Campaign picker. Lead and Contact members are geolocated from their parent record address, and status-based colors are configurable through Custom Metadata."}},{"@type":"Question","name":"Does Tourvia respect Salesforce sharing rules and field-level security?","acceptedAnswer":{"@type":"Answer","text":"Yes. Because Tourvia queries data through standard SOQL and uses Lightning Data Service, it operates within the org's sharing rules and field-level security settings. Users only see records they have access to in Salesforce, with no workaround or bypass."}},{"@type":"Question","name":"Does the native integration work in sandboxes and scratch orgs?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tourvia can be installed and tested in sandbox environments before deploying to production. Configuration through Custom Metadata Types can be moved between environments using standard Salesforce deployment tools including change sets and the Salesforce CLI."}},{"@type":"Question","name":"What happens to Tourvia when Salesforce releases updates?","acceptedAnswer":{"@type":"Answer","text":"Tourvia is tested against Salesforce releases as part of the managed package maintenance included in the subscription. Compatibility updates are delivered through the managed package channel, not through manual re-deployments by your team."}}]}
 </script>
 </body>
 </html>

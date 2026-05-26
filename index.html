@@ -27,7 +27,7 @@
     }
   })();
 </script>
-    <meta name="description" content="Salesforce route planning software for teams that want route planning for Salesforce inside the CRM, with native route optimization, visit planning, and AppExchange install."/>
+    <meta name="description" content="Salesforce route planning software for teams that want route planning for Salesforce inside the CRM, with native route optimization, Campaign Member mapping, visit planning, and AppExchange install."/>
 <link rel="icon" type="image/svg+xml" href="favicon.svg"/><link rel="icon" type="image/x-icon" href="favicon.ico"/>
 <link rel="canonical" href="https://routeforce.app"/>
 <link rel="alternate" hreflang="en" href="https://routeforce.app"/>
@@ -41,7 +41,7 @@
 <meta property="og:locale" content="en_US"/>
 <!-- Open Graph -->
 <meta property="og:title" content="Salesforce Route Planning Software | Route Planning for Salesforce Teams"/>
-<meta property="og:description" content="Salesforce route planning software for teams that want route planning for Salesforce inside the CRM, with native route optimization and visit planning."/>
+<meta property="og:description" content="Salesforce route planning software for teams that want route planning for Salesforce inside the CRM, with native route optimization, Campaign Member mapping, and visit planning."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://routeforce.app"/>
 <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
@@ -49,7 +49,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="Salesforce Route Planning Software | Route Planning for Salesforce Teams"/>
-<meta name="twitter:description" content="Salesforce route planning software for teams that want route planning for Salesforce inside the CRM, with native route optimization and visit planning."/>
+<meta name="twitter:description" content="Salesforce route planning software for teams that want route planning for Salesforce inside the CRM, with native route optimization, Campaign Member mapping, and visit planning."/>
 <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt"/>
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
@@ -430,7 +430,7 @@
       <div class="feature-card rounded-xl p-6">
         <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">map</span>
         <h3 class="font-semibold text-lg mb-2">Multi-Object Map</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Accounts, leads, and opportunities on one interactive map with clustering and real-time filters.</p>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Accounts, leads, opportunities, and Campaign Members on one interactive map with clustering and real-time filters.</p>
       </div>
       <div class="feature-card rounded-xl p-6">
         <span class="material-symbols-outlined text-accent text-2xl mb-4 block">route</span>
@@ -479,9 +479,10 @@
   <section id="native-integration" class="py-20 px-6 lg:px-8 bg-surface-container-low/40 border-y border-outline-variant/30">
     <div class="max-w-5xl mx-auto text-center">
       <h2 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">Works everywhere in Salesforce</h2>
-      <p class="text-on-surface-variant text-base max-w-2xl mx-auto mb-10">A reusable Salesforce-native component — place it on record pages, app pages, tabs, or Experience Cloud. <a href="native-integration-salesforce.html" class="text-primary-light hover:underline">Learn more</a>.</p>
+      <p class="text-on-surface-variant text-base max-w-2xl mx-auto mb-10">A reusable Salesforce-native component — place it on record pages, Campaign pages, app pages, tabs, or Experience Cloud. <a href="native-integration-salesforce.html" class="text-primary-light hover:underline">Learn more</a>.</p>
       <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-on-surface-variant">
         <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">account_tree</span> Account, Lead, Opportunity pages</span>
+        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">campaign</span> Campaign record pages</span>
         <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">apps</span> Lightning App Pages</span>
         <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">home</span> Home Pages & Tabs</span>
         <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">public</span> Experience Cloud</span>
@@ -516,16 +517,16 @@
       <!-- Showcase 2: Smart Map — image LEFT, text RIGHT -->
       <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
         <div class="screenshot-frame glow-accent lg:order-1 order-2">
-          <img src="assets/screenshots-2026/screen-01.jpg" alt="Tourvia map view with accounts across Paris" class="w-full h-auto" loading="lazy"/>
+          <img src="assets/screenshots-2026/campaign-members-map.jpg" alt="Tourvia map view showing Campaign Members across France with campaign and status filters" class="w-full h-auto" loading="lazy"/>
         </div>
         <div class="lg:order-2 order-1">
           <span class="text-xs font-semibold text-accent uppercase tracking-widest mb-4 block">Smart Map</span>
-          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">All your records, one map</h3>
-          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Accounts, leads, and opportunities, displayed with clustering, filters, and saved views. Satellite or roadmap, you choose.</p>
+          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">All your records and campaigns, one map</h3>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Accounts, leads, opportunities, and Campaign Members, displayed with clustering, filters, saved views, and status-based colors. Satellite or roadmap, you choose.</p>
           <ul class="space-y-3 text-on-surface-variant">
             <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Multi-object visualization</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Real-time Salesforce filters</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Click any pin for full record details</li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Campaign picker for targeted member maps</li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Lead and Contact members geolocated from their parent address</li>
           </ul>
         </div>
       </div>
@@ -613,6 +614,7 @@
         </div>
         <ul class="space-y-3 mb-8 flex-grow text-sm text-on-surface-variant">
           <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Multi-object map</li>
+          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Campaign Member map</li>
           <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Basic filters</li>
           <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Event creation</li>
           <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Early workflow validation in Salesforce</li>
@@ -842,7 +844,7 @@
       "name": "Free",
       "price": "0",
       "priceCurrency": "EUR",
-      "description": "Map visualization, filtering, event creation, AppExchange entry path"
+      "description": "Map visualization, Campaign Member mapping, filtering, event creation, AppExchange entry path"
     },
     {
       "@type": "Offer",
@@ -856,7 +858,7 @@
       "description": "Full route optimization, GPS check-in, visit reports, dashboards, and paid scope expansion"
     }
   ],
-  "featureList": "Interactive map, Route optimization, GPS check-in, Visit reports, Heatmap, Bulk select, Saved filters, Route history, Custom actions, Mobile support, 2 dashboards, 18 reports",
+  "featureList": "Interactive map, Campaign Member mapping, Route optimization, GPS check-in, Visit reports, Heatmap, Bulk select, Saved filters, Route history, Custom actions, Mobile support, 2 dashboards, 18 reports",
   "screenshot": "https://routeforce.app/assets/screenshots-2026/screen-01.jpg",
   "softwareVersion": "7.13.0-1",
   "author": {

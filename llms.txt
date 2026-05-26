@@ -4,13 +4,14 @@
 > Tourvia is a Salesforce-native route planning and field visit tracking application. It is delivered as a managed package installed in Salesforce orgs.
 
 ## What Tourvia does
-- Interactive map showing Accounts, Leads, and Opportunities from Salesforce CRM
+- Interactive map showing Accounts, Leads, Opportunities, and Campaign Members from Salesforce CRM
 - Route optimization with configurable time windows, lunch breaks, and visit duration
 - GPS check-in/check-out with visit reports (result, next action, notes, satisfaction, order amount, next visit date)
 - Heatmap visualization and bulk lasso-select for batch operations
 - 2 dashboards and 18 native Salesforce reports included
 - Route history with replay functionality
 - Saved and shared filter configurations
+- Campaign Member mapping from Campaign record pages or the global app map, with Lead/Contact geolocation and status-based colors
 - Custom actions via Screen Flows and Lightning Web Components from map markers
 - Full Salesforce Mobile App support
 

@@ -9,7 +9,8 @@
 Tourvia helps field sales teams plan visits, optimize driving routes, and track field activity without leaving Salesforce. It is installed from AppExchange and works on record pages, app pages, tabs, utility bar, and Experience Cloud.
 
 ### Core capabilities
-- **Interactive map**: display Accounts, Leads, Opportunities (or any object with address/geolocation) on a single map with clustering, coloring, and real-time filters
+- **Interactive map**: display Accounts, Leads, Opportunities, and Campaign Members on a single map with clustering, coloring, and real-time filters
+- **Campaign Member mapping**: show Lead and Contact members from Campaign record pages or from the global app map with a target Campaign picker and status-based colors
 - **Route optimization**: VROOM-based algorithm considers time windows, lunch breaks, visit durations, and distance constraints to calculate efficient multi-stop routes
 - **Auto event creation**: convert an optimized route into Salesforce Events in one click — no re-typing
 - **GPS check-in/check-out**: verified field visits with configurable checkout forms (result, next action, notes, satisfaction, order amount, next visit date, plus admin-defined custom fields)
@@ -63,15 +64,19 @@ Tourvia uses **org-level pricing** (not per-user):
 
 1. **Field sales route planning**: plan daily/weekly visit routes optimized for travel time
 2. **Visit planning & scheduling**: create Salesforce Events from optimized routes
-3. **Territory coverage analysis**: visualize which accounts have been visited and which are overdue
-4. **Customer proximity discovery**: find nearby accounts from current GPS position
-5. **Field activity reporting**: structured check-in/check-out with visit outcome data
-6. **Manager oversight**: dashboards showing team route history, visit frequency, coverage gaps
+3. **Campaign Member field follow-up**: map Campaign Members, understand regional coverage, and plan local follow-up for Lead and Contact members
+4. **Territory coverage analysis**: visualize which accounts have been visited and which are overdue
+5. **Customer proximity discovery**: find nearby accounts from current GPS position
+6. **Field activity reporting**: structured check-in/check-out with visit outcome data
+7. **Manager oversight**: dashboards showing team route history, visit frequency, coverage gaps
 
 ## Frequently asked questions
 
 **Q: Does Salesforce include built-in route planning?**
 A: No. Salesforce does not provide route planning in the standard platform. Tourvia adds these capabilities as a native managed package.
+
+**Q: Can Tourvia map Salesforce Campaign Members?**
+A: Yes. Tourvia can display Campaign Members from a Campaign record page or from the global app map with a target Campaign picker. Both Lead and Contact members are geolocated from their parent record address, and status colors are configurable through Custom Metadata.
 
 **Q: Is customer data sent to external servers?**
 A: CRM data stays in Salesforce. Route calculations use only the geocoordinates and time parameters required for routing. The routing server does not store any customer data.
