@@ -652,12 +652,6 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 <td>Shows Opportunity records as markers (positioned at the parent Account address). Enables Opportunity filters and Opportunity route steps.</td>
 </tr>
 <tr>
-<td><code>EnableCampaignMembers__c</code></td>
-<td>Checkbox</td>
-<td><code>true</code></td>
-<td>Shows Campaign Member records as markers, positioned at the underlying Lead or Contact address. Adds the Campaign Members display pill and a Filters &amp; Options section with a campaign lookup, status filter, and ownership filter. On a Campaign record page, members are auto-scoped to that campaign.</td>
-</tr>
-<tr>
 <td><code>EnableVisitReports__c</code></td>
 <td>Checkbox</td>
 <td><code>true</code></td>
@@ -783,18 +777,6 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 <td>Text</td>
 <td><code>IsClosed = false</code></td>
 <td>SOQL WHERE clause appended to Opportunity queries. Default shows only open Opportunities. Example: <code>IsClosed = false AND Amount > 10000</code>.</td>
-</tr>
-<tr>
-<td><code>CampaignMemberQueryFilter__c</code></td>
-<td>Text</td>
-<td><code>null</code></td>
-<td>Optional SOQL WHERE clause appended to Campaign Member queries. Example: <code>Status = 'Sent'</code>.</td>
-</tr>
-<tr>
-<td><code>CampaignMemberContactAddressPrefix__c</code></td>
-<td>Picklist (Mailing / Other)</td>
-<td><code>Mailing</code></td>
-<td>For Contact-based campaign members, which Contact address drives the marker position. Lead-based members always use the Lead address.</td>
 </tr>
 <tr>
 <td><code>ContactQueryFields__c</code></td>
