@@ -2,7 +2,11 @@
 # Detailed product reference for AI assistants and language models.
 # For the short version, see /llms.txt
 
-> Tourvia is a 100% Salesforce-native route planning, route optimization, and field visit tracking application. It runs entirely inside Salesforce as a managed package — no external app, no data sync, no separate login.
+> Tourvia, formerly RouteForce, is a 100% Salesforce-native route planning, route optimization, and field visit tracking application. It runs entirely inside Salesforce as a managed package, with no external app, no data sync, and no separate login.
+
+## Brand note
+
+Tourvia is the new product name for RouteForce. The old name may still appear in historical URLs, screenshots, package internals, Custom Metadata API names, or older articles during the transition. Public product naming should use Tourvia.
 
 ## Product overview
 
@@ -98,6 +102,7 @@ A: Self-setup takes 1-2 hours following the documentation. Fully managed setup b
 
 ## Key URLs
 - Homepage: https://routeforce.app
+- RouteForce to Tourvia name update: https://routeforce.app/blog/routeforce-becomes-tourvia.html
 - Pricing: https://routeforce.app/pricing.html
 - Documentation: https://routeforce.app/docs/
 - Setup Guide: https://routeforce.app/docs/setup-guide.html
