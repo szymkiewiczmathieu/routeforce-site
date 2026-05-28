@@ -296,14 +296,14 @@ This brings the new layout in but <strong>destroys all your CMDT customizations<
 <p>Tourvia supports two deployment models. Both are first-class.</p>
 
 <h3>Pattern A: Contextual (Record Page)</h3>
-<p>Best for teams that work from Account/Lead/Opportunity record pages.</p>
+<p>Best for teams that work from Account, Lead, Opportunity, or Campaign record pages.</p>
 <table>
 <thead><tr><th>Aspect</th><th>Detail</th></tr></thead>
 <tbody>
-<tr><td><strong>Where</strong></td><td>Account, Lead, or Opportunity Record Page</td></tr>
+<tr><td><strong>Where</strong></td><td>Account, Lead, Opportunity, or Campaign Record Page <span style="color:#9099ff;font-size:0.8em;">(Campaign NEW in 7.20.0)</span></td></tr>
 <tr><td><strong>Setup</strong></td><td>Lightning App Builder → Edit Record Page → drag <code>routeforce</code> component</td></tr>
 <tr><td><strong>Config</strong></td><td>App Builder properties are scoped to that record page</td></tr>
-<tr><td><strong>Use case</strong></td><td>"Show me the map around this account"</td></tr>
+<tr><td><strong>Use case</strong></td><td>&quot;Show me the map around this account&quot; — or, on a Campaign page, &quot;Show me every geocoded member of this campaign&quot;</td></tr>
 <tr><td><strong>Mobile</strong></td><td>Supported (Small form factor)</td></tr>
 </tbody>
 </table>
@@ -652,6 +652,18 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 <td>Shows Opportunity records as markers (positioned at the parent Account address). Enables Opportunity filters and Opportunity route steps.</td>
 </tr>
 <tr>
+<td><code>EnableCampaignMembers__c</code> <span style="color:#9099ff;font-size:0.7em;">NEW in 7.20.0</span></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>Shows Campaign Member records as markers, positioned at the underlying Lead or Contact address. Adds the Campaign Members display pill plus a Filters &amp; Options section with a campaign lookup, ownership and dynamic status filters. On a Campaign record page, members are auto-scoped to that campaign. See Section 5bis for the Campaign Members CMDT fields.</td>
+</tr>
+<tr>
+<td><code>EnableAddressPrefixFallback__c</code> <span style="color:#9099ff;font-size:0.7em;">NEW in 7.20.0</span></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>When checked, Accounts and Opportunities geocoded only on the alternate prefix (Billing ↔ Shipping) still appear on the map — the marker uses whichever prefix carries coordinates, and route planning / nearby search anchor on the same fallback location. Uncheck for setups where Shipping and Billing carry different meanings (e.g. Shipping = logistics warehouse vs Billing = fiscal address) and you want the map to honor <code>AddressFieldPrefix__c</code> strictly.</td>
+</tr>
+<tr>
 <td><code>EnableVisitReports__c</code></td>
 <td>Checkbox</td>
 <td><code>true</code></td>
@@ -938,6 +950,62 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tbody>
 </table>
 <div class="note"><strong>Override on a specific FlexiPage:</strong> Set the matching App Builder property (<code>typeField</code>, <code>typeValues</code>, <code>oppTypeField</code>, <code>oppTypeValues</code>, <code>leadTypeField</code>, <code>leadTypeValues</code>, <code>forceMultiPicklist</code>, or <code>markerFields</code>) on the <code>routeforce</code> component in Lightning App Builder. The App Builder value takes precedence over CMDT for that page only.</div>
+
+<h3>2.8 Campaign Members (6 fields, NEW in 7.20.0)</h3>
+<p>Configuration for the Campaign Members map layer. Members carry no address of their own — coordinates resolve from the underlying Lead (<code>Lead.Latitude/Longitude</code>) or Contact (<code>Contact.{Mailing|Other}Latitude/Longitude</code>) parent. The layer is <strong>CMDT-only</strong>; there are no per-page App Builder properties. Enable the layer via <code>EnableCampaignMembers__c</code> (Section 2.2 Feature Toggles).</p>
+<p><strong>Where the layer renders:</strong></p>
+<ul>
+<li><strong>Global map (Tourvia tab / App Page)</strong> — users pick a campaign from the &quot;Campaign Members&quot; filter section; leave it empty to load every geocoded member across all campaigns (capped by the standard 2 000-marker pagination).</li>
+<li><strong>Campaign record page</strong> — drop the <code>routeforce</code> component onto a Campaign Lightning Page; <code>recordId</code> automatically scopes the layer to that campaign.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Field API Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CampaignMemberContactAddressPrefix__c</code></td>
+<td>Text</td>
+<td><code>Mailing</code></td>
+<td>For Contact-based members, which Contact address compound drives the marker position. Accepts <code>Mailing</code> (uses <code>MailingLatitude</code>/<code>MailingLongitude</code>) or <code>Other</code>. Lead-based members always use the standard Lead Address compound.</td>
+</tr>
+<tr>
+<td><code>CampaignMemberQueryFields__c</code></td>
+<td>Text</td>
+<td><em>(empty)</em></td>
+<td>Comma-separated extra CampaignMember fields to query. Direct CampaignMember fields only — relationship paths are not supported here. Each field is validated against the schema before being added to the SELECT clause.</td>
+</tr>
+<tr>
+<td><code>CampaignMemberQueryFilter__c</code></td>
+<td>Text</td>
+<td><em>(empty)</em></td>
+<td>Admin SOQL <code>WHERE</code> fragment applied to every Campaign Member query (e.g. <code>Status = 'Sent'</code>). Validated by the package's allowlist and then schema-checked field-by-field — invalid filters are silently rejected and logged as warnings.</td>
+</tr>
+<tr>
+<td><code>CampaignMemberTypeField__c</code></td>
+<td>Text</td>
+<td><em>(empty)</em></td>
+<td>CampaignMember field API name used for marker color segmentation (e.g. <code>Status</code>). Leave blank for uniform Campaign Member markers. Requires <code>EnableCampaignMembers__c = true</code>.</td>
+</tr>
+<tr>
+<td><code>CampaignMemberTypeValues__c</code></td>
+<td>Text</td>
+<td><em>(empty)</em></td>
+<td>Comma-separated values for marker color assignment, ordered (first value = first color). Example: <code>Sent,Responded,Bounced</code>. Values must match the field set in <code>CampaignMemberTypeField__c</code>.</td>
+</tr>
+<tr>
+<td><code>RecordPickerCampaignMemberFields__c</code></td>
+<td>Text</td>
+<td><code>Type,Status</code></td>
+<td>Comma-separated <strong>Campaign</strong> field API names shown next to the campaign name in the &quot;Campaign Members&quot; filter section&apos;s campaign picker — useful when several campaigns share similar names. Example: <code>Type,Status,StartDate</code>. Picklists are safe here: the picker searches by Campaign Name only and uses these fields for display in the dropdown rows.</td>
+</tr>
+</tbody>
+</table>
 
 <hr>
 

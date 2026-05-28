@@ -260,7 +260,7 @@
     <p>La carte est le cœur de Tourvia. Elle affiche trois types d'objets simultanément pour vous donner une vue complète de votre territoire en un coup d'œil.</p>
 
     <h3>Affichage multi-objets</h3>
-    <p>Tourvia affiche les <strong>Comptes</strong>, <strong>Pistes</strong> et <strong>Opportunités</strong> sur la carte en même temps. Chaque type d'objet utilise une couleur de marker distincte pour les distinguer instantanément.</p>
+    <p>Tourvia affiche les <strong>Comptes</strong>, <strong>Pistes</strong>, <strong>Opportunités</strong> et <strong>Membres de campagne</strong> <span style="color:#9099ff;font-size:0.8em;">(Membres de campagne NOUVEAU en 7.20.0)</span> sur la carte en même temps. Chaque type d'objet utilise une couleur de marker distincte pour les distinguer instantanément. Active ou désactive chaque couche via les pills d'affichage au-dessus de la carte.</p>
 
     <table>
       <thead>
@@ -270,9 +270,18 @@
         <tr><td>Tons bleus</td><td>Comptes</td></tr>
         <tr><td>Tons turquoise / vert</td><td>Pistes</td></tr>
         <tr><td>Tons orange / rouge</td><td>Opportunités</td></tr>
+        <tr><td>Tons rose / magenta</td><td>Membres de campagne</td></tr>
         <tr><td>Violet / icône calendrier</td><td>Événements (lorsque chargés)</td></tr>
       </tbody>
     </table>
+
+    <h3>Couche Membres de campagne</h3>
+    <p>La couche Membres de campagne place sur la carte chaque membre géocodé d'une campagne — pratique pour planifier une tournée autour d'un roster précis (Roadshow, Webinar, salon, etc.). Un Membre de campagne n'a pas d'adresse propre : Tourvia résout les coordonnées depuis la <strong>Piste</strong> ou le <strong>Contact</strong> parent.</p>
+    <ul>
+      <li><strong>Sur une page Record Campaign</strong> — pose le composant Tourvia sur une Lightning Page Campagne ; la couche est automatiquement filtrée sur cette campagne et affiche tous les membres géocodés.</li>
+      <li><strong>Depuis l'onglet Tourvia global</strong> — ouvre <em>Filtres &amp; Options → Membres de campagne</em> et sélectionne une campagne dans le lookup. Laisse vide pour charger tous les membres géocodés toutes campagnes confondues (le slider rayon continue de filtrer par distance autour de ta position).</li>
+      <li><strong>Check-in, construction de tournée, création d'événement</strong> — fonctionnent comme pour tout autre marker. Le WhoId de l'événement est positionné sur la Piste ou le Contact (selon le parent qui porte les coordonnées) et le WhatId est la Campagne le cas échéant.</li>
+    </ul>
 
     <img src="../assets/screenshots-2026/map-overview.jpg" alt="Carte avec markers" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
 

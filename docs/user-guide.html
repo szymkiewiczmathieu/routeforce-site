@@ -260,7 +260,7 @@
     <p>The map is the core of Tourvia. It displays three object types simultaneously so you get a complete view of your territory at a glance.</p>
 
     <h3>Multi-object display</h3>
-    <p>Tourvia shows <strong>Accounts</strong>, <strong>Leads</strong>, and <strong>Opportunities</strong> on the map at the same time. Each object type uses a distinct marker color so you can tell them apart instantly.</p>
+    <p>Tourvia shows <strong>Accounts</strong>, <strong>Leads</strong>, <strong>Opportunities</strong>, and <strong>Campaign Members</strong> <span style="color:#9099ff;font-size:0.8em;">(Campaign Members NEW in 7.20.0)</span> on the map at the same time. Each object type uses a distinct marker color so you can tell them apart instantly. Toggle each layer on or off via the display pills above the map.</p>
 
     <table>
       <thead>
@@ -270,9 +270,18 @@
         <tr><td>Blue tones</td><td>Accounts</td></tr>
         <tr><td>Teal / green tones</td><td>Leads</td></tr>
         <tr><td>Orange / red tones</td><td>Opportunities</td></tr>
+        <tr><td>Pink / magenta tones</td><td>Campaign Members</td></tr>
         <tr><td>Purple / calendar icon</td><td>Events (when loaded)</td></tr>
       </tbody>
     </table>
+
+    <h3>Campaign Members layer</h3>
+    <p>The Campaign Members layer plots every geocoded member of a campaign on the map — useful to plan a tour around a specific roster (Roadshow, Webinar, Trade Show, etc.). A Campaign Member has no address of its own, so Tourvia resolves coordinates from the underlying <strong>Lead</strong> or <strong>Contact</strong> parent.</p>
+    <ul>
+      <li><strong>On a Campaign record page</strong> — drop the Tourvia component on a Campaign Lightning Page; the layer is auto-scoped to that campaign and shows every geocoded member.</li>
+      <li><strong>On the global Tourvia tab</strong> — open <em>Filters &amp; Options → Campaign Members</em> and pick a campaign in the lookup. Leave it empty to load every geocoded member across all campaigns (the radius slider still narrows by distance to your current position).</li>
+      <li><strong>Check-in, route building, event creation</strong> — work the same as any other marker. The Event WhoId is set to the Lead or Contact (whichever resolved the coordinates), and the WhatId is the Campaign when applicable.</li>
+    </ul>
 
     <img src="../assets/screenshots-2026/map-overview.jpg" alt="Map with markers" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
 
