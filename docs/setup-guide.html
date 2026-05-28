@@ -692,17 +692,17 @@ For the complete reference with presets, see the <a href="configuration-guide.ht
 <li>Under <strong>Navigation Items</strong>, add your new tab and optionally remove the default one.</li>
 </ol>
 
-<h3>Embedding the map on Account, Lead, or Opportunity pages</h3>
-<p>The Tourvia component can be placed directly on any <strong>Account</strong>, <strong>Lead</strong>, or <strong>Opportunity</strong> record page. When placed on a record page, the map <strong>automatically centers on the current record's location</strong> and loads nearby records, no additional configuration needed.</p>
+<h3>Embedding the map on Account, Lead, Opportunity, or Campaign pages</h3>
+<p>The Tourvia component can be placed directly on any <strong>Account</strong>, <strong>Lead</strong>, <strong>Opportunity</strong>, or <strong>Campaign</strong> <span style="color:#9099ff;font-size:0.8em;">(Campaign NEW in 7.20.0)</span> record page. On Account / Lead / Opportunity, the map <strong>automatically centers on the current record's location</strong> and loads nearby records. On a Campaign record page, the layer is auto-scoped to that campaign and shows every geocoded member (resolved via the Lead or Contact parent address).</p>
 <p>This gives field reps an instant geographic view of their territory right from any record they are working on.</p>
 <ol>
 <li>Go to <strong>Setup &gt; Lightning App Builder</strong>.</li>
-<li>Open (or create) a <strong>Record Page</strong> for Account, Lead, or Opportunity.</li>
+<li>Open (or create) a <strong>Record Page</strong> for Account, Lead, Opportunity, or Campaign.</li>
 <li>Search for <strong>routeforce</strong> in the component panel and drag it onto the page.</li>
 <li>Configure the component properties (filter fields, legend, marker popups), the same properties as on the App Page.</li>
 <li>Save and activate the page for the appropriate record types or profiles.</li>
 </ol>
-<div class="note"><strong>How it works:</strong> On a record page, Tourvia receives the record ID automatically from Salesforce. It uses the record's geolocation to center the map and immediately loads items around that location, giving the user a contextual map view without any manual search.</div>
+<div class="note"><strong>How it works:</strong> On a record page, Tourvia receives the record ID automatically from Salesforce. For Account/Lead/Opportunity it uses the record's geolocation to center the map and load nearby items. For a Campaign, it loads every geocoded member of that campaign as markers — useful to plan a tour around a specific campaign roster.</div>
 
 <h3>Going further</h3>
 <p>Beyond the default app and record pages, the Tourvia LWC component (<code>routeforce</code>) is fully reusable. You can:</p>
