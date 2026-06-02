@@ -7,7 +7,7 @@
   <link rel="canonical" href="https://routeforce.app/docs/setup-guide.html" />
   <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/setup-guide.html" />
   <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/setup-guide.html" />
-  <title>Tourvia Setup Guide | TourviaApp ver 7.24.0</title>
+  <title>Tourvia Setup Guide | TourviaApp ver 7.25.0</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -74,19 +74,19 @@
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
   </style>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="TourviaApp ver 7.24.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.">
+    <meta name="description" content="TourviaApp ver 7.25.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.">
   <link rel="canonical" href="https://routeforce.app/docs/setup-guide.html">
-  <meta property="og:title" content="Tourvia Setup Guide | TourviaApp ver 7.24.0">
+  <meta property="og:title" content="Tourvia Setup Guide | TourviaApp ver 7.25.0">
   <meta property="og:site_name" content="Tourvia">
-  <meta property="og:description" content="Implementation guide for Salesforce administrators deploying TourviaApp ver 7.24.0.">
+  <meta property="og:description" content="Implementation guide for Salesforce administrators deploying TourviaApp ver 7.25.0.">
   <meta property="og:url" content="https://routeforce.app/docs/setup-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Tourvia Setup Guide | TourviaApp ver 7.24.0"/>
-  <meta name="twitter:description" content="TourviaApp ver 7.24.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout."/>
+  <meta name="twitter:title" content="Tourvia Setup Guide | TourviaApp ver 7.25.0"/>
+  <meta name="twitter:description" content="TourviaApp ver 7.25.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Setup Guide | TourviaApp ver 7.24.0","url":"https://routeforce.app/docs/setup-guide.html","description":"TourviaApp ver 7.24.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Setup Guide | TourviaApp ver 7.25.0","url":"https://routeforce.app/docs/setup-guide.html","description":"TourviaApp ver 7.25.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -152,7 +152,7 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">Tourvia</div></div>
-        <div class="card"><div class="label">Package version</div><div class="value">TourviaApp ver 7.24.0 | version number 7.24</div></div>
+        <div class="card"><div class="label">Package version</div><div class="value">TourviaApp ver 7.25.0 | version number 7.25</div></div>
         <div class="card"><div class="label">Format</div><div class="value">PDF / Print-ready HTML</div></div>
       </div>
     </div>
@@ -160,7 +160,7 @@
   </section>
   <main class="content">
     <div class="note"><strong>Tourvia branded edition.</strong> This document is formatted for client delivery and print/PDF export.</div>
-    <p><strong>Package version:</strong> TourviaApp ver 7.24.0 | version number 7.24<br><strong>Audience:</strong> Salesforce administrators during initial deployment<br><strong>Goal:</strong> Install Tourvia, assign access, run the onboarding wizard, configure core settings, and validate the first working rollout</p>
+    <p><strong>Package version:</strong> TourviaApp ver 7.25.0 | version number 7.25<br><strong>Audience:</strong> Salesforce administrators during initial deployment<br><strong>Goal:</strong> Install Tourvia, assign access, run the onboarding wizard, configure core settings, and validate the first working rollout</p>
 <div class="note"><strong>Install Tourvia:</strong> <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener">Use the private AppExchange install link</a> and click <em>Get It Now</em> to install in your production, developer, or sandbox org.</div>
 <hr>
 
@@ -206,7 +206,7 @@ WHERE SubscriberPackage.Name IN ('TourviaApp', 'Tourvia')
 
 <!-- ======================================================== -->
 <h2>3. Assign permission sets</h2>
-<p>TourviaApp ver 7.24.0 ships with <strong>three</strong> permission sets to support different levels of access.</p>
+<p>TourviaApp ver 7.25.0 ships with <strong>three</strong> permission sets to support different levels of access.</p>
 <table>
 <thead>
 <tr>
@@ -713,7 +713,7 @@ For the complete reference with presets, see the <a href="configuration-guide.ht
 <li><strong>Clone layouts, reports, and dashboards</strong>: use Save As on any managed layout, report, or dashboard to create your own version</li>
 <li><strong>Use a configuration preset</strong>: the <a href="configuration-guide.html#presets">Configuration Guide</a> includes 4 ready-to-use presets (Account-only, Sales team, Prospecting, Full operations) with exact values to copy-paste</li>
 </ul>
-<div class="note"><strong>Summary (TourviaApp ver 7.24.0):</strong> <code>RouteForceConfig__mdt.Default</code> is the org-wide source of truth for both behavior (toggles, limits, queries) AND visual configuration (filters, marker colors, popup fields). The App Builder properties on the FlexiPage are an optional <strong>per-page override</strong> for cases where one specific page needs different settings (e.g. a Lead record page with a Lead-only filter set). For most orgs, configuring <code>RouteForceConfig.Default</code> is simpler and safer than editing App Builder properties.</div>
+<div class="note"><strong>Summary (TourviaApp ver 7.25.0):</strong> <code>RouteForceConfig__mdt.Default</code> is the org-wide source of truth for both behavior (toggles, limits, queries) AND visual configuration (filters, marker colors, popup fields). The App Builder properties on the FlexiPage are an optional <strong>per-page override</strong> for cases where one specific page needs different settings (e.g. a Lead record page with a Lead-only filter set). For most orgs, configuring <code>RouteForceConfig.Default</code> is simpler and safer than editing App Builder properties.</div>
 <hr>
 
 <!-- ======================================================== -->
@@ -831,7 +831,7 @@ LIMIT 20
 
 <!-- ======================================================== -->
 <h2>11. Dashboards and reports</h2>
-<p>TourviaApp ver 7.24.0 includes <strong>2 dashboards</strong> and <strong>18 reports</strong> out of the box, ready for use by admins and managers.</p>
+<p>TourviaApp ver 7.25.0 includes <strong>2 dashboards</strong> and <strong>18 reports</strong> out of the box, ready for use by admins and managers.</p>
 
 <h3>Included dashboards</h3>
 <table>
@@ -990,7 +990,7 @@ AND Type = 'Report'
 <ul>
 <li>Your Salesforce org ID</li>
 <li>Environment type (Production or Sandbox)</li>
-<li>Tourvia package version (<code>TourviaApp ver 7.24.0</code>, version number <code>7.24</code>)</li>
+<li>Tourvia package version (<code>TourviaApp ver 7.25.0</code>, version number <code>7.25</code>)</li>
 <li>Description of the issue and steps to reproduce</li>
 </ul>
 <p class="small-muted">Tourvia &bull; contact@routeforce.app &bull; <a href="https://routeforce.app">routeforce.app</a></p>

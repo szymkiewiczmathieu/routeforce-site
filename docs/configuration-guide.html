@@ -7,7 +7,7 @@
   <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html" />
   <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/configuration-guide.html" />
   <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/configuration-guide.html" />
-  <title>Tourvia Configuration Guide | TourviaApp ver 7.24.0</title>
+  <title>Tourvia Configuration Guide | TourviaApp ver 7.25.0</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -77,19 +77,19 @@
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
   </style>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="TourviaApp ver 7.24.0 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
+    <meta name="description" content="TourviaApp ver 7.25.0 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
   <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html">
-  <meta property="og:title" content="Tourvia Configuration Guide | TourviaApp ver 7.24.0">
+  <meta property="og:title" content="Tourvia Configuration Guide | TourviaApp ver 7.25.0">
   <meta property="og:site_name" content="Tourvia">
   <meta property="og:description" content="Advanced admin guide for RouteForceConfig__mdt and RouteForceAction__mdt configuration.">
   <meta property="og:url" content="https://routeforce.app/docs/configuration-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Tourvia Configuration Guide | TourviaApp ver 7.24.0"/>
-  <meta name="twitter:description" content="TourviaApp ver 7.24.0 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
+  <meta name="twitter:title" content="Tourvia Configuration Guide | TourviaApp ver 7.25.0"/>
+  <meta name="twitter:description" content="TourviaApp ver 7.25.0 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Configuration Guide | TourviaApp ver 7.24.0","url":"https://routeforce.app/docs/configuration-guide.html","description":"TourviaApp ver 7.24.0 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Configuration Guide | TourviaApp ver 7.25.0","url":"https://routeforce.app/docs/configuration-guide.html","description":"TourviaApp ver 7.25.0 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -155,14 +155,14 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">Tourvia for Salesforce</div></div>
-        <div class="card"><div class="label">Package version</div><div class="value">TourviaApp ver 7.24.0 | version number 7.24</div></div>
+        <div class="card"><div class="label">Package version</div><div class="value">TourviaApp ver 7.25.0 | version number 7.25</div></div>
         <div class="card"><div class="label">Audience</div><div class="value">Salesforce Administrators</div></div>
       </div>
     </div>
     <div class="cover-footer">Tourvia for Salesforce | Advanced Configuration Reference | contact@routeforce.app</div>
   </section>
   <main class="content">
-    <div class="note"><strong>What's current in TourviaApp ver 7.24.0.</strong>
+    <div class="note"><strong>What's current in TourviaApp ver 7.25.0.</strong>
       <ul style="margin:0.5rem 0 0 1.2rem;">
         <li><strong>New checkbox field <code>VisitReport__c.WithContact__c</code></strong> — lets reps flag a visit as "with a real contact" (EVO-002). Pre-mapped in the default <code>VisitReportCustomFields__c</code>.</li>
         <li><strong>New Hierarchy Custom Setting <code>RoutePreference__c</code></strong> — persists each rep's default route planning window (Departure Time, Lunch Start / End, End Of Day, Visit Duration) across sessions and devices (EVO-012). Exposed via <code>RouteService.getUserRoutePreferences</code> / <code>saveUserRoutePreferences</code>.</li>
@@ -173,8 +173,8 @@
         <li><strong>UX polish</strong>: bigger Visit Report text area (EVO-007), bigger route steps list on mobile (EVO-008), sticky route panel on PC (EVO-010).</li>
       </ul>
     </div>
-    <div class="note"><strong>TourviaApp ver 7.24.0: Configuration Guide.</strong> This document covers the two-layer configuration model (CMDT-first + App Builder override), deployment patterns, the complete field reference for RouteForceConfig__mdt (44 fields), RouteForceAction__mdt, and the new RoutePreference__c per-user custom setting.</div>
-    <p><strong>Package version:</strong> TourviaApp ver 7.24.0 | version number 7.24<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> Tourvia for Salesforce (managed package)</p>
+    <div class="note"><strong>TourviaApp ver 7.25.0: Configuration Guide.</strong> This document covers the two-layer configuration model (CMDT-first + App Builder override), deployment patterns, the complete field reference for RouteForceConfig__mdt (44 fields), RouteForceAction__mdt, and the new RoutePreference__c per-user custom setting.</div>
+    <p><strong>Package version:</strong> TourviaApp ver 7.25.0 | version number 7.25<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> Tourvia for Salesforce (managed package)</p>
 
 <h2>Table of Contents</h2>
 <ol>
