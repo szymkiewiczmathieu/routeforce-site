@@ -7,7 +7,7 @@
   <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html" />
   <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/configuration-guide.html" />
   <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/configuration-guide.html" />
-  <title>Tourvia Configuration Guide | TourviaApp ver 7.25.0</title>
+  <title>Tourvia Configuration Guide | TourviaApp 7.25.0</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -77,19 +77,19 @@
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
   </style>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="TourviaApp ver 7.25.0 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
+    <meta name="description" content="Tourvia Configuration Guide (TourviaApp 7.25.0): CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
   <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html">
-  <meta property="og:title" content="Tourvia Configuration Guide | TourviaApp ver 7.25.0">
+  <meta property="og:title" content="Tourvia Configuration Guide | TourviaApp 7.25.0">
   <meta property="og:site_name" content="Tourvia">
   <meta property="og:description" content="Advanced admin guide for RouteForceConfig__mdt and RouteForceAction__mdt configuration.">
   <meta property="og:url" content="https://routeforce.app/docs/configuration-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Tourvia Configuration Guide | TourviaApp ver 7.25.0"/>
-  <meta name="twitter:description" content="TourviaApp ver 7.25.0 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
+  <meta name="twitter:title" content="Tourvia Configuration Guide | TourviaApp 7.25.0"/>
+  <meta name="twitter:description" content="Tourvia Configuration Guide (TourviaApp 7.25.0): CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Configuration Guide | TourviaApp ver 7.25.0","url":"https://routeforce.app/docs/configuration-guide.html","description":"TourviaApp ver 7.25.0 Configuration Guide: CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Configuration Guide | TourviaApp 7.25.0","url":"https://routeforce.app/docs/configuration-guide.html","description":"Tourvia Configuration Guide (TourviaApp 7.25.0): CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -155,14 +155,25 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">Tourvia for Salesforce</div></div>
-        <div class="card"><div class="label">Package version</div><div class="value">TourviaApp ver 7.25.0 | version number 7.25</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">TourviaApp 7.25.0 | June 2026</div></div>
         <div class="card"><div class="label">Audience</div><div class="value">Salesforce Administrators</div></div>
       </div>
     </div>
     <div class="cover-footer">Tourvia for Salesforce | Advanced Configuration Reference | contact@routeforce.app</div>
   </section>
   <main class="content">
-    <div class="note"><strong>What's current in TourviaApp ver 7.25.0.</strong>
+    <div class="note"><strong>What is new in TourviaApp 7.22.0 → 7.25.0 (June 2026).</strong>
+      <ul style="margin:0.5rem 0 0 1.2rem;">
+        <li><strong>TourviaApp 7.22.0 — Package rebaseline on the Security-Review-passed lineage.</strong> The managed package was renamed <em>Tourvia → TourviaApp</em> on Dev Hub. The fresh <code>Tourvia 1.x</code> package (up to <code>Tourvia 1.6.0</code>) is kept in <code>packageAliases</code> for history only — customers on Tourvia 1.x do <strong>not</strong> auto-upgrade to TourviaApp 7.x (different package id). Install URL and version references move from <code>V1.3.0-1</code> to <code>TourviaApp 7.22.0+</code>.</li>
+        <li><strong>TourviaApp 7.22.0 — Today&apos;s Agenda click recenters inside the visible map area.</strong> Clicking an event now uses Leaflet <code>fitBounds</code> with padding accounting for the events panel (desktop) and the mobile bottom sheet, so the marker is no longer hidden behind the overlay.</li>
+        <li><strong>TourviaApp 7.22.0 — Campaign as a 6th inline route entry point.</strong> A second inline <code>lightning-record-picker</code> sits next to the existing Account/Lead/Opportunity picker in route mode — pick a Campaign and all its geocoded CampaignMembers (Lead or Contact&apos;s Account) are added as route steps in one click. Same UX pattern as the other 5 entry points (marker click, lasso, nearby, search picker, event import) — no modal. <strong>Hard-gated by CMDT</strong>, see <em>Section 2.8 Campaign Members</em> for the toggle field used to disable the inline picker org-wide.</li>
+        <li><strong>TourviaApp 7.22.0 — Today&apos;s Agenda contact + tap-to-call phone.</strong> For Events with a <code>WhoId</code> pointing to a Contact or Lead, the agenda renders the contact name (link) and a tap-to-call phone link (Mobile preferred, falls back to Phone). Polymorphic across Account events, Lead events, Opportunity events and CampaignMember-linked events because resolution happens on <code>Event.WhoId</code>. Works on mobile (dialer) and desktop (FaceTime / Teams / OS default).</li>
+        <li><strong>TourviaApp 7.23.0 — Permsets now grant standard-object FLS out of the box.</strong> Subscribers no longer have to grant Field-Level Security manually. The 3 managed permsets (<code>routeforce__RouteForce_User</code> / <code>_Manager</code> / <code>_Admin</code>) now include Read FLS on compound address fields (<code>Account.BillingAddress</code>, <code>Account.ShippingAddress</code>, <code>Contact.MailingAddress</code>, <code>Contact.OtherAddress</code>, <code>Lead.Address</code> — Salesforce only allows FLS at the compound level for these), all corresponding Latitude/Longitude pairs, plus <code>Account.Phone</code>, <code>Contact.Phone</code>, <code>Contact.MobilePhone</code>, <code>Lead.Phone</code>, <code>Lead.MobilePhone</code>.</li>
+        <li><strong>TourviaApp 7.24.0 — Three new PermissionSetGroups.</strong> <code>TourviaApp_User_Group</code>, <code>TourviaApp_Manager_Group</code>, <code>TourviaApp_Admin_Group</code> ship the existing permsets as the recommended assignment unit so subscribers can extend access by adding ONE small custom permset to the PSG (effective access = union), without cloning the managed permset.</li>
+        <li><strong>TourviaApp 7.25.0 — Hotfix:</strong> the contact + phone row now correctly appears on Account events whose <code>WhoId</code> points to a Contact (the standard Salesforce &quot;Account meeting with contact&quot; pattern). The resolver previously short-circuited on the Account branch and never reached the Contact branch.</li>
+      </ul>
+    </div>
+    <div class="note"><strong>What's new in V1.3.0-1 (May 2026).</strong>
       <ul style="margin:0.5rem 0 0 1.2rem;">
         <li><strong>New checkbox field <code>VisitReport__c.WithContact__c</code></strong> — lets reps flag a visit as "with a real contact" (EVO-002). Pre-mapped in the default <code>VisitReportCustomFields__c</code>.</li>
         <li><strong>New Hierarchy Custom Setting <code>RoutePreference__c</code></strong> — persists each rep's default route planning window (Departure Time, Lunch Start / End, End Of Day, Visit Duration) across sessions and devices (EVO-012). Exposed via <code>RouteService.getUserRoutePreferences</code> / <code>saveUserRoutePreferences</code>.</li>
@@ -173,8 +184,8 @@
         <li><strong>UX polish</strong>: bigger Visit Report text area (EVO-007), bigger route steps list on mobile (EVO-008), sticky route panel on PC (EVO-010).</li>
       </ul>
     </div>
-    <div class="note"><strong>TourviaApp ver 7.25.0: Configuration Guide.</strong> This document covers the two-layer configuration model (CMDT-first + App Builder override), deployment patterns, the complete field reference for RouteForceConfig__mdt (44 fields), RouteForceAction__mdt, and the new RoutePreference__c per-user custom setting.</div>
-    <p><strong>Package version:</strong> TourviaApp ver 7.25.0 | version number 7.25<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> Tourvia for Salesforce (managed package)</p>
+    <div class="note"><strong>Tourvia (TourviaApp 7.25.0) — Configuration Guide.</strong> This document covers the two-layer configuration model (CMDT-first + App Builder override), deployment patterns, the complete field reference for RouteForceConfig__mdt (44 fields), RouteForceAction__mdt, and the new RoutePreference__c per-user custom setting.</div>
+    <p><strong>Version:</strong> TourviaApp 7.25.0 | June 2026<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> TourviaApp 7.25.0 (Security-Review-passed managed package). A separate fresh package, <code>Tourvia 1.6.0</code>, exists for legacy installs and does <strong>not</strong> auto-upgrade to TourviaApp (different package id).</p>
 
 <h2>Table of Contents</h2>
 <ol>
@@ -185,7 +196,7 @@
 <li><a href="#architecture">Configuration Architecture</a></li>
 <li><a href="#config-mdt">RouteForceConfig__mdt: Complete Field Reference (44 fields)</a></li>
 <li><a href="#action-mdt">RouteForceAction__mdt: Custom Actions Reference</a></li>
-<li><a href="#event-default-mdt">RouteForceEventDefault__mdt: Event Field Defaults</a> <span style="color:#9099ff;font-size:0.85em;">NEW V1.2.0</span></li>
+<li><a href="#event-default-mdt">RouteForceEventDefault__mdt: Event Field Defaults</a> <span style="color:#9099ff;font-size:0.85em;">Since v1.2.0</span></li>
 <li><a href="#flexipage">FlexiPage Configuration (App Builder)</a></li>
 <li><a href="#shared-filters">Shared Filters (SavedFilter__c)</a></li>
 <li><a href="#address-enrichment">Address Enrichment (France only)</a></li>
@@ -1007,6 +1018,9 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </tbody>
 </table>
 
+<div class="note"><strong>Campaign as a route entry point (since TourviaApp 7.22.0).</strong> When the Campaign Members layer is enabled, route mode exposes a <strong>6th inline entry point</strong>: a <code>lightning-record-picker</code> for Campaigns, sitting next to the existing Account / Lead / Opportunity picker. Picking a Campaign adds every geocoded CampaignMember (the Lead, or the Contact&apos;s Account) as route steps in one click — same UX pattern as the other 5 entry points (marker click, lasso, nearby, search picker, event import), no modal.<br><br>
+<strong>The Campaign route entry is hard-gated by the same CMDT toggle as the rest of the layer: <code>EnableCampaignMembers__c</code> (see Section 2.2 Feature Toggles).</strong> Set it to <code>false</code> to hide the Campaign picker org-wide and disable the entire Campaign Members layer in one place — no FlexiPage edit required.</div>
+
 <hr>
 
 <h2 id="action-mdt">3. RouteForceAction__mdt: Custom Actions Reference</h2>
@@ -1189,7 +1203,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 
 <hr>
 
-<h2 id="event-default-mdt">3.bis RouteForceEventDefault__mdt: Event Field Defaults <span style="color:#9099ff;font-size:0.7em;">NEW in V1.2.0</span></h2>
+<h2 id="event-default-mdt">3.bis RouteForceEventDefault__mdt: Event Field Defaults <span style="color:#9099ff;font-size:0.7em;">Since v1.2.0</span></h2>
 
 <p>When a user saves a tournée from route mode, Tourvia inserts Salesforce <code>Event</code> records. If your org has <strong>validation rules requiring custom Event fields</strong> (e.g. <code>Motif__c</code>, <code>Type_Evenement__c</code>, <code>Categorie__c</code>…), the insert is rejected by the VR. With V1.2.0, Tourvia surfaces a clear error toast with the VR message instead of the previous misleading "All visits already exist" warning, and provides this CMDT so admins can pre-fill those required fields without touching code.</p>
 
@@ -1720,6 +1734,18 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 
 <h2 id="permission-sets">9. Permission Sets</h2>
 
+<h3>9.0 Permission Set Groups (recommended, since TourviaApp 7.24.0)</h3>
+<p>Managed 2GP PermissionSets <strong>cannot be edited by subscribers</strong> — historically admins had to clone the entire managed permset just to add a field-level grant. To remove that friction, TourviaApp 7.24.0 ships three PermissionSetGroups (PSGs) that wrap the existing managed permsets. The recommended pattern is to <strong>assign the PSG</strong> to your users, then <strong>extend access by creating ONE small custom permset and adding it to the same PSG</strong> — effective access is the union of every permset inside the group.</p>
+<table>
+<thead><tr><th>PermissionSetGroup</th><th>Wraps</th><th>Target audience</th></tr></thead>
+<tbody>
+<tr><td><code>TourviaApp_User_Group</code></td><td><code>routeforce__RouteForce_User</code></td><td>Sales Reps and field users</td></tr>
+<tr><td><code>TourviaApp_Manager_Group</code></td><td><code>routeforce__RouteForce_Manager</code></td><td>Sales managers and team leads</td></tr>
+<tr><td><code>TourviaApp_Admin_Group</code></td><td><code>routeforce__RouteForce_Admin</code></td><td>Salesforce Administrators</td></tr>
+</tbody>
+</table>
+<div class="note"><strong>Recommended workflow:</strong> Assign <code>TourviaApp_*_Group</code> (not the raw managed permset) to your users. To grant additional access (e.g. extra FLS on a custom field, an Apex class your org uses, a tab), create a tiny <em>unmanaged</em> permset in your subscriber org containing just that delta and add it to the PSG. Salesforce will recalculate effective access as the union of all member permsets — no managed metadata is mutated.</div>
+
 <h3>9.1 Tourvia Admin</h3>
 <p><strong>Target:</strong> Salesforce Administrators responsible for configuring Tourvia.</p>
 <table>
@@ -1750,8 +1776,13 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <td><strong>App</strong></td>
 <td>Tourvia visible</td>
 </tr>
+<tr>
+<td><strong>Standard object FLS</strong> <span style="color:#9099ff;font-size:0.85em;">Since TourviaApp 7.23.0</span></td>
+<td>Read FLS on compound address fields (<code>Account.BillingAddress</code>, <code>Account.ShippingAddress</code>, <code>Contact.MailingAddress</code>, <code>Contact.OtherAddress</code>, <code>Lead.Address</code> — Salesforce only allows FLS at the compound level for these), the matching Latitude/Longitude pairs, plus <code>Account.Phone</code>, <code>Contact.Phone</code>, <code>Contact.MobilePhone</code>, <code>Lead.Phone</code>, <code>Lead.MobilePhone</code>.</td>
+</tr>
 </tbody>
 </table>
+<div class="note"><strong>Upgrading from 7.22.0 or earlier:</strong> a 2GP upgrade does <strong>not</strong> re-apply permset deltas to subscribers — admins should re-assign the permset (or, preferably, the matching PSG <code>TourviaApp_Admin_Group</code>) once after upgrade so the new FLS grants take effect. Existing installs that already granted these FLS manually see zero functional change.</div>
 
 <h3>9.2 Tourvia Manager</h3>
 <p><strong>Target:</strong> Sales managers and team leads.</p>
@@ -1787,9 +1818,14 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <td><strong>App</strong></td>
 <td>Tourvia visible</td>
 </tr>
+<tr>
+<td><strong>Standard object FLS</strong> <span style="color:#9099ff;font-size:0.85em;">Since TourviaApp 7.23.0</span></td>
+<td>Read FLS on compound address fields (<code>Account.BillingAddress</code>, <code>Account.ShippingAddress</code>, <code>Contact.MailingAddress</code>, <code>Contact.OtherAddress</code>, <code>Lead.Address</code>), the matching Latitude/Longitude pairs, plus <code>Account.Phone</code>, <code>Contact.Phone</code>, <code>Contact.MobilePhone</code>, <code>Lead.Phone</code>, <code>Lead.MobilePhone</code>.</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Key difference from User:</strong> Managers have <code>viewAllRecords</code> on History__c, VisitReport__c, and RouteForceUsageSummary__c, allowing them to see team activity and reports. They do <strong>not</strong> have access to admin tabs (Configuration, Licence).</p>
+<div class="note"><strong>Upgrading from 7.22.0 or earlier:</strong> a 2GP upgrade does <strong>not</strong> re-apply permset deltas to subscribers — re-assign the permset (or the <code>TourviaApp_Manager_Group</code> PSG) once after upgrade so the new FLS grants take effect.</div>
 
 <h3>9.3 Tourvia User</h3>
 <p><strong>Target:</strong> Sales Reps and field users.</p>
@@ -1821,22 +1857,32 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <td><strong>App</strong></td>
 <td>Tourvia visible</td>
 </tr>
+<tr>
+<td><strong>Standard object FLS</strong> <span style="color:#9099ff;font-size:0.85em;">Since TourviaApp 7.23.0</span></td>
+<td>Read FLS on compound address fields (<code>Account.BillingAddress</code>, <code>Account.ShippingAddress</code>, <code>Contact.MailingAddress</code>, <code>Contact.OtherAddress</code>, <code>Lead.Address</code>), the matching Latitude/Longitude pairs, plus <code>Account.Phone</code>, <code>Contact.Phone</code>, <code>Contact.MobilePhone</code>, <code>Lead.Phone</code>, <code>Lead.MobilePhone</code>. Powers the Today&apos;s Agenda tap-to-call row and removes the &quot;No such column OtherLatitude on entity Contact&quot; error that previously hit users without manually-granted FLS.</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Key difference:</strong> Users do <strong>not</strong> see the Configuration or Licence tabs, and cannot modify CMDT settings or manage API keys.</p>
+<div class="note"><strong>Upgrading from 7.22.0 or earlier:</strong> a 2GP upgrade does <strong>not</strong> re-apply permset deltas to subscribers — re-assign the permset (or the <code>TourviaApp_User_Group</code> PSG) once after upgrade so the new FLS grants take effect.</div>
 
 <h3>9.4 Assigning Permission Sets</h3>
+<p><strong>Recommended (since TourviaApp 7.24.0): assign the PermissionSetGroup</strong>, not the raw permset. PSG assignment lets subscribers extend access through their own custom permset without cloning managed metadata (see §9.0).</p>
 <p>Via Setup UI:</p>
 <ol>
-<li><strong>Setup > Permission Sets</strong></li>
-<li>Click <strong>Tourvia Admin</strong> or <strong>Tourvia User</strong></li>
-<li>Click <strong>Manage Assignments > Add Assignments</strong></li>
-<li>Select users > <strong>Assign</strong></li>
+<li><strong>Setup &gt; Permission Set Groups</strong></li>
+<li>Click <strong>TourviaApp_Admin_Group</strong> / <strong>TourviaApp_Manager_Group</strong> / <strong>TourviaApp_User_Group</strong></li>
+<li>Click <strong>Manage Assignments &gt; Add Assignment</strong></li>
+<li>Select users &gt; <strong>Assign</strong></li>
 </ol>
-<p>Via SF CLI:</p>
-<pre><code>sf org assign permset --name RouteForce_Admin --target-org &lt;org-alias&gt;
-sf org assign permset --name RouteForce_Manager --target-org &lt;org-alias&gt;
-sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</code></pre>
+<p>Via SF CLI — <strong>preferred (PSG)</strong>:</p>
+<pre><code>sf org assign permsetgroup --name TourviaApp_Admin_Group --target-org &lt;org-alias&gt;
+sf org assign permsetgroup --name TourviaApp_Manager_Group --target-org &lt;org-alias&gt;
+sf org assign permsetgroup --name TourviaApp_User_Group --target-org &lt;org-alias&gt;</code></pre>
+<p>Fallback for legacy assignment scripts — raw permset (the package namespace remains <code>routeforce</code> even though the package node-name is now <code>TourviaApp</code>):</p>
+<pre><code>sf org assign permset --name routeforce__RouteForce_Admin --target-org &lt;org-alias&gt;
+sf org assign permset --name routeforce__RouteForce_Manager --target-org &lt;org-alias&gt;
+sf org assign permset --name routeforce__RouteForce_User --target-org &lt;org-alias&gt;</code></pre>
 
 <hr>
 
@@ -1881,6 +1927,22 @@ sf org assign permset --name RouteForce_User --target-org &lt;org-alias&gt;</cod
 
 <h3>10.4 Events</h3>
 <p>Events appear on the map when they have a <strong>related record</strong> (WhatId or WhoId) with geocoded coordinates. Events without a geocoded related record appear in the calendar panel but not on the map.</p>
+
+<h4>Today&apos;s Agenda — contact + tap-to-call phone <span style="color:#9099ff;font-size:0.85em;">Since TourviaApp 7.22.0, hotfixed in 7.25.0</span></h4>
+<p>For Events with a <code>WhoId</code> pointing to a Contact or Lead, Today&apos;s Agenda renders the related contact name (as a record link) and a <strong>tap-to-call</strong> phone link (<code>tel:</code>). The resolver prefers the Mobile field and falls back to the standard Phone field, in this order:</p>
+<ul>
+<li>Contact: <code>MobilePhone</code> → <code>Phone</code></li>
+<li>Lead: <code>MobilePhone</code> → <code>Phone</code></li>
+</ul>
+<p>The contact + phone row is polymorphic across all event flavors because resolution happens on <code>Event.WhoId</code>:</p>
+<ul>
+<li><strong>Account events</strong> — including the standard Salesforce &quot;Account meeting with contact&quot; pattern where <code>WhatId</code> points to the Account and <code>WhoId</code> points to a Contact. <em>The 7.25.0 hotfix ensures this case resolves correctly</em> (the 7.22.0 resolver previously short-circuited on the Account branch and never read the Contact <code>WhoId</code>).</li>
+<li><strong>Lead events</strong> — <code>WhoId</code> points directly to the Lead.</li>
+<li><strong>Opportunity events</strong> — <code>WhoId</code> resolved via the OpportunityContactRoles / primary contact pattern.</li>
+<li><strong>CampaignMember-linked events</strong> — <code>WhoId</code> points to the underlying Lead or Contact.</li>
+</ul>
+<p>The row only renders when a phone value is available, so events on contactless records cleanly omit it. Tapping the link opens the device dialer on mobile, and FaceTime / Microsoft Teams / OS default on desktop.</p>
+<div class="note"><strong>Prerequisite — FLS Read on the phone fields.</strong> The agenda needs Read FLS on <code>Contact.MobilePhone</code> / <code>Contact.Phone</code> and <code>Lead.MobilePhone</code> / <code>Lead.Phone</code>. <strong>Granted out of the box by the managed permsets since TourviaApp 7.23.0</strong> (<code>routeforce__RouteForce_User</code> / <code>_Manager</code> / <code>_Admin</code>) — admins no longer need to grant these manually. If you upgraded from 7.22.0 or earlier, re-assign the permset (or PSG) once so the new FLS grants take effect.</div>
 
 <hr>
 

@@ -8,7 +8,7 @@
   <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/user-guide.html" />
   <link rel="alternate" hreflang="fr" href="https://routeforce.app/docs/user-guide-fr.html" />
   <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/user-guide.html" />
-  <title>Guide utilisateur Tourvia | TourviaApp ver 7.25.0</title>
+  <title>Guide utilisateur Tourvia | TourviaApp 7.25.0</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -97,19 +97,19 @@
     .lang-switch:hover { background: rgba(99, 102, 241, 0.2); }
   </style>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="Guide utilisateur TourviaApp ver 7.25.0 : visualisation cartographique, filtres, planification de tournées, check-in/check-out, comptes-rendus de visite et historique dans Salesforce.">
+    <meta name="description" content="Guide utilisateur TourviaApp 7.25.0 : visualisation cartographique, filtres, planification de tournées, check-in/check-out, comptes-rendus de visite et historique dans Salesforce.">
   <link rel="canonical" href="https://routeforce.app/docs/user-guide-fr.html">
-  <meta property="og:title" content="Guide utilisateur TourviaApp ver 7.25.0">
+  <meta property="og:title" content="Guide utilisateur TourviaApp 7.25.0">
   <meta property="og:site_name" content="Tourvia">
   <meta property="og:description" content="Guide utilisateur complet de l'app de tournées commerciales Tourvia sur Salesforce.">
   <meta property="og:url" content="https://routeforce.app/docs/user-guide-fr.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Guide utilisateur TourviaApp ver 7.25.0"/>
-  <meta name="twitter:description" content="Guide utilisateur TourviaApp ver 7.25.0 : visualisation cartographique, filtres, planification de tournées, check-in/check-out, comptes-rendus de visite et historique dans Salesforce.">
+  <meta name="twitter:title" content="Guide utilisateur TourviaApp 7.25.0"/>
+  <meta name="twitter:description" content="Guide utilisateur TourviaApp 7.25.0 : visualisation cartographique, filtres, planification de tournées, check-in/check-out, comptes-rendus de visite et historique dans Salesforce.">
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Guide utilisateur TourviaApp ver 7.25.0","url":"https://routeforce.app/docs/user-guide-fr.html","description":"Guide utilisateur TourviaApp ver 7.25.0 : visualisation cartographique, filtres, planification de tournées, check-in/check-out, comptes-rendus de visite et historique dans Salesforce.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"},"inLanguage":"fr"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Guide utilisateur TourviaApp 7.25.0","url":"https://routeforce.app/docs/user-guide-fr.html","description":"Guide utilisateur TourviaApp 7.25.0 : visualisation cartographique, filtres, planification de tournées, check-in/check-out, comptes-rendus de visite et historique dans Salesforce.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"},"inLanguage":"fr"}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -175,7 +175,7 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Produit</div><div class="value">Tourvia pour Salesforce</div></div>
-        <div class="card"><div class="label">Version du package</div><div class="value">TourviaApp ver 7.25.0 | numéro 7.25</div></div>
+        <div class="card"><div class="label">Version du package</div><div class="value">TourviaApp 7.25.0 | Juin 2026</div></div>
         <div class="card"><div class="label">Public</div><div class="value">Commerciaux terrain &amp; managers</div></div>
       </div>
     </div>
@@ -185,9 +185,17 @@
   <main class="content">
     <a href="user-guide.html" class="lang-switch">🇬🇧 Read in English</a>
 
-    <div class="note"><strong>TourviaApp ver 7.25.0</strong> : Ce guide couvre toutes les fonctionnalités disponibles pour les commerciaux terrain et leurs managers. Gardez-le comme référence quotidienne.</div>
+    <div class="note"><strong>TourviaApp 7.25.0</strong> : Ce guide couvre toutes les fonctionnalités disponibles pour les commerciaux terrain et leurs managers. Gardez-le comme référence quotidienne.</div>
 
-    <p><strong>Version du package :</strong> TourviaApp ver 7.25.0 | numéro 7.25<br><strong>Public :</strong> Commerciaux terrain, managers de territoire<br><strong>Plateforme :</strong> Salesforce Desktop &amp; Salesforce Mobile App</p>
+    <p><strong>Version du package :</strong> TourviaApp 7.25.0 | Juin 2026<br><strong>Public :</strong> Commerciaux terrain, managers de territoire<br><strong>Plateforme :</strong> Salesforce Desktop &amp; Salesforce Mobile App</p>
+
+    <div class="note"><strong>Nouveautés 7.25.0</strong>
+      <ul style="margin:8px 0 0;">
+        <li><strong>Agenda du jour</strong> — le nom du contact lié et son numéro de téléphone (lien tap-to-call) s'affichent désormais sur chaque événement de l'Agenda du jour (depuis 7.22.0 ; correctif en 7.25.0 pour les événements <em>Compte + Contact participant</em>).</li>
+        <li><strong>Planifier depuis une Campagne Salesforce</strong> — un 6<sup>e</sup> point d'entrée de tournée : un sélecteur inline Campagne ajoute en un clic tous les Membres de campagne géocodés comme étapes (depuis 7.22.0).</li>
+        <li><strong>Recentrage carte agenda</strong> — cliquer sur un événement de l'Agenda recentre le marker dans la zone visible de la carte (plus caché sous le panneau, depuis 7.22.0).</li>
+      </ul>
+    </div>
     <p>Tourvia est un outil de tournées cartographique intégré nativement dans Salesforce. Il vous permet de visualiser votre territoire, filtrer vos enregistrements, planifier des tournées optimisées, effectuer des visites avec vérification GPS, et conserver un historique complet — le tout sans quitter Salesforce.</p>
 
     <nav class="toc">
@@ -260,7 +268,7 @@
     <p>La carte est le cœur de Tourvia. Elle affiche trois types d'objets simultanément pour vous donner une vue complète de votre territoire en un coup d'œil.</p>
 
     <h3>Affichage multi-objets</h3>
-    <p>Tourvia affiche les <strong>Comptes</strong>, <strong>Pistes</strong>, <strong>Opportunités</strong> et <strong>Membres de campagne</strong> <span style="color:#9099ff;font-size:0.8em;">(Membres de campagne NOUVEAU en 7.20.0)</span> sur la carte en même temps. Chaque type d'objet utilise une couleur de marker distincte pour les distinguer instantanément. Active ou désactive chaque couche via les pills d'affichage au-dessus de la carte.</p>
+    <p>Tourvia affiche les <strong>Comptes</strong>, <strong>Pistes</strong>, <strong>Opportunités</strong> et <strong>Membres de campagne</strong> <span style="color:#9099ff;font-size:0.8em;">(Membres de campagne — depuis 7.20.0)</span> sur la carte en même temps. Chaque type d'objet utilise une couleur de marker distincte pour les distinguer instantanément. Active ou désactive chaque couche via les pills d'affichage au-dessus de la carte.</p>
 
     <table>
       <thead>
@@ -440,10 +448,11 @@
     <img src="../assets/screenshots-2026/screen-04.jpg" alt="Panneau Tournée avec étapes" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
 
     <h3>Ajouter des étapes</h3>
-    <p>Deux façons d'ajouter des étapes à votre tournée :</p>
+    <p>Plusieurs façons d'ajouter des étapes à votre tournée :</p>
     <ul>
       <li><strong>Depuis la carte :</strong> en mode tournée, cliquez sur n'importe quel marker pour l'ajouter directement comme étape.</li>
       <li><strong>Depuis la recherche :</strong> utilisez la barre de recherche du panneau Tournée pour trouver un enregistrement par nom, puis ajoutez-le.</li>
+      <li><strong>Depuis une Campagne Salesforce</strong> <span style="color:#9099ff;font-size:0.8em;">(depuis 7.22.0)</span> — un second sélecteur inline à côté du picker Compte/Piste/Opportunité permet de choisir une Campagne ; tous les Membres de campagne géocodés (Piste, ou le Compte du Contact) sont ajoutés comme étapes en un clic. Même UX inline que les autres entrées (pas de modale). Votre admin peut désactiver ce picker par org.</li>
     </ul>
     <p>Chaque étape affiche son numéro de séquence, le nom de l'enregistrement, la ville et le type (Compte, Piste ou Opportunité).</p>
 
@@ -588,8 +597,11 @@
       <li>Sujet et heure de l'événement</li>
       <li>Enregistrement lié (Compte, Piste, Opportunité)</li>
       <li>Lieu</li>
+      <li><strong>Le nom du contact lié</strong> (si l'événement a un <code>WhoId</code> pointant sur une Piste ou un Contact) — cliquable pour ouvrir la fiche.</li>
+      <li><strong>Le numéro de téléphone du contact</strong> en lien tap-to-call (Mobile prioritaire, sinon Phone) — un tap ouvre le composeur sur mobile, FaceTime/Teams sur desktop.</li>
       <li>Boutons d'action rapide (ouvrir l'enregistrement, naviguer, check-in)</li>
     </ul>
+    <div class="note"><strong>Note :</strong> depuis la <strong>7.25.0</strong>, la ligne contact + téléphone apparaît aussi sur les événements liés à un <strong>Compte</strong> avec un contact participant (<code>WhoId</code> positionné sur un Contact). La ligne est masquée si aucun téléphone n'est disponible.</div>
 
     <div class="tip"><strong>Astuce :</strong> commencez chaque matin en ouvrant le panneau Événements. Vous obtenez une vue visuelle des endroits où vous devez être dans la journée.</div>
 
@@ -795,6 +807,7 @@
       <tbody>
         <tr><td><strong>Check-in GPS</strong></td><td>Utilise le GPS du téléphone pour une vérification de position précise. La détection on-site (rayon 500m) fonctionne avec une meilleure précision qu'en desktop.</td></tr>
         <tr><td><strong>Click-to-Call</strong></td><td>Tapez sur un numéro de téléphone dans un popup : lance directement un appel.</td></tr>
+        <tr><td><strong>Appeler depuis l'Agenda du jour</strong></td><td>Le téléphone du contact affiché sur chaque événement est un lien <code>tel:</code> qui ouvre directement votre composeur (depuis 7.22.0).</td></tr>
         <tr><td><strong>Naviguer</strong></td><td>Tapez sur "Naviguer" sur un marker : ouvre Google Maps avec navigation guidée.</td></tr>
         <tr><td><strong>Comptes-rendus</strong></td><td>Remplissez les formulaires de check-in/check-out sur votre téléphone immédiatement après chaque visite. Tous les champs (résultat, satisfaction, action suivante, notes) sont optimisés tactile.</td></tr>
         <tr><td><strong>Export de tournée</strong></td><td>Exportez votre tournée optimisée vers Google Maps : lance l'app pour la navigation en temps réel entre étapes.</td></tr>
@@ -861,6 +874,10 @@
           <td>L'historique de tournées est vide</td>
           <td>Les tournées sont sauvegardées quand vous les construisez. Si vous n'en avez jamais créé, l'historique est vide.</td>
         </tr>
+        <tr>
+          <td>Markers Membres de campagne (via Contact) non affichés</td>
+          <td>Symptôme : aucun marker de campagne basé sur un Contact. Cause probable : FLS manquant sur <code>Contact.OtherAddress</code> / <code>Contact.OtherLatitude</code> / <code>Contact.OtherLongitude</code>. Action : contacter votre admin (résolu out-of-the-box depuis TourviaApp 7.23.0).</td>
+        </tr>
       </tbody>
     </table>
 
@@ -917,7 +934,7 @@
     </ol>
 
     <hr>
-    <p class="small-muted" style="text-align:center; margin-top: 24px;">TourviaApp ver 7.25.0 | Guide utilisateur | Avril 2026<br>https://routeforce.app</p>
+    <p class="small-muted" style="text-align:center; margin-top: 24px;">TourviaApp 7.25.0 | Guide utilisateur | Juin 2026<br>https://routeforce.app</p>
 
   </main>
 <footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">

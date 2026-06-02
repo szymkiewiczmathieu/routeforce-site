@@ -8,7 +8,7 @@
   <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/user-guide.html" />
   <link rel="alternate" hreflang="fr" href="https://routeforce.app/docs/user-guide-fr.html" />
   <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/user-guide.html" />
-  <title>Tourvia User Guide | TourviaApp ver 7.25.0</title>
+  <title>Tourvia User Guide | TourviaApp 7.25.0</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -97,19 +97,19 @@
     .lang-switch:hover { background: rgba(99, 102, 241, 0.2); }
   </style>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="TourviaApp ver 7.25.0 User Guide: map visualization, filters, route planning, check-in/check-out, visit reports, and route history in Salesforce.">
+    <meta name="description" content="TourviaApp 7.25.0 User Guide: map visualization, filters, route planning, check-in/check-out, visit reports, and route history in Salesforce.">
   <link rel="canonical" href="https://routeforce.app/docs/user-guide.html">
-  <meta property="og:title" content="Tourvia User Guide TourviaApp ver 7.25.0">
+  <meta property="og:title" content="Tourvia User Guide TourviaApp 7.25.0">
   <meta property="og:site_name" content="Tourvia">
   <meta property="og:description" content="Complete user guide for Tourvia field sales app on Salesforce.">
   <meta property="og:url" content="https://routeforce.app/docs/user-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Tourvia User Guide TourviaApp ver 7.25.0"/>
-  <meta name="twitter:description" content="TourviaApp ver 7.25.0 User Guide: map visualization, filters, route planning, check-in/check-out, visit reports, and route history in Salesforce."/>
+  <meta name="twitter:title" content="Tourvia User Guide TourviaApp 7.25.0"/>
+  <meta name="twitter:description" content="TourviaApp 7.25.0 User Guide: map visualization, filters, route planning, check-in/check-out, visit reports, and route history in Salesforce."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia User Guide TourviaApp ver 7.25.0","url":"https://routeforce.app/docs/user-guide.html","description":"TourviaApp ver 7.25.0 User Guide: map visualization, filters, route planning, check-in/check-out, visit reports, and route history in Salesforce.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia User Guide TourviaApp 7.25.0","url":"https://routeforce.app/docs/user-guide.html","description":"TourviaApp 7.25.0 User Guide: map visualization, filters, route planning, check-in/check-out, visit reports, and route history in Salesforce.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -175,7 +175,7 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">Tourvia for Salesforce</div></div>
-        <div class="card"><div class="label">Package version</div><div class="value">TourviaApp ver 7.25.0 | version number 7.25</div></div>
+        <div class="card"><div class="label">Package version</div><div class="value">TourviaApp 7.25.0 | June 2026</div></div>
         <div class="card"><div class="label">Audience</div><div class="value">Field Sales Reps &amp; Managers</div></div>
       </div>
     </div>
@@ -185,10 +185,18 @@
   <main class="content">
     <a href="user-guide-fr.html" class="lang-switch">🇫🇷 Lire en français</a>
 
-    <div class="note"><strong>TourviaApp ver 7.25.0</strong>: This guide covers every feature available to field sales representatives and their managers. Keep it as a daily reference.</div>
+    <div class="note"><strong>TourviaApp 7.25.0</strong>: This guide covers every feature available to field sales representatives and their managers. Keep it as a daily reference.</div>
 
-    <p><strong>Package version:</strong> TourviaApp ver 7.25.0 | version number 7.25<br><strong>Audience:</strong> Field sales reps, territory managers<br><strong>Platform:</strong> Salesforce Desktop &amp; Salesforce Mobile App</p>
+    <p><strong>Package version:</strong> TourviaApp 7.25.0 | June 2026<br><strong>Audience:</strong> Field sales reps, territory managers<br><strong>Platform:</strong> Salesforce Desktop &amp; Salesforce Mobile App</p>
     <p>Tourvia is a map-based field operations tool built natively inside Salesforce. It lets you visualize your territory, filter records, plan optimized routes, conduct GPS-verified visits, and maintain a complete route history, all without leaving Salesforce.</p>
+
+    <div class="tip"><strong>What is new in 7.25.0</strong>
+      <ul style="margin:8px 0 0;">
+        <li><strong>Today's Agenda now shows the linked contact and a tap-to-call phone</strong> on each event (since 7.22.0). 7.25.0 fixes the case where the event has an Account in WhatId and a Contact in WhoId — the contact + phone row now displays there too.</li>
+        <li><strong>Plan a tour directly from a Salesforce Campaign</strong> (since 7.22.0). A second inline picker next to the Account/Lead/Opp picker loads every geocoded Campaign Member as route steps in one click.</li>
+        <li><strong>Clicking an event in Today's Agenda now centers the map inside the visible area</strong>, not behind the events panel overlay (since 7.22.0). Pure UX polish for desktop and mobile.</li>
+      </ul>
+    </div>
 
     <nav class="toc">
       <h2>Table of Contents</h2>
@@ -260,7 +268,7 @@
     <p>The map is the core of Tourvia. It displays three object types simultaneously so you get a complete view of your territory at a glance.</p>
 
     <h3>Multi-object display</h3>
-    <p>Tourvia shows <strong>Accounts</strong>, <strong>Leads</strong>, <strong>Opportunities</strong>, and <strong>Campaign Members</strong> <span style="color:#9099ff;font-size:0.8em;">(Campaign Members NEW in 7.20.0)</span> on the map at the same time. Each object type uses a distinct marker color so you can tell them apart instantly. Toggle each layer on or off via the display pills above the map.</p>
+    <p>Tourvia shows <strong>Accounts</strong>, <strong>Leads</strong>, <strong>Opportunities</strong>, and <strong>Campaign Members</strong> <span style="color:#9099ff;font-size:0.8em;">(Campaign Members — since 7.20.0)</span> on the map at the same time. Each object type uses a distinct marker color so you can tell them apart instantly. Toggle each layer on or off via the display pills above the map.</p>
 
     <table>
       <thead>
@@ -440,12 +448,16 @@
     <img src="../assets/screenshots-2026/screen-04.jpg" alt="Route panel with stops" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
 
     <h3>Add stops</h3>
-    <p>There are two ways to add stops to your route:</p>
+    <p>Tourvia offers six entry points to add stops to your route — all inline, no modal:</p>
     <ul>
-      <li><strong>From the map:</strong> In route mode, click any marker on the map to add it directly as a route step.</li>
-      <li><strong>From search:</strong> Use the search bar in the route panel to find a record by name, then add it.</li>
+      <li><strong>From the map (marker click):</strong> In route mode, click any marker on the map to add it directly as a route step.</li>
+      <li><strong>From the search picker:</strong> Use the inline Account/Lead/Opportunity record picker in the route panel to find a record by name, then add it.</li>
+      <li><strong>From a Salesforce Campaign (since 7.22.0):</strong> A second inline picker sits next to the Account/Lead/Opportunity picker — pick a Campaign and every geocoded Campaign Member (Lead, or the Contact's parent Account) is added as a route step in one click. Same inline UX as the other entry points — no modal. Your admin can disable this picker per org.</li>
+      <li><strong>From Today's Agenda:</strong> Import today's events as route stops directly from the events panel.</li>
+      <li><strong>From the Nearby panel:</strong> List records around your current GPS position or around any pinned location and add them in one click.</li>
+      <li><strong>From the lasso (rectangle selection):</strong> Draw a rectangle on the map to bulk-add every record inside it.</li>
     </ul>
-    <p>Each stop shows its sequence number, record name, city, and record type (Account, Lead, or Opportunity).</p>
+    <p>Each stop shows its sequence number, record name, city, and record type (Account, Lead, Opportunity, or Campaign Member).</p>
 
     <h3>Reorder stops</h3>
     <ul>
@@ -588,8 +600,12 @@
       <li>Event subject and time</li>
       <li>Related record (Account, Lead, Opportunity)</li>
       <li>Location</li>
+      <li><strong>Linked contact name</strong> — when the event has a <code>WhoId</code> pointing to a Lead or a Contact, the contact name is shown and clickable to open the record.</li>
+      <li><strong>Contact phone number as a tap-to-call link</strong> — Mobile Phone is preferred, with a fallback to Phone. One tap opens your dialer on mobile and FaceTime/Teams (or your OS default) on desktop.</li>
       <li>Quick action buttons (open record, navigate, check in)</li>
     </ul>
+
+    <div class="note"><strong>Since 7.25.0:</strong> the contact + phone row also appears on <strong>Account events that have a Contact attendee</strong> (i.e. <code>WhatId</code> points to an Account and <code>WhoId</code> points to a Contact). The row stays hidden when no phone number is available.</div>
 
     <div class="tip"><strong>Tip:</strong> Start each morning by opening the Events Panel. It gives you a visual overview of where you need to be throughout the day.</div>
 
@@ -795,6 +811,7 @@
       <tbody>
         <tr><td><strong>GPS Check-In</strong></td><td>Uses your phone's GPS for accurate location verification. On-site detection (500m radius) works with better precision than desktop.</td></tr>
         <tr><td><strong>Click-to-Call</strong></td><td>Tap a phone number on any marker popup: initiates a phone call directly.</td></tr>
+        <tr><td><strong>Tap to Call from Today's Agenda</strong></td><td>The contact phone shown on each event in Today's Agenda is a clickable <code>tel:</code> link that opens your phone dialer directly — no need to open the contact record first.</td></tr>
         <tr><td><strong>Navigate</strong></td><td>Tap "Navigate" on any marker: opens Google Maps with turn-by-turn directions.</td></tr>
         <tr><td><strong>Visit Reports</strong></td><td>Complete check-in/check-out forms on your phone immediately after each visit. All fields (result, satisfaction, next action, notes) are touch-optimized.</td></tr>
         <tr><td><strong>Route Export</strong></td><td>Export your optimized route to Google Maps: launches the app for live navigation between stops.</td></tr>
@@ -917,7 +934,7 @@
     </ol>
 
     <hr>
-    <p class="small-muted" style="text-align:center; margin-top: 24px;">TourviaApp ver 7.25.0 | User Guide | May 2026<br>https://routeforce.app</p>
+    <p class="small-muted" style="text-align:center; margin-top: 24px;">TourviaApp 7.25.0 | User Guide | June 2026<br>https://routeforce.app</p>
 
   </main>
 <footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">

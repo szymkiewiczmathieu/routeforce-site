@@ -7,7 +7,7 @@
   <link rel="canonical" href="https://routeforce.app/docs/setup-guide.html" />
   <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/setup-guide.html" />
   <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/setup-guide.html" />
-  <title>Tourvia Setup Guide | TourviaApp ver 7.25.0</title>
+  <title>Tourvia Setup Guide | TourviaApp 7.25.0</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -74,19 +74,19 @@
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
   </style>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="TourviaApp ver 7.25.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.">
+    <meta name="description" content="Tourvia Setup Guide | TourviaApp 7.25.0 for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.">
   <link rel="canonical" href="https://routeforce.app/docs/setup-guide.html">
-  <meta property="og:title" content="Tourvia Setup Guide | TourviaApp ver 7.25.0">
+  <meta property="og:title" content="Tourvia Setup Guide | TourviaApp 7.25.0">
   <meta property="og:site_name" content="Tourvia">
-  <meta property="og:description" content="Implementation guide for Salesforce administrators deploying TourviaApp ver 7.25.0.">
+  <meta property="og:description" content="Implementation guide for Salesforce administrators deploying TourviaApp 7.25.0.">
   <meta property="og:url" content="https://routeforce.app/docs/setup-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Tourvia Setup Guide | TourviaApp ver 7.25.0"/>
-  <meta name="twitter:description" content="TourviaApp ver 7.25.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout."/>
+  <meta name="twitter:title" content="Tourvia Setup Guide | TourviaApp 7.25.0"/>
+  <meta name="twitter:description" content="Tourvia Setup Guide | TourviaApp 7.25.0 for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Setup Guide | TourviaApp ver 7.25.0","url":"https://routeforce.app/docs/setup-guide.html","description":"TourviaApp ver 7.25.0 Setup Guide for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Setup Guide | TourviaApp 7.25.0","url":"https://routeforce.app/docs/setup-guide.html","description":"Tourvia Setup Guide | TourviaApp 7.25.0 for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -152,7 +152,7 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">Tourvia</div></div>
-        <div class="card"><div class="label">Package version</div><div class="value">TourviaApp ver 7.25.0 | version number 7.25</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">TourviaApp 7.25.0 | June 2026</div></div>
         <div class="card"><div class="label">Format</div><div class="value">PDF / Print-ready HTML</div></div>
       </div>
     </div>
@@ -160,8 +160,18 @@
   </section>
   <main class="content">
     <div class="note"><strong>Tourvia branded edition.</strong> This document is formatted for client delivery and print/PDF export.</div>
-    <p><strong>Package version:</strong> TourviaApp ver 7.25.0 | version number 7.25<br><strong>Audience:</strong> Salesforce administrators during initial deployment<br><strong>Goal:</strong> Install Tourvia, assign access, run the onboarding wizard, configure core settings, and validate the first working rollout</p>
-<div class="note"><strong>Install Tourvia:</strong> <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener">Use the private AppExchange install link</a> and click <em>Get It Now</em> to install in your production, developer, or sandbox org.</div>
+    <p><strong>Version:</strong> TourviaApp 7.25.0 | June 2026<br><strong>Audience:</strong> Salesforce administrators during initial deployment<br><strong>Goal:</strong> Install Tourvia, assign access, run the onboarding wizard, configure core settings, and validate the first working rollout</p>
+<div class="note"><strong>What's new in TourviaApp 7.25.0</strong>
+<ul>
+<li><strong>Package rebaseline (7.22.0):</strong> the AppExchange-listed, Security-Review-passed managed package was renamed from <code>Tourvia</code> to <code>TourviaApp</code>. The namespace remains <code>routeforce</code>.</li>
+<li><strong>Today's Agenda — contact + tap-to-call phone (7.22.0, fixed in 7.25.0):</strong> events in Today's Agenda now show the related contact's name and a clickable phone (Mobile preferred, falls back to Phone). The 7.25.0 hotfix ensures the contact line also renders for Account events that carry a Contact in <code>WhoId</code>.</li>
+<li><strong>Campaign as a 6th inline route entry (7.22.0):</strong> a Campaign picker now sits next to the Account / Lead / Opportunity / Event / Lasso / Nearby entry points. Pick a Campaign and all its geocoded members are added to the route in one click. CMDT-gated, so admins can disable it per org.</li>
+<li><strong>Out-of-the-box FLS on standard fields (7.23.0):</strong> the managed permsets now grant Read FLS on compound addresses, the matching Latitude/Longitude pairs, and the phone fields on Account, Contact and Lead. Admins no longer have to grant this FLS manually.</li>
+<li><strong>Three new Permission Set Groups (7.24.0):</strong> <code>TourviaApp_User_Group</code>, <code>TourviaApp_Manager_Group</code>, and <code>TourviaApp_Admin_Group</code> wrap the existing managed permsets so admins can extend access with their own custom permset added to the same PSG.</li>
+</ul>
+<p><strong>Package lineage note:</strong> a separate fresh package, <code>Tourvia</code> 1.6.0, also exists but does <strong>NOT</strong> auto-upgrade to <code>TourviaApp</code> — they are different package IDs. Customers should install or upgrade to <strong>TourviaApp 7.25.0</strong> on the AppExchange-listed, Security-Review-passed lineage.</p>
+</div>
+<div class="note"><strong>Install Tourvia:</strong> <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener">View the listing on the Salesforce AppExchange</a> and click <em>Get It Now</em> to install in your production, developer, or sandbox org.</div>
 <hr>
 
 <!-- ======================================================== -->
@@ -202,11 +212,51 @@
 FROM InstalledSubscriberPackage
 WHERE SubscriberPackage.Name IN ('TourviaApp', 'Tourvia')
 </code></pre>
+<p class="small-muted">The managed package node-name is <code>TourviaApp</code> (since 7.22.0); the namespace remains <code>routeforce</code>.</p>
 <hr>
 
 <!-- ======================================================== -->
 <h2>3. Assign permission sets</h2>
-<p>TourviaApp ver 7.25.0 ships with <strong>three</strong> permission sets to support different levels of access.</p>
+<p>TourviaApp 7.25.0 ships with <strong>three managed permission sets</strong> and, since 7.24.0, <strong>three Permission Set Groups (PSGs)</strong> that wrap them. The PSGs are the recommended assignment path.</p>
+
+<h3>3.0 Permission Set Groups (recommended, since TourviaApp 7.24.0)</h3>
+<p>Subscribers cannot edit managed 2GP permission sets directly. The three PSGs let you extend access by creating <strong>one</strong> small custom permset (with your additional FLS or object access) and adding it to the matching PSG — effective access is the union of the managed permset and your overlay.</p>
+<table>
+<thead>
+<tr>
+<th>Permission Set Group</th>
+<th>Wraps</th>
+<th>Intended audience</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>TourviaApp_User_Group</code></td>
+<td><code>routeforce__RouteForce_User</code></td>
+<td>Sales reps and field users</td>
+</tr>
+<tr>
+<td><code>TourviaApp_Manager_Group</code></td>
+<td><code>routeforce__RouteForce_Manager</code></td>
+<td>Sales managers and team leads</td>
+</tr>
+<tr>
+<td><code>TourviaApp_Admin_Group</code></td>
+<td><code>routeforce__RouteForce_Admin</code></td>
+<td>Salesforce administrators</td>
+</tr>
+</tbody></table>
+<div class="note"><strong>Recommended pattern:</strong> assign the PSG, <em>not</em> the underlying permset. That way you can later add your own custom permset to the same PSG (for example, to grant access to a custom object or field) without cloning the managed permset.</div>
+
+<h3>Out-of-the-box standard object FLS (since TourviaApp 7.23.0)</h3>
+<p>The managed permsets now grant Read FLS on the standard fields Tourvia needs, so subscribers no longer have to grant them manually:</p>
+<ul>
+<li><strong>Compound address fields</strong> (Salesforce only allows FLS at the compound level for these): <code>Account.BillingAddress</code>, <code>Account.ShippingAddress</code>, <code>Contact.MailingAddress</code>, <code>Contact.OtherAddress</code>, <code>Lead.Address</code></li>
+<li><strong>Matching Latitude / Longitude pairs</strong> on the same objects</li>
+<li><strong>Phone fields:</strong> <code>Account.Phone</code>, <code>Contact.Phone</code>, <code>Contact.MobilePhone</code>, <code>Lead.Phone</code>, <code>Lead.MobilePhone</code></li>
+</ul>
+<div class="note"><strong>Upgrade caveat (2GP):</strong> a 2GP package upgrade does <strong>NOT</strong> re-apply permset deltas to subscribers. After upgrading from 7.22.0 or earlier to 7.23.0+, re-assign the PSG (or the underlying permset) once so the new FLS deltas land on existing users.</div>
+
+<h3>3.1 Contained permission sets (reference)</h3>
 <table>
 <thead>
 <tr>
@@ -233,24 +283,44 @@ WHERE SubscriberPackage.Name IN ('TourviaApp', 'Tourvia')
 </tbody></table>
 <h3>Assignment via Setup</h3>
 <ol>
-<li>Go to <strong>Setup &gt; Permission Sets</strong>.</li>
-<li>Open the desired permission set (e.g., <code>RouteForce_Admin</code>).</li>
+<li>Go to <strong>Setup &gt; Permission Set Groups</strong>.</li>
+<li>Open the desired PSG (e.g., <code>TourviaApp_Admin_Group</code>).</li>
 <li>Click <strong>Manage Assignments</strong>.</li>
 <li>Click <strong>Add Assignment</strong> and select the appropriate users.</li>
-<li>Repeat for each permission set as needed.</li>
+<li>Repeat for each PSG as needed.</li>
 </ol>
 <h3>Assignment via CLI</h3>
-<pre><code class="language-bash">sf org assign permset --name RouteForce_Admin --target-org &lt;your-org&gt;
-sf org assign permset --name RouteForce_Manager --target-org &lt;your-org&gt;
-sf org assign permset --name RouteForce_User --target-org &lt;your-org&gt;
+<p>Preferred — assign the PSG:</p>
+<pre><code class="language-bash">sf org assign permsetgroup --name TourviaApp_Admin_Group --target-org &lt;your-org&gt;
+sf org assign permsetgroup --name TourviaApp_Manager_Group --target-org &lt;your-org&gt;
+sf org assign permsetgroup --name TourviaApp_User_Group --target-org &lt;your-org&gt;
+</code></pre>
+<p>Fallback — assign the namespaced managed permset directly (works on subscriber orgs):</p>
+<pre><code class="language-bash">sf org assign permset --name routeforce__RouteForce_Admin --target-org &lt;your-org&gt;
+sf org assign permset --name routeforce__RouteForce_Manager --target-org &lt;your-org&gt;
+sf org assign permset --name routeforce__RouteForce_User --target-org &lt;your-org&gt;
 </code></pre>
 <h3>Verify assignments</h3>
+<p>Permission set assignments:</p>
 <pre><code class="language-sql">SELECT Assignee.Name, PermissionSet.Name
 FROM PermissionSetAssignment
 WHERE PermissionSet.Name LIKE 'RouteForce_%'
 ORDER BY PermissionSet.Name, Assignee.Name
 </code></pre>
-<div class="note"><strong>Recommendation:</strong> During initial setup, assign <code>RouteForce_Admin</code> to yourself. Add pilot users with <code>RouteForce_User</code> or <code>RouteForce_Manager</code> only after you have completed validation (Section 10).</div>
+<p>Permission Set Group assignments (and which permsets each PSG contains):</p>
+<pre><code class="language-sql">-- Users assigned to a TourviaApp PSG
+SELECT Assignee.Name, PermissionSetGroup.DeveloperName
+FROM PermissionSetAssignment
+WHERE PermissionSetGroup.DeveloperName LIKE 'TourviaApp_%_Group'
+ORDER BY PermissionSetGroup.DeveloperName, Assignee.Name
+</code></pre>
+<pre><code class="language-sql">-- Permsets contained in each TourviaApp PSG
+SELECT PermissionSetGroup.DeveloperName, PermissionSet.Name
+FROM PermissionSetGroupComponent
+WHERE PermissionSetGroup.DeveloperName LIKE 'TourviaApp_%_Group'
+ORDER BY PermissionSetGroup.DeveloperName, PermissionSet.Name
+</code></pre>
+<div class="note"><strong>Recommendation:</strong> During initial setup, assign <code>TourviaApp_Admin_Group</code> to yourself. Add pilot users with <code>TourviaApp_User_Group</code> or <code>TourviaApp_Manager_Group</code> only after you have completed validation (Section 10).</div>
 <hr>
 
 <!-- ======================================================== -->
@@ -473,7 +543,7 @@ ORDER BY PermissionSet.Name, Assignee.Name
 
 <!-- ======================================================== -->
 <h2>6. RouteForceConfig__mdt: Full configuration reference</h2>
-<p>All configuration is stored in the <code>RouteForceConfig__mdt</code> Custom Metadata Type (44 fields since 7.13.0). The onboarding wizard sets the most important values, but you can edit any field directly in <strong>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Manage Records</strong>. The full reference is in the <a href="configuration-guide.html#config-mdt">Configuration Guide</a>.</p>
+<p>All configuration is stored in the <code>RouteForceConfig__mdt</code> Custom Metadata Type — see the <a href="configuration-guide.html#config-mdt">Configuration Guide</a> for the canonical field list (44+ fields, evolving since 7.13.0). The onboarding wizard sets the most important values, but you can edit any field directly in <strong>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Manage Records</strong>.</p>
 <div class="note"><strong>Upgrading from 7.12.0 → 7.13.0:</strong> The 8 new CMDT fields (legend / marker / popup) are created automatically, but Salesforce does <strong>not</strong> auto-update the CMDT page layout in subscriber orgs. To see and edit the new fields in the UI, go to <strong>Setup → Custom Metadata Types → Tourvia Config → Page Layouts</strong> and add the 8 fields manually (sections: Account / Lead / Opportunity / Marker Display). The fields are read by the LWC regardless — the layout step is only for the admin UI. See the <a href="configuration-guide.html#config-model">Configuration Guide migration notes</a> for the full procedure.</div>
 
 <table>
@@ -831,7 +901,7 @@ LIMIT 20
 
 <!-- ======================================================== -->
 <h2>11. Dashboards and reports</h2>
-<p>TourviaApp ver 7.25.0 includes <strong>2 dashboards</strong> and <strong>18 reports</strong> out of the box, ready for use by admins and managers.</p>
+<p>TourviaApp 7.25.0 ships dashboards and reports for activity, pipeline, and route execution — see the <a href="configuration-guide.html">Configuration Guide</a> for the canonical list. They are ready for use by admins and managers out of the box.</p>
 
 <h3>Included dashboards</h3>
 <table>
@@ -927,8 +997,13 @@ AND Type = 'Report'
 </tr>
 <tr>
 <td>Users cannot open Tourvia</td>
-<td>Missing permission set</td>
-<td>Assign <code>RouteForce_User</code> or <code>RouteForce_Manager</code> to the user.</td>
+<td>Missing permission set or PSG</td>
+<td>Assign the appropriate PSG: <code>TourviaApp_User_Group</code> or <code>TourviaApp_Manager_Group</code> (or, as a fallback, the underlying <code>routeforce__RouteForce_User</code> / <code>routeforce__RouteForce_Manager</code> permset).</td>
+</tr>
+<tr>
+<td>Nearby Contact / Campaign Member markers empty, or <code>No such column OtherLatitude</code> error</td>
+<td><code>Contact.OtherAddress</code> (compound) FLS not granted on the user — typically because the user was assigned a permset before TourviaApp 7.23.0 and the 2GP upgrade did not refresh the assignment</td>
+<td>Re-assign the TourviaApp PSG (e.g., <code>TourviaApp_User_Group</code>) to the affected users so the 7.23.0 FLS deltas (compound addresses, lat/long, phones) land on the existing permset assignment.</td>
 </tr>
 <tr>
 <td>Wrong addresses displayed</td>
@@ -962,8 +1037,8 @@ AND Type = 'Report'
 </tr>
 <tr>
 <td>Manager cannot see team data</td>
-<td>Wrong permission set assigned</td>
-<td>Assign <code>RouteForce_Manager</code> instead of <code>RouteForce_User</code>.</td>
+<td>Wrong permission set or PSG assigned</td>
+<td>Assign <code>TourviaApp_Manager_Group</code> instead of <code>TourviaApp_User_Group</code> (or, as a fallback, the underlying <code>routeforce__RouteForce_Manager</code> permset).</td>
 </tr>
 </tbody></table>
 <hr>
@@ -976,7 +1051,7 @@ AND Type = 'Report'
 <li>Enabled features and their rationale</li>
 <li>Configured filter fields (including any custom additions)</li>
 <li>Visit report field configuration</li>
-<li>Permission set assignments and user roles</li>
+<li>PermissionSetGroup assignments (<code>TourviaApp_User_Group</code> / <code>TourviaApp_Manager_Group</code> / <code>TourviaApp_Admin_Group</code>) and any custom permsets added to the PSG for extensibility</li>
 <li>Designated Tourvia admin owner</li>
 <li>Support email or escalation path for Tourvia issues</li>
 <li>User Guide shared with field teams</li>
@@ -990,7 +1065,7 @@ AND Type = 'Report'
 <ul>
 <li>Your Salesforce org ID</li>
 <li>Environment type (Production or Sandbox)</li>
-<li>Tourvia package version (<code>TourviaApp ver 7.25.0</code>, version number <code>7.25</code>)</li>
+<li>TourviaApp package version (<code>7.25.0</code>)</li>
 <li>Description of the issue and steps to reproduce</li>
 </ul>
 <p class="small-muted">Tourvia &bull; contact@routeforce.app &bull; <a href="https://routeforce.app">routeforce.app</a></p>
