@@ -778,6 +778,12 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 <td>Default threshold in days for the "Not visited since" filter. Accounts whose last visit date exceeds this threshold are highlighted. Set to 0 to disable the default filter.</td>
 </tr>
 <tr>
+<td><code>LastVisitDateSource__c</code></td>
+<td>Picklist</td>
+<td><code>VisitReport</code></td>
+<td>Source feeding the "Not visited since" filter and the last-visit date/count shown on markers: <code>VisitReport</code> (real check-ins, the default) or <code>Event</code> (the most recent <strong>past</strong> calendar Event on the record — whether planned in the route builder, created manually, or synced from Outlook/Google). Choose <code>Event</code> for teams that work from the Salesforce calendar without structured check-ins. In <code>Event</code> mode, when a Visit Report also exists its result and report link still appear in the marker popup, so no detail is lost.</td>
+</tr>
+<tr>
 <td><code>LeadQueryFields__c</code></td>
 <td>Text</td>
 <td><code>Rating,LeadSource</code></td>
