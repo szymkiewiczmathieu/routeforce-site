@@ -8,7 +8,7 @@ Source basis: current root site + validated product claims confirmed by routefor
 **Plan routes, create visits, execute in the field, and complete reporting — without leaving Salesforce.**
 
 Expanded version:
-Tourvia helps field teams plan routes, create visits and events, execute check-in/check-out, and complete visit reporting inside Salesforce, with fixed org pricing instead of per-user licences.
+Tourvia helps field teams plan routes, create visits and events, execute check-in/check-out, and complete visit reporting inside Salesforce, with per-user pricing instead of per-user licences.
 
 ## 2. The three repeatable proof pillars
 
@@ -17,9 +17,9 @@ Tourvia helps field teams plan routes, create visits and events, execute check-i
 - No external field tool
 - Route planning, visit creation, check-in/check-out, and reporting in one system
 
-### Pillar 2 — Fixed org pricing
-- €599/month excluding tax for the whole org
-- No per-user pricing
+### Pillar 2 — Per-user pricing
+- €30/user/month excluding tax for the whole org
+- €30/user/month
 - Easier rollout and easier internal justification
 
 ### Pillar 3 — Field execution inside Salesforce
@@ -32,7 +32,7 @@ Tourvia helps field teams plan routes, create visits and events, execute check-i
 
 ### Confirmed and safe to push
 - Native Salesforce app / no external tool
-- Fixed org pricing / no per-user pricing
+- Per-user pricing / €30/user/month
 - Route planning in Salesforce
 - Visit planning in Salesforce
 - Field execution workflow in Salesforce
@@ -55,7 +55,7 @@ Tourvia helps field teams plan routes, create visits and events, execute check-i
 ## 4. Page angles
 
 ### Homepage
-Angle: native Salesforce field execution with fixed org pricing.
+Angle: native Salesforce field execution with per-user pricing.
 
 ### pricing.html
 Angle: pricing that scales with the org, not with seat count.
@@ -72,8 +72,8 @@ Angle: plan visits, create events, and follow through in Salesforce.
 ### field-sales-route-optimization.html
 Angle: reduce drive time and improve visit density without leaving Salesforce.
 
-### flat-rate-route-optimization.html
-Angle: why fixed org pricing is easier to defend than per-user field software.
+### per-user-route-optimization.html
+Angle: why per-user pricing is easier to defend than per-user field software.
 
 ### docs/
 Angle: easy to understand, easy to install, easy to validate.
@@ -85,8 +85,8 @@ Angle: easy to understand, easy to install, easy to validate.
 - Why native Salesforce field execution beats external route apps
 - What breaks when reps plan in one tool and report in another
 
-### B. Fixed org pricing vs per-user pricing
-- Fixed org pricing vs per-user field sales software
+### B. Per-user pricing vs per-user pricing
+- Per-user pricing vs per-user field sales software
 - Why per-user pricing slows field tool rollout
 - What buyers should compare before choosing a field sales tool
 

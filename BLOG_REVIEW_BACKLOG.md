@@ -28,7 +28,7 @@ Each article must be checked for:
 
 - [x] `blog/salesforce-maps-alternative.html` — **DONE** — clean, no issues found
 - [x] `blog/salesforce-maps-pricing-alternative.html` — **DONE** — CTA gradient fixed (was using CSS vars with poor contrast)
-- [x] `blog/flat-pricing-vs-per-user-salesforce-field-tools.html` — **DONE** — removed "up to 20 users" cap, fixed CTA text, added excl. tax, added internal links
+- [x] `blog/flat-pricing-vs-per-user-salesforce-field-tools.html` — **DONE** — removed "per licensed user" cap, fixed CTA text, added excl. tax, added internal links
 - [x] `blog/fixed-org-pricing-vs-per-user-field-sales-software.html` — **DONE** — rebuilt broken hero, added body dark styles, removed user-cap, fixed CTA to indigo, added internal links
 - [x] `blog/what-to-compare-before-replacing-salesforce-maps.html` — **DONE** — fixed pricing user-cap text, fixed light-mode link box on dark page
 - [x] `blog/routeforce-vs-salesforce-maps-en.html` — **DONE** — redirect page only, no content issues

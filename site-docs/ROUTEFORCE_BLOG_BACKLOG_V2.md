@@ -10,10 +10,10 @@ Aligned with: `site-docs/ROUTEFORCE_V2_MESSAGE_HIERARCHY.md`
 - CTA target: `salesforce-route-planning.html`
 - Message reinforced: native Salesforce end-to-end flow
 
-### 2. Fixed org pricing vs per-user field sales software
+### 2. Per-user pricing vs per-user field sales software
 - Intent: pricing / decision
 - CTA target: `pricing.html`
-- Message reinforced: fixed org pricing
+- Message reinforced: per-user pricing
 
 ### 3. What to compare before replacing Salesforce Maps
 - Intent: comparison / BOFU

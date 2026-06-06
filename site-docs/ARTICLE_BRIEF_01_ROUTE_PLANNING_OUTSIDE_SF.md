@@ -16,7 +16,7 @@ Create a high-intent article that reframes the problem from "route optimization"
 The biggest problem is not only route math. It is the break between Salesforce data, planning, event creation, field execution, and reporting when teams rely on external tools.
 
 ## Core message to repeat
-Tourvia keeps route planning, visit creation, check-in/check-out, and visit reporting inside Salesforce, with fixed org pricing.
+Tourvia keeps route planning, visit creation, check-in/check-out, and visit reporting inside Salesforce, with per-user pricing.
 
 ## Must include
 - why external tools create data duplication
