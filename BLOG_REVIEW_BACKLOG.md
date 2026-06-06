@@ -64,7 +64,7 @@ Each article must be checked for:
 - weak or cheap-looking table-of-contents cards
 - FAQ sections without working accordion behavior
 - CTA blocks that look appended instead of premium
-- wording that sounds trial-first instead of free app → premium unlock
+- wording that sounds trial-first instead of free app → paid scope
 - overly broad claims about growth, unlimited scope, or fake plug-and-play
 - sections that read informative but not decision-grade
 
@@ -207,7 +207,7 @@ Status note: these items require external accounts, submissions, or outreach. Th
 - [ ] This is the single highest-leverage SEO action after on-site content
 
 ### 5.2 AppExchange reviews
-- [ ] Push free tier users to leave reviews
+- [ ] Push trial access users to leave reviews
 - [ ] 10-15 reviews at 4.5+ stars enables aggregateRating in schema
 - [ ] Then add rating to homepage JSON-LD
 

@@ -19,9 +19,11 @@
 - Full Salesforce Mobile App support
 
 ## Pricing
-- AppExchange installation path available for initial evaluation
-- Paid standard scope: €599/month excl. tax per Salesforce org, for up to 20 users, billed annually at €7,188/year
-- Custom quote for larger deployments
+- 30-day trial available on request through the contact form for qualified Salesforce orgs
+- Paid standard scope: €30/user/month excluding tax, billed annually (€360/user/year)
+- Larger enterprise or multi-entity deployments can be quoted separately when needed
+- Turnkey setup option: €3,000 excluding tax, one-time
+- No routing API pass-through fees from Tourvia; routing uses self-hosted VROOM/OpenRouteService infrastructure
 
 ## Technical details
 - Lightning Web Component (LWC) based architecture
@@ -40,8 +42,9 @@
 - Configuration Guide: https://routeforce.app/docs/configuration-guide.html
 - Use Cases: https://routeforce.app/use-cases.html
 - Pricing: https://routeforce.app/pricing.html
+- Pricing comparison / flat-rate search intent: https://routeforce.app/flat-rate-route-optimization.html
 - Privacy Policy: https://routeforce.app/docs/privacy.html
-- AppExchange: https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba
+- AppExchange listing: https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba
 
 ## Company
 - Tourvia SAS, 14 rue Bausset, 75015 Paris, France
