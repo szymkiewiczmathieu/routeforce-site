@@ -1,1001 +1,276 @@
 <!DOCTYPE html>
-<html class="dark" lang="en">
+<html lang="fr">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18063754907');
-</script>
-<title>Salesforce route planning inside Salesforce | Tourvia</title>
-<meta name="robots" content="index, follow">
-<script>
-  (function () {
-    var path = window.location.pathname;
-    if (path === '/index.html') {
-      var robots = document.querySelector('meta[name="robots"]');
-      if (robots) robots.setAttribute('content', 'noindex,follow');
-      var googlebot = document.createElement('meta');
-      googlebot.setAttribute('name', 'googlebot');
-      googlebot.setAttribute('content', 'noindex,follow');
-      document.head.appendChild(googlebot);
-      window.location.replace('/' + window.location.search + window.location.hash);
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PWNN33DN');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RouteForce | Optimisation de tournées dans Salesforce</title>
+    <meta name="description" content="RouteForce calcule la meilleure tournée directement dans Salesforce, avec vos comptes, vos rendez-vous et vos contraintes terrain. App Salesforce pour commerciaux et équipes mobiles.">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="RouteForce">
+    <meta name="keywords" content="optimisation tournées Salesforce, planification tournées commerciales, route planning Salesforce, tournées commerciaux terrain, AppExchange route optimization">
+    <link rel="canonical" href="https://routeforce.app/">
+    <link rel="alternate" hreflang="fr" href="https://routeforce.app/">
+    <link rel="alternate" hreflang="en" href="https://routeforce.app/en/">
+    <link rel="alternate" hreflang="es" href="https://routeforce.app/es/">
+    <link rel="alternate" hreflang="x-default" href="https://routeforce.app/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="RouteForce | Optimisation de tournées dans Salesforce">
+    <meta property="og:description" content="Moins de route. Plus de rendez-vous. RouteForce remet vos tournées dans le bon ordre depuis Salesforce.">
+    <meta property="og:url" content="https://routeforce.app/">
+    <meta property="og:image" content="https://routeforce.app/assets/screenshot-tour-optimized-paris.jpg">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:locale:alternate" content="en_US">
+    <meta property="og:locale:alternate" content="es_ES">
+    <meta property="og:site_name" content="RouteForce">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="RouteForce | Tournées Salesforce dans le bon ordre">
+    <meta name="twitter:description" content="Planifiez, optimisez et suivez vos tournées terrain directement dans Salesforce.">
+    <meta name="twitter:image" content="https://routeforce.app/assets/screenshot-tour-optimized-paris.jpg">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "RouteForce",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web (Salesforce)",
+        "description": "App Salesforce d'optimisation de tournées terrain. RouteForce calcule le meilleur ordre de visites à partir des données CRM et des contraintes métier.",
+        "url": "https://routeforce.app",
+        "offers": {"@type": "AggregateOffer", "priceCurrency": "EUR", "lowPrice": "2975", "highPrice": "18000", "offerCount": "3"},
+        "publisher": {"@type": "Organization", "name": "RouteForce", "url": "https://routeforce.app"},
+        "featureList": ["Optimisation de tournées", "Planification Salesforce", "Contraintes horaires", "Création d'événements", "Export Google Maps et Waze", "Historique des tournées", "Interface mobile"],
+        "inLanguage": ["fr", "en", "es"]
     }
-  })();
-</script>
-    <meta name="description" content="Tourvia, formerly RouteForce, is Salesforce route planning software for teams that want route optimization, Campaign Member mapping, visit planning, and field execution inside the CRM."/>
-<link rel="icon" type="image/svg+xml" href="favicon.svg"/><link rel="icon" type="image/x-icon" href="favicon.ico"/>
-<link rel="canonical" href="https://routeforce.app"/>
-<link rel="alternate" hreflang="en" href="https://routeforce.app"/>
-<link rel="alternate" hreflang="x-default" href="https://routeforce.app"/>
-<meta name="geo.region" content="FR-75"/>
-<meta name="geo.placename" content="Paris"/>
-<meta name="geo.position" content="48.8422;2.3016"/>
-<meta name="ICBM" content="48.8422, 2.3016"/>
-<meta name="author" content="Tourvia"/>
-<meta name="publisher" content="Tourvia"/>
-<meta property="og:locale" content="en_US"/>
-<!-- Open Graph -->
-<meta property="og:title" content="Salesforce route planning inside Salesforce | Tourvia"/>
-<meta property="og:description" content="Tourvia, formerly RouteForce, keeps route planning, route optimization, visit planning, and field execution inside Salesforce."/>
-<meta property="og:type" content="website"/>
-<meta property="og:url" content="https://routeforce.app"/>
-<meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-<meta property="og:site_name" content="Tourvia"/>
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Salesforce route planning inside Salesforce | Tourvia"/>
-<meta name="twitter:description" content="Tourvia, formerly RouteForce, keeps route planning, route optimization, visit planning, and field execution inside Salesforce."/>
-<meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-<link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt"/>
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="preload" as="image" href="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" fetchpriority="high"/>
-<link rel="stylesheet" href="assets/css/tailwind.min.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-<style>
-  body { font-family: 'Inter', system-ui, sans-serif; }
-  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  html { scroll-behavior: smooth; }
+    </script>
 
-  /* ===== LINEAR/VERCEL HERO BACKGROUND ===== */
-
-  /* Dot grid pattern */
-  .hero-section {
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-section::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(99, 102, 241, 0.12) 1px, transparent 1px);
-    background-size: 32px 32px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* Animated glow orbs */
-  .hero-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    pointer-events: none;
-    z-index: 0;
-    will-change: transform, opacity;
-  }
-  .hero-orb-1 {
-    width: min(600px, 80vw); height: min(600px, 80vw);
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
-    top: -10%; left: -10%;
-    animation: orbFloat1 8s ease-in-out infinite;
-  }
-  .hero-orb-2 {
-    width: min(500px, 70vw); height: min(500px, 70vw);
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
-    bottom: -15%; right: -5%;
-    animation: orbFloat2 10s ease-in-out infinite;
-  }
-  .hero-orb-3 {
-    width: min(300px, 50vw); height: min(300px, 50vw);
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
-    top: 30%; right: 25%;
-    animation: orbFloat3 12s ease-in-out infinite;
-  }
-  @keyframes orbFloat1 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(40px, 30px) scale(1.05); }
-    66% { transform: translate(-20px, -15px) scale(0.95); }
-  }
-  @keyframes orbFloat2 {
-    0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(-30px, -20px) scale(1.08); }
-    66% { transform: translate(25px, 15px) scale(0.92); }
-  }
-  @keyframes orbFloat3 {
-    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-    50% { transform: translate(-40px, 25px) scale(1.1); opacity: 1; }
-  }
-
-  /* Animated beam line (Linear-style) */
-  .hero-beam {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), rgba(6, 182, 212, 0.5), transparent);
-    animation: beamSlide 6s ease-in-out infinite;
-    z-index: 1;
-  }
-  @keyframes beamSlide {
-    0% { transform: translateX(-100%); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
-    100% { transform: translateX(100%); opacity: 0; }
-  }
-
-  /* Subtle noise grain overlay */
-  .hero-section::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
-  }
-
-  /* Ensure hero content is above orbs (exclude orbs & beam) */
-  .hero-section > .grid { position: relative; z-index: 2; }
-
-  /* Enhanced gradient text with shimmer */
-  .gradient-text-animated {
-    background: linear-gradient(90deg, #9099ff, #06b6d4, #a78bfa, #9099ff);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShimmer 6s ease infinite;
-  }
-  @keyframes gradientShimmer {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-
-  /* Glow effects */
-  .glow-primary { box-shadow: 0 0 80px rgba(99, 102, 241, 0.15), 0 0 160px rgba(99, 102, 241, 0.05); }
-  .glow-accent { box-shadow: 0 0 60px rgba(6, 182, 212, 0.1); }
-
-  /* Video container */
-  .video-glow {
-    position: relative;
-  }
-  .video-glow::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 1rem;
-    background: linear-gradient(135deg, #6366f1, #06b6d4, #6366f1);
-    opacity: 0.4;
-    filter: blur(20px);
-    z-index: -1;
-  }
-
-  /* Feature card hover */
-  .feature-card {
-    background: #18181b;
-    border: 1px solid #27272a;
-    transition: all 0.3s ease;
-  }
-  .feature-card:hover {
-    border-color: #6366f1;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
-  }
-
-  /* Screenshot showcase */
-  .screenshot-frame {
-    border: 1px solid #27272a;
-    border-radius: 0.75rem;
-    overflow: hidden;
-    transition: all 0.4s ease;
-  }
-  .screenshot-frame:hover {
-    border-color: #3f3f46;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
-  }
-
-  .showcase-list {
-    display: grid;
-    gap: 4.5rem;
-  }
-  .showcase-stack {
-    display: grid;
-    gap: 2rem;
-  }
-
-  @media (min-width: 1024px) {
-    .showcase-list {
-      gap: 7rem;
-    }
-    .showcase-stack {
-      gap: 2.5rem;
-    }
-  }
-
-  @media (max-width: 1023px) {
-    #showcase {
-      padding-top: 4rem !important;
-      padding-bottom: 3.5rem !important;
-    }
-
-    #pricing {
-      padding-top: 4rem !important;
-    }
-  }
-
-  /* Clickable images - open full size */
-  .screenshot-frame img, .screenshot-frame video { cursor: pointer; }
-
-  /* Lightbox overlay */
-  .lightbox {
-    display: none; position: fixed; inset: 0; z-index: 9999;
-    background: rgba(0,0,0,0.9); align-items: center; justify-content: center;
-    cursor: zoom-out; padding: 24px;
-  }
-  .lightbox.active { display: flex; }
-  .lightbox img { max-width: 95vw; max-height: 95vh; border-radius: 8px; }
-
-  /* Gradient text */
-  .gradient-text {
-    background: linear-gradient(135deg, #9099ff, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Hero animations */
-  @keyframes heroFadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes heroScaleIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  .hero-text {
-    animation: heroFadeUp 0.7s ease forwards;
-  }
-  .hero-visual {
-    animation: heroScaleIn 0.8s ease 0.2s forwards;
-    opacity: 0;
-  }
-  .hero-text .flex.flex-wrap.gap-x-5 {
-    animation: heroFadeUp 0.6s ease 0.4s forwards;
-    opacity: 0;
-  }
-  .hero-text .flex.gap-8 {
-    animation: heroFadeUp 0.6s ease 0.5s forwards;
-    opacity: 0;
-  }
-
-  /* Fade in on scroll */
-  .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* Pricing glow */
-  .pricing-highlight {
-    position: relative;
-  }
-  .pricing-highlight::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 1rem;
-    background: linear-gradient(135deg, #6366f1, #06b6d4);
-    z-index: -1;
-  }
-</style>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="routeforce-ground-control.css">
 </head>
-<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+<body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWNN33DN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
-<!-- ===== NAV ===== -->
-<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/50">
-  <div class="flex justify-between items-center px-6 lg:px-8 py-3 max-w-7xl mx-auto">
-    <a href="/" class="flex items-center gap-2.5 min-w-0 pr-3">
-      <img src="assets/logo-site-brand.png" alt="Tourvia" class="w-8 h-8 rounded-lg shrink-0"/>
-      <span class="text-lg font-bold tracking-tight truncate">Tourvia</span>
-    </a>
-    <nav class="hidden md:flex gap-8 items-center text-sm">
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#showcase">Product</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing">Pricing</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="use-cases.html">Use cases</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="blog/">Blog</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="consulting.html">Consulting</a>
-    </nav>
-    <div class="flex items-center gap-2 sm:gap-3">
-      <a href="docs/" class="hidden sm:inline-flex text-sm text-on-surface-variant hover:text-on-surface transition-colors">Docs</a>
-      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="hidden lg:inline-flex text-sm text-on-surface-variant hover:text-on-surface transition-colors">Private AppExchange access</a>
-      <a href="/#contact" class="hidden md:inline-flex bg-primary hover:bg-primary-dim text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors whitespace-nowrap">
-        30-day trial access
-      </a>
-      <!-- Mobile hamburger -->
-      <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2 shrink-0" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Open menu">
-        <span class="block w-5 h-0.5 bg-on-surface"></span>
-        <span class="block w-5 h-0.5 bg-on-surface"></span>
-        <span class="block w-5 h-0.5 bg-on-surface"></span>
-      </button>
-    </div>
-  </div>
-  <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/50 bg-surface/95 backdrop-blur-xl px-6 py-4">
-    <nav class="flex flex-col gap-4 text-sm">
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Features</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#showcase" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Product</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Pricing</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="use-cases.html">Use cases</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="blog/">Blog</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="consulting.html">Consulting</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/">Docs</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/#contact">30-day trial request</a>
-    </nav>
-  </div>
-</header>
-
-<main>
-
-  <!-- ===== HERO (split layout) ===== -->
-  <section class="hero-section pt-28 pb-12 lg:pt-36 lg:pb-20 px-6 lg:px-8 max-w-7xl mx-auto lg:min-h-[90vh] flex items-center">
-    <!-- Animated background elements -->
-    <div class="hero-beam"></div>
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-    <div class="hero-orb hero-orb-3"></div>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
-
-      <!-- Left: Text -->
-      <div class="hero-text">
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-6">
-          <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
-          <span class="text-xs font-medium text-primary-light">Tourvia, formerly RouteForce</span>
-        </div>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.04] mb-6 max-w-4xl text-balance">
-          Salesforce route planning your field team can actually roll out inside Salesforce.
-        </h1>
-        <p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed mb-7">
-          Tourvia is the new name for RouteForce. It helps Salesforce teams optimize routes, turn them into visits, and keep field execution inside the CRM with clear €30/user/month pricing, billed annually.
-        </p>
-        <div class="flex flex-wrap gap-3 mb-6">
-          <a href="/#contact" class="bg-primary hover:bg-primary-dim text-white px-6 py-3 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-primary/25 inline-flex items-center gap-2">
-            Request a 30-day trial
-            <span class="material-symbols-outlined text-lg">arrow_forward</span>
-          </a>
-          <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-6 py-3 rounded-xl font-semibold transition-colors border border-outline inline-flex items-center gap-2">
-            <span class="material-symbols-outlined text-lg">verified</span>
-            Private AppExchange access
-          </a>
-          <a href="salesforce-route-planning.html" class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-6 py-3 rounded-xl font-semibold transition-colors border border-outline inline-flex items-center gap-2">
-            <span class="material-symbols-outlined text-lg">map</span>
-            See route planning inside Salesforce
-          </a>
-        </div>
-        <div class="rounded-2xl border border-outline bg-surface-container/60 px-4 py-4 max-w-3xl">
-          <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-on-surface-variant">
-            <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="font-semibold text-on-surface hover:text-primary-light transition-colors">5.0 ★ AppExchange reviews</a>
-            <span class="hidden sm:inline text-on-surface-variant/50">•</span>
-            <span>Salesforce-native managed package</span>
-            <span class="hidden sm:inline text-on-surface-variant/50">•</span>
-            <a href="pricing.html" class="font-semibold text-on-surface hover:text-primary-light transition-colors">€30/user/month, billed annually</a>
-          </div>
-          <p class="text-xs text-on-surface-variant mt-3">Formerly RouteForce. Same Salesforce-native app, same Salesforce-native workflow, now under the Tourvia product name.</p>
-        </div>
-      </div>
-
-      <!-- Right: Product screenshot in browser mockup -->
-      <div class="hero-visual">
-        <div class="video-glow">
-          <div class="rounded-xl overflow-hidden border border-outline bg-surface-container shadow-2xl">
-            <div class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-high border-b border-outline-variant/50">
-              <div class="flex gap-1.5">
-                <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
-              </div>
-              <div class="flex-1 mx-3">
-                <div class="bg-surface-container rounded-md px-3 py-1 text-xs text-on-surface-variant/50 text-center truncate">Salesforce Lightning · Tourvia map and route planning</div>
-              </div>
-            </div>
-            <button type="button" class="block w-full text-left cursor-zoom-in bg-transparent border-0 p-0 js-open-lightbox-direct" data-lightbox-src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" data-lightbox-alt="Tourvia inside Salesforce Lightning with filters, map, route planning, and visit list">
-              <img src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Tourvia inside Salesforce Lightning with filters, map, route planning, and visit list" class="w-full h-auto" fetchpriority="high" decoding="async" width="1600" height="1000"/>
-            </button>
-          </div>
-          <p class="text-xs text-on-surface-variant mt-3 text-center">Real product view inside Salesforce, filters, route planning, and visit creation from the same workspace. Click to expand.</p>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== FEATURES GRID ===== -->
-  <section id="features" class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="text-center mb-14 lg:mb-16">
-      <h2 class="text-3xl lg:text-5xl font-bold tracking-tight mb-4">Everything your field team needs</h2>
-      <p class="text-on-surface-variant text-lg max-w-xl mx-auto">Built natively on Salesforce. No external apps, no data sync.</p>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-4">
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">map</span>
-        <h3 class="font-semibold text-lg mb-2">Multi-Object Map</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Accounts, leads, opportunities, and Campaign Members on one interactive map with clustering and real-time filters.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-accent text-2xl mb-4 block">route</span>
-        <h3 class="font-semibold text-lg mb-2">Route Optimization</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Smart route planning with time windows, lunch breaks, and distance constraints.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">event</span>
-        <h3 class="font-semibold text-lg mb-2">Auto Event Creation</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Turn optimized routes into Salesforce Events automatically, with no re-typing needed.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-accent text-2xl mb-4 block">location_on</span>
-        <h3 class="font-semibold text-lg mb-2">GPS Check-In</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Verified field visits with custom checkout forms, synced to Salesforce records in real time.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">filter_list</span>
-        <h3 class="font-semibold text-lg mb-2">Smart Filters</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Filter by any Salesforce field. Save and share presets across your team.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-accent text-2xl mb-4 block">dashboard</span>
-        <h3 class="font-semibold text-lg mb-2">Dashboards & Reports</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">2 dashboards and 18 reports included. Track visits, routes, and team performance from day one.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">history</span>
-        <h3 class="font-semibold text-lg mb-2">Route History</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Every route is saved. Replay, compare, and analyze field coverage over time.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-accent text-2xl mb-4 block">smartphone</span>
-        <h3 class="font-semibold text-lg mb-2">Mobile Ready</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Full experience on the Salesforce Mobile App: map, routes, check-in, all from the field.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">bolt</span>
-        <h3 class="font-semibold text-lg mb-2">Custom Actions</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Launch Screen Flows, click-to-call, or navigate directly from the map, with no context switching.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== NATIVE INTEGRATION ===== -->
-  <section id="native-integration" class="py-20 px-6 lg:px-8 bg-surface-container-low/40 border-y border-outline-variant/30">
-    <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">Works everywhere in Salesforce</h2>
-      <p class="text-on-surface-variant text-base max-w-2xl mx-auto mb-10">A reusable Salesforce-native component — place it on record pages, Campaign pages, app pages, tabs, or Experience Cloud. <a href="native-integration-salesforce.html" class="text-primary-light hover:underline">Learn more</a>.</p>
-      <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-on-surface-variant">
-        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">account_tree</span> Account, Lead, Opportunity pages</span>
-        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">campaign</span> Campaign record pages</span>
-        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">apps</span> Lightning App Pages</span>
-        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">home</span> Home Pages & Tabs</span>
-        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">public</span> Experience Cloud</span>
-        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">tune</span> Configurable via Custom Metadata</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PRODUCT SHOWCASE ===== -->
-  <section id="showcase" class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="showcase-list">
-
-      <!-- Showcase 1: Route Optimization — text LEFT, video RIGHT -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
-        <div>
-          <span class="text-xs font-semibold text-primary-light uppercase tracking-widest mb-4 block">Route Optimization</span>
-          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">Select, optimize, and schedule in 30 seconds</h3>
-          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Lasso-select accounts, optimize the visit order, and create Salesforce Events, all in one gesture.</p>
-          <ul class="space-y-3 text-on-surface-variant">
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Optimized visit order</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Bulk event creation</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Export to Google Maps</li>
-          </ul>
-        </div>
-        <div class="screenshot-frame glow-primary">
-          <video autoplay loop muted playsinline controls preload="none" poster="assets/screenshots-2026/screen-02.jpg" class="w-full h-auto">
-            <source src="assets/videos/OptimiseRoute.mp4" type="video/mp4"/>
-          </video>
-        </div>
-      </div>
-
-      <!-- Showcase 2: Smart Map — image LEFT, text RIGHT -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
-        <div class="screenshot-frame glow-accent lg:order-1 order-2">
-          <img src="assets/screenshots-2026/campaign-members-map.jpg" alt="Tourvia map view showing Campaign Members across France with campaign and status filters" class="w-full h-auto" loading="lazy"/>
-        </div>
-        <div class="lg:order-2 order-1">
-          <span class="text-xs font-semibold text-accent uppercase tracking-widest mb-4 block">Smart Map</span>
-          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">All your records and campaigns, one map</h3>
-          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Accounts, leads, opportunities, and Campaign Members, displayed with clustering, filters, saved views, and status-based colors. Satellite or roadmap, you choose.</p>
-          <ul class="space-y-3 text-on-surface-variant">
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Multi-object visualization</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Campaign picker for targeted member maps</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Lead and Contact members geolocated from their parent address</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Showcase 3: Mobile — text LEFT, video RIGHT (portrait) -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
-        <div>
-          <span class="text-xs font-semibold text-primary-light uppercase tracking-widest mb-4 block">Mobile</span>
-          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">Your routes in your pocket</h3>
-          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Tourvia is designed for teams working in Salesforce Mobile. Map access, routes, nearby accounts, and field actions stay accessible from the field.</p>
-          <ul class="space-y-3 text-on-surface-variant">
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Native Salesforce Mobile experience</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> GPS check-in from the field</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> One-tap export to Google Maps</li>
-          </ul>
-        </div>
-        <div class="flex justify-center">
-          <div class="video-glow max-w-[18rem] w-full">
-            <div class="rounded-[2rem] overflow-hidden border border-outline bg-surface-container">
-              <video autoplay loop muted playsinline controls preload="none" poster="assets/screenshots-2026/mobile-map.png" class="w-full h-auto">
-                <source src="assets/videos/routeforce-mobile-demo.mp4" type="video/mp4"/>
-              </video>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Showcase 4: GPS Check-In — video LEFT, text RIGHT -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
-        <div class="screenshot-frame glow-accent lg:order-1 order-2">
-          <div class="rounded-xl overflow-hidden border border-outline bg-surface-container">
-            <video autoplay loop muted playsinline controls preload="metadata" poster="assets/screenshots-2026/screen-03.jpg" class="w-full h-auto">
-              <source src="assets/videos/CheckOut.mp4" type="video/mp4"/>
-              <img src="assets/screenshots-2026/screen-03.jpg" alt="Tourvia GPS check-in and visit report"/>
-            </video>
-          </div>
-        </div>
-        <div class="lg:order-2 order-1">
-          <span class="text-xs font-semibold text-primary-light uppercase tracking-widest mb-4 block">Field Execution</span>
-          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">Check in. Fill the report. Check out.</h3>
-          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">GPS-verified check-in at each stop. Fill visit reports with result, satisfaction, next action, and notes, with previous visit context shown automatically. Check out and move to the next stop.</p>
-          <ul class="space-y-3 text-on-surface-variant">
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> GPS on-site verification (500m radius)</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Previous visit context shown automatically</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Configurable fields: result, satisfaction, order amount, notes</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Quick Text templates for faster note-taking</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Showcase 5: Dashboard — text LEFT, image RIGHT -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
-        <div>
-          <span class="text-xs font-semibold text-accent uppercase tracking-widest mb-4 block">Analytics</span>
-          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">2 dashboards. 18 reports. Day one.</h3>
-          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Track field activity, visit compliance, route efficiency, and team performance. All built on standard Salesforce Reports.</p>
-          <ul class="space-y-3 text-on-surface-variant">
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> On-site rate & visit trends</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Visits by rep, by week</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Fully customizable</li>
-          </ul>
-        </div>
-        <div class="screenshot-frame glow-primary">
-          <img src="assets/screenshots-2026/screen-07.jpg" alt="Tourvia Field Activity Dashboard" class="w-full h-auto" loading="lazy"/>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== PRICING ===== -->
-  <section id="pricing" class="py-24 px-6 lg:px-8 max-w-5xl mx-auto">
-    <div class="text-center mb-14 lg:mb-16">
-      <h2 class="text-3xl lg:text-5xl font-bold tracking-tight mb-4">Simple pricing at €30/user/month</h2>
-      <p class="text-on-surface-variant text-lg">Simple standard pricing per licensed user, billed annually. Larger enterprise deployments can be quoted separately when needed. <a href="flat-rate-route-optimization.html" class="text-primary-light hover:underline">Pricing ROI for field teams</a>.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-6 max-w-4xl mx-auto">
-      <!-- Trial -->
-      <div class="feature-card rounded-2xl p-8 flex flex-col">
-        <h3 class="text-xl font-bold mb-1">30-day trial on request</h3>
-        <p class="text-on-surface-variant text-sm mb-6">Validate Tourvia with your Salesforce team before rollout</p>
-        <div class="flex items-baseline gap-1 mb-8">
-          <span class="text-4xl font-extrabold">30</span>
-          <span class="text-on-surface-variant text-sm">days</span>
-        </div>
-        <ul class="space-y-3 mb-8 flex-grow text-sm text-on-surface-variant">
-          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Trial requested via contact form</li>
-          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Salesforce org qualification</li>
-          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Route planning workflow validation</li>
-          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Admin onboarding guidance</li>
-          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Paid scope confirmed before production rollout</li>
-        </ul>
-        <a href="#contact" class="w-full py-3 rounded-xl text-center font-semibold border border-primary/60 text-primary-light hover:bg-primary/10 transition-colors block text-sm">
-          Request a 30-day trial
+    <nav class="gc-nav" aria-label="Navigation principale">
+        <a class="gc-logo" href="/" aria-label="RouteForce accueil">
+            <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 26 16 12l8 9 8-13"/><circle cx="8" cy="26" r="3"/><circle cx="16" cy="12" r="3"/><circle cx="24" cy="21" r="3"/><circle cx="32" cy="8" r="3"/></svg>
+            <span>RouteForce</span>
         </a>
-      </div>
-
-      <!-- Pro -->
-      <div class="pricing-highlight rounded-2xl">
-        <div class="bg-surface-container rounded-2xl p-8 flex flex-col h-full">
-          <div class="flex items-center justify-between mb-1">
-            <h3 class="text-xl font-bold">Pro</h3>
-            <span class="text-xs font-bold uppercase tracking-widest text-primary-light bg-primary/10 px-2.5 py-1 rounded-full">Popular</span>
-          </div>
-          <p class="text-on-surface-variant text-sm mb-6">For licensed Salesforce users</p>
-          <div class="flex items-baseline gap-1 mb-8">
-            <span class="text-4xl font-extrabold">€30</span>
-            <span class="text-on-surface-variant text-sm">/user/month excl. tax</span>
-          </div>
-          <ul class="space-y-3 mb-8 flex-grow text-sm text-on-surface-variant">
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Everything in trial scope</li>
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Route optimization engine</li>
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> GPS check-in & visit reports</li>
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Route history & replay</li>
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Dashboards & 18 reports</li>
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Standard pricing per licensed user</li>
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Priority support</li>
-          </ul>
-          <a href="pricing.html" class="w-full py-3 rounded-xl text-center font-semibold bg-primary hover:bg-primary-dim text-white transition-colors block text-sm">
-            See paid scope details
-          </a>
+        <button class="gc-menu-btn" type="button" aria-expanded="false" aria-controls="gc-menu">Menu</button>
+        <div class="gc-menu" id="gc-menu">
+            <a href="#demo">Démo</a>
+            <a href="#salesforce">Salesforce</a>
+            <a href="#contraintes">Contraintes</a>
+            <a href="#architecture">Architecture</a>
+            <a href="cas-usage.html">Cas d'usage</a>
+            <a href="/en/" class="lang-link">EN</a>
+            <a class="nav-cta" href="/#contact">Demander un essai 30 jours</a>
         </div>
-      </div>
-    </div>
+    </nav>
 
-    <p class="text-center text-on-surface-variant text-sm mt-8">
-      Annual billing. Standard pricing applies per licensed user. Enterprise / multi-entity deployments are quoted separately; <a href="mailto:contact@routeforce.app" class="text-primary-light hover:underline">let's talk</a>. <a href="pricing.html" class="text-primary-light hover:underline">Full pricing details</a>.
-    </p>
-  </section>
-
-  <!-- ===== CTA + CONTACT ===== -->
-  <section id="contact" class="pt-12 pb-24 px-6 lg:px-8">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12">
-      <!-- Left: CTA -->
-      <div class="bg-surface-container border border-outline-variant rounded-2xl p-10 lg:p-12 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
-        <div class="relative z-10">
-          <h2 class="text-3xl font-bold tracking-tight mb-4">Ready to optimize your field team?</h2>
-          <p class="text-on-surface-variant text-lg mb-8">Request a 30-day trial via the contact form, validate Tourvia with your Salesforce team, then move to the paid scope when you need advanced route optimization and deeper field execution features.</p>
-          <div class="flex flex-col gap-4">
-            <a href="/#contact" class="bg-primary hover:bg-primary-dim text-white px-8 py-3.5 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-primary/20 text-center">
-              Request a 30-day trial
-            </a>
-            <div class="flex items-center gap-4 text-on-surface-variant text-sm mt-4">
-              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-base">check_circle</span> 30-day trial on request</span>
-              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-base">check_circle</span> Pricing details documented</span>
+    <main>
+        <section class="hero mission-panel" id="demo">
+            <div class="hero-map" aria-label="Carte animée de tournée optimisée">
+                <div class="map-grid"></div>
+                <svg class="route-svg" viewBox="0 0 980 760" role="img" aria-labelledby="route-title route-desc">
+                    <title id="route-title">Tournée RouteForce optimisée</title>
+                    <desc id="route-desc">Une tournée désordonnée se transforme en itinéraire court et lisible.</desc>
+                    <defs>
+                        <filter id="routeGlow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+                        <pattern id="smallGrid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0v48" fill="none" stroke="rgba(244,241,234,.045)" stroke-width="1"/></pattern>
+                    </defs>
+                    <rect width="980" height="760" fill="url(#smallGrid)"/>
+                    <g class="map-streets">
+                        <path d="M10 120 C180 90 260 150 420 112 S700 80 970 132"/>
+                        <path d="M40 285 C210 250 310 310 482 272 S770 238 960 300"/>
+                        <path d="M0 510 C170 455 360 540 520 486 S810 450 980 520"/>
+                        <path d="M180 0 C155 180 210 320 175 760"/>
+                        <path d="M402 0 C440 210 360 370 430 760"/>
+                        <path d="M675 0 C628 190 710 390 650 760"/>
+                        <path d="M850 0 C810 230 890 430 825 760"/>
+                        <path d="M55 650 930 80"/>
+                        <path d="M60 72 920 690"/>
+                    </g>
+                    <polyline class="route-before" points="155,545 725,140 278,210 815,555 480,420 632,625 390,610 585,260 210,372"/>
+                    <polyline class="route-after" points="155,545 210,372 278,210 585,260 725,140 815,555 632,625 480,420 390,610 155,545"/>
+                    <g class="stop stop-a" style="--x:155px;--y:545px"><rect/><text>1</text></g>
+                    <g class="stop stop-b" style="--x:725px;--y:140px"><rect/><text>2</text></g>
+                    <g class="stop stop-c" style="--x:278px;--y:210px"><rect/><text>3</text></g>
+                    <g class="stop stop-d" style="--x:815px;--y:555px"><rect/><text>4</text></g>
+                    <g class="stop stop-e" style="--x:480px;--y:420px"><rect/><text>5</text></g>
+                    <g class="stop stop-f" style="--x:632px;--y:625px"><rect/><text>6</text></g>
+                    <g class="stop stop-g" style="--x:390px;--y:610px"><rect/><text>7</text></g>
+                    <g class="stop stop-h" style="--x:585px;--y:260px"><rect/><text>8</text></g>
+                    <g class="stop stop-i" style="--x:210px;--y:372px"><rect/><text>9</text></g>
+                </svg>
+                <div class="route-chip">−38 % de route · −1 h 30</div>
+                <div class="map-coordinates">48.8566 N · 2.3522 E · Paris sector</div>
+                <aside class="route-card" aria-label="Tournée du jour">
+                    <div class="route-card-head">
+                        <span>Tournée du jour</span>
+                        <strong>9 stops</strong>
+                    </div>
+                    <ol class="stop-list">
+                        <li><span>01</span>Agence République</li>
+                        <li><span>02</span>Cabinet Voltaire</li>
+                        <li><span>03</span>Client Bastille</li>
+                        <li><span>04</span>Compte Tolbiac</li>
+                        <li><span>05</span>Retour dépôt</li>
+                    </ol>
+                    <div class="route-stats"><span>142 km</span><span>3 h 40</span><span>CRM order</span></div>
+                </aside>
             </div>
-          </div>
+
+            <div class="hero-content">
+                <p class="eyebrow">App Salesforce pour équipes terrain</p>
+                <h1>Moins de route. Plus de rendez-vous.</h1>
+                <p class="hero-lead">RouteForce calcule la meilleure tournée directement dans Salesforce, à partir de vos comptes, vos rendez-vous et vos contraintes terrain.</p>
+                <div class="hero-actions">
+                    <a class="btn primary" href="#simulation">Voir une tournée optimisée</a>
+                    <a class="btn ghost" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
+                </div>
+                <div class="trust-strip" aria-label="Points clés">
+                    <span>Salesforce AppExchange</span>
+                    <span>Données dans votre org</span>
+                    <span>Calcul en quelques secondes</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="split-dark" id="simulation">
+            <div class="container split-grid">
+                <div>
+                    <p class="eyebrow">Le problème</p>
+                    <h2>Votre CRM connaît vos clients. Pas la route.</h2>
+                    <p>Les visites sortent souvent dans l’ordre où elles ont été créées. Sur le terrain, cet ordre coûte des kilomètres, du temps et des créneaux ratés.</p>
+                </div>
+                <div class="metric-console">
+                    <div><span>Ordre CRM</span><strong>3 h 40</strong><small>142 km · 9 stops</small></div>
+                    <div><span>RouteForce</span><strong>2 h 10</strong><small>89 km · même journée</small></div>
+                    <div class="delta">−1 h 30 récupérée</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="workflow">
+            <div class="container">
+                <div class="section-copy">
+                    <p class="eyebrow">La bascule</p>
+                    <h2>Un clic. Le bon ordre.</h2>
+                    <p>RouteForce lit vos données Salesforce, ajoute vos règles métier, puis renvoie la tournée prête à exécuter. Les utilisateurs restent dans leur CRM.</p>
+                </div>
+                <div class="pipeline" aria-label="Flux de calcul RouteForce">
+                    <article><span>01</span><h3>Vos données</h3><p>Comptes, contacts, adresses, rendez-vous et objets custom.</p></article>
+                    <article><span>02</span><h3>Vos règles</h3><p>Créneaux, priorités, durées de visite, départ et retour dépôt.</p></article>
+                    <article><span>03</span><h3>Le moteur</h3><p>ORS et VROOM calculent l’ordre de passage le plus propre.</p></article>
+                    <article><span>04</span><h3>La tournée</h3><p>Résultat visible dans Salesforce, exportable vers mobile et navigation.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="salesforce" id="salesforce">
+            <div class="container sf-grid">
+                <div class="sf-copy">
+                    <p class="eyebrow">Salesforce-native</p>
+                    <h2>Pas un outil à côté. Une app dans Salesforce.</h2>
+                    <p>RouteForce s’installe dans votre org et respecte vos objets, vos permissions et vos processus. Les commerciaux planifient depuis l’environnement qu’ils utilisent déjà.</p>
+                    <ul class="check-list">
+                        <li>Objets standards ou custom</li>
+                        <li>Création d’événements et historique de tournées</li>
+                        <li>Interface mobile pour les équipes terrain</li>
+                    </ul>
+                </div>
+                <div class="product-frame">
+                    <img src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Interface RouteForce de planification de tournée dans Salesforce" loading="lazy">
+                    <span class="pin-note note-one">Planning dans Lightning</span>
+                    <span class="pin-note note-two">Stops réordonnés</span>
+                    <span class="pin-note note-three">Carte et feuille de route</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="constraints" id="contraintes">
+            <div class="container">
+                <div class="section-copy centered">
+                    <p class="eyebrow">Contraintes terrain</p>
+                    <h2>Le terrain a des règles. On les respecte.</h2>
+                </div>
+                <div class="constraint-grid">
+                    <article><span>TW</span><h3>Créneaux horaires</h3><p>Un client reçoit entre 14 h et 16 h. Le calcul en tient compte.</p></article>
+                    <article><span>PR</span><h3>Priorités client</h3><p>Les comptes clés restent prioritaires dans la journée.</p></article>
+                    <article><span>DV</span><h3>Durées de visite</h3><p>Chaque stop garde son temps réel, pas une moyenne floue.</p></article>
+                    <article><span>ZD</span><h3>Zones et secteurs</h3><p>Les tournées collent aux territoires commerciaux.</p></article>
+                    <article><span>MD</span><h3>Multi-départs</h3><p>Dépôt, domicile, agence ou point de retour.</p></article>
+                    <article><span>EX</span><h3>Exports terrain</h3><p>Google Maps, Waze, CSV et historique de route.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="numbers" aria-label="Indicateurs RouteForce">
+            <div class="container number-grid">
+                <div><strong data-count="38">−38 %</strong><span>de route en moins sur la simulation</span></div>
+                <div><strong data-count="90">−1 h 30</strong><span>récupérée sur une tournée de 9 stops</span></div>
+                <div><strong data-count="50">50</strong><span>stops calculables en quelques secondes</span></div>
+            </div>
+        </section>
+
+        <section class="architecture" id="architecture">
+            <div class="container arch-grid">
+                <div>
+                    <p class="eyebrow">Sous le capot</p>
+                    <h2>Une chaîne lisible, sans boîte noire.</h2>
+                    <p>L’app Salesforce envoie les points et les contraintes vers l’API RouteForce. Le moteur ORS/VROOM calcule la tournée, puis le résultat revient dans Salesforce.</p>
+                </div>
+                <div class="blueprint" aria-label="Architecture RouteForce">
+                    <div>Salesforce org</div>
+                    <span></span>
+                    <div>API licence</div>
+                    <span></span>
+                    <div>ORS / VROOM</div>
+                    <span></span>
+                    <div>Résultat CRM</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="use-cases">
+            <div class="container use-grid">
+                <article><h3>Commerciaux terrain</h3><p>Préparer une journée de visites depuis les comptes et rendez-vous Salesforce.</p></article>
+                <article><h3>Interventions</h3><p>Ordonner les passages selon les horaires, la durée et la priorité client.</p></article>
+                <article><h3>Livraisons légères</h3><p>Créer une tournée courte, exportable et lisible sur mobile.</p></article>
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="container final-card">
+                <p class="eyebrow">Test terrain</p>
+                <h2>Essayez RouteForce sur votre propre tournée.</h2>
+                <p>Demandez un essai 30 jours. On part d’une tournée type et on compare l’ordre actuel, l’ordre optimisé et le gain réel.</p>
+                <div class="hero-actions">
+                    <a class="btn primary" href="/#contact">Demander un essai 30 jours</a>
+                    <a class="btn ghost" href="salesforce-route-planning.html">Voir le détail produit</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="gc-footer">
+        <div class="container footer-grid">
+            <div><strong>RouteForce</strong><p>Optimisation de tournées dans Salesforce.</p></div>
+            <nav aria-label="Liens footer"><a href="docs/mentions-legales.html">Mentions légales</a><a href="docs/installation-guide.html">Installation</a><a href="/en/">English</a><a href="/es/">Español</a></nav>
         </div>
-      </div>
-      <!-- Right: Contact Form -->
-      <div class="bg-surface-container border border-outline-variant rounded-2xl p-10 lg:p-12">
-        <h2 class="text-2xl font-bold tracking-tight mb-2">Get in touch</h2>
-        <p class="text-on-surface-variant text-sm mb-6">Request a demo, ask a question, or request a 30-day trial.</p>
-        <form action="https://formspree.io/f/xqedjpdd" method="POST" class="space-y-4">
-          <div>
-            <label class="block text-sm font-medium text-on-surface-variant mb-1">Full name</label>
-            <input type="text" name="name" placeholder="Jane Smith" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-on-surface-variant mb-1">Work email *</label>
-            <input type="email" name="email" required placeholder="jane@company.com" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-on-surface-variant mb-1">Company</label>
-            <input type="text" name="company" placeholder="Company name" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-on-surface-variant mb-1">Message</label>
-            <textarea name="message" rows="3" placeholder="Tell us about your needs..." class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none resize-none"></textarea>
-          </div>
-          <button type="submit" class="w-full bg-primary hover:bg-primary-dim text-white py-3 rounded-xl font-semibold transition-colors text-sm">
-            Send message
-          </button>
-          <p class="text-xs text-on-surface-variant/60 mt-2">By submitting, you agree to our <a href="docs/privacy.html" class="underline">Privacy Policy</a>.</p>
-        </form>
-      </div>
-    </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </footer>
 
-</main>
-
-<!-- ===== FOOTER ===== -->
-<footer class="border-t border-outline-variant/50 pt-16 pb-8 px-6 lg:px-8">
-  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-    <div>
-      <div class="flex items-center gap-2.5 mb-3">
-        <img src="/assets/logo-site-brand.png" alt="Tourvia" class="w-7 h-7 rounded-lg"/>
-        <span class="font-bold text-base">Tourvia</span>
-      </div>
-      <p class="text-on-surface-variant text-sm max-w-xs leading-relaxed mb-4">Salesforce-native route optimization for field sales teams. Tourvia is the new product name for RouteForce.</p>
-      <a href="/#contact" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-dim text-white px-3.5 py-2 rounded-lg font-semibold text-sm transition-colors">30-day trial access</a>
-    </div>
-    <div class="flex flex-col gap-2.5 text-sm">
-      <span class="font-bold text-on-surface mb-1 text-xs uppercase tracking-widest">Product</span>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing">Pricing</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="use-cases.html">Use cases</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="native-integration-salesforce.html">Integration</a>
-    </div>
-    <div class="flex flex-col gap-2.5 text-sm">
-      <span class="font-bold text-on-surface mb-1 text-xs uppercase tracking-widest">Resources</span>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="blog/">Blog</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/">Docs</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="consulting.html">Consulting</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="flat-rate-route-optimization.html">Pricing ROI</a>
-    </div>
-    <div class="flex flex-col gap-2.5 text-sm">
-      <span class="font-bold text-on-surface mb-1 text-xs uppercase tracking-widest">Company</span>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="mailto:contact@routeforce.app">Contact</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/privacy.html">Privacy</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/terms.html">Terms</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors inline-flex items-center gap-1.5" href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank">Status <span class="inline-block w-1.5 h-1.5 rounded-full bg-green-500"></span></a>
-    </div>
-  </div>
-  <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-outline-variant/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-on-surface-variant text-xs">
-    <span>&copy; 2026 Tourvia. All rights reserved.</span>
-    <span>Built natively on Salesforce. AppExchange managed package.</span>
-  </div>
-</footer>
-
-<!-- Lightbox -->
-<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
-  <img id="lightbox-img" src="" alt="Full-size screenshot"/>
-</div>
-
-<!-- Scroll reveal + Lightbox -->
-<script>
-  document.querySelectorAll('.reveal').forEach(el => {
-    new IntersectionObserver(([e]) => { if (e.isIntersecting) el.classList.add('visible'); }, { threshold: 0.1 }).observe(el);
-  });
-  document.querySelectorAll('.screenshot-frame img').forEach(img => {
-    img.addEventListener('click', () => {
-      document.getElementById('lightbox-img').src = img.src;
-      document.getElementById('lightbox-img').alt = img.alt || 'Full-size screenshot';
-      document.getElementById('lightbox').classList.add('active');
-    });
-  });
-  document.querySelectorAll('.js-open-lightbox-direct').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('lightbox-img').src = btn.dataset.lightboxSrc;
-      document.getElementById('lightbox-img').alt = btn.dataset.lightboxAlt || 'Full-size screenshot';
-      document.getElementById('lightbox').classList.add('active');
-    });
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active'); });
-
-  // Animated counters
-  const counters = document.querySelectorAll('.counter');
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.target);
-        let current = 0;
-        const step = Math.max(1, Math.floor(target / 30));
-        const timer = setInterval(() => {
-          current += step;
-          if (current >= target) { current = target; clearInterval(timer); }
-          el.textContent = current + '+';
-        }, 40);
-        counterObserver.unobserve(el);
-      }
-    });
-  }, { threshold: 0.5 });
-  counters.forEach(c => counterObserver.observe(c));
-</script>
-
-<!-- Structured Data: Organization + SoftwareApplication -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "name": "Tourvia",
-  "alternateName": "RouteForce",
-  "url": "https://routeforce.app",
-  "logo": "https://routeforce.app/assets/logo-site-brand.png",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "email": "contact@routeforce.app",
-    "contactType": "sales"
-  },
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "14 rue Bausset",
-    "addressLocality": "Paris",
-    "postalCode": "75015",
-    "addressCountry": "FR"
-  },
-  "areaServed": [
-    "France",
-    "Europe",
-    "North America"
-  ],
-  "sameAs": [
-    "https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba",
-    "https://www.linkedin.com/company/routeforce"
-  ]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  "name": "Tourvia",
-  "alternateName": "RouteForce",
-  "applicationCategory": "BusinessApplication",
-  "operatingSystem": "Salesforce",
-  "description": "Salesforce-native route planning, optimization, and field visit tracking for sales teams. €30/user/month, billed annually.",
-  "url": "https://routeforce.app",
-  "offers": [
-    {
-      "@type": "Offer",
-      "name": "Pro",
-      "price": "30",
-      "priceCurrency": "EUR",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "billingDuration": "P1M"
-      },
-      "description": "Full route optimization, GPS check-in, visit reports, dashboards, and annual per-user subscription"
-    }
-  ],
-  "featureList": "Interactive map, Campaign Member mapping, Route optimization, GPS check-in, Visit reports, Heatmap, Bulk select, Saved filters, Route history, Custom actions, Mobile support, 2 dashboards, 18 reports",
-  "screenshot": "https://routeforce.app/assets/screenshots-2026/screen-01.jpg",
-  "softwareVersion": "7.13.0-1",
-  "author": {
-    "@type": "Organization",
-    "name": "Tourvia",
-    "alternateName": "RouteForce"
-  }
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What is Tourvia?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Tourvia is Salesforce route planning software that keeps route optimization, visit planning, and field execution inside Salesforce."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Who is Tourvia best for?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "It is best for Salesforce-first field teams that want route planning and visit execution tied directly to CRM records, events, and reporting."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How much does Tourvia cost?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Standard pricing is 30 euros per user per month billed annually, with larger enterprise deployments quoted separately when needed."
-      }
-    }
-  ]
-}
-</script>
-<script type="application/ld+json">
-[
-  {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "Tourvia Route Optimization Demo",
-    "description": "See how Tourvia optimizes field sales routes inside Salesforce. Select accounts on the map, optimize visit order, and create Salesforce events in seconds.",
-    "thumbnailUrl": "https://routeforce.app/assets/screenshots-2026/screen-01.jpg",
-    "contentUrl": "https://routeforce.app/assets/videos/OptimiseRoute.mp4",
-    "uploadDate": "2026-03-30T08:00:00+02:00",
-    "duration": "PT30S",
-    "embedUrl": "https://routeforce.app",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Tourvia",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://routeforce.app/assets/logo-site-brand.png"
-      }
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "Tourvia Mobile Field Demo",
-    "description": "Tourvia running natively in the Salesforce Mobile App. Map, routes, nearby accounts, and check-in from the field.",
-    "thumbnailUrl": "https://routeforce.app/assets/screenshots-2026/screen-01.jpg",
-    "contentUrl": "https://routeforce.app/assets/videos/routeforce-mobile-demo.mp4",
-    "uploadDate": "2026-03-30T08:00:00+02:00",
-    "duration": "PT45S",
-    "embedUrl": "https://routeforce.app",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Tourvia",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://routeforce.app/assets/logo-site-brand.png"
-      }
-    }
-  },
-  {
-    "@context": "https://schema.org",
-    "@type": "VideoObject",
-    "name": "Tourvia GPS Check-in and Visit Reports",
-    "description": "GPS-verified check-in at each stop. Fill visit reports with result, satisfaction, and next action, all inside Salesforce.",
-    "thumbnailUrl": "https://routeforce.app/assets/screenshots-2026/screen-03.jpg",
-    "contentUrl": "https://routeforce.app/assets/videos/CheckOut.mp4",
-    "uploadDate": "2026-03-30T08:00:00+02:00",
-    "duration": "PT20S",
-    "embedUrl": "https://routeforce.app",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Tourvia",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://routeforce.app/assets/logo-site-brand.png"
-      }
-    }
-  }
-]
-</script>
-<script>
-  window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
-
-  document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach((link) => {
-    link.addEventListener('click', () => {
-      window.plausible('AppExchange Click', {
-        props: {
-          page_path: window.location.pathname,
-          link_text: (link.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80)
-        }
-      });
-    });
-  });
-
-  const contactForm = document.querySelector('form[action*="formspree.io"]');
-  if (contactForm) {
-    contactForm.addEventListener('submit', () => {
-      window.plausible('Lead Form Submit', {
-        props: {
-          page_path: window.location.pathname,
-          form: 'homepage_contact'
-        }
-      });
-      if (typeof gtag === 'function') {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-18063754907/z6aBCNy52JUcEJuNvKVD',
-          'value': 1.0,
-          'currency': 'EUR'
-        });
-      }
-    });
-  }
-</script>
-
+    <script src="routeforce-ground-control.js" defer></script>
 </body>
 </html>
