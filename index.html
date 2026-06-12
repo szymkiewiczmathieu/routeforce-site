@@ -10,10 +10,10 @@
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RouteForce | Optimisation de tournées dans Salesforce</title>
-    <meta name="description" content="RouteForce calcule la meilleure tournée directement dans Salesforce, avec vos comptes, vos rendez-vous et vos contraintes terrain. App Salesforce pour commerciaux et équipes mobiles.">
+    <title>Tourvia | Optimisation de tournées dans Salesforce</title>
+    <meta name="description" content="Tourvia, formerly RouteForce, calcule la meilleure tournée directement dans Salesforce, avec vos comptes, vos rendez-vous et vos contraintes terrain. App Salesforce pour commerciaux et équipes mobiles.">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="RouteForce">
+    <meta name="author" content="Tourvia">
     <meta name="keywords" content="optimisation tournées Salesforce, planification tournées commerciales, route planning Salesforce, tournées commerciaux terrain, AppExchange route optimization">
     <link rel="canonical" href="https://routeforce.app/">
     <link rel="alternate" hreflang="fr" href="https://routeforce.app/">
@@ -22,31 +22,31 @@
     <link rel="alternate" hreflang="x-default" href="https://routeforce.app/">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="RouteForce | Optimisation de tournées dans Salesforce">
-    <meta property="og:description" content="Moins de route. Plus de rendez-vous. RouteForce remet vos tournées dans le bon ordre depuis Salesforce.">
+    <meta property="og:title" content="Tourvia | Optimisation de tournées dans Salesforce">
+    <meta property="og:description" content="Moins de route. Plus de rendez-vous. Tourvia remet vos tournées dans le bon ordre depuis Salesforce.">
     <meta property="og:url" content="https://routeforce.app/">
-    <meta property="og:image" content="https://routeforce.app/assets/screenshot-tour-optimized-paris.jpg">
+    <meta property="og:image" content="https://routeforce.app/assets/screenshots-user/routeforce-salesforce-map-ui.jpg">
     <meta property="og:locale" content="fr_FR">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:locale:alternate" content="es_ES">
-    <meta property="og:site_name" content="RouteForce">
+    <meta property="og:site_name" content="Tourvia">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="RouteForce | Tournées Salesforce dans le bon ordre">
+    <meta name="twitter:title" content="Tourvia | Tournées Salesforce dans le bon ordre">
     <meta name="twitter:description" content="Planifiez, optimisez et suivez vos tournées terrain directement dans Salesforce.">
-    <meta name="twitter:image" content="https://routeforce.app/assets/screenshot-tour-optimized-paris.jpg">
+    <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-user/routeforce-salesforce-map-ui.jpg">
 
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "RouteForce",
+        "name": "Tourvia",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web (Salesforce)",
-        "description": "App Salesforce d'optimisation de tournées terrain. RouteForce calcule le meilleur ordre de visites à partir des données CRM et des contraintes métier.",
+        "description": "App Salesforce d'optimisation de tournées terrain. Tourvia calcule le meilleur ordre de visites à partir des données CRM et des contraintes métier.",
         "url": "https://routeforce.app",
         "offers": {"@type": "AggregateOffer", "priceCurrency": "EUR", "lowPrice": "2975", "highPrice": "18000", "offerCount": "3"},
-        "publisher": {"@type": "Organization", "name": "RouteForce", "url": "https://routeforce.app"},
+        "publisher": {"@type": "Organization", "name": "Tourvia", "url": "https://routeforce.app"},
         "featureList": ["Optimisation de tournées", "Planification Salesforce", "Contraintes horaires", "Création d'événements", "Export Google Maps et Waze", "Historique des tournées", "Interface mobile"],
         "inLanguage": ["fr", "en", "es"]
     }
@@ -56,15 +56,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="routeforce-ground-control.css">
+    <link rel="stylesheet" href="tourvia-ground-control.css">
 </head>
 <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWNN33DN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <nav class="gc-nav" aria-label="Navigation principale">
-        <a class="gc-logo" href="/" aria-label="RouteForce accueil">
+        <a class="gc-logo" href="/" aria-label="Tourvia accueil">
             <svg viewBox="0 0 40 40" aria-hidden="true"><path d="M8 26 16 12l8 9 8-13"/><circle cx="8" cy="26" r="3"/><circle cx="16" cy="12" r="3"/><circle cx="24" cy="21" r="3"/><circle cx="32" cy="8" r="3"/></svg>
-            <span>RouteForce</span>
+            <span>Tourvia</span>
         </a>
         <button class="gc-menu-btn" type="button" aria-expanded="false" aria-controls="gc-menu">Menu</button>
         <div class="gc-menu" id="gc-menu">
@@ -72,7 +72,7 @@
             <a href="#salesforce">Salesforce</a>
             <a href="#contraintes">Contraintes</a>
             <a href="#architecture">Architecture</a>
-            <a href="cas-usage.html">Cas d'usage</a>
+            <a href="use-cases.html">Cas d'usage</a>
             <a href="/en/" class="lang-link">EN</a>
             <a class="nav-cta" href="/#contact">Demander un essai 30 jours</a>
         </div>
@@ -83,7 +83,7 @@
             <div class="hero-map" aria-label="Carte animée de tournée optimisée">
                 <div class="map-grid"></div>
                 <svg class="route-svg" viewBox="0 0 980 760" role="img" aria-labelledby="route-title route-desc">
-                    <title id="route-title">Tournée RouteForce optimisée</title>
+                    <title id="route-title">Tournée Tourvia optimisée</title>
                     <desc id="route-desc">Une tournée désordonnée se transforme en itinéraire court et lisible.</desc>
                     <defs>
                         <filter id="routeGlow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
@@ -133,8 +133,9 @@
 
             <div class="hero-content">
                 <p class="eyebrow">App Salesforce pour équipes terrain</p>
+                <p class="brand-bridge">Tourvia, formerly RouteForce</p>
                 <h1>Moins de route. Plus de rendez-vous.</h1>
-                <p class="hero-lead">RouteForce calcule la meilleure tournée directement dans Salesforce, à partir de vos comptes, vos rendez-vous et vos contraintes terrain.</p>
+                <p class="hero-lead">Tourvia calcule la meilleure tournée directement dans Salesforce, à partir de vos comptes, vos rendez-vous et vos contraintes terrain.</p>
                 <div class="hero-actions">
                     <a class="btn primary" href="#simulation">Voir une tournée optimisée</a>
                     <a class="btn ghost" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
@@ -156,7 +157,7 @@
                 </div>
                 <div class="metric-console">
                     <div><span>Ordre CRM</span><strong>3 h 40</strong><small>142 km · 9 stops</small></div>
-                    <div><span>RouteForce</span><strong>2 h 10</strong><small>89 km · même journée</small></div>
+                    <div><span>Tourvia</span><strong>2 h 10</strong><small>89 km · même journée</small></div>
                     <div class="delta">−1 h 30 récupérée</div>
                 </div>
             </div>
@@ -167,9 +168,9 @@
                 <div class="section-copy">
                     <p class="eyebrow">La bascule</p>
                     <h2>Un clic. Le bon ordre.</h2>
-                    <p>RouteForce lit vos données Salesforce, ajoute vos règles métier, puis renvoie la tournée prête à exécuter. Les utilisateurs restent dans leur CRM.</p>
+                    <p>Tourvia lit vos données Salesforce, ajoute vos règles métier, puis renvoie la tournée prête à exécuter. Les utilisateurs restent dans leur CRM.</p>
                 </div>
-                <div class="pipeline" aria-label="Flux de calcul RouteForce">
+                <div class="pipeline" aria-label="Flux de calcul Tourvia">
                     <article><span>01</span><h3>Vos données</h3><p>Comptes, contacts, adresses, rendez-vous et objets custom.</p></article>
                     <article><span>02</span><h3>Vos règles</h3><p>Créneaux, priorités, durées de visite, départ et retour dépôt.</p></article>
                     <article><span>03</span><h3>Le moteur</h3><p>ORS et VROOM calculent l’ordre de passage le plus propre.</p></article>
@@ -183,7 +184,7 @@
                 <div class="sf-copy">
                     <p class="eyebrow">Salesforce-native</p>
                     <h2>Pas un outil à côté. Une app dans Salesforce.</h2>
-                    <p>RouteForce s’installe dans votre org et respecte vos objets, vos permissions et vos processus. Les commerciaux planifient depuis l’environnement qu’ils utilisent déjà.</p>
+                    <p>Tourvia s’installe dans votre org et respecte vos objets, vos permissions et vos processus. Les commerciaux planifient depuis l’environnement qu’ils utilisent déjà.</p>
                     <ul class="check-list">
                         <li>Objets standards ou custom</li>
                         <li>Création d’événements et historique de tournées</li>
@@ -191,7 +192,7 @@
                     </ul>
                 </div>
                 <div class="product-frame">
-                    <img src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Interface RouteForce de planification de tournée dans Salesforce" loading="lazy">
+                    <img src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Interface Tourvia de planification de tournée dans Salesforce" loading="lazy">
                     <span class="pin-note note-one">Planning dans Lightning</span>
                     <span class="pin-note note-two">Stops réordonnés</span>
                     <span class="pin-note note-three">Carte et feuille de route</span>
@@ -216,7 +217,7 @@
             </div>
         </section>
 
-        <section class="numbers" aria-label="Indicateurs RouteForce">
+        <section class="numbers" aria-label="Indicateurs Tourvia">
             <div class="container number-grid">
                 <div><strong data-count="38">−38 %</strong><span>de route en moins sur la simulation</span></div>
                 <div><strong data-count="90">−1 h 30</strong><span>récupérée sur une tournée de 9 stops</span></div>
@@ -229,9 +230,9 @@
                 <div>
                     <p class="eyebrow">Sous le capot</p>
                     <h2>Une chaîne lisible, sans boîte noire.</h2>
-                    <p>L’app Salesforce envoie les points et les contraintes vers l’API RouteForce. Le moteur ORS/VROOM calcule la tournée, puis le résultat revient dans Salesforce.</p>
+                    <p>L’app Salesforce envoie les points et les contraintes vers l’API Tourvia. Le moteur ORS/VROOM calcule la tournée, puis le résultat revient dans Salesforce.</p>
                 </div>
-                <div class="blueprint" aria-label="Architecture RouteForce">
+                <div class="blueprint" aria-label="Architecture Tourvia">
                     <div>Salesforce org</div>
                     <span></span>
                     <div>API licence</div>
@@ -254,7 +255,7 @@
         <section class="final-cta">
             <div class="container final-card">
                 <p class="eyebrow">Test terrain</p>
-                <h2>Essayez RouteForce sur votre propre tournée.</h2>
+                <h2>Essayez Tourvia sur votre propre tournée.</h2>
                 <p>Demandez un essai 30 jours. On part d’une tournée type et on compare l’ordre actuel, l’ordre optimisé et le gain réel.</p>
                 <div class="hero-actions">
                     <a class="btn primary" href="/#contact">Demander un essai 30 jours</a>
@@ -266,11 +267,11 @@
 
     <footer class="gc-footer">
         <div class="container footer-grid">
-            <div><strong>RouteForce</strong><p>Optimisation de tournées dans Salesforce.</p></div>
-            <nav aria-label="Liens footer"><a href="docs/mentions-legales.html">Mentions légales</a><a href="docs/installation-guide.html">Installation</a><a href="/en/">English</a><a href="/es/">Español</a></nav>
+            <div><strong>Tourvia</strong><p>Optimisation de tournées dans Salesforce.</p></div>
+            <nav aria-label="Liens footer"><a href="docs/mentions-legales.html">Mentions légales</a><a href="docs/setup-guide.html">Installation</a><a href="/en/">English</a><a href="/es/">Español</a></nav>
         </div>
     </footer>
 
-    <script src="routeforce-ground-control.js" defer></script>
+    <script src="tourvia-ground-control.js" defer></script>
 </body>
 </html>
