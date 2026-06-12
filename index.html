@@ -57,460 +57,817 @@
 <link rel="preload" as="image" href="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" fetchpriority="high"/>
 <link rel="stylesheet" href="assets/css/tailwind.min.css"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <style>
-  body { font-family: 'Inter', system-ui, sans-serif; }
+  /* ================================================================
+     TOURVIA OPS — mission-control design system (self-contained).
+     New sections use only tv-* classes defined here; preserved blocks
+     (nav, contact form, footer, lightbox) keep compiled utilities.
+     ================================================================ */
+  :root {
+    --tv-bg: #06070d;
+    --tv-panel: rgba(15, 18, 36, .55);
+    --tv-panel-solid: #0d101f;
+    --tv-panel-hi: rgba(22, 26, 50, .75);
+    --tv-line: rgba(148, 158, 198, .16);
+    --tv-line-soft: rgba(148, 158, 198, .08);
+    --tv-indigo: #6366f1;
+    --tv-indigo-bright: #8d96ff;
+    --tv-cyan: #22d3ee;
+    --tv-cyan-deep: #06b6d4;
+    --tv-amber: #fbbf24;
+    --tv-text: #eef0f8;
+    --tv-muted: #a4abc4;
+    --tv-dim: #707790;
+    --tv-font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+    --tv-font-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', monospace;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-image:
+      radial-gradient(1100px 560px at 80% -160px, rgba(99, 102, 241, .16), transparent 62%),
+      radial-gradient(900px 520px at 8% 4%, rgba(6, 182, 212, .08), transparent 58%);
+    background-color: var(--tv-bg);
+  }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   html { scroll-behavior: smooth; }
 
-  /* ===== LINEAR/VERCEL HERO BACKGROUND ===== */
+  ::selection { background: rgba(99, 102, 241, .45); color: #fff; }
 
-  /* Dot grid pattern */
-  .hero-section {
-    position: relative;
-    overflow: hidden;
+  .tv-skip {
+    position: absolute; left: -9999px; top: 0; z-index: 200;
+    background: var(--tv-indigo); color: #fff; padding: 10px 16px;
+    border-radius: 0 0 10px 0; font-weight: 600; font-size: 14px;
   }
-  .hero-section::before {
+  .tv-skip:focus { left: 0; }
+
+  a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible {
+    outline: 2px solid var(--tv-cyan);
+    outline-offset: 2px;
+    border-radius: 6px;
+  }
+
+  /* ---------- layout primitives ---------- */
+  .tv-sec { position: relative; padding: 84px 24px; }
+  .tv-sec-tight { padding-top: 64px; padding-bottom: 64px; }
+  .tv-wrap { max-width: 1180px; margin: 0 auto; position: relative; z-index: 2; }
+  .tv-band { border-top: 1px solid var(--tv-line-soft); }
+
+  /* ---------- waypoint markers (route motif as structure) ---------- */
+  .tv-way {
+    display: flex; align-items: center; gap: 14px;
+    font: 600 11px/1 var(--tv-font-mono);
+    letter-spacing: .24em; text-transform: uppercase;
+    color: var(--tv-dim); margin-bottom: 22px;
+  }
+  .tv-way i {
+    flex: none; width: 9px; height: 9px; border-radius: 99px;
+    border: 1.5px solid var(--tv-cyan);
+    box-shadow: 0 0 14px rgba(34, 211, 238, .55);
+  }
+  .tv-way em { font-style: normal; color: #b9c0dc; }
+  .tv-way::after {
+    content: ''; height: 1px; flex: 1;
+    background: linear-gradient(90deg, var(--tv-line), transparent);
+  }
+  .tv-way-center { justify-content: center; }
+  .tv-way-center::before {
+    content: ''; height: 1px; flex: 1; max-width: 90px;
+    background: linear-gradient(270deg, var(--tv-line), transparent);
+  }
+  .tv-way-center::after { max-width: 90px; }
+
+  /* ---------- typography ---------- */
+  .tv-h1 {
+    font-family: var(--tv-font-display);
+    font-weight: 700;
+    font-size: clamp(2.7rem, 6.4vw, 5rem);
+    line-height: 1.01;
+    letter-spacing: -.035em;
+    color: var(--tv-text);
+    margin: 0 0 22px;
+  }
+  .tv-h2 {
+    font-family: var(--tv-font-display);
+    font-weight: 700;
+    font-size: clamp(1.9rem, 3.8vw, 3.1rem);
+    line-height: 1.06;
+    letter-spacing: -.03em;
+    color: var(--tv-text);
+    margin: 0 0 16px;
+  }
+  .tv-h3 {
+    font-family: var(--tv-font-display);
+    font-weight: 600;
+    font-size: clamp(1.3rem, 2.2vw, 1.7rem);
+    line-height: 1.15;
+    letter-spacing: -.02em;
+    color: var(--tv-text);
+    margin: 0 0 12px;
+  }
+  .tv-sub { color: var(--tv-muted); font-size: 17px; line-height: 1.7; max-width: 680px; margin: 0; }
+  .tv-center { text-align: center; }
+  .tv-center .tv-sub { margin-left: auto; margin-right: auto; }
+  .tv-grad {
+    background: linear-gradient(94deg, #8d96ff 4%, #22d3ee 52%, #a78bfa 98%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+  .tv-kicker {
+    display: inline-block;
+    font: 600 11px/1 var(--tv-font-mono);
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--tv-cyan);
+    margin-bottom: 14px;
+  }
+
+  /* ---------- buttons ---------- */
+  .tv-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-weight: 600; font-size: 15px; line-height: 1;
+    padding: 15px 24px; border-radius: 12px;
+    transition: transform .2s ease, box-shadow .25s ease, background .25s ease, border-color .25s ease;
+    white-space: nowrap;
+  }
+  .tv-btn .material-symbols-outlined { font-size: 19px; }
+  .tv-btn-pri {
+    color: #fff;
+    background: linear-gradient(135deg, #6d70f6, #5457e8 58%, #4f46e5);
+    box-shadow: 0 12px 36px rgba(99, 102, 241, .38), inset 0 1px 0 rgba(255, 255, 255, .22);
+  }
+  .tv-btn-pri:hover { transform: translateY(-1px); box-shadow: 0 16px 48px rgba(99, 102, 241, .5), inset 0 1px 0 rgba(255, 255, 255, .22); }
+  .tv-btn-gho {
+    color: var(--tv-text);
+    border: 1px solid var(--tv-line);
+    background: rgba(17, 20, 40, .55);
+    backdrop-filter: blur(6px);
+  }
+  .tv-btn-gho:hover { border-color: rgba(141, 150, 255, .55); background: rgba(24, 28, 56, .7); }
+  .tv-textlink {
+    display: inline-flex; align-items: center; gap: 7px;
+    color: var(--tv-indigo-bright); font-weight: 600; font-size: 14.5px;
+    transition: color .2s ease;
+  }
+  .tv-textlink:hover { color: #b9bfff; }
+  .tv-textlink .material-symbols-outlined { font-size: 17px; }
+
+  /* ---------- HERO ---------- */
+  .tv-hero { position: relative; overflow: hidden; padding: 158px 24px 64px; }
+  .tv-hero::before {
     content: '';
-    position: absolute;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(99, 102, 241, 0.12) 1px, transparent 1px);
-    background-size: 32px 32px;
-    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
-    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(140, 152, 220, .055) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(140, 152, 220, .055) 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 78% 64% at 50% 30%, black 30%, transparent 78%);
+    mask-image: radial-gradient(ellipse 78% 64% at 50% 30%, black 30%, transparent 78%);
     pointer-events: none;
-    z-index: 0;
   }
-
-  /* Animated glow orbs */
-  .hero-orb {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(100px);
-    pointer-events: none;
-    z-index: 0;
-    will-change: transform, opacity;
+  .tv-hero::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: .5; pointer-events: none;
   }
-  .hero-orb-1 {
-    width: min(600px, 80vw); height: min(600px, 80vw);
-    background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
-    top: -10%; left: -10%;
-    animation: orbFloat1 8s ease-in-out infinite;
+  .tv-orb { position: absolute; border-radius: 50%; filter: blur(110px); pointer-events: none; will-change: transform; }
+  .tv-orb-a {
+    width: min(640px, 84vw); height: min(640px, 84vw);
+    background: radial-gradient(circle, rgba(99, 102, 241, .20) 0%, transparent 70%);
+    top: -16%; left: -12%;
+    animation: tvFloatA 11s ease-in-out infinite;
   }
-  .hero-orb-2 {
-    width: min(500px, 70vw); height: min(500px, 70vw);
-    background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
-    bottom: -15%; right: -5%;
-    animation: orbFloat2 10s ease-in-out infinite;
+  .tv-orb-b {
+    width: min(520px, 70vw); height: min(520px, 70vw);
+    background: radial-gradient(circle, rgba(6, 182, 212, .13) 0%, transparent 70%);
+    top: 4%; right: -10%;
+    animation: tvFloatB 13s ease-in-out infinite;
   }
-  .hero-orb-3 {
-    width: min(300px, 50vw); height: min(300px, 50vw);
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
-    top: 30%; right: 25%;
-    animation: orbFloat3 12s ease-in-out infinite;
-  }
-  @keyframes orbFloat1 {
+  @keyframes tvFloatA {
     0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(40px, 30px) scale(1.05); }
-    66% { transform: translate(-20px, -15px) scale(0.95); }
+    50% { transform: translate(36px, 24px) scale(1.05); }
   }
-  @keyframes orbFloat2 {
+  @keyframes tvFloatB {
     0%, 100% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(-30px, -20px) scale(1.08); }
-    66% { transform: translate(25px, 15px) scale(0.92); }
+    50% { transform: translate(-28px, -18px) scale(.94); }
   }
-  @keyframes orbFloat3 {
-    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
-    50% { transform: translate(-40px, 25px) scale(1.1); opacity: 1; }
+  .tv-hero-beam {
+    position: absolute; top: 0; left: 0; width: 100%; height: 1px; z-index: 1;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, .55), rgba(6, 182, 212, .55), transparent);
+    animation: tvBeam 7s ease-in-out infinite;
   }
-
-  /* Animated beam line (Linear-style) */
-  .hero-beam {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), rgba(6, 182, 212, 0.5), transparent);
-    animation: beamSlide 6s ease-in-out infinite;
-    z-index: 1;
-  }
-  @keyframes beamSlide {
+  @keyframes tvBeam {
     0% { transform: translateX(-100%); opacity: 0; }
-    10% { opacity: 1; }
-    90% { opacity: 1; }
+    12% { opacity: 1; }
+    88% { opacity: 1; }
     100% { transform: translateX(100%); opacity: 0; }
   }
 
-  /* Subtle noise grain overlay */
-  .hero-section::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 0;
-    opacity: 0.4;
+  .tv-hero-head { max-width: 880px; margin: 0 auto; text-align: center; }
+  .tv-bridge {
+    display: inline-flex; align-items: center; gap: 9px;
+    border: 1px solid rgba(141, 150, 255, .32);
+    background: rgba(99, 102, 241, .10);
+    border-radius: 999px; padding: 8px 16px;
+    font: 600 11.5px/1 var(--tv-font-mono);
+    letter-spacing: .14em; text-transform: uppercase;
+    color: #c3c8ff; margin-bottom: 26px;
+  }
+  .tv-bridge i {
+    width: 7px; height: 7px; border-radius: 99px; flex: none;
+    background: var(--tv-cyan);
+    box-shadow: 0 0 10px rgba(34, 211, 238, .9);
+    animation: tvPulse 2.2s ease-in-out infinite;
+  }
+  @keyframes tvPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .35; }
+  }
+  .tv-hero-sub { color: var(--tv-muted); font-size: 18px; line-height: 1.72; max-width: 700px; margin: 0 auto 32px; }
+  .tv-hero-cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 18px; }
+  .tv-proofline {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
+    gap: 8px 22px;
+    font: 500 12px/1.5 var(--tv-font-mono);
+    letter-spacing: .06em;
+    color: var(--tv-dim);
+    margin-bottom: 14px;
+  }
+  .tv-proofline a { color: #c8cdec; font-weight: 600; transition: color .2s ease; }
+  .tv-proofline a:hover { color: var(--tv-indigo-bright); }
+  .tv-proofline .tv-star { color: var(--tv-amber); }
+  .tv-herolink { text-align: center; margin: 0 0 56px; }
+
+  /* hero animations */
+  @keyframes tvRise { from { opacity: 0; transform: translateY(26px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes tvSettle { from { opacity: 0; transform: translateY(40px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  .tv-hero-head > * { animation: tvRise .7s cubic-bezier(.2, .7, .2, 1) both; }
+  .tv-hero-head > *:nth-child(2) { animation-delay: .07s; }
+  .tv-hero-head > *:nth-child(3) { animation-delay: .14s; }
+  .tv-hero-head > *:nth-child(4) { animation-delay: .21s; }
+  .tv-hero-head > *:nth-child(5) { animation-delay: .26s; }
+  .tv-hero-head > *:nth-child(6) { animation-delay: .3s; }
+  .tv-deck { animation: tvSettle .9s cubic-bezier(.2, .7, .2, 1) .25s both; }
+
+  /* ---------- flight deck (hero product stage) ---------- */
+  .tv-deck { position: relative; max-width: 1060px; margin: 0 auto; perspective: 1700px; }
+  .tv-deck-tilt {
+    transform: rotateX(6.5deg) scale(.995);
+    transform-origin: 50% 0%;
+    transition: transform .9s cubic-bezier(.2, .7, .2, 1);
+    will-change: transform;
+  }
+  .tv-deck:hover .tv-deck-tilt, .tv-deck:focus-within .tv-deck-tilt { transform: rotateX(0deg) scale(1); }
+  .tv-deck-floor {
+    position: absolute; left: 8%; right: 8%; bottom: -46px; height: 110px;
+    background: radial-gradient(ellipse 60% 100% at 50% 0%, rgba(99, 102, 241, .34), rgba(6, 182, 212, .10) 55%, transparent 75%);
+    filter: blur(24px); pointer-events: none;
   }
 
-  /* Ensure hero content is above orbs (exclude orbs & beam) */
-  .hero-section > .grid { position: relative; z-index: 2; }
-
-  /* Enhanced gradient text with shimmer */
-  .gradient-text-animated {
-    background: linear-gradient(90deg, #9099ff, #06b6d4, #a78bfa, #9099ff);
-    background-size: 300% 100%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShimmer 6s ease infinite;
+  .tv-console {
+    border: 1px solid var(--tv-line);
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(20, 24, 48, .8), rgba(9, 11, 24, .92));
+    box-shadow: 0 50px 140px rgba(2, 4, 14, .62), inset 0 1px 0 rgba(255, 255, 255, .05);
+    overflow: hidden;
   }
-  @keyframes gradientShimmer {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+  .tv-console-bar {
+    display: flex; align-items: center; gap: 16px;
+    padding: 11px 18px;
+    border-bottom: 1px solid var(--tv-line-soft);
+    background: rgba(11, 13, 27, .85);
   }
-
-  /* Glow effects */
-  .glow-primary { box-shadow: 0 0 80px rgba(99, 102, 241, 0.15), 0 0 160px rgba(99, 102, 241, 0.05); }
-  .glow-accent { box-shadow: 0 0 60px rgba(6, 182, 212, 0.1); }
-
-  /* Video container */
-  .video-glow {
-    position: relative;
+  .tv-leds { display: flex; gap: 6px; flex: none; }
+  .tv-led { width: 9px; height: 9px; border-radius: 99px; }
+  .tv-led-r { background: rgba(248, 113, 113, .65); }
+  .tv-led-y { background: rgba(251, 191, 36, .6); }
+  .tv-led-g { background: rgba(52, 211, 153, .7); box-shadow: 0 0 8px rgba(52, 211, 153, .5); }
+  .tv-console-title {
+    flex: 1; min-width: 0; text-align: center;
+    font: 500 11.5px/1.2 var(--tv-font-mono);
+    letter-spacing: .1em; color: var(--tv-dim);
+    text-transform: uppercase;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
-  .video-glow::before {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    border-radius: 1rem;
-    background: linear-gradient(135deg, #6366f1, #06b6d4, #6366f1);
-    opacity: 0.4;
-    filter: blur(20px);
-    z-index: -1;
+  .tv-console-tag {
+    flex: none; display: inline-flex; align-items: center; gap: 7px;
+    font: 600 10.5px/1 var(--tv-font-mono); letter-spacing: .12em;
+    color: #7ee7f5; text-transform: uppercase;
   }
+  .tv-console-tag i {
+    width: 6px; height: 6px; border-radius: 99px; background: var(--tv-cyan);
+    box-shadow: 0 0 8px rgba(34, 211, 238, .9);
+    animation: tvPulse 1.8s ease-in-out infinite;
+  }
+  .tv-console-media { display: block; width: 100%; }
+  .tv-console-media img, .tv-console-media video { display: block; width: 100%; height: auto; }
+  .tv-zoombtn { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; text-align: left; }
 
-  /* Floating telemetry chips over the hero screenshot */
-  .hero-visual { position: relative; }
-  .stat-chip {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: rgba(24, 24, 27, 0.92);
-    border: 1px solid #3f3f46;
-    border-radius: 0.75rem;
-    padding: 0.55rem 0.85rem;
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #e4e4e7;
-    box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+  /* corner-bracket telemetry chips — real numbers only */
+  .tv-chip {
+    position: absolute; z-index: 6;
+    display: flex; align-items: center; gap: 9px;
+    font: 600 11px/1 var(--tv-font-mono); letter-spacing: .1em;
+    color: #e3e7fb;
+    background: rgba(8, 10, 22, .9);
+    border: 1px solid rgba(141, 150, 255, .38);
+    padding: 11px 15px;
     backdrop-filter: blur(8px);
-    z-index: 5;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, .55);
     pointer-events: none;
     white-space: nowrap;
   }
-  .stat-chip .material-symbols-outlined { font-size: 1rem; color: #06b6d4; }
-  .stat-chip-1 { top: 12%; left: -1.5rem; animation: chipFloat 7s ease-in-out infinite; }
-  .stat-chip-2 { bottom: 16%; right: -1.25rem; animation: chipFloat 8s ease-in-out 1.2s infinite; }
-  @keyframes chipFloat {
+  .tv-chip .material-symbols-outlined { font-size: 15px; color: var(--tv-cyan); }
+  .tv-chip::before, .tv-chip::after { content: ''; position: absolute; width: 11px; height: 11px; }
+  .tv-chip::before { top: -1px; left: -1px; border-top: 1.5px solid var(--tv-cyan); border-left: 1.5px solid var(--tv-cyan); }
+  .tv-chip::after { bottom: -1px; right: -1px; border-bottom: 1.5px solid var(--tv-cyan); border-right: 1.5px solid var(--tv-cyan); }
+  .tv-chip-a { top: 7%; left: -26px; animation: tvHover 7s ease-in-out infinite; }
+  .tv-chip-b { bottom: 12%; right: -22px; animation: tvHover 8s ease-in-out 1.1s infinite; }
+  @keyframes tvHover {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-6px); }
+    50% { transform: translateY(-7px); }
   }
-  @media (max-width: 1023px) {
-    .stat-chip-1 { left: 0.5rem; }
-    .stat-chip-2 { right: 0.5rem; }
-  }
+  .tv-deck-note { text-align: center; font-size: 12.5px; color: var(--tv-dim); margin-top: 50px; }
 
-  /* Feature card hover */
-  .feature-card {
-    background: #18181b;
-    border: 1px solid #27272a;
-    transition: all 0.3s ease;
-  }
-  .feature-card:hover {
-    border-color: #6366f1;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
-  }
-
-  /* Screenshot showcase */
-  .screenshot-frame {
-    border: 1px solid #27272a;
-    border-radius: 0.75rem;
+  /* ---------- telemetry strip ---------- */
+  .tv-telemetry {
+    display: flex; flex-wrap: wrap;
+    border: 1px solid var(--tv-line);
+    border-radius: 14px;
     overflow: hidden;
-    transition: all 0.4s ease;
+    background: rgba(12, 14, 28, .62);
+    backdrop-filter: blur(8px);
+    max-width: 1060px; margin: 26px auto 0;
   }
-  .screenshot-frame:hover {
-    border-color: #3f3f46;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  .tv-tcell {
+    flex: 1 1 170px;
+    padding: 16px 20px;
+    border-right: 1px solid var(--tv-line-soft);
+    border-top: 1px solid var(--tv-line-soft);
+    margin-top: -1px;
   }
+  .tv-tcell:last-child { border-right: 0; }
+  .tv-tcell small {
+    display: block;
+    font: 600 9.5px/1 var(--tv-font-mono);
+    letter-spacing: .2em; text-transform: uppercase;
+    color: var(--tv-dim); margin-bottom: 7px;
+  }
+  .tv-tcell span { font: 600 12.5px/1.45 var(--tv-font-mono); color: #d6dbf2; }
 
-  .showcase-list {
+  /* ---------- command sequence (stations console) ---------- */
+  .tv-seq-console { margin-top: 46px; }
+  .tv-seq {
     display: grid;
-    gap: 4.5rem;
+    grid-template-columns: 330px minmax(0, 1fr);
+    min-height: 540px;
   }
-  .showcase-stack {
-    display: grid;
-    gap: 2rem;
+  .tv-stations {
+    display: flex; flex-direction: column;
+    border-right: 1px solid var(--tv-line-soft);
+    background: rgba(8, 10, 21, .55);
   }
-
-  @media (min-width: 1024px) {
-    .showcase-list {
-      gap: 7rem;
-    }
-    .showcase-stack {
-      gap: 2.5rem;
-    }
-  }
-
-  @media (max-width: 1023px) {
-    #showcase {
-      padding-top: 4rem !important;
-      padding-bottom: 3.5rem !important;
-    }
-
-    #pricing {
-      padding-top: 4rem !important;
-    }
-  }
-
-  /* Clickable images - open full size */
-  .screenshot-frame img, .screenshot-frame video { cursor: pointer; }
-
-  /* Lightbox overlay */
-  .lightbox {
-    display: none; position: fixed; inset: 0; z-index: 9999;
-    background: rgba(0,0,0,0.9); align-items: center; justify-content: center;
-    cursor: zoom-out; padding: 24px;
-  }
-  .lightbox.active { display: flex; }
-  .lightbox img { max-width: 95vw; max-height: 95vh; border-radius: 8px; }
-
-  /* Gradient text */
-  .gradient-text {
-    background: linear-gradient(135deg, #9099ff, #06b6d4);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* Hero animations */
-  @keyframes heroFadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-  @keyframes heroScaleIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-  }
-  .hero-text {
-    animation: heroFadeUp 0.7s ease forwards;
-  }
-  .hero-visual {
-    animation: heroScaleIn 0.8s ease 0.2s forwards;
-    opacity: 0;
-  }
-  .hero-text .flex.flex-wrap.gap-x-5 {
-    animation: heroFadeUp 0.6s ease 0.4s forwards;
-    opacity: 0;
-  }
-  .hero-text .flex.gap-8 {
-    animation: heroFadeUp 0.6s ease 0.5s forwards;
-    opacity: 0;
-  }
-
-  /* Fade in on scroll */
-  .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  /* Respect reduced-motion preferences */
-  @media (prefers-reduced-motion: reduce) {
-    .hero-orb, .hero-beam, .stat-chip, .gradient-text-animated { animation: none !important; }
-    .reveal { opacity: 1; transform: none; transition: none; }
-    html { scroll-behavior: auto; }
-  }
-
-  /* Pricing glow */
-  .pricing-highlight {
+  .tv-station {
     position: relative;
-  }
-  .pricing-highlight::before {
-    content: '';
-    position: absolute;
-    inset: -1px;
-    border-radius: 1rem;
-    background: linear-gradient(135deg, #6366f1, #06b6d4);
-    z-index: -1;
-  }
-
-  /* ===== TRUST / PROOF BAR ===== */
-  .trust-bar {
-    border-top: 1px solid rgba(63, 63, 70, 0.4);
-    border-bottom: 1px solid rgba(63, 63, 70, 0.4);
-    background: linear-gradient(180deg, rgba(99, 102, 241, 0.04), transparent);
-  }
-  .trust-bar-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: rgba(63, 63, 70, 0.35);
-  }
-  @media (min-width: 768px) {
-    .trust-bar-grid { grid-template-columns: repeat(4, 1fr); }
-  }
-  .trust-cell {
-    background: #101013;
-    padding: 1.5rem 1.25rem;
-    text-align: center;
-  }
-  .trust-cell .trust-value {
-    font-size: 1.05rem;
-    font-weight: 700;
-    letter-spacing: -0.01em;
-    margin-bottom: 0.3rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.45rem;
-  }
-  .trust-cell .trust-label {
-    font-size: 0.75rem;
-    color: #a1a1aa;
-    line-height: 1.4;
-  }
-
-  /* ===== OPERATIONAL STORY (day in the field) ===== */
-  .story-rail {
-    position: relative;
-  }
-  @media (min-width: 1024px) {
-    .story-rail::before {
-      content: '';
-      position: absolute;
-      left: 27px;
-      top: 8px;
-      bottom: 8px;
-      width: 2px;
-      background: linear-gradient(180deg, rgba(99, 102, 241, 0.6), rgba(6, 182, 212, 0.5), rgba(99, 102, 241, 0.15));
-    }
-  }
-  .story-step {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-    align-items: center;
-    position: relative;
-  }
-  @media (min-width: 1024px) {
-    .story-step {
-      grid-template-columns: 56px minmax(0, 5fr) minmax(0, 7fr);
-      gap: 2.5rem;
-    }
-  }
-  .story-step + .story-step { margin-top: 3.5rem; }
-  @media (min-width: 1024px) {
-    .story-step + .story-step { margin-top: 5rem; }
-  }
-  .story-node {
-    display: none;
-  }
-  @media (min-width: 1024px) {
-    .story-node {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 56px;
-      height: 56px;
-      border-radius: 9999px;
-      background: #18181b;
-      border: 1px solid rgba(99, 102, 241, 0.45);
-      color: #9099ff;
-      font-weight: 800;
-      font-size: 1.05rem;
-      position: relative;
-      z-index: 1;
-      align-self: start;
-      box-shadow: 0 0 24px rgba(99, 102, 241, 0.18);
-    }
-  }
-  .story-time {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.45rem;
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #67e8f9;
-    background: rgba(6, 182, 212, 0.08);
-    border: 1px solid rgba(6, 182, 212, 0.25);
-    border-radius: 9999px;
-    padding: 0.3rem 0.75rem;
-    margin-bottom: 1rem;
-    font-variant-numeric: tabular-nums;
-  }
-
-  /* ===== FAQ ===== */
-  .faq-item {
-    border: 1px solid #27272a;
-    border-radius: 0.75rem;
-    background: #18181b;
-    transition: border-color 0.25s ease;
-  }
-  .faq-item:hover, .faq-item[open] { border-color: rgba(99, 102, 241, 0.5); }
-  .faq-item summary {
+    display: block; width: 100%; text-align: left;
+    background: transparent; border: 0;
+    border-bottom: 1px solid var(--tv-line-soft);
+    padding: 18px 22px 16px 26px;
     cursor: pointer;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1rem;
-    padding: 1.1rem 1.25rem;
-    font-weight: 600;
-    font-size: 0.95rem;
+    flex: 1;
+    transition: background .25s ease;
+  }
+  .tv-station:last-child { border-bottom: 0; }
+  .tv-station::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px;
+    background: linear-gradient(180deg, var(--tv-indigo), var(--tv-cyan));
+    opacity: 0; transition: opacity .25s ease;
+  }
+  .tv-station:hover { background: rgba(20, 24, 48, .45); }
+  .tv-station[aria-selected="true"] { background: linear-gradient(90deg, rgba(99, 102, 241, .14), rgba(99, 102, 241, .02)); }
+  .tv-station[aria-selected="true"]::before { opacity: 1; }
+  .tv-st-row { display: flex; align-items: baseline; gap: 10px; margin-bottom: 6px; }
+  .tv-st-num {
+    font: 600 11px/1 var(--tv-font-mono);
+    color: var(--tv-dim); letter-spacing: .08em;
+  }
+  .tv-station[aria-selected="true"] .tv-st-num { color: var(--tv-cyan); }
+  .tv-st-time { font: 500 11px/1 var(--tv-font-mono); color: var(--tv-dim); letter-spacing: .08em; margin-left: auto; }
+  .tv-st-name {
+    display: block;
+    font-family: var(--tv-font-display);
+    font-weight: 600; font-size: 17.5px; letter-spacing: -.01em;
+    color: var(--tv-text); margin-bottom: 3px;
+  }
+  .tv-st-sum { display: block; font-size: 12.5px; color: var(--tv-muted); line-height: 1.5; }
+  .tv-st-obj {
+    display: block; margin-top: 9px;
+    font: 500 10px/1.5 var(--tv-font-mono);
+    letter-spacing: .07em; text-transform: uppercase;
+    color: #8b93b8;
+  }
+  .tv-station[aria-selected="true"] .tv-st-obj { color: #9fe9f7; }
+
+  .tv-stage { position: relative; min-width: 0; }
+  .tv-stage-panel { display: grid; grid-template-rows: auto 1fr; height: 100%; }
+  .tv-stage-panel[hidden] { display: none; }
+  .tv-stage-media { position: relative; border-bottom: 1px solid var(--tv-line-soft); background: #0a0c1a; }
+  .tv-stage-media img, .tv-stage-media video { display: block; width: 100%; height: auto; }
+  .tv-stage-media .tv-zoombtn { cursor: zoom-in; }
+  .tv-stage-info { padding: 22px 26px 24px; display: flex; flex-direction: column; gap: 10px; }
+  .tv-stage-info h3 {
+    font-family: var(--tv-font-display);
+    font-weight: 600; font-size: 19px; letter-spacing: -.015em;
+    color: var(--tv-text); margin: 0;
+  }
+  .tv-stage-info p { font-size: 14px; line-height: 1.65; color: var(--tv-muted); margin: 0; }
+  .tv-ticks { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 7px 18px; }
+  .tv-ticks li {
+    display: inline-flex; align-items: center; gap: 7px;
+    font: 500 12px/1.4 var(--tv-font-mono);
+    color: #b9c0dc; letter-spacing: .01em;
+  }
+  .tv-ticks .material-symbols-outlined { font-size: 14px; color: var(--tv-cyan); }
+  .tv-seq-cta { text-align: center; margin-top: 36px; }
+
+  /* ---------- feature clusters ---------- */
+  .tv-clusters { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 46px; }
+  .tv-cluster {
+    position: relative;
+    border: 1px solid var(--tv-line);
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(17, 20, 42, .5), rgba(10, 12, 24, .82));
+    padding: 28px 26px 26px;
+    overflow: hidden;
+    transition: border-color .3s ease, transform .3s ease, box-shadow .3s ease;
+  }
+  .tv-cluster:hover { border-color: rgba(141, 150, 255, .42); transform: translateY(-3px); box-shadow: 0 24px 70px rgba(4, 6, 18, .55); }
+  .tv-cluster-core {
+    border-color: rgba(141, 150, 255, .45);
+    background:
+      radial-gradient(420px 240px at 85% -60px, rgba(99, 102, 241, .22), transparent 70%),
+      linear-gradient(180deg, rgba(20, 24, 50, .72), rgba(10, 12, 24, .9));
+    box-shadow: 0 28px 80px rgba(7, 9, 26, .6);
+  }
+  .tv-cluster-kicker {
+    display: flex; align-items: center; gap: 10px;
+    font: 600 10.5px/1 var(--tv-font-mono);
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--tv-cyan); margin-bottom: 16px;
+  }
+  .tv-cluster-kicker .material-symbols-outlined { font-size: 18px; color: var(--tv-indigo-bright); }
+  .tv-cluster h3 {
+    font-family: var(--tv-font-display);
+    font-weight: 600; font-size: 21px; letter-spacing: -.015em;
+    color: var(--tv-text); margin: 0 0 8px;
+  }
+  .tv-cluster > p { font-size: 13.5px; line-height: 1.6; color: var(--tv-muted); margin: 0 0 18px; }
+  .tv-checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+  .tv-checklist li { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; line-height: 1.55; color: #c0c6e0; }
+  .tv-checklist .material-symbols-outlined { font-size: 16px; color: var(--tv-cyan); margin-top: 2px; flex: none; }
+
+  .tv-chiprow-wrap { margin-top: 44px; text-align: center; }
+  .tv-chiprow-label {
+    font: 600 10.5px/1 var(--tv-font-mono);
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--tv-dim); display: block; margin-bottom: 16px;
+  }
+  .tv-chiprow { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 18px; }
+  .tv-sfchip {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--tv-line);
+    background: rgba(14, 17, 34, .6);
+    border-radius: 999px;
+    padding: 9px 16px;
+    font-size: 12.5px; font-weight: 600; color: #c0c6e0;
+  }
+  .tv-sfchip .material-symbols-outlined { font-size: 15px; color: var(--tv-cyan); }
+
+  /* ---------- deep dives ---------- */
+  .tv-dive { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 56px; align-items: center; }
+  .tv-dive + .tv-dive { margin-top: 72px; }
+  .tv-dive-copy p { color: var(--tv-muted); font-size: 15.5px; line-height: 1.72; margin: 0 0 18px; }
+  .tv-shot {
+    border: 1px solid var(--tv-line);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #0a0c1a;
+    box-shadow: 0 36px 100px rgba(2, 4, 14, .55);
+    transition: border-color .3s ease, box-shadow .3s ease;
+  }
+  .tv-shot:hover { border-color: rgba(141, 150, 255, .4); }
+  .tv-shot img, .tv-shot video { display: block; width: 100%; height: auto; }
+  .tv-glow-i { box-shadow: 0 36px 100px rgba(2, 4, 14, .55), 0 0 90px rgba(99, 102, 241, .14); }
+  .tv-glow-c { box-shadow: 0 36px 100px rgba(2, 4, 14, .55), 0 0 90px rgba(6, 182, 212, .12); }
+
+  /* phone bezel for portrait demo */
+  .tv-phone-stage { display: flex; justify-content: center; }
+  .tv-phone {
+    width: min(296px, 80vw);
+    border: 1px solid rgba(148, 158, 198, .28);
+    border-radius: 44px;
+    background: linear-gradient(180deg, #11142a, #090b18);
+    padding: 12px;
+    box-shadow: 0 44px 120px rgba(2, 4, 14, .65), 0 0 90px rgba(99, 102, 241, .16), inset 0 1px 0 rgba(255, 255, 255, .07);
+    position: relative;
+  }
+  .tv-phone::before {
+    content: ''; position: absolute; top: 23px; left: 50%; transform: translateX(-50%);
+    width: 86px; height: 7px; border-radius: 99px;
+    background: rgba(5, 6, 14, .9);
+    z-index: 2;
+  }
+  .tv-phone video { display: block; width: 100%; height: auto; border-radius: 33px; }
+
+  /* collage (map + record popup inset) */
+  .tv-collage { position: relative; padding-bottom: 56px; }
+  .tv-collage-inset {
+    position: absolute; left: -18px; bottom: 0;
+    width: min(46%, 250px);
+    border: 1px solid rgba(141, 150, 255, .35);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(2, 4, 14, .7);
+    background: #0a0c1a;
+  }
+  .tv-collage-inset img { display: block; width: 100%; height: auto; }
+
+  /* ---------- architecture ---------- */
+  .tv-arch {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 168px minmax(0, 1fr);
+    gap: 0; align-items: stretch;
+    margin-top: 46px;
+  }
+  .tv-arch-panel {
+    border: 1px solid var(--tv-line);
+    border-radius: 18px;
+    background: linear-gradient(180deg, rgba(17, 20, 42, .55), rgba(10, 12, 24, .85));
+    padding: 26px;
+    display: flex; flex-direction: column;
+  }
+  .tv-arch-panel-head {
+    display: flex; align-items: center; gap: 10px;
+    font: 600 11px/1.3 var(--tv-font-mono);
+    letter-spacing: .18em; text-transform: uppercase;
+    color: #b9c0dc;
+    padding-bottom: 14px; margin-bottom: 16px;
+    border-bottom: 1px solid var(--tv-line-soft);
+  }
+  .tv-arch-panel-head .material-symbols-outlined { font-size: 18px; color: var(--tv-indigo-bright); }
+  .tv-arch-list { list-style: none; margin: 0 0 16px; padding: 0; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .tv-arch-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; line-height: 1.5; color: #c0c6e0; }
+  .tv-arch-list .material-symbols-outlined { font-size: 15px; color: var(--tv-cyan); margin-top: 2px; flex: none; }
+  .tv-arch-foot {
+    font: 600 11px/1.5 var(--tv-font-mono);
+    letter-spacing: .1em; text-transform: uppercase;
+    color: #8fe9f7;
+    border-top: 1px solid var(--tv-line-soft);
+    padding-top: 13px;
+  }
+  .tv-flow {
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px;
+    padding: 0 8px;
+  }
+  .tv-flow-lane { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 100%; }
+  .tv-flow-label {
+    font: 600 9px/1.4 var(--tv-font-mono);
+    letter-spacing: .14em; text-transform: uppercase;
+    color: var(--tv-dim); text-align: center;
+  }
+  .tv-flow-line { position: relative; width: 100%; height: 2px; overflow: hidden; border-radius: 2px; }
+  .tv-flow-line::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: linear-gradient(90deg, var(--tv-cyan) 55%, transparent 45%);
+    background-size: 14px 2px;
+    animation: tvDash 1.4s linear infinite;
+    opacity: .85;
+  }
+  .tv-flow-line.tv-flow-back::before { animation-direction: reverse; background-image: linear-gradient(90deg, var(--tv-indigo-bright) 55%, transparent 45%); }
+  @keyframes tvDash { to { background-position: 14px 0; } }
+  .tv-flow-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    border: 1px solid rgba(34, 211, 238, .35);
+    background: rgba(6, 182, 212, .08);
+    border-radius: 999px; padding: 7px 13px;
+    font: 600 9.5px/1 var(--tv-font-mono); letter-spacing: .14em;
+    color: #7ee7f5; text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .tv-arch-note { text-align: center; font-size: 13px; color: var(--tv-dim); max-width: 640px; margin: 22px auto 0; line-height: 1.6; }
+
+  .tv-tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 34px; }
+  .tv-tile {
+    border: 1px solid var(--tv-line-soft);
+    border-radius: 14px;
+    background: rgba(12, 14, 28, .55);
+    padding: 18px;
+  }
+  .tv-tile small {
+    display: block;
+    font: 600 9.5px/1 var(--tv-font-mono);
+    letter-spacing: .18em; text-transform: uppercase;
+    color: var(--tv-dim); margin-bottom: 8px;
+  }
+  .tv-tile strong { display: block; font-size: 14px; font-weight: 700; color: var(--tv-text); margin-bottom: 5px; letter-spacing: -.01em; }
+  .tv-tile p { font-size: 12px; line-height: 1.55; color: var(--tv-muted); margin: 0; }
+  .tv-tile a { color: var(--tv-indigo-bright); font-weight: 600; }
+  .tv-tile a:hover { text-decoration: underline; }
+
+  /* ---------- pricing ---------- */
+  .tv-pricing-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; max-width: 880px; margin: 46px auto 0; align-items: stretch; }
+  .tv-price {
+    border: 1px solid var(--tv-line);
+    border-radius: 20px;
+    background: linear-gradient(180deg, rgba(17, 20, 42, .5), rgba(10, 12, 24, .85));
+    padding: 30px 28px;
+    display: flex; flex-direction: column;
+  }
+  .tv-price-ring {
+    position: relative;
+    border-radius: 21px;
+    padding: 1px;
+    background: linear-gradient(135deg, #6366f1, #22d3ee 55%, #a78bfa);
+    box-shadow: 0 30px 90px rgba(99, 102, 241, .22);
+  }
+  .tv-price-ring .tv-price { border: 0; border-radius: 20px; height: 100%; background: linear-gradient(180deg, #11142a, #0a0c1a); }
+  .tv-price-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 4px; }
+  .tv-price-head h3 { font-family: var(--tv-font-display); font-weight: 600; font-size: 20px; color: var(--tv-text); margin: 0; letter-spacing: -.01em; }
+  .tv-price-pop {
+    font: 600 9.5px/1 var(--tv-font-mono); letter-spacing: .16em; text-transform: uppercase;
+    color: #c3c8ff; background: rgba(99, 102, 241, .16);
+    border: 1px solid rgba(141, 150, 255, .3);
+    border-radius: 999px; padding: 6px 11px;
+  }
+  .tv-price-desc { font-size: 13px; color: var(--tv-muted); margin: 0 0 22px; }
+  .tv-price-num { display: flex; align-items: baseline; gap: 8px; margin-bottom: 24px; }
+  .tv-price-num strong { font-family: var(--tv-font-display); font-weight: 700; font-size: 46px; letter-spacing: -.04em; color: var(--tv-text); line-height: 1; }
+  .tv-price-num span { font: 500 12px/1.4 var(--tv-font-mono); color: var(--tv-dim); }
+  .tv-price-list { list-style: none; margin: 0 0 26px; padding: 0; display: flex; flex-direction: column; gap: 11px; flex: 1; }
+  .tv-price-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; line-height: 1.5; color: #c0c6e0; }
+  .tv-price-list .material-symbols-outlined { font-size: 16px; color: var(--tv-cyan); margin-top: 1px; flex: none; }
+  .tv-price-cta {
+    display: block; text-align: center;
+    padding: 14px 20px; border-radius: 12px;
+    font-weight: 600; font-size: 14.5px;
+    transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+  }
+  .tv-price-cta-gho { border: 1px solid rgba(141, 150, 255, .5); color: #c3c8ff; }
+  .tv-price-cta-gho:hover { background: rgba(99, 102, 241, .12); }
+  .tv-price-cta-pri {
+    background: linear-gradient(135deg, #6d70f6, #4f46e5); color: #fff;
+    box-shadow: 0 10px 30px rgba(99, 102, 241, .35);
+  }
+  .tv-price-cta-pri:hover { box-shadow: 0 14px 40px rgba(99, 102, 241, .5); }
+  .tv-price-foot { text-align: center; font-size: 13px; color: var(--tv-dim); margin-top: 26px; line-height: 1.7; }
+  .tv-price-foot a { color: var(--tv-indigo-bright); }
+  .tv-price-foot a:hover { text-decoration: underline; }
+
+  /* ---------- FAQ ---------- */
+  .tv-faq { max-width: 760px; margin: 40px auto 0; display: flex; flex-direction: column; gap: 10px; }
+  .faq-item {
+    border: 1px solid var(--tv-line);
+    border-radius: 14px;
+    background: rgba(13, 16, 31, .6);
+    transition: border-color .25s ease;
+  }
+  .faq-item:hover, .faq-item[open] { border-color: rgba(141, 150, 255, .45); }
+  .faq-item summary {
+    cursor: pointer; list-style: none;
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding: 17px 20px;
+    font-weight: 600; font-size: 15px; color: var(--tv-text);
   }
   .faq-item summary::-webkit-details-marker { display: none; }
   .faq-item summary::after {
     content: '+';
-    font-size: 1.3rem;
-    font-weight: 400;
-    color: #9099ff;
-    line-height: 1;
-    transition: transform 0.2s ease;
-    flex-shrink: 0;
+    font-size: 21px; font-weight: 400; line-height: 1;
+    color: var(--tv-indigo-bright);
+    transition: transform .2s ease; flex-shrink: 0;
   }
   .faq-item[open] summary::after { transform: rotate(45deg); }
-  .faq-item .faq-body {
-    padding: 0 1.25rem 1.15rem;
-    color: #a1a1aa;
-    font-size: 0.9rem;
-    line-height: 1.65;
-  }
-  .faq-item .faq-body a { color: #9099ff; }
+  .faq-item .faq-body { padding: 0 20px 17px; color: var(--tv-muted); font-size: 14px; line-height: 1.7; }
+  .faq-item .faq-body a { color: var(--tv-indigo-bright); }
   .faq-item .faq-body a:hover { text-decoration: underline; }
 
-  /* Section eyebrow */
-  .eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #9099ff;
-    margin-bottom: 1rem;
+  /* ---------- contact ---------- */
+  .tv-contact-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+  .tv-nextsteps {
+    border: 1px solid var(--tv-line);
+    border-radius: 20px;
+    background:
+      radial-gradient(480px 280px at 0% 0%, rgba(99, 102, 241, .16), transparent 70%),
+      linear-gradient(180deg, rgba(17, 20, 42, .6), rgba(10, 12, 24, .88));
+    padding: 34px 32px;
+    display: flex; flex-direction: column;
   }
-  .eyebrow::before {
-    content: '';
-    width: 24px;
-    height: 1px;
-    background: linear-gradient(90deg, #6366f1, transparent);
+  .tv-steps { list-style: none; margin: 22px 0 0; padding: 0; display: flex; flex-direction: column; gap: 0; flex: 1; }
+  .tv-step { position: relative; display: flex; gap: 16px; padding-bottom: 22px; }
+  .tv-step:last-child { padding-bottom: 0; }
+  .tv-step::before {
+    content: ''; position: absolute; left: 13px; top: 30px; bottom: 2px; width: 1px;
+    background: linear-gradient(180deg, rgba(141, 150, 255, .5), rgba(141, 150, 255, .08));
+  }
+  .tv-step:last-child::before { display: none; }
+  .tv-step-num {
+    flex: none; width: 27px; height: 27px; border-radius: 99px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(141, 150, 255, .45);
+    background: rgba(99, 102, 241, .12);
+    font: 600 10.5px/1 var(--tv-font-mono); color: #c3c8ff;
+  }
+  .tv-step-body strong { display: block; font-size: 14.5px; font-weight: 700; color: var(--tv-text); margin-bottom: 3px; }
+  .tv-step-body p { font-size: 13px; line-height: 1.6; color: var(--tv-muted); margin: 0; }
+  .tv-contact-alt { margin-top: 24px; font-size: 13px; color: var(--tv-dim); }
+  .tv-contact-alt a { color: var(--tv-indigo-bright); font-weight: 600; }
+  .tv-contact-alt a:hover { text-decoration: underline; }
+  .tv-form-card {
+    border: 1px solid var(--tv-line);
+    border-radius: 20px;
+    background: rgba(13, 16, 31, .7);
+    padding: 34px 32px;
+  }
+
+  /* ---------- lightbox ---------- */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(2, 3, 8, .93);
+    align-items: center; justify-content: center;
+    cursor: zoom-out; padding: 24px;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img { max-width: 95vw; max-height: 95vh; border-radius: 10px; box-shadow: 0 40px 140px rgba(0, 0, 0, .8); }
+
+  /* ---------- scroll reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1080px) {
+    .tv-seq { grid-template-columns: 280px minmax(0, 1fr); }
+  }
+  @media (max-width: 1023px) {
+    .tv-sec { padding: 72px 20px; }
+    .tv-hero { padding: 132px 20px 48px; }
+    .tv-deck-tilt { transform: none; }
+    .tv-chip-a { left: 8px; top: -16px; }
+    .tv-chip-b { right: 8px; bottom: -14px; }
+    .tv-deck-note { margin-top: 34px; }
+    .tv-clusters { grid-template-columns: 1fr; }
+    .tv-dive { grid-template-columns: 1fr; gap: 30px; }
+    .tv-dive + .tv-dive { margin-top: 78px; }
+    .tv-dive-media { order: -1; }
+    .tv-arch { grid-template-columns: 1fr; gap: 0; }
+    .tv-flow { flex-direction: row; padding: 18px 0; gap: 16px; }
+    .tv-flow-lane { width: auto; flex: 1; }
+    .tv-flow-line { width: 100%; }
+    .tv-tiles { grid-template-columns: repeat(2, 1fr); }
+    .tv-pricing-grid { grid-template-columns: 1fr; }
+    .tv-contact-grid { grid-template-columns: 1fr; }
+    .tv-seq { grid-template-columns: 1fr; min-height: 0; }
+    .tv-stations {
+      flex-direction: row;
+      overflow-x: auto;
+      border-right: 0;
+      border-bottom: 1px solid var(--tv-line-soft);
+      scrollbar-width: none;
+    }
+    .tv-stations::-webkit-scrollbar { display: none; }
+    .tv-station { flex: 0 0 auto; min-width: 200px; border-bottom: 0; border-right: 1px solid var(--tv-line-soft); padding: 14px 18px; }
+    .tv-station::before { width: 100%; height: 2px; top: auto; bottom: 0; background: linear-gradient(90deg, var(--tv-indigo), var(--tv-cyan)); }
+    .tv-st-obj { display: none; }
+    .tv-st-sum { display: none; }
+  }
+  @media (max-width: 639px) {
+    .tv-hero { padding-top: 118px; }
+    .tv-hero-sub { font-size: 16px; }
+    .tv-btn { padding: 14px 18px; font-size: 14px; }
+    .tv-chip { display: none; }
+    .tv-tiles { grid-template-columns: 1fr; }
+    .tv-collage-inset { left: 8px; width: 52%; }
+    .tv-stage-info { padding: 18px 18px 20px; }
+    .tv-telemetry { border-radius: 12px; }
+    .tv-tcell { flex: 1 1 50%; padding: 13px 16px; }
+  }
+
+  /* ---------- reduced motion ---------- */
+  @media (prefers-reduced-motion: reduce) {
+    .tv-orb, .tv-hero-beam, .tv-chip, .tv-bridge i, .tv-console-tag i, .tv-flow-line::before { animation: none !important; }
+    .tv-hero-head > *, .tv-deck { animation: none !important; opacity: 1; }
+    .tv-deck-tilt { transform: none; transition: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
   }
 </style>
+<noscript><style>.reveal { opacity: 1; transform: none; }</style></noscript>
 </head>
 <body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+
+<a class="tv-skip" href="#main">Skip to content</a>
 
 <!-- ===== NAV ===== -->
 <header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/50">
@@ -520,7 +877,7 @@
       <span class="text-lg font-bold tracking-tight truncate">Tourvia</span>
     </a>
     <nav class="hidden md:flex gap-8 items-center text-sm">
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#day-in-the-field">Workflow</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#day-in-the-field">Field day</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#showcase">Product</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing">Pricing</a>
@@ -545,7 +902,7 @@
   <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/50 bg-surface/95 backdrop-blur-xl px-6 py-4">
     <nav class="flex flex-col gap-4 text-sm">
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#day-in-the-field" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Workflow</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#day-in-the-field" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Field day</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Features</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#showcase" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Product</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Pricing</a>
@@ -559,531 +916,589 @@
   </div>
 </header>
 
-<main>
+<main id="main">
 
-  <!-- ===== HERO (split layout) ===== -->
-  <section class="hero-section pt-28 pb-12 lg:pt-36 lg:pb-20 px-6 lg:px-8 max-w-7xl mx-auto lg:min-h-[90vh] flex items-center">
-    <!-- Animated background elements -->
-    <div class="hero-beam"></div>
-    <div class="hero-orb hero-orb-1"></div>
-    <div class="hero-orb hero-orb-2"></div>
-    <div class="hero-orb hero-orb-3"></div>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+  <!-- ===== HERO: MISSION CONTROL ===== -->
+  <section class="tv-hero" aria-label="Tourvia overview">
+    <div class="tv-hero-beam" aria-hidden="true"></div>
+    <div class="tv-orb tv-orb-a" aria-hidden="true"></div>
+    <div class="tv-orb tv-orb-b" aria-hidden="true"></div>
 
-      <!-- Left: Text -->
-      <div class="hero-text">
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-6">
-          <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
-          <span class="text-xs font-medium text-primary-light">Tourvia, formerly RouteForce</span>
+    <div class="tv-wrap">
+      <div class="tv-hero-head">
+        <span class="tv-bridge"><i aria-hidden="true"></i>Tourvia, formerly RouteForce</span>
+        <h1 class="tv-h1 text-balance">Salesforce route planning, run like <span class="tv-grad">mission control</span>.</h1>
+        <p class="tv-hero-sub">Tourvia turns Salesforce records into optimized routes, routes into scheduled Events, and field visits into GPS-verified reports — one managed package, one workspace, inside the CRM your team already lives in.</p>
+        <div class="tv-hero-cta">
+          <a href="#contact" class="tv-btn tv-btn-pri">Request a 30-day trial<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+          <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="tv-btn tv-btn-gho"><span class="material-symbols-outlined" aria-hidden="true">verified</span>Private AppExchange access</a>
         </div>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.04] mb-6 max-w-4xl text-balance">
-          Salesforce route planning, <span class="gradient-text-animated">from map to visit</span>, without leaving the CRM.
-        </h1>
-        <p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed mb-7">
-          Tourvia — formerly RouteForce — turns your Salesforce records into optimized routes, your routes into scheduled visits, and your visits into GPS-verified reports. One managed package, one workspace, clear €30/user/month pricing billed annually.
-        </p>
-        <div class="flex flex-wrap gap-3 mb-6">
-          <a href="/#contact" class="bg-primary hover:bg-primary-dim text-white px-6 py-3 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-primary/25 inline-flex items-center gap-2">
-            Request a 30-day trial
-            <span class="material-symbols-outlined text-lg">arrow_forward</span>
-          </a>
-          <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-6 py-3 rounded-xl font-semibold transition-colors border border-outline inline-flex items-center gap-2">
-            <span class="material-symbols-outlined text-lg">verified</span>
-            Private AppExchange access
-          </a>
-          <a href="salesforce-route-planning.html" class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-6 py-3 rounded-xl font-semibold transition-colors border border-outline inline-flex items-center gap-2">
-            <span class="material-symbols-outlined text-lg">map</span>
-            See route planning inside Salesforce
-          </a>
+        <div class="tv-proofline">
+          <span><a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba"><span class="tv-star">5.0 ★</span> AppExchange reviews</a></span>
+          <span>V7 · Salesforce security review passed</span>
+          <span><a href="pricing.html">€30/user/month · billed annually</a></span>
         </div>
-        <div class="rounded-2xl border border-outline bg-surface-container/60 px-4 py-4 max-w-3xl">
-          <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-on-surface-variant">
-            <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="font-semibold text-on-surface hover:text-primary-light transition-colors">5.0 ★ AppExchange reviews</a>
-            <span class="hidden sm:inline text-on-surface-variant/50">•</span>
-            <span>Passed Salesforce security review</span>
-            <span class="hidden sm:inline text-on-surface-variant/50">•</span>
-            <a href="pricing.html" class="font-semibold text-on-surface hover:text-primary-light transition-colors">€30/user/month, billed annually</a>
-          </div>
-          <p class="text-xs text-on-surface-variant mt-3">Formerly RouteForce. Same Salesforce-native managed package, same workflow, now under the Tourvia product name.</p>
-        </div>
+        <p class="tv-herolink"><a class="tv-textlink" href="salesforce-route-planning.html">How route planning works inside Salesforce<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a></p>
       </div>
 
-      <!-- Right: Product screenshot in browser mockup with floating telemetry -->
-      <div class="hero-visual">
-        <div class="stat-chip stat-chip-1" aria-hidden="true"><span class="material-symbols-outlined">route</span> 38.0 km · 1h11 optimized</div>
-        <div class="stat-chip stat-chip-2" aria-hidden="true"><span class="material-symbols-outlined">event_available</span> 5 stops → Salesforce Events</div>
-        <div class="video-glow">
-          <div class="rounded-xl overflow-hidden border border-outline bg-surface-container shadow-2xl">
-            <div class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-high border-b border-outline-variant/50">
-              <div class="flex gap-1.5">
-                <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
-                <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
-                <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
-              </div>
-              <div class="flex-1 mx-3">
-                <div class="bg-surface-container rounded-md px-3 py-1 text-xs text-on-surface-variant/50 text-center truncate">Salesforce Lightning · Tourvia map and route planning</div>
-              </div>
+      <!-- Flight deck: real product UI, framed as the main instrument -->
+      <div class="tv-deck">
+        <div class="tv-chip tv-chip-a" aria-hidden="true"><span class="material-symbols-outlined">route</span>ROUTE · 17.4 KM · 44 MIN</div>
+        <div class="tv-chip tv-chip-b" aria-hidden="true"><span class="material-symbols-outlined">event_available</span>15 VISITS → SALESFORCE CALENDAR</div>
+        <div class="tv-deck-tilt">
+          <div class="tv-console">
+            <div class="tv-console-bar">
+              <span class="tv-leds" aria-hidden="true"><span class="tv-led tv-led-r"></span><span class="tv-led tv-led-y"></span><span class="tv-led tv-led-g"></span></span>
+              <span class="tv-console-title">Salesforce Lightning — Tourvia route workspace</span>
+              <span class="tv-console-tag"><i aria-hidden="true"></i>ORS + VROOM</span>
             </div>
-            <button type="button" class="block w-full text-left cursor-zoom-in bg-transparent border-0 p-0 js-open-lightbox-direct" data-lightbox-src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" data-lightbox-alt="Tourvia inside Salesforce Lightning with filters, map, route planning, and visit list">
-              <img src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Tourvia inside Salesforce Lightning with filters, map, route planning, and visit list" class="w-full h-auto" fetchpriority="high" decoding="async" width="1600" height="1000"/>
+            <button type="button" class="tv-zoombtn js-open-lightbox-direct" data-lightbox-src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" data-lightbox-alt="Tourvia inside Salesforce Lightning with filters, map, route planning, and visit list">
+              <span class="tv-console-media"><img src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Tourvia inside Salesforce Lightning with filters, map, route planning, and visit list" fetchpriority="high" decoding="async" width="1600" height="1000"/></span>
             </button>
           </div>
-          <p class="text-xs text-on-surface-variant mt-3 text-center">Real product view inside Salesforce, filters, route planning, and visit creation from the same workspace. Click to expand.</p>
         </div>
+        <div class="tv-deck-floor" aria-hidden="true"></div>
+        <p class="tv-deck-note">Real product UI — filters, live map, route plan, and visit creation in one Salesforce workspace. Click to expand.</p>
       </div>
 
+      <!-- Telemetry strip: the facts, always on screen -->
+      <dl class="tv-telemetry" aria-label="Tourvia key facts">
+        <div class="tv-tcell"><dt><small>Brand</small></dt><dd><span>Tourvia — formerly RouteForce</span></dd></div>
+        <div class="tv-tcell"><dt><small>Engine</small></dt><dd><span>ORS + VROOM</span></dd></div>
+        <div class="tv-tcell"><dt><small>Hosting</small></dt><dd><span>OVHcloud · Gravelines, FR</span></dd></div>
+        <div class="tv-tcell"><dt><small>CRM data</small></dt><dd><span>Stays in your org</span></dd></div>
+        <div class="tv-tcell"><dt><small>Package</small></dt><dd><span>Managed · V7 security review</span></dd></div>
+        <div class="tv-tcell"><dt><small>Pricing</small></dt><dd><span>€30 / user / month · annual</span></dd></div>
+      </dl>
     </div>
   </section>
 
-  <!-- ===== TRUST / PROOF BAR ===== -->
-  <section class="trust-bar" aria-label="Trust and compliance highlights">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4">
-      <div class="trust-bar-grid rounded-xl overflow-hidden border border-outline-variant/30">
-        <div class="trust-cell">
-          <div class="trust-value"><span class="material-symbols-outlined text-accent text-lg">verified_user</span>Security review passed</div>
-          <div class="trust-label">V7 passed the Salesforce security review — private AppExchange listing</div>
-        </div>
-        <div class="trust-cell">
-          <div class="trust-value"><span class="material-symbols-outlined text-accent text-lg">cloud_done</span>Hosted in France</div>
-          <div class="trust-label">Routing engine on OVHcloud (France) — RGPD-aligned by design</div>
-        </div>
-        <div class="trust-cell">
-          <div class="trust-value"><span class="material-symbols-outlined text-accent text-lg">sync_disabled</span>No data sync</div>
-          <div class="trust-label">100% Salesforce-native — your CRM data stays in your org</div>
-        </div>
-        <div class="trust-cell">
-          <div class="trust-value"><span class="material-symbols-outlined text-accent text-lg">route</span>ORS + VROOM engine</div>
-          <div class="trust-label">Proven open-source optimization, tuned for field sales routes</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== OPERATIONAL STORY: A DAY WITH TOURVIA ===== -->
-  <section id="day-in-the-field" class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="text-center mb-14 lg:mb-16">
-      <span class="eyebrow mx-auto">Mission control for field teams</span>
-      <h2 class="text-3xl lg:text-5xl font-bold tracking-tight mb-4 text-balance">A field day, run from one Salesforce screen</h2>
-      <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Not a pile of screenshots — this is the actual morning-to-evening workflow your reps follow in Tourvia.</p>
-    </div>
-
-    <div class="story-rail max-w-6xl mx-auto">
-
-      <!-- Step 1 -->
-      <div class="story-step">
-        <div class="story-node">1</div>
-        <div>
-          <span class="story-time"><span class="material-symbols-outlined text-base">schedule</span>08:02 · Plan</span>
-          <h3 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">Open the map. See the whole territory.</h3>
-          <p class="text-on-surface-variant leading-relaxed">Accounts, leads, opportunities, and Campaign Members appear on one live map — filtered by any Salesforce field, colored by status, clustered by density. Paris to La Défense, every record in sight.</p>
-        </div>
-        <div class="screenshot-frame glow-primary">
-          <img src="assets/screenshots-2026/map-overview.jpg" alt="Tourvia territory map of Paris showing accounts, leads, and opportunities with filters, route, and history controls" class="w-full h-auto" loading="lazy"/>
-        </div>
+  <!-- ===== COMMAND SEQUENCE: ONE FIELD DAY, FIVE STATIONS ===== -->
+  <section id="day-in-the-field" class="tv-sec tv-band">
+    <div class="tv-wrap">
+      <div class="tv-way reveal"><i aria-hidden="true"></i><em>Waypoint 01</em><span>— The field day</span></div>
+      <div class="tv-center reveal">
+        <h2 class="tv-h2 text-balance">One field day. Five stations. Zero exports.</h2>
+        <p class="tv-sub">This is the real workflow, on real product screens — morning to evening. Click through the day a rep and their manager actually run.</p>
       </div>
 
-      <!-- Step 2 -->
-      <div class="story-step">
-        <div class="story-node">2</div>
-        <div>
-          <span class="story-time"><span class="material-symbols-outlined text-base">lasso_select</span>08:10 · Select &amp; optimize</span>
-          <h3 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">Lasso the stops. Let the engine order them.</h3>
-          <p class="text-on-surface-variant leading-relaxed">Draw an area, add the stops to your route, and the ORS + VROOM optimization engine sequences the day — start point, time windows, lunch break, tolls and highways included.</p>
+      <div class="tv-console tv-seq-console reveal">
+        <div class="tv-console-bar">
+          <span class="tv-leds" aria-hidden="true"><span class="tv-led tv-led-r"></span><span class="tv-led tv-led-y"></span><span class="tv-led tv-led-g"></span></span>
+          <span class="tv-console-title">Tourvia ops — a rep&#8217;s field day</span>
+          <span class="tv-console-tag"><i aria-hidden="true"></i>Live product UI</span>
         </div>
-        <div class="screenshot-frame glow-accent">
-          <img src="assets/screenshots-2026/lasso-select.png" alt="Tourvia select-area lasso adding five stops to a route with the route planning panel open" class="w-full h-auto" loading="lazy"/>
-        </div>
-      </div>
-
-      <!-- Step 3 -->
-      <div class="story-step">
-        <div class="story-node">3</div>
-        <div>
-          <span class="story-time"><span class="material-symbols-outlined text-base">event_available</span>08:14 · Schedule</span>
-          <h3 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">One click books the calendar — conflicts flagged.</h3>
-          <p class="text-on-surface-variant leading-relaxed">The optimized route becomes real Salesforce Events with timed slots per stop. Tourvia checks the rep's existing agenda first and surfaces schedule conflicts before anything is created.</p>
-        </div>
-        <div class="screenshot-frame glow-primary">
-          <img src="assets/screenshots-2026/events-agenda.png" alt="Tourvia schedule conflicts check listing four timed visits before creating Salesforce Events" class="w-full h-auto" loading="lazy"/>
-        </div>
-      </div>
-
-      <!-- Step 4 -->
-      <div class="story-step">
-        <div class="story-node">4</div>
-        <div>
-          <span class="story-time"><span class="material-symbols-outlined text-base">where_to_vote</span>09:00 · Execute</span>
-          <h3 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">On the road: agenda, navigation, GPS check-in.</h3>
-          <p class="text-on-surface-variant leading-relaxed">Today's agenda rides along on Salesforce Mobile. At each stop the rep checks in with GPS verification, fills the visit report with previous-visit context preloaded, checks out, and moves on.</p>
-        </div>
-        <div class="screenshot-frame glow-accent">
-          <img src="assets/screenshots-2026/checkin-form.png" alt="Tourvia today's agenda with live route on the map and check-in popup at the current stop" class="w-full h-auto" loading="lazy"/>
-        </div>
-      </div>
-
-      <!-- Step 5 -->
-      <div class="story-step">
-        <div class="story-node">5</div>
-        <div>
-          <span class="story-time"><span class="material-symbols-outlined text-base">monitoring</span>18:30 · Review</span>
-          <h3 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">Every visit lands on the record — and in reporting.</h3>
-          <p class="text-on-surface-variant leading-relaxed">Each stop is a Salesforce record with stage, amount, and next action one click away. Managers track on-site rate, coverage, and route history in the 2 dashboards and 18 reports included.</p>
-        </div>
-        <div class="flex justify-center">
-          <div class="screenshot-frame glow-primary max-w-xs w-full">
-            <img src="assets/screenshots-2026/marker-popup.png" alt="Tourvia marker popup showing an opportunity with address, contact, stage, amount, and a create-an-event action" class="w-full h-auto" loading="lazy"/>
+        <div class="tv-seq">
+          <div class="tv-stations" role="tablist" aria-label="Field day stations" aria-orientation="vertical">
+            <button class="tv-station" role="tab" id="st-tab-1" aria-controls="st-panel-1" aria-selected="true" type="button">
+              <span class="tv-st-row"><span class="tv-st-num">01 · PLAN</span><span class="tv-st-time">08:02</span></span>
+              <span class="tv-st-name">Territory check</span>
+              <span class="tv-st-sum">Every record on one live map</span>
+              <span class="tv-st-obj">Accounts · Leads · Opportunities · Campaign Members</span>
+            </button>
+            <button class="tv-station" role="tab" id="st-tab-2" aria-controls="st-panel-2" aria-selected="false" tabindex="-1" type="button">
+              <span class="tv-st-row"><span class="tv-st-num">02 · OPTIMIZE</span><span class="tv-st-time">08:10</span></span>
+              <span class="tv-st-name">Engine takes the wheel</span>
+              <span class="tv-st-sum">ORS + VROOM sequences the day</span>
+              <span class="tv-st-obj">Route plan · Optimization engine</span>
+            </button>
+            <button class="tv-station" role="tab" id="st-tab-3" aria-controls="st-panel-3" aria-selected="false" tabindex="-1" type="button">
+              <span class="tv-st-row"><span class="tv-st-num">03 · SCHEDULE</span><span class="tv-st-time">08:14</span></span>
+              <span class="tv-st-name">Calendar, booked</span>
+              <span class="tv-st-sum">Conflict-checked Salesforce Events</span>
+              <span class="tv-st-obj">Salesforce Events · Calendar</span>
+            </button>
+            <button class="tv-station" role="tab" id="st-tab-4" aria-controls="st-panel-4" aria-selected="false" tabindex="-1" type="button">
+              <span class="tv-st-row"><span class="tv-st-num">04 · EXECUTE</span><span class="tv-st-time">09:00</span></span>
+              <span class="tv-st-name">Doors, not dashboards</span>
+              <span class="tv-st-sum">GPS check-in at every stop</span>
+              <span class="tv-st-obj">Visit reports · Salesforce Mobile</span>
+            </button>
+            <button class="tv-station" role="tab" id="st-tab-5" aria-controls="st-panel-5" aria-selected="false" tabindex="-1" type="button">
+              <span class="tv-st-row"><span class="tv-st-num">05 · DEBRIEF</span><span class="tv-st-time">18:30</span></span>
+              <span class="tv-st-name">The day on the record</span>
+              <span class="tv-st-sum">Dashboards managers already trust</span>
+              <span class="tv-st-obj">2 dashboards · 18 reports</span>
+            </button>
           </div>
-        </div>
-      </div>
 
-    </div>
+          <div class="tv-stage">
+            <div class="tv-stage-panel" role="tabpanel" id="st-panel-1" aria-labelledby="st-tab-1">
+              <div class="tv-stage-media">
+                <button type="button" class="tv-zoombtn js-open-lightbox-direct" data-lightbox-src="assets/screenshots-2026/map-overview.jpg" data-lightbox-alt="Tourvia live territory map of Paris with accounts, leads, and opportunities plus filter, route, and history controls">
+                  <img src="assets/screenshots-2026/map-overview.jpg" alt="Tourvia live territory map of Paris with accounts, leads, and opportunities plus filter, route, and history controls" loading="lazy" decoding="async"/>
+                </button>
+              </div>
+              <div class="tv-stage-info">
+                <h3>Open the map. The whole territory reports in.</h3>
+                <p>Every geocoded record appears on one live map — filtered by any Salesforce field, clustered by density, colored by status. Saved presets put the same view in front of the whole team.</p>
+                <ul class="tv-ticks">
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Multi-object map, clustering, heatmap</li>
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Filters on any field — saved &amp; shared</li>
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Center on rep, record, or radius</li>
+                </ul>
+              </div>
+            </div>
 
-    <div class="text-center mt-12">
-      <a href="/#contact" class="bg-primary hover:bg-primary-dim text-white px-6 py-3 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-primary/25 inline-flex items-center gap-2">
-        Run this workflow in your org — request a 30-day trial
-        <span class="material-symbols-outlined text-lg">arrow_forward</span>
-      </a>
-    </div>
-  </section>
+            <div class="tv-stage-panel" role="tabpanel" id="st-panel-2" aria-labelledby="st-tab-2" hidden>
+              <div class="tv-stage-media">
+                <video muted playsinline loop controls preload="none" poster="assets/screenshots-2026/screen-04.jpg" aria-label="Demo video: Tourvia optimizes a route inside Salesforce and shows the sequenced plan on the map">
+                  <source src="assets/videos/OptimiseRoute.mp4" type="video/mp4"/>
+                </video>
+              </div>
+              <div class="tv-stage-info">
+                <h3>Lasso the stops. The engine orders the day.</h3>
+                <p>Draw an area or pick records one by one, then let ORS + VROOM sequence the route — start point, time windows, lunch break, toll and highway preferences all respected. The demo day: 5 stops, 38.0 km, 1h11 of driving.</p>
+                <ul class="tv-ticks">
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Optimized order in seconds</li>
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Time windows, lunch break, toll rules</li>
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Nearby suggestions fill the gaps</li>
+                </ul>
+              </div>
+            </div>
 
-  <!-- ===== FEATURES GRID ===== -->
-  <section id="features" class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="text-center mb-14 lg:mb-16">
-      <h2 class="text-3xl lg:text-5xl font-bold tracking-tight mb-4">Everything your field team needs</h2>
-      <p class="text-on-surface-variant text-lg max-w-xl mx-auto">Built natively on Salesforce. No external apps, no data sync.</p>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-4">
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">map</span>
-        <h3 class="font-semibold text-lg mb-2">Multi-Object Map</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Accounts, leads, opportunities, and Campaign Members on one interactive map with clustering and real-time filters.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-accent text-2xl mb-4 block">route</span>
-        <h3 class="font-semibold text-lg mb-2">Route Optimization</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Smart route planning with time windows, lunch breaks, and distance constraints.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">event</span>
-        <h3 class="font-semibold text-lg mb-2">Auto Event Creation</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Turn optimized routes into Salesforce Events automatically, with no re-typing needed.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-accent text-2xl mb-4 block">location_on</span>
-        <h3 class="font-semibold text-lg mb-2">GPS Check-In</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Verified field visits with custom checkout forms, synced to Salesforce records in real time.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">filter_list</span>
-        <h3 class="font-semibold text-lg mb-2">Smart Filters</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Filter by any Salesforce field. Save and share presets across your team.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-accent text-2xl mb-4 block">dashboard</span>
-        <h3 class="font-semibold text-lg mb-2">Dashboards & Reports</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">2 dashboards and 18 reports included. Track visits, routes, and team performance from day one.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">history</span>
-        <h3 class="font-semibold text-lg mb-2">Route History</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Every route is saved. Replay, compare, and analyze field coverage over time.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-accent text-2xl mb-4 block">smartphone</span>
-        <h3 class="font-semibold text-lg mb-2">Mobile Ready</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Full experience on the Salesforce Mobile App: map, routes, check-in, all from the field.</p>
-      </div>
-      <div class="feature-card rounded-xl p-6">
-        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">bolt</span>
-        <h3 class="font-semibold text-lg mb-2">Custom Actions</h3>
-        <p class="text-on-surface-variant text-sm leading-relaxed">Launch Screen Flows, click-to-call, or navigate directly from the map, with no context switching.</p>
-      </div>
-    </div>
-  </section>
+            <div class="tv-stage-panel" role="tabpanel" id="st-panel-3" aria-labelledby="st-tab-3" hidden>
+              <div class="tv-stage-media">
+                <button type="button" class="tv-zoombtn js-open-lightbox-direct" data-lightbox-src="assets/screenshots-2026/events-agenda.png" data-lightbox-alt="Tourvia schedule-conflict check listing four timed visits before Salesforce Events are created">
+                  <img src="assets/screenshots-2026/events-agenda.png" alt="Tourvia schedule-conflict check listing four timed visits before Salesforce Events are created" loading="lazy" decoding="async"/>
+                </button>
+              </div>
+              <div class="tv-stage-info">
+                <h3>One click writes the calendar — conflicts flagged first.</h3>
+                <p>The optimized route becomes timed Salesforce Events on the right records. Tourvia checks the rep&#8217;s existing agenda and surfaces conflicts before anything is created.</p>
+                <ul class="tv-ticks">
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Timed Event per stop, on the record</li>
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Conflict check before creation</li>
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Google Maps hand-off &amp; CSV export</li>
+                </ul>
+              </div>
+            </div>
 
-  <!-- ===== NATIVE INTEGRATION ===== -->
-  <section id="native-integration" class="py-20 px-6 lg:px-8 bg-surface-container-low/40 border-y border-outline-variant/30">
-    <div class="max-w-5xl mx-auto text-center">
-      <h2 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">Works everywhere in Salesforce</h2>
-      <p class="text-on-surface-variant text-base max-w-2xl mx-auto mb-10">A reusable Salesforce-native component — place it on record pages, Campaign pages, app pages, tabs, or Experience Cloud. <a href="native-integration-salesforce.html" class="text-primary-light hover:underline">Learn more</a>.</p>
-      <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-on-surface-variant">
-        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">account_tree</span> Account, Lead, Opportunity pages</span>
-        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">campaign</span> Campaign record pages</span>
-        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">apps</span> Lightning App Pages</span>
-        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">home</span> Home Pages & Tabs</span>
-        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">public</span> Experience Cloud</span>
-        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">tune</span> Configurable via Custom Metadata</span>
-      </div>
-    </div>
-  </section>
+            <div class="tv-stage-panel" role="tabpanel" id="st-panel-4" aria-labelledby="st-tab-4" hidden>
+              <div class="tv-stage-media">
+                <video muted playsinline loop controls preload="none" poster="assets/screenshots-2026/screen-05.jpg" aria-label="Demo video: GPS check-in and visit report check-out flow in Tourvia">
+                  <source src="assets/videos/CheckOut.mp4" type="video/mp4"/>
+                </video>
+              </div>
+              <div class="tv-stage-info">
+                <h3>Check in. File the report. Roll to the next stop.</h3>
+                <p>Today&#8217;s agenda rides along on Salesforce Mobile. At each stop: GPS-verified check-in, a visit report with previous-visit context preloaded, then check-out and on to the next door.</p>
+                <ul class="tv-ticks">
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>On-site GPS verification — 500 m radius</li>
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Result, satisfaction, order amount, notes</li>
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Quick Text templates for fast notes</li>
+                </ul>
+              </div>
+            </div>
 
-  <!-- ===== PRODUCT SHOWCASE ===== -->
-  <section id="showcase" class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
-    <div class="showcase-list">
-
-      <!-- Showcase 1: Route Optimization — text LEFT, video RIGHT -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
-        <div>
-          <span class="text-xs font-semibold text-primary-light uppercase tracking-widest mb-4 block">Route Optimization</span>
-          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">Select, optimize, and schedule in 30 seconds</h3>
-          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Lasso-select accounts, optimize the visit order, and create Salesforce Events, all in one gesture.</p>
-          <ul class="space-y-3 text-on-surface-variant">
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Optimized visit order</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Bulk event creation</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Export to Google Maps</li>
-          </ul>
-        </div>
-        <div class="screenshot-frame glow-primary">
-          <video autoplay loop muted playsinline controls preload="none" poster="assets/screenshots-2026/screen-02.jpg" class="w-full h-auto">
-            <source src="assets/videos/OptimiseRoute.mp4" type="video/mp4"/>
-          </video>
-        </div>
-      </div>
-
-      <!-- Showcase 2: Smart Map — image LEFT, text RIGHT -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
-        <div class="screenshot-frame glow-accent lg:order-1 order-2">
-          <img src="assets/screenshots-2026/campaign-members-map.jpg" alt="Tourvia map view showing Campaign Members across France with campaign and status filters" class="w-full h-auto" loading="lazy"/>
-        </div>
-        <div class="lg:order-2 order-1">
-          <span class="text-xs font-semibold text-accent uppercase tracking-widest mb-4 block">Smart Map</span>
-          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">All your records and campaigns, one map</h3>
-          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Accounts, leads, opportunities, and Campaign Members, displayed with clustering, filters, saved views, and status-based colors. Satellite or roadmap, you choose.</p>
-          <ul class="space-y-3 text-on-surface-variant">
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Multi-object visualization</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Campaign picker for targeted member maps</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Lead and Contact members geolocated from their parent address</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- Showcase 3: Mobile — text LEFT, video RIGHT (portrait) -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
-        <div>
-          <span class="text-xs font-semibold text-primary-light uppercase tracking-widest mb-4 block">Mobile</span>
-          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">Your routes in your pocket</h3>
-          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Tourvia is designed for teams working in Salesforce Mobile. Map access, routes, nearby accounts, and field actions stay accessible from the field.</p>
-          <ul class="space-y-3 text-on-surface-variant">
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Native Salesforce Mobile experience</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> GPS check-in from the field</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> One-tap export to Google Maps</li>
-          </ul>
-        </div>
-        <div class="flex justify-center">
-          <div class="video-glow max-w-[18rem] w-full">
-            <div class="rounded-[2rem] overflow-hidden border border-outline bg-surface-container">
-              <video autoplay loop muted playsinline controls preload="none" poster="assets/screenshots-2026/mobile-map.png" class="w-full h-auto">
-                <source src="assets/videos/routeforce-mobile-demo.mp4" type="video/mp4"/>
-              </video>
+            <div class="tv-stage-panel" role="tabpanel" id="st-panel-5" aria-labelledby="st-tab-5" hidden>
+              <div class="tv-stage-media">
+                <button type="button" class="tv-zoombtn js-open-lightbox-direct" data-lightbox-src="assets/screenshots-2026/screen-07.jpg" data-lightbox-alt="Tourvia Field Activity dashboard in Salesforce with visits, average duration, routes, and on-site rate">
+                  <img src="assets/screenshots-2026/screen-07.jpg" alt="Tourvia Field Activity dashboard in Salesforce with visits, average duration, routes, and on-site rate" loading="lazy" decoding="async"/>
+                </button>
+              </div>
+              <div class="tv-stage-info">
+                <h3>Every visit lands in reporting managers already trust.</h3>
+                <p>On-site rate, visit trends, routes per rep — built on standard Salesforce reporting, included from day one, customizable like any report in your org.</p>
+                <ul class="tv-ticks">
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>2 dashboards &amp; 18 reports included</li>
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>On-site rate, duration, visits by rep</li>
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Standard Salesforce reports — customize freely</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Showcase 4: GPS Check-In — video LEFT, text RIGHT -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
-        <div class="screenshot-frame glow-accent lg:order-1 order-2">
-          <div class="rounded-xl overflow-hidden border border-outline bg-surface-container">
-            <video autoplay loop muted playsinline controls preload="metadata" poster="assets/screenshots-2026/screen-03.jpg" class="w-full h-auto">
-              <source src="assets/videos/CheckOut.mp4" type="video/mp4"/>
-              <img src="assets/screenshots-2026/screen-03.jpg" alt="Tourvia GPS check-in and visit report"/>
+      <div class="tv-seq-cta reveal">
+        <a href="#contact" class="tv-btn tv-btn-pri">Run this sequence in your org — request a trial<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURE CLUSTERS ===== -->
+  <section id="features" class="tv-sec tv-band">
+    <div class="tv-wrap">
+      <div class="tv-way reveal"><i aria-hidden="true"></i><em>Waypoint 02</em><span>— Capabilities</span></div>
+      <div class="tv-center reveal">
+        <h2 class="tv-h2 text-balance">Three jobs. One managed package.</h2>
+        <p class="tv-sub">Everything below ships in the package — no add-ons, no per-feature pricing, no external apps to glue together.</p>
+      </div>
+
+      <div class="tv-clusters">
+        <article class="tv-cluster reveal">
+          <div class="tv-cluster-kicker"><span class="material-symbols-outlined" aria-hidden="true">travel_explore</span>See</div>
+          <h3>See the territory</h3>
+          <p>The CRM becomes a map your team can actually read.</p>
+          <ul class="tv-checklist">
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Accounts, Leads, Opportunities &amp; Campaign Members on one map</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Filter by any Salesforce field — saved, shareable presets</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Clustering, heatmap, and status-based marker colors</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Record popups with context and one-click actions</li>
+          </ul>
+        </article>
+
+        <article class="tv-cluster tv-cluster-core reveal">
+          <div class="tv-cluster-kicker"><span class="material-symbols-outlined" aria-hidden="true">route</span>Move</div>
+          <h3>Move the day</h3>
+          <p>From a cloud of pins to a realistic, booked field day.</p>
+          <ul class="tv-checklist">
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Lasso-select an area — add every stop in one gesture</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>ORS + VROOM sequencing with time windows, lunch break, toll &amp; highway rules</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>One click → timed Salesforce Events, conflict-checked</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Google Maps hand-off and CSV export</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Route history — replay and compare past days</li>
+          </ul>
+        </article>
+
+        <article class="tv-cluster reveal">
+          <div class="tv-cluster-kicker"><span class="material-symbols-outlined" aria-hidden="true">where_to_vote</span>Prove</div>
+          <h3>Prove the work</h3>
+          <p>Field activity becomes data managers can stand behind.</p>
+          <ul class="tv-checklist">
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>GPS check-in, verified within a 500 m radius</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Visit reports: result, satisfaction, order amount, notes — configurable</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Quick Text templates for fast field notes</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>2 dashboards &amp; 18 reports from day one</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="tv-chiprow-wrap reveal">
+        <span class="tv-chiprow-label">One component — every Salesforce surface</span>
+        <div class="tv-chiprow">
+          <span class="tv-sfchip"><span class="material-symbols-outlined" aria-hidden="true">account_tree</span>Account, Lead &amp; Opportunity pages</span>
+          <span class="tv-sfchip"><span class="material-symbols-outlined" aria-hidden="true">campaign</span>Campaign record pages</span>
+          <span class="tv-sfchip"><span class="material-symbols-outlined" aria-hidden="true">apps</span>Lightning App Pages</span>
+          <span class="tv-sfchip"><span class="material-symbols-outlined" aria-hidden="true">home</span>Home pages &amp; tabs</span>
+          <span class="tv-sfchip"><span class="material-symbols-outlined" aria-hidden="true">public</span>Experience Cloud</span>
+          <span class="tv-sfchip"><span class="material-symbols-outlined" aria-hidden="true">tune</span>Configured via Custom Metadata</span>
+        </div>
+        <a class="tv-textlink" href="native-integration-salesforce.html">How the native integration works<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCT PROOF, UP CLOSE ===== -->
+  <section id="showcase" class="tv-sec tv-band">
+    <div class="tv-wrap">
+      <div class="tv-way reveal"><i aria-hidden="true"></i><em>Waypoint 03</em><span>— Product proof</span></div>
+      <div class="tv-center reveal" style="margin-bottom: 84px;">
+        <h2 class="tv-h2 text-balance">Product proof, up close.</h2>
+        <p class="tv-sub">No mockups on this page — screenshots and screen recordings of the shipping product, expanded below.</p>
+      </div>
+
+      <!-- Dive 1: Mobile -->
+      <div class="tv-dive">
+        <div class="tv-dive-copy reveal">
+          <span class="tv-kicker">Salesforce Mobile</span>
+          <h3 class="tv-h3 text-balance">The command center fits in a pocket.</h3>
+          <p>Tourvia runs in the Salesforce Mobile App your reps already carry. Today&#8217;s agenda, the live map, nearby records, and field actions stay one tap away — between doors, not back at the desk.</p>
+          <ul class="tv-checklist">
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Native Salesforce Mobile experience — no separate app</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>GPS check-in and visit reports from the field</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>One-tap navigation hand-off to Google Maps</li>
+          </ul>
+        </div>
+        <div class="tv-dive-media tv-phone-stage reveal">
+          <div class="tv-phone">
+            <video autoplay loop muted playsinline controls preload="none" poster="assets/screenshots-2026/mobile-map.png" aria-label="Demo video: Tourvia running in the Salesforce Mobile App with map, routes, and check-in">
+              <source src="assets/videos/routeforce-mobile-demo.mp4" type="video/mp4"/>
             </video>
           </div>
         </div>
-        <div class="lg:order-2 order-1">
-          <span class="text-xs font-semibold text-primary-light uppercase tracking-widest mb-4 block">Field Execution</span>
-          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">Check in. Fill the report. Check out.</h3>
-          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">GPS-verified check-in at each stop. Fill visit reports with result, satisfaction, next action, and notes, with previous visit context shown automatically. Check out and move to the next stop.</p>
-          <ul class="space-y-3 text-on-surface-variant">
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> GPS on-site verification (500m radius)</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Previous visit context shown automatically</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Configurable fields: result, satisfaction, order amount, notes</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Quick Text templates for faster note-taking</li>
+      </div>
+
+      <!-- Dive 2: Campaign operations -->
+      <div class="tv-dive">
+        <div class="tv-dive-media reveal">
+          <div class="tv-collage">
+            <div class="tv-shot tv-glow-c">
+              <button type="button" class="tv-zoombtn js-open-lightbox-direct" data-lightbox-src="assets/screenshots-2026/campaign-members-map.jpg" data-lightbox-alt="Tourvia map of Campaign Members across France with campaign and status filters">
+                <img src="assets/screenshots-2026/campaign-members-map.jpg" alt="Tourvia map of Campaign Members across France with campaign and status filters" loading="lazy" decoding="async"/>
+              </button>
+            </div>
+            <div class="tv-collage-inset" aria-hidden="false">
+              <img src="assets/screenshots-2026/marker-popup.png" alt="Tourvia marker popup showing an opportunity with address, contact, stage, amount, and a create-an-event action" loading="lazy" decoding="async"/>
+            </div>
+          </div>
+        </div>
+        <div class="tv-dive-copy reveal">
+          <span class="tv-kicker">Campaign operations</span>
+          <h3 class="tv-h3 text-balance">Point any campaign at the map.</h3>
+          <p>Pick a campaign and its members appear as routable stops — from the Campaign record page or the global map. Lead and Contact members are geolocated from their parent records, colored by member status, ready to be routed like any other stop.</p>
+          <ul class="tv-checklist">
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Campaign picker on the global map, or embedded per campaign</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Status-based colors — see who&#8217;s been reached</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Marker popup to record, event, or call in one click</li>
           </ul>
         </div>
       </div>
 
-      <!-- Showcase 5: Dashboard — text LEFT, image RIGHT -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
-        <div>
-          <span class="text-xs font-semibold text-accent uppercase tracking-widest mb-4 block">Analytics</span>
-          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">2 dashboards. 18 reports. Day one.</h3>
-          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Track field activity, visit compliance, route efficiency, and team performance. All built on standard Salesforce Reports.</p>
-          <ul class="space-y-3 text-on-surface-variant">
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> On-site rate & visit trends</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Visits by rep, by week</li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Fully customizable</li>
+      <!-- Dive 3: Route history -->
+      <div class="tv-dive">
+        <div class="tv-dive-copy reveal">
+          <span class="tv-kicker">Route history</span>
+          <h3 class="tv-h3 text-balance">Every route stays on the record.</h3>
+          <p>Optimized days don&#8217;t evaporate at midnight. Each route is saved with its stops, distance, and drive time — reload it, re-run it, or compare how the territory was actually covered over time.</p>
+          <ul class="tv-checklist">
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Saved routes with steps, km, and duration</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Replay any past day on the map</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Coverage feeds the included reports</li>
           </ul>
         </div>
-        <div class="screenshot-frame glow-primary">
-          <img src="assets/screenshots-2026/screen-07.jpg" alt="Tourvia Field Activity Dashboard" class="w-full h-auto" loading="lazy"/>
+        <div class="tv-dive-media reveal">
+          <div class="tv-shot tv-glow-i">
+            <button type="button" class="tv-zoombtn js-open-lightbox-direct" data-lightbox-src="assets/screenshots-2026/screen-06.jpg" data-lightbox-alt="Tourvia route history panel listing saved optimized routes with steps, distance, and duration">
+              <img src="assets/screenshots-2026/screen-06.jpg" alt="Tourvia route history panel listing saved optimized routes with steps, distance, and duration" loading="lazy" decoding="async"/>
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ===== ENGINE & TRUST ===== -->
-  <section id="engine" class="py-20 px-6 lg:px-8 bg-surface-container-low/40 border-y border-outline-variant/30">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-        <div>
-          <span class="eyebrow">Under the hood</span>
-          <h2 class="text-3xl lg:text-4xl font-bold tracking-tight mb-4 text-balance">Serious routing. Sovereign hosting. Admin in control.</h2>
-          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Tourvia pairs a Salesforce-native managed package with a dedicated optimization backend built on OpenRouteService and VROOM — the same open-source engines trusted for large-scale logistics — hosted on OVHcloud in France.</p>
-          <ul class="space-y-3 text-on-surface-variant">
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span><span><strong class="text-on-surface">ORS + VROOM optimization</strong> — visit order, travel times, time windows, and constraints computed in seconds</span></li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span><span><strong class="text-on-surface">OVHcloud France hosting</strong> — routing requests processed in the EU, RGPD-aligned by design</span></li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span><span><strong class="text-on-surface">Salesforce security review passed</strong> — V7 distributed through a private AppExchange listing, installable by access</span></li>
-            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span><span><strong class="text-on-surface">Admin-grade configuration</strong> — objects, fields, actions, and check-in forms controlled via Custom Metadata, no code required</span></li>
+  <!-- ===== ARCHITECTURE ===== -->
+  <section id="architecture" class="tv-sec tv-band">
+    <div class="tv-wrap">
+      <div class="tv-way reveal"><i aria-hidden="true"></i><em>Waypoint 04</em><span>— Architecture</span></div>
+      <div class="tv-center reveal">
+        <h2 class="tv-h2 text-balance">A clean split: your org, our engine.</h2>
+        <p class="tv-sub">Salesforce stays the system of record. The routing core does the heavy math. Nothing else moves.</p>
+      </div>
+
+      <div class="tv-arch reveal">
+        <div class="tv-arch-panel">
+          <div class="tv-arch-panel-head"><span class="material-symbols-outlined" aria-hidden="true">cloud</span>Your Salesforce org</div>
+          <ul class="tv-arch-list">
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Managed package — V7 passed the Salesforce security review</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Lightning Web Component map on any page</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Salesforce Events &amp; calendar — native scheduling</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Visit reports stored on your records</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Standard Reports &amp; Dashboards</li>
           </ul>
+          <div class="tv-arch-foot">CRM data lives here. Stays here.</div>
         </div>
-        <div class="screenshot-frame glow-primary">
-          <img src="assets/screenshots-2026/screen-01.jpg" alt="Tourvia route optimization workspace inside Salesforce Lightning" class="w-full h-auto" loading="lazy"/>
+
+        <div class="tv-flow" aria-hidden="true">
+          <div class="tv-flow-lane">
+            <span class="tv-flow-label">Waypoints out</span>
+            <span class="tv-flow-line"></span>
+          </div>
+          <span class="tv-flow-badge"><span class="material-symbols-outlined" style="font-size:13px;" aria-hidden="true">shield</span>EU processing</span>
+          <div class="tv-flow-lane">
+            <span class="tv-flow-line tv-flow-back"></span>
+            <span class="tv-flow-label">Optimized sequence back</span>
+          </div>
+        </div>
+
+        <div class="tv-arch-panel">
+          <div class="tv-arch-panel-head"><span class="material-symbols-outlined" aria-hidden="true">memory</span>Tourvia routing core</div>
+          <ul class="tv-arch-list">
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>OpenRouteService components + VROOM optimization</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Hosted on OVHcloud — Gravelines, France</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>RGPD-aligned by design — EU route processing</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>No routing API pass-through fees</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Self-hosted engines — no third-party map quota</li>
+          </ul>
+          <div class="tv-arch-foot">Uses only what routing needs.</div>
+        </div>
+      </div>
+
+      <p class="tv-arch-note">Salesforce remains the main CRM data system; the routing core uses the data required for route calculations. Full details in the <a href="docs/privacy.html" class="tv-textlink" style="font-size:13px;">privacy policy<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a></p>
+
+      <div class="tv-tiles reveal">
+        <div class="tv-tile">
+          <small>Distribution</small>
+          <strong>Private AppExchange listing</strong>
+          <p>Installable by access — request it and we share the install link for your org. <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">View listing</a></p>
+        </div>
+        <div class="tv-tile">
+          <small>Admin</small>
+          <strong>No-code configuration</strong>
+          <p>Objects, fields, actions, and check-in forms controlled via Custom Metadata — no Apex required.</p>
+        </div>
+        <div class="tv-tile">
+          <small>Access control</small>
+          <strong>3 permission sets</strong>
+          <p>Admin, Manager, and User roles ship with the package — assign and go.</p>
+        </div>
+        <div class="tv-tile">
+          <small>Validation</small>
+          <strong>Trial in your own org</strong>
+          <p>30 days with your real Salesforce data and your real territory — not a canned sandbox demo.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ===== PRICING ===== -->
-  <section id="pricing" class="py-24 px-6 lg:px-8 max-w-5xl mx-auto">
-    <div class="text-center mb-14 lg:mb-16">
-      <h2 class="text-3xl lg:text-5xl font-bold tracking-tight mb-4">Simple pricing at €30/user/month</h2>
-      <p class="text-on-surface-variant text-lg">Simple standard pricing per licensed user, billed annually. Larger enterprise deployments can be quoted separately when needed. <a href="flat-rate-route-optimization.html" class="text-primary-light hover:underline">Pricing ROI for field teams</a>.</p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-6 max-w-4xl mx-auto">
-      <!-- Trial -->
-      <div class="feature-card rounded-2xl p-8 flex flex-col">
-        <h3 class="text-xl font-bold mb-1">30-day trial on request</h3>
-        <p class="text-on-surface-variant text-sm mb-6">Validate Tourvia with your Salesforce team before rollout</p>
-        <div class="flex items-baseline gap-1 mb-8">
-          <span class="text-4xl font-extrabold">30</span>
-          <span class="text-on-surface-variant text-sm">days</span>
-        </div>
-        <ul class="space-y-3 mb-8 flex-grow text-sm text-on-surface-variant">
-          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Trial requested via contact form</li>
-          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Salesforce org qualification</li>
-          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Route planning workflow validation</li>
-          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Admin onboarding guidance</li>
-          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Paid scope confirmed before production rollout</li>
-        </ul>
-        <a href="#contact" class="w-full py-3 rounded-xl text-center font-semibold border border-primary/60 text-primary-light hover:bg-primary/10 transition-colors block text-sm">
-          Request a 30-day trial
-        </a>
+  <section id="pricing" class="tv-sec tv-band">
+    <div class="tv-wrap">
+      <div class="tv-way reveal"><i aria-hidden="true"></i><em>Waypoint 05</em><span>— Pricing</span></div>
+      <div class="tv-center reveal">
+        <h2 class="tv-h2 text-balance">One number to remember: <span class="tv-grad">€30</span>.</h2>
+        <p class="tv-sub">Per licensed user, per month, billed annually. Larger enterprise deployments can be quoted separately when needed. <a href="flat-rate-route-optimization.html" style="color: var(--tv-indigo-bright); font-weight: 600;">Pricing ROI for field teams</a>.</p>
       </div>
 
-      <!-- Pro -->
-      <div class="pricing-highlight rounded-2xl">
-        <div class="bg-surface-container rounded-2xl p-8 flex flex-col h-full">
-          <div class="flex items-center justify-between mb-1">
-            <h3 class="text-xl font-bold">Pro</h3>
-            <span class="text-xs font-bold uppercase tracking-widest text-primary-light bg-primary/10 px-2.5 py-1 rounded-full">Popular</span>
+      <div class="tv-pricing-grid">
+        <!-- Trial -->
+        <div class="tv-price reveal">
+          <div class="tv-price-head">
+            <h3>30-day trial on request</h3>
           </div>
-          <p class="text-on-surface-variant text-sm mb-6">For licensed Salesforce users</p>
-          <div class="flex items-baseline gap-1 mb-8">
-            <span class="text-4xl font-extrabold">€30</span>
-            <span class="text-on-surface-variant text-sm">/user/month excl. tax</span>
-          </div>
-          <ul class="space-y-3 mb-8 flex-grow text-sm text-on-surface-variant">
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Everything in trial scope</li>
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Route optimization engine</li>
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> GPS check-in & visit reports</li>
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Route history & replay</li>
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Dashboards & 18 reports</li>
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Standard pricing per licensed user</li>
-            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Priority support</li>
+          <p class="tv-price-desc">Validate Tourvia with your Salesforce team before rollout</p>
+          <div class="tv-price-num"><strong>30</strong><span>days · in your org</span></div>
+          <ul class="tv-price-list">
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Trial requested via contact form</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Salesforce org qualification</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Route planning workflow validation</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Admin onboarding guidance</li>
+            <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Paid scope confirmed before production rollout</li>
           </ul>
-          <a href="pricing.html" class="w-full py-3 rounded-xl text-center font-semibold bg-primary hover:bg-primary-dim text-white transition-colors block text-sm">
-            See paid scope details
-          </a>
+          <a href="#contact" class="tv-price-cta tv-price-cta-gho">Request a 30-day trial</a>
+        </div>
+
+        <!-- Pro -->
+        <div class="tv-price-ring reveal">
+          <div class="tv-price">
+            <div class="tv-price-head">
+              <h3>Pro</h3>
+              <span class="tv-price-pop">Popular</span>
+            </div>
+            <p class="tv-price-desc">For licensed Salesforce users</p>
+            <div class="tv-price-num"><strong>€30</strong><span>/user/month<br/>excl. tax · billed annually</span></div>
+            <ul class="tv-price-list">
+              <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Everything in trial scope</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Route optimization engine</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check</span>GPS check-in &amp; visit reports</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Route history &amp; replay</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Dashboards &amp; 18 reports</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Standard pricing per licensed user</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Priority support</li>
+            </ul>
+            <a href="pricing.html" class="tv-price-cta tv-price-cta-pri">See paid scope details</a>
+          </div>
         </div>
       </div>
-    </div>
 
-    <p class="text-center text-on-surface-variant text-sm mt-8">
-      Annual billing. Standard pricing applies per licensed user. Enterprise / multi-entity deployments are quoted separately; <a href="mailto:contact@routeforce.app" class="text-primary-light hover:underline">let's talk</a>. <a href="pricing.html" class="text-primary-light hover:underline">Full pricing details</a>.
-    </p>
+      <p class="tv-price-foot">
+        Annual billing. Standard pricing applies per licensed user. Optional turnkey setup: €3,000 excl. tax, one-time.<br/>
+        Enterprise / multi-entity deployments are quoted separately; <a href="mailto:contact@routeforce.app">let&#8217;s talk</a>. <a href="pricing.html">Full pricing details</a>.
+      </p>
+    </div>
   </section>
 
   <!-- ===== FAQ ===== -->
-  <section id="faq" class="pb-24 px-6 lg:px-8 max-w-3xl mx-auto">
-    <div class="text-center mb-10">
-      <h2 class="text-3xl lg:text-4xl font-bold tracking-tight mb-4">Frequently asked questions</h2>
-    </div>
-    <div class="space-y-3">
-      <details class="faq-item">
-        <summary>What is Tourvia?</summary>
-        <div class="faq-body">Tourvia is Salesforce route planning software that keeps route optimization, visit planning, and field execution inside Salesforce. It is the new product name for RouteForce — same managed package, same workflow.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Is Tourvia on the AppExchange?</summary>
-        <div class="faq-body">Tourvia V7 has passed the Salesforce security review and is distributed through a <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">private AppExchange listing</a> — installable by access. Request access via the contact form and we share the install link for your org.</div>
-      </details>
-      <details class="faq-item">
-        <summary>How much does Tourvia cost?</summary>
-        <div class="faq-body">Standard pricing is €30 per user per month, billed annually. Larger enterprise or multi-entity deployments are quoted separately. See <a href="pricing.html">full pricing details</a>.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Where is my data processed?</summary>
-        <div class="faq-body">Your CRM data stays in your Salesforce org — Tourvia is a native managed package with no external data sync. Route optimization requests are processed by our engine hosted on OVHcloud in France, RGPD-aligned by design.</div>
-      </details>
-      <details class="faq-item">
-        <summary>Does it work on mobile?</summary>
-        <div class="faq-body">Yes. Tourvia runs in the Salesforce Mobile App: map, today's agenda, navigation hand-off to Google Maps, GPS check-in, and visit reports all work from the field.</div>
-      </details>
-      <details class="faq-item">
-        <summary>How do I start a trial?</summary>
-        <div class="faq-body">Request a 30-day trial via the <a href="/#contact">contact form</a>. We qualify your Salesforce org, share private install access, and help your admin onboard — then you confirm the paid scope before production rollout.</div>
-      </details>
+  <section id="faq" class="tv-sec tv-band">
+    <div class="tv-wrap">
+      <div class="tv-way tv-way-center reveal"><i aria-hidden="true"></i><em>Pre-flight questions</em></div>
+      <div class="tv-center reveal">
+        <h2 class="tv-h2">Frequently asked questions</h2>
+      </div>
+      <div class="tv-faq reveal">
+        <details class="faq-item">
+          <summary>What is Tourvia?</summary>
+          <div class="faq-body">Tourvia is Salesforce route planning software that keeps route optimization, visit planning, and field execution inside Salesforce. It is the new product name for RouteForce — same managed package, same workflow.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Who is Tourvia best for?</summary>
+          <div class="faq-body">Salesforce-first field teams that want route planning and visit execution tied directly to CRM records, Events, and reporting — instead of exporting to a separate routing app and syncing back.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Is Tourvia on the AppExchange?</summary>
+          <div class="faq-body">Tourvia V7 has passed the Salesforce security review and is distributed through a <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">private AppExchange listing</a> — installable by access. Request access via the contact form and we share the install link for your org.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How much does Tourvia cost?</summary>
+          <div class="faq-body">Standard pricing is €30 per user per month, billed annually. Larger enterprise or multi-entity deployments are quoted separately. See <a href="pricing.html">full pricing details</a>.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Where is my data processed?</summary>
+          <div class="faq-body">Your CRM data stays in your Salesforce org — Tourvia is a native managed package with no external data sync. Route optimization requests are processed by our engine hosted on OVHcloud in France, RGPD-aligned by design.</div>
+        </details>
+        <details class="faq-item">
+          <summary>Does it work on mobile?</summary>
+          <div class="faq-body">Yes. Tourvia runs in the Salesforce Mobile App: map, today&#8217;s agenda, navigation hand-off to Google Maps, GPS check-in, and visit reports all work from the field.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How do I start a trial?</summary>
+          <div class="faq-body">Request a 30-day trial via the <a href="/#contact">contact form</a>. We qualify your Salesforce org, share private install access, and help your admin onboard — then you confirm the paid scope before production rollout.</div>
+        </details>
+      </div>
     </div>
   </section>
 
   <!-- ===== CTA + CONTACT ===== -->
-  <section id="contact" class="pt-12 pb-24 px-6 lg:px-8">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12">
-      <!-- Left: CTA -->
-      <div class="bg-surface-container border border-outline-variant rounded-2xl p-10 lg:p-12 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
-        <div class="relative z-10">
-          <h2 class="text-3xl font-bold tracking-tight mb-4">Ready to optimize your field team?</h2>
-          <p class="text-on-surface-variant text-lg mb-8">Request a 30-day trial via the contact form, validate Tourvia with your Salesforce team, then move to the paid scope when you need advanced route optimization and deeper field execution features.</p>
-          <div class="flex flex-col gap-4">
-            <a href="/#contact" class="bg-primary hover:bg-primary-dim text-white px-8 py-3.5 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-primary/20 text-center">
-              Request a 30-day trial
-            </a>
-            <div class="flex items-center gap-4 text-on-surface-variant text-sm mt-4">
-              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-base">check_circle</span> 30-day trial on request</span>
-              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-base">check_circle</span> Pricing details documented</span>
-            </div>
-          </div>
+  <section id="contact" class="tv-sec tv-band">
+    <div class="tv-wrap">
+      <div class="tv-way reveal"><i aria-hidden="true"></i><em>Final waypoint</em><span>— Start</span></div>
+      <div class="tv-contact-grid">
+        <!-- Left: what happens next -->
+        <div class="tv-nextsteps reveal">
+          <h2 class="tv-h2" style="font-size: clamp(1.7rem, 3vw, 2.3rem);">Bring mission control to your field team.</h2>
+          <p class="tv-sub" style="font-size: 15px;">Write to us once — here is exactly what happens next. No drip sequence, no surprise demo loop.</p>
+          <ol class="tv-steps">
+            <li class="tv-step">
+              <span class="tv-step-num">01</span>
+              <div class="tv-step-body">
+                <strong>Org qualification</strong>
+                <p>We confirm Tourvia fits your Salesforce setup and your field workflow.</p>
+              </div>
+            </li>
+            <li class="tv-step">
+              <span class="tv-step-num">02</span>
+              <div class="tv-step-body">
+                <strong>Private install access</strong>
+                <p>You receive the private AppExchange install link for your org.</p>
+              </div>
+            </li>
+            <li class="tv-step">
+              <span class="tv-step-num">03</span>
+              <div class="tv-step-body">
+                <strong>30-day validation</strong>
+                <p>Your admin gets onboarding guidance; your team runs real routes on real data.</p>
+              </div>
+            </li>
+            <li class="tv-step">
+              <span class="tv-step-num">04</span>
+              <div class="tv-step-body">
+                <strong>Paid scope confirmed</strong>
+                <p>You confirm the €30/user/month scope before any production rollout.</p>
+              </div>
+            </li>
+          </ol>
+          <p class="tv-contact-alt">Prefer email? <a href="mailto:contact@routeforce.app">contact@routeforce.app</a></p>
         </div>
-      </div>
-      <!-- Right: Contact Form -->
-      <div class="bg-surface-container border border-outline-variant rounded-2xl p-10 lg:p-12">
-        <h2 class="text-2xl font-bold tracking-tight mb-2">Get in touch</h2>
-        <p class="text-on-surface-variant text-sm mb-6">Request a demo, ask a question, or request a 30-day trial.</p>
-        <form action="https://formspree.io/f/xqedjpdd" method="POST" class="space-y-4">
-          <div>
-            <label class="block text-sm font-medium text-on-surface-variant mb-1">Full name</label>
-            <input type="text" name="name" placeholder="Jane Smith" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-on-surface-variant mb-1">Work email *</label>
-            <input type="email" name="email" required placeholder="jane@company.com" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-on-surface-variant mb-1">Company</label>
-            <input type="text" name="company" placeholder="Company name" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
-          </div>
-          <div>
-            <label class="block text-sm font-medium text-on-surface-variant mb-1">Message</label>
-            <textarea name="message" rows="3" placeholder="Tell us about your needs..." class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none resize-none"></textarea>
-          </div>
-          <button type="submit" class="w-full bg-primary hover:bg-primary-dim text-white py-3 rounded-xl font-semibold transition-colors text-sm">
-            Send message
-          </button>
-          <p class="text-xs text-on-surface-variant/60 mt-2">By submitting, you agree to our <a href="docs/privacy.html" class="underline">Privacy Policy</a>.</p>
-        </form>
+
+        <!-- Right: Contact Form (action + tracking preserved) -->
+        <div class="tv-form-card reveal">
+          <h2 class="text-2xl font-bold tracking-tight mb-2">Get in touch</h2>
+          <p class="text-on-surface-variant text-sm mb-6">Request a demo, ask a question, or request a 30-day trial.</p>
+          <form action="https://formspree.io/f/xqedjpdd" method="POST" class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-on-surface-variant mb-1">Full name</label>
+              <input type="text" name="name" placeholder="Jane Smith" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-on-surface-variant mb-1">Work email *</label>
+              <input type="email" name="email" required placeholder="jane@company.com" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-on-surface-variant mb-1">Company</label>
+              <input type="text" name="company" placeholder="Company name" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-on-surface-variant mb-1">Message</label>
+              <textarea name="message" rows="3" placeholder="Tell us about your needs..." class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none resize-none"></textarea>
+            </div>
+            <button type="submit" class="w-full bg-primary hover:bg-primary-dim text-white py-3 rounded-xl font-semibold transition-colors text-sm">
+              Send message
+            </button>
+            <p class="text-xs text-on-surface-variant/60 mt-2">By submitting, you agree to our <a href="docs/privacy.html" class="underline">Privacy Policy</a>.</p>
+          </form>
+        </div>
       </div>
     </div>
   </section>
@@ -1134,46 +1549,82 @@
   <img id="lightbox-img" src="" alt="Full-size screenshot"/>
 </div>
 
-<!-- Scroll reveal + Lightbox -->
+<!-- Scroll reveal + lightbox + station console -->
 <script>
-  document.querySelectorAll('.reveal').forEach(el => {
-    new IntersectionObserver(([e]) => { if (e.isIntersecting) el.classList.add('visible'); }, { threshold: 0.1 }).observe(el);
-  });
-  document.querySelectorAll('.screenshot-frame img').forEach(img => {
-    img.addEventListener('click', () => {
-      document.getElementById('lightbox-img').src = img.src;
-      document.getElementById('lightbox-img').alt = img.alt || 'Full-size screenshot';
-      document.getElementById('lightbox').classList.add('active');
-    });
-  });
-  document.querySelectorAll('.js-open-lightbox-direct').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('lightbox-img').src = btn.dataset.lightboxSrc;
-      document.getElementById('lightbox-img').alt = btn.dataset.lightboxAlt || 'Full-size screenshot';
-      document.getElementById('lightbox').classList.add('active');
-    });
-  });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active'); });
+  (function () {
+    // Scroll reveal (show everything immediately if IntersectionObserver is unavailable)
+    var revealTargets = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var revealObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      revealTargets.forEach(function (el) { revealObserver.observe(el); });
+    } else {
+      revealTargets.forEach(function (el) { el.classList.add('visible'); });
+    }
 
-  // Animated counters
-  const counters = document.querySelectorAll('.counter');
-  const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const el = entry.target;
-        const target = parseInt(el.dataset.target);
-        let current = 0;
-        const step = Math.max(1, Math.floor(target / 30));
-        const timer = setInterval(() => {
-          current += step;
-          if (current >= target) { current = target; clearInterval(timer); }
-          el.textContent = current + '+';
-        }, 40);
-        counterObserver.unobserve(el);
-      }
+    // Lightbox
+    var lightbox = document.getElementById('lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    function openLightbox(src, alt) {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt || 'Full-size screenshot';
+      lightbox.classList.add('active');
+    }
+    document.querySelectorAll('.js-open-lightbox-direct').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        openLightbox(btn.dataset.lightboxSrc, btn.dataset.lightboxAlt);
+      });
     });
-  }, { threshold: 0.5 });
-  counters.forEach(c => counterObserver.observe(c));
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') lightbox.classList.remove('active');
+    });
+
+    // Station console (field day tabs)
+    var tabs = Array.prototype.slice.call(document.querySelectorAll('.tv-station'));
+    var panels = Array.prototype.slice.call(document.querySelectorAll('.tv-stage-panel'));
+    var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function activateStation(index, focus) {
+      tabs.forEach(function (tab, i) {
+        var selected = i === index;
+        tab.setAttribute('aria-selected', selected ? 'true' : 'false');
+        tab.tabIndex = selected ? 0 : -1;
+        var panel = panels[i];
+        if (!panel) return;
+        panel.hidden = !selected;
+        var video = panel.querySelector('video');
+        if (video) {
+          if (selected && !prefersReducedMotion) {
+            video.play().catch(function () {});
+          } else {
+            video.pause();
+          }
+        }
+      });
+      if (focus) tabs[index].focus();
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener('click', function () { activateStation(i, false); });
+      tab.addEventListener('keydown', function (e) {
+        var next = null;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowRight') next = (i + 1) % tabs.length;
+        else if (e.key === 'ArrowUp' || e.key === 'ArrowLeft') next = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === 'Home') next = 0;
+        else if (e.key === 'End') next = tabs.length - 1;
+        if (next !== null) {
+          e.preventDefault();
+          activateStation(next, true);
+        }
+      });
+    });
+  })();
 </script>
 
 <!-- Structured Data: Organization + SoftwareApplication -->
