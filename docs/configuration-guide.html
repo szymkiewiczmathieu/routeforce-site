@@ -1,0 +1,2942 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Advanced Tourvia configuration guide for Salesforce admins, covering metadata, routing behavior, filters, actions, and deployment settings." />
+  <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html" />
+  <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/configuration-guide.html" />
+  <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/configuration-guide.html" />
+  <title>Tourvia Configuration Guide | TourviaApp 7.26.0</title>
+  <style>
+    @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
+    :root {
+      --rf-blue: #0f4c81;
+      --rf-blue-dark: #0b365d;
+      --rf-sky: #1f77c7;
+      --rf-text: #1d2733;
+      --rf-muted: #5b6773;
+      --rf-line: #d8e0e8;
+      --rf-soft: #f4f8fb;
+      --rf-accent: #e8f1fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--rf-text);
+      font-size: 10.5pt;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .cover {
+      min-height: 240mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+      background: linear-gradient(135deg, #1e1b4b 0%, #09090b 100%);
+      border: 1px solid var(--rf-line);
+      padding: 20mm;
+    }
+    .cover-top { display:flex; align-items:center; justify-content:space-between; gap: 16px; }
+    .cover img.logo { max-width: 180px; max-height: 44px; object-fit: contain; }
+    .logo-icon { width: 44px; height: 44px; color: var(--rf-blue-dark); flex: 0 0 auto; display:block; }
+    .badge { color: white; background: var(--rf-blue); padding: 6px 10px; border-radius: 999px; font-size: 9pt; }
+    .hero { margin-top: 20mm; }
+    .hero h1 { font-size: 28pt; line-height: 1.1; margin: 0 0 10px; color: var(--rf-blue-dark); }
+    .hero p { font-size: 13pt; color: var(--rf-muted); margin: 0 0 14px; }
+    .meta { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 20mm; }
+    .meta .card { background: #18181b; border: 1px solid var(--rf-line); border-radius: 10px; padding: 10px 12px; }
+    .meta .label { font-size: 8.5pt; letter-spacing: .04em; text-transform: uppercase; color: var(--rf-muted); }
+    .meta .value { margin-top: 4px; font-weight: bold; color: var(--rf-blue-dark); }
+    .cover-footer { border-top: 2px solid var(--rf-blue); padding-top: 10px; color: var(--rf-muted); font-size: 9pt; }
+    .content { counter-reset: h2; }
+    h1, h2, h3, h4 { color: var(--rf-blue-dark); page-break-after: avoid; }
+    h1 { font-size: 21pt; border-bottom: 3px solid var(--rf-blue); padding-bottom: 8px; margin: 0 0 12px; }
+    h2 { font-size: 15pt; margin-top: 24px; padding: 8px 10px; background: var(--rf-soft); border-left: 4px solid var(--rf-blue); }
+    h3 { font-size: 12pt; margin-top: 18px; }
+    p, li { orphans: 3; widows: 3; }
+    a { color: var(--rf-sky); text-decoration: none; }
+    table { width: 100%; border-collapse: collapse; color: #e4e4e7; margin: 12px 0 18px; font-size: 9.5pt; }
+    th, td { border: 1px solid var(--rf-line); padding: 7px 8px; vertical-align: top; }
+    th { color: #fafafa;  background: var(--rf-accent); text-align: left; }
+    tr:nth-child(even) td { background: #131316; }
+    code { background: #27272a; padding: 1px 4px; border-radius: 4px; font-family: "Courier New", monospace; font-size: .92em; }
+    pre { background: #0f172a; color: #e5eef8; padding: 12px; border-radius: 8px; overflow: auto; white-space: pre-wrap; }
+    pre code { background: transparent; padding: 0; color: inherit; }
+    blockquote { border-left: 4px solid var(--rf-blue); margin: 14px 0; padding: 6px 12px; background: var(--rf-soft); color: var(--rf-muted); }
+    img { max-width: 100%; display:block; margin: 12px auto 18px; border: 1px solid var(--rf-line); border-radius: 10px; box-shadow: 0 8px 18px rgba(0,0,0,.06); }
+    hr { border: 0; border-top: 1px solid var(--rf-line); margin: 18px 0; }
+    ul, ol { padding-left: 22px; }
+    .note {
+      background: rgba(99, 102, 241, 0.08); border: 1px solid #27272a; border-radius: 8px; padding: 10px 12px; margin: 14px 0 18px;
+    }
+    .warning {
+      background: rgba(234, 179, 8, 0.08); border: 1px solid #854d0e; border-radius: 8px; padding: 10px 12px; margin: 14px 0 18px;
+    }
+    .small-muted { color: var(--rf-muted); font-size: 9pt; }
+  </style>
+  <meta name="robots" content="index, follow">
+    <meta name="description" content="Tourvia Configuration Guide (TourviaApp 7.26.0): CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
+  <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html">
+  <meta property="og:title" content="Tourvia Configuration Guide | TourviaApp 7.26.0">
+  <meta property="og:site_name" content="Tourvia">
+  <meta property="og:description" content="Advanced admin guide for RouteForceConfig__mdt and RouteForceAction__mdt configuration.">
+  <meta property="og:url" content="https://routeforce.app/docs/configuration-guide.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Tourvia Configuration Guide | TourviaApp 7.26.0"/>
+  <meta name="twitter:description" content="Tourvia Configuration Guide (TourviaApp 7.26.0): CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
+  <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Configuration Guide | TourviaApp 7.26.0","url":"https://routeforce.app/docs/configuration-guide.html","description":"Tourvia Configuration Guide (TourviaApp 7.26.0): CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
+<link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+<link rel="stylesheet" href="guide-dark.css"/>
+<script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18063754907');
+</script>
+</head>
+<body style="background:#09090b;color:#e4e4e7;">
+<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
+    <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
+      <img src="../assets/logo-site-brand.png" alt="Tourvia" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;"/>
+      <span style="font-size:1.125rem;font-weight:800;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tourvia</span>
+    </a>
+    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.875rem;">
+      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
+      <a href="/#contact" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request a 30-day trial</a>
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
+    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
+      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="/#contact" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Request a 30-day trial</a>
+    </nav>
+  </div>
+  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
+</header>
+  <section class="cover">
+    <div>
+      <div class="cover-top">
+        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+  <path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="8" cy="20" r="2.5" fill="currentColor"/>
+  <circle cx="14" cy="10" r="2.5" fill="currentColor"/>
+  <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
+  <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
+</svg>
+        <div class="badge">Advanced Admin Guide</div>
+      </div>
+      <div class="hero">
+        <h1>Tourvia Configuration Guide</h1>
+        <p>Complete reference for RouteForceConfig__mdt and RouteForceAction__mdt</p>
+      </div>
+      <div class="meta">
+        <div class="card"><div class="label">Product</div><div class="value">Tourvia for Salesforce</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">TourviaApp 7.26.0 | June 2026</div></div>
+        <div class="card"><div class="label">Audience</div><div class="value">Salesforce Administrators</div></div>
+      </div>
+    </div>
+    <div class="cover-footer">Tourvia for Salesforce | Advanced Configuration Reference | contact@routeforce.app</div>
+  </section>
+  <main class="content">
+    <div class="note"><strong>What is new in TourviaApp 7.22.0 → 7.26.0 (June 2026).</strong>
+      <ul style="margin:0.5rem 0 0 1.2rem;">
+        <li><strong>TourviaApp 7.22.0 — Package rebaseline on the Security-Review-passed lineage.</strong> The managed package was renamed <em>Tourvia → TourviaApp</em> on Dev Hub. The fresh <code>Tourvia 1.x</code> package (up to <code>Tourvia 1.6.0</code>) is kept in <code>packageAliases</code> for history only — customers on Tourvia 1.x do <strong>not</strong> auto-upgrade to TourviaApp 7.x (different package id). Install URL and version references move from <code>V1.3.0-1</code> to <code>TourviaApp 7.22.0+</code>.</li>
+        <li><strong>TourviaApp 7.22.0 — Today&apos;s Agenda click recenters inside the visible map area.</strong> Clicking an event now uses Leaflet <code>fitBounds</code> with padding accounting for the events panel (desktop) and the mobile bottom sheet, so the marker is no longer hidden behind the overlay.</li>
+        <li><strong>TourviaApp 7.22.0 — Campaign as a 6th inline route entry point.</strong> A second inline <code>lightning-record-picker</code> sits next to the existing Account/Lead/Opportunity picker in route mode — pick a Campaign and all its geocoded CampaignMembers (Lead or Contact&apos;s Account) are added as route steps in one click. Same UX pattern as the other 5 entry points (marker click, lasso, nearby, search picker, event import) — no modal. <strong>Hard-gated by CMDT</strong>, see <em>Section 2.8 Campaign Members</em> for the toggle field used to disable the inline picker org-wide.</li>
+        <li><strong>TourviaApp 7.22.0 — Today&apos;s Agenda contact + tap-to-call phone.</strong> For Events with a <code>WhoId</code> pointing to a Contact or Lead, the agenda renders the contact name (link) and a tap-to-call phone link (Mobile preferred, falls back to Phone). Polymorphic across Account events, Lead events, Opportunity events and CampaignMember-linked events because resolution happens on <code>Event.WhoId</code>. Works on mobile (dialer) and desktop (FaceTime / Teams / OS default).</li>
+        <li><strong>TourviaApp 7.23.0 — Permsets now grant standard-object FLS out of the box.</strong> Subscribers no longer have to grant Field-Level Security manually. The 3 managed permsets (<code>routeforce__RouteForce_User</code> / <code>_Manager</code> / <code>_Admin</code>) now include Read FLS on compound address fields (<code>Account.BillingAddress</code>, <code>Account.ShippingAddress</code>, <code>Contact.MailingAddress</code>, <code>Contact.OtherAddress</code>, <code>Lead.Address</code> — Salesforce only allows FLS at the compound level for these), all corresponding Latitude/Longitude pairs, plus <code>Account.Phone</code>, <code>Contact.Phone</code>, <code>Contact.MobilePhone</code>, <code>Lead.Phone</code>, <code>Lead.MobilePhone</code>.</li>
+        <li><strong>TourviaApp 7.24.0 — Three new PermissionSetGroups.</strong> <code>TourviaApp_User_Group</code>, <code>TourviaApp_Manager_Group</code>, <code>TourviaApp_Admin_Group</code> ship the existing permsets as the recommended assignment unit so subscribers can extend access by adding ONE small custom permset to the PSG (effective access = union), without cloning the managed permset.</li>
+        <li><strong>TourviaApp 7.25.0 — Hotfix:</strong> the contact + phone row now correctly appears on Account events whose <code>WhoId</code> points to a Contact (the standard Salesforce &quot;Account meeting with contact&quot; pattern). The resolver previously short-circuited on the Account branch and never reached the Contact branch.</li>
+        <li><strong>TourviaApp 7.26.0 — Configurable last-visit-date source.</strong> A new RouteForceConfig__mdt field, <code>LastVisitDateSource__c</code>, lets admins choose whether the map &quot;not visited since&quot; filter (and the last-visit date + visit count shown on markers) is driven by VisitReport check-ins (default) or by past calendar Events. Works across Accounts, Leads, Opportunities and Campaign Members. Today&apos;s Agenda also gains a cumulative &quot;C&quot; badge for events whose contact/lead is a campaign member.</li>
+      </ul>
+    </div>
+    <div class="note"><strong>What's new in V1.3.0-1 (May 2026).</strong>
+      <ul style="margin:0.5rem 0 0 1.2rem;">
+        <li><strong>New checkbox field <code>VisitReport__c.WithContact__c</code></strong> — lets reps flag a visit as "with a real contact" (EVO-002). Pre-mapped in the default <code>VisitReportCustomFields__c</code>.</li>
+        <li><strong>New Hierarchy Custom Setting <code>RoutePreference__c</code></strong> — persists each rep's default route planning window (Departure Time, Lunch Start / End, End Of Day, Visit Duration) across sessions and devices (EVO-012). Exposed via <code>RouteService.getUserRoutePreferences</code> / <code>saveUserRoutePreferences</code>.</li>
+        <li><strong>New visit-count badge</strong> on the marker popup (<em>"Visits logged"</em> label <code>RF_Marker_VisitCount</code>) — capped at "3+" to stay within governor limits (EVO-014).</li>
+        <li><strong>Auto-select first contact</strong> on route steps so the rep sees the contact name + phone immediately (EVO-013, requires <code>ContactLookupEnabled__c = true</code>).</li>
+        <li><strong>Route start-point as Step 1</strong> — if the rep picks an Account / Lead / Opportunity as the start of their route, it now appears as Step 1 in the optimized schedule instead of being silently dropped (EVO-011).</li>
+        <li><strong>Auto-fit map after filter change</strong> — markers re-center automatically when a filter is applied or a Saved Filter is loaded, especially helpful on the Salesforce Mobile App where the viewport is small (ANO-001).</li>
+        <li><strong>UX polish</strong>: bigger Visit Report text area (EVO-007), bigger route steps list on mobile (EVO-008), sticky route panel on PC (EVO-010).</li>
+      </ul>
+    </div>
+    <div class="note"><strong>Tourvia (TourviaApp 7.26.0) — Configuration Guide.</strong> This document covers the two-layer configuration model (CMDT-first + App Builder override), deployment patterns, the complete field reference for RouteForceConfig__mdt (44 fields), RouteForceAction__mdt, and the new RoutePreference__c per-user custom setting.</div>
+    <p><strong>Version:</strong> TourviaApp 7.26.0 | June 2026<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> TourviaApp 7.26.0 (Security-Review-passed managed package). A separate fresh package, <code>Tourvia 1.6.0</code>, exists for legacy installs and does <strong>not</strong> auto-upgrade to TourviaApp (different package id).</p>
+
+<h2>Table of Contents</h2>
+<ol>
+<li><a href="#config-model">Configuration Model: Where Does Each Setting Live?</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
+<li><a href="#deployment-patterns">Deployment Patterns</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
+<li><a href="#customize-workspace">Customizing the Global Workspace</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
+<li><a href="#app-builder">App Builder Property Reference</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
+<li><a href="#architecture">Configuration Architecture</a></li>
+<li><a href="#config-mdt">RouteForceConfig__mdt: Complete Field Reference (44 fields)</a></li>
+<li><a href="#action-mdt">RouteForceAction__mdt: Custom Actions Reference</a></li>
+<li><a href="#event-default-mdt">RouteForceEventDefault__mdt: Event Field Defaults</a> <span style="color:#9099ff;font-size:0.85em;">Since v1.2.0</span></li>
+<li><a href="#flexipage">FlexiPage Configuration (App Builder)</a></li>
+<li><a href="#shared-filters">Shared Filters (SavedFilter__c)</a></li>
+<li><a href="#address-enrichment">Address Enrichment (France only)</a></li>
+<li><a href="#usage-tracking">Usage Tracking</a></li>
+<li><a href="#scheduled-jobs">Scheduled Jobs</a></li>
+<li><a href="#permission-sets">Permission Sets</a></li>
+<li><a href="#data-requirements">Data Requirements</a></li>
+<li><a href="#remote-sites">Remote Site Settings</a></li>
+<li><a href="#licence">Licence System</a></li>
+<li><a href="#api-keys">API Key Management</a></li>
+<li><a href="#onboarding">Onboarding Wizard (RF_Onboarding)</a></li>
+<li><a href="#presets">Configuration Presets</a> <span style="color:#9099ff;font-size:0.85em;">NEW</span></li>
+<li><a href="#examples">Configuration Examples</a></li>
+<li><a href="#troubleshooting">Troubleshooting</a></li>
+<li><a href="#quick-reference">Quick Reference: All 44 Defaults</a></li>
+</ol>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- NEW SECTION: Configuration Model                            -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<hr>
+<h2 id="config-model">1. Configuration Model: Where Does Each Setting Live?</h2>
+<p>Tourvia has <strong>two configuration layers</strong> with clear ownership:</p>
+
+<table>
+<thead><tr><th>Layer</th><th>Where</th><th>Scope</th><th>How to edit</th></tr></thead>
+<tbody>
+<tr><td><strong>App Builder properties</strong></td><td>Lightning App Builder (FlexiPage)</td><td>Per-page</td><td>Drag the <code>routeforce</code> component → edit properties in the right panel</td></tr>
+<tr><td><strong>Custom Metadata (CMDT)</strong></td><td>Setup → Custom Metadata Types → RouteForceConfig</td><td>Org-wide</td><td>Edit the <code>Default</code> record</td></tr>
+</tbody>
+</table>
+
+<h3>Ownership rule</h3>
+<table>
+<thead><tr><th>Setting type</th><th>Default owner (since 7.13.0)</th><th>Override behavior</th></tr></thead>
+<tbody>
+<tr><td><strong>What data appears on the map</strong> (fields, filters, colors, popups)</td><td>CMDT <code>RouteForceConfig.Default</code></td><td>App Builder property overrides CMDT when set on a specific page</td></tr>
+<tr><td><strong>How the product behaves</strong> (features, limits, defaults, toggles)</td><td>CMDT</td><td>Not overridable from App Builder</td></tr>
+<tr><td><strong>Custom action buttons</strong> (Flow triggers in popups)</td><td>CMDT (RouteForceAction)</td><td>Not overridable from App Builder</td></tr>
+</tbody>
+</table>
+
+<div class="note"><strong>Decision tree: "Where do I change this?"</strong><br><br>
+<strong>Org-wide change (most cases) →</strong> CMDT <code>RouteForceConfig.Default</code> — Setup → Custom Metadata Types → Tourvia Config → Manage Records → Default<br><br>
+<strong>Per-page override (e.g. a Lead record page that needs different filters) →</strong> Set the App Builder property on that specific page<br><br>
+<strong>Custom action buttons in popups →</strong> CMDT <code>RouteForceAction</code> records
+</div>
+
+<h3>Override cascade</h3>
+<pre><code>App Builder property (if set on this page)
+  ↓ fallback
+CMDT RouteForceConfig.Default (org-wide source of truth)
+  ↓ fallback
+Hardcoded product default</code></pre>
+<p><strong>Since 7.13.0, this cascade applies to all 9 visual configuration parameters</strong>: <code>addressFieldPrefix</code>, <code>filterFields</code>, <code>typeField</code> / <code>typeValues</code>, <code>oppTypeField</code> / <code>oppTypeValues</code>, <code>leadTypeField</code> / <code>leadTypeValues</code>, <code>forceMultiPicklist</code>, and <code>markerFields</code>. Each has a matching CMDT field on <code>RouteForceConfig__mdt</code> (see Section 5). The packaged FlexiPages ship with no properties set — defaults come from CMDT.</p>
+
+<h3>Quick reference map</h3>
+<pre><code>┌─────────────────────────────────────────────────────────┐
+│                  ROUTEFORCE CONFIG MAP                   │
+├─────────────────────────┬───────────────────────────────┤
+│     APP BUILDER         │         CMDT                  │
+│  (per-page override)    │     (org-wide default)        │
+├─────────────────────────┼───────────────────────────────┤
+│ addressFieldPrefix  ──► │ AddressFieldPrefix__c         │
+│ filterFields        ──► │ FilterFields__c               │
+│ typeField           ──► │ TypeField__c                  │
+│ typeValues          ──► │ TypeValues__c                 │
+│ oppTypeField        ──► │ OppTypeField__c               │
+│ oppTypeValues       ──► │ OppTypeValues__c              │
+│ leadTypeField       ──► │ LeadTypeField__c              │
+│ leadTypeValues      ──► │ LeadTypeValues__c             │
+│ forceMultiPicklist  ──► │ ForceMultiPicklist__c         │
+│ markerFields        ──► │ MarkerFields__c               │
+│                         │ Enable*__c (feature flags)    │
+│                         │ Default*__c (map settings)    │
+│                         │ *QueryFields__c (data shape)  │
+│                         │ *QueryFilter__c (data scope)  │
+│                         │ VisitReport*__c (visit config)│
+│                         │ RouteForceAction__mdt (flows) │
+├─────────────────────────┴───────────────────────────────┤
+│  ──► = App Builder property overrides CMDT when set     │
+│  All other CMDT fields = no App Builder counterpart     │
+└─────────────────────────────────────────────────────────┘</code></pre>
+
+<h3>Migration notes — Upgrading to 7.13.0</h3>
+<table>
+<thead><tr><th>Scenario</th><th>What happens</th><th>Action needed</th></tr></thead>
+<tbody>
+<tr><td><strong>Fresh install</strong></td><td><code>RouteForceConfig.Default</code> is created with sensible defaults for all 9 visual params</td><td>None — works out of the box. Adjust CMDT to match your org.</td></tr>
+<tr><td><strong>Upgrade from an older package version (kept default FlexiPage)</strong></td><td>Packaged FlexiPages now ship with no properties set. CMDT defaults apply.</td><td>None if you accept the new defaults. Otherwise edit CMDT.</td></tr>
+<tr><td><strong>Upgrade from an older package version (cloned the FlexiPage)</strong></td><td>Your cloned FlexiPage keeps its hardcoded properties — they continue to override CMDT (cascade unchanged)</td><td>Optional: clear the App Builder properties on your cloned FlexiPage to switch to the CMDT source of truth, then edit CMDT.</td></tr>
+</tbody>
+</table>
+<p><strong>No breakage</strong> on saved filters, route history, check-in, visit reports, or custom actions. The migration only changes <em>where the visual configuration defaults live</em>, not the runtime behavior.</p>
+
+<div class="note"><strong>⚠️ Important — CMDT page layout is not auto-updated on upgrade.</strong> Salesforce managed-package upgrades create the 8 new CMDT fields in the subscriber org, but they do <strong>not</strong> automatically add them to the existing CMDT page layout. After upgrading to 7.13.0, the new fields exist (and the LWC reads them via Apex), but they will not be visible in the <em>edit</em> screen of <code>RouteForceConfig.Default</code> until you do one of the following:<br><br>
+<strong>Option 1 — Edit the layout manually (recommended, preserves your customizations):</strong><br>
+Setup → Custom Metadata Types → Tourvia Config → <strong>Page Layouts</strong> → Edit the default layout → drag the 8 new fields (<code>TypeField__c</code>, <code>TypeValues__c</code>, <code>OppTypeField__c</code>, <code>OppTypeValues__c</code>, <code>LeadTypeField__c</code>, <code>LeadTypeValues__c</code>, <code>ForceMultiPicklist__c</code>, <code>MarkerFields__c</code>) into the relevant sections (Account / Lead / Opportunity / Marker Display) → Save.<br><br>
+<strong>Option 2 — Uninstall + reinstall the package:</strong><br>
+This brings the new layout in but <strong>destroys all your CMDT customizations</strong>, saved filters metadata, and any data dependent on the package. Only do this on a fresh sandbox or if you have nothing to lose.<br><br>
+<strong>Workaround in the meantime:</strong> you can still set the new field values without the layout — go to <strong>Setup → Object Manager → Route Force Config → Fields & Relationships</strong>, click each new field, then use the <strong>API name</strong> to set the value directly via Workbench / Data Loader / a quick Apex script. The values will be picked up by the LWC immediately.</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- NEW SECTION: Deployment Patterns                            -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<hr>
+<h2 id="deployment-patterns">2. Deployment Patterns</h2>
+<p>Tourvia supports two deployment models. Both are first-class.</p>
+
+<h3>Pattern A: Contextual (Record Page)</h3>
+<p>Best for teams that work from Account, Lead, Opportunity, or Campaign record pages.</p>
+<table>
+<thead><tr><th>Aspect</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td><strong>Where</strong></td><td>Account, Lead, Opportunity, or Campaign Record Page <span style="color:#9099ff;font-size:0.8em;">(Campaign NEW in 7.20.0)</span></td></tr>
+<tr><td><strong>Setup</strong></td><td>Lightning App Builder → Edit Record Page → drag <code>routeforce</code> component</td></tr>
+<tr><td><strong>Config</strong></td><td>App Builder properties are scoped to that record page</td></tr>
+<tr><td><strong>Use case</strong></td><td>&quot;Show me the map around this account&quot; — or, on a Campaign page, &quot;Show me every geocoded member of this campaign&quot;</td></tr>
+<tr><td><strong>Mobile</strong></td><td>Supported (Small form factor)</td></tr>
+</tbody>
+</table>
+
+<h3>Pattern B: Global Workspace (App Page / Tab / Home / Utility Bar)</h3>
+<p>Best for field reps and managers who use the map as their primary work surface.</p>
+<table>
+<thead><tr><th>Aspect</th><th>Detail</th></tr></thead>
+<tbody>
+<tr><td><strong>Where</strong></td><td>App Page, Tab, Home Page, or Utility Bar</td></tr>
+<tr><td><strong>Setup</strong></td><td>Lightning App Builder → New App Page → drag <code>routeforce</code> component</td></tr>
+<tr><td><strong>Config</strong></td><td>App Builder properties define the global experience</td></tr>
+<tr><td><strong>Use case</strong></td><td>"Plan my week, see all my accounts on one map"</td></tr>
+<tr><td><strong>Mobile</strong></td><td>Supported (Small form factor)</td></tr>
+</tbody>
+</table>
+
+<h3>Which pattern to use?</h3>
+<table>
+<thead><tr><th>Need</th><th>Pattern</th></tr></thead>
+<tbody>
+<tr><td>Reps live on record pages and want contextual map</td><td><strong>A: Record Page</strong></td></tr>
+<tr><td>Reps use the map as their main workspace</td><td><strong>B: Global Workspace</strong></td></tr>
+<tr><td>Both contextual and global usage</td><td><strong>A + B</strong> (independent configs per page)</td></tr>
+<tr><td>Quick access without leaving current page</td><td><strong>B: Utility Bar</strong></td></tr>
+</tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- NEW SECTION: Customizing the Global Workspace               -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<hr>
+<h2 id="customize-workspace">3. Customizing the Global Workspace</h2>
+<p>The packaged Tourvia app includes a <strong>default App Page</strong> with pre-configured values. Because it is a managed-package page, you cannot edit it directly in customer orgs. Use the <strong>clone-and-compose</strong> pattern below.</p>
+
+<h3>Step 1: Create your own App Page</h3>
+<ol>
+<li><strong>Setup</strong> → <strong>Lightning App Builder</strong> → <strong>New</strong> → <strong>App Page</strong></li>
+<li>Choose <strong>One Region</strong> layout</li>
+<li>Drag the <strong>Tourvia</strong> component onto the page</li>
+<li>Configure the App Builder properties to match your org (see <a href="#app-builder">Section 4</a>)</li>
+<li><strong>Save</strong> → name it (e.g., "Tourvia Custom")</li>
+<li><strong>Activation</strong> → choose where to expose it (App Page, Tab)</li>
+</ol>
+
+<h3>Step 2: Create a Tab for your page</h3>
+<ol>
+<li><strong>Setup</strong> → <strong>Tabs</strong> → <strong>Lightning Page Tabs</strong> → <strong>New</strong></li>
+<li>Select your new page → give it a label (e.g., "Tourvia")</li>
+<li>Choose the Tourvia icon (or any preferred icon)</li>
+</ol>
+
+<h3>Step 3: Add to your App</h3>
+<p><strong>Option A: Use the packaged Tourvia app</strong> (recommended):</p>
+<ol>
+<li><strong>Setup</strong> → <strong>App Manager</strong> → find <strong>Tourvia</strong> → <strong>Edit</strong></li>
+<li>In <strong>Navigation Items</strong>, add your new tab</li>
+<li>Optionally remove the default Tourvia tab if you want full control</li>
+</ol>
+<p><strong>Option B: Create your own app shell:</strong></p>
+<ol>
+<li><strong>Setup</strong> → <strong>App Manager</strong> → <strong>New Lightning App</strong></li>
+<li>Add your custom Tourvia tab + any other tabs you need</li>
+<li>Assign to the right profiles/permission sets</li>
+</ol>
+
+<div class="note"><strong>When to use which option?</strong><br><br>
+<strong>Default config works, minor tweaks needed →</strong> Edit CMDT only, keep packaged page<br>
+<strong>Need different filters/fields than default →</strong> Clone-and-compose (Option A)<br>
+<strong>Need fully custom app navigation →</strong> Clone-and-compose (Option B)<br>
+<strong>Multiple teams need different map configs →</strong> One custom page per team</div>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- NEW SECTION: App Builder Property Reference                 -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<hr>
+<h2 id="app-builder">4. App Builder Property Reference</h2>
+<p>These properties are set per-page in the Lightning App Builder when you configure the <code>routeforce</code> component.</p>
+
+<h3>addressFieldPrefix</h3>
+<table>
+<thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td><strong>Type</strong></td><td>String</td></tr>
+<tr><td><strong>Default</strong></td><td><code>Shipping</code> (from CMDT, then hardcoded)</td></tr>
+<tr><td><strong>Purpose</strong></td><td>Which compound address field to use for geolocation</td></tr>
+<tr><td><strong>Override</strong></td><td>Overrides CMDT <code>AddressFieldPrefix__c</code> when set</td></tr>
+</tbody>
+</table>
+<p><code>Shipping</code> → uses ShippingLatitude/ShippingLongitude. <code>Billing</code> → uses BillingLatitude/BillingLongitude. Leave blank to use the org-wide default from RouteForceConfig.</p>
+
+<h3>filterFields</h3>
+<table>
+<thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td><strong>Type</strong></td><td>String (comma-separated)</td></tr>
+<tr><td><strong>Default</strong></td><td>CMDT <code>FilterFields__c</code> → <code>Account.Industry,Account.Type</code></td></tr>
+<tr><td><strong>Purpose</strong></td><td>Which picklist/boolean fields appear as map filters</td></tr>
+<tr><td><strong>Override</strong></td><td>Overrides CMDT entirely (not additive)</td></tr>
+</tbody>
+</table>
+<p>Syntax: <code>{Object}.{FieldApiName}</code>, always prefix with the object name.</p>
+
+<table>
+<thead><tr><th>Scenario</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Account only</td><td><code>Account.Industry,Account.Type,Account.Rating</code></td></tr>
+<tr><td>Account + Opportunity</td><td><code>Account.Industry,Account.Type,Opportunity.StageName,Opportunity.ForecastCategory</code></td></tr>
+<tr><td>Prospecting (Leads)</td><td><code>Lead.Status,Lead.LeadSource,Lead.Rating</code></td></tr>
+<tr><td>Cross-object</td><td><code>Opportunity.Account.Industry</code></td></tr>
+<tr><td>Full setup</td><td><code>Account.Industry,Account.Type,Account.Rating,Opportunity.StageName,Lead.Status,Lead.LeadSource</code></td></tr>
+</tbody>
+</table>
+
+<h3>typeField / typeValues (Account markers)</h3>
+<p>Assigns distinct marker colors to Account records based on a field value. App Builder only, no CMDT equivalent.</p>
+<p><strong>Example:</strong> <code>typeField</code> = <code>Type</code>, <code>typeValues</code> = <code>Customer - Direct,Customer - Channel,Prospect,Other</code></p>
+<p>Each value gets a distinct color. <strong>Order determines color assignment</strong>: first value = first color in the palette. Leave both blank for uniform Account markers.</p>
+
+<h3>oppTypeField / oppTypeValues (Opportunity markers)</h3>
+<p>Same pattern as Account, with warm-toned colors. Requires <code>EnableOpportunities__c = true</code> in CMDT.</p>
+<p><strong>Example:</strong> <code>oppTypeField</code> = <code>StageName</code>, <code>oppTypeValues</code> = <code>Prospecting,Qualification,Needs Analysis,Closed Won,Closed Lost</code></p>
+
+<h3>leadTypeField / leadTypeValues (Lead markers)</h3>
+<p>Same pattern, cool-toned colors. Requires <code>EnableLeads__c = true</code> in CMDT.</p>
+<p><strong>Example:</strong> <code>leadTypeField</code> = <code>Status</code>, <code>leadTypeValues</code> = <code>Open - Not Contacted,Working - Contacted,Closed - Converted</code></p>
+
+<h3>forceMultiPicklist</h3>
+<table>
+<thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td><strong>Type</strong></td><td>String (comma-separated)</td></tr>
+<tr><td><strong>Default</strong></td><td>None</td></tr>
+<tr><td><strong>Purpose</strong></td><td>Renders specified picklist filters as multi-select checkboxes instead of single-select dropdowns</td></tr>
+</tbody>
+</table>
+<p><strong>Example:</strong> <code>Industry,Type</code>: the Industry and Type filters become multi-select. Only applies to fields already listed in <code>filterFields</code>.</p>
+
+<h3>markerFields</h3>
+<table>
+<thead><tr><th>Attribute</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td><strong>Type</strong></td><td>String (comma-separated)</td></tr>
+<tr><td><strong>Default</strong></td><td>None (minimal popup)</td></tr>
+<tr><td><strong>Purpose</strong></td><td>Fields displayed in marker popups when you click a pin on the map</td></tr>
+</tbody>
+</table>
+<p>Account fields have no prefix. Opportunity/Lead fields use <code>{Object}.{Field}</code>.</p>
+<table>
+<thead><tr><th>Scenario</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Account basic</td><td><code>Phone,Industry,Website</code></td></tr>
+<tr><td>Account + Opportunity</td><td><code>Phone,Industry,Opportunity.StageName,Opportunity.Amount,Opportunity.CloseDate</code></td></tr>
+<tr><td>Prospecting</td><td><code>Lead.Company,Lead.LeadSource,Lead.Status,Lead.Email,Lead.Phone</code></td></tr>
+<tr><td>Full popup</td><td><code>Phone,Industry,Website,Opportunity.StageName,Opportunity.Amount,Lead.Company,Lead.Status,Lead.Email</code></td></tr>
+</tbody>
+</table>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- NEW SECTION: Configuration Presets                           -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<hr>
+<h2 id="presets">Configuration Presets</h2>
+<p>Copy-paste these ready-made configurations. Each preset lists the App Builder properties and CMDT settings to apply.</p>
+
+<h3>Preset A: Account-only map (simple)</h3>
+<div class="note"><strong>Use case:</strong> Teams that only work with Account records. Clean, fast, no clutter.</div>
+<table>
+<thead><tr><th>App Builder Property</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Address field prefix</td><td><code>Shipping</code></td></tr>
+<tr><td>Filter fields</td><td><code>Account.Industry,Account.Type</code></td></tr>
+<tr><td>Account marker color field</td><td><code>Type</code></td></tr>
+<tr><td>Account marker color values</td><td><code>Customer - Direct,Customer - Channel,Prospect</code></td></tr>
+<tr><td>Marker popup fields</td><td><code>Phone,Industry,Website</code></td></tr>
+</tbody>
+</table>
+<p><strong>CMDT:</strong> <code>EnableLeads__c</code> = false, <code>EnableOpportunities__c</code> = false</p>
+
+<h3>Preset B: Account + Opportunity (sales team)</h3>
+<div class="note"><strong>Use case:</strong> Sales teams that need to see pipeline on the map alongside existing customers.</div>
+<table>
+<thead><tr><th>App Builder Property</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Filter fields</td><td><code>Account.Industry,Account.Type,Opportunity.StageName,Opportunity.ForecastCategory</code></td></tr>
+<tr><td>Account marker color field</td><td><code>Type</code></td></tr>
+<tr><td>Account marker color values</td><td><code>Customer - Direct,Customer - Channel,Prospect</code></td></tr>
+<tr><td>Opportunity marker color field</td><td><code>StageName</code></td></tr>
+<tr><td>Opportunity marker color values</td><td><code>Prospecting,Qualification,Needs Analysis,Closed Won,Closed Lost</code></td></tr>
+<tr><td>Marker popup fields</td><td><code>Phone,Industry,Opportunity.StageName,Opportunity.Amount,Opportunity.CloseDate</code></td></tr>
+</tbody>
+</table>
+<p><strong>CMDT:</strong> <code>EnableOpportunities__c</code> = true, <code>OpportunityQueryFilter__c</code> = <code>IsClosed = false</code></p>
+
+<h3>Preset C: Prospecting mode (Leads-heavy)</h3>
+<div class="note"><strong>Use case:</strong> BDR/SDR teams focused on converting leads in a territory.</div>
+<table>
+<thead><tr><th>App Builder Property</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Filter fields</td><td><code>Lead.Status,Lead.LeadSource,Lead.Rating,Account.Industry</code></td></tr>
+<tr><td>Lead marker color field</td><td><code>Status</code></td></tr>
+<tr><td>Lead marker color values</td><td><code>Open - Not Contacted,Working - Contacted,Closed - Converted</code></td></tr>
+<tr><td>Marker popup fields</td><td><code>Lead.Company,Lead.LeadSource,Lead.Status,Lead.Email,Lead.Phone</code></td></tr>
+</tbody>
+</table>
+<p><strong>CMDT:</strong> <code>EnableLeads__c</code> = true, <code>LeadQueryFilter__c</code> = <code>IsConverted = false</code>, <code>DefaultDisplayMode__c</code> = <code>leads</code></p>
+
+<h3>Preset D: Full operations workspace</h3>
+<div class="note"><strong>Use case:</strong> Managers and ops teams who need the complete picture: every object, every filter, every feature.</div>
+<table>
+<thead><tr><th>App Builder Property</th><th>Value</th></tr></thead>
+<tbody>
+<tr><td>Filter fields</td><td><code>Account.Industry,Account.Type,Account.Rating,Account.Ownership,Opportunity.StageName,Opportunity.ForecastCategory,Lead.Status,Lead.LeadSource,Opportunity.Account.Industry,Lead.Rating</code></td></tr>
+<tr><td>Multi-select fields</td><td><code>Industry,Type</code></td></tr>
+<tr><td>Account marker color field / values</td><td><code>Type</code> / <code>Customer - Direct,Customer - Channel,Prospect,Other</code></td></tr>
+<tr><td>Opportunity marker color field / values</td><td><code>StageName</code> / <code>Prospecting,Qualification,Needs Analysis,Value Proposition,Negotiation/Review,Closed Won,Closed Lost</code></td></tr>
+<tr><td>Lead marker color field / values</td><td><code>Status</code> / <code>Open - Not Contacted,Working - Contacted,Closed - Converted,Closed - Not Converted</code></td></tr>
+<tr><td>Marker popup fields</td><td><code>Phone,Industry,Website,Opportunity.StageName,Opportunity.Amount,Opportunity.CloseDate,Lead.Company,Lead.LeadSource,Lead.Status,Lead.Email</code></td></tr>
+</tbody>
+</table>
+<p><strong>CMDT:</strong> <code>EnableLeads__c</code> = true, <code>EnableOpportunities__c</code> = true, <code>EnableHeatmap__c</code> = true, <code>EnableBulkSelect__c</code> = true, <code>EnableVisitReports__c</code> = true, <code>EnableCSVExport__c</code> = true</p>
+
+<hr>
+
+<h2 id="architecture">1. Configuration Architecture</h2>
+<p>Tourvia uses a <strong>Custom Metadata Type-first</strong> approach. All configurable application settings are stored in two CMDTs:</p>
+<ul>
+<li><strong>RouteForceConfig__mdt</strong>: 36 fields controlling map behavior, features, queries, visit reports, and system settings</li>
+<li><strong>RouteForceAction__mdt</strong>: Custom action buttons displayed in marker popups (one record per action)</li>
+</ul>
+<p>This architecture provides:</p>
+<ul>
+<li>Deployable configuration across sandboxes and production</li>
+<li>Editable without code changes (Setup UI or Metadata API)</li>
+<li>Accessible to the onboarding wizard (Screen Flow)</li>
+<li>No DML governor limits (CMDT reads are free)</li>
+</ul>
+<pre><code>RF_Onboarding Flow (Screen Flow)
+ |
+ +---> SecureConfigService --> InternalConfig__c (API keys, protected)
+ |
+ +---> Custom Metadata deployment (Setup UI) --> RouteForceConfig__mdt (app settings, 36 fields)
+ |                                          --> RouteForceAction__mdt (custom actions)
+ |
+ v
+ ConfigService.cls (Apex reader, cached)
+ |
+ v
+ LWC Components (@wire getConfig)
+</code></pre>
+<div class="note"><strong>Important:</strong> All CMDT changes are deployed asynchronously via the Metadata API. After saving changes through the onboarding wizard or Setup UI, allow 10–30 seconds for the deployment to complete before refreshing the app.</div>
+
+<hr>
+
+<h2 id="config-mdt">2. RouteForceConfig__mdt: Complete Field Reference</h2>
+<p>The central configuration record. All 44 settings reside in the <strong>Default</strong> record (<code>RouteForceConfig__mdt.Default</code>). Each field is documented below, organized by category.</p>
+<p><strong>Section 2.7 (Map Legend &amp; Marker Display) is new in 7.13.0</strong> — it documents the 8 fields that hold the org-wide defaults for marker color segmentation, popup fields, and multi-select filter rendering. Before 7.13.0 these were configured exclusively as App Builder properties on the FlexiPage.</p>
+
+<h3>2.1 Map Settings (7 fields)</h3>
+<p>Control the initial map appearance, clustering behavior, and display mode.</p>
+<table>
+<thead>
+<tr>
+<th>Field API Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AddressFieldPrefix__c</code></td>
+<td>Picklist</td>
+<td><code>Shipping</code></td>
+<td>Determines which compound address fields are used for geolocation. Values: <code>Shipping</code> (uses ShippingLatitude/ShippingLongitude) or <code>Billing</code> (uses BillingLatitude/BillingLongitude).</td>
+</tr>
+<tr>
+<td><code>ClusterRadius__c</code></td>
+<td>Number</td>
+<td><code>60</code></td>
+<td>Marker clustering radius in pixels. Higher values produce more aggressive clustering (fewer, larger clusters). Range: 20–200. Recommended: 40–80.</td>
+</tr>
+<tr>
+<td><code>DefaultDisplayMode__c</code></td>
+<td>Text</td>
+<td><code>both</code></td>
+<td>Initial marker display mode when the map loads. Accepted values: <code>accounts</code>, <code>leads</code>, <code>opportunities</code>, or <code>both</code>. Users can toggle display modes at runtime.</td>
+</tr>
+<tr>
+<td><code>DefaultMapLayer__c</code></td>
+<td>Picklist</td>
+<td><code>Standard</code></td>
+<td>Initial basemap layer. Accepted values: <code>Standard</code> (OpenStreetMap tiles), <code>Terrain</code>, or <code>Satellite</code> (aerial imagery). Users can switch layers via the map controls.</td>
+</tr>
+<tr>
+<td><code>DefaultZoom__c</code></td>
+<td>Number</td>
+<td><code>10</code></td>
+<td>Initial map zoom level on load. Range: 1 (world view) to 18 (street level). Recommended: 6–12 depending on territory size.</td>
+</tr>
+<tr>
+<td><code>EnableHeatmap__c</code></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>Enables the heatmap overlay toggle in the map toolbar. When active, users can visualize account density as a heatmap layer overlaid on the marker view.</td>
+</tr>
+<tr>
+<td><code>EnableBulkSelect__c</code></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>Enables the lasso (polygon) bulk selection tool. Users can draw a freehand area on the map to select all markers within it, then add them to a route or perform bulk actions.</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><strong>Example: Satellite view for a rural territory:</strong><br>
+Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom__c</code> = <code>8</code>, <code>ClusterRadius__c</code> = <code>40</code> (less clustering for sparse markers).</div>
+
+<h3>2.2 Feature Toggles (11 fields)</h3>
+<p>Enable or disable major application features. All toggles are Checkbox fields (true/false).</p>
+<table>
+<thead>
+<tr>
+<th>Field API Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EnableEvents__c</code></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>Enables calendar event integration: agenda panel, event markers on the map, and the ability to create events directly from optimized routes.</td>
+</tr>
+<tr>
+<td><code>EnableLeads__c</code></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>Shows geocoded Lead records as markers on the map. When enabled, Lead-specific filters and Lead route steps become available.</td>
+</tr>
+<tr>
+<td><code>EnableOpportunities__c</code></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>Shows Opportunity records as markers (positioned at the parent Account address). Enables Opportunity filters and Opportunity route steps.</td>
+</tr>
+<tr>
+<td><code>EnableCampaignMembers__c</code> <span style="color:#9099ff;font-size:0.7em;">NEW in 7.20.0</span></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>Shows Campaign Member records as markers, positioned at the underlying Lead or Contact address. Adds the Campaign Members display pill plus a Filters &amp; Options section with a campaign lookup, ownership and dynamic status filters. On a Campaign record page, members are auto-scoped to that campaign. See Section 5bis for the Campaign Members CMDT fields.</td>
+</tr>
+<tr>
+<td><code>EnableAddressPrefixFallback__c</code> <span style="color:#9099ff;font-size:0.7em;">NEW in 7.20.0</span></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>When checked, Accounts and Opportunities geocoded only on the alternate prefix (Billing ↔ Shipping) still appear on the map — the marker uses whichever prefix carries coordinates, and route planning / nearby search anchor on the same fallback location. Uncheck for setups where Shipping and Billing carry different meanings (e.g. Shipping = logistics warehouse vs Billing = fiscal address) and you want the map to honor <code>AddressFieldPrefix__c</code> strictly.</td>
+</tr>
+<tr>
+<td><code>EnableVisitReports__c</code></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>Enables the check-in/check-out visit report system. When enabled, users can record visit outcomes, notes, satisfaction scores, and next actions during field visits.</td>
+</tr>
+<tr>
+<td><code>EnableCSVExport__c</code></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>Shows the CSV export button in the route panel after optimization. Exports route steps with account details, addresses, and visit sequence.</td>
+</tr>
+<tr>
+<td><code>EnableHistoryNaming__c</code></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>When saving a route, prompts the user to enter a custom name. If disabled, routes are saved with auto-generated names (date + stop count).</td>
+</tr>
+<tr>
+<td><code>EnableUsageTracking__c</code></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>Tracks feature usage events (map loads, filter applications, route optimizations, check-ins, etc.). Data is aggregated daily and available in the Usage Dashboard. See <a href="#usage-tracking">Section 7</a>.</td>
+</tr>
+<tr>
+<td><code>EnableRoleFilter__c</code></td>
+<td>Checkbox</td>
+<td><code>false</code></td>
+<td>Adds a filter based on the Salesforce role hierarchy. When enabled, managers can view accounts owned by users in their role subtree. Requires role hierarchy to be configured in the org.</td>
+</tr>
+<tr>
+<td><code>EnableTeamFilter__c</code></td>
+<td>Checkbox</td>
+<td><code>false</code></td>
+<td>Adds a filter based on team membership. When enabled, users can view accounts assigned to specific teams. Requires Account Team Members to be configured.</td>
+</tr>
+<tr>
+<td><code>ContactLookupEnabled__c</code></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>Shows a contact lookup section in Account marker popups. Displays related contacts with fields defined in <code>ContactQueryFields__c</code>. Allows quick access to contact details without leaving the map.</td>
+</tr>
+<tr>
+<td><code>QuickTextEnabled__c</code></td>
+<td>Checkbox</td>
+<td><code>true</code></td>
+<td>Enables quick text snippet insertion in visit report notes. Users can select from predefined text blocks to speed up note-taking during check-in. Requires Quick Text records in the org.</td>
+</tr>
+</tbody>
+</table>
+<div class="warning"><strong>Performance note:</strong> Enabling <code>EnableLeads__c</code> and <code>EnableOpportunities__c</code> increases the number of SOQL queries and markers rendered. For orgs with 50,000+ Leads, consider using <code>LeadQueryFilter__c</code> to limit the result set.</div>
+
+<h3>2.3 Route Settings (2 fields)</h3>
+<p>Control route optimization behavior and display.</p>
+<table>
+<thead>
+<tr>
+<th>Field API Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MaxRouteSteps__c</code></td>
+<td>Number</td>
+<td><code>50</code></td>
+<td>Maximum number of stops allowed per route. The ORS routing API enforces a hard limit of 50 waypoints. Values above 50 are clamped to 50.</td>
+</tr>
+<tr>
+<td><code>RouteStepFields__c</code></td>
+<td>Text</td>
+<td><code>null</code></td>
+<td>Comma-separated list of additional Account fields to display on route step cards (e.g., <code>Phone,Industry,Website</code>). These fields appear below the account name in each route step.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>2.4 Filter Settings (8 fields)</h3>
+<p>Configure which data is queried and how filters behave.</p>
+<table>
+<thead>
+<tr>
+<th>Field API Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FilterFields__c</code></td>
+<td>Text</td>
+<td><code>Account.Industry,Account.Type</code></td>
+<td>Comma-separated filter field API names that appear in the filter panel. Supports three syntaxes: simple (<code>Industry</code>), object-prefixed (<code>Account.Industry</code>), and cross-object (<code>Opportunity.Account.Industry</code>). Only Picklist, Multi-Picklist, and Boolean fields are supported.</td>
+</tr>
+<tr>
+<td><code>NotVisitedSinceDays__c</code></td>
+<td>Number</td>
+<td><code>30</code></td>
+<td>Default threshold in days for the "Not visited since" filter. Accounts whose last visit date exceeds this threshold are highlighted. Set to 0 to disable the default filter.</td>
+</tr>
+<tr>
+<td><code>LastVisitDateSource__c</code></td>
+<td>Picklist</td>
+<td><code>VisitReport</code></td>
+<td>Source feeding the "Not visited since" filter and the last-visit date/count shown on markers: <code>VisitReport</code> (real check-ins, the default) or <code>Event</code> (the most recent <strong>past</strong> calendar Event on the record — whether planned in the route builder, created manually, or synced from Outlook/Google). Choose <code>Event</code> for teams that work from the Salesforce calendar without structured check-ins. In <code>Event</code> mode, when a Visit Report also exists its result and report link still appear in the marker popup, so no detail is lost.</td>
+</tr>
+<tr>
+<td><code>LeadQueryFields__c</code></td>
+<td>Text</td>
+<td><code>Rating,LeadSource</code></td>
+<td>Comma-separated Lead field API names to include in Lead queries. These fields are available in Lead marker popups and Lead filter options.</td>
+</tr>
+<tr>
+<td><code>LeadQueryFilter__c</code></td>
+<td>Text</td>
+<td><code>IsConverted = false</code></td>
+<td>SOQL WHERE clause appended to Lead queries. Default excludes converted Leads. Example: <code>IsConverted = false AND Rating = 'Hot'</code>.</td>
+</tr>
+<tr>
+<td><code>OpportunityQueryFields__c</code></td>
+<td>Text</td>
+<td><code>StageName,Amount,CloseDate</code></td>
+<td>Comma-separated Opportunity field API names to include in queries. These fields appear in Opportunity marker popups.</td>
+</tr>
+<tr>
+<td><code>OpportunityQueryFilter__c</code></td>
+<td>Text</td>
+<td><code>IsClosed = false</code></td>
+<td>SOQL WHERE clause appended to Opportunity queries. Default shows only open Opportunities. Example: <code>IsClosed = false AND Amount > 10000</code>.</td>
+</tr>
+<tr>
+<td><code>ContactQueryFields__c</code></td>
+<td>Text</td>
+<td><code>Id,Name,Email,Phone,MobilePhone</code></td>
+<td>Comma-separated Contact field API names displayed in the contact lookup section of Account marker popups.</td>
+</tr>
+<tr>
+<td><code>ContactQueryFilter__c</code></td>
+<td>Text</td>
+<td><code>null</code></td>
+<td>Optional SOQL WHERE clause for Contact queries. When empty, all related Contacts are returned. Example: <code>IsActive__c = true</code>.</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><strong>Cross-object filter example:</strong> Setting a filter field to <code>Opportunity.Account.Industry</code> allows users to filter Opportunities by their parent Account's Industry value. The filter dropdown shows all Industry picklist values, and only Opportunities whose parent Account matches the selected value are displayed.</div>
+
+<h3>2.5 Visit Report Settings (5 fields)</h3>
+<p>Configure the check-in/check-out visit report system.</p>
+<table>
+<thead>
+<tr>
+<th>Field API Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CheckInNotePrefix__c</code></td>
+<td>Text</td>
+<td><code>Check-in</code></td>
+<td><strong>DEPRECATED</strong>: No longer used. Check-in data is now stored entirely in Visit Reports; Event Subject and Description are not modified during check-in.</td>
+</tr>
+<tr>
+<td><code>CheckInOnSiteRadiusMeters__c</code></td>
+<td>Number</td>
+<td><code>500</code></td>
+<td>GPS radius in meters for on-site detection. When the user's GPS position is within this distance from the account location, the check-in is marked as "On Site". Beyond this radius, it is marked as "Remote".</td>
+</tr>
+<tr>
+<td><code>VisitReportCustomFields__c</code></td>
+<td>LongTextArea(1000)</td>
+<td><em>No metadata default</em>; recommended value set by onboarding wizard: <code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td>
+<td>Comma-separated field identifiers shown in the visit report form. Controls the order and visibility of fields in the check-in modal. Supports both standard identifiers (<code>result</code>, <code>nextAction</code>, <code>notes</code>) and custom field API names.</td>
+</tr>
+<tr>
+<td><code>VisitResultOptions__c</code></td>
+<td>LongTextArea(1000)</td>
+<td><code>Positive,Neutral,Negative,No Answer</code></td>
+<td>Comma-separated picklist values for the visit result dropdown in the check-in form. Customize to match your organization's visit outcome categories.</td>
+</tr>
+<tr>
+<td><code>VisitAlertDays__c</code></td>
+<td>Number</td>
+<td><code>0</code></td>
+<td>Alert threshold in days for overdue visits. When set to a value greater than 0, accounts that have not been visited within this many days display a warning indicator on their marker. Set to 0 to disable visit alerts.</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><strong>Example: Customizing the visit report form:</strong><br>
+To add a custom "Competitor Mentioned" field, create the field on VisitReport__c, then update <code>VisitReportCustomFields__c</code>:<br>
+<code>result, routeforce__Satisfaction__c, nextAction, routeforce__CompetitorMentioned__c, notes, routeforce__NextVisitDate__c</code></div>
+
+<h3>2.6 System Settings (3 fields)</h3>
+<p>Application-level system configuration.</p>
+<table>
+<thead>
+<tr>
+<th>Field API Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SupportEmail__c</code></td>
+<td>Email</td>
+<td><code>contact@routeforce.app</code></td>
+<td>Support email address displayed in error messages, licence screens, and the Configuration tab. Override this with your internal support email if you provide first-line support.</td>
+</tr>
+<tr>
+<td><code>LogRetentionDays__c</code></td>
+<td>Number</td>
+<td><code>30</code></td>
+<td>Number of days before application log records are purged by the LogPurgeSchedulable job. Logs older than this value are permanently deleted. Minimum recommended: 7 days.</td>
+</tr>
+<tr>
+<td><code>EventOppLinkTarget__c</code></td>
+<td>Text</td>
+<td><code>opportunity</code></td>
+<td>Determines how Events created from Opportunity markers are linked. Set to <code>opportunity</code> to link the Event's WhatId to the Opportunity record, or <code>account</code> to link it to the parent Account instead.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>2.7 Map Legend &amp; Marker Display (8 fields, NEW in 7.13.0)</h3>
+<p>Org-wide defaults for marker color segmentation (Account / Opportunity / Lead), popup field display, and multi-select filter rendering. Each field is overridable per-page via the matching App Builder property (see <a href="#flexipage">Section 4 — FlexiPage Configuration</a>).</p>
+<table>
+<thead>
+<tr>
+<th>Field API Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TypeField__c</code></td>
+<td>Text(255)</td>
+<td><code>Type</code></td>
+<td>Account field API name used for marker color segmentation. Each distinct value in <code>TypeValues__c</code> gets a unique color from the cool palette. Leave blank for uniform Account markers.</td>
+</tr>
+<tr>
+<td><code>TypeValues__c</code></td>
+<td>Text(255)</td>
+<td><code>Customer - Direct,Customer - Channel,Prospect,Other</code></td>
+<td>Comma-separated values for Account marker colors. <strong>Order determines color assignment</strong> (first value = first color). Values must match the field set in <code>TypeField__c</code>.</td>
+</tr>
+<tr>
+<td><code>OppTypeField__c</code></td>
+<td>Text(255)</td>
+<td><code>StageName</code></td>
+<td>Opportunity field for marker color segmentation. Each value in <code>OppTypeValues__c</code> gets a warm-toned color. Requires <code>EnableOpportunities__c = true</code>.</td>
+</tr>
+<tr>
+<td><code>OppTypeValues__c</code></td>
+<td>Text(255)</td>
+<td><code>Prospecting,Qualification,Needs Analysis,Value Proposition,Negotiation/Review,Closed Won,Closed Lost</code></td>
+<td>Comma-separated values for Opportunity marker colors. Order = color order. Values must match the field set in <code>OppTypeField__c</code>.</td>
+</tr>
+<tr>
+<td><code>LeadTypeField__c</code></td>
+<td>Text(255)</td>
+<td><code>Status</code></td>
+<td>Lead field for marker color segmentation. Each value in <code>LeadTypeValues__c</code> gets a cool-toned color. Requires <code>EnableLeads__c = true</code>.</td>
+</tr>
+<tr>
+<td><code>LeadTypeValues__c</code></td>
+<td>Text(255)</td>
+<td><code>Open - Not Contacted,Working - Contacted,Closed - Converted,Closed - Not Converted</code></td>
+<td>Comma-separated values for Lead marker colors. Order = color order. Values must match the field set in <code>LeadTypeField__c</code>.</td>
+</tr>
+<tr>
+<td><code>ForceMultiPicklist__c</code></td>
+<td>Text(255)</td>
+<td><code>Industry,Type</code></td>
+<td>Picklist filter fields rendered as <strong>multi-select checkboxes</strong> instead of single-select dropdowns. Comma-separated field API names without object prefix. Only applies to fields already listed in <code>FilterFields__c</code>.</td>
+</tr>
+<tr>
+<td><code>MarkerFields__c</code></td>
+<td>Text(255)</td>
+<td><code>Phone,Industry,Website,Opportunity.StageName,Opportunity.Amount,Opportunity.CloseDate,Lead.Company,Lead.LeadSource,Lead.Status,Lead.Email</code></td>
+<td>Fields displayed in marker popups when a pin is clicked. Account fields have no prefix; Opportunity/Lead fields use <code>{Object}.{Field}</code> syntax. Supports any field type.</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><strong>Override on a specific FlexiPage:</strong> Set the matching App Builder property (<code>typeField</code>, <code>typeValues</code>, <code>oppTypeField</code>, <code>oppTypeValues</code>, <code>leadTypeField</code>, <code>leadTypeValues</code>, <code>forceMultiPicklist</code>, or <code>markerFields</code>) on the <code>routeforce</code> component in Lightning App Builder. The App Builder value takes precedence over CMDT for that page only.</div>
+
+<h3>2.8 Campaign Members (6 fields, NEW in 7.20.0)</h3>
+<p>Configuration for the Campaign Members map layer. Members carry no address of their own — coordinates resolve from the underlying Lead (<code>Lead.Latitude/Longitude</code>) or Contact (<code>Contact.{Mailing|Other}Latitude/Longitude</code>) parent. The layer is <strong>CMDT-only</strong>; there are no per-page App Builder properties. Enable the layer via <code>EnableCampaignMembers__c</code> (Section 2.2 Feature Toggles).</p>
+<p><strong>Where the layer renders:</strong></p>
+<ul>
+<li><strong>Global map (Tourvia tab / App Page)</strong> — users pick a campaign from the &quot;Campaign Members&quot; filter section; leave it empty to load every geocoded member across all campaigns (capped by the standard 2 000-marker pagination).</li>
+<li><strong>Campaign record page</strong> — drop the <code>routeforce</code> component onto a Campaign Lightning Page; <code>recordId</code> automatically scopes the layer to that campaign.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Field API Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CampaignMemberContactAddressPrefix__c</code></td>
+<td>Text</td>
+<td><code>Mailing</code></td>
+<td>For Contact-based members, which Contact address compound drives the marker position. Accepts <code>Mailing</code> (uses <code>MailingLatitude</code>/<code>MailingLongitude</code>) or <code>Other</code>. Lead-based members always use the standard Lead Address compound.</td>
+</tr>
+<tr>
+<td><code>CampaignMemberQueryFields__c</code></td>
+<td>Text</td>
+<td><em>(empty)</em></td>
+<td>Comma-separated extra CampaignMember fields to query. Direct CampaignMember fields only — relationship paths are not supported here. Each field is validated against the schema before being added to the SELECT clause.</td>
+</tr>
+<tr>
+<td><code>CampaignMemberQueryFilter__c</code></td>
+<td>Text</td>
+<td><em>(empty)</em></td>
+<td>Admin SOQL <code>WHERE</code> fragment applied to every Campaign Member query (e.g. <code>Status = 'Sent'</code>). Validated by the package's allowlist and then schema-checked field-by-field — invalid filters are silently rejected and logged as warnings.</td>
+</tr>
+<tr>
+<td><code>CampaignMemberTypeField__c</code></td>
+<td>Text</td>
+<td><em>(empty)</em></td>
+<td>CampaignMember field API name used for marker color segmentation (e.g. <code>Status</code>). Leave blank for uniform Campaign Member markers. Requires <code>EnableCampaignMembers__c = true</code>.</td>
+</tr>
+<tr>
+<td><code>CampaignMemberTypeValues__c</code></td>
+<td>Text</td>
+<td><em>(empty)</em></td>
+<td>Comma-separated values for marker color assignment, ordered (first value = first color). Example: <code>Sent,Responded,Bounced</code>. Values must match the field set in <code>CampaignMemberTypeField__c</code>.</td>
+</tr>
+<tr>
+<td><code>RecordPickerCampaignMemberFields__c</code></td>
+<td>Text</td>
+<td><code>Type,Status</code></td>
+<td>Comma-separated <strong>Campaign</strong> field API names shown next to the campaign name in the &quot;Campaign Members&quot; filter section&apos;s campaign picker — useful when several campaigns share similar names. Example: <code>Type,Status,StartDate</code>. Picklists are safe here: the picker searches by Campaign Name only and uses these fields for display in the dropdown rows.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="note"><strong>Campaign as a route entry point (since TourviaApp 7.22.0).</strong> When the Campaign Members layer is enabled, route mode exposes a <strong>6th inline entry point</strong>: a <code>lightning-record-picker</code> for Campaigns, sitting next to the existing Account / Lead / Opportunity picker. Picking a Campaign adds every geocoded CampaignMember (the Lead, or the Contact&apos;s Account) as route steps in one click — same UX pattern as the other 5 entry points (marker click, lasso, nearby, search picker, event import), no modal.<br><br>
+<strong>The Campaign route entry is hard-gated by the same CMDT toggle as the rest of the layer: <code>EnableCampaignMembers__c</code> (see Section 2.2 Feature Toggles).</strong> Set it to <code>false</code> to hide the Campaign picker org-wide and disable the entire Campaign Members layer in one place — no FlexiPage edit required.</div>
+
+<hr>
+
+<h2 id="action-mdt">3. RouteForceAction__mdt: Custom Actions Reference</h2>
+<p>Each record in <code>RouteForceAction__mdt</code> defines a custom action button that appears in marker popups, route step cards, or both. Actions launch Screen Flows, allowing administrators to build custom workflows triggered directly from the map interface.</p>
+
+<h3>3.1 Field Reference</h3>
+<table>
+<thead>
+<tr>
+<th>Field API Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Label__c</code></td>
+<td>Text</td>
+<td>Button label displayed to users. Keep concise (1–3 words). Example: <code>Log Call</code>, <code>Create Quote</code>, <code>Send Email</code>.</td>
+</tr>
+<tr>
+<td><code>Icon__c</code></td>
+<td>Text</td>
+<td>SLDS icon name (without the <code>utility:</code> prefix). Example: <code>call</code>, <code>email</code>, <code>edit</code>, <code>new</code>. See <a href="https://www.lightningdesignsystem.com/icons/">SLDS Icons</a> for the full list.</td>
+</tr>
+<tr>
+<td><code>FlowApiName__c</code></td>
+<td>Text</td>
+<td>API name of the Screen Flow to launch when the button is clicked. The Flow receives the record Id as an input variable (<code>recordId</code>).</td>
+</tr>
+<tr>
+<td><code>ObjectType__c</code></td>
+<td>Picklist</td>
+<td>Which object type markers display this action. Values: <code>All</code> (default, shows on all object types), <code>Account</code>, <code>Lead</code>, <code>Opportunity</code>.</td>
+</tr>
+<tr>
+<td><code>DisplayContext__c</code></td>
+<td>Picklist</td>
+<td>Where the action button appears. Values: <code>All</code> (default, both locations), <code>Popup</code> (marker popup only), <code>EventPanel</code> (event panel only).</td>
+</tr>
+<tr>
+<td><code>FilterCondition__c</code></td>
+<td>Text</td>
+<td>Optional condition to conditionally show/hide the action. Uses a simple expression syntax: <code>FieldApiName == 'Value'</code>. Example: <code>Type == 'Prospect'</code> shows the action only on Prospect accounts. Leave empty to show on all records.</td>
+</tr>
+<tr>
+<td><code>ButtonColor__c</code></td>
+<td>Text</td>
+<td>CSS color value for the button. Accepts hex codes (<code>#4CAF50</code>), named colors (<code>green</code>), or CSS variables. Default: <code>#10B981</code>.</td>
+</tr>
+<tr>
+<td><code>IsActive__c</code></td>
+<td>Checkbox</td>
+<td>Enable or disable the action without deleting the record. Inactive actions are not rendered in the UI.</td>
+</tr>
+<tr>
+<td><code>SortOrder__c</code></td>
+<td>Number</td>
+<td>Display order within the popup or route step card. Lower numbers appear first. Actions with the same sort order are displayed alphabetically by label.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>3.2 Example: Create a "Log Call" Action</h3>
+<p>Prerequisites: A Screen Flow named <code>RF_Log_Call</code> that accepts a <code>recordId</code> input variable.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Label__c</code></td>
+<td><code>Log Call</code></td>
+</tr>
+<tr>
+<td><code>Icon__c</code></td>
+<td><code>call</code></td>
+</tr>
+<tr>
+<td><code>FlowApiName__c</code></td>
+<td><code>RF_Log_Call</code></td>
+</tr>
+<tr>
+<td><code>ObjectType__c</code></td>
+<td><code>Account</code></td>
+</tr>
+<tr>
+<td><code>DisplayContext__c</code></td>
+<td><code>All</code></td>
+</tr>
+<tr>
+<td><code>FilterCondition__c</code></td>
+<td><em>(empty, shows on all accounts)</em></td>
+</tr>
+<tr>
+<td><code>ButtonColor__c</code></td>
+<td><code>#4CAF50</code></td>
+</tr>
+<tr>
+<td><code>IsActive__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>SortOrder__c</code></td>
+<td><code>10</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>3.3 Example: Conditional Action for Prospects Only</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Label__c</code></td>
+<td><code>Qualify Lead</code></td>
+</tr>
+<tr>
+<td><code>Icon__c</code></td>
+<td><code>new</code></td>
+</tr>
+<tr>
+<td><code>FlowApiName__c</code></td>
+<td><code>RF_Qualify_Lead</code></td>
+</tr>
+<tr>
+<td><code>ObjectType__c</code></td>
+<td><code>Lead</code></td>
+</tr>
+<tr>
+<td><code>DisplayContext__c</code></td>
+<td><code>Popup</code></td>
+</tr>
+<tr>
+<td><code>FilterCondition__c</code></td>
+<td><code>Status == 'Open - Not Contacted'</code></td>
+</tr>
+<tr>
+<td><code>ButtonColor__c</code></td>
+<td><code>#FF9800</code></td>
+</tr>
+<tr>
+<td><code>IsActive__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>SortOrder__c</code></td>
+<td><code>20</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>3.4 Flow Input Variables</h3>
+<p>Tourvia passes the following input variables to the launched Screen Flow:</p>
+<table>
+<thead>
+<tr>
+<th>Variable Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>recordId</code></td>
+<td>Text</td>
+<td>The Salesforce record Id of the marker (Account Id, Lead Id, or Opportunity Id)</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><strong>Tip:</strong> Design your Screen Flows to accept a <code>recordId</code> input variable of type Text. Use a Get Records element to retrieve the full record at the start of the Flow.</div>
+
+<hr>
+
+<h2 id="event-default-mdt">3.bis RouteForceEventDefault__mdt: Event Field Defaults <span style="color:#9099ff;font-size:0.7em;">Since v1.2.0</span></h2>
+
+<p>When a user saves a tournée from route mode, Tourvia inserts Salesforce <code>Event</code> records. If your org has <strong>validation rules requiring custom Event fields</strong> (e.g. <code>Motif__c</code>, <code>Type_Evenement__c</code>, <code>Categorie__c</code>…), the insert is rejected by the VR. With V1.2.0, Tourvia surfaces a clear error toast with the VR message instead of the previous misleading "All visits already exist" warning, and provides this CMDT so admins can pre-fill those required fields without touching code.</p>
+
+<p>Edit in <strong>Setup → Custom Metadata Types → Tourvia Event Default → Manage Records</strong>. Create one record per Event field to pre-fill.</p>
+
+<table>
+<thead><tr><th>Field</th><th>Type</th><th>Required</th><th>Description</th></tr></thead>
+<tbody>
+<tr><td><code>FieldApiName__c</code></td><td>Text(255)</td><td>yes</td><td>API name of the custom Event field to fill (e.g. <code>Motif__c</code>). If the field does not exist in your org, the record is silently skipped (no error, logged in <code>RouteForceLog__c</code>).</td></tr>
+<tr><td><code>DefaultValue__c</code></td><td>Text(255)</td><td>yes</td><td>Value to assign. For picklists, use the exact API name of a value. For dates <code>yyyy-MM-dd</code>, datetimes <code>yyyy-MM-dd HH:mm:ss</code>, booleans <code>true</code>/<code>false</code>.</td></tr>
+<tr><td><code>IsActive__c</code></td><td>Boolean</td><td>—</td><td>Uncheck to disable a default without deleting it.</td></tr>
+</tbody>
+</table>
+
+<h3>How it works</h3>
+<p>Just before inserting Events from route mode, <code>RouteService.applyEventDefaults</code> reads all <strong>active</strong> records of this CMDT. For each record:</p>
+<ol>
+<li>Looks up <code>FieldApiName__c</code> on the <code>Event</code> SObject</li>
+<li>If the field exists and the Event has no value set → assigns <code>DefaultValue__c</code> (with type coercion: picklist/text → string, date → Date, etc.)</li>
+<li>If the field doesn't exist → logs a warning in <code>RouteForceLog__c</code> and <strong>continues</strong> (zero impact on event creation in orgs without those fields)</li>
+</ol>
+
+<h3>Default records shipped with the package</h3>
+<table>
+<thead><tr><th>Record DeveloperName</th><th>FieldApiName</th><th>DefaultValue</th><th>Active</th></tr></thead>
+<tbody>
+<tr><td><code>Motif_Default</code></td><td><code>Motif__c</code></td><td><code>Produit</code></td><td>✓</td></tr>
+<tr><td><code>Type_Evenement_Default</code></td><td><code>Type_Evenement__c</code></td><td><code>RDV physique</code></td><td>✓</td></tr>
+</tbody>
+</table>
+<div class="note">These records are <strong>subscriber-controlled</strong> (<code>protected=false</code>) — edit, disable or delete them freely. They are <strong>no-ops if your org doesn't have those fields on Event</strong>, so installing V1.2.0 is safe regardless of your Event schema.</div>
+
+<h3>What happens if a VR still blocks the insert</h3>
+<p>If a validation rule rejects the Event despite the defaults (e.g. unrelated VR, or a <code>DefaultValue</code> that doesn't match a restricted picklist value), the user now gets an explicit <strong>error toast</strong> with the actual server message — they (or their admin) can act on it. The same message is logged in <code>RouteForceLog__c</code>.</p>
+
+<hr>
+
+<h2 id="flexipage">4. FlexiPage Configuration (App Builder) — Override Path</h2>
+<div class="note"><strong>Since 7.13.0, App Builder properties are an override path, not the primary configuration.</strong> The packaged FlexiPages (<code>Tourvia</code> app page and <code>Lead_Record_Page</code>) ship with <strong>no properties set</strong> — defaults come from <code>RouteForceConfig.Default</code> (see Section 2.7). Configure the FlexiPage properties below <strong>only when you need different filters / colors / popup fields on a specific page</strong> (e.g. a Lead record page that needs a Lead-only filter set instead of the cross-object default).</div>
+<p>The properties below take precedence over their CMDT counterparts when set. Leave them blank to inherit from <code>RouteForceConfig.Default</code>. The mapping is one-to-one (see Section 1 — Quick reference map).</p>
+<p>The Tourvia LWC component (<code>routeforce</code>) is fully reusable; you can place it on Record Pages (Account, Lead, Opportunity), custom App Pages, Tabs, the Utility Bar, or in your own Lightning Apps.</p>
+<p><strong>Record Page integration:</strong> When placed on an Account, Lead, or Opportunity record page, the map <strong>automatically centers on the current record</strong> and loads nearby items. This gives field reps a contextual geographic view directly from any record, with no manual search needed.</p>
+<p><strong>Record Page integration:</strong> When placed on an Account, Lead, or Opportunity record page, the map <strong>automatically centers on the current record</strong> and loads nearby items. This gives field reps a contextual geographic view directly from any record, with no manual search needed. The same component properties (filters, legend, popup fields) are available for configuration.</p>
+
+<h3>4.1 Filter Fields Configuration</h3>
+<p>The Tourvia component accepts a <strong>single comma-separated string</strong> of filter field paths: either via the <code>filterFields</code> App Builder property or via <code>FilterFields__c</code> in RouteForceConfig__mdt. There are no numbered slots. Each field path uses one of three syntaxes:</p>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Simple</strong></td>
+<td><code>Industry</code></td>
+<td>Account field (no prefix needed, Account is the default object)</td>
+</tr>
+<tr>
+<td><strong>Object-prefixed</strong></td>
+<td><code>Opportunity.StageName</code></td>
+<td>Field on a specific object (Account, Opportunity, Lead)</td>
+</tr>
+<tr>
+<td><strong>Cross-object</strong></td>
+<td><code>Opportunity.Account.Industry</code></td>
+<td>Filter one object's markers by a related object's field value</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Supported field types:</strong> Picklist, Multi-Picklist, Boolean (Checkbox). Text and Number fields are not supported as filters but can be displayed in marker popups.</p>
+
+<h3>4.2 Default Filter Configuration</h3>
+<p>Out of the box, <code>FilterFields__c</code> is set to:</p>
+<pre><code>Account.Industry,Account.Type</code></pre>
+<p>This means only 2 filters appear by default. To add more, edit the value in RouteForceConfig__mdt or in App Builder.</p>
+<p><strong>Example with more filters:</strong></p>
+<pre><code>Account.Industry,Account.Type,Account.Rating,Opportunity.StageName,Lead.Status,Opportunity.Account.Industry</code></pre>
+
+<h3>4.3 Adding or Changing Filter Fields</h3>
+<p><strong>Option A: via RouteForceConfig__mdt:</strong></p>
+<ol>
+<li>Go to <strong>Setup > Custom Metadata Types > RouteForceConfig > Default</strong></li>
+<li>Edit the <code>FilterFields__c</code> field</li>
+<li>Add comma-separated field paths (e.g. <code>Account.Industry,Account.Type,Lead.Status</code>)</li>
+<li>Save</li>
+</ol>
+<p><strong>Option B: via Lightning App Builder</strong> (overrides CMDT):</p>
+<ol>
+<li>Open <strong>Setup > Lightning App Builder</strong></li>
+<li>Find the <strong>Tourvia</strong> page and open it</li>
+<li>Click <strong>Clone</strong> (or <strong>Save As</strong>) to create your own copy</li>
+<li>Click the Tourvia component, then in the properties panel set the <code>filterFields</code> property to your comma-separated field paths</li>
+<li>Configure any other properties as needed (legend, marker fields, etc.)</li>
+<li>Click <strong>Save</strong>, then <strong>Activation</strong>. Create a custom tab for this page and add it to the Tourvia app via <strong>Setup > App Manager > Tourvia > Edit > Navigation Items</strong>.</li>
+</ol>
+<div class="note"><strong>Note:</strong> The default Tourvia page is part of the managed package and cannot be edited directly. Your cloned page replaces it when added to the app navigation.</div>
+<div class="warning"><strong>Important:</strong> Only Picklist, Multi-Picklist, and Boolean (Checkbox) fields are supported. Text, Number, and Date fields will not render as filters.</div>
+
+<h3>4.4 Legend Configuration</h3>
+<p>The legend assigns distinct colors to marker values. Configure these comma-separated lists in the App Builder properties:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>typeField</code></td>
+<td><code>Type</code></td>
+<td>Account field used for marker color assignment</td>
+</tr>
+<tr>
+<td><code>typeValues</code></td>
+<td><code>Customer - Direct,Customer - Channel,Prospect,Other</code></td>
+<td>Account legend entries (blue tones)</td>
+</tr>
+<tr>
+<td><code>oppTypeField</code></td>
+<td><code>StageName</code></td>
+<td>Opportunity field used for marker color assignment</td>
+</tr>
+<tr>
+<td><code>oppTypeValues</code></td>
+<td><code>Prospecting,Qualification,Needs Analysis,Closed Won,Closed Lost</code></td>
+<td>Opportunity legend entries (warm tones)</td>
+</tr>
+<tr>
+<td><code>leadTypeField</code></td>
+<td><code>Status</code></td>
+<td>Lead field used for marker color assignment</td>
+</tr>
+<tr>
+<td><code>leadTypeValues</code></td>
+<td><code>Open - Not Contacted,Working - Contacted,Closed - Converted,Closed - Not Converted</code></td>
+<td>Lead legend entries (cool tones)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Order matters</strong>: the first value gets the first color in its palette, the second value gets the second color, and so on. Colors cycle if there are more values than colors in the palette.</p>
+
+<h3>4.5 Color Assignment by Position</h3>
+<table>
+<thead>
+<tr>
+<th>Position</th>
+<th>Account Color</th>
+<th>Opportunity Color</th>
+<th>Lead Color</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1st</td>
+<td>Dark Blue</td>
+<td>Dark Orange</td>
+<td>Dark Teal</td>
+</tr>
+<tr>
+<td>2nd</td>
+<td>Blue</td>
+<td>Orange</td>
+<td>Teal</td>
+</tr>
+<tr>
+<td>3rd</td>
+<td>Light Blue</td>
+<td>Light Orange</td>
+<td>Light Teal</td>
+</tr>
+<tr>
+<td>4th</td>
+<td>Lighter Blue</td>
+<td>Yellow</td>
+<td>Green</td>
+</tr>
+<tr>
+<td>5th+</td>
+<td>Cycles through palette</td>
+<td>Cycles</td>
+<td>Cycles</td>
+</tr>
+</tbody>
+</table>
+
+<h3>4.6 Marker Popup Fields</h3>
+<p>Configure which fields appear in marker popups via the <code>markerFields</code> property. Any field type is supported (not limited to picklists).</p>
+<pre><code>Phone,Industry,Website,Opportunity.StageName,Opportunity.Amount,Opportunity.CloseDate,Lead.Company,Lead.LeadSource,Lead.Status,Lead.Email</code></pre>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Account field</td>
+<td><code>Phone</code>, <code>Industry</code>, <code>Website</code></td>
+</tr>
+<tr>
+<td>Opportunity field</td>
+<td><code>Opportunity.Amount</code>, <code>Opportunity.NextStep</code></td>
+</tr>
+<tr>
+<td>Lead field</td>
+<td><code>Lead.Company</code>, <code>Lead.Email</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>4.7 Other FlexiPage Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>addressFieldPrefix</code></td>
+<td>String</td>
+<td><code>Shipping</code></td>
+<td>Overrides the CMDT <code>AddressFieldPrefix__c</code> for this specific FlexiPage instance</td>
+</tr>
+<tr>
+<td><code>forceMultiPicklist</code></td>
+<td>String</td>
+<td><code>Industry,Type</code></td>
+<td>Comma-separated field API names to render as multi-select checkbox lists instead of single-select dropdowns</td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h2 id="shared-filters">5. Shared Filters (SavedFilter__c)</h2>
+<p>Users can save their current filter configuration for instant reload. Saved filters are stored in the <code>SavedFilter__c</code> custom object.</p>
+
+<h3>5.1 How It Works</h3>
+<ol>
+<li>User applies filters on the map (Industry = "Technology", Type = "Customer - Direct", etc.)</li>
+<li>User clicks <strong>Save Filter</strong> and enters a name</li>
+<li>The filter state is serialized to JSON and stored in the <code>Configuration__c</code> field</li>
+<li>To reload, the user selects a saved filter from the dropdown; all filter values are restored instantly</li>
+</ol>
+
+<h3>5.2 Object Fields</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Name</code></td>
+<td>Text</td>
+<td>User-provided filter name (e.g., "My Hot Prospects")</td>
+</tr>
+<tr>
+<td><code>FilterType__c</code></td>
+<td>Text(255)</td>
+<td>Filter category</td>
+</tr>
+<tr>
+<td><code>User__c</code></td>
+<td>Lookup(User)</td>
+<td>User who created the filter</td>
+</tr>
+<tr>
+<td><code>Configuration__c</code></td>
+<td>Long Text Area</td>
+<td>JSON-serialized filter state (field names, selected values, display mode)</td>
+</tr>
+<tr>
+<td><code>IsPublic__c</code></td>
+<td>Checkbox</td>
+<td>When checked, the filter is visible to all users in the organization (team-wide sharing). Private filters are only visible to the creator.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>5.3 JSON Configuration Format</h3>
+<p>The <code>Configuration__c</code> field stores a JSON object with the following structure:</p>
+<pre><code>{
+  "displayMode": "both",
+  "filters": {
+    "Account.Industry": ["Technology", "Finance"],
+    "Account.Type": ["Customer - Direct"],
+    "Opportunity.StageName": ["Prospecting", "Qualification"]
+  },
+  "notVisitedSince": 30,
+  "recordType": null
+}</code></pre>
+
+<hr>
+
+<h2 id="address-enrichment">6. Address Enrichment (France Only)</h2>
+<p>Tourvia integrates with the <strong>BAN API</strong> (Base Adresse Nationale) to enrich French addresses with latitude/longitude coordinates.</p>
+
+<h3>6.1 Overview</h3>
+<ul>
+<li><strong>Coverage:</strong> France only (metropolitan + overseas territories)</li>
+<li><strong>Data source:</strong> BAN (Base Adresse Nationale), the official French government address database</li>
+<li><strong>Enriched fields:</strong> Latitude and Longitude on Account and Lead records</li>
+<li><strong>Access:</strong> Admin panel in the Configuration tab</li>
+</ul>
+
+<h3>6.2 How to Use</h3>
+<ol>
+<li>Navigate to the <strong>Configuration</strong> tab (requires Tourvia Admin permission set)</li>
+<li>Open the <strong>Address Enrichment</strong> panel</li>
+<li>Select the target object: <strong>Account</strong> or <strong>Lead</strong></li>
+<li>The batch processes <strong>95 records per batch</strong> (hard limit due to Salesforce callout governor limits)</li>
+<li>Click <strong>Start Enrichment</strong></li>
+<li>The batch processes records without coordinates and queries the BAN API for each address</li>
+<li>Results are written back to the Latitude/Longitude fields on each record</li>
+</ol>
+
+<h3>6.3 Configuration Options</h3>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Target Object</td>
+<td>Account</td>
+<td>Which object to enrich (Account or Lead)</td>
+</tr>
+<tr>
+<td>Batch Size</td>
+<td>95</td>
+<td>Records processed per batch execution. This is a hard limit due to Salesforce callout governor limits (100 callouts per transaction minus overhead).</td>
+</tr>
+<tr>
+<td>Address Prefix</td>
+<td>Shipping</td>
+<td>Which address compound field to use as input (Shipping or Billing)</td>
+</tr>
+<tr>
+<td>Overwrite Existing</td>
+<td>false</td>
+<td>When checked, re-enriches records that already have coordinates</td>
+</tr>
+</tbody>
+</table>
+<div class="warning"><strong>Rate limits:</strong> The BAN API has a rate limit of approximately 50 requests per second. The enrichment batch automatically throttles to stay within this limit. For large datasets (10,000+ records), run the enrichment in multiple batches.</div>
+
+<hr>
+
+<h2 id="usage-tracking">7. Usage Tracking</h2>
+<p>When <code>EnableUsageTracking__c</code> is set to <code>true</code>, Tourvia automatically tracks feature usage to help managers understand adoption and identify training needs.</p>
+
+<h3>7.1 Tracked Events</h3>
+<table>
+<thead>
+<tr>
+<th>Event Name</th>
+<th>Triggered When</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ROUTE_CREATED</code></td>
+<td>Route Created</td>
+</tr>
+<tr>
+<td><code>ROUTE_OPTIMIZED</code></td>
+<td>Route Optimized</td>
+</tr>
+<tr>
+<td><code>CHECK_IN</code></td>
+<td>Check-In</td>
+</tr>
+<tr>
+<td><code>EVENT_CREATED</code></td>
+<td>Event Created</td>
+</tr>
+<tr>
+<td><code>FILTER_APPLIED</code></td>
+<td>Filter Applied</td>
+</tr>
+<tr>
+<td><code>ADDRESS_ENRICHED</code></td>
+<td>Address Enriched</td>
+</tr>
+<tr>
+<td><code>CSV_EXPORTED</code></td>
+<td>CSV Exported</td>
+</tr>
+<tr>
+<td><code>PDF_EXPORTED</code></td>
+<td>PDF Exported</td>
+</tr>
+</tbody>
+</table>
+
+<h3>7.2 Daily Aggregation</h3>
+<p>Raw usage events are aggregated daily by the <strong>UsageAggregationBatch</strong> (see <a href="#scheduled-jobs">Section 8</a>). The aggregation produces daily summaries per user per event type, reducing storage requirements while preserving analytics value.</p>
+
+<h3>7.3 Usage Dashboard</h3>
+<p>The <strong>Usage Dashboard</strong> LWC component is available to managers and administrators. It displays:</p>
+<ul>
+<li>Daily/weekly/monthly usage trends by event type</li>
+<li>Top users by activity</li>
+<li>Feature adoption rates (percentage of users using each feature)</li>
+<li>Check-in completion rates</li>
+</ul>
+<p>Access the dashboard from the <strong>Configuration</strong> tab (requires Tourvia Admin permission set).</p>
+
+<h3>7.4 Disabling Usage Tracking</h3>
+<p>Set <code>EnableUsageTracking__c</code> to <code>false</code> on the <code>RouteForceConfig__mdt.Default</code> record. This immediately stops all event tracking. Existing aggregated data is retained until manually deleted or purged by the LogPurgeSchedulable job.</p>
+
+<hr>
+
+<h2 id="scheduled-jobs">8. Scheduled Jobs</h2>
+<p>Tourvia includes three schedulable Apex jobs, automatically registered by the post-install handler during install or upgrade.</p>
+
+<h3>8.1 UsageAggregationSchedulable</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Aggregates raw usage tracking events into daily summaries per user per event type</td>
+</tr>
+<tr>
+<td><strong>Recommended Schedule</strong></td>
+<td>Daily, after business hours (e.g., 1:00 AM)</td>
+</tr>
+<tr>
+<td><strong>Prerequisite</strong></td>
+<td><code>EnableUsageTracking__c = true</code></td>
+</tr>
+</tbody>
+</table>
+<p>If a job is missing in a damaged org or after manual cleanup, you can restore it via Anonymous Apex:</p>
+<pre><code>System.schedule(
+  'Tourvia Usage Aggregation',
+  '0 0 1 * * ?',
+  new routeforce.UsageAggregationSchedulable()
+);</code></pre>
+
+<h3>8.2 LogPurgeSchedulable</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Deletes application log records older than the value specified in <code>LogRetentionDays__c</code></td>
+</tr>
+<tr>
+<td><strong>Recommended Schedule</strong></td>
+<td>Daily, after business hours (e.g., 2:00 AM)</td>
+</tr>
+<tr>
+<td><strong>Retention Period</strong></td>
+<td>Configured by <code>LogRetentionDays__c</code> (default: 30 days)</td>
+</tr>
+</tbody>
+</table>
+<p>If this job is missing, restore it via Anonymous Apex:</p>
+<pre><code>System.schedule(
+  'Tourvia Log Purge',
+  '0 0 2 * * ?',
+  new routeforce.LogPurgeSchedulable()
+);</code></pre>
+
+<h3>8.3 UsagePurgeBatch</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Purpose</strong></td>
+<td>Purges old raw usage records after aggregation</td>
+</tr>
+<tr>
+<td><strong>Recommended Schedule</strong></td>
+<td>Weekly, Sunday at 3:00 AM</td>
+</tr>
+<tr>
+<td><strong>Prerequisite</strong></td>
+<td><code>EnableUsageTracking__c = true</code></td>
+</tr>
+</tbody>
+</table>
+<p>If this job is missing, restore it via Anonymous Apex:</p>
+<pre><code>System.schedule(
+  'Tourvia Usage Purge',
+  '0 0 3 ? * SUN',
+  new routeforce.UsagePurgeBatch()
+);</code></pre>
+
+<div class="warning"><strong>Important:</strong> Manual scheduling is normally not required. After install or upgrade, verify the three Tourvia scheduled jobs exist in <strong>Setup &gt; Scheduled Jobs</strong>. Use the Anonymous Apex snippets above only if you need to restore a missing job.</div>
+
+<hr>
+
+<h2 id="permission-sets">9. Permission Sets</h2>
+
+<h3>9.0 Permission Set Groups (recommended, since TourviaApp 7.24.0)</h3>
+<p>Managed 2GP PermissionSets <strong>cannot be edited by subscribers</strong> — historically admins had to clone the entire managed permset just to add a field-level grant. To remove that friction, TourviaApp 7.24.0 ships three PermissionSetGroups (PSGs) that wrap the existing managed permsets. The recommended pattern is to <strong>assign the PSG</strong> to your users, then <strong>extend access by creating ONE small custom permset and adding it to the same PSG</strong> — effective access is the union of every permset inside the group.</p>
+<table>
+<thead><tr><th>PermissionSetGroup</th><th>Wraps</th><th>Target audience</th></tr></thead>
+<tbody>
+<tr><td><code>TourviaApp_User_Group</code></td><td><code>routeforce__RouteForce_User</code></td><td>Sales Reps and field users</td></tr>
+<tr><td><code>TourviaApp_Manager_Group</code></td><td><code>routeforce__RouteForce_Manager</code></td><td>Sales managers and team leads</td></tr>
+<tr><td><code>TourviaApp_Admin_Group</code></td><td><code>routeforce__RouteForce_Admin</code></td><td>Salesforce Administrators</td></tr>
+</tbody>
+</table>
+<div class="note"><strong>Recommended workflow:</strong> Assign <code>TourviaApp_*_Group</code> (not the raw managed permset) to your users. To grant additional access (e.g. extra FLS on a custom field, an Apex class your org uses, a tab), create a tiny <em>unmanaged</em> permset in your subscriber org containing just that delta and add it to the PSG. Salesforce will recalculate effective access as the union of all member permsets — no managed metadata is mutated.</div>
+
+<h3>9.1 Tourvia Admin</h3>
+<p><strong>Target:</strong> Salesforce Administrators responsible for configuring Tourvia.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Apex Classes</strong></td>
+<td>All 32 Apex classes including <code>SecureConfigService</code></td>
+</tr>
+<tr>
+<td><strong>Objects</strong></td>
+<td>Full CRUD + ViewAll + ModifyAll on History__c, SavedFilter__c, VisitReport__c</td>
+</tr>
+<tr>
+<td><strong>CMDT</strong></td>
+<td>Read/Write RouteForceConfig__mdt, RouteForceAction__mdt</td>
+</tr>
+<tr>
+<td><strong>Tabs</strong></td>
+<td>Tourvia, History, Saved Filters, Visit Reports, <strong>Configuration</strong>, <strong>Licence</strong></td>
+</tr>
+<tr>
+<td><strong>App</strong></td>
+<td>Tourvia visible</td>
+</tr>
+<tr>
+<td><strong>Standard object FLS</strong> <span style="color:#9099ff;font-size:0.85em;">Since TourviaApp 7.23.0</span></td>
+<td>Read FLS on compound address fields (<code>Account.BillingAddress</code>, <code>Account.ShippingAddress</code>, <code>Contact.MailingAddress</code>, <code>Contact.OtherAddress</code>, <code>Lead.Address</code> — Salesforce only allows FLS at the compound level for these), the matching Latitude/Longitude pairs, plus <code>Account.Phone</code>, <code>Contact.Phone</code>, <code>Contact.MobilePhone</code>, <code>Lead.Phone</code>, <code>Lead.MobilePhone</code>.</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><strong>Upgrading from 7.22.0 or earlier:</strong> a 2GP upgrade does <strong>not</strong> re-apply permset deltas to subscribers — admins should re-assign the permset (or, preferably, the matching PSG <code>TourviaApp_Admin_Group</code>) once after upgrade so the new FLS grants take effect. Existing installs that already granted these FLS manually see zero functional change.</div>
+
+<h3>9.2 Tourvia Manager</h3>
+<p><strong>Target:</strong> Sales managers and team leads.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Apex Classes</strong></td>
+<td>17 Apex classes (operational + reporting services)</td>
+</tr>
+<tr>
+<td><strong>Flows</strong></td>
+<td><code>RF_CreateEvent</code> only</td>
+</tr>
+<tr>
+<td><strong>Objects</strong></td>
+<td><code>viewAllRecords</code> on History__c, VisitReport__c, and RouteForceUsageSummary__c. Standard CRUD on SavedFilter__c.</td>
+</tr>
+<tr>
+<td><strong>CMDT</strong></td>
+<td>Read-only RouteForceConfig__mdt, RouteForceAction__mdt</td>
+</tr>
+<tr>
+<td><strong>Tabs</strong></td>
+<td>Tourvia, History, Saved Filters, Visit Reports</td>
+</tr>
+<tr>
+<td><strong>App</strong></td>
+<td>Tourvia visible</td>
+</tr>
+<tr>
+<td><strong>Standard object FLS</strong> <span style="color:#9099ff;font-size:0.85em;">Since TourviaApp 7.23.0</span></td>
+<td>Read FLS on compound address fields (<code>Account.BillingAddress</code>, <code>Account.ShippingAddress</code>, <code>Contact.MailingAddress</code>, <code>Contact.OtherAddress</code>, <code>Lead.Address</code>), the matching Latitude/Longitude pairs, plus <code>Account.Phone</code>, <code>Contact.Phone</code>, <code>Contact.MobilePhone</code>, <code>Lead.Phone</code>, <code>Lead.MobilePhone</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key difference from User:</strong> Managers have <code>viewAllRecords</code> on History__c, VisitReport__c, and RouteForceUsageSummary__c, allowing them to see team activity and reports. They do <strong>not</strong> have access to admin tabs (Configuration, Licence).</p>
+<div class="note"><strong>Upgrading from 7.22.0 or earlier:</strong> a 2GP upgrade does <strong>not</strong> re-apply permset deltas to subscribers — re-assign the permset (or the <code>TourviaApp_Manager_Group</code> PSG) once after upgrade so the new FLS grants take effect.</div>
+
+<h3>9.3 Tourvia User</h3>
+<p><strong>Target:</strong> Sales Reps and field users.</p>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Access</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Apex Classes</strong></td>
+<td>14 Apex classes (excludes admin-only services like <code>SecureConfigService</code>)</td>
+</tr>
+<tr>
+<td><strong>Objects</strong></td>
+<td>CRUD on History__c, SavedFilter__c; Create/Read on VisitReport__c</td>
+</tr>
+<tr>
+<td><strong>CMDT</strong></td>
+<td>Read-only RouteForceConfig__mdt, RouteForceAction__mdt</td>
+</tr>
+<tr>
+<td><strong>Tabs</strong></td>
+<td>Tourvia, History, Saved Filters, Visit Reports</td>
+</tr>
+<tr>
+<td><strong>App</strong></td>
+<td>Tourvia visible</td>
+</tr>
+<tr>
+<td><strong>Standard object FLS</strong> <span style="color:#9099ff;font-size:0.85em;">Since TourviaApp 7.23.0</span></td>
+<td>Read FLS on compound address fields (<code>Account.BillingAddress</code>, <code>Account.ShippingAddress</code>, <code>Contact.MailingAddress</code>, <code>Contact.OtherAddress</code>, <code>Lead.Address</code>), the matching Latitude/Longitude pairs, plus <code>Account.Phone</code>, <code>Contact.Phone</code>, <code>Contact.MobilePhone</code>, <code>Lead.Phone</code>, <code>Lead.MobilePhone</code>. Powers the Today&apos;s Agenda tap-to-call row and removes the &quot;No such column OtherLatitude on entity Contact&quot; error that previously hit users without manually-granted FLS.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key difference:</strong> Users do <strong>not</strong> see the Configuration or Licence tabs, and cannot modify CMDT settings or manage API keys.</p>
+<div class="note"><strong>Upgrading from 7.22.0 or earlier:</strong> a 2GP upgrade does <strong>not</strong> re-apply permset deltas to subscribers — re-assign the permset (or the <code>TourviaApp_User_Group</code> PSG) once after upgrade so the new FLS grants take effect.</div>
+
+<h3>9.4 Assigning Permission Sets</h3>
+<p><strong>Recommended (since TourviaApp 7.24.0): assign the PermissionSetGroup</strong>, not the raw permset. PSG assignment lets subscribers extend access through their own custom permset without cloning managed metadata (see §9.0).</p>
+<p>Via Setup UI:</p>
+<ol>
+<li><strong>Setup &gt; Permission Set Groups</strong></li>
+<li>Click <strong>TourviaApp_Admin_Group</strong> / <strong>TourviaApp_Manager_Group</strong> / <strong>TourviaApp_User_Group</strong></li>
+<li>Click <strong>Manage Assignments &gt; Add Assignment</strong></li>
+<li>Select users &gt; <strong>Assign</strong></li>
+</ol>
+<p>Via SF CLI — <strong>preferred (PSG)</strong>:</p>
+<pre><code>sf org assign permsetgroup --name TourviaApp_Admin_Group --target-org &lt;org-alias&gt;
+sf org assign permsetgroup --name TourviaApp_Manager_Group --target-org &lt;org-alias&gt;
+sf org assign permsetgroup --name TourviaApp_User_Group --target-org &lt;org-alias&gt;</code></pre>
+<p>Fallback for legacy assignment scripts — raw permset (the package namespace remains <code>routeforce</code> even though the package node-name is now <code>TourviaApp</code>):</p>
+<pre><code>sf org assign permset --name routeforce__RouteForce_Admin --target-org &lt;org-alias&gt;
+sf org assign permset --name routeforce__RouteForce_Manager --target-org &lt;org-alias&gt;
+sf org assign permset --name routeforce__RouteForce_User --target-org &lt;org-alias&gt;</code></pre>
+
+<hr>
+
+<h2 id="data-requirements">10. Data Requirements</h2>
+
+<h3>10.1 Account Geocoding</h3>
+<p>Accounts <strong>must</strong> have latitude/longitude fields populated to appear on the map:</p>
+<table>
+<thead>
+<tr>
+<th>Address Prefix</th>
+<th>Latitude Field</th>
+<th>Longitude Field</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Shipping</code></td>
+<td><code>ShippingLatitude</code></td>
+<td><code>ShippingLongitude</code></td>
+</tr>
+<tr>
+<td><code>Billing</code></td>
+<td><code>BillingLatitude</code></td>
+<td><code>BillingLongitude</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Geocoding options:</strong></p>
+<ul>
+<li><strong>BAN API enrichment</strong> (France only): built into Tourvia, see <a href="#address-enrichment">Section 6</a></li>
+<li><strong>Salesforce Data.com Clean</strong>: automatic geocoding (requires licence)</li>
+<li><strong>Third-party tools</strong>: Geocodio, Google Geocoding API, or similar batch geocoders</li>
+</ul>
+<p><strong>Tip:</strong> Records without coordinates are silently excluded from the map, no error is thrown.</p>
+
+<h3>10.2 Lead Geocoding</h3>
+<p>Leads use their standard <code>Latitude</code> and <code>Longitude</code> fields (part of the Lead Address compound field).</p>
+
+<h3>10.3 Opportunity Geocoding</h3>
+<p>Opportunities do <strong>not</strong> have their own address. Tourvia uses the <strong>parent Account's address</strong> (via the AccountId relationship). The parent Account must be geocoded.</p>
+
+<h3>10.4 Events</h3>
+<p>Events appear on the map when they have a <strong>related record</strong> (WhatId or WhoId) with geocoded coordinates. Events without a geocoded related record appear in the calendar panel but not on the map.</p>
+
+<h4>Today&apos;s Agenda — contact + tap-to-call phone <span style="color:#9099ff;font-size:0.85em;">Since TourviaApp 7.22.0, hotfixed in 7.25.0</span></h4>
+<p>For Events with a <code>WhoId</code> pointing to a Contact or Lead, Today&apos;s Agenda renders the related contact name (as a record link) and a <strong>tap-to-call</strong> phone link (<code>tel:</code>). The resolver prefers the Mobile field and falls back to the standard Phone field, in this order:</p>
+<ul>
+<li>Contact: <code>MobilePhone</code> → <code>Phone</code></li>
+<li>Lead: <code>MobilePhone</code> → <code>Phone</code></li>
+</ul>
+<p>The contact + phone row is polymorphic across all event flavors because resolution happens on <code>Event.WhoId</code>:</p>
+<ul>
+<li><strong>Account events</strong> — including the standard Salesforce &quot;Account meeting with contact&quot; pattern where <code>WhatId</code> points to the Account and <code>WhoId</code> points to a Contact. <em>The 7.25.0 hotfix ensures this case resolves correctly</em> (the 7.22.0 resolver previously short-circuited on the Account branch and never read the Contact <code>WhoId</code>).</li>
+<li><strong>Lead events</strong> — <code>WhoId</code> points directly to the Lead.</li>
+<li><strong>Opportunity events</strong> — <code>WhoId</code> resolved via the OpportunityContactRoles / primary contact pattern.</li>
+<li><strong>CampaignMember-linked events</strong> — <code>WhoId</code> points to the underlying Lead or Contact.</li>
+</ul>
+<p>The row only renders when a phone value is available, so events on contactless records cleanly omit it. Tapping the link opens the device dialer on mobile, and FaceTime / Microsoft Teams / OS default on desktop.</p>
+<div class="note"><strong>Prerequisite — FLS Read on the phone fields.</strong> The agenda needs Read FLS on <code>Contact.MobilePhone</code> / <code>Contact.Phone</code> and <code>Lead.MobilePhone</code> / <code>Lead.Phone</code>. <strong>Granted out of the box by the managed permsets since TourviaApp 7.23.0</strong> (<code>routeforce__RouteForce_User</code> / <code>_Manager</code> / <code>_Admin</code>) — admins no longer need to grant these manually. If you upgraded from 7.22.0 or earlier, re-assign the permset (or PSG) once so the new FLS grants take effect.</div>
+
+<hr>
+
+<h2 id="remote-sites">11. Remote Site Settings</h2>
+<p>Tourvia requires callout access to external services:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>URL</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RouteForce_ORS</strong></td>
+<td><code>https://ors.routeforce.app</code></td>
+<td>Route optimization, directions, licence validation</td>
+</tr>
+<tr>
+<td><strong>RouteForce_HeiGIT</strong></td>
+<td><code>https://api.openrouteservice.org</code></td>
+<td>Fallback routing (when VPS is unavailable)</td>
+</tr>
+<tr>
+<td><strong>RouteForce_BAN</strong></td>
+<td><code>https://api-adresse.data.gouv.fr</code></td>
+<td>French address enrichment (BAN API)</td>
+</tr>
+</tbody>
+</table>
+<p>These are <strong>included in the managed package</strong> and deployed automatically on install. If missing, add them manually via <strong>Setup > Remote Site Settings > New</strong>.</p>
+
+<hr>
+
+<h2 id="licence">12. Licence System</h2>
+
+<h3>12.1 How It Works</h3>
+<ol>
+<li><strong>Validation callout</strong> to <code>https://ors.routeforce.app/api/licence/{key}</code></li>
+<li>Server returns: <code>{ valid: true, expires: "2026-12-31", client: "Acme Corp" }</code></li>
+<li>Result is <strong>cached</strong> in <code>LicenceCache__c</code> for 24 hours</li>
+<li>If the server is unreachable, the app continues for <strong>7 days</strong> (fail-open grace period)</li>
+<li>After 7 days without successful contact, the app blocks with a licence error overlay</li>
+</ol>
+
+<h3>12.2 Licence States</h3>
+<table>
+<thead>
+<tr>
+<th>State</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Active</strong></td>
+<td>Normal operation. Green indicator in Configuration tab.</td>
+</tr>
+<tr>
+<td><strong>Inactive</strong></td>
+<td>Licence expired or invalid. Red indicator, app blocked.</td>
+</tr>
+<tr>
+<td><strong>Not Configured</strong></td>
+<td>No licence key entered. Setup prompt displayed.</td>
+</tr>
+<tr>
+<td><strong>Server Unreachable</strong></td>
+<td>Fail-open: app works for up to 7 days. Warning indicator.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>12.3 HTTP Response Handling</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Success</td>
+<td>Update cache, allow/block based on <code>valid</code> field</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Invalid key</td>
+<td>Block immediately (no fail-open)</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Kill switch</td>
+<td>Block immediately (nginx-level block)</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td>Server error</td>
+<td>Fail-open for 7 days</td>
+</tr>
+<tr>
+<td>Timeout</td>
+<td>Unreachable</td>
+<td>Fail-open for 7 days</td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h2 id="api-keys">13. API Key Management</h2>
+<p>API keys are stored in <strong>InternalConfig__c</strong> (Hierarchy Custom Setting), protected by the <code>routeforce</code> namespace; subscribers cannot read them directly.</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Purpose</th>
+<th>Stored In</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Licence Key</strong></td>
+<td>Tourvia licence validation</td>
+<td><code>InternalConfig__c.LicenceKey__c</code></td>
+</tr>
+<tr>
+<td><strong>ORS API Key</strong></td>
+<td>VPS routing server (<code>ors.routeforce.app</code>)</td>
+<td><code>InternalConfig__c.OrsApiKey__c</code></td>
+</tr>
+<tr>
+<td><strong>Fallback API Key</strong></td>
+<td>HeiGIT public API (fallback routing)</td>
+<td><code>InternalConfig__c.FallbackApiKey__c</code></td>
+</tr>
+<tr>
+<td><strong>BAN Endpoint</strong></td>
+<td>BAN geocoding API endpoint</td>
+<td><code>InternalConfig__c.BanEndpoint__c</code></td>
+</tr>
+<tr>
+<td><strong>Licence Endpoint</strong></td>
+<td>Licence validation API endpoint</td>
+<td><code>InternalConfig__c.LicenceEndpoint__c</code></td>
+</tr>
+</tbody>
+</table>
+<div class="note"><strong>Note:</strong> <code>BanEndpoint__c</code> and <code>LicenceEndpoint__c</code> are system-managed fields and are not typically edited by admins.</div>
+<p>Keys are set during the <strong>RF_Onboarding</strong> wizard (Step 1) and stored via <code>SecureConfigService.storeKeys()</code>.</p>
+
+<hr>
+
+<h2 id="onboarding">14. Onboarding Wizard (RF_Onboarding)</h2>
+<p>The onboarding wizard is a Screen Flow accessible from the <strong>Configuration</strong> tab (Tourvia Admin only). It walks through all essential settings in 6 steps.</p>
+
+<h3>Step 1: API Keys</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Licence Key</td>
+<td>Yes</td>
+<td>Your Tourvia licence key (provided by Tourvia support)</td>
+</tr>
+<tr>
+<td>ORS API Key</td>
+<td>Yes</td>
+<td>API key for the VPS routing server</td>
+</tr>
+<tr>
+<td>Fallback API Key</td>
+<td>No</td>
+<td>HeiGIT fallback key (used when VPS is unavailable)</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Step 2: Map Settings</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Address Prefix</td>
+<td>Shipping</td>
+<td>Shipping, Billing</td>
+</tr>
+<tr>
+<td>Default Map Layer</td>
+<td>Standard</td>
+<td>Standard, Terrain, Satellite</td>
+</tr>
+<tr>
+<td>Default Zoom</td>
+<td>10</td>
+<td>1–18</td>
+</tr>
+<tr>
+<td>Display Mode</td>
+<td>both</td>
+<td>accounts, leads, opportunities, both</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Step 3: Feature Toggles</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Impact</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Enable Events</td>
+<td>true</td>
+<td>Calendar panel, event markers, check-in</td>
+</tr>
+<tr>
+<td>Enable Leads</td>
+<td>true</td>
+<td>Lead markers, Lead filters, Lead in route</td>
+</tr>
+<tr>
+<td>Enable Opportunities</td>
+<td>true</td>
+<td>Opportunity markers, Opp filters, Opp in route</td>
+</tr>
+<tr>
+<td>Enable Visit Reports</td>
+<td>true</td>
+<td>Check-in/check-out visit report creation</td>
+</tr>
+<tr>
+<td>Enable CSV Export</td>
+<td>true</td>
+<td>CSV download button in route panel</td>
+</tr>
+<tr>
+<td>Enable History Naming</td>
+<td>true</td>
+<td>Name prompt when saving routes</td>
+</tr>
+<tr>
+<td>Enable Heatmap</td>
+<td>true</td>
+<td>Heatmap overlay toggle in toolbar</td>
+</tr>
+<tr>
+<td>Enable Bulk Select</td>
+<td>true</td>
+<td>Lasso selection tool</td>
+</tr>
+<tr>
+<td>Enable Usage Tracking</td>
+<td>true</td>
+<td>Feature usage event tracking</td>
+</tr>
+<tr>
+<td>Enable Quick Text</td>
+<td>true</td>
+<td>Quick text snippets in check-in modal</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Step 4: Query Configuration</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contact Fields</td>
+<td>Id,Name,Email,Phone,MobilePhone</td>
+<td>Fields shown in contact lookup popups</td>
+</tr>
+<tr>
+<td>Lead Query Fields</td>
+<td>Rating,LeadSource</td>
+<td>Additional Lead fields for popups</td>
+</tr>
+<tr>
+<td>Lead Query Filter</td>
+<td>IsConverted = false</td>
+<td>SOQL WHERE for Leads</td>
+</tr>
+<tr>
+<td>Opp Query Fields</td>
+<td>StageName,Amount,CloseDate</td>
+<td>Opportunity fields for popups</td>
+</tr>
+<tr>
+<td>Opp Query Filter</td>
+<td>IsClosed = false</td>
+<td>SOQL WHERE for Opportunities</td>
+</tr>
+<tr>
+<td>Not Visited Since</td>
+<td>30</td>
+<td>Default threshold in days</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Step 5: Visit Report &amp; System Settings</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Check-In Note Prefix</td>
+<td><s>Check-in</s></td>
+<td><strong>DEPRECATED</strong>: No longer used</td>
+</tr>
+<tr>
+<td>On-Site Radius</td>
+<td>500 m</td>
+<td>GPS radius for on-site detection</td>
+</tr>
+<tr>
+<td>Visit Result Options</td>
+<td>Positive,Neutral,Negative,No Answer</td>
+<td>Picklist values for visit outcome</td>
+</tr>
+<tr>
+<td>Visit Alert Days</td>
+<td>0</td>
+<td>Overdue visit alert threshold (0 = disabled)</td>
+</tr>
+<tr>
+<td>Support Email</td>
+<td>contact@routeforce.app</td>
+<td>Contact email in error screens</td>
+</tr>
+<tr>
+<td>Log Retention Days</td>
+<td>30</td>
+<td>Days before log purge</td>
+</tr>
+<tr>
+<td>Event-Opp Link Target</td>
+<td>opportunity</td>
+<td>How Events from Opp markers are linked</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Step 6: Deploy</h3>
+<p>After running the onboarding flow, configure all remaining settings directly in <code>RouteForceConfig__mdt.Default</code> via <strong>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Default</strong>.</p>
+
+<hr>
+
+<h2 id="examples">15. Configuration Examples</h2>
+
+<h3>15.1 Minimal Setup (Accounts only)</h3>
+<p>For organizations that only need Account mapping without Leads or Opportunities:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EnableLeads__c</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>EnableOpportunities__c</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>DefaultDisplayMode__c</code></td>
+<td><code>accounts</code></td>
+</tr>
+<tr>
+<td><code>EnableRoleFilter__c</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>EnableTeamFilter__c</code></td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>15.2 Full Pipeline View (Accounts + Opportunities + Leads)</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EnableLeads__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>EnableOpportunities__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>DefaultDisplayMode__c</code></td>
+<td><code>both</code></td>
+</tr>
+<tr>
+<td><code>OpportunityQueryFields__c</code></td>
+<td><code>StageName,Amount,CloseDate,Probability</code></td>
+</tr>
+<tr>
+<td><code>OpportunityQueryFilter__c</code></td>
+<td><code>IsClosed = false AND Amount > 5000</code></td>
+</tr>
+<tr>
+<td><code>LeadQueryFilter__c</code></td>
+<td><code>IsConverted = false AND Rating = 'Hot'</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>15.3 Manager View (Role + Team Filtering)</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EnableRoleFilter__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>EnableTeamFilter__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>EnableUsageTracking__c</code></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<p>This configuration enables managers to view accounts across their team and monitor usage adoption via the Usage Dashboard.</p>
+
+<h3>15.4 Visit-Heavy Configuration (Field Service)</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EnableVisitReports__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>EnableEvents__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>QuickTextEnabled__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>CheckInOnSiteRadiusMeters__c</code></td>
+<td><code>200</code></td>
+</tr>
+<tr>
+<td><code>VisitAlertDays__c</code></td>
+<td><code>14</code></td>
+</tr>
+<tr>
+<td><code>NotVisitedSinceDays__c</code></td>
+<td><code>14</code></td>
+</tr>
+<tr>
+<td><code>VisitResultOptions__c</code></td>
+<td><code>Sale Made,Demo Scheduled,Callback Needed,No Answer,Declined</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>15.5 Custom Action: Create a Follow-Up Task</h3>
+<p>Create a new <code>RouteForceAction__mdt</code> record:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Label__c</code></td>
+<td><code>Follow-Up</code></td>
+</tr>
+<tr>
+<td><code>Icon__c</code></td>
+<td><code>task</code></td>
+</tr>
+<tr>
+<td><code>FlowApiName__c</code></td>
+<td><code>RF_Create_Follow_Up</code></td>
+</tr>
+<tr>
+<td><code>ObjectType__c</code></td>
+<td><code>Account</code></td>
+</tr>
+<tr>
+<td><code>DisplayContext__c</code></td>
+<td><code>All</code></td>
+</tr>
+<tr>
+<td><code>FilterCondition__c</code></td>
+<td><code>Type == 'Customer - Direct'</code></td>
+</tr>
+<tr>
+<td><code>ButtonColor__c</code></td>
+<td><code>#2196F3</code></td>
+</tr>
+<tr>
+<td><code>IsActive__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>SortOrder__c</code></td>
+<td><code>5</code></td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h2 id="troubleshooting">16. Troubleshooting</h2>
+
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Diagnostic</th>
+<th>Solution</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Configuration changes not taking effect</td>
+<td>CMDT deployment is async</td>
+<td>Wait 10–30 seconds, then hard-refresh the page</td>
+</tr>
+<tr>
+<td>"Licence not configured"</td>
+<td>No key in InternalConfig__c</td>
+<td>Run RF_Onboarding, enter licence key in Step 1</td>
+</tr>
+<tr>
+<td>Leads/Opportunities not showing on map</td>
+<td>Feature toggle is off</td>
+<td>Enable <code>EnableLeads__c</code> and/or <code>EnableOpportunities__c</code></td>
+</tr>
+<tr>
+<td>Filter field not appearing in panel</td>
+<td>Wrong syntax or unsupported field type</td>
+<td>Use <code>Object.FieldName</code> format; field must be Picklist, Multi-Picklist, or Boolean</td>
+</tr>
+<tr>
+<td>Cross-object filter shows no values</td>
+<td>No matching records</td>
+<td>Verify records exist with both the filter value and geocoded coordinates</td>
+</tr>
+<tr>
+<td>Legend colors incorrect</td>
+<td>Order mismatch in typeValues</td>
+<td>Reorder <code>typeValues</code>; position determines color assignment</td>
+</tr>
+<tr>
+<td>"Not visited since" filter missing</td>
+<td>No visit date field configured</td>
+<td>Set <code>NotVisitedSinceDays__c</code> to a value > 0</td>
+</tr>
+<tr>
+<td>Contact lookup shows nothing</td>
+<td>No related contacts or feature disabled</td>
+<td>Ensure Contacts exist on the Account and <code>ContactLookupEnabled__c</code> is true</td>
+</tr>
+<tr>
+<td>Events not appearing on map</td>
+<td>Related record not geocoded</td>
+<td>The Event's WhatId/WhoId record must have latitude/longitude populated</td>
+</tr>
+<tr>
+<td>Quick Text not working</td>
+<td>Feature toggle off or no Quick Text records</td>
+<td>Enable <code>QuickTextEnabled__c</code> and create Quick Text records in Setup</td>
+</tr>
+<tr>
+<td>Heatmap toggle missing</td>
+<td>Feature disabled</td>
+<td>Set <code>EnableHeatmap__c</code> to true</td>
+</tr>
+<tr>
+<td>Lasso selection not available</td>
+<td>Feature disabled</td>
+<td>Set <code>EnableBulkSelect__c</code> to true</td>
+</tr>
+<tr>
+<td>Custom action not showing in popup</td>
+<td>Action inactive or wrong ObjectType</td>
+<td>Verify <code>IsActive__c</code> is true, <code>ObjectType__c</code> matches the marker type, and <code>DisplayContext__c</code> includes the expected location</td>
+</tr>
+<tr>
+<td>Custom action shows on wrong records</td>
+<td>FilterCondition missing or incorrect</td>
+<td>Check <code>FilterCondition__c</code> syntax: <code>FieldApiName == 'Value'</code></td>
+</tr>
+<tr>
+<td>Usage Dashboard shows no data</td>
+<td>Tracking disabled or batch not scheduled</td>
+<td>Enable <code>EnableUsageTracking__c</code> and schedule UsageAggregationSchedulable</td>
+</tr>
+<tr>
+<td>Logs accumulating (storage issues)</td>
+<td>LogPurge job not scheduled</td>
+<td>Schedule LogPurgeSchedulable and verify <code>LogRetentionDays__c</code> value</td>
+</tr>
+<tr>
+<td>Address enrichment not working</td>
+<td>Non-French addresses or Remote Site missing</td>
+<td>BAN API only works for French addresses; verify RouteForce_BAN Remote Site Setting is active</td>
+</tr>
+<tr>
+<td>Visit report form fields missing</td>
+<td>Fields not in VisitReportCustomFields__c</td>
+<td>Add the field API names to the <code>VisitReportCustomFields__c</code> comma-separated list</td>
+</tr>
+<tr>
+<td>Role filter shows no accounts</td>
+<td>Role hierarchy not configured</td>
+<td>Ensure role hierarchy is set up in the org and users have assigned roles</td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h2 id="quick-reference">17. Quick Reference: All 44 Default Values</h2>
+
+<h3>Map Settings (7)</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>AddressFieldPrefix__c</code></td>
+<td><code>Shipping</code></td>
+</tr>
+<tr>
+<td><code>ClusterRadius__c</code></td>
+<td><code>60</code></td>
+</tr>
+<tr>
+<td><code>DefaultDisplayMode__c</code></td>
+<td><code>both</code></td>
+</tr>
+<tr>
+<td><code>DefaultMapLayer__c</code></td>
+<td><code>Standard</code></td>
+</tr>
+<tr>
+<td><code>DefaultZoom__c</code></td>
+<td><code>10</code></td>
+</tr>
+<tr>
+<td><code>EnableHeatmap__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>EnableBulkSelect__c</code></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>Feature Toggles (11)</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>EnableEvents__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>EnableLeads__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>EnableOpportunities__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>EnableVisitReports__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>EnableCSVExport__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>EnableHistoryNaming__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>EnableUsageTracking__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>EnableRoleFilter__c</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>EnableTeamFilter__c</code></td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td><code>ContactLookupEnabled__c</code></td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td><code>QuickTextEnabled__c</code></td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>Route Settings (2)</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>MaxRouteSteps__c</code></td>
+<td><code>50</code></td>
+</tr>
+<tr>
+<td><code>RouteStepFields__c</code></td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>Filter Settings (8)</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>FilterFields__c</code></td>
+<td><code>Account.Industry,Account.Type</code></td>
+</tr>
+<tr>
+<td><code>NotVisitedSinceDays__c</code></td>
+<td><code>30</code></td>
+</tr>
+<tr>
+<td><code>LeadQueryFields__c</code></td>
+<td><code>Rating,LeadSource</code></td>
+</tr>
+<tr>
+<td><code>LeadQueryFilter__c</code></td>
+<td><code>IsConverted = false</code></td>
+</tr>
+<tr>
+<td><code>OpportunityQueryFields__c</code></td>
+<td><code>StageName,Amount,CloseDate</code></td>
+</tr>
+<tr>
+<td><code>OpportunityQueryFilter__c</code></td>
+<td><code>IsClosed = false</code></td>
+</tr>
+<tr>
+<td><code>ContactQueryFields__c</code></td>
+<td><code>Id,Name,Email,Phone,MobilePhone</code></td>
+</tr>
+<tr>
+<td><code>ContactQueryFilter__c</code></td>
+<td><code>null</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>Visit Report Settings (5)</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>CheckInNotePrefix__c</code></td>
+<td><s>Check-in</s> (deprecated)</td>
+</tr>
+<tr>
+<td><code>CheckInOnSiteRadiusMeters__c</code></td>
+<td><code>500</code></td>
+</tr>
+<tr>
+<td><code>VisitReportCustomFields__c</code></td>
+<td><em>No metadata default</em>; recommended value set by onboarding wizard: <code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td>
+</tr>
+<tr>
+<td><code>VisitResultOptions__c</code></td>
+<td><code>Positive,Neutral,Negative,No Answer</code></td>
+</tr>
+<tr>
+<td><code>VisitAlertDays__c</code></td>
+<td><code>0</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>System Settings (3)</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SupportEmail__c</code></td>
+<td><code>contact@routeforce.app</code></td>
+</tr>
+<tr>
+<td><code>LogRetentionDays__c</code></td>
+<td><code>30</code></td>
+</tr>
+<tr>
+<td><code>EventOppLinkTarget__c</code></td>
+<td><code>opportunity</code></td>
+</tr>
+</tbody>
+</table>
+
+<h3>Map Legend &amp; Marker Display (8) — NEW in 7.13.0</h3>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>TypeField__c</code></td>
+<td><code>Type</code></td>
+</tr>
+<tr>
+<td><code>TypeValues__c</code></td>
+<td><code>Customer - Direct,Customer - Channel,Prospect,Other</code></td>
+</tr>
+<tr>
+<td><code>OppTypeField__c</code></td>
+<td><code>StageName</code></td>
+</tr>
+<tr>
+<td><code>OppTypeValues__c</code></td>
+<td><code>Prospecting,Qualification,Needs Analysis,Value Proposition,Negotiation/Review,Closed Won,Closed Lost</code></td>
+</tr>
+<tr>
+<td><code>LeadTypeField__c</code></td>
+<td><code>Status</code></td>
+</tr>
+<tr>
+<td><code>LeadTypeValues__c</code></td>
+<td><code>Open - Not Contacted,Working - Contacted,Closed - Converted,Closed - Not Converted</code></td>
+</tr>
+<tr>
+<td><code>ForceMultiPicklist__c</code></td>
+<td><code>Industry,Type</code></td>
+</tr>
+<tr>
+<td><code>MarkerFields__c</code></td>
+<td><code>Phone,Industry,Website,Opportunity.StageName,Opportunity.Amount,Opportunity.CloseDate,Lead.Company,Lead.LeadSource,Lead.Status,Lead.Email</code></td>
+</tr>
+</tbody>
+</table>
+
+<p class="small-muted"><strong>Total: 44 fields</strong> (7 Map + 11 Feature Toggles + 2 Route + 8 Filter + 5 Visit Report + 3 System + 8 Map Legend &amp; Marker Display)</p>
+
+  </main>
+<footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <img src="/assets/logo-site-brand.png" alt="Tourvia" style="width:28px;height:28px;border-radius:8px;"/>
+        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">Tourvia</span>
+      </div>
+      <p style="color:#a1a1aa;font-size:0.9rem;line-height:1.6;max-width:280px;margin:0 0 16px;">Salesforce-native route optimization for field sales teams.</p>
+      <a href="/#contact" style="display:inline-flex;align-items:center;gap:6px;background:#6366f1;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">Request a 30-day trial</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Product</span>
+      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="/use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="/native-integration-salesforce.html" style="color:#a1a1aa;text-decoration:none;">Integration</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Resources</span>
+      <a href="/blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="/docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="/consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="/flat-rate-route-optimization.html" style="color:#a1a1aa;text-decoration:none;">Pricing ROI</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Company</span>
+      <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
+      <a href="/docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
+      <a href="/docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
+      <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" style="color:#a1a1aa;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Status <span style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span></a>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e1e22;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#71717a;font-size:0.8rem;">
+    <span>&copy; 2026 Tourvia. All rights reserved.</span>
+    <span>Built natively on Salesforce. AppExchange managed package.</span>
+  </div>
+</footer>
+<script>
+window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach(function(link){
+  link.addEventListener('click',function(){
+    window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
+  });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18063754907');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Native Salesforce Integration | Tourvia</title>
+  <meta name="robots" content="index, follow">
+    <meta name="description" content="Tourvia is a Salesforce-native component for Account, Lead, Opportunity, and Campaign pages, plus app pages, tabs, utility bar, and Experience Cloud. No-code setup.">
+  <link rel="canonical" href="https://routeforce.app/native-integration-salesforce.html">
+  <link rel="alternate" hreflang="en" href="https://routeforce.app/native-integration-salesforce.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css">
+  <meta property="og:title" content="Native Salesforce integration: Tourvia works everywhere your team works">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Tourvia">
+  <meta property="og:description" content="How Tourvia combines no-code configuration, managed package convenience, and flexible placement across Salesforce.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://routeforce.app/native-integration-salesforce.html">
+  <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Native Salesforce integration: Tourvia works everywhere your team works"/>
+  <meta name="twitter:description" content="How Tourvia combines no-code configuration, managed package convenience, and flexible placement across Salesforce."/>
+  <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+  <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt"/>
+</head>
+<body style="background:#09090b;color:#e4e4e7;">
+<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
+    <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
+      <img src="assets/logo-site-brand.png" alt="Tourvia" style="width:32px;height:32px;border-radius:10px;flex-shrink:0;"/>
+      <span style="font-size:1.125rem;font-weight:700;letter-spacing:-0.02em;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tourvia</span>
+    </a>
+    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.95rem;white-space:nowrap;">
+      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="/#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
+      <a href="/#contact" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request trial</a>
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
+    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
+      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="/#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="/#contact" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Request trial</a>
+    </nav>
+  </div>
+  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
+</header>
+
+<section class="premium-hero">
+  <div class="container">
+    <div class="premium-hero-grid">
+      <div class="premium-hero-copy">
+        <div class="premium-hero-kicker">Native integration</div>
+        <h1>Tourvia works where Salesforce teams already work</h1>
+        <p class="premium-hero-lead">Tourvia is not only a managed package you install. It is a Salesforce-native component that admins can place, configure, and adapt across Account, Lead, Opportunity, and Campaign record pages, app pages, home pages, tabs, utility bar, and Experience Cloud, without custom code.</p>
+        <div class="premium-bullets">
+        <div class="premium-bullet"><span>•</span><span><strong>Deployment story:</strong> it works inside the org instead of adding another disconnected operational layer, including Campaign Member mapping from Campaign pages.</span></div>
+          <div class="premium-bullet"><span>•</span><span><strong>Admin workflow:</strong> behavior lives in metadata, while presentation stays manageable in Lightning App Builder.</span></div>
+          <div class="premium-bullet"><span>•</span><span><strong>Buying logic:</strong> native placement and reusable workflow logic make rollout easier to defend for real Salesforce teams.</span></div>
+        </div>
+        <div class="premium-cta-row">
+          <a href="/#contact" class="btn btn-primary btn-lg">Request trial</a>
+          <a href="docs/configuration-guide.html" class="btn btn-outline btn-lg">See configuration guide</a>
+        </div>
+      </div>
+      <div class="premium-hero-rail">
+        <div class="premium-hero-card primary">
+          <div class="premium-hero-card-label">Placement flexibility</div>
+          <div class="premium-hero-card-title">Record pages, Campaign pages, app pages, tabs, utility bar, and Experience Cloud</div>
+          <div class="premium-hero-card-copy">The product can sit close to the exact Salesforce workflow where planning and execution already happen, instead of forcing reps into a separate product context.</div>
+        </div>
+        <div class="premium-hero-card-grid">
+          <div class="premium-hero-card">
+            <div class="premium-hero-card-label">Admin fit</div>
+            <div class="premium-hero-card-title">No-code first</div>
+            <div class="premium-hero-card-copy">Configuration stays close to how Salesforce admins already think about reusable page layout and metadata behavior.</div>
+          </div>
+          <div class="premium-hero-card">
+            <div class="premium-hero-card-label">Commercial fit</div>
+            <div class="premium-hero-card-title">Easier to roll out</div>
+            <div class="premium-hero-card-copy">The native model makes the deployment story cleaner for stakeholders who care about security, adoption, and long-term maintainability.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blog-content" style="padding:60px 0 100px;">
+  <div class="container" style="max-width:900px;">
+    <h2>Record page integration without workflow disruption</h2>
+    <p>The Tourvia component can be placed directly on Account, Lead, Opportunity, or Campaign pages. On Account, Lead, and Opportunity pages, the map centers automatically on the current record geolocation and loads nearby records, so reps get a contextual geographic view directly from the record they are already using. On Campaign pages, Tourvia can display the campaign's members on the map.</p>
+    <p>That means the user does not need to leave the record workflow just to understand geographic context or nearby accounts.</p>
+
+    <h2>Two layers of configuration, no code required</h2>
+    <p>Admins can configure Tourvia in two separate ways:</p>
+    <ul>
+      <li><strong>Behavior layer</strong> through Custom Metadata: features on/off, filters, defaults, and functional settings</li>
+      <li><strong>Presentation layer</strong> through Lightning App Builder: legend, colors, placement, and popup field visibility</li>
+    </ul>
+    <p>This makes the product flexible without turning every change into a custom development project.</p>
+
+    <h2>Managed package, then adaptable where the team already operates</h2>
+    <p>The package installs cleanly, then admins can adapt pages, layouts, and reporting surfaces to match the reality of the org instead of forcing teams into a disconnected tool.</p>
+    <p>Tourvia is exposed for <strong>Account, Lead, Opportunity, and Campaign record pages</strong>, and can also be placed on <strong>Lightning App Pages, Home Pages, Tabs, the Utility Bar, and Experience Cloud pages</strong>.</p>
+
+    <h2>Why this matters commercially</h2>
+    <p>For Salesforce admins and business stakeholders, this flexibility changes the buying story. Tourvia is not only a route planning product. It is a native operational component that can adapt to the real structure of the org.</p>
+    <p>That makes the product easier to pilot, easier to justify, easier to roll out, and easier to expand once the first workflow is proven.</p>
+
+    <h2>Where Tourvia fits in your Salesforce page layouts</h2>
+    <p>Because Tourvia ships as a Lightning Web Component, Salesforce admins can place it anywhere Lightning App Builder accepts a component. Each placement opens a different use case.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:24px 0 28px;">
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Account pages</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Geographic context per record</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">The map centers on the account address and shows nearby accounts, so reps get territory context without leaving the record.</div>
+      </div>
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Lead pages</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Spot nearby pipeline</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">When a rep qualifies a lead, nearby accounts and open opportunities appear immediately. Useful for planning a first visit alongside existing customers.</div>
+      </div>
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Opportunity pages</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Deal-level field context</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">Useful when field reps manage deals that require on-site engagement. The map shows the deal location and nearby accounts that could be visited in the same trip.</div>
+      </div>
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Campaign pages</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Campaign Member coverage</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">Marketing or field teams can open a Campaign and see its Lead and Contact members on the map, geolocated from the parent Lead or Contact address.</div>
+      </div>
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Home pages</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Start-of-day planning view</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">Placed on the Lightning home page, Tourvia becomes the daily planning surface. Reps open Salesforce and immediately see accounts, filter by territory, and build their day.</div>
+      </div>
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">App pages and tabs</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Dedicated planning space</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">Admins can create a dedicated Tourvia tab or app page for teams that want a full-width map experience separate from record pages.</div>
+      </div>
+      <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 20px 16px;">
+        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Utility bar and Experience Cloud</div>
+        <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;margin-bottom:8px;">Always available or partner-facing</div>
+        <div style="color:#a1a1aa;font-size:0.92rem;">The utility bar placement keeps Tourvia accessible across any page without navigation. Experience Cloud support extends access to partner portals and external users.</div>
+      </div>
+    </div>
+
+    <h2>No-code configuration for admins</h2>
+    <p>Admins configure Tourvia entirely through standard Salesforce tooling. No custom code is required at any stage of the setup.</p>
+    <p>The <strong>Lightning App Builder</strong> handles all presentation decisions: where the component appears, which record types see it, and which page layout it belongs to. Admins drag the Tourvia component onto any supported surface and assign it through standard assignment rules.</p>
+    <p>Functional behavior is controlled through <strong>Custom Metadata Types</strong>, which are accessible in Setup. Admins set component properties declaratively: default filters (account type, owner, territory), map style, visible object types (accounts, leads, opportunities), and display options. These settings live in org metadata and are version-controlled like any other Salesforce configuration.</p>
+    <p>Permission Sets control which profiles and users access Tourvia features. Standard Salesforce permission assignment applies: no separate user management system, no Tourvia-specific admin panel.</p>
+    <p>The result is a setup that Salesforce admins handle without involving a developer, and that fits naturally into existing org governance processes.</p>
+
+    <h2>How Tourvia uses Salesforce platform features</h2>
+    <p>Tourvia is built on standard Salesforce platform capabilities. This is what makes it genuinely native rather than just installable inside the org.</p>
+    <ul>
+      <li><strong>SOQL for data queries:</strong> account, lead, and opportunity records are retrieved through standard SOQL queries. The component respects sharing rules, field-level security, and record visibility set in your org. No data is extracted or replicated to an external database.</li>
+      <li><strong>Lightning Data Service:</strong> record context (such as the current account address on a record page) is accessed through Lightning Data Service, the standard mechanism for reading and writing Salesforce records from Lightning components.</li>
+      <li><strong>Custom Metadata Types:</strong> configuration lives in metadata, not hardcoded component properties. This means admins can change behavior without touching the component itself, and settings travel correctly between sandboxes and production through standard deployment tooling.</li>
+      <li><strong>Permission Sets:</strong> feature access is governed by Permission Sets, which integrate with standard Salesforce user management. Adding or removing Tourvia access for a user follows the same process as any other permission change in the org.</li>
+      <li><strong>Platform Events:</strong> real-time updates within the component use Salesforce Platform Events where applicable, keeping event-driven communication on-platform rather than through external webhooks or polling mechanisms.</li>
+    </ul>
+    <p>The practical effect: Tourvia inherits the security, scalability, and governance of the Salesforce platform by design, not by workaround.</p>
+
+    <h2>Comparison: native integration vs connected apps</h2>
+    <p>Field teams often evaluate Tourvia against external route planning tools that connect to Salesforce through an API or middleware layer. The architectural difference has real operational consequences.</p>
+    <div style="overflow-x:auto;margin:24px 0 28px;">
+      <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
+        <thead>
+          <tr>
+            <th style="background:#1e1e22;color:#fafafa;border:1px solid #27272a;padding:12px 16px;text-align:left;">Dimension</th>
+            <th style="background:rgba(99,102,241,0.15);color:#c4b5fd;border:1px solid #27272a;padding:12px 16px;text-align:left;">Tourvia (native LWC)</th>
+            <th style="background:#1e1e22;color:#a1a1aa;border:1px solid #27272a;padding:12px 16px;text-align:left;">Connected external app</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Data location</td>
+            <td style="background:#131316;color:#e4e4e7;border:1px solid #27272a;padding:11px 16px;">CRM data stays in Salesforce</td>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Data synced to external system</td>
+          </tr>
+          <tr>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Login</td>
+            <td style="background:#131316;color:#e4e4e7;border:1px solid #27272a;padding:11px 16px;">Single Salesforce login</td>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Separate login for external tool</td>
+          </tr>
+          <tr>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Data freshness</td>
+            <td style="background:#131316;color:#e4e4e7;border:1px solid #27272a;padding:11px 16px;">Real-time from Salesforce</td>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Delayed by sync schedule</td>
+          </tr>
+          <tr>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Security model</td>
+            <td style="background:#131316;color:#e4e4e7;border:1px solid #27272a;padding:11px 16px;">Inherits Salesforce sharing rules and FLS</td>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Separate permission system to maintain</td>
+          </tr>
+          <tr>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Admin tooling</td>
+            <td style="background:#131316;color:#e4e4e7;border:1px solid #27272a;padding:11px 16px;">Lightning App Builder and Setup</td>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Separate admin interface outside Salesforce</td>
+          </tr>
+          <tr>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">User adoption friction</td>
+            <td style="background:#131316;color:#e4e4e7;border:1px solid #27272a;padding:11px 16px;">Low: same UI, same workflow</td>
+            <td style="background:#131316;color:#a1a1aa;border:1px solid #27272a;padding:11px 16px;">Higher: context switch to separate tool</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p>Connected apps are not always a bad choice. When teams need deep integrations with non-Salesforce systems or operate across multiple CRMs, a middleware approach may make sense. But for orgs where Salesforce is the primary system of record for field teams, native integration reduces complexity at every layer: data, security, UX, and admin.</p>
+
+    <h2 id="faq">Frequently asked questions about Tourvia native integration</h2>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span>Does installing Tourvia require custom Apex code?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><p>No. Tourvia installs as a managed package from AppExchange and is configured entirely through Lightning App Builder and Custom Metadata Types. No Apex development is required for installation, configuration, or ongoing administration.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span>Can Tourvia be placed on custom object pages?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><p>Tourvia is natively exposed for Account, Lead, and Opportunity record pages. It can also be placed on Lightning App Pages, Home Pages, Tabs, the Utility Bar, and Experience Cloud pages. Placement on fully custom objects depends on your configuration and the address field structure available.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span>Does Tourvia respect Salesforce sharing rules and field-level security?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><p>Yes. Because Tourvia queries data through standard SOQL and uses Lightning Data Service, it operates within the org's sharing rules and field-level security settings. Users only see records they have access to in Salesforce, with no workaround or bypass.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span>Does the native integration work in sandboxes and scratch orgs?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><p>Yes. Tourvia can be installed and tested in sandbox environments before deploying to production. Configuration through Custom Metadata Types can be moved between environments using standard Salesforce deployment tools including change sets and the Salesforce CLI.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false"><span>What happens to Tourvia when Salesforce releases updates?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="faq-answer"><p>Tourvia is tested against Salesforce releases as part of the managed package maintenance included in the subscription. Compatibility updates are delivered through the managed package channel, not through manual re-deployments by your team.</p></div>
+      </div>
+    </div>
+
+    <div class="blog-cta">
+      <h3>Explore Tourvia native integration inside Salesforce</h3>
+      <p>Request a 30-day trial via the contact form, then see how Tourvia can be placed and adapted where your team actually works.</p>
+      <a href="/#contact" class="btn-cta-primary">Request trial</a>
+      <a href="use-cases.html" class="btn-cta-secondary">See use cases</a>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <img src="/assets/logo-site-brand.png" alt="Tourvia" style="width:28px;height:28px;border-radius:8px;"/>
+        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">Tourvia</span>
+      </div>
+      <p style="color:#a1a1aa;font-size:0.9rem;line-height:1.6;max-width:280px;margin:0 0 16px;">Salesforce-native route optimization for field sales teams.</p>
+      <a href="/#contact" style="display:inline-flex;align-items:center;gap:6px;background:#6366f1;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">Request trial</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Product</span>
+      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="/use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="/native-integration-salesforce.html" style="color:#a1a1aa;text-decoration:none;">Integration</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Resources</span>
+      <a href="/blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="/docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="/consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="/flat-rate-route-optimization.html" style="color:#a1a1aa;text-decoration:none;">Pricing ROI</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Company</span>
+      <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
+      <a href="/docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
+      <a href="/docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
+      <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" style="color:#a1a1aa;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Status <span style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span></a>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e1e22;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#71717a;font-size:0.8rem;">
+    <span>&copy; 2026 Tourvia. All rights reserved.</span>
+    <span>Built natively on Salesforce. AppExchange managed package.</span>
+  </div>
+</footer>
+<script>
+document.querySelectorAll('.faq-question').forEach(function(btn){btn.addEventListener('click',function(){var item=btn.closest('.faq-item');var open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(other){other.classList.remove('open');var q=other.querySelector('.faq-question');if(q){q.setAttribute('aria-expanded','false');}});if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true');}});});
+window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach(function(link){
+  link.addEventListener('click',function(){
+    window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
+  });
+});
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Does installing Tourvia require custom Apex code?","acceptedAnswer":{"@type":"Answer","text":"No. Tourvia installs as a managed package from AppExchange and is configured entirely through Lightning App Builder and Custom Metadata Types. No Apex development is required for installation, configuration, or ongoing administration."}},{"@type":"Question","name":"Can Tourvia be placed on custom object pages?","acceptedAnswer":{"@type":"Answer","text":"Tourvia is natively exposed for Account, Lead, Opportunity, and Campaign record pages. It can also be placed on Lightning App Pages, Home Pages, Tabs, the Utility Bar, and Experience Cloud pages. Placement on fully custom objects depends on your configuration and the address field structure available."}},{"@type":"Question","name":"Can Tourvia map Campaign Members?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tourvia can display Campaign Members from Campaign record pages or from the global app map through a Campaign picker. Lead and Contact members are geolocated from their parent record address, and status-based colors are configurable through Custom Metadata."}},{"@type":"Question","name":"Does Tourvia respect Salesforce sharing rules and field-level security?","acceptedAnswer":{"@type":"Answer","text":"Yes. Because Tourvia queries data through standard SOQL and uses Lightning Data Service, it operates within the org's sharing rules and field-level security settings. Users only see records they have access to in Salesforce, with no workaround or bypass."}},{"@type":"Question","name":"Does the native integration work in sandboxes and scratch orgs?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tourvia can be installed and tested in sandbox environments before deploying to production. Configuration through Custom Metadata Types can be moved between environments using standard Salesforce deployment tools including change sets and the Salesforce CLI."}},{"@type":"Question","name":"What happens to Tourvia when Salesforce releases updates?","acceptedAnswer":{"@type":"Answer","text":"Tourvia is tested against Salesforce releases as part of the managed package maintenance included in the subscription. Compatibility updates are delivered through the managed package channel, not through manual re-deployments by your team."}}]}
+</script>
+</body>
+</html>

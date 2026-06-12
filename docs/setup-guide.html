@@ -1,0 +1,1121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Step-by-step Tourvia setup guide for Salesforce admins, including installation, permissions, geocoding, and deployment basics." />
+  <link rel="canonical" href="https://routeforce.app/docs/setup-guide.html" />
+  <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/setup-guide.html" />
+  <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/setup-guide.html" />
+  <title>Tourvia Setup Guide | TourviaApp 7.26.0</title>
+  <style>
+    @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
+    :root {
+      --rf-blue: #0f4c81;
+      --rf-blue-dark: #0b365d;
+      --rf-sky: #1f77c7;
+      --rf-text: #1d2733;
+      --rf-muted: #5b6773;
+      --rf-line: #d8e0e8;
+      --rf-soft: #f4f8fb;
+      --rf-accent: #e8f1fb;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--rf-text);
+      font-size: 10.5pt;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .cover {
+      min-height: 240mm;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+      background: linear-gradient(135deg, #1e1b4b 0%, #09090b 100%);
+      border: 1px solid var(--rf-line);
+      padding: 20mm;
+    }
+    .cover-top { display:flex; align-items:center; justify-content:space-between; gap: 16px; }
+    .cover img.logo { max-width: 180px; max-height: 44px; object-fit: contain; }
+    .logo-icon { width: 44px; height: 44px; color: var(--rf-blue-dark); flex: 0 0 auto; display:block; }
+    .badge { color: white; background: var(--rf-blue); padding: 6px 10px; border-radius: 999px; font-size: 9pt; }
+    .hero { margin-top: 20mm; }
+    .hero h1 { font-size: 28pt; line-height: 1.1; margin: 0 0 10px; color: #fafafa; }
+    .hero p { font-size: 13pt; color: var(--rf-muted); margin: 0 0 14px; }
+    .meta { display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; margin-top: 20mm; }
+    .meta .card { background: #18181b; border: 1px solid var(--rf-line); border-radius: 10px; padding: 10px 12px; }
+    .meta .label { font-size: 8.5pt; letter-spacing: .04em; text-transform: uppercase; color: var(--rf-muted); }
+    .meta .value { margin-top: 4px; font-weight: bold; color: #fafafa; }
+    .cover-footer { border-top: 2px solid var(--rf-blue); padding-top: 10px; color: var(--rf-muted); font-size: 9pt; }
+    .content { counter-reset: h2; }
+    h1, h2, h3, h4 { color: var(--rf-blue-dark); page-break-after: avoid; }
+    h1 { font-size: 21pt; border-bottom: 3px solid var(--rf-blue); padding-bottom: 8px; margin: 0 0 12px; }
+    h2 { font-size: 15pt; margin-top: 24px; padding: 8px 10px; background: var(--rf-soft); border-left: 4px solid var(--rf-blue); }
+    h3 { font-size: 12pt; margin-top: 18px; }
+    p, li { orphans: 3; widows: 3; }
+    a { color: var(--rf-sky); text-decoration: none; }
+    table { width: 100%; border-collapse: collapse; color: #e4e4e7; margin: 12px 0 18px; font-size: 9.5pt; }
+    th, td { border: 1px solid var(--rf-line); padding: 7px 8px; vertical-align: top; }
+    th { color: #fafafa;  background: var(--rf-accent); text-align: left; }
+    tr:nth-child(even) td { background: #131316; }
+    code { background: #27272a; padding: 1px 4px; border-radius: 4px; font-family: "Courier New", monospace; font-size: .92em; }
+    pre { background: #0f172a; color: #e5eef8; padding: 12px; border-radius: 8px; overflow: auto; white-space: pre-wrap; }
+    pre code { background: transparent; padding: 0; color: inherit; }
+    blockquote { border-left: 4px solid var(--rf-blue); margin: 14px 0; padding: 6px 12px; background: var(--rf-soft); color: var(--rf-muted); }
+    img { max-width: 100%; display:block; margin: 12px auto 18px; border: 1px solid var(--rf-line); border-radius: 10px; box-shadow: 0 8px 18px rgba(0,0,0,.06); }
+    hr { border: 0; border-top: 1px solid var(--rf-line); margin: 18px 0; }
+    ul, ol { padding-left: 22px; }
+    .note {
+      background: rgba(99, 102, 241, 0.08); border: 1px solid #27272a; border-radius: 8px; padding: 10px 12px; margin: 14px 0 18px;
+    }
+    .small-muted { color: var(--rf-muted); font-size: 9pt; }
+  </style>
+  <meta name="robots" content="index, follow">
+    <meta name="description" content="Tourvia Setup Guide | TourviaApp 7.26.0 for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.">
+  <link rel="canonical" href="https://routeforce.app/docs/setup-guide.html">
+  <meta property="og:title" content="Tourvia Setup Guide | TourviaApp 7.26.0">
+  <meta property="og:site_name" content="Tourvia">
+  <meta property="og:description" content="Implementation guide for Salesforce administrators deploying TourviaApp 7.26.0.">
+  <meta property="og:url" content="https://routeforce.app/docs/setup-guide.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Tourvia Setup Guide | TourviaApp 7.26.0"/>
+  <meta name="twitter:description" content="Tourvia Setup Guide | TourviaApp 7.26.0 for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout."/>
+  <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Setup Guide | TourviaApp 7.26.0","url":"https://routeforce.app/docs/setup-guide.html","description":"Tourvia Setup Guide | TourviaApp 7.26.0 for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
+<link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+<link rel="stylesheet" href="guide-dark.css"/>
+<script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18063754907');
+</script>
+</head>
+<body style="background:#09090b;color:#e4e4e7;">
+<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
+    <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
+      <img src="../assets/logo-site-brand.png" alt="Tourvia" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;"/>
+      <span style="font-size:1.125rem;font-weight:800;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tourvia</span>
+    </a>
+    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.875rem;">
+      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
+      <a href="/#contact" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request a 30-day trial</a>
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
+    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
+      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="/#contact" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Request a 30-day trial</a>
+    </nav>
+  </div>
+  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
+</header>
+  <section class="cover">
+    <div>
+      <div class="cover-top">
+        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+  <path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="8" cy="20" r="2.5" fill="currentColor"/>
+  <circle cx="14" cy="10" r="2.5" fill="currentColor"/>
+  <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
+  <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
+</svg>
+        <div class="badge">Client Documentation</div>
+      </div>
+      <div class="hero">
+        <h1>Tourvia Setup Guide</h1>
+        <p>Implementation guide for Salesforce administrators</p>
+      </div>
+      <div class="meta">
+        <div class="card"><div class="label">Product</div><div class="value">Tourvia</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">TourviaApp 7.26.0 | June 2026</div></div>
+        <div class="card"><div class="label">Format</div><div class="value">PDF / Print-ready HTML</div></div>
+      </div>
+    </div>
+    <div class="cover-footer">Prepared for client delivery &bull; Tourvia for Salesforce &bull; contact@routeforce.app</div>
+  </section>
+  <main class="content">
+    <div class="note"><strong>Tourvia branded edition.</strong> This document is formatted for client delivery and print/PDF export.</div>
+    <p><strong>Version:</strong> TourviaApp 7.26.0 | June 2026<br><strong>Audience:</strong> Salesforce administrators during initial deployment<br><strong>Goal:</strong> Install Tourvia, assign access, run the onboarding wizard, configure core settings, and validate the first working rollout</p>
+<div class="note"><strong>What's new in TourviaApp 7.22.0 → 7.26.0</strong>
+<ul>
+<li><strong>Package rebaseline (7.22.0):</strong> the AppExchange-listed, Security-Review-passed managed package was renamed from <code>Tourvia</code> to <code>TourviaApp</code>. The namespace remains <code>routeforce</code>.</li>
+<li><strong>Today's Agenda — contact + tap-to-call phone (7.22.0, fixed in 7.25.0):</strong> events in Today's Agenda now show the related contact's name and a clickable phone (Mobile preferred, falls back to Phone). The 7.25.0 hotfix ensures the contact line also renders for Account events that carry a Contact in <code>WhoId</code>.</li>
+<li><strong>Campaign as a 6th inline route entry (7.22.0):</strong> a Campaign picker now sits next to the Account / Lead / Opportunity / Event / Lasso / Nearby entry points. Pick a Campaign and all its geocoded members are added to the route in one click. CMDT-gated, so admins can disable it per org.</li>
+<li><strong>Out-of-the-box FLS on standard fields (7.23.0):</strong> the managed permsets now grant Read FLS on compound addresses, the matching Latitude/Longitude pairs, and the phone fields on Account, Contact and Lead. Admins no longer have to grant this FLS manually.</li>
+<li><strong>Three new Permission Set Groups (7.24.0):</strong> <code>TourviaApp_User_Group</code>, <code>TourviaApp_Manager_Group</code>, and <code>TourviaApp_Admin_Group</code> wrap the existing managed permsets so admins can extend access with their own custom permset added to the same PSG.</li>
+<li><strong>TourviaApp 7.26.0 — Configurable last-visit-date source.</strong> A new RouteForceConfig__mdt field, <code>LastVisitDateSource__c</code>, lets admins choose whether the map "not visited since" filter (and the last-visit date + visit count shown on markers) is driven by VisitReport check-ins (default) or by past calendar Events. Works across Accounts, Leads, Opportunities and Campaign Members. Today's Agenda also gains a cumulative "C" badge for events whose contact/lead is a campaign member.</li>
+</ul>
+<p><strong>Package lineage note:</strong> a separate fresh package, <code>Tourvia</code> 1.6.0, also exists but does <strong>NOT</strong> auto-upgrade to <code>TourviaApp</code> — they are different package IDs. Customers should install or upgrade to <strong>TourviaApp 7.26.0</strong> on the AppExchange-listed, Security-Review-passed lineage.</p>
+</div>
+<div class="note"><strong>Install Tourvia:</strong> <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener">View the listing on the Salesforce AppExchange</a> and click <em>Get It Now</em> to install in your production, developer, or sandbox org.</div>
+<hr>
+
+<!-- ======================================================== -->
+<h2>1. Before you start</h2>
+<h3>Prerequisites</h3>
+<ul>
+<li>Salesforce org with <strong>Lightning Experience</strong> enabled</li>
+<li><strong>System Administrator</strong> profile access</li>
+<li>Tourvia package installation link (provided by your Tourvia contact)</li>
+<li>Tourvia <strong>licence key</strong></li>
+<li><strong>ORS API key</strong> (provided for your environment)</li>
+<li>Optional: <strong>Fallback API key</strong> if applicable to your deployment</li>
+<li>Geocoded data (latitude/longitude) on the records you want to display on the map</li>
+</ul>
+<h3>Recommended preparation</h3>
+<ul>
+<li>Confirm whether your org uses <strong>Shipping</strong> or <strong>Billing</strong> addresses for field visits.</li>
+<li>Identify pilot users and their roles (admin, manager, field rep).</li>
+<li>Verify that key Account records already contain latitude and longitude values.</li>
+<li>Review which objects your team needs on the map (Accounts, Leads, Opportunities).</li>
+</ul>
+<hr>
+
+<!-- ======================================================== -->
+<h2>2. Install the package</h2>
+<p>Tourvia is distributed through 30-day trial access today. Use the private install link shared by SKZ Consulting to install in your production, developer, or sandbox org; public AppExchange discovery is still pending.</p>
+<p><a href="/#contact" target="_blank" rel="noopener"><strong>Request a 30-day trial →</strong></a></p>
+<h3>Installation steps</h3>
+<ol>
+<li>Open the installation URL in a browser where you are logged in as System Administrator.</li>
+<li>Select <strong>Install for Admins Only</strong>. You will assign users intentionally after validation.</li>
+<li>If Salesforce prompts you to approve third-party access for Tourvia callout endpoints, click <strong>Yes, grant access</strong>.</li>
+<li>Wait for the installation confirmation email from Salesforce.</li>
+</ol>
+<h3>Verify installation</h3>
+<pre><code class="language-sql">SELECT Id, SubscriberPackage.Name, SubscriberPackageVersion.MajorVersion,
+       SubscriberPackageVersion.MinorVersion, SubscriberPackageVersion.PatchVersion
+FROM InstalledSubscriberPackage
+WHERE SubscriberPackage.Name IN ('TourviaApp', 'Tourvia')
+</code></pre>
+<p class="small-muted">The managed package node-name is <code>TourviaApp</code> (since 7.22.0); the namespace remains <code>routeforce</code>.</p>
+<hr>
+
+<!-- ======================================================== -->
+<h2>3. Assign permission sets</h2>
+<p>TourviaApp 7.26.0 ships with <strong>three managed permission sets</strong> and, since 7.24.0, <strong>three Permission Set Groups (PSGs)</strong> that wrap them. The PSGs are the recommended assignment path.</p>
+
+<h3>3.0 Permission Set Groups (recommended, since TourviaApp 7.24.0)</h3>
+<p>Subscribers cannot edit managed 2GP permission sets directly. The three PSGs let you extend access by creating <strong>one</strong> small custom permset (with your additional FLS or object access) and adding it to the matching PSG — effective access is the union of the managed permset and your overlay.</p>
+<table>
+<thead>
+<tr>
+<th>Permission Set Group</th>
+<th>Wraps</th>
+<th>Intended audience</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>TourviaApp_User_Group</code></td>
+<td><code>routeforce__RouteForce_User</code></td>
+<td>Sales reps and field users</td>
+</tr>
+<tr>
+<td><code>TourviaApp_Manager_Group</code></td>
+<td><code>routeforce__RouteForce_Manager</code></td>
+<td>Sales managers and team leads</td>
+</tr>
+<tr>
+<td><code>TourviaApp_Admin_Group</code></td>
+<td><code>routeforce__RouteForce_Admin</code></td>
+<td>Salesforce administrators</td>
+</tr>
+</tbody></table>
+<div class="note"><strong>Recommended pattern:</strong> assign the PSG, <em>not</em> the underlying permset. That way you can later add your own custom permset to the same PSG (for example, to grant access to a custom object or field) without cloning the managed permset.</div>
+
+<h3>Out-of-the-box standard object FLS (since TourviaApp 7.23.0)</h3>
+<p>The managed permsets now grant Read FLS on the standard fields Tourvia needs, so subscribers no longer have to grant them manually:</p>
+<ul>
+<li><strong>Compound address fields</strong> (Salesforce only allows FLS at the compound level for these): <code>Account.BillingAddress</code>, <code>Account.ShippingAddress</code>, <code>Contact.MailingAddress</code>, <code>Contact.OtherAddress</code>, <code>Lead.Address</code></li>
+<li><strong>Matching Latitude / Longitude pairs</strong> on the same objects</li>
+<li><strong>Phone fields:</strong> <code>Account.Phone</code>, <code>Contact.Phone</code>, <code>Contact.MobilePhone</code>, <code>Lead.Phone</code>, <code>Lead.MobilePhone</code></li>
+</ul>
+<div class="note"><strong>Upgrade caveat (2GP):</strong> a 2GP package upgrade does <strong>NOT</strong> re-apply permset deltas to subscribers. After upgrading from 7.22.0 or earlier to 7.23.0+, re-assign the PSG (or the underlying permset) once so the new FLS deltas land on existing users.</div>
+
+<h3>3.1 Contained permission sets (reference)</h3>
+<table>
+<thead>
+<tr>
+<th>Permission Set</th>
+<th>Intended audience</th>
+<th>Key capabilities</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>RouteForce_Admin</code></td>
+<td>Salesforce administrators</td>
+<td>Full configuration access. All 32 Apex classes. Both flows (RF_Onboarding, RF_CreateEvent). Read/write on all Tourvia custom objects.</td>
+</tr>
+<tr>
+<td><code>RouteForce_Manager</code></td>
+<td>Sales managers, team leads</td>
+<td>Manager-level access. 17 Apex classes. <code>viewAllRecords</code> on Tourvia History and Visit Report objects. Can view team activity and reports.</td>
+</tr>
+<tr>
+<td><code>RouteForce_User</code></td>
+<td>Sales reps and field users</td>
+<td>Standard daily access. 14 Apex classes. Own-record visibility only on History and Visit Reports.</td>
+</tr>
+</tbody></table>
+<h3>Assignment via Setup</h3>
+<ol>
+<li>Go to <strong>Setup &gt; Permission Set Groups</strong>.</li>
+<li>Open the desired PSG (e.g., <code>TourviaApp_Admin_Group</code>).</li>
+<li>Click <strong>Manage Assignments</strong>.</li>
+<li>Click <strong>Add Assignment</strong> and select the appropriate users.</li>
+<li>Repeat for each PSG as needed.</li>
+</ol>
+<h3>Assignment via CLI</h3>
+<p>Preferred — assign the PSG:</p>
+<pre><code class="language-bash">sf org assign permsetgroup --name TourviaApp_Admin_Group --target-org &lt;your-org&gt;
+sf org assign permsetgroup --name TourviaApp_Manager_Group --target-org &lt;your-org&gt;
+sf org assign permsetgroup --name TourviaApp_User_Group --target-org &lt;your-org&gt;
+</code></pre>
+<p>Fallback — assign the namespaced managed permset directly (works on subscriber orgs):</p>
+<pre><code class="language-bash">sf org assign permset --name routeforce__RouteForce_Admin --target-org &lt;your-org&gt;
+sf org assign permset --name routeforce__RouteForce_Manager --target-org &lt;your-org&gt;
+sf org assign permset --name routeforce__RouteForce_User --target-org &lt;your-org&gt;
+</code></pre>
+<h3>Verify assignments</h3>
+<p>Permission set assignments:</p>
+<pre><code class="language-sql">SELECT Assignee.Name, PermissionSet.Name
+FROM PermissionSetAssignment
+WHERE PermissionSet.Name LIKE 'RouteForce_%'
+ORDER BY PermissionSet.Name, Assignee.Name
+</code></pre>
+<p>Permission Set Group assignments (and which permsets each PSG contains):</p>
+<pre><code class="language-sql">-- Users assigned to a TourviaApp PSG
+SELECT Assignee.Name, PermissionSetGroup.DeveloperName
+FROM PermissionSetAssignment
+WHERE PermissionSetGroup.DeveloperName LIKE 'TourviaApp_%_Group'
+ORDER BY PermissionSetGroup.DeveloperName, Assignee.Name
+</code></pre>
+<pre><code class="language-sql">-- Permsets contained in each TourviaApp PSG
+SELECT PermissionSetGroup.DeveloperName, PermissionSet.Name
+FROM PermissionSetGroupComponent
+WHERE PermissionSetGroup.DeveloperName LIKE 'TourviaApp_%_Group'
+ORDER BY PermissionSetGroup.DeveloperName, PermissionSet.Name
+</code></pre>
+<div class="note"><strong>Recommendation:</strong> During initial setup, assign <code>TourviaApp_Admin_Group</code> to yourself. Add pilot users with <code>TourviaApp_User_Group</code> or <code>TourviaApp_Manager_Group</code> only after you have completed validation (Section 10).</div>
+<hr>
+
+<!-- ======================================================== -->
+<h2>4. Verify Remote Site Settings</h2>
+<p>Tourvia requires external access for routing, licence validation, and optional address enrichment. These Remote Site Settings should be created automatically during package installation. Verify that they exist and are active.</p>
+<table>
+<thead>
+<tr>
+<th>Remote Site Name</th>
+<th>URL</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RouteForce_ORS</td>
+<td><code>https://ors.routeforce.app</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>RouteForce_HeiGIT</td>
+<td><code>https://api.openrouteservice.org</code></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>RouteForce_BAN</td>
+<td><code>https://api-adresse.data.gouv.fr</code></td>
+<td>Only if address enrichment is enabled</td>
+</tr>
+</tbody></table>
+<h3>Verify in Setup</h3>
+<ol>
+<li>Go to <strong>Setup &gt; Security &gt; Remote Site Settings</strong>.</li>
+<li>Confirm each URL above is listed and marked <strong>Active</strong>.</li>
+<li>If any are missing, click <strong>New Remote Site</strong> and add the URL manually.</li>
+</ol>
+<hr>
+
+<!-- ======================================================== -->
+<h2>5. Launch the onboarding wizard</h2>
+<p>The <strong>RF_Onboarding</strong> flow has <strong>4 screens</strong>: a <strong>Welcome</strong> screen, an <strong>API Keys</strong> screen where you enter your Licence Key, ORS API Key, and Fallback API Key, a <strong>Done</strong> confirmation screen, and an <strong>Error</strong> screen (displayed if key storage fails). Keys are stored securely via <code>SecureConfigService</code> into <code>InternalConfig__c</code>.</p>
+<h3>How to launch</h3>
+<ol>
+<li>Open the <strong>Tourvia</strong> app from the App Launcher.</li>
+<li>Navigate to the <strong>Configuration</strong> tab.</li>
+<li>Click <strong>Run Onboarding</strong> (or the RF_Onboarding flow will launch automatically on first access).</li>
+</ol>
+
+<h3>API Keys screen</h3>
+<p>Enter the following credentials:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Licence Key</strong></td>
+<td>Your Tourvia licence key (provided during purchase)</td>
+</tr>
+<tr>
+<td><strong>ORS API Key</strong></td>
+<td>API key for the Tourvia routing service</td>
+</tr>
+<tr>
+<td><strong>Fallback API Key</strong></td>
+<td>Secondary routing key used when the primary ORS endpoint is unavailable</td>
+</tr>
+</tbody></table>
+<div class="note"><strong>Security note:</strong> All keys are stored securely in <code>InternalConfig__c</code> via the <code>SecureConfigService</code> class. They are never exposed in Custom Metadata or client-side code.</div>
+
+<h3>After running the onboarding flow</h3>
+<p>After completing the RF_Onboarding flow, configure map defaults, feature toggles, and advanced settings directly in <strong>RouteForceConfig__mdt</strong> (<strong>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Default</strong>).</p>
+
+<h3>Map defaults</h3>
+<p>Configure the baseline map behavior:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Address prefix</td>
+<td><code>Shipping</code></td>
+<td>Which standard address fields to use (<code>Shipping</code> or <code>Billing</code>)</td>
+</tr>
+<tr>
+<td>Default map layer</td>
+<td><code>Standard</code></td>
+<td>Base map tile layer</td>
+</tr>
+<tr>
+<td>Default zoom</td>
+<td><code>10</code></td>
+<td>Initial zoom level when the map loads</td>
+</tr>
+<tr>
+<td>Default display mode</td>
+<td><code>both</code></td>
+<td>Show map and list simultaneously (<code>map</code>, <code>list</code>, or <code>both</code>)</td>
+</tr>
+</tbody></table>
+
+<h3>Feature toggles</h3>
+<p>Enable or disable features based on your business needs:</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Events</td>
+<td>Enabled</td>
+<td>Display Salesforce Events on the map</td>
+</tr>
+<tr>
+<td>Leads</td>
+<td>Enabled</td>
+<td>Display Leads on the map</td>
+</tr>
+<tr>
+<td>Opportunities</td>
+<td>Enabled</td>
+<td>Display Opportunities on the map (uses parent Account address)</td>
+</tr>
+<tr>
+<td>Visit Reports</td>
+<td>Enabled</td>
+<td>Allow users to create visit reports from the map</td>
+</tr>
+<tr>
+<td>Heatmap</td>
+<td>Enabled</td>
+<td>Enable the heatmap visualization layer</td>
+</tr>
+<tr>
+<td>Bulk Select</td>
+<td>Enabled</td>
+<td>Allow multi-record selection on the map</td>
+</tr>
+<tr>
+<td>CSV Export</td>
+<td>Enabled</td>
+<td>Allow exporting map data to CSV</td>
+</tr>
+<tr>
+<td>History Naming</td>
+<td>Enabled</td>
+<td>Automatically name route history records</td>
+</tr>
+<tr>
+<td>Usage Tracking</td>
+<td>Enabled</td>
+<td>Track feature usage for analytics</td>
+</tr>
+<tr>
+<td>Contact Lookup</td>
+<td>Enabled</td>
+<td>Enable contact lookup on account markers</td>
+</tr>
+<tr>
+<td>Quick Text</td>
+<td>Enabled</td>
+<td>Enable quick text templates in visit reports</td>
+</tr>
+<tr>
+<td>Role Filter</td>
+<td>Disabled</td>
+<td>Filter records by user role hierarchy</td>
+</tr>
+<tr>
+<td>Team Filter</td>
+<td>Disabled</td>
+<td>Filter records by team membership</td>
+</tr>
+</tbody></table>
+
+<h3>Advanced settings</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Cluster radius</td>
+<td><code>60</code></td>
+<td>Pixel radius for marker clustering</td>
+</tr>
+<tr>
+<td>Max route steps</td>
+<td><code>50</code></td>
+<td>Maximum number of stops per optimized route</td>
+</tr>
+<tr>
+<td>Not visited since (days)</td>
+<td><code>30</code></td>
+<td>Highlight accounts not visited within this period</td>
+</tr>
+<tr>
+<td>Check-in on-site radius (meters)</td>
+<td><code>500</code></td>
+<td>GPS proximity required for on-site check-in</td>
+</tr>
+<tr>
+<td>Log retention (days)</td>
+<td><code>30</code></td>
+<td>Number of days to retain internal log records</td>
+</tr>
+</tbody></table>
+<hr>
+
+<!-- ======================================================== -->
+<h2>6. RouteForceConfig__mdt: Full configuration reference</h2>
+<p>All configuration is stored in the <code>RouteForceConfig__mdt</code> Custom Metadata Type — see the <a href="configuration-guide.html#config-mdt">Configuration Guide</a> for the canonical field list (44+ fields, evolving since 7.13.0). The onboarding wizard sets the most important values, but you can edit any field directly in <strong>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Manage Records</strong>.</p>
+<div class="note"><strong>Upgrading from 7.12.0 → 7.13.0:</strong> The 8 new CMDT fields (legend / marker / popup) are created automatically, but Salesforce does <strong>not</strong> auto-update the CMDT page layout in subscriber orgs. To see and edit the new fields in the UI, go to <strong>Setup → Custom Metadata Types → Tourvia Config → Page Layouts</strong> and add the 8 fields manually (sections: Account / Lead / Opportunity / Marker Display). The fields are read by the LWC regardless — the layout step is only for the admin UI. See the <a href="configuration-guide.html#config-model">Configuration Guide migration notes</a> for the full procedure.</div>
+
+<table>
+<thead>
+<tr>
+<th>Field API Name</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr><td><code>AddressFieldPrefix__c</code></td><td><code>Shipping</code></td><td>Address field prefix (Shipping or Billing)</td></tr>
+<tr><td><code>ClusterRadius__c</code></td><td><code>60</code></td><td>Marker clustering pixel radius</td></tr>
+<tr><td><code>DefaultDisplayMode__c</code></td><td><code>both</code></td><td>Initial display mode</td></tr>
+<tr><td><code>DefaultMapLayer__c</code></td><td><code>Standard</code></td><td>Base map layer</td></tr>
+<tr><td><code>DefaultZoom__c</code></td><td><code>10</code></td><td>Initial map zoom level</td></tr>
+<tr><td><code>MaxRouteSteps__c</code></td><td><code>50</code></td><td>Max stops per route</td></tr>
+<tr><td><code>NotVisitedSinceDays__c</code></td><td><code>30</code></td><td>Days threshold for "not visited" highlight</td></tr>
+<tr><td><code>EnableEvents__c</code></td><td><code>true</code></td><td>Show Events on map</td></tr>
+<tr><td><code>EnableLeads__c</code></td><td><code>true</code></td><td>Show Leads on map</td></tr>
+<tr><td><code>EnableOpportunities__c</code></td><td><code>true</code></td><td>Show Opportunities on map</td></tr>
+<tr><td><code>EnableVisitReports__c</code></td><td><code>true</code></td><td>Enable visit report creation</td></tr>
+<tr><td><code>EnableHeatmap__c</code></td><td><code>true</code></td><td>Enable heatmap layer</td></tr>
+<tr><td><code>EnableBulkSelect__c</code></td><td><code>true</code></td><td>Enable multi-select on map</td></tr>
+<tr><td><code>EnableCSVExport__c</code></td><td><code>true</code></td><td>Enable CSV export</td></tr>
+<tr><td><code>EnableUsageTracking__c</code></td><td><code>true</code></td><td>Track feature usage</td></tr>
+<tr><td><code>EnableHistoryNaming__c</code></td><td><code>true</code></td><td>Auto-name route history records</td></tr>
+<tr><td><code>EnableRoleFilter__c</code></td><td><code>false</code></td><td>Filter by role hierarchy</td></tr>
+<tr><td><code>EnableTeamFilter__c</code></td><td><code>false</code></td><td>Filter by team</td></tr>
+<tr><td><code>ContactLookupEnabled__c</code></td><td><code>true</code></td><td>Contact lookup on account markers</td></tr>
+<tr><td><code>QuickTextEnabled__c</code></td><td><code>true</code></td><td>Quick text in visit reports</td></tr>
+<tr><td><code>CheckInOnSiteRadiusMeters__c</code></td><td><code>500</code></td><td>On-site check-in GPS radius (meters)</td></tr>
+<tr><td><code>LogRetentionDays__c</code></td><td><code>30</code></td><td>Log retention period (days)</td></tr>
+<tr><td><code>FilterFields__c</code></td><td><code>Account.Industry,Account.Type</code></td><td>Comma-separated list of filterable fields</td></tr>
+<tr><td><code>VisitReportCustomFields__c</code></td><td><code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td><td>Fields shown in the visit report form</td></tr>
+<tr><td><code>VisitResultOptions__c</code></td><td><code>Positive,Neutral,Negative,No Answer</code></td><td>Picklist values for visit result</td></tr>
+<tr><td><code>CheckInNotePrefix__c</code></td><td><code>Check-in:</code></td><td><strong>DEPRECATED</strong>: No longer used. Check-in data is stored in Visit Reports; Event Subject and Description are not modified.</td></tr>
+<tr><td><code>ContactQueryFields__c</code></td><td><code>Id,Name,Email,Phone,MobilePhone</code></td><td>Contact fields queried for account popup lookup</td></tr>
+<tr><td><code>ContactQueryFilter__c</code></td><td><code>null</code></td><td>Optional SOQL WHERE clause for contact queries</td></tr>
+<tr><td><code>EventOppLinkTarget__c</code></td><td><code>opportunity</code></td><td>Event-Opportunity linking target field</td></tr>
+<tr><td><code>LeadQueryFields__c</code></td><td><code>Rating,LeadSource</code></td><td>Lead fields included in marker data</td></tr>
+<tr><td><code>LeadQueryFilter__c</code></td><td><code>IsConverted = false</code></td><td>SOQL WHERE clause for lead queries</td></tr>
+<tr><td><code>OpportunityQueryFields__c</code></td><td><code>StageName,Amount,CloseDate</code></td><td>Opportunity fields included in marker data</td></tr>
+<tr><td><code>OpportunityQueryFilter__c</code></td><td><code>IsClosed = false</code></td><td>SOQL WHERE clause for opportunity queries</td></tr>
+<tr><td><code>RouteStepFields__c</code></td><td><code>null</code></td><td>Additional fields shown in route step cards</td></tr>
+<tr><td><code>SupportEmail__c</code></td><td><code>contact@routeforce.app</code></td><td>Support email shown in UI</td></tr>
+<tr><td><code>VisitAlertDays__c</code></td><td><code>0</code></td><td>Days threshold for overdue visit alerts (0 = disabled)</td></tr>
+</tbody></table>
+
+<h3>SOQL check: verify active configuration</h3>
+<pre><code class="language-sql">SELECT DeveloperName, AddressFieldPrefix__c, DefaultZoom__c,
+       EnableLeads__c, EnableOpportunities__c, EnableVisitReports__c,
+       MaxRouteSteps__c, EnableHeatmap__c, EnableBulkSelect__c
+FROM RouteForceConfig__mdt
+WHERE DeveloperName = 'Default'
+</code></pre>
+
+<h3>RouteForceAction__mdt: custom map actions</h3>
+<p>Tourvia also includes the <code>RouteForceAction__mdt</code> Custom Metadata Type for configuring custom quick actions on the map (e.g., launching Screen Flows from marker popups). See the <a href="configuration-guide.html">Configuration Guide</a> for full details.</p>
+
+<h3>Scheduled jobs (auto-managed)</h3>
+<p>The package includes three scheduled jobs, automatically registered by the post-install handler:</p>
+<ul>
+<li><code>LogPurgeSchedulable</code>: purges Tourvia log records older than the configured retention period</li>
+<li><code>UsageAggregationSchedulable</code>: aggregates feature usage statistics</li>
+<li><code>UsagePurgeBatch</code>: purges aged usage tracking records on a weekly schedule</li>
+</ul>
+<p>No manual scheduling is required. These jobs are registered automatically when the package is installed or upgraded.</p>
+<hr>
+
+<!-- ======================================================== -->
+<h2>7. Filter fields configuration</h2>
+<p>Tourvia uses a single comma-separated field to define which filters appear on the map. The default is:</p>
+<pre><code>Account.Industry,Account.Type</code></pre>
+<p>You can configure filters in <strong>two ways</strong>:</p>
+<ul>
+<li><strong>RouteForceConfig__mdt</strong>: edit the <code>FilterFields__c</code> field on the Default record</li>
+<li><strong>Lightning App Builder</strong>: set the <code>filterFields</code> property on the Tourvia component (overrides the CMDT value)</li>
+</ul>
+<h3>Filter field syntax</h3>
+<p>Each filter is an <code>Object.FieldName</code> path, comma-separated. Examples:</p>
+<pre><code>Account.Industry,Account.Type,Account.Rating,Opportunity.StageName,Lead.Status</code></pre>
+<p>Cross-object references are supported:</p>
+<pre><code>Opportunity.Account.Industry</code></pre>
+<h3>Supported field types</h3>
+<ul>
+<li><strong>Picklist</strong>: renders as a dropdown</li>
+<li><strong>Multi-Select Picklist</strong>: renders as checkboxes</li>
+<li><strong>Boolean (Checkbox)</strong>: renders as a toggle</li>
+</ul>
+<div class="note"><strong>Note:</strong> There is no hard limit on the number of filters. Add as many as your team needs, but keep it practical. Too many filters can slow the UI and confuse field reps.</div>
+<hr>
+
+<!-- ======================================================== -->
+<h2>8. Configure the default user experience</h2>
+<p>After the onboarding wizard, fine-tune the user experience by adjusting configuration values and the Lightning page layout.</p>
+
+<h3>Recommended starting defaults</h3>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Recommended value</th>
+<th>Reasoning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Address prefix</td>
+<td><code>Shipping</code></td>
+<td>Most field visits happen at shipping/delivery sites</td>
+</tr>
+<tr>
+<td>Map layer</td>
+<td><code>Standard</code></td>
+<td>Clean, fast-loading base map</td>
+</tr>
+<tr>
+<td>Display mode</td>
+<td><code>both</code></td>
+<td>Map and list side by side for maximum context</td>
+</tr>
+<tr>
+<td>Leads</td>
+<td>Enabled if field teams prospect; otherwise disable</td>
+<td>Reduces map clutter when not needed</td>
+</tr>
+<tr>
+<td>Opportunities</td>
+<td>Enable only if route planning involves deal stages</td>
+<td>Keeps the map focused</td>
+</tr>
+<tr>
+<td>Not visited since</td>
+<td><code>30</code> days</td>
+<td>Highlights accounts needing attention</td>
+</tr>
+<tr>
+<td>Max route steps</td>
+<td><code>50</code></td>
+<td>Covers a full day of visits for most territories</td>
+</tr>
+<tr>
+<td>Cluster radius</td>
+<td><code>60</code></td>
+<td>Good balance between readability and density</td>
+</tr>
+</tbody></table>
+
+<h3>Visit report configuration</h3>
+<p>The visit report form fields and result options are controlled by two configuration values:</p>
+<table>
+<thead>
+<tr>
+<th>Setting</th>
+<th>Default value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>VisitReportCustomFields__c</code></td>
+<td><code>result, routeforce__Satisfaction__c, nextAction, routeforce__OrderAmount__c, notes, routeforce__NextVisitDate__c</code></td>
+</tr>
+<tr>
+<td><code>VisitResultOptions__c</code></td>
+<td><code>Positive,Neutral,Negative,No Answer</code></td>
+</tr>
+</tbody></table>
+<p>To add or remove fields from the visit report form, edit the comma-separated list in <code>VisitReportCustomFields__c</code>. To change the result dropdown options, edit <code>VisitResultOptions__c</code>.</p>
+
+<h3>Two levels of configuration</h3>
+<p>Tourvia is configured at <strong>two levels</strong>:</p>
+<table>
+<thead>
+<tr><th>Level</th><th>What it controls</th><th>Where</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>RouteForceConfig__mdt</strong> (org-wide)</td>
+<td>Product <strong>behavior</strong>: feature toggles, map defaults, query filters, visit report fields, retention settings</td>
+<td>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Default</td>
+</tr>
+<tr>
+<td><strong>App Builder properties</strong> (per page)</td>
+<td>Visual <strong>presentation</strong>: which filter fields appear, legend colors by record type, marker popup content, multi-select rendering, address prefix</td>
+<td>Lightning App Builder (on the Tourvia component)</td>
+</tr>
+</tbody>
+</table>
+<div class="note"><strong>Quick rule:</strong><br>
+<strong>"Where do I change this?"</strong><br><br>
+<strong>Which fields/filters/colors appear?</strong> → App Builder properties (per-page)<br>
+<strong>Enable/disable a feature?</strong> → CMDT RouteForceConfig.Default<br>
+<strong>Limits and defaults (zoom, radius)?</strong> → CMDT RouteForceConfig.Default<br>
+<strong>Custom action buttons?</strong> → CMDT RouteForceAction records<br><br>
+Only <code>addressFieldPrefix</code> and <code>filterFields</code> cascade: App Builder overrides CMDT. Everything else is exclusive to one layer.<br><br>
+For the complete reference with presets, see the <a href="configuration-guide.html#config-model">Configuration Guide: Configuration Model</a>.
+</div>
+
+<h3>Cloning the Tourvia page (recommended)</h3>
+<p>The default Tourvia page ships with generic settings. <strong>We strongly recommend cloning it</strong> to configure the legend, filter fields, and marker popups for your specific business:</p>
+<ol>
+<li>Go to <strong>Setup &gt; Lightning App Builder</strong>.</li>
+<li>Find the <strong>Tourvia</strong> page and open it.</li>
+<li>Click <strong>Save As</strong> to create your own copy (e.g., <code>RouteForce_MyCompany</code>).</li>
+<li>Click the Tourvia component on the canvas to adjust its properties:
+<ul>
+<li><strong>Filter fields</strong>: which filter fields appear in the sidebar</li>
+<li><strong>Legend fields and values</strong>: marker color assignment for Accounts, Opportunities, and Leads</li>
+<li><strong>Marker popup fields</strong>: which fields display when clicking a marker</li>
+<li><strong>Multi-select fields</strong>: which filters render as checkbox lists</li>
+<li><strong>Address prefix</strong>: override Shipping/Billing for this page</li>
+</ul>
+</li>
+<li>Click <strong>Save</strong>, then <strong>Activation</strong>.</li>
+<li>In <strong>Page Settings</strong>, activate for all users (this creates a custom tab).</li>
+<li>Go to <strong>Setup &gt; App Manager</strong>, find <strong>Tourvia</strong>, click <strong>Edit</strong>.</li>
+<li>Under <strong>Navigation Items</strong>, add your new tab and optionally remove the default one.</li>
+</ol>
+
+<h3>Embedding the map on Account, Lead, Opportunity, or Campaign pages</h3>
+<p>The Tourvia component can be placed directly on any <strong>Account</strong>, <strong>Lead</strong>, <strong>Opportunity</strong>, or <strong>Campaign</strong> <span style="color:#9099ff;font-size:0.8em;">(Campaign NEW in 7.20.0)</span> record page. On Account / Lead / Opportunity, the map <strong>automatically centers on the current record's location</strong> and loads nearby records. On a Campaign record page, the layer is auto-scoped to that campaign and shows every geocoded member (resolved via the Lead or Contact parent address).</p>
+<p>This gives field reps an instant geographic view of their territory right from any record they are working on.</p>
+<ol>
+<li>Go to <strong>Setup &gt; Lightning App Builder</strong>.</li>
+<li>Open (or create) a <strong>Record Page</strong> for Account, Lead, Opportunity, or Campaign.</li>
+<li>Search for <strong>routeforce</strong> in the component panel and drag it onto the page.</li>
+<li>Configure the component properties (filter fields, legend, marker popups), the same properties as on the App Page.</li>
+<li>Save and activate the page for the appropriate record types or profiles.</li>
+</ol>
+<div class="note"><strong>How it works:</strong> On a record page, Tourvia receives the record ID automatically from Salesforce. For Account/Lead/Opportunity it uses the record's geolocation to center the map and load nearby items. For a Campaign, it loads every geocoded member of that campaign as markers — useful to plan a tour around a specific campaign roster.</div>
+
+<h3>Going further</h3>
+<p>Beyond the default app and record pages, the Tourvia LWC component (<code>routeforce</code>) is fully reusable. You can:</p>
+<ul>
+<li><strong>Create dedicated App Pages</strong>: build separate pages with different configurations for different teams or use cases</li>
+<li><strong>Build your own Lightning App</strong>: create a custom app with pages containing the <code>routeforce</code> component</li>
+<li><strong>Add to Home Page</strong>: place the map on a Lightning Home Page for instant territory overview</li>
+<li><strong>Clone layouts, reports, and dashboards</strong>: use Save As on any managed layout, report, or dashboard to create your own version</li>
+<li><strong>Use a configuration preset</strong>: the <a href="configuration-guide.html#presets">Configuration Guide</a> includes 4 ready-to-use presets (Account-only, Sales team, Prospecting, Full operations) with exact values to copy-paste</li>
+</ul>
+<div class="note"><strong>Summary (TourviaApp ver 7.26.0):</strong> <code>RouteForceConfig__mdt.Default</code> is the org-wide source of truth for both behavior (toggles, limits, queries) AND visual configuration (filters, marker colors, popup fields). The App Builder properties on the FlexiPage are an optional <strong>per-page override</strong> for cases where one specific page needs different settings (e.g. a Lead record page with a Lead-only filter set). For most orgs, configuring <code>RouteForceConfig.Default</code> is simpler and safer than editing App Builder properties.</div>
+<hr>
+
+<!-- ======================================================== -->
+<h2>9. Verify your geocoded data</h2>
+<p>Tourvia plots records on the map using latitude and longitude fields. If these fields are empty, the map will appear blank.</p>
+<h3>Accounts</h3>
+<p>Depending on your <code>AddressFieldPrefix</code> setting, ensure either:</p>
+<ul>
+<li><code>ShippingLatitude</code> / <code>ShippingLongitude</code> (if prefix is <code>Shipping</code>)</li>
+<li><code>BillingLatitude</code> / <code>BillingLongitude</code> (if prefix is <code>Billing</code>)</li>
+</ul>
+<h3>Leads</h3>
+<p>Use the standard <code>Latitude</code> / <code>Longitude</code> fields on the Lead object.</p>
+<h3>Opportunities</h3>
+<p>Opportunities inherit the address from their parent Account. Ensure the parent Account is geocoded.</p>
+
+<h3>SOQL checks</h3>
+<p>Run these queries to verify data availability:</p>
+<pre><code class="language-sql">-- Accounts with Shipping coordinates
+SELECT COUNT(Id)
+FROM Account
+WHERE ShippingLatitude != null AND ShippingLongitude != null
+</code></pre>
+<pre><code class="language-sql">-- Accounts with Billing coordinates
+SELECT COUNT(Id)
+FROM Account
+WHERE BillingLatitude != null AND BillingLongitude != null
+</code></pre>
+<pre><code class="language-sql">-- Leads with coordinates
+SELECT COUNT(Id)
+FROM Lead
+WHERE Latitude != null AND Longitude != null
+</code></pre>
+<pre><code class="language-sql">-- Sample geocoded accounts
+SELECT Id, Name, ShippingLatitude, ShippingLongitude, ShippingCity
+FROM Account
+WHERE ShippingLatitude != null
+LIMIT 20
+</code></pre>
+<div class="note"><strong>No geocoded data?</strong> You will need to geocode your records before Tourvia can display them. This can be done via Data Loader, a geocoding service, or Salesforce Data Integration Rules for standard address fields.</div>
+<hr>
+
+<!-- ======================================================== -->
+<h2>10. Run the full validation checklist</h2>
+<p>Before rolling out to users, complete this end-to-end validation as a user with <code>RouteForce_Admin</code> assigned.</p>
+
+<h3>Core functionality</h3>
+<ol>
+<li>Open the <strong>Tourvia</strong> tab from the App Launcher.</li>
+<li>Confirm markers are visible on the map.</li>
+<li>Apply at least one filter and verify the markers update.</li>
+<li>Save a filter combination and reload the page to verify it persists.</li>
+<li>Add 3 to 5 stops to the route panel.</li>
+<li>Run route optimization and confirm distance and timing are calculated.</li>
+<li>Create a route visit (if visit reports are enabled).</li>
+<li>Check route history and confirm the record was saved.</li>
+</ol>
+
+<h3>Feature-specific tests</h3>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Test</th>
+<th>Expected result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Heatmap</td>
+<td>Toggle the heatmap layer on</td>
+<td>Heatmap overlay renders on the map with density shading</td>
+</tr>
+<tr>
+<td>Bulk Select</td>
+<td>Use lasso or area selection to select multiple markers</td>
+<td>Selected records appear in the list panel; bulk actions are available</td>
+</tr>
+<tr>
+<td>Saved Filters</td>
+<td>Save a filter, refresh the page, re-apply the saved filter</td>
+<td>Filter is persisted and applies correctly after reload</td>
+</tr>
+<tr>
+<td>Visit Report</td>
+<td>Check in at a stop and complete the visit report form</td>
+<td>Visit report record is created with all configured fields</td>
+</tr>
+<tr>
+<td>CSV Export</td>
+<td>Export current map view to CSV</td>
+<td>CSV file downloads with visible record data</td>
+</tr>
+<tr>
+<td>Leads on map</td>
+<td>Enable Leads and confirm Lead markers appear</td>
+<td>Lead markers display with correct addresses</td>
+</tr>
+<tr>
+<td>Opportunities on map</td>
+<td>Enable Opportunities and confirm markers appear</td>
+<td>Opportunity markers display at parent Account address</td>
+</tr>
+</tbody></table>
+
+<h3>Route settings validation</h3>
+<p>Verify that the route panel respects these settings:</p>
+<ul>
+<li>Departure time</li>
+<li>Lunch break window</li>
+<li>End-of-day time</li>
+<li>Default visit duration</li>
+<li>Max route steps limit</li>
+</ul>
+<hr>
+
+<!-- ======================================================== -->
+<h2>11. Dashboards and reports</h2>
+<p>TourviaApp 7.26.0 ships dashboards and reports for activity, pipeline, and route execution — see the <a href="configuration-guide.html">Configuration Guide</a> for the canonical list. They are ready for use by admins and managers out of the box.</p>
+
+<h3>Included dashboards</h3>
+<table>
+<thead>
+<tr>
+<th>Dashboard</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Tourvia: Field Activity</td>
+<td>Sales manager dashboard: visit activity, on-site compliance, route efficiency, and team performance</td>
+</tr>
+<tr>
+<td>Tourvia: Adoption &amp; Usage</td>
+<td>Admin dashboard: feature adoption, user activity, system health, and error monitoring</td>
+</tr>
+</tbody></table>
+
+<h3>Included reports (18)</h3>
+<p>Reports cover areas including:</p>
+<ul>
+<li>Route history and optimization usage</li>
+<li>Visit report summaries and completion rates</li>
+<li>User adoption and feature usage</li>
+<li>Territory coverage and not-visited accounts</li>
+<li>Check-in activity and GPS compliance</li>
+</ul>
+<p>Find all reports in the <strong>Tourvia</strong> folder. Dashboards are in the <strong>Tourvia</strong> folder. Managers with <code>RouteForce_Manager</code> can view team-wide data; users with <code>RouteForce_User</code> see only their own records.</p>
+
+<h3>SOQL check: verify report folder</h3>
+<pre><code class="language-sql">SELECT Id, DeveloperName, Name
+FROM Folder
+WHERE DeveloperName LIKE 'Tourvia%'
+AND Type = 'Report'
+</code></pre>
+<hr>
+
+<!-- ======================================================== -->
+<h2>12. Recommended rollout order</h2>
+<h3>Phase 1: Admin validation (1-2 days)</h3>
+<ul>
+<li>Install the package</li>
+<li>Assign <code>RouteForce_Admin</code> to yourself</li>
+<li>Run the onboarding wizard</li>
+<li>Verify Remote Site Settings</li>
+<li>Confirm licence activation</li>
+<li>Complete the full validation checklist (Section 10)</li>
+<li>Review dashboards and reports</li>
+</ul>
+<h3>Phase 2: Pilot users (1-2 weeks)</h3>
+<ul>
+<li>Assign <code>RouteForce_User</code> to a small group of field reps (3-5 users)</li>
+<li>Assign <code>RouteForce_Manager</code> to their direct manager</li>
+<li>Gather feedback on filters, marker fields, and route behavior</li>
+<li>Adjust defaults in RouteForceConfig__mdt, or clone the FlexiPage to customize (see Section 8)</li>
+<li>Test visit reports with real field data</li>
+</ul>
+<h3>Phase 3: Broader deployment</h3>
+<ul>
+<li>Assign permission sets to remaining users</li>
+<li>Train users on route creation, optimization, and check-in</li>
+<li>Share the Tourvia User Guide internally</li>
+<li>Add more filter fields to FilterFields__c based on pilot feedback</li>
+<li>Set up dashboard subscriptions for managers</li>
+</ul>
+<hr>
+
+<!-- ======================================================== -->
+<h2>13. Common setup issues</h2>
+<table>
+<thead>
+<tr>
+<th>Issue</th>
+<th>Likely cause</th>
+<th>Resolution</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Map is empty</td>
+<td>No geocoded records, or wrong address prefix</td>
+<td>Run the SOQL checks in Section 9. Switch <code>AddressFieldPrefix</code> if needed.</td>
+</tr>
+<tr>
+<td>Licence error on load</td>
+<td>Missing or invalid licence key</td>
+<td>Re-run the onboarding wizard and enter the correct licence key.</td>
+</tr>
+<tr>
+<td>Route optimization fails</td>
+<td>ORS access blocked or invalid API key</td>
+<td>Verify Remote Site Settings (Section 4) and API keys in onboarding.</td>
+</tr>
+<tr>
+<td>Users cannot open Tourvia</td>
+<td>Missing permission set or PSG</td>
+<td>Assign the appropriate PSG: <code>TourviaApp_User_Group</code> or <code>TourviaApp_Manager_Group</code> (or, as a fallback, the underlying <code>routeforce__RouteForce_User</code> / <code>routeforce__RouteForce_Manager</code> permset).</td>
+</tr>
+<tr>
+<td>Nearby Contact / Campaign Member markers empty, or <code>No such column OtherLatitude</code> error</td>
+<td><code>Contact.OtherAddress</code> (compound) FLS not granted on the user — typically because the user was assigned a permset before TourviaApp 7.23.0 and the 2GP upgrade did not refresh the assignment</td>
+<td>Re-assign the TourviaApp PSG (e.g., <code>TourviaApp_User_Group</code>) to the affected users so the 7.23.0 FLS deltas (compound addresses, lat/long, phones) land on the existing permset assignment.</td>
+</tr>
+<tr>
+<td>Wrong addresses displayed</td>
+<td>Incorrect address prefix setting</td>
+<td>Change <code>AddressFieldPrefix__c</code> from <code>Shipping</code> to <code>Billing</code> or vice versa.</td>
+</tr>
+<tr>
+<td>Too much clutter on map</td>
+<td>All object types enabled with no filters</td>
+<td>Disable unneeded objects (Leads, Opportunities) or adjust default filters.</td>
+</tr>
+<tr>
+<td>Heatmap not rendering</td>
+<td>Feature disabled in configuration</td>
+<td>Set <code>EnableHeatmap__c</code> to <code>true</code> in <code>RouteForceConfig__mdt</code>.</td>
+</tr>
+<tr>
+<td>Visit report fields missing</td>
+<td>Incorrect <code>VisitReportCustomFields__c</code> value</td>
+<td>Edit the comma-separated field list in configuration to include the desired fields.</td>
+</tr>
+<tr>
+<td>Bulk select not working</td>
+<td>Feature disabled in configuration</td>
+<td>Set <code>EnableBulkSelect__c</code> to <code>true</code> in <code>RouteForceConfig__mdt</code>.</td>
+</tr>
+<tr>
+<td>Filters not showing expected fields</td>
+<td>Filter field slots not configured</td>
+<td>Verify <code>FilterFields__c</code> value in <code>RouteForceConfig__mdt</code>.</td>
+</tr>
+<tr>
+<td>Manager cannot see team data</td>
+<td>Wrong permission set or PSG assigned</td>
+<td>Assign <code>TourviaApp_Manager_Group</code> instead of <code>TourviaApp_User_Group</code> (or, as a fallback, the underlying <code>routeforce__RouteForce_Manager</code> permset).</td>
+</tr>
+</tbody></table>
+<hr>
+
+<!-- ======================================================== -->
+<h2>14. Handover to operations</h2>
+<p>Before closing the setup phase, confirm the following items are documented and communicated:</p>
+<ul>
+<li>Address model chosen (<code>Shipping</code> or <code>Billing</code>)</li>
+<li>Enabled features and their rationale</li>
+<li>Configured filter fields (including any custom additions)</li>
+<li>Visit report field configuration</li>
+<li>PermissionSetGroup assignments (<code>TourviaApp_User_Group</code> / <code>TourviaApp_Manager_Group</code> / <code>TourviaApp_Admin_Group</code>) and any custom permsets added to the PSG for extensibility</li>
+<li>Designated Tourvia admin owner</li>
+<li>Support email or escalation path for Tourvia issues</li>
+<li>User Guide shared with field teams</li>
+<li>Dashboard subscriptions configured for managers</li>
+</ul>
+<hr>
+
+<!-- ======================================================== -->
+<h2>Support</h2>
+<p>For package access, licence activation, routing issues, or general questions, contact your Tourvia support channel. When reaching out, include:</p>
+<ul>
+<li>Your Salesforce org ID</li>
+<li>Environment type (Production or Sandbox)</li>
+<li>TourviaApp package version (<code>7.26.0</code>)</li>
+<li>Description of the issue and steps to reproduce</li>
+</ul>
+<p class="small-muted">Tourvia &bull; contact@routeforce.app &bull; <a href="https://routeforce.app">routeforce.app</a></p>
+
+  </main>
+<footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <img src="/assets/logo-site-brand.png" alt="Tourvia" style="width:28px;height:28px;border-radius:8px;"/>
+        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">Tourvia</span>
+      </div>
+      <p style="color:#a1a1aa;font-size:0.9rem;line-height:1.6;max-width:280px;margin:0 0 16px;">Salesforce-native route optimization for field sales teams.</p>
+      <a href="/#contact" style="display:inline-flex;align-items:center;gap:6px;background:#6366f1;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">Request a 30-day trial</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Product</span>
+      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="/use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="/native-integration-salesforce.html" style="color:#a1a1aa;text-decoration:none;">Integration</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Resources</span>
+      <a href="/blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="/docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="/consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="/flat-rate-route-optimization.html" style="color:#a1a1aa;text-decoration:none;">Pricing ROI</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Company</span>
+      <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
+      <a href="/docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
+      <a href="/docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
+      <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" style="color:#a1a1aa;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Status <span style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span></a>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e1e22;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#71717a;font-size:0.8rem;">
+    <span>&copy; 2026 Tourvia. All rights reserved.</span>
+    <span>Built natively on Salesforce. AppExchange managed package.</span>
+  </div>
+</footer>
+<script>
+window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach(function(link){
+  link.addEventListener('click',function(){
+    window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
+  });
+});
+</script>
+</body>
+</html>

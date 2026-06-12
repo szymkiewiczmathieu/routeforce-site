@@ -1,1258 +1,1001 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html class="dark" lang="en">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PWNN33DN');</script>
-    <!-- End Google Tag Manager -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tourvia — Optimisation de tournées commerciales Salesforce | 30€ par utilisateur</title>
-    <meta name="description" content="Planifiez et optimisez les tournées de vos commerciaux terrain directement dans Salesforce. Optimisation avancée, création automatique d'événements, export CSV, historique — 30€ HT par utilisateur et par mois.">
-    <meta name="robots" content="index, follow">
-    <meta name="author" content="Tourvia">
-    <meta name="keywords" content="optimisation tournées commerciales, Salesforce route planning, logiciel tournée CRM, gestion commerciaux terrain, planification itinéraires Salesforce, cartographie CRM sans licence par utilisateur">
-
-    <!-- Canonical & Hreflang -->
-    <link rel="canonical" href="https://routeforce.app/">
-    <link rel="alternate" hreflang="fr" href="https://routeforce.app/">
-    <link rel="alternate" hreflang="en" href="https://routeforce.app/en/">
-    <link rel="alternate" hreflang="es" href="https://routeforce.app/es/">
-    <link rel="alternate" hreflang="x-default" href="https://routeforce.app/">
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Tourvia — Optimisation de tournées commerciales Salesforce">
-    <meta property="og:description" content="Planifiez et optimisez les tournées de vos commerciaux terrain directement dans Salesforce. Optimisation avancée, création d'événements, export CSV — 30€ HT par utilisateur et par mois.">
-    <meta property="og:url" content="https://routeforce.app/">
-    <meta property="og:image" content="https://routeforce.app/assets/screenshot-cmdt-config.jpg">
-    <meta property="og:locale" content="fr_FR">
-    <meta property="og:locale:alternate" content="en_US">
-    <meta property="og:locale:alternate" content="es_ES">
-    <meta property="og:site_name" content="Tourvia">
-
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tourvia — Tournées commerciales optimisées pour Salesforce">
-    <meta name="twitter:description" content="Planifiez et optimisez les tournées terrain directement dans Salesforce. 30€ HT par utilisateur et par mois pour toute l'équipe.">
-    <meta name="twitter:image" content="https://routeforce.app/assets/screenshot-cmdt-config.jpg">
-
-    <!-- JSON-LD Structured Data -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Tourvia",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web (Salesforce)",
-        "description": "Solution native Salesforce d'optimisation de tournées commerciales. Carte interactive, planification d'itinéraires et création automatique d'événements.",
-        "url": "https://routeforce.app",
-        "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "EUR",
-            "lowPrice": "2975",
-            "highPrice": "18000",
-            "offerCount": "3"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Tourvia",
-            "url": "https://routeforce.app"
-        },
-        "featureList": [
-            "Carte interactive Leaflet intégrée à Salesforce",
-            "Optimisation automatique de tournées",
-            "Tracé d'itinéraire sur la carte",
-            "Création automatique d'événements Salesforce",
-            "Filtres dynamiques et sauvegardés",
-            "Export Google Maps / Waze / CSV",
-            "Historique des 20 dernières tournées",
-            "Comptes proches par géolocalisation GPS",
-            "Drag-and-drop pour réordonner les étapes",
-            "Gestion des rendez-vous non assignés",
-            "Interface mobile responsive avec bottom sheet",
-            "Multilingue FR/EN/ES"
-        ],
-        "inLanguage": ["fr", "en", "es"]
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18063754907');
+</script>
+<title>Salesforce route planning inside Salesforce | Tourvia</title>
+<meta name="robots" content="index, follow">
+<script>
+  (function () {
+    var path = window.location.pathname;
+    if (path === '/index.html') {
+      var robots = document.querySelector('meta[name="robots"]');
+      if (robots) robots.setAttribute('content', 'noindex,follow');
+      var googlebot = document.createElement('meta');
+      googlebot.setAttribute('name', 'googlebot');
+      googlebot.setAttribute('content', 'noindex,follow');
+      document.head.appendChild(googlebot);
+      window.location.replace('/' + window.location.search + window.location.hash);
     }
-    </script>
+  })();
+</script>
+    <meta name="description" content="Tourvia, formerly RouteForce, is Salesforce route planning software for teams that want route optimization, Campaign Member mapping, visit planning, and field execution inside the CRM."/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/><link rel="icon" type="image/x-icon" href="favicon.ico"/>
+<link rel="canonical" href="https://routeforce.app"/>
+<link rel="alternate" hreflang="en" href="https://routeforce.app"/>
+<link rel="alternate" hreflang="x-default" href="https://routeforce.app"/>
+<meta name="geo.region" content="FR-75"/>
+<meta name="geo.placename" content="Paris"/>
+<meta name="geo.position" content="48.8422;2.3016"/>
+<meta name="ICBM" content="48.8422, 2.3016"/>
+<meta name="author" content="Tourvia"/>
+<meta name="publisher" content="Tourvia"/>
+<meta property="og:locale" content="en_US"/>
+<!-- Open Graph -->
+<meta property="og:title" content="Salesforce route planning inside Salesforce | Tourvia"/>
+<meta property="og:description" content="Tourvia, formerly RouteForce, keeps route planning, route optimization, visit planning, and field execution inside Salesforce."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://routeforce.app"/>
+<meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+<meta property="og:site_name" content="Tourvia"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Salesforce route planning inside Salesforce | Tourvia"/>
+<meta name="twitter:description" content="Tourvia, formerly RouteForce, keeps route planning, route optimization, visit planning, and field execution inside Salesforce."/>
+<meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+<link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="image" href="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" fetchpriority="high"/>
+<link rel="stylesheet" href="assets/css/tailwind.min.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+  body { font-family: 'Inter', system-ui, sans-serif; }
+  .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+  html { scroll-behavior: smooth; }
 
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  /* ===== LINEAR/VERCEL HERO BACKGROUND ===== */
+
+  /* Dot grid pattern */
+  .hero-section {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(99, 102, 241, 0.12) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black, transparent);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Animated glow orbs */
+  .hero-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    pointer-events: none;
+    z-index: 0;
+    will-change: transform, opacity;
+  }
+  .hero-orb-1 {
+    width: min(600px, 80vw); height: min(600px, 80vw);
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.18) 0%, transparent 70%);
+    top: -10%; left: -10%;
+    animation: orbFloat1 8s ease-in-out infinite;
+  }
+  .hero-orb-2 {
+    width: min(500px, 70vw); height: min(500px, 70vw);
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.12) 0%, transparent 70%);
+    bottom: -15%; right: -5%;
+    animation: orbFloat2 10s ease-in-out infinite;
+  }
+  .hero-orb-3 {
+    width: min(300px, 50vw); height: min(300px, 50vw);
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
+    top: 30%; right: 25%;
+    animation: orbFloat3 12s ease-in-out infinite;
+  }
+  @keyframes orbFloat1 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(40px, 30px) scale(1.05); }
+    66% { transform: translate(-20px, -15px) scale(0.95); }
+  }
+  @keyframes orbFloat2 {
+    0%, 100% { transform: translate(0, 0) scale(1); }
+    33% { transform: translate(-30px, -20px) scale(1.08); }
+    66% { transform: translate(25px, 15px) scale(0.92); }
+  }
+  @keyframes orbFloat3 {
+    0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.6; }
+    50% { transform: translate(-40px, 25px) scale(1.1); opacity: 1; }
+  }
+
+  /* Animated beam line (Linear-style) */
+  .hero-beam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.5), rgba(6, 182, 212, 0.5), transparent);
+    animation: beamSlide 6s ease-in-out infinite;
+    z-index: 1;
+  }
+  @keyframes beamSlide {
+    0% { transform: translateX(-100%); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+  }
+
+  /* Subtle noise grain overlay */
+  .hero-section::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* Ensure hero content is above orbs (exclude orbs & beam) */
+  .hero-section > .grid { position: relative; z-index: 2; }
+
+  /* Enhanced gradient text with shimmer */
+  .gradient-text-animated {
+    background: linear-gradient(90deg, #9099ff, #06b6d4, #a78bfa, #9099ff);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShimmer 6s ease infinite;
+  }
+  @keyframes gradientShimmer {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  /* Glow effects */
+  .glow-primary { box-shadow: 0 0 80px rgba(99, 102, 241, 0.15), 0 0 160px rgba(99, 102, 241, 0.05); }
+  .glow-accent { box-shadow: 0 0 60px rgba(6, 182, 212, 0.1); }
+
+  /* Video container */
+  .video-glow {
+    position: relative;
+  }
+  .video-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #6366f1, #06b6d4, #6366f1);
+    opacity: 0.4;
+    filter: blur(20px);
+    z-index: -1;
+  }
+
+  /* Feature card hover */
+  .feature-card {
+    background: #18181b;
+    border: 1px solid #27272a;
+    transition: all 0.3s ease;
+  }
+  .feature-card:hover {
+    border-color: #6366f1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(99, 102, 241, 0.1);
+  }
+
+  /* Screenshot showcase */
+  .screenshot-frame {
+    border: 1px solid #27272a;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    transition: all 0.4s ease;
+  }
+  .screenshot-frame:hover {
+    border-color: #3f3f46;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+
+  .showcase-list {
+    display: grid;
+    gap: 4.5rem;
+  }
+  .showcase-stack {
+    display: grid;
+    gap: 2rem;
+  }
+
+  @media (min-width: 1024px) {
+    .showcase-list {
+      gap: 7rem;
+    }
+    .showcase-stack {
+      gap: 2.5rem;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    #showcase {
+      padding-top: 4rem !important;
+      padding-bottom: 3.5rem !important;
+    }
+
+    #pricing {
+      padding-top: 4rem !important;
+    }
+  }
+
+  /* Clickable images - open full size */
+  .screenshot-frame img, .screenshot-frame video { cursor: pointer; }
+
+  /* Lightbox overlay */
+  .lightbox {
+    display: none; position: fixed; inset: 0; z-index: 9999;
+    background: rgba(0,0,0,0.9); align-items: center; justify-content: center;
+    cursor: zoom-out; padding: 24px;
+  }
+  .lightbox.active { display: flex; }
+  .lightbox img { max-width: 95vw; max-height: 95vh; border-radius: 8px; }
+
+  /* Gradient text */
+  .gradient-text {
+    background: linear-gradient(135deg, #9099ff, #06b6d4);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hero animations */
+  @keyframes heroFadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes heroScaleIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .hero-text {
+    animation: heroFadeUp 0.7s ease forwards;
+  }
+  .hero-visual {
+    animation: heroScaleIn 0.8s ease 0.2s forwards;
+    opacity: 0;
+  }
+  .hero-text .flex.flex-wrap.gap-x-5 {
+    animation: heroFadeUp 0.6s ease 0.4s forwards;
+    opacity: 0;
+  }
+  .hero-text .flex.gap-8 {
+    animation: heroFadeUp 0.6s ease 0.5s forwards;
+    opacity: 0;
+  }
+
+  /* Fade in on scroll */
+  .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* Pricing glow */
+  .pricing-highlight {
+    position: relative;
+  }
+  .pricing-highlight::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #6366f1, #06b6d4);
+    z-index: -1;
+  }
+</style>
 </head>
-<body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWNN33DN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
 
-    <!-- COUNTDOWN BANNER — MULTILINGUAL SLIDER -->
-    <div class="countdown-banner">
-        <div class="countdown-content">
-            <div class="countdown-left">
-                <div class="countdown-slider" id="countdown-slider">
-                    <div class="countdown-slide active">
-                        <span class="countdown-label">🚀 LANCEMENT MONDIAL v1.0</span>
-                        <span class="countdown-sub">Package Major • Couverture routière monde entier • 09 mars 2026</span>
-                    </div>
-                    <div class="countdown-slide">
-                        <span class="countdown-label">🚀 WORLDWIDE LAUNCH v1.0</span>
-                        <span class="countdown-sub">Major Package • Worldwide routing coverage • March 9, 2026</span>
-                    </div>
-                    <div class="countdown-slide">
-                        <span class="countdown-label">🚀 LANZAMIENTO MUNDIAL v1.0</span>
-                        <span class="countdown-sub">Paquete Major • Cobertura mundial de rutas • 9 de marzo 2026</span>
-                    </div>
-                </div>
-            </div>
-            <div class="countdown-timer" id="countdown">
-                <div class="countdown-block">
-                    <span class="countdown-num" id="cd-days">--</span>
-                    <span class="countdown-unit" data-fr="JOURS" data-en="DAYS" data-es="DÍAS">JOURS</span>
-                </div>
-                <div class="countdown-sep">:</div>
-                <div class="countdown-block">
-                    <span class="countdown-num" id="cd-hours">--</span>
-                    <span class="countdown-unit" data-fr="HEURES" data-en="HOURS" data-es="HORAS">HEURES</span>
-                </div>
-                <div class="countdown-sep">:</div>
-                <div class="countdown-block">
-                    <span class="countdown-num" id="cd-mins">--</span>
-                    <span class="countdown-unit">MIN</span>
-                </div>
-                <div class="countdown-sep">:</div>
-                <div class="countdown-block">
-                    <span class="countdown-num" id="cd-secs">--</span>
-                    <span class="countdown-unit">SEC</span>
-                </div>
-            </div>
-            <div class="countdown-right">
-                <div class="countdown-slider" id="countdown-slider-right">
-                    <div class="countdown-slide-right active">
-                        <span class="countdown-offer">🆓 ESSAI 30 JOURS</span>
-                        <span class="countdown-offer countdown-discount">🔥 -15% INSTALLATION</span>
-                    </div>
-                    <div class="countdown-slide-right">
-                        <span class="countdown-offer">🆓 30-DAY TRIAL</span>
-                        <span class="countdown-offer countdown-discount">🔥 15% OFF SETUP</span>
-                    </div>
-                    <div class="countdown-slide-right">
-                        <span class="countdown-offer">🆓 PRUEBA 30 DÍAS</span>
-                        <span class="countdown-offer countdown-discount">🔥 -15% INSTALACIÓN</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-    (function(){
-      // Countdown timer
-      const target = new Date('2026-03-09T09:00:00+01:00').getTime();
-      const langs = ['fr','en','es'];
-      let langIdx = 0;
-
-      function updateTimer(){
-        const now = Date.now();
-        const diff = target - now;
-        if(diff <= 0){
-          document.getElementById('countdown').innerHTML = '<span style="font-size:1.2rem;font-weight:800;color:#fff;">🎉 LAUNCHED!</span>';
-          return;
-        }
-        const d = Math.floor(diff / 86400000);
-        const h = Math.floor((diff % 86400000) / 3600000);
-        const m = Math.floor((diff % 3600000) / 60000);
-        const s = Math.floor((diff % 60000) / 1000);
-        document.getElementById('cd-days').textContent = d;
-        document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
-        document.getElementById('cd-mins').textContent = String(m).padStart(2,'0');
-        document.getElementById('cd-secs').textContent = String(s).padStart(2,'0');
-      }
-
-      // Multilingual slider
-      function rotateSlides(){
-        langIdx = (langIdx + 1) % 3;
-        const lang = langs[langIdx];
-
-        // Left slides
-        document.querySelectorAll('#countdown-slider .countdown-slide').forEach((s,i) => {
-          s.classList.toggle('active', i === langIdx);
-        });
-
-        // Right slides
-        document.querySelectorAll('#countdown-slider-right .countdown-slide-right').forEach((s,i) => {
-          s.classList.toggle('active', i === langIdx);
-        });
-
-        // Timer units
-        document.querySelectorAll('.countdown-unit[data-'+lang+']').forEach(u => {
-          u.textContent = u.getAttribute('data-'+lang);
-        });
-      }
-
-      updateTimer();
-      setInterval(updateTimer, 1000);
-      setInterval(rotateSlides, 4000);
-    })();
-    </script>
-
-    <!-- NAVBAR -->
-    <nav class="navbar" id="navbar">
-        <div class="container navbar-content">
-            <a href="#" class="logo">
-                <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
-                    <path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <circle cx="8" cy="20" r="2.5" fill="currentColor"/>
-                    <circle cx="14" cy="10" r="2.5" fill="currentColor"/>
-                    <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
-                    <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
-                </svg>
-                <span>Tourvia</span>
-            </a>
-            <div class="nav-links" id="navLinks">
-                <a href="#features">Fonctionnalités</a>
-                <a href="cas-usage.html">Cas d'usage</a>
-                <a href="#pricing">Tarifs</a>
-                <a href="blog/">Blog</a>
-                <a href="#faq">FAQ</a>
-                <a href="en/index.html" class="lang-switch">EN</a>
-                <a href="es/index.html" class="lang-switch">ES</a>
-                <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" class="nav-status-badge" title="Statut du service en temps réel">
-                    <span class="status-dot"></span><span class="nav-status-label">Opérationnel</span>
-                </a>
-                <a href="#contact" class="btn btn-primary btn-sm">Demander une démo</a>
-            </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-        </div>
+<!-- ===== NAV ===== -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl border-b border-outline-variant/50">
+  <div class="flex justify-between items-center px-6 lg:px-8 py-3 max-w-7xl mx-auto">
+    <a href="/" class="flex items-center gap-2.5 min-w-0 pr-3">
+      <img src="assets/logo-site-brand.png" alt="Tourvia" class="w-8 h-8 rounded-lg shrink-0"/>
+      <span class="text-lg font-bold tracking-tight truncate">Tourvia</span>
+    </a>
+    <nav class="hidden md:flex gap-8 items-center text-sm">
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#showcase">Product</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing">Pricing</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="use-cases.html">Use cases</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="blog/">Blog</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="consulting.html">Consulting</a>
     </nav>
+    <div class="flex items-center gap-2 sm:gap-3">
+      <a href="docs/" class="hidden sm:inline-flex text-sm text-on-surface-variant hover:text-on-surface transition-colors">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="hidden lg:inline-flex text-sm text-on-surface-variant hover:text-on-surface transition-colors">Private AppExchange access</a>
+      <a href="/#contact" class="hidden md:inline-flex bg-primary hover:bg-primary-dim text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors whitespace-nowrap">
+        30-day trial access
+      </a>
+      <!-- Mobile hamburger -->
+      <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2 shrink-0" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Open menu">
+        <span class="block w-5 h-0.5 bg-on-surface"></span>
+        <span class="block w-5 h-0.5 bg-on-surface"></span>
+        <span class="block w-5 h-0.5 bg-on-surface"></span>
+      </button>
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/50 bg-surface/95 backdrop-blur-xl px-6 py-4">
+    <nav class="flex flex-col gap-4 text-sm">
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Features</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#showcase" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Product</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Pricing</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="use-cases.html">Use cases</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="blog/">Blog</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="consulting.html">Consulting</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/">Docs</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/#contact">30-day trial request</a>
+    </nav>
+  </div>
+</header>
 
-    <!-- HERO -->
-    <header class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">100% natif Salesforce</div>
-                <div class="hero-badge hero-badge-legacy">Tourvia, formerly RouteForce</div>
-                <h1>Optimisez vos tournées en un clic avec Tourvia. Planifiez, visualisez et gérez vos visites facilement.</h1>
-                <p class="hero-subtitle">
-                    Pensé pour les organisations sous Salesforce avec des équipes itinérantes. Optimisation de tournées, cartographie interactive et création automatique d'événements —
-                    un prix par utilisateur pour toute votre org. <strong>30€ HT par utilisateur et par mois.</strong>
-                </p>
-                <div class="hero-cta">
-                    <a href="#contact" class="btn btn-primary btn-lg">Demander un essai 30 jours</a>
-                    <a href="#screenshots" class="btn btn-outline btn-lg">Voir dans Salesforce</a>
-                </div>
-                <div class="hero-proof">
-                    <div class="proof-item">
-                        <span class="proof-number">30€</span>
-                        <span class="proof-label">HT / utilisateur / mois</span>
-                    </div>
-                    <div class="proof-divider"></div>
-                    <div class="proof-item">
-                        <span class="proof-number">3</span>
-                        <span class="proof-label">langues incluses</span>
-                    </div>
-                    <div class="proof-divider"></div>
-                    <div class="proof-item">
-                        <span class="proof-number">100%</span>
-                        <span class="proof-label">natif Salesforce</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="hero-screenshot">
-                    <img src="assets/screenshot-cmdt-config.jpg" alt="Tourvia — Configuration personnalisable avec 17 paramètres dans Salesforce Custom Metadata" loading="eager" fetchpriority="high">
-                    <p class="hero-caption">Aucun développeur requis — votre équipe garde la main en quelques clics</p>
-                </div>
-                <div class="hero-mobile">
-                    <div class="phone-frame">
-                        <div class="phone-notch"></div>
-                        <img src="assets/screenshot-mobile.jpg" alt="Tourvia — Compatible mobile, tablette et desktop" loading="eager">
-                    </div>
-                    <span class="mobile-badge">📱 Compatible mobile</span>
-                </div>
-            </div>
+<main>
+
+  <!-- ===== HERO (split layout) ===== -->
+  <section class="hero-section pt-28 pb-12 lg:pt-36 lg:pb-20 px-6 lg:px-8 max-w-7xl mx-auto lg:min-h-[90vh] flex items-center">
+    <!-- Animated background elements -->
+    <div class="hero-beam"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center w-full">
+
+      <!-- Left: Text -->
+      <div class="hero-text">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-6">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
+          <span class="text-xs font-medium text-primary-light">Tourvia, formerly RouteForce</span>
         </div>
-    </header>
-
-    <!-- PROBLEM / SOLUTION -->
-    <section class="problem-section">
-        <div class="container">
-            <div class="problem-grid">
-                <div class="problem-card">
-                    <div class="problem-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="15" y1="9" x2="9" y2="15"/>
-                            <line x1="9" y1="9" x2="15" y2="15"/>
-                        </svg>
-                    </div>
-                    <h3>Sans Tourvia</h3>
-                    <ul>
-                        <li>Tournées planifiées manuellement sur Excel ou Google Maps</li>
-                        <li>30 à 45 min perdues chaque matin pour organiser la journée</li>
-                        <li>Aucune visibilité managériale sur la couverture terrain</li>
-                        <li>Clients oubliés, secteurs survisités, données CRM pas à jour</li>
-                        <li>Licences coûteuses facturées par utilisateur</li>
-                    </ul>
-                </div>
-                <div class="solution-card">
-                    <div class="solution-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M8 12l3 3 5-5"/>
-                        </svg>
-                    </div>
-                    <h3>Avec Tourvia, vos commerciaux optimisent leurs tournées sans friction</h3>
-                    <ul>
-                        <li><strong>Prix clair par utilisateur</strong> — 30€ HT par utilisateur et par mois, facturé annuellement</li>
-                        <li><strong>100% natif Salesforce</strong> — pas de synchro externe, vos données restent dans votre org</li>
-                        <li><strong>Comptes ET Leads sur la même carte</strong> — prospection + fidélisation, même tournée</li>
-                        <li><strong>Itinéraire optimal multimodal</strong> — pause déjeuner, péages, durée de visite intégrés</li>
-                        <li><strong>Agenda Salesforce rempli automatiquement</strong> — RDV, contacts, adresses, en un clic</li>
-                        <li><strong>Historique des tournées</strong> — rechargez vos itinéraires récurrents en 30 secondes</li>
-                        <li><strong>Export CSV</strong> — reporting manager et feuille de route partagée</li>
-                    </ul>
-                    <p style="margin-top: 16px; font-size: 0.9rem; color: var(--gray-600);"><em>Hébergé en France (OVH), redondance Europe (Heidelberg). Conforme RGPD. Sans engagement.</em></p>
-                </div>
-            </div>
+        <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.04] mb-6 max-w-4xl text-balance">
+          Salesforce route planning your field team can actually roll out inside Salesforce.
+        </h1>
+        <p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed mb-7">
+          Tourvia is the new name for RouteForce. It helps Salesforce teams optimize routes, turn them into visits, and keep field execution inside the CRM with clear €30/user/month pricing, billed annually.
+        </p>
+        <div class="flex flex-wrap gap-3 mb-6">
+          <a href="/#contact" class="bg-primary hover:bg-primary-dim text-white px-6 py-3 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-primary/25 inline-flex items-center gap-2">
+            Request a 30-day trial
+            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+          </a>
+          <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-6 py-3 rounded-xl font-semibold transition-colors border border-outline inline-flex items-center gap-2">
+            <span class="material-symbols-outlined text-lg">verified</span>
+            Private AppExchange access
+          </a>
+          <a href="salesforce-route-planning.html" class="bg-surface-container-high hover:bg-surface-container-highest text-on-surface px-6 py-3 rounded-xl font-semibold transition-colors border border-outline inline-flex items-center gap-2">
+            <span class="material-symbols-outlined text-lg">map</span>
+            See route planning inside Salesforce
+          </a>
         </div>
-    </section>
-    <!-- FEATURES -->
-    <section class="features-section" id="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Tout ce dont vos commerciaux terrain ont besoin</h2>
-                <p>Une solution complète intégrée nativement dans Salesforce</p>
-            </div>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                            <circle cx="12" cy="10" r="3"/>
-                        </svg>
-                    </div>
-                    <h3>Carte interactive</h3>
-                    <p>Visualisez tous vos comptes clients sur une carte dynamique avec clustering intelligent. Identifiez instantanément vos zones de couverture.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                    </div>
-                    <h3>Optimisation de tournées</h3>
-                    <p>Algorithme d'optimisation avancé qui calcule l'itinéraire le plus efficace. Pause déjeuner, durée de visite et contraintes horaires incluses.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
-                        </svg>
-                    </div>
-                    <h3>Filtres intelligents</h3>
-                    <p>Filtrez par secteur, dernière visite, potentiel, propriétaire... Sauvegardez vos combinaisons de filtres pour les réutiliser.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                            <line x1="16" y1="2" x2="16" y2="6"/>
-                            <line x1="8" y1="2" x2="8" y2="6"/>
-                            <line x1="3" y1="10" x2="21" y2="10"/>
-                            <path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/>
-                        </svg>
-                    </div>
-                    <h3>Création de RDV en masse</h3>
-                    <p>Un clic suffit pour créer tous les événements Salesforce de votre tournée. Compte, contact, horaire et lieu pré-remplis automatiquement.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="3 11 22 2 13 21 11 13 3 11"/>
-                        </svg>
-                    </div>
-                    <h3>Export & Navigation</h3>
-                    <p>Envoyez votre tournée vers Google Maps en un clic, ou exportez-la en CSV pour votre reporting. Vos commerciaux ont leur itinéraire, votre manager a ses données.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="2" y1="12" x2="22" y2="12"/>
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                        </svg>
-                    </div>
-                    <h3>Multi-langue</h3>
-                    <p>Interface disponible en français, anglais et espagnol. Idéal pour les équipes commerciales internationales.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                            <line x1="12" y1="18" x2="12.01" y2="18"/>
-                        </svg>
-                    </div>
-                    <h3>Mobile-ready</h3>
-                    <p>Conçu pour fonctionner sur le terrain. Interface responsive, géolocalisation native et tactile optimisé.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <h3>100% natif Salesforce</h3>
-                    <p>Aucune application tierce. Respecte les permissions, le partage et la sécurité Salesforce. Vos données CRM restent dans votre org.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 9 15"/>
-                        </svg>
-                    </div>
-                    <h3>Historique des tournées</h3>
-                    <p>Retrouvez et rechargez vos 20 dernières tournées en un clic. Distance, durée et étapes sauvegardées automatiquement après chaque session.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                            <circle cx="12" cy="10" r="3"/>
-                            <circle cx="12" cy="10" r="7" stroke-dasharray="2 2"/>
-                        </svg>
-                    </div>
-                    <h3>Comptes proches</h3>
-                    <p>Géolocalisation GPS en un tap — visualisez instantanément tous les comptes Salesforce dans un rayon configurable autour de votre position. Idéal pour optimiser les visites improvisées sur le terrain.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- POUR QUI -->
-    <section class="personas-section" id="pour-qui">
-        <div class="container">
-            <div class="section-header">
-                <h2>Pour qui est Tourvia ?</h2>
-                <p>Chaque rôle y trouve sa valeur</p>
-            </div>
-            <div class="personas-grid">
-                <div class="persona-card">
-                    <div class="persona-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-                    </div>
-                    <h3>Directeur Commercial</h3>
-                    <ul>
-                        <li>Visibilité en temps réel sur la couverture terrain</li>
-                        <li>Réduction du temps improductif de trajet</li>
-                        <li>Création d'événements terrain depuis la carte, sans ressaisie</li>
-                    </ul>
-                </div>
-                <div class="persona-card">
-                    <div class="persona-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                    </div>
-                    <h3>DSI / IT Manager</h3>
-                    <ul>
-                        <li>100% natif Salesforce — aucune infrastructure à gérer de votre côté</li>
-                        <li>Données CRM restent dans votre org Salesforce</li>
-                        <li>Respect des permissions et profils existants</li>
-                        <li>Abonnement clair par utilisateur</li>
-                    </ul>
-                </div>
-                <div class="persona-card">
-                    <div class="persona-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    </div>
-                    <h3>Admin Salesforce</h3>
-                    <ul>
-                        <li>Déployé et configuré par notre équipe</li>
-                        <li>Configuration par Custom Metadata (no-code)</li>
-                        <li>Filtres personnalisables sans développement</li>
-                        <li>Conçu pour l'objet Account Salesforce</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SCREENSHOTS -->
-    <section class="screenshots-section" id="screenshots">
-        <div class="container">
-            <div class="section-header">
-                <h2>Tourvia en action</h2>
-                <p>Découvrez l'interface directement intégrée dans Salesforce</p>
-            </div>
-            <div class="screenshots-grid">
-                <div class="screenshot-card">
-                    <div class="screenshot-img">
-                        <img src="assets/screenshot-satellite-legend.jpg" alt="Tourvia — Vue nationale des comptes Salesforce avec cercle Around Me, clusters par région et légende de segmentation" loading="lazy" width="1200" height="800">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>Cartographie nationale & segmentation client</h3>
-                        <p>Visualisez l'ensemble de vos comptes Salesforce sur toute la France en quelques secondes. La légende couleur distingue instantanément Prospects, Clients directs et Clients indirects. Le cercle "Around me" indique la zone de chalandise autour de votre position.</p>
-                    </div>
-                </div>
-                <div class="screenshot-card">
-                    <div class="screenshot-img">
-                        <img src="assets/screenshot-account-popup.jpg" alt="Fiche client Salesforce avec actions rapides — créer un RDV ou lancer l'itinéraire depuis la carte" loading="lazy" width="600" height="400">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>Fiche client instantanée</h3>
-                        <p>Cliquez sur un marqueur pour voir les détails du compte : adresse, propriétaire, dernière visite. Créez un événement ou lancez l'itinéraire sans quitter la carte.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="screenshots-row">
-                <div class="screenshot-card main">
-                    <div class="screenshot-img">
-                        <img src="assets/screenshot-tour-optimized-paris.jpg" alt="Tournée mixte Comptes + Leads optimisée sur Paris dans Salesforce — itinéraire tracé avec étapes numérotées et étoiles Leads" loading="lazy" width="2560" height="1027">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>Tournée mixte optimisée sur Paris</h3>
-                        <p>Comptes clients 📍 et pistes ⭐ sur le même itinéraire. L'algorithme optimise l'ordre de visite en tenant compte de vos contraintes horaires. Chaque étape affiche son contact associé.</p>
-                    </div>
-                </div>
-                <div class="screenshot-card side">
-                    <div class="screenshot-img">
-                        <img src="assets/screenshot-steps-panel.jpg" alt="Tourvia — Carte locale avec marqueurs de comptes Salesforce et panneau de planification de tournée ouvert" loading="lazy" width="1200" height="800">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>Sélection des comptes à visiter</h3>
-                        <p>Zoomez sur votre secteur, cliquez les comptes à inclure dans la tournée. Le panneau latéral affiche les paramètres de planification : heure de départ, pause déjeuner, fin de journée, durée de visite. Cliquez "Optimize route" pour lancer le calcul.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="screenshots-row" style="margin-top: 2rem;">
-                <div class="screenshot-card main">
-                    <div class="screenshot-img">
-                        <img src="assets/screenshot-nearby-accounts.jpg" alt="Comptes proches autour de la position GPS dans Salesforce — clusters de marqueurs orange sur la carte France" loading="lazy" width="1200" height="800">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>Comptes proches — GPS en temps réel</h3>
-                        <p>Un tap sur le bouton 📍 et Tourvia affiche immédiatement tous les comptes Salesforce dans un rayon configurable autour de vous. Parfait pour improviser une visite en passant.</p>
-                    </div>
-                </div>
-                <div class="screenshot-card side">
-                    <div class="screenshot-img">
-                        <img src="assets/screenshot-route-history.jpg" alt="Historique des tournées Salesforce — liste des 20 dernières tournées avec distance, durée et nombre d'étapes" loading="lazy" width="600" height="800">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>Historique des tournées</h3>
-                        <p>Toutes vos tournées passées sauvegardées automatiquement. Rechargez une tournée de la semaine dernière en un clic — distance, durée et étapes retrouvées instantanément.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="screenshots-grid" style="margin-top: 2rem;">
-                <div class="screenshot-card main">
-                    <div class="screenshot-img">
-                        <img src="assets/screenshot-tour-planner.jpg" alt="Tourvia — Panneau de planification de tournée ouvert sur la carte France avec paramètres horaires et section Nearby Accounts" loading="lazy" width="1600" height="900">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>Interface de planification complète</h3>
-                        <p>Le panneau "Plan a route" regroupe tout en un seul endroit : point de départ (position GPS ou compte Salesforce), date, horaires, pause déjeuner, durée de visite. La section "Nearby Accounts" affiche les comptes proches de votre itinéraire, prêts à être ajoutés.</p>
-                    </div>
-                </div>
-                <div class="screenshot-card side">
-                    <div class="screenshot-img">
-                        <img src="assets/screenshot-save-route.jpg" alt="Tourvia — Sauvegarde et nommage d'une tournée optimisée pour réexécution ultérieure" loading="lazy">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>💾 Sauvegardez vos tournées</h3>
-                        <p>Après planification et optimisation, nommez et sauvegardez votre tournée. Retrouvez-la dans l'historique pour la réexécuter la semaine suivante — même itinéraire, mêmes comptes, zéro effort. Idéal pour les tournées récurrentes.</p>
-                    </div>
-                </div>
-                <div class="screenshot-card main">
-                    <div class="screenshot-img">
-                        <img src="assets/screenshot-route-leads.jpg" alt="Tourvia — Tournée mixte Comptes + Leads avec itinéraire optimisé, contacts associés et création de visites en un clic" loading="lazy" width="2372" height="1414">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>⭐ Comptes + Leads sur la même carte</h3>
-                        <p>Planifiez vos tournées avec vos comptes existants <em>et</em> vos leads à prospecter — sur la même carte. Les leads sont affichés en étoiles ⭐, les comptes en pins colorés 📍. Un clic sur "Créer les visites" crée les événements dans l'agenda Salesforce, avec le bon contact associé.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- NEW: Events, Onboarding, Config -->
-            <div class="screenshots-row" style="margin-top: 2rem;">
-                <div class="screenshot-card main">
-                    <div class="screenshot-img">
-                        <img src="assets/screenshot-events-agenda.jpg" alt="Tourvia — Agenda du jour avec événements affichés sur la carte Salesforce, check-in en un clic et marqueurs 📅" loading="lazy" width="2560" height="1323">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>📅 Agenda terrain — le jour J</h3>
-                        <p>Vos rendez-vous du jour apparaissent directement sur la carte avec les marqueurs 📅. Le panneau latéral affiche l'agenda : prochain RDV mis en avant, check-in en un clic, édition et suppression à la volée. Plus besoin de jongler entre calendrier et carte.</p>
-                    </div>
-                </div>
-                <div class="screenshot-card side">
-                    <div class="screenshot-img">
-                        <img src="assets/screenshot-cmdt-config.jpg" alt="Tourvia — 17 paramètres configurables sans code via Custom Metadata Types Salesforce, structurés en 4 sections" loading="lazy" width="2560" height="1287">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>⚙️ 17 paramètres — zéro code</h3>
-                        <p>Tout est configurable via Custom Metadata Types : mode d'affichage, rayon GPS, features activées, zoom par défaut, cluster radius... Un assistant guidé configure tout en 5 étapes. L'admin garde le contrôle total sans toucher au code.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ALGORITHM -->
-    <section class="features-section" id="algorithm" style="background: #f8fafc;">
-        <div class="container">
-            <div class="section-header">
-                <h2>🧠 Un algorithme, pas un GPS</h2>
-                <p>Tourvia ne trace pas un itinéraire — il trouve le <strong>meilleur ordre de visite</strong> en quelques secondes.</p>
-            </div>
-
-            <div class="screenshots-grid">
-                <div class="screenshot-card main" style="border: none; box-shadow: none; background: transparent;">
-                    <div class="screenshot-caption" style="padding: 0;">
-
-                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-bottom: 24px;">
-                            <div style="background: #eff6ff; border-radius: 10px; padding: 24px; text-align: center;">
-                                <div style="font-size: 2.2rem; font-weight: 800; color: #1d4ed8;">< 1s</div>
-                                <div style="color: #64748b; font-size: 0.9rem; margin-top: 4px;">Temps d'optimisation<br>pour 10 étapes</div>
-                            </div>
-                            <div style="background: #f0fdf4; border-radius: 10px; padding: 24px; text-align: center;">
-                                <div style="font-size: 2.2rem; font-weight: 800; color: #16a34a;">3.6M</div>
-                                <div style="color: #64748b; font-size: 0.9rem; margin-top: 4px;">Combinaisons évaluées<br>pour trouver la meilleure</div>
-                            </div>
-                            <div style="background: #fef3c7; border-radius: 10px; padding: 24px; text-align: center;">
-                                <div style="font-size: 2.2rem; font-weight: 800; color: #d97706;">30%</div>
-                                <div style="color: #64748b; font-size: 0.9rem; margin-top: 4px;">De kilomètres économisés<br>en moyenne par tournée</div>
-                            </div>
-                        </div>
-
-                        <h3>🎯 Votre journée, optimisée</h3>
-                        <p>L'algorithme ne minimise pas juste la distance. Il intègre vos contraintes réelles :</p>
-                        <ul style="margin: 12px 0 12px 20px; line-height: 2;">
-                            <li>⏰ <strong>Horaires de travail</strong> — arrivées estimées étape par étape</li>
-                            <li>🍽️ <strong>Pause déjeuner</strong> — créneau bloqué automatiquement</li>
-                            <li>⏱️ <strong>Durée de visite</strong> — adaptée à chaque rendez-vous</li>
-                            <li>🚫 <strong>Péages / autoroutes</strong> — évitables en un clic</li>
-                            <li>🔄 <strong>Ajustement manuel</strong> — réordonnez par drag & drop, la route se recalcule instantanément</li>
-                        </ul>
-
-                        <h3 style="margin-top: 24px;">🌍 Partout dans le monde</h3>
-                        <p>France, Europe, Afrique, Asie, Amériques — <strong>aucune restriction géographique</strong>. Où que soient vos clients, Tourvia calcule la route optimale sur le réseau routier réel.</p>
-                    </div>
-                </div>
-
-                <div class="screenshot-card side" style="border: none; box-shadow: none; background: transparent;">
-                    <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
-                        <div style="flex: 1; min-width: 280px;">
-                            <h3>📱 100% intégré à Salesforce</h3>
-                            <p>Pas d'outil externe. Pas de synchronisation. Tourvia vit <strong>dans</strong> Salesforce :</p>
-                            <ul style="margin: 12px 0 12px 20px; line-height: 2;">
-                                <li>Vos <strong>comptes</strong> apparaissent automatiquement sur la carte</li>
-                                <li>Les <strong>rendez-vous</strong> se créent dans le calendrier SF en un clic</li>
-                                <li>Les <strong>filtres</strong> s'adaptent à vos champs custom (industrie, type, priorité…)</li>
-                                <li>Les <strong>tournées sauvegardées</strong> se rechargent pour la semaine suivante</li>
-                            </ul>
-                        </div>
-                        <div style="flex: 0 0 auto; text-align: center;">
-                            <div class="phone-frame" style="width: 140px; margin: 0 auto;">
-                                <div class="phone-notch"></div>
-                                <img src="assets/screenshot-mobile.jpg" alt="Tourvia sur mobile — interface responsive terrain" loading="lazy">
-                            </div>
-                            <span class="mobile-badge" style="display: inline-block; margin-top: 10px;">📱 Compatible mobile</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- COMPARISON -->
-    <section class="comparison-section" id="comparison">
-        <div class="container">
-            <div class="section-header">
-                <h2>Un prix clair selon votre nombre d’utilisateurs</h2>
-                <p>30 € HT / utilisateur / mois, facturé annuellement. Le budget suit la taille réelle de votre équipe Salesforce.</p>
-            </div>
-            <div class="comparison-table-wrapper">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th>5 commerciaux</th>
-                            <th>10 commerciaux</th>
-                            <th class="highlight">25 commerciaux</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <tr class="row-highlight">
-                            <td><strong>Tourvia</strong></td>
-                            <td class="highlight"><strong>150 €/mois</strong></td>
-                            <td class="highlight"><strong>300 €/mois</strong></td>
-                            <td class="highlight"><strong>750 €/mois</strong></td>
-                        </tr>
-                        <tr>
-
-                        <tr>
-                            <td>Coût par utilisateur</td>
-                            <td class="highlight"><strong>30 €/utilisateur/mois</strong></td>
-                            <td class="highlight"><strong>30 €/utilisateur/mois</strong></td>
-                            <td class="highlight"><strong>30 €/utilisateur/mois</strong></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- CTA DEMO -->
-    <section style="padding: 48px 0; background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%); text-align: center;">
-        <div class="container">
-            <h2 style="color: white; margin-bottom: 12px; font-size: 1.8rem;">Voyez par vous-même</h2>
-            <p style="color: rgba(255,255,255,0.9); margin-bottom: 24px; font-size: 1.1rem;">15 minutes de démo personnalisée avec vos propres données Salesforce. Sans engagement.</p>
-            <a href="#contact" class="btn btn-lg" style="background: white; color: #1d4ed8; font-weight: 700; padding: 16px 40px; border-radius: 8px; font-size: 1.1rem; text-decoration: none; display: inline-block;">Demander un essai 30 jours</a>
-        </div>
-    </section>
-
-    <!-- PRICING -->
-    <section class="pricing-section" id="pricing">
-        <div class="container">
-            <div class="section-header">
-                <h2>Une tarification simple par utilisateur</h2>
-                <p>Installation unique + abonnement mensuel par utilisateur. Sans frais cachés.</p>
-            </div>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <div class="discount-badge">-15%<span>launch</span></div>
-                    <div class="pricing-header">
-                        <h3>Autonome</h3>
-                        <p class="pricing-desc">Votre admin Salesforce configure lui-même avec notre documentation</p>
-                    </div>
-                    <div class="pricing-price">
-                        <span class="price-original">3 500€ HT</span>
-                        <span class="price-new">2 975€ <small>HT</small></span>
-                        <span class="price-period">installation unique — offre early adopter 🔥</span>
-                        <span class="price-maintenance">+ 30€ HT / utilisateur / mois · facturé annuellement</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><span class="check">&#10003;</span> Package Salesforce installé en quelques minutes</li>
-                        <li><span class="check">&#10003;</span> Documentation complète fournie</li>
-                        <li><span class="check">&#10003;</span> Moteur de calcul hébergé en France (OVH Gravelines)</li>
-                        <li><span class="check">&#10003;</span> RGPD : données hébergées en France</li>
-                        <li><span class="check">&#10003;</span> Mises à jour et compatibilité Salesforce maintenues</li>
-                        <li><span class="check">&#10003;</span> Support email sous 48h</li>
-                        <li><span class="check">&#10003;</span> Multi-langue FR/EN/ES</li>
-                        <li><span class="check">&#10003;</span> Licences utilisateurs selon votre équipe</li>
-                        <li><span class="cross">&#10007;</span> Configuration par notre équipe</li>
-                        <li><span class="cross">&#10007;</span> Prise en main admin</li>
-                        <li><span class="cross">&#10007;</span> Suivi post-déploiement</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline btn-block">Démarrer</a>
-                </div>
-                <div class="pricing-card popular">
-                    <div class="popular-badge">Recommandé</div>
-                    <div class="pricing-header">
-                        <h3>Clé en main</h3>
-                        <p class="pricing-desc">On configure tout pour vous — zéro effort côté client</p>
-                    </div>
-                    <div class="pricing-price">
-                        <span class="price">5 000€ <small>HT</small></span>
-                        <span class="price-period">installation unique</span>
-                        <span class="price-maintenance">+ 30€ HT / utilisateur / mois · facturé annuellement</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><span class="check">&#10003;</span> Installation et configuration par notre équipe</li>
-                        <li><span class="check">&#10003;</span> Paramétrage adapté à votre org Salesforce</li>
-                        <li><span class="check">&#10003;</span> Réunion de prise en main avec votre admin Salesforce</li>
-                        <li><span class="check">&#10003;</span> Suivi post-déploiement 30 jours</li>
-                        <li><span class="check">&#10003;</span> Support email prioritaire sous 24h</li>
-                        <li><span class="check">&#10003;</span> Moteur de calcul hébergé en France (OVH Gravelines)</li>
-                        <li><span class="check">&#10003;</span> RGPD : données hébergées en France</li>
-                        <li><span class="check">&#10003;</span> Mises à jour et compatibilité Salesforce maintenues</li>
-                        <li><span class="check">&#10003;</span> Multi-langue FR/EN/ES</li>
-                        <li><span class="check">&#10003;</span> Licences utilisateurs selon votre équipe</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary btn-block">Démarrer</a>
-                </div>
-                <div class="pricing-card enterprise">
-                    <div class="popular-badge" style="background: linear-gradient(135deg, #1e1b4b, #4338ca);">Grand Compte</div>
-                    <div class="pricing-header">
-                        <h3>Enterprise</h3>
-                        <p class="pricing-desc">Infrastructure dédiée et accompagnement sur mesure pour les organisations multi-sites</p>
-                    </div>
-                    <div class="pricing-price">
-                        <span class="price">Sur devis</span>
-                        <span class="price-period">adapté à votre volumétrie</span>
-                        <span class="price-maintenance">Abonnement annuel sur mesure</span>
-                    </div>
-                    <ul class="pricing-features">
-                        <li><span class="check">&#10003;</span> <strong>Infrastructure dédiée</strong> — serveur de calcul isolé, performances garanties même à forte charge</li>
-                        <li><span class="check">&#10003;</span> <strong>Accord de niveau de service</strong> — disponibilité et réactivité garanties contractuellement</li>
-                        <li><span class="check">&#10003;</span> <strong>Multi-sites / multi-pays</strong> — routing optimisé par zone géographique</li>
-                        <li><span class="check">&#10003;</span> <strong>Onboarding personnalisé</strong> — formation équipe terrain + admin SF</li>
-                        <li><span class="check">&#10003;</span> <strong>Interlocuteur dédié</strong> — support prioritaire, réponse sous 4h</li>
-                        <li><span class="check">&#10003;</span> Configuration complète par notre équipe</li>
-                        <li><span class="check">&#10003;</span> Paramétrage avancé (filtres métier, champs custom, intégrations)</li>
-                        <li><span class="check">&#10003;</span> Revue trimestrielle d'usage et recommandations</li>
-                        <li><span class="check">&#10003;</span> RGPD : hébergement France (OVH) ou choix de région</li>
-                        <li><span class="check">&#10003;</span> Licences utilisateurs selon votre équipe</li>
-                    </ul>
-                    <a href="#contact" class="btn btn-outline btn-block" style="border-color: #4338ca; color: #4338ca;">Demander un devis</a>
-                </div>
-            </div>
-            <div class="pricing-extras">
-                <h4>Ce qui est inclus chaque mois</h4>
-                <div class="extras-grid">
-                    <div class="extra-item">
-                        <span class="extra-price">&#10003;</span>
-                        <span class="extra-label">Compatibilité Salesforce maintenue</span>
-                    </div>
-                    <div class="extra-item">
-                        <span class="extra-price">&#10003;</span>
-                        <span class="extra-label">Hébergement et surveillance de l'infrastructure</span>
-                    </div>
-
-                    <div class="extra-item">
-                        <span class="extra-price">&#10003;</span>
-                        <span class="extra-label">Support technique réactif</span>
-                    </div>
-                    <div class="extra-item">
-                        <span class="extra-price">&#10003;</span>
-                        <span class="extra-label">Engagement 12 mois, renouvelable automatiquement</span>
-                    </div>
-                </div>
-            </div>
-            <div class="pricing-comparison">
-                <p><strong>Tourvia :</strong> 30€ HT par utilisateur et par mois, avec facturation annuelle.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="included-section" style="max-width:800px;margin:0 auto 4rem;padding:0 1.5rem;text-align:center">
-      <h3 style="font-size:1.25rem;font-weight:600;margin-bottom:1.5rem;color:#1e293b">Ce qui est inclus dans l'abonnement</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;text-align:left">
-        <div style="background:#f8fafc;border-radius:12px;padding:1.25rem">
-          <div style="font-size:1.5rem;margin-bottom:.5rem">🖥️</div>
-          <div style="font-weight:600;margin-bottom:.25rem;color:#1e293b">Couverture mondiale</div>
-          <div style="font-size:.9rem;color:#64748b">Serveur dédié OVH France — routage planète entière, zéro service tiers</div>
-        </div>
-        <div style="background:#f8fafc;border-radius:12px;padding:1.25rem">
-          <div style="font-size:1.5rem;margin-bottom:.5rem">🗺️</div>
-          <div style="font-weight:600;margin-bottom:.25rem;color:#1e293b">API de routage illimitée</div>
-          <div style="font-size:.9rem;color:#64748b">Aucune facturation à l'appel — autant de tournées que vous voulez</div>
-        </div>
-        <div style="background:#f8fafc;border-radius:12px;padding:1.25rem">
-          <div style="font-size:1.5rem;margin-bottom:.5rem">🔄</div>
-          <div style="font-weight:600;margin-bottom:.25rem;color:#1e293b">Mises à jour incluses</div>
-          <div style="font-size:.9rem;color:#64748b">Nouvelles fonctionnalités disponibles régulièrement, incluses dans votre abonnement</div>
-        </div>
-        <div style="background:#f8fafc;border-radius:12px;padding:1.25rem">
-          <div style="font-size:1.5rem;margin-bottom:.5rem">🛡️</div>
-          <div style="font-weight:600;margin-bottom:.25rem;color:#1e293b">Support inclus</div>
-          <div style="font-size:.9rem;color:#64748b">Réponse sous 48h (Autonome) ou 24h prioritaire (Clé en main)</div>
+        <div class="rounded-2xl border border-outline bg-surface-container/60 px-4 py-4 max-w-3xl">
+          <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-on-surface-variant">
+            <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="font-semibold text-on-surface hover:text-primary-light transition-colors">5.0 ★ AppExchange reviews</a>
+            <span class="hidden sm:inline text-on-surface-variant/50">•</span>
+            <span>Salesforce-native managed package</span>
+            <span class="hidden sm:inline text-on-surface-variant/50">•</span>
+            <a href="pricing.html" class="font-semibold text-on-surface hover:text-primary-light transition-colors">€30/user/month, billed annually</a>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-3">Formerly RouteForce. Same Salesforce-native app, same Salesforce-native workflow, now under the Tourvia product name.</p>
         </div>
       </div>
-    </section>
 
-    <!-- HOW IT WORKS -->
-    <section class="process-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Déploiement en 4 étapes</h2>
-                <p>De la démo au terrain, en moins de 2 semaines</p>
+      <!-- Right: Product screenshot in browser mockup -->
+      <div class="hero-visual">
+        <div class="video-glow">
+          <div class="rounded-xl overflow-hidden border border-outline bg-surface-container shadow-2xl">
+            <div class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-high border-b border-outline-variant/50">
+              <div class="flex gap-1.5">
+                <div class="w-3 h-3 rounded-full bg-red-500/60"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500/60"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500/60"></div>
+              </div>
+              <div class="flex-1 mx-3">
+                <div class="bg-surface-container rounded-md px-3 py-1 text-xs text-on-surface-variant/50 text-center truncate">Salesforce Lightning · Tourvia map and route planning</div>
+              </div>
             </div>
-            <div class="process-grid">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Démo personnalisée</h3>
-                    <p>On vous montre la solution avec vos propres données et vos cas d'usage métier.</p>
-                </div>
-                <div class="process-connector"></div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>Configuration</h3>
-                    <p>Installation sur votre org, paramétrage des filtres, rôles et permissions.</p>
-                </div>
-                <div class="process-connector"></div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Prise en main</h3>
-                    <p>Vos équipes sont formées et autonomes. Documentation incluse.</p>
-                </div>
-                <div class="process-connector"></div>
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3>Go live</h3>
-                    <p>Vos commerciaux optimisent leurs tournées dès le premier jour.</p>
-                </div>
-            </div>
+            <button type="button" class="block w-full text-left cursor-zoom-in bg-transparent border-0 p-0 js-open-lightbox-direct" data-lightbox-src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" data-lightbox-alt="Tourvia inside Salesforce Lightning with filters, map, route planning, and visit list">
+              <img src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Tourvia inside Salesforce Lightning with filters, map, route planning, and visit list" class="w-full h-auto" fetchpriority="high" decoding="async" width="1600" height="1000"/>
+            </button>
+          </div>
+          <p class="text-xs text-on-surface-variant mt-3 text-center">Real product view inside Salesforce, filters, route planning, and visit creation from the same workspace. Click to expand.</p>
         </div>
-    </section>
+      </div>
 
-    <!-- FAQ -->
-    <section class="faq-section" id="faq">
-        <div class="container">
-            <div class="section-header">
-                <h2>Questions fréquentes</h2>
-                <p>Tout ce que les décideurs B2B veulent savoir avant d'acheter</p>
-            </div>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Mes données sont-elles sécurisées ?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Oui. Tourvia est 100% natif Salesforce : vos données CRM restent dans votre org Salesforce. Le composant respecte intégralement vos profils, permissions et règles de partage. Pour le calcul d'itinéraires, les adresses sont transmises à notre serveur dédié hébergé en France (OVH Gravelines) — jamais à un service américain.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Comment se passe le déploiement ?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Déploiement et configuration pris en charge par notre équipe — sans intervention technique de votre côté. Réunion de prise en main avec votre admin Salesforce et documentation complète incluses. Délai moyen : 1 à 2 semaines entre la démo et le go-live.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Quel support est inclus ?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Le support email est inclus avec réponse sous 48h. L'abonnement mensuel de 30€ HT par utilisateur couvre les mises à jour, la compatibilité Salesforce et le support continu. L'onboarding et la prise en main admin sont inclus dans l'offre Clé en main.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Comment fonctionne l'abonnement ?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Une installation unique (3 500€ HT en autonome, 5 000€ HT clé en main) puis un abonnement mensuel à 30€ HT par utilisateur, avec engagement 12 mois renouvelable automatiquement. Pas de frais cachés. <strong>🔥 Offre de lancement : -15% sur l'installation Standalone (2 975€ au lieu de 3 500€) pour les early adopters !</strong></p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Tourvia est-il compatible avec mon édition Salesforce ?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Tourvia fonctionne avec toutes les éditions Salesforce supportant les Lightning Web Components : Professional, Enterprise, Unlimited et Developer. Il s'intègre avec votre objet Account existant.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Combien d'utilisateurs peuvent utiliser Tourvia ?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Chaque utilisateur Tourvia est facturé 30€ HT par mois, avec engagement annuel. Vous pouvez ajouter ou retirer des licences selon votre équipe au renouvellement.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Comment fonctionne l'optimisation d'itinéraire ?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Tourvia utilise un algorithme avancé d'optimisation de tournées. Il prend en compte les coordonnées GPS de chaque compte Salesforce, vos contraintes horaires (début, fin de journée, pause déjeuner) et les durées de visite pour calculer l'ordre de passage optimal. Le tout sur notre serveur hébergé en France — sans quota, sans limitation.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Peut-on utiliser Tourvia sur smartphone en mobilité ?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Oui. Tourvia est entièrement responsive et conçu pour le terrain. Sur mobile, l'interface adopte un panneau "bottom sheet" pour laisser la carte visible. La géolocalisation GPS native permet de trouver les comptes à proximité de votre position en temps réel. Fonctionne dans l'application Salesforce mobile ou tout navigateur mobile.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">
-                        <span>Quels secteurs d'activité utilisent Tourvia ?</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Tourvia s'adapte à tout secteur avec des équipes commerciales terrain : <strong>agroalimentaire</strong> (tournées GMS, restauration), <strong>industrie</strong> et distribution B2B, <strong>pharma</strong> (visiteurs médicaux), <strong>services et maintenance</strong> technique, <strong>énergie</strong> et environnement. Si vos commerciaux ont des rendez-vous clients dans Salesforce, Tourvia peut les aider.</p>
-                    </div>
-                </div>
-            </div>
+    </div>
+  </section>
+
+  <!-- ===== FEATURES GRID ===== -->
+  <section id="features" class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-14 lg:mb-16">
+      <h2 class="text-3xl lg:text-5xl font-bold tracking-tight mb-4">Everything your field team needs</h2>
+      <p class="text-on-surface-variant text-lg max-w-xl mx-auto">Built natively on Salesforce. No external apps, no data sync.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-4">
+      <div class="feature-card rounded-xl p-6">
+        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">map</span>
+        <h3 class="font-semibold text-lg mb-2">Multi-Object Map</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Accounts, leads, opportunities, and Campaign Members on one interactive map with clustering and real-time filters.</p>
+      </div>
+      <div class="feature-card rounded-xl p-6">
+        <span class="material-symbols-outlined text-accent text-2xl mb-4 block">route</span>
+        <h3 class="font-semibold text-lg mb-2">Route Optimization</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Smart route planning with time windows, lunch breaks, and distance constraints.</p>
+      </div>
+      <div class="feature-card rounded-xl p-6">
+        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">event</span>
+        <h3 class="font-semibold text-lg mb-2">Auto Event Creation</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Turn optimized routes into Salesforce Events automatically, with no re-typing needed.</p>
+      </div>
+      <div class="feature-card rounded-xl p-6">
+        <span class="material-symbols-outlined text-accent text-2xl mb-4 block">location_on</span>
+        <h3 class="font-semibold text-lg mb-2">GPS Check-In</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Verified field visits with custom checkout forms, synced to Salesforce records in real time.</p>
+      </div>
+      <div class="feature-card rounded-xl p-6">
+        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">filter_list</span>
+        <h3 class="font-semibold text-lg mb-2">Smart Filters</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Filter by any Salesforce field. Save and share presets across your team.</p>
+      </div>
+      <div class="feature-card rounded-xl p-6">
+        <span class="material-symbols-outlined text-accent text-2xl mb-4 block">dashboard</span>
+        <h3 class="font-semibold text-lg mb-2">Dashboards & Reports</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">2 dashboards and 18 reports included. Track visits, routes, and team performance from day one.</p>
+      </div>
+      <div class="feature-card rounded-xl p-6">
+        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">history</span>
+        <h3 class="font-semibold text-lg mb-2">Route History</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Every route is saved. Replay, compare, and analyze field coverage over time.</p>
+      </div>
+      <div class="feature-card rounded-xl p-6">
+        <span class="material-symbols-outlined text-accent text-2xl mb-4 block">smartphone</span>
+        <h3 class="font-semibold text-lg mb-2">Mobile Ready</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Full experience on the Salesforce Mobile App: map, routes, check-in, all from the field.</p>
+      </div>
+      <div class="feature-card rounded-xl p-6">
+        <span class="material-symbols-outlined text-primary-light text-2xl mb-4 block">bolt</span>
+        <h3 class="font-semibold text-lg mb-2">Custom Actions</h3>
+        <p class="text-on-surface-variant text-sm leading-relaxed">Launch Screen Flows, click-to-call, or navigate directly from the map, with no context switching.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NATIVE INTEGRATION ===== -->
+  <section id="native-integration" class="py-20 px-6 lg:px-8 bg-surface-container-low/40 border-y border-outline-variant/30">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">Works everywhere in Salesforce</h2>
+      <p class="text-on-surface-variant text-base max-w-2xl mx-auto mb-10">A reusable Salesforce-native component — place it on record pages, Campaign pages, app pages, tabs, or Experience Cloud. <a href="native-integration-salesforce.html" class="text-primary-light hover:underline">Learn more</a>.</p>
+      <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-on-surface-variant">
+        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">account_tree</span> Account, Lead, Opportunity pages</span>
+        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">campaign</span> Campaign record pages</span>
+        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">apps</span> Lightning App Pages</span>
+        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">home</span> Home Pages & Tabs</span>
+        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">public</span> Experience Cloud</span>
+        <span class="flex items-center gap-2"><span class="material-symbols-outlined text-accent text-base">tune</span> Configurable via Custom Metadata</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCT SHOWCASE ===== -->
+  <section id="showcase" class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="showcase-list">
+
+      <!-- Showcase 1: Route Optimization — text LEFT, video RIGHT -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
+        <div>
+          <span class="text-xs font-semibold text-primary-light uppercase tracking-widest mb-4 block">Route Optimization</span>
+          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">Select, optimize, and schedule in 30 seconds</h3>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Lasso-select accounts, optimize the visit order, and create Salesforce Events, all in one gesture.</p>
+          <ul class="space-y-3 text-on-surface-variant">
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Optimized visit order</li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Bulk event creation</li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Export to Google Maps</li>
+          </ul>
         </div>
-    </section>
-
-    <!-- INFRASTRUCTURE -->
-    <section class="infrastructure-section" id="infrastructure">
-        <div class="container">
-            <div class="section-header">
-                <h2>Infrastructure & Hébergement</h2>
-                <p>Un moteur de calcul souverain, hébergé en France, à couverture mondiale — adapté à vos exigences de conformité</p>
-            </div>
-            <div class="routing-split">
-                <div class="routing-split-card routing-split-primary">
-                    <div class="routing-split-flag">🇫🇷</div>
-                    <div class="routing-split-body">
-                        <h4>France & Europe</h4>
-                        <p>Calculées sur notre serveur dédié en France (OVH Gravelines). Aucun quota, aucune dépendance externe, données hébergées en France. RGPD natif.</p>
-                        <span class="routing-split-tag">Serveur dédié Tourvia · OVH Gravelines</span>
-                    </div>
-                </div>
-                <div class="routing-split-arrow">+</div>
-                <div class="routing-split-card routing-split-secondary">
-                    <div class="routing-split-flag">🌍</div>
-                    <div class="routing-split-body">
-                        <h4>Couverture mondiale</h4>
-                        <p>Afrique, Moyen-Orient, Asie, Amériques, Océanie — tout calculé sur notre propre infrastructure. Zéro service tiers, zéro quota, transparent pour vos utilisateurs.</p>
-                        <span class="routing-split-tag">100 % self-hosted · Couverture planète entière</span>
-                    </div>
-                </div>
-            </div>
-            <div class="infrastructure-table-wrapper">
-                <table class="infrastructure-table">
-                    <thead>
-                        <tr>
-                            <th></th>
-                            <th class="highlight">Autonome / Clé en main</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Moteur de calcul</td>
-                            <td class="highlight">Serveur dédié Tourvia</td>
-                        </tr>
-                        <tr>
-                            <td>Hébergement</td>
-                            <td class="highlight">France (OVH Gravelines)</td>
-                        </tr>
-                        <tr>
-                            <td>Calculs par jour</td>
-                            <td class="highlight">Illimité</td>
-                        </tr>
-                        <tr>
-                            <td>Conformité RGPD</td>
-                            <td class="highlight">✅ Hébergé en France</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div class="infrastructure-guarantees">
-                <div class="infrastructure-guarantee">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                    <span><strong>Souveraineté des données</strong> — Vos données clients restent en France, sur une infrastructure européenne. Aucun transfert vers des serveurs américains.</span>
-                </div>
-                <div class="infrastructure-guarantee">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span><strong>Conformité RGPD native</strong> — Les adresses de vos clients ne quittent jamais l'infrastructure européenne. Conforme aux exigences des DSI les plus strictes.</span>
-                </div>
-                <div class="infrastructure-guarantee">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-                    <span><strong>Zéro dépendance américaine</strong> — Aucun recours à Google Maps, AWS ou Azure pour le calcul d'itinéraires. 100 % indépendant.</span>
-                </div>
-            </div>
+        <div class="screenshot-frame glow-primary">
+          <video autoplay loop muted playsinline controls preload="none" poster="assets/screenshots-2026/screen-02.jpg" class="w-full h-auto">
+            <source src="assets/videos/OptimiseRoute.mp4" type="video/mp4"/>
+          </video>
         </div>
-    </section>
+      </div>
 
-    <!-- BLOG TEASER -->
-    <section class="blog-teaser-section" id="blog-teaser" style="background:#f8fafc;padding:4rem 0">
-        <div class="container">
-            <div class="section-header">
-                <h2>Ressources pour les équipes Salesforce</h2>
-                <p>Guides pratiques, comparatifs et retours terrain sur la gestion des commerciaux itinérants</p>
-            </div>
-            <div class="blog-teaser-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem">
-                <a href="blog/salesforce-maps-alternative-2026.html" class="blog-teaser-card" style="background:#fff;border-radius:12px;padding:1.5rem;text-decoration:none;color:inherit;border:1px solid #e2e8f0;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
-                    <div style="font-size:.75rem;font-weight:600;color:#6366f1;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem">📊 Comparatif</div>
-                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">Outil de cartographie CRM : prix par utilisateur vs facturation par utilisateur — lequel choisir en 2026 ?</h3>
-                    <p style="font-size:.875rem;color:#64748b;line-height:1.5">Comparatif fonctionnel, prix réels et cas d'usage — pour choisir la solution adaptée à votre équipe terrain.</p>
-                    <div style="margin-top:1rem;font-size:.8rem;font-weight:500;color:#6366f1">Lire l'article →</div>
-                </a>
-                <a href="blog/" class="blog-teaser-card" style="background:#fff;border-radius:12px;padding:1.5rem;text-decoration:none;color:inherit;border:1px solid #e2e8f0;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
-                    <div style="font-size:.75rem;font-weight:600;color:#6366f1;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem">💡 Guide</div>
-                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">Comment optimiser les tournées de vos commerciaux terrain avec Salesforce ?</h3>
-                    <p style="font-size:.875rem;color:#64748b;line-height:1.5">Méthodes, outils et bonnes pratiques pour réduire le temps de trajet et augmenter le nombre de visites.</p>
-                    <div style="margin-top:1rem;font-size:.8rem;font-weight:500;color:#6366f1">Explorer le blog →</div>
-                </a>
-                <a href="cas-usage.html" class="blog-teaser-card" style="background:#fff;border-radius:12px;padding:1.5rem;text-decoration:none;color:inherit;border:1px solid #e2e8f0;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
-                    <div style="font-size:.75rem;font-weight:600;color:#6366f1;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem">🏭 Cas d'usage</div>
-                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">Tourvia dans votre secteur : agroalimentaire, industrie, pharma, services...</h3>
-                    <p style="font-size:.875rem;color:#64748b;line-height:1.5">Découvrez comment Tourvia s'adapte aux spécificités de votre métier et de votre organisation commerciale.</p>
-                    <div style="margin-top:1rem;font-size:.8rem;font-weight:500;color:#6366f1">Voir les cas d'usage →</div>
-                </a>
-            </div>
+      <!-- Showcase 2: Smart Map — image LEFT, text RIGHT -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
+        <div class="screenshot-frame glow-accent lg:order-1 order-2">
+          <img src="assets/screenshots-2026/campaign-members-map.jpg" alt="Tourvia map view showing Campaign Members across France with campaign and status filters" class="w-full h-auto" loading="lazy"/>
         </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="contact-section" id="contact">
-        <div class="container">
-            <div class="contact-wrapper">
-                <div class="contact-info">
-                    <h2>Demandez un essai 30 jours</h2>
-                    <p>Découvrez Tourvia avec vos propres données. 30 minutes suffisent pour voir la différence.</p>
-                    <div class="contact-benefits">
-                        <div class="contact-benefit">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span>Démo personnalisée avec vos données</span>
-                        </div>
-                        <div class="contact-benefit">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span>Démo sans engagement</span>
-                        </div>
-                        <div class="contact-benefit">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                            <span>Réponse sous 24h</span>
-                        </div>
-                    </div>
-                </div>
-                <form class="contact-form" id="contactForm" action="https://formspree.io/f/xqedjpdd" method="POST">
-                    <div class="form-group">
-                        <label for="name">Nom complet</label>
-                        <input type="text" id="name" name="name" required placeholder="Jean Dupont">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email professionnel</label>
-                        <input type="email" id="email" name="email" required placeholder="jean@entreprise.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Entreprise</label>
-                        <input type="text" id="company" name="company" required placeholder="Nom de votre entreprise">
-                    </div>
-                    <div class="form-group">
-                        <label for="users">Nombre de commerciaux terrain</label>
-                        <select id="users" name="users">
-                            <option value="1-5">1 à 5</option>
-                            <option value="6-15">6 à 15</option>
-                            <option value="16-50">16 à 50</option>
-                            <option value="50+">Plus de 50</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message (optionnel)</label>
-                        <textarea id="message" name="message" rows="3" placeholder="Décrivez brièvement votre besoin..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary btn-block btn-lg">Demander mon essai 30 jours</button>
-                </form>
-                <p style="text-align:center; margin-top:16px; color:var(--gray-500); font-size:0.9rem;">
-                    Ou écrivez-nous directement : <a href="mailto:contact@routeforce.app" style="color:var(--primary); font-weight:600;">contact@routeforce.app</a>
-                </p>
-            </div>
+        <div class="lg:order-2 order-1">
+          <span class="text-xs font-semibold text-accent uppercase tracking-widest mb-4 block">Smart Map</span>
+          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">All your records and campaigns, one map</h3>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Accounts, leads, opportunities, and Campaign Members, displayed with clustering, filters, saved views, and status-based colors. Satellite or roadmap, you choose.</p>
+          <ul class="space-y-3 text-on-surface-variant">
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Multi-object visualization</li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Campaign picker for targeted member maps</li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Lead and Contact members geolocated from their parent address</li>
+          </ul>
         </div>
-    </section>
+      </div>
 
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <a href="#" class="logo">
-                        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
-                            <path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="8" cy="20" r="2.5" fill="currentColor"/>
-                            <circle cx="14" cy="10" r="2.5" fill="currentColor"/>
-                            <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
-                            <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
-                        </svg>
-                        <span>Tourvia</span>
-                    </a>
-                    <p>Optimisation de tournées commerciales pour Salesforce</p>
-                </div>
-                <div class="footer-links">
-                    <a href="#features">Fonctionnalités</a>
-                    <a href="cas-usage.html">Cas d'usage</a>
-                    <a href="#pricing">Tarifs</a>
-                    <a href="blog/">Blog</a>
-                    <a href="#contact">Contact</a>
-                    <a href="mentions-legales.html">Mentions légales</a>
-                    <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" class="status-link">
-                        <span class="status-dot"></span>Statut du service
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Tourvia. Tous droits réservés.</p>
-            </div>
+      <!-- Showcase 3: Mobile — text LEFT, video RIGHT (portrait) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
+        <div>
+          <span class="text-xs font-semibold text-primary-light uppercase tracking-widest mb-4 block">Mobile</span>
+          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">Your routes in your pocket</h3>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Tourvia is designed for teams working in Salesforce Mobile. Map access, routes, nearby accounts, and field actions stay accessible from the field.</p>
+          <ul class="space-y-3 text-on-surface-variant">
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Native Salesforce Mobile experience</li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> GPS check-in from the field</li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> One-tap export to Google Maps</li>
+          </ul>
         </div>
-    </footer>
+        <div class="flex justify-center">
+          <div class="video-glow max-w-[18rem] w-full">
+            <div class="rounded-[2rem] overflow-hidden border border-outline bg-surface-container">
+              <video autoplay loop muted playsinline controls preload="none" poster="assets/screenshots-2026/mobile-map.png" class="w-full h-auto">
+                <source src="assets/videos/routeforce-mobile-demo.mp4" type="video/mp4"/>
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    <!-- FAQ Schema for Rich Snippets -->
-    <script type="application/ld+json">
+      <!-- Showcase 4: GPS Check-In — video LEFT, text RIGHT -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
+        <div class="screenshot-frame glow-accent lg:order-1 order-2">
+          <div class="rounded-xl overflow-hidden border border-outline bg-surface-container">
+            <video autoplay loop muted playsinline controls preload="metadata" poster="assets/screenshots-2026/screen-03.jpg" class="w-full h-auto">
+              <source src="assets/videos/CheckOut.mp4" type="video/mp4"/>
+              <img src="assets/screenshots-2026/screen-03.jpg" alt="Tourvia GPS check-in and visit report"/>
+            </video>
+          </div>
+        </div>
+        <div class="lg:order-2 order-1">
+          <span class="text-xs font-semibold text-primary-light uppercase tracking-widest mb-4 block">Field Execution</span>
+          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">Check in. Fill the report. Check out.</h3>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">GPS-verified check-in at each stop. Fill visit reports with result, satisfaction, next action, and notes, with previous visit context shown automatically. Check out and move to the next stop.</p>
+          <ul class="space-y-3 text-on-surface-variant">
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> GPS on-site verification (500m radius)</li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Previous visit context shown automatically</li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Configurable fields: result, satisfaction, order amount, notes</li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Quick Text templates for faster note-taking</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Showcase 5: Dashboard — text LEFT, image RIGHT -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 items-center showcase-stack max-w-6xl mx-auto">
+        <div>
+          <span class="text-xs font-semibold text-accent uppercase tracking-widest mb-4 block">Analytics</span>
+          <h3 class="text-3xl lg:text-4xl font-bold tracking-tight mb-6">2 dashboards. 18 reports. Day one.</h3>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Track field activity, visit compliance, route efficiency, and team performance. All built on standard Salesforce Reports.</p>
+          <ul class="space-y-3 text-on-surface-variant">
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> On-site rate & visit trends</li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Visits by rep, by week</li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span> Fully customizable</li>
+          </ul>
+        </div>
+        <div class="screenshot-frame glow-primary">
+          <img src="assets/screenshots-2026/screen-07.jpg" alt="Tourvia Field Activity Dashboard" class="w-full h-auto" loading="lazy"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRICING ===== -->
+  <section id="pricing" class="py-24 px-6 lg:px-8 max-w-5xl mx-auto">
+    <div class="text-center mb-14 lg:mb-16">
+      <h2 class="text-3xl lg:text-5xl font-bold tracking-tight mb-4">Simple pricing at €30/user/month</h2>
+      <p class="text-on-surface-variant text-lg">Simple standard pricing per licensed user, billed annually. Larger enterprise deployments can be quoted separately when needed. <a href="flat-rate-route-optimization.html" class="text-primary-light hover:underline">Pricing ROI for field teams</a>.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-6 max-w-4xl mx-auto">
+      <!-- Trial -->
+      <div class="feature-card rounded-2xl p-8 flex flex-col">
+        <h3 class="text-xl font-bold mb-1">30-day trial on request</h3>
+        <p class="text-on-surface-variant text-sm mb-6">Validate Tourvia with your Salesforce team before rollout</p>
+        <div class="flex items-baseline gap-1 mb-8">
+          <span class="text-4xl font-extrabold">30</span>
+          <span class="text-on-surface-variant text-sm">days</span>
+        </div>
+        <ul class="space-y-3 mb-8 flex-grow text-sm text-on-surface-variant">
+          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Trial requested via contact form</li>
+          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Salesforce org qualification</li>
+          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Route planning workflow validation</li>
+          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Admin onboarding guidance</li>
+          <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Paid scope confirmed before production rollout</li>
+        </ul>
+        <a href="#contact" class="w-full py-3 rounded-xl text-center font-semibold border border-primary/60 text-primary-light hover:bg-primary/10 transition-colors block text-sm">
+          Request a 30-day trial
+        </a>
+      </div>
+
+      <!-- Pro -->
+      <div class="pricing-highlight rounded-2xl">
+        <div class="bg-surface-container rounded-2xl p-8 flex flex-col h-full">
+          <div class="flex items-center justify-between mb-1">
+            <h3 class="text-xl font-bold">Pro</h3>
+            <span class="text-xs font-bold uppercase tracking-widest text-primary-light bg-primary/10 px-2.5 py-1 rounded-full">Popular</span>
+          </div>
+          <p class="text-on-surface-variant text-sm mb-6">For licensed Salesforce users</p>
+          <div class="flex items-baseline gap-1 mb-8">
+            <span class="text-4xl font-extrabold">€30</span>
+            <span class="text-on-surface-variant text-sm">/user/month excl. tax</span>
+          </div>
+          <ul class="space-y-3 mb-8 flex-grow text-sm text-on-surface-variant">
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Everything in trial scope</li>
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Route optimization engine</li>
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> GPS check-in & visit reports</li>
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Route history & replay</li>
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Dashboards & 18 reports</li>
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Standard pricing per licensed user</li>
+            <li class="flex items-center gap-2.5"><span class="material-symbols-outlined text-accent text-base">check</span> Priority support</li>
+          </ul>
+          <a href="pricing.html" class="w-full py-3 rounded-xl text-center font-semibold bg-primary hover:bg-primary-dim text-white transition-colors block text-sm">
+            See paid scope details
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-center text-on-surface-variant text-sm mt-8">
+      Annual billing. Standard pricing applies per licensed user. Enterprise / multi-entity deployments are quoted separately; <a href="mailto:contact@routeforce.app" class="text-primary-light hover:underline">let's talk</a>. <a href="pricing.html" class="text-primary-light hover:underline">Full pricing details</a>.
+    </p>
+  </section>
+
+  <!-- ===== CTA + CONTACT ===== -->
+  <section id="contact" class="pt-12 pb-24 px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12">
+      <!-- Left: CTA -->
+      <div class="bg-surface-container border border-outline-variant rounded-2xl p-10 lg:p-12 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5"></div>
+        <div class="relative z-10">
+          <h2 class="text-3xl font-bold tracking-tight mb-4">Ready to optimize your field team?</h2>
+          <p class="text-on-surface-variant text-lg mb-8">Request a 30-day trial via the contact form, validate Tourvia with your Salesforce team, then move to the paid scope when you need advanced route optimization and deeper field execution features.</p>
+          <div class="flex flex-col gap-4">
+            <a href="/#contact" class="bg-primary hover:bg-primary-dim text-white px-8 py-3.5 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-primary/20 text-center">
+              Request a 30-day trial
+            </a>
+            <div class="flex items-center gap-4 text-on-surface-variant text-sm mt-4">
+              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-base">check_circle</span> 30-day trial on request</span>
+              <span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-accent text-base">check_circle</span> Pricing details documented</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Right: Contact Form -->
+      <div class="bg-surface-container border border-outline-variant rounded-2xl p-10 lg:p-12">
+        <h2 class="text-2xl font-bold tracking-tight mb-2">Get in touch</h2>
+        <p class="text-on-surface-variant text-sm mb-6">Request a demo, ask a question, or request a 30-day trial.</p>
+        <form action="https://formspree.io/f/xqedjpdd" method="POST" class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-on-surface-variant mb-1">Full name</label>
+            <input type="text" name="name" placeholder="Jane Smith" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-on-surface-variant mb-1">Work email *</label>
+            <input type="email" name="email" required placeholder="jane@company.com" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-on-surface-variant mb-1">Company</label>
+            <input type="text" name="company" placeholder="Company name" class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none"/>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-on-surface-variant mb-1">Message</label>
+            <textarea name="message" rows="3" placeholder="Tell us about your needs..." class="w-full bg-surface-container-high border border-outline rounded-lg px-4 py-2.5 text-on-surface text-sm placeholder:text-on-surface-variant/50 focus:border-primary focus:outline-none resize-none"></textarea>
+          </div>
+          <button type="submit" class="w-full bg-primary hover:bg-primary-dim text-white py-3 rounded-xl font-semibold transition-colors text-sm">
+            Send message
+          </button>
+          <p class="text-xs text-on-surface-variant/60 mt-2">By submitting, you agree to our <a href="docs/privacy.html" class="underline">Privacy Policy</a>.</p>
+        </form>
+      </div>
+    </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="border-t border-outline-variant/50 pt-16 pb-8 px-6 lg:px-8">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
+    <div>
+      <div class="flex items-center gap-2.5 mb-3">
+        <img src="/assets/logo-site-brand.png" alt="Tourvia" class="w-7 h-7 rounded-lg"/>
+        <span class="font-bold text-base">Tourvia</span>
+      </div>
+      <p class="text-on-surface-variant text-sm max-w-xs leading-relaxed mb-4">Salesforce-native route optimization for field sales teams. Tourvia is the new product name for RouteForce.</p>
+      <a href="/#contact" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-dim text-white px-3.5 py-2 rounded-lg font-semibold text-sm transition-colors">30-day trial access</a>
+    </div>
+    <div class="flex flex-col gap-2.5 text-sm">
+      <span class="font-bold text-on-surface mb-1 text-xs uppercase tracking-widest">Product</span>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing">Pricing</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="use-cases.html">Use cases</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="native-integration-salesforce.html">Integration</a>
+    </div>
+    <div class="flex flex-col gap-2.5 text-sm">
+      <span class="font-bold text-on-surface mb-1 text-xs uppercase tracking-widest">Resources</span>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="blog/">Blog</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/">Docs</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="consulting.html">Consulting</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="flat-rate-route-optimization.html">Pricing ROI</a>
+    </div>
+    <div class="flex flex-col gap-2.5 text-sm">
+      <span class="font-bold text-on-surface mb-1 text-xs uppercase tracking-widest">Company</span>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="mailto:contact@routeforce.app">Contact</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/privacy.html">Privacy</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/terms.html">Terms</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors inline-flex items-center gap-1.5" href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank">Status <span class="inline-block w-1.5 h-1.5 rounded-full bg-green-500"></span></a>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-outline-variant/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-on-surface-variant text-xs">
+    <span>&copy; 2026 Tourvia. All rights reserved.</span>
+    <span>Built natively on Salesforce. AppExchange managed package.</span>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" onclick="this.classList.remove('active')">
+  <img id="lightbox-img" src="" alt="Full-size screenshot"/>
+</div>
+
+<!-- Scroll reveal + Lightbox -->
+<script>
+  document.querySelectorAll('.reveal').forEach(el => {
+    new IntersectionObserver(([e]) => { if (e.isIntersecting) el.classList.add('visible'); }, { threshold: 0.1 }).observe(el);
+  });
+  document.querySelectorAll('.screenshot-frame img').forEach(img => {
+    img.addEventListener('click', () => {
+      document.getElementById('lightbox-img').src = img.src;
+      document.getElementById('lightbox-img').alt = img.alt || 'Full-size screenshot';
+      document.getElementById('lightbox').classList.add('active');
+    });
+  });
+  document.querySelectorAll('.js-open-lightbox-direct').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('lightbox-img').src = btn.dataset.lightboxSrc;
+      document.getElementById('lightbox-img').alt = btn.dataset.lightboxAlt || 'Full-size screenshot';
+      document.getElementById('lightbox').classList.add('active');
+    });
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') document.getElementById('lightbox').classList.remove('active'); });
+
+  // Animated counters
+  const counters = document.querySelectorAll('.counter');
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const el = entry.target;
+        const target = parseInt(el.dataset.target);
+        let current = 0;
+        const step = Math.max(1, Math.floor(target / 30));
+        const timer = setInterval(() => {
+          current += step;
+          if (current >= target) { current = target; clearInterval(timer); }
+          el.textContent = current + '+';
+        }, 40);
+        counterObserver.unobserve(el);
+      }
+    });
+  }, { threshold: 0.5 });
+  counters.forEach(c => counterObserver.observe(c));
+</script>
+
+<!-- Structured Data: Organization + SoftwareApplication -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Tourvia",
+  "alternateName": "RouteForce",
+  "url": "https://routeforce.app",
+  "logo": "https://routeforce.app/assets/logo-site-brand.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "contact@routeforce.app",
+    "contactType": "sales"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 rue Bausset",
+    "addressLocality": "Paris",
+    "postalCode": "75015",
+    "addressCountry": "FR"
+  },
+  "areaServed": [
+    "France",
+    "Europe",
+    "North America"
+  ],
+  "sameAs": [
+    "https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba",
+    "https://www.linkedin.com/company/routeforce"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Tourvia",
+  "alternateName": "RouteForce",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Salesforce",
+  "description": "Salesforce-native route planning, optimization, and field visit tracking for sales teams. €30/user/month, billed annually.",
+  "url": "https://routeforce.app",
+  "offers": [
     {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "Comment fonctionne la tarification Tourvia ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Tourvia fonctionne avec un abonnement par utilisateur. Installation unique (à partir de 3 500€ HT) puis 30€ HT par utilisateur et par mois, facturé annuellement."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quelle est la différence entre Tourvia et les outils de cartographie CRM facturés par utilisateur ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Tourvia est 100% natif Salesforce. Il offre l'optimisation de tournées, la visualisation cartographique interactive, la création automatique d'événements, l'historique des tournées et la géolocalisation des comptes proches — pour 30€ HT par utilisateur et par mois, facturé annuellement."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Combien de temps faut-il pour installer Tourvia ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Notre équipe prend en charge le déploiement complet. Tourvia est un package natif Salesforce configuré directement dans votre org. Délai moyen : 1 à 2 semaines entre la démo et le go-live."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Tourvia fonctionne-t-il avec mon Salesforce existant ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Oui, Tourvia est 100% natif Salesforce. Il fonctionne avec votre objet Account existant (sous-requête Contact incluse). Aucune synchronisation externe n'est requise, vos données restent dans Salesforce."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Quels secteurs d'activité utilisent Tourvia ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Tourvia s'adapte à tous les métiers avec des équipes terrain : agroalimentaire, industrie pharmaceutique, distribution B2B, services et maintenance technique, énergie et environnement. Toute entreprise avec des commerciaux itinérants peut en bénéficier."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Comment fonctionne l'algorithme d'optimisation de Tourvia ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Tourvia utilise un algorithme avancé d'optimisation de tournées. Il calcule l'ordre de passage optimal en tenant compte des coordonnées GPS de chaque compte Salesforce, des créneaux horaires, des durées de visite et des pauses. Le calcul s'effectue sur un serveur dédié hébergé en France, sans quota ni limitation."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "Peut-on utiliser Tourvia sur smartphone ?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Oui. Tourvia est entièrement responsive et conçu pour le terrain. Sur mobile, l'interface adopte un panneau bottom-sheet pour laisser la carte visible. La géolocalisation GPS permet de trouver les comptes à proximité en temps réel. Fonctionne dans l'application Salesforce mobile ou tout navigateur mobile."
-                }
-            }
-        ]
+      "@type": "Offer",
+      "name": "Pro",
+      "price": "30",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "billingDuration": "P1M"
+      },
+      "description": "Full route optimization, GPS check-in, visit reports, dashboards, and annual per-user subscription"
     }
-    </script>
+  ],
+  "featureList": "Interactive map, Campaign Member mapping, Route optimization, GPS check-in, Visit reports, Heatmap, Bulk select, Saved filters, Route history, Custom actions, Mobile support, 2 dashboards, 18 reports",
+  "screenshot": "https://routeforce.app/assets/screenshots-2026/screen-01.jpg",
+  "softwareVersion": "7.13.0-1",
+  "author": {
+    "@type": "Organization",
+    "name": "Tourvia",
+    "alternateName": "RouteForce"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is Tourvia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tourvia is Salesforce route planning software that keeps route optimization, visit planning, and field execution inside Salesforce."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Who is Tourvia best for?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "It is best for Salesforce-first field teams that want route planning and visit execution tied directly to CRM records, events, and reporting."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Tourvia cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard pricing is 30 euros per user per month billed annually, with larger enterprise deployments quoted separately when needed."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Tourvia Route Optimization Demo",
+    "description": "See how Tourvia optimizes field sales routes inside Salesforce. Select accounts on the map, optimize visit order, and create Salesforce events in seconds.",
+    "thumbnailUrl": "https://routeforce.app/assets/screenshots-2026/screen-01.jpg",
+    "contentUrl": "https://routeforce.app/assets/videos/OptimiseRoute.mp4",
+    "uploadDate": "2026-03-30T08:00:00+02:00",
+    "duration": "PT30S",
+    "embedUrl": "https://routeforce.app",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Tourvia",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://routeforce.app/assets/logo-site-brand.png"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Tourvia Mobile Field Demo",
+    "description": "Tourvia running natively in the Salesforce Mobile App. Map, routes, nearby accounts, and check-in from the field.",
+    "thumbnailUrl": "https://routeforce.app/assets/screenshots-2026/screen-01.jpg",
+    "contentUrl": "https://routeforce.app/assets/videos/routeforce-mobile-demo.mp4",
+    "uploadDate": "2026-03-30T08:00:00+02:00",
+    "duration": "PT45S",
+    "embedUrl": "https://routeforce.app",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Tourvia",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://routeforce.app/assets/logo-site-brand.png"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Tourvia GPS Check-in and Visit Reports",
+    "description": "GPS-verified check-in at each stop. Fill visit reports with result, satisfaction, and next action, all inside Salesforce.",
+    "thumbnailUrl": "https://routeforce.app/assets/screenshots-2026/screen-03.jpg",
+    "contentUrl": "https://routeforce.app/assets/videos/CheckOut.mp4",
+    "uploadDate": "2026-03-30T08:00:00+02:00",
+    "duration": "PT20S",
+    "embedUrl": "https://routeforce.app",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Tourvia",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://routeforce.app/assets/logo-site-brand.png"
+      }
+    }
+  }
+]
+</script>
+<script>
+  window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
 
-    <script src="script.js"></script>
+  document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      window.plausible('AppExchange Click', {
+        props: {
+          page_path: window.location.pathname,
+          link_text: (link.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80)
+        }
+      });
+    });
+  });
+
+  const contactForm = document.querySelector('form[action*="formspree.io"]');
+  if (contactForm) {
+    contactForm.addEventListener('submit', () => {
+      window.plausible('Lead Form Submit', {
+        props: {
+          page_path: window.location.pathname,
+          form: 'homepage_contact'
+        }
+      });
+      if (typeof gtag === 'function') {
+        gtag('event', 'conversion', {
+          'send_to': 'AW-18063754907/z6aBCNy52JUcEJuNvKVD',
+          'value': 1.0,
+          'currency': 'EUR'
+        });
+      }
+    });
+  }
+</script>
+
 </body>
 </html>

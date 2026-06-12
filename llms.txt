@@ -1,0 +1,52 @@
+# Tourvia — llms.txt
+# For the detailed version with FAQ, comparisons, and technical details, see: https://routeforce.app/llms-full.txt
+
+> Tourvia, formerly RouteForce, is a Salesforce-native route planning and field visit tracking application. It is delivered as a managed package installed in Salesforce orgs.
+
+## Brand note
+- Tourvia is the new product name for RouteForce. The old name may still appear in historical URLs, screenshots, package internals, or technical object names during the transition.
+
+## What Tourvia does
+- Interactive map showing Accounts, Leads, Opportunities, and Campaign Members from Salesforce CRM
+- Route optimization with configurable time windows, lunch breaks, and visit duration
+- GPS check-in/check-out with visit reports (result, next action, notes, satisfaction, order amount, next visit date)
+- Heatmap visualization and bulk lasso-select for batch operations
+- 2 dashboards and 18 native Salesforce reports included
+- Route history with replay functionality
+- Saved and shared filter configurations
+- Campaign Member mapping from Campaign record pages or the global app map, with Lead/Contact geolocation and status-based colors
+- Custom actions via Screen Flows and Lightning Web Components from map markers
+- Full Salesforce Mobile App support
+
+## Pricing
+- 30-day trial available on request through the contact form for qualified Salesforce orgs
+- Paid standard scope: €30/user/month excluding tax, billed annually (€360/user/year)
+- Larger enterprise or multi-entity deployments can be quoted separately when needed
+- Turnkey setup option: €3,000 excluding tax, one-time
+- No routing API pass-through fees from Tourvia; routing uses self-hosted VROOM/OpenRouteService infrastructure
+
+## Technical details
+- Lightning Web Component (LWC) based architecture
+- Configuration via Custom Metadata Types (RouteForceConfig__mdt)
+- 3 permission sets: Admin, Manager, User
+- Route optimization powered by VROOM with OpenRouteService components
+- Routing infrastructure hosted in France (OVHcloud, Gravelines)
+- Salesforce remains the main CRM data system, while routing uses the data required for calculations
+
+## Key pages
+- Homepage: https://routeforce.app
+- RouteForce to Tourvia name update: https://routeforce.app/blog/routeforce-becomes-tourvia.html
+- Documentation: https://routeforce.app/docs/
+- Setup Guide: https://routeforce.app/docs/setup-guide.html
+- User Guide: https://routeforce.app/docs/user-guide.html
+- Configuration Guide: https://routeforce.app/docs/configuration-guide.html
+- Use Cases: https://routeforce.app/use-cases.html
+- Pricing: https://routeforce.app/pricing.html
+- Pricing comparison / flat-rate search intent: https://routeforce.app/flat-rate-route-optimization.html
+- Privacy Policy: https://routeforce.app/docs/privacy.html
+- AppExchange listing: https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba
+
+## Company
+- Tourvia SAS, 14 rue Bausset, 75015 Paris, France
+- SIRET: 102 154 879 00013
+- Contact: contact@routeforce.app

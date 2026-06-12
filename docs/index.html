@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tourvia Docs | Setup, User & Config Guides</title>
+    <meta name="robots" content="index, follow">
+    <script>
+      (function () {
+        var path = window.location.pathname;
+        if (path === '/docs/index.html') {
+          var robots = document.querySelector('meta[name="robots"]');
+          if (robots) robots.setAttribute('content', 'noindex,follow');
+          var googlebot = document.createElement('meta');
+          googlebot.setAttribute('name', 'googlebot');
+          googlebot.setAttribute('content', 'noindex,follow');
+          document.head.appendChild(googlebot);
+          window.location.replace('/docs/' + window.location.search + window.location.hash);
+        }
+      })();
+    </script>
+    <meta name="description" content="Tourvia documentation: package installation, setup guide, user guide, advanced Salesforce configuration, and trust pages for buyers and admins.">
+    <link rel="canonical" href="https://routeforce.app/docs/">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg"/><link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .docs-card-icon {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+        .premium-doc-card h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fafafa;
+            margin-bottom: 8px;
+        }
+        .premium-doc-card p {
+            font-size: 0.9rem;
+            color: #a1a1aa;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+        .docs-badge {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(99,102,241,0.12);
+            border: 1px solid rgba(99,102,241,0.22);
+            color: #c7d2fe;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+        }
+        .install-box {
+            background: linear-gradient(135deg, rgba(99,102,241,0.9), rgba(79,70,229,0.8));
+            color: white;
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 0;
+            box-shadow: 0 22px 56px rgba(0,0,0,0.22);
+        }
+        .install-box h2 { color: white; font-size: 1.25rem; margin-bottom: 8px; }
+        .install-box p { color: rgba(255,255,255,0.85); font-size: 0.93rem; margin-bottom: 16px; }
+        .install-links { display: flex; gap: 12px; flex-wrap: wrap; }
+        .install-links a {
+            display: inline-block;
+            background: #18181b;
+            color: #c7d2fe;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .install-links a.secondary {
+            background: rgba(255,255,255,0.05);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+    </style>
+    <meta property="og:title" content="Tourvia Documentation">
+    <meta property="og:site_name" content="Tourvia">
+    <meta property="og:description" content="Installation guides, user guides, configuration, and trust pages for Tourvia.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://routeforce.app/docs/">
+    <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="Tourvia Docs | Setup, User & Config Guides"/>
+    <meta name="twitter:description" content="Tourvia documentation: package installation, setup guide, user guide, advanced Salesforce configuration, and trust pages for buyers and admins."/>
+    <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Docs | Setup, User & Config Guides","url":"https://routeforce.app/docs/","description":"Tourvia documentation: package installation, setup guide, user guide, advanced Salesforce configuration, and trust pages for buyers and admins.","publisher":{"@type":"Organization","name":"Tourvia","url":"https://routeforce.app"}}</script>
+<script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18063754907');
+</script>
+</head>
+<body style="background:#09090b;color:#e4e4e7;">
+    <header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
+    <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
+      <img src="../assets/logo-site-brand.png" alt="Tourvia" style="width:32px;height:32px;border-radius:8px;flex-shrink:0;"/>
+      <span style="font-size:1.125rem;font-weight:800;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tourvia</span>
+    </a>
+    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.875rem;">
+      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
+      <a href="/#contact" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request a 30-day trial</a>
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
+    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
+      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="/#contact" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Request a 30-day trial</a>
+    </nav>
+  </div>
+  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
+</header>
+
+    <section class="premium-hero">
+        <div class="container">
+            <div class="premium-hero-grid">
+                <div class="premium-hero-copy">
+                    <div class="premium-hero-kicker">Docs & trust</div>
+                    <h1>Tourvia documentation for admins, field teams, and buyers</h1>
+                    <p class="premium-hero-lead">Installation, field adoption, advanced configuration, and trust pages in one Salesforce-native documentation hub. This is the fastest path from evaluation to rollout.</p>
+                    <div class="premium-bullets">
+                        <div class="premium-bullet"><span>•</span><span><strong>Start here:</strong> setup, user guide, and configuration guide cover the product path end to end.</span></div>
+                        <div class="premium-bullet"><span>•</span><span><strong>Trust layer:</strong> privacy, DPA, and terms are grouped alongside the docs buyers ask for during evaluation.</span></div>
+                        <div class="premium-bullet"><span>•</span><span><strong>Buying logic:</strong> install the package first, then expand into premium route optimization and advanced execution.</span></div>
+                    </div>
+                    <div class="premium-cta-row">
+                        <a href="/#contact" class="btn btn-primary btn-lg">Request a 30-day trial</a>
+                        <a href="../pricing.html" class="btn btn-outline btn-lg">See pricing</a>
+                    </div>
+                </div>
+                <div class="premium-hero-rail">
+                    <div class="install-box">
+                        <h2>Install Tourvia</h2>
+                        <p>Install the managed package in your Salesforce org in one click. Start free with map visualization and meeting creation, then unlock paid features for route optimization, GPS visit execution, and advanced dashboards.</p>
+                        <p style="margin-top:-4px;font-size:0.85rem;color:rgba(255,255,255,0.92);"><strong>Current build:</strong> TourviaApp 7.26.0 is ready for install and upgrade (Security-Review-passed managed package).</p>
+                        <div class="install-links">
+                            <a href="/#contact" target="_blank" rel="noopener" data-plausible-event="install_package_docs_appexchange">Request a 30-day trial</a>
+                        </div>
+                    </div>
+                    <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:20px 22px;box-shadow:0 18px 48px rgba(0,0,0,0.18);">
+                        <div style="display:inline-flex;align-items:center;gap:8px;padding:4px 10px;border:1px solid rgba(99,102,241,0.32);border-radius:999px;background:rgba(99,102,241,0.12);color:#c7d2fe;font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">Latest release</div>
+                        <h2 style="margin:0 0 10px;font-size:1.05rem;font-weight:800;color:#fafafa;">What is new in TourviaApp 7.26.0</h2>
+                        <ul style="margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px;color:#a1a1aa;font-size:0.88rem;line-height:1.55;">
+                            <li><span style="color:#9099ff;font-weight:700;">·</span> <strong style="color:#e4e4e7;">Today's Agenda — tap-to-call contacts:</strong> events linked to a contact now show the contact's name and a clickable phone link (mobile or office, with FaceTime/Teams/dialer fallback). Works on Account events that have a Contact attendee too.</li>
+                            <li><span style="color:#9099ff;font-weight:700;">·</span> <strong style="color:#e4e4e7;">Campaign as route entry:</strong> a 6th inline entry point lets field reps plan a tour straight from a Salesforce Campaign — pick the Campaign and all its geocoded members land as route steps in one click.</li>
+                            <li><span style="color:#9099ff;font-weight:700;">·</span> <strong style="color:#e4e4e7;">Three new Permission Set Groups:</strong> <code style="background:rgba(99,102,241,0.12);color:#c7d2fe;padding:1px 6px;border-radius:6px;font-size:0.82rem;">TourviaApp_User_Group</code> / <code style="background:rgba(99,102,241,0.12);color:#c7d2fe;padding:1px 6px;border-radius:6px;font-size:0.82rem;">Manager_Group</code> / <code style="background:rgba(99,102,241,0.12);color:#c7d2fe;padding:1px 6px;border-radius:6px;font-size:0.82rem;">Admin_Group</code>, plus compound Address, geolocation and phone FLS granted out of the box on Account, Contact and Lead.</li>
+                        </ul>
+                        <div style="margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;font-size:0.85rem;">
+                            <a href="setup-guide.html" style="color:#9099ff;text-decoration:none;font-weight:600;">Setup guide →</a>
+                            <a href="user-guide.html" style="color:#9099ff;text-decoration:none;font-weight:600;">User guide →</a>
+                        </div>
+                    </div>
+                    <div class="premium-hero-card">
+                        <div class="premium-hero-card-label">Key Tourvia resources</div>
+                        <div class="blog-hero-linklist" style="margin-top:0;">
+                            <a href="../pricing.html">Pricing</a>
+                            <a href="../salesforce-route-planning.html">Route planning</a>
+                            <a href="../visit-planning-salesforce.html">Visit planning</a>
+                            <a href="../field-sales-route-optimization.html">Field execution</a>
+                            <a href="../flat-rate-route-optimization.html">Per-user model</a>
+                            <a href="../native-integration-salesforce.html">Native integration</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features-section" style="padding-top:28px;">
+        <div class="container">
+            <div class="premium-docs-grid" style="margin-bottom:28px;">
+                <a href="setup-guide.html" class="premium-doc-card">
+                    <div class="docs-card-icon">🔧</div>
+                    <h2>Setup Guide</h2>
+                    <p>Package installation, permission set group assignment, onboarding flow, free vs premium setup, dashboard verification, and first rollout steps for Salesforce administrators.</p>
+                    <span class="docs-badge">Administrators · TourviaApp 7.26.0</span>
+                </a>
+                <a href="user-guide.html" class="premium-doc-card">
+                    <div class="docs-card-icon">📖</div>
+                    <h2>User Guide</h2>
+                    <p>Daily Tourvia usage: map exploration, filters, route building, trial access, paid features, check-in / check-out, native dashboards, and history reuse.</p>
+                    <span class="docs-badge">Field users · TourviaApp 7.26.0</span>
+                </a>
+                <a href="configuration-guide.html" class="premium-doc-card">
+                    <div class="docs-card-icon">⚙️</div>
+                    <h2>Configuration Guide</h2>
+                    <p>Two-layer config model, deployment patterns, clone-and-compose guide, App Builder property reference, copy-paste presets, and full field reference.</p>
+                    <span class="docs-badge">Advanced admins · TourviaApp 7.26.0</span>
+                </a>
+            </div>
+
+            <div style="background:#111114;border:1px solid #27272a;border-radius:22px;padding:24px 24px 20px;box-shadow:0 18px 48px rgba(0,0,0,0.18);margin-bottom:28px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:14px;">
+                    <h2 style="margin:0;font-size:1.15rem;font-weight:800;color:#fafafa;">Choose your quickest route</h2>
+                    <span style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a1a1aa;">By role</span>
+                </div>
+                <div class="premium-docs-grid" style="grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
+                    <a href="setup-guide.html" class="premium-doc-card" style="padding:20px 20px 18px;">
+                        <div class="docs-badge" style="margin-bottom:12px;">Admin starting rollout</div>
+                        <h2 style="margin-bottom:8px;">Go to Setup Guide</h2>
+                        <p style="margin-bottom:0;">Best first stop if you need install steps, permissions, onboarding flow, and first validation.</p>
+                    </a>
+                    <a href="user-guide.html" class="premium-doc-card" style="padding:20px 20px 18px;">
+                        <div class="docs-badge" style="margin-bottom:12px;">Field user adoption</div>
+                        <h2 style="margin-bottom:8px;">Go to User Guide</h2>
+                        <p style="margin-bottom:0;">Best first stop if reps need the day-to-day workflow for maps, routes, check-ins, and dashboards.</p>
+                    </a>
+                    <a href="configuration-guide.html" class="premium-doc-card" style="padding:20px 20px 18px;">
+                        <div class="docs-badge" style="margin-bottom:12px;">Advanced admin / architect</div>
+                        <h2 style="margin-bottom:8px;">Go to Configuration Guide</h2>
+                        <p style="margin-bottom:0;">Best first stop for deployment patterns, App Builder settings, config layers, and reusable presets.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="premium-summary-shell" style="margin-bottom:28px;">
+                <h2 style="margin-bottom:0.6rem;">Tourvia in 4 clear answers</h2>
+                <p style="color:#a1a1aa;max-width:760px;margin-bottom:1.5rem;">The trust signals buyers and admins want before they install.</p>
+                <div class="premium-summary-grid">
+                    <div class="premium-summary-card"><h3>What is Tourvia?</h3><p>A native Salesforce route planning product packaged as a cleaner 2GP app, built for field teams.</p></div>
+                    <div class="premium-summary-card"><h3>What do you get?</h3><p>Interactive map, route planning, field execution, shared filters, heatmap, and native analytics.</p></div>
+                    <div class="premium-summary-card"><h3>How do you buy?</h3><p>Start with the installable plan, then request paid access for route optimization and advanced execution.</p></div>
+                    <div class="premium-summary-card"><h3>Where can I verify trust?</h3><p>Use the Privacy Policy, DPA, and Terms & Conditions pages to review the contractual and data-processing framework.</p></div>
+                </div>
+            </div>
+
+            <div style="background:linear-gradient(135deg,rgba(99,102,241,0.92),rgba(79,70,229,0.82));border:1px solid rgba(255,255,255,0.08);border-radius:22px;padding:26px 24px 22px;box-shadow:0 22px 56px rgba(0,0,0,0.24);margin-bottom:28px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;">
+                    <div style="max-width:620px;">
+                        <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border:1px solid rgba(255,255,255,0.2);border-radius:999px;background:rgba(255,255,255,0.08);color:#e0e7ff;font-size:0.72rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:10px;">Need more than docs?</div>
+                        <h2 style="margin:0 0 8px;color:#fff;font-size:1.2rem;">Use docs for validation, then move fast with consulting if rollout gets custom</h2>
+                        <p style="margin:0;color:rgba(255,255,255,0.84);line-height:1.7;">When the org needs Screen Flows, LWC work, deployment help, or custom Salesforce execution around Tourvia, the consulting path is the clean next step.</p>
+                    </div>
+                    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+                        <a href="../consulting.html" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;background:#fff;color:#312e81;text-decoration:none;font-weight:700;">See consulting</a>
+                        <a href="../pricing.html" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.24);color:#fff;text-decoration:none;font-weight:700;">See pricing</a>
+                    </div>
+                </div>
+            </div>
+
+            <p style="text-align:center;color:#71717a;font-size:0.9rem;padding-bottom:60px;">
+                Questions? <a href="mailto:contact@routeforce.app" style="color:#9099ff;">contact@routeforce.app</a>
+            </p>
+        </div>
+    </section>
+
+    <footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <img src="/assets/logo-site-brand.png" alt="Tourvia" style="width:28px;height:28px;border-radius:8px;"/>
+        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">Tourvia</span>
+      </div>
+      <p style="color:#a1a1aa;font-size:0.9rem;line-height:1.6;max-width:280px;margin:0 0 16px;">Salesforce-native route optimization for field sales teams.</p>
+      <a href="/#contact" style="display:inline-flex;align-items:center;gap:6px;background:#6366f1;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">Request a 30-day trial</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Product</span>
+      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="/use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="/native-integration-salesforce.html" style="color:#a1a1aa;text-decoration:none;">Integration</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Resources</span>
+      <a href="/blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="/docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="/consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="/flat-rate-route-optimization.html" style="color:#a1a1aa;text-decoration:none;">Pricing ROI</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Company</span>
+      <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
+      <a href="/docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
+      <a href="/docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
+      <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" style="color:#a1a1aa;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Status <span style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span></a>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e1e22;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#71717a;font-size:0.8rem;">
+    <span>&copy; 2026 Tourvia. All rights reserved.</span>
+    <span>Built natively on Salesforce. AppExchange managed package.</span>
+  </div>
+</footer>
+<script>
+window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach(function(link){
+  link.addEventListener('click',function(){
+    window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
+  });
+});
+</script>
+</body>
+</html>

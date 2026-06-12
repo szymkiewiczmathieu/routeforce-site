@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Improve Field Visit Planning in Salesforce</title>
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Field visit planning inside Salesforce is more than scheduling. It connects account selection, route decisions, event creation, and reporting in one workflow.">
+    <link rel="canonical" href="https://routeforce.app/blog/how-to-improve-field-visit-planning-inside-salesforce.html">
+    <meta property="og:title" content="How to improve field visit planning inside Salesforce">
+    <meta property="og:site_name" content="Tourvia">
+    <meta property="og:description" content="Visit planning inside Salesforce should connect account selection, route planning, event creation, and reporting, not just calendar entries.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://routeforce.app/blog/how-to-improve-field-visit-planning-inside-salesforce.html">
+    <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-04.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How to improve field visit planning inside Salesforce">
+    <meta name="twitter:description" content="A better Salesforce visit planning workflow connects account selection, event creation, field execution, and reporting.">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+    <link rel="stylesheet" href="../style.css">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "How to improve field visit planning inside Salesforce",
+      "description": "A practical guide to better field visit planning inside Salesforce.",
+      "datePublished": "2026-04-02",
+      "dateModified": "2026-04-05",
+      "author": {"@type": "Organization", "name": "Tourvia"},
+      "publisher": {"@type": "Organization", "name": "Tourvia", "url": "https://routeforce.app"},
+      "image": "https://routeforce.app/assets/screenshots-2026/screen-04.jpg",
+      "mainEntityOfPage": "https://routeforce.app/blog/how-to-improve-field-visit-planning-inside-salesforce.html"
+    }
+    </script>
+<script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18063754907');
+</script>
+</head>
+<body style="background:#09090b;color:#e4e4e7;">
+
+<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
+  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
+    <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
+      <img src="../assets/logo-site-brand.png" alt="Tourvia" style="width:32px;height:32px;border-radius:10px;flex-shrink:0;"/>
+      <span style="font-size:1.125rem;font-weight:700;letter-spacing:-0.02em;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tourvia</span>
+    </a>
+    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.95rem;white-space:nowrap;">
+      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+    </nav>
+    <div style="display:flex;align-items:center;gap:8px;">
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
+      <a href="/#contact" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request trial</a>
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
+    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
+      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="/#contact" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Request trial</a>
+    </nav>
+  </div>
+  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
+</header>
+
+<section class="blog-hero blog-hero-premium">
+  <div class="container">
+    <div class="blog-hero-premium-grid">
+      <div class="blog-hero-copy">
+        <div class="blog-kicker-row">
+      <span class="blog-kicker-chip">Guide</span>
+      <time datetime="2026-04-02">April 2, 2026</time>
+      <span>&middot;</span>
+      <span>4 min read</span>
+    </div>
+    <h1>How to improve field visit planning inside Salesforce</h1>
+    <p class="blog-hero-summary">Visit planning should do more than create calendar entries. It should connect account selection, route decisions, event creation, and reporting in one field workflow.</p>
+      </div>
+      <aside class="blog-hero-sidecard blog-hero-sidecard-muted">
+        <div class="blog-hero-sidecard-label">Quick access</div>
+        <div class="blog-hero-sidecard-title">Stay close to the buying path</div>
+        <p class="blog-hero-sidecard-copy">Use the article for context, then jump straight into pricing, product positioning, or AppExchange install when you want to evaluate Tourvia seriously.</p>
+        <div class="blog-hero-linklist">
+          <a href="../pricing.html">See Tourvia pricing</a>
+          <a href="../salesforce-route-planning.html">Explore route planning</a>
+          <a href="/#contact">Request trial</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="blog-content" style="padding:60px 0 100px;">
+    <div class="container" style="max-width:800px;">
+            <section>
+                <p>Field visit planning is often treated like scheduling. Pick a few accounts, add events to the calendar, and move on.</p>
+                <p>But for field teams working inside Salesforce, that view is too narrow. The quality of visit planning affects route quality, territory coverage, reporting quality, and the consistency of field execution.</p>
+            </section>
+
+            <section>
+                <h2>Visit planning starts before the calendar</h2>
+                <p>Better visit planning starts with choosing the right accounts, not just filling a day with appointments.</p>
+                <p>That means planning with Salesforce context in mind:</p>
+                <ul>
+                    <li>which accounts have not been visited recently</li>
+                    <li>which opportunities are active</li>
+                    <li>which territory needs more coverage</li>
+                    <li>which rep owns the account</li>
+                </ul>
+                <p>If teams make those decisions outside the CRM, planning quality usually drops.</p>
+                <p>In 2026, AI-driven visit prioritization is becoming a practical reality. With 87% of sales organizations now using some form of AI in their cycle, tools like Salesforce Agentforce can surface which accounts to visit based on scoring models, recent activity gaps, or pipeline signals. The planning step increasingly benefits from intelligent suggestions rather than purely manual selection.</p>
+            </section>
+
+            <section>
+                <h2>Route quality and visit planning belong together</h2>
+                <p>Visit planning is not only about “who should I see?” It is also about “in what order should I see them?”</p>
+                <p>Without route logic, teams often create a day full of appointments that still wastes too much drive time. Better visit planning therefore depends on route planning, not only on calendar creation.</p>
+            </section>
+
+            <section>
+                <h2>Event creation should not become admin work</h2>
+                <p>A common failure point is what happens after the route is chosen. Reps still need to turn the plan into visits or Salesforce Events.</p>
+                <p>If that step stays manual, field planning quickly turns into tedious admin work. The better workflow is the one where route decisions and event creation stay closely connected.</p>
+            </section>
+
+            <section>
+                <h2>Good visit planning also improves reporting quality</h2>
+                <p>Planning and reporting are connected. If the planning flow is fragmented, follow-up is often fragmented too.</p>
+                <p>When the visit workflow stays inside Salesforce, teams are more likely to:</p>
+                <ul>
+                    <li>record visit outcomes consistently</li>
+                    <li>capture notes and next actions</li>
+                    <li>keep activity history usable for managers</li>
+                    <li>use the same workflow on desktop and mobile</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>What better Salesforce visit planning looks like</h2>
+                <p>A stronger visit planning workflow inside Salesforce usually means:</p>
+                <ul>
+                    <li>account selection based on CRM context, with AI-assisted prioritization becoming standard</li>
+                    <li>route logic before event creation, reducing drive time and improving territory coverage</li>
+                    <li>visit / event creation inside the same workflow</li>
+                    <li>GPS check-in and check-out to verify on-site presence -- now considered standard practice for field accountability</li>
+                    <li>visit reporting at check-out, capturing outcomes and next actions while context is fresh</li>
+                </ul>
+                <p>The point is not simply to schedule more meetings. It is to make field execution cleaner and more repeatable.</p>
+            </section>
+
+            <section>
+                <h2>Where Tourvia fits</h2>
+                <p>Tourvia is built to connect route planning, visit creation, check-in/check-out, and visit reporting inside Salesforce.</p>
+                <p>That makes it useful for teams that want visit planning to be part of an end-to-end field workflow rather than a disconnected scheduling task.</p>
+                <ul>
+                    <li>30-day trial on request: validate the interface with your Salesforce team</li>
+                    <li>paid scope for route optimization, GPS check-in, and configurable visit reports</li>
+                    <li>standard pricing at &euro;30/user/month excluding tax, billed annually; larger deployments quoted separately</li>
+                </ul>
+                <p><a href="../visit-planning-salesforce.html" style="color:#6366f1;font-weight:500">&rarr; See the visit planning page</a><br><a href="../salesforce-route-planning.html" style="color:#6366f1;font-weight:500">&rarr; See the route planning page</a></p>
+            </section>
+
+            <section>
+                <h2>Conclusion</h2>
+                <p>If your field team already works in Salesforce, better visit planning is not only about adding appointments faster. It is about keeping route planning, execution, and reporting connected to the same system. Teams that adopt this connected approach typically see fewer missed visits, more consistent reporting, and better territory coverage over time.</p>
+                <p>That is what makes the workflow easier to adopt and easier to manage.</p>
+            </section>
+
+            <div class="blog-cta">
+                <h3>See how visit planning works inside Tourvia</h3>
+                <p>Start with a 30-day trial request, then explore how Tourvia connects visit planning, route logic, and field execution.</p>
+                <a href="/#contact" class="btn-cta-primary">Request trial</a>
+                <a href="../visit-planning-salesforce.html" class="btn-cta-secondary">See visit planning</a>
+            </div>
+    </div>
+</section>
+
+<footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
+    <div>
+      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
+        <img src="/assets/logo-site-brand.png" alt="Tourvia" style="width:28px;height:28px;border-radius:8px;"/>
+        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">Tourvia</span>
+      </div>
+      <p style="color:#a1a1aa;font-size:0.9rem;line-height:1.6;max-width:280px;margin:0 0 16px;">Salesforce-native route optimization for field sales teams.</p>
+      <a href="/#contact" style="display:inline-flex;align-items:center;gap:6px;background:#6366f1;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">Request trial</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Product</span>
+      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="/use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="/native-integration-salesforce.html" style="color:#a1a1aa;text-decoration:none;">Integration</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Resources</span>
+      <a href="/blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="/docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="/consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
+      <a href="/flat-rate-route-optimization.html" style="color:#a1a1aa;text-decoration:none;">Pricing ROI</a>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
+      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Company</span>
+      <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
+      <a href="/docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
+      <a href="/docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
+      <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" style="color:#a1a1aa;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Status <span style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span></a>
+    </div>
+  </div>
+  <div style="max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e1e22;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#71717a;font-size:0.8rem;">
+    <span>&copy; 2026 Tourvia. All rights reserved.</span>
+    <span>Built natively on Salesforce. AppExchange managed package.</span>
+  </div>
+</footer>
+
+<script>
+window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
+document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach(function(link){
+  link.addEventListener('click',function(){
+    window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
+  });
+});
+</script>
+</body>
+</html>

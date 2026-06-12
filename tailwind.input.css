@@ -1,0 +1,39 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+@theme {
+  /* Custom colors matching the CDN tailwind.config in index.html */
+  --color-surface: #09090b;
+  --color-surface-dim: #0a0a0f;
+  --color-surface-container: #18181b;
+  --color-surface-container-low: #131316;
+  --color-surface-container-high: #1e1e22;
+  --color-surface-container-highest: #27272a;
+  --color-on-surface: #fafafa;
+  --color-on-surface-variant: #a1a1aa;
+  --color-primary: #6366f1;
+  --color-primary-light: #9099ff;
+  --color-primary-dim: #4f46e5;
+  --color-accent: #06b6d4;
+  --color-accent-light: #22d3ee;
+  --color-outline: #3f3f46;
+  --color-outline-variant: #27272a;
+
+  /* Custom font family */
+  --font-family-sans: "Inter", system-ui, sans-serif;
+}
+
+@source "./index.html";
+@source "./404.html";
+@source "./pricing.html";
+@source "./consulting.html";
+@source "./use-cases.html";
+@source "./visit-planning-salesforce.html";
+@source "./salesforce-route-planning.html";
+@source "./native-integration-salesforce.html";
+@source "./field-sales-route-optimization.html";
+@source "./flat-rate-route-optimization.html";
+@source "./blog/*.html";
+@source "./docs/*.html";
+@source "./en/*.html";
+@source "./es/*.html";
