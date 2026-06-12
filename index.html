@@ -60,6 +60,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
 <style>
   body { font-family: 'Inter', system-ui, sans-serif; }
+  html, body { max-width: 100%; overflow-x: hidden; }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
   html { scroll-behavior: smooth; }
 
@@ -508,6 +509,41 @@
     height: 1px;
     background: linear-gradient(90deg, #6366f1, transparent);
   }
+  /* ===== MAX MODE ADDITIONS ===== */
+  .max-hero-title { letter-spacing: -0.075em; }
+  .max-hero-title .impact-word {
+    display: inline-block;
+    background: linear-gradient(115deg, #fff 0%, #a5f3fc 26%, #c4b5fd 56%, #fff 88%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 0 28px rgba(34, 211, 238, .24));
+  }
+  .command-orbit { position: absolute; inset: -34px; border-radius: 34px; pointer-events: none; z-index: 0; background: radial-gradient(circle at 20% 15%, rgba(34,211,238,.22), transparent 14rem), radial-gradient(circle at 80% 30%, rgba(167,139,250,.20), transparent 16rem), conic-gradient(from 120deg at 50% 50%, rgba(34,211,238,.18), rgba(99,102,241,.05), rgba(167,139,250,.18), rgba(34,211,238,.18)); filter: blur(18px); opacity: .72; animation: maxOrbit 18s linear infinite; }
+  @keyframes maxOrbit { to { transform: rotate(360deg); } }
+  .route-hud { position: absolute; inset: -20px; z-index: 2; pointer-events: none; }
+  .route-hud path { fill: none; stroke: url(#hudRouteGradient); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 14 12; animation: routeDash 9s linear infinite; filter: drop-shadow(0 0 12px rgba(34,211,238,.7)); }
+  @keyframes routeDash { to { stroke-dashoffset: -240; } }
+  .hud-node { position: absolute; width: 13px; height: 13px; border-radius: 999px; background: #67e8f9; box-shadow: 0 0 0 8px rgba(34,211,238,.14), 0 0 28px rgba(34,211,238,.8); z-index: 5; }
+  .hud-node.one { right: 23%; top: 23%; } .hud-node.two { left: 22%; bottom: 28%; background: #c4b5fd; box-shadow: 0 0 0 8px rgba(167,139,250,.14), 0 0 28px rgba(167,139,250,.8); } .hud-node.three { right: 13%; bottom: 23%; background: #34d399; box-shadow: 0 0 0 8px rgba(52,211,153,.14), 0 0 28px rgba(52,211,153,.75); }
+  .max-panel { border: 1px solid rgba(148,163,184,.18); background: linear-gradient(135deg, rgba(15,23,42,.78), rgba(2,6,23,.88)); border-radius: 28px; box-shadow: 0 30px 90px rgba(0,0,0,.38), inset 0 1px 0 rgba(255,255,255,.05); }
+  .max-section { position: relative; overflow: hidden; border-block: 1px solid rgba(148,163,184,.10); background: radial-gradient(circle at 12% 20%, rgba(34,211,238,.12), transparent 28rem), radial-gradient(circle at 88% 18%, rgba(167,139,250,.12), transparent 26rem), linear-gradient(180deg, rgba(2,6,23,.0), rgba(15,23,42,.34), rgba(2,6,23,.0)); }
+  .max-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 1.25rem; align-items: stretch; }
+  .ops-map { min-height: 520px; position: relative; overflow: hidden; border-radius: 34px; border: 1px solid rgba(34,211,238,.22); background: linear-gradient(rgba(34,211,238,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,.06) 1px, transparent 1px), radial-gradient(circle at 50% 42%, rgba(34,211,238,.20), transparent 18rem), #020617; background-size: 36px 36px, 36px 36px, auto, auto; }
+  .ops-map::before { content: ''; position: absolute; inset: 8%; border: 1px solid rgba(34,211,238,.24); border-radius: 50%; box-shadow: 0 0 0 70px rgba(34,211,238,.025), 0 0 80px rgba(34,211,238,.12); }
+  .ops-route-line { position: absolute; inset: 8% 6%; width: 88%; height: 84%; }
+  .ops-route-line path { fill: none; stroke: url(#maxRoute); stroke-width: 5; stroke-linecap: round; stroke-dasharray: 18 14; animation: routeDash 8s linear infinite; filter: drop-shadow(0 0 18px rgba(34,211,238,.7)); }
+  .ops-stop { position: absolute; display: grid; place-items: center; width: 42px; height: 42px; border-radius: 16px; color: #00111a; font-weight: 900; background: linear-gradient(135deg, #67e8f9, #c4b5fd); box-shadow: 0 20px 60px rgba(34,211,238,.22); }
+  .ops-stop.s1 { left: 18%; top: 24%; } .ops-stop.s2 { left: 54%; top: 18%; } .ops-stop.s3 { right: 16%; top: 44%; } .ops-stop.s4 { left: 36%; bottom: 19%; } .ops-stop.s5 { right: 27%; bottom: 15%; }
+  .ops-kpi-stack { display: grid; gap: 1rem; }
+  .ops-kpi { padding: 1.25rem; }
+  .ops-kpi small { color: #94a3b8; text-transform: uppercase; letter-spacing: .12em; font-weight: 800; font-size: .68rem; }
+  .ops-kpi strong { display: block; font-size: clamp(2rem, 4vw, 3.8rem); line-height: .9; letter-spacing: -.07em; margin-top: .45rem; }
+  .ops-kpi p { color: #cbd5e1; margin-top: .7rem; }
+  .max-timeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: .75rem; margin-top: 1.25rem; }
+  .max-step { padding: 1rem; border-radius: 22px; border: 1px solid rgba(148,163,184,.16); background: rgba(15,23,42,.52); }
+  .max-step b { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 999px; background: rgba(34,211,238,.12); color: #a5f3fc; margin-bottom: .8rem; }
+  @media (max-width: 980px) { .max-grid, .max-timeline { grid-template-columns: 1fr; } .ops-map { min-height: 420px; } }
 </style>
 </head>
 <body class="bg-surface text-on-surface antialiased overflow-x-hidden">
@@ -576,11 +612,11 @@
           <span class="w-1.5 h-1.5 rounded-full bg-accent animate-pulse"></span>
           <span class="text-xs font-medium text-primary-light">Tourvia, formerly RouteForce</span>
         </div>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.04] mb-6 max-w-4xl text-balance">
-          Salesforce route planning, <span class="gradient-text-animated">from map to visit</span>, without leaving the CRM.
+        <h1 class="max-hero-title text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight leading-[0.93] mb-6 max-w-5xl text-balance">
+          The <span class="impact-word">route command center</span> your Salesforce team should have had from day one.
         </h1>
-        <p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed mb-7">
-          Tourvia — formerly RouteForce — turns your Salesforce records into optimized routes, your routes into scheduled visits, and your visits into GPS-verified reports. One managed package, one workspace, clear €30/user/month pricing billed annually.
+        <p class="text-xl text-on-surface-variant max-w-2xl leading-relaxed mb-7">
+          Tourvia — formerly RouteForce — turns CRM geography into a live operating system: territory intelligence, optimized field days, Salesforce Events, mobile execution, GPS check-in, and reports your managers can trust.
         </p>
         <div class="flex flex-wrap gap-3 mb-6">
           <a href="/#contact" class="bg-primary hover:bg-primary-dim text-white px-6 py-3 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-primary/25 inline-flex items-center gap-2">
@@ -610,6 +646,12 @@
 
       <!-- Right: Product screenshot in browser mockup with floating telemetry -->
       <div class="hero-visual">
+        <div class="command-orbit"></div>
+        <svg class="route-hud" viewBox="0 0 620 560" aria-hidden="true">
+          <defs><linearGradient id="hudRouteGradient" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#22d3ee"/><stop offset=".55" stop-color="#60a5fa"/><stop offset="1" stop-color="#c4b5fd"/></linearGradient></defs>
+          <path d="M70 370 C145 170 265 428 350 204 C430 -8 555 150 528 310 C500 470 360 500 248 430 C136 360 120 510 70 370Z"/>
+        </svg>
+        <span class="hud-node one"></span><span class="hud-node two"></span><span class="hud-node three"></span>
         <div class="stat-chip stat-chip-1" aria-hidden="true"><span class="material-symbols-outlined">route</span> 38.0 km · 1h11 optimized</div>
         <div class="stat-chip stat-chip-2" aria-hidden="true"><span class="material-symbols-outlined">event_available</span> 5 stops → Salesforce Events</div>
         <div class="video-glow">
@@ -655,6 +697,45 @@
           <div class="trust-value"><span class="material-symbols-outlined text-accent text-lg">route</span>ORS + VROOM engine</div>
           <div class="trust-label">Proven open-source optimization, tuned for field sales routes</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== MAX MODE OPERATIONS COCKPIT ===== -->
+  <section class="max-section py-24 px-6 lg:px-8" id="ops-cockpit">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-10 items-end mb-10">
+        <div>
+          <span class="eyebrow">Maximum power view</span>
+          <h2 class="text-4xl lg:text-6xl font-extrabold tracking-tight leading-[0.98] mt-4 mb-5 text-balance">One cockpit for the entire field route lifecycle.</h2>
+        </div>
+        <p class="text-lg text-on-surface-variant leading-relaxed">This is the core Tourvia story: Salesforce records become a territory signal, the signal becomes an optimized day, the day becomes Events, and the Events become verified field activity. No spreadsheet. No sync platform. No second CRM.</p>
+      </div>
+      <div class="max-grid">
+        <div class="ops-map" aria-label="Animated route operations map">
+          <svg class="ops-route-line" viewBox="0 0 640 460" aria-hidden="true">
+            <defs><linearGradient id="maxRoute" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#22d3ee"/><stop offset=".5" stop-color="#60a5fa"/><stop offset="1" stop-color="#c4b5fd"/></linearGradient></defs>
+            <path d="M90 290 C150 80 275 360 350 150 C430 -40 555 125 515 255 C480 365 335 405 245 340 C155 275 135 430 90 290Z"/>
+          </svg>
+          <span class="ops-stop s1">01</span><span class="ops-stop s2">02</span><span class="ops-stop s3">03</span><span class="ops-stop s4">04</span><span class="ops-stop s5">05</span>
+          <div class="absolute left-5 top-5 max-panel p-4 max-w-xs z-10">
+            <div class="text-xs uppercase tracking-[0.18em] text-cyan-200 font-bold">Live dispatch</div>
+            <div class="text-2xl font-extrabold mt-2">Paris West · optimized</div>
+            <div class="text-sm text-slate-300 mt-2">5 stops · 38.0 km · 1h11 drive · Events ready</div>
+          </div>
+        </div>
+        <div class="ops-kpi-stack">
+          <div class="max-panel ops-kpi"><small>Territory signal</small><strong>360°</strong><p>Accounts, Leads, Opportunities and Campaign Members appear in one operational map with Salesforce filters.</p></div>
+          <div class="max-panel ops-kpi"><small>Optimization loop</small><strong>ORS + VROOM</strong><p>Dedicated routing engine sequences the day, then hands the plan back to the Salesforce workflow.</p></div>
+          <div class="max-panel ops-kpi"><small>Execution proof</small><strong>GPS → CRM</strong><p>Mobile check-in and checkout forms close the field activity loop without another app layer.</p></div>
+        </div>
+      </div>
+      <div class="max-timeline">
+        <div class="max-step"><b>1</b><div class="font-bold">Map</div><p class="text-sm text-slate-400 mt-2">Visualize real CRM coverage.</p></div>
+        <div class="max-step"><b>2</b><div class="font-bold">Select</div><p class="text-sm text-slate-400 mt-2">Pick the stops that matter.</p></div>
+        <div class="max-step"><b>3</b><div class="font-bold">Optimize</div><p class="text-sm text-slate-400 mt-2">Calculate a realistic field day.</p></div>
+        <div class="max-step"><b>4</b><div class="font-bold">Schedule</div><p class="text-sm text-slate-400 mt-2">Create Salesforce Events.</p></div>
+        <div class="max-step"><b>5</b><div class="font-bold">Report</div><p class="text-sm text-slate-400 mt-2">Track visits and adoption.</p></div>
       </div>
     </div>
   </section>
