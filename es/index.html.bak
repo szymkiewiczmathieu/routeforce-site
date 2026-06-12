@@ -1,19 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-PWNN33DN');</script>
-    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tourvia — Optimización de Rutas Comerciales Salesforce | 30€ por usuario</title>
-    <meta name="description" content="Planifique y optimice las rutas de sus comerciales directamente en Salesforce. Optimización avanzada, creación automática de eventos, exportación CSV, historial — 30€/usuario/mes, facturado anualmente.">
+    <title>RouteForce — Optimización de Rutas Comerciales Salesforce | Sin Coste por Usuario</title>
+    <meta name="description" content="Planifique y optimice las rutas de sus comerciales directamente en Salesforce. Optimización avanzada, creación automática de eventos, exportación CSV, historial — 249€/mes para todo su equipo.">
     <meta name="robots" content="index, follow">
-    <meta name="author" content="Tourvia">
+    <meta name="author" content="Mathieu Szymkiewicz — RouteForce">
     <meta name="keywords" content="optimización rutas comerciales, Salesforce planificación rutas, software rutas CRM, gestión comerciales terreno, planificación itinerarios Salesforce, cartografía CRM sin licencia por usuario">
 
     <!-- Canonical & Hreflang -->
@@ -25,27 +18,27 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Tourvia — Optimización de Rutas Comerciales Salesforce">
-    <meta property="og:description" content="Planifique y optimice las rutas de sus comerciales directamente en Salesforce. Optimización avanzada, creación de eventos, exportación CSV — 30€/usuario/mes, facturado anualmente.">
+    <meta property="og:title" content="RouteForce — Optimización de Rutas Comerciales Salesforce">
+    <meta property="og:description" content="Planifique y optimice las rutas de sus comerciales directamente en Salesforce. Optimización avanzada, creación de eventos, exportación CSV — 249€/mes para todo su equipo.">
     <meta property="og:url" content="https://routeforce.app/es/">
-    <meta property="og:image" content="https://routeforce.app/assets/screenshot-cmdt-config.jpg">
+    <meta property="og:image" content="https://routeforce.app/assets/screenshot-tour-optimized.png">
     <meta property="og:locale" content="es_ES">
     <meta property="og:locale:alternate" content="en_US">
     <meta property="og:locale:alternate" content="es_ES">
-    <meta property="og:site_name" content="Tourvia">
+    <meta property="og:site_name" content="RouteForce">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Tourvia — Rutas Comerciales Optimizadas para Salesforce">
-    <meta name="twitter:description" content="Planifique y optimice rutas comerciales directamente en Salesforce. Suscripción por usuario. 30€/usuario/mes, facturado anualmente.">
-    <meta name="twitter:image" content="https://routeforce.app/assets/screenshot-cmdt-config.jpg">
+    <meta name="twitter:title" content="RouteForce — Rutas Comerciales Optimizadas para Salesforce">
+    <meta name="twitter:description" content="Planifique y optimice rutas comerciales directamente en Salesforce. Sin coste por usuario. 249€/mes para todo su equipo.">
+    <meta name="twitter:image" content="https://routeforce.app/assets/screenshot-tour-optimized.png">
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
-        "name": "Tourvia",
+        "name": "RouteForce",
         "applicationCategory": "BusinessApplication",
         "operatingSystem": "Web (Salesforce)",
         "description": "Solución nativa Salesforce de optimización de rutas comerciales. Mapa interactivo, planificación de itinerarios y creación automática de eventos.",
@@ -53,13 +46,13 @@
         "offers": {
             "@type": "AggregateOffer",
             "priceCurrency": "EUR",
-            "lowPrice": "2975",
+            "lowPrice": "3500",
             "highPrice": "18000",
             "offerCount": "3"
         },
         "publisher": {
             "@type": "Organization",
-            "name": "Tourvia",
+            "name": "RouteForce",
             "url": "https://routeforce.app"
         },
         "featureList": [
@@ -87,9 +80,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWNN33DN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
 
     <!-- COUNTDOWN BANNER — MULTILINGUAL SLIDER -->
     <div class="countdown-banner">
@@ -134,16 +124,16 @@
             <div class="countdown-right">
                 <div class="countdown-slider" id="countdown-slider-right">
                     <div class="countdown-slide-right active">
-                        <span class="countdown-offer">🆓 ESSAI 30 JOURS</span>
-                        <span class="countdown-offer countdown-discount">🔥 -15% INSTALLATION</span>
+                        <span class="countdown-offer">🆓 ESSAI 14 JOURS</span>
+                        <span class="countdown-offer countdown-discount">🔥 -90% INSTALLATION</span>
                     </div>
                     <div class="countdown-slide-right">
-                        <span class="countdown-offer">🆓 30-DAY TRIAL</span>
-                        <span class="countdown-offer countdown-discount">🔥 15% OFF SETUP</span>
+                        <span class="countdown-offer">🆓 14-DAY FREE TRIAL</span>
+                        <span class="countdown-offer countdown-discount">🔥 90% OFF SETUP</span>
                     </div>
                     <div class="countdown-slide-right">
-                        <span class="countdown-offer">🆓 PRUEBA 30 DÍAS</span>
-                        <span class="countdown-offer countdown-discount">🔥 -15% INSTALACIÓN</span>
+                        <span class="countdown-offer">🆓 PRUEBA GRATIS 14 DÍAS</span>
+                        <span class="countdown-offer countdown-discount">🔥 -90% INSTALACIÓN</span>
                     </div>
                 </div>
             </div>
@@ -213,7 +203,7 @@
                     <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
                     <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
                 </svg>
-                <span>Tourvia</span>
+                <span>RouteForce</span>
             </a>
             <div class="nav-links" id="navLinks">
                 <a href="#features">Funcionalidades</a>
@@ -241,10 +231,10 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-badge">100% Nativo Salesforce</div>
-                <h1>Optimice sus rutas en un clic con Tourvia. Planifique, visualice y gestione sus visitas fácilmente.</h1>
+                <h1>Planifique rutas más eficientes para sus comerciales — directamente en Salesforce</h1>
                 <p class="hero-subtitle">
                     Diseñado para organizaciones con Salesforce y equipos itinerantes. Optimización de rutas, cartografía interactiva y creación automática de eventos —
-                    30€ sin IVA por usuario al mes, facturado anualmente.
+                    un precio fijo para toda su org. <strong>Sin coste por usuario, nunca.</strong>
                 </p>
                 <div class="hero-cta">
                     <a href="#contact" class="btn btn-primary btn-lg">Reservar Demo Gratis</a>
@@ -252,8 +242,8 @@
                 </div>
                 <div class="hero-proof">
                     <div class="proof-item">
-                        <span class="proof-number">30€</span>
-                        <span class="proof-label">sin IVA / usuario / mes</span>
+                        <span class="proof-number">0€</span>
+                        <span class="proof-label">por usuario</span>
                     </div>
                     <div class="proof-divider"></div>
                     <div class="proof-item">
@@ -269,13 +259,12 @@
             </div>
             <div class="hero-visual">
                 <div class="hero-screenshot">
-                    <img src="../assets/screenshot-cmdt-config.jpg" alt="Tourvia — Configuración personalizable con 17 parámetros en Salesforce Custom Metadata" loading="eager" fetchpriority="high">
-                    <p class="hero-caption">17 parámetros configurables sin código — adapte Tourvia a sus procesos de negocio en unos pocos clics.</p>
+                    <img src="../assets/screenshot-hero.jpg" alt="RouteForce — Ruta optimizada con itinerario trazado en el mapa Salesforce" loading="eager" fetchpriority="high">
                 </div>
                 <div class="hero-mobile">
                     <div class="phone-frame">
                         <div class="phone-notch"></div>
-                        <img src="../assets/screenshot-mobile.jpg" alt="Tourvia — Compatible móvil" loading="eager">
+                        <img src="../assets/screenshot-mobile.jpg" alt="RouteForce — Compatible con móvil, tablet y escritorio" loading="eager">
                     </div>
                     <span class="mobile-badge">📱 Compatible móvil</span>
                 </div>
@@ -295,7 +284,7 @@
                             <line x1="9" y1="9" x2="15" y2="15"/>
                         </svg>
                     </div>
-                    <h3>Sin Tourvia</h3>
+                    <h3>Sin RouteForce</h3>
                     <ul>
                         <li>Rutas planificadas manualmente en Excel o Google Maps</li>
                         <li>30 a 45 minutos perdidos cada mañana organizando el día</li>
@@ -311,17 +300,14 @@
                             <path d="M8 12l3 3 5-5"/>
                         </svg>
                     </div>
-                    <h3>Con Tourvia, sus comerciales optimizan sus rutas sin fricción</h3>
+                    <h3>Con RouteForce</h3>
                     <ul>
-                        <li><strong>30€ por usuario al mes</strong> — facturación anual, sin costes ocultos</li>
-                        <li><strong>100% nativo Salesforce</strong> — sin sincronización externa, sus datos permanecen en su org</li>
-                        <li><strong>Cuentas Y Leads en el mismo mapa</strong> — prospección + fidelización, misma ruta</li>
-                        <li><strong>Enrutamiento multimodal óptimo</strong> — pausas comida, peajes, duración visita integrados</li>
-                        <li><strong>Calendario Salesforce completado automáticamente</strong> — citas, contactos, direcciones en un clic</li>
-                        <li><strong>Historial de rutas</strong> — recargue sus rutas recurrentes en 30 segundos</li>
-                        <li><strong>Exportación CSV</strong> — informes para managers y hoja de ruta compartida</li>
+                        <li>Itinerario óptimo calculado en segundos</li>
+                        <li>Todas las cuentas Salesforce visibles en el mapa</li>
+                        <li>Calendario Salesforce completado en 1 clic — citas, contactos, direcciones</li>
+                        <li>Exportación CSV para informes, Google Maps para navegación</li>
+                        <li>249€/mes para todo el equipo, usuarios ilimitados</li>
                     </ul>
-                    <p style="margin-top: 16px; font-size: 0.9rem; color: var(--gray-600);"><em> Alojado en Francia (OVH), conforme al RGPD. Sin compromiso.</em></p>
                 </div>
             </div>
         </div>
@@ -444,7 +430,7 @@
     <section class="personas-section" id="pour-qui">
         <div class="container">
             <div class="section-header">
-                <h2>¿Para quién es Tourvia?</h2>
+                <h2>¿Para quién es RouteForce?</h2>
                 <p>Cada rol encuentra su valor</p>
             </div>
             <div class="personas-grid">
@@ -491,13 +477,13 @@
     <section class="screenshots-section" id="screenshots">
         <div class="container">
             <div class="section-header">
-                <h2>Tourvia en Acción</h2>
+                <h2>RouteForce en Acción</h2>
                 <p>Descubra la interfaz directamente integrada en Salesforce</p>
             </div>
             <div class="screenshots-grid">
                 <div class="screenshot-card">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-satellite-legend.jpg" alt="Tourvia — Vista nacional de cuentas Salesforce con círculo Around Me, clusters por región y leyenda de segmentación" loading="lazy" width="1200" height="800">
+                        <img src="../assets/screenshot-satellite-legend.png" alt="RouteForce — Vista nacional de cuentas Salesforce con círculo Around Me, clusters por región y leyenda de segmentación" loading="lazy" width="1200" height="800">
                     </div>
                     <div class="screenshot-caption">
                         <h3>Cartographie nationale & segmentation client</h3>
@@ -506,7 +492,7 @@
                 </div>
                 <div class="screenshot-card">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-account-popup.jpg" alt="Ficha de cliente Salesforce con acciones rápidas — crear una cita o lanzar el itinerario desde el mapa" loading="lazy" width="600" height="400">
+                        <img src="../assets/screenshot-account-popup.png" alt="Ficha de cliente Salesforce con acciones rápidas — crear una cita o lanzar el itinerario desde el mapa" loading="lazy" width="600" height="400">
                     </div>
                     <div class="screenshot-caption">
                         <h3>Ficha de Cliente Instantánea</h3>
@@ -517,16 +503,16 @@
             <div class="screenshots-row">
                 <div class="screenshot-card main">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-tour-optimized-paris.jpg" alt="Ruta mixta Cuentas + Leads optimizada en París — paradas numeradas con estrellas de Leads" loading="lazy" width="2560" height="1027">
+                        <img src="../assets/screenshot-tour-optimized.png" alt="Ruta comercial optimizada en Salesforce — itinerario trazado en el mapa con paradas numeradas y panel lateral" loading="lazy" width="1200" height="800">
                     </div>
                     <div class="screenshot-caption">
-                        <h3>Ruta Mixta Optimizada en París</h3>
-                        <p>Cuentas de clientes 📍 y leads ⭐ en el mismo itinerario. El algoritmo optimiza el orden de visita según sus restricciones horarias. Cada parada muestra su contacto asociado.</p>
+                        <h3>Ruta Optimizada en Tiempo Real</h3>
+                        <p>El algoritmo calcula el mejor itinerario teniendo en cuenta sus restricciones: pausa almuerzo, duración de visita, fin de jornada. Trazado directamente en el mapa con las paradas numeradas.</p>
                     </div>
                 </div>
                 <div class="screenshot-card side">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-steps-panel.jpg" alt="Tourvia — Mapa local con marcadores de cuentas Salesforce y panel de planificación de ruta abierto" loading="lazy" width="1200" height="800">
+                        <img src="../assets/screenshot-steps-panel.png" alt="RouteForce — Mapa local con marcadores de cuentas Salesforce y panel de planificación de ruta abierto" loading="lazy" width="1200" height="800">
                     </div>
                     <div class="screenshot-caption">
                         <h3>Selección de Cuentas a Visitar</h3>
@@ -537,16 +523,16 @@
             <div class="screenshots-row" style="margin-top: 2rem;">
                 <div class="screenshot-card main">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-nearby-accounts.jpg" alt="Cuentas cercanas alrededor de la posición GPS en Salesforce — clusters de marcadores naranja en el mapa de Francia" loading="lazy" width="1200" height="800">
+                        <img src="../assets/screenshot-nearby-accounts.png" alt="Cuentas cercanas alrededor de la posición GPS en Salesforce — clusters de marcadores naranja en el mapa de Francia" loading="lazy" width="1200" height="800">
                     </div>
                     <div class="screenshot-caption">
                         <h3>Cuentas Cercanas — GPS en Tiempo Real</h3>
-                        <p>Un toque en el botón 📍 y Tourvia muestra inmediatamente todas las cuentas Salesforce en un radio configurable a su alrededor. Perfecto para improvisar una visita de paso.</p>
+                        <p>Un toque en el botón 📍 y RouteForce muestra inmediatamente todas las cuentas Salesforce en un radio configurable a su alrededor. Perfecto para improvisar una visita de paso.</p>
                     </div>
                 </div>
                 <div class="screenshot-card side">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-route-history.jpg" alt="Historial de rutas Salesforce — lista de las últimas 20 rutas con distancia, duración y número de paradas" loading="lazy" width="600" height="800">
+                        <img src="../assets/screenshot-route-history.png" alt="Historial de rutas Salesforce — lista de las últimas 20 rutas con distancia, duración y número de paradas" loading="lazy" width="600" height="800">
                     </div>
                     <div class="screenshot-caption">
                         <h3>Historial de Rutas</h3>
@@ -557,7 +543,7 @@
             <div class="screenshots-grid" style="margin-top: 2rem;">
                 <div class="screenshot-card main">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-tour-planner.jpg" alt="Tourvia — Panel de planificación de ruta abierto en el mapa de Francia con parámetros horarios y sección Nearby Accounts" loading="lazy" width="1600" height="900">
+                        <img src="../assets/screenshot-tour-planner.png" alt="RouteForce — Panel de planificación de ruta abierto en el mapa de Francia con parámetros horarios y sección Nearby Accounts" loading="lazy" width="1600" height="900">
                     </div>
                     <div class="screenshot-caption">
                         <h3>Interfaz de Planificación Completa</h3>
@@ -566,41 +552,11 @@
                 </div>
                 <div class="screenshot-card side">
                     <div class="screenshot-img">
-                        <img src="../assets/screenshot-save-route.jpg" alt="Tourvia — Guardado y nombrado de una ruta optimizada para re-ejecución posterior" loading="lazy">
+                        <img src="../assets/screenshot-save-route.jpg" alt="RouteForce — Guardado y nombrado de una ruta optimizada para re-ejecución posterior" loading="lazy">
                     </div>
                     <div class="screenshot-caption">
                         <h3>💾 Guarde sus Rutas</h3>
                         <p>Después de planificar y optimizar, nombre y guarde su ruta. Encuéntrela en el historial para re-ejecutarla la semana siguiente — mismo itinerario, mismas cuentas, cero esfuerzo. Ideal para rutas recurrentes.</p>
-                    </div>
-                </div>
-                <div class="screenshot-card main">
-                    <div class="screenshot-img">
-                        <img src="../assets/screenshot-route-leads.jpg" alt="Tourvia — Ruta mixta Cuentas + Leads con itinerario optimizado, contactos asociados y creación de visitas en un clic" loading="lazy" width="2372" height="1414">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>⭐ Cuentas + Leads en el Mismo Mapa</h3>
-                        <p>Planifique sus rutas con sus cuentas existentes <em>y</em> sus leads por prospectar — en el mismo mapa. Los leads aparecen como estrellas ⭐, las cuentas como pines de colores 📍. Un clic en "Crear visitas" crea los eventos en el calendario de Salesforce, con el contacto asociado correcto.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- NEW: Events, Onboarding, Config -->
-            <div class="screenshots-row" style="margin-top: 2rem;">
-                <div class="screenshot-card main">
-                    <div class="screenshot-img">
-                        <img src="../assets/screenshot-events-agenda.jpg" alt="Tourvia — Agenda del día con eventos en el mapa Salesforce, check-in con un clic y marcadores 📅" loading="lazy" width="2560" height="1323">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>📅 Agenda de Campo — El Día D</h3>
-                        <p>Sus citas del día aparecen directamente en el mapa con marcadores 📅. El panel lateral muestra la agenda: próxima reunión destacada, check-in con un clic, edición y eliminación al vuelo. Sin cambiar entre calendario y mapa.</p>
-                    </div>
-                </div>
-                <div class="screenshot-card side">
-                    <div class="screenshot-img">
-                        <img src="../assets/screenshot-cmdt-config.jpg" alt="Tourvia — 17 parámetros configurables sin código via Custom Metadata Types Salesforce, organizados en 4 secciones" loading="lazy" width="2560" height="1287">
-                    </div>
-                    <div class="screenshot-caption">
-                        <h3>⚙️ 17 Parámetros — Cero Código</h3>
-                        <p>Todo es configurable via Custom Metadata Types: modo de visualización, radio GPS, funcionalidades activadas, zoom por defecto, radio de clúster... Un asistente guiado lo configura todo en 5 pasos. El administrador mantiene el control total sin tocar código.</p>
                     </div>
                 </div>
             </div>
@@ -612,7 +568,7 @@
         <div class="container">
             <div class="section-header">
                 <h2>🧠 Un Algoritmo, no un GPS</h2>
-                <p>Tourvia no traza un itinerario — encuentra el <strong>mejor orden de visita</strong> en segundos.</p>
+                <p>RouteForce no traza un itinerario — encuentra el <strong>mejor orden de visita</strong> en segundos.</p>
             </div>
 
             <div class="screenshots-grid">
@@ -645,28 +601,24 @@
                         </ul>
 
                         <h3 style="margin-top: 24px;">🌍 En Todo el Mundo</h3>
-                        <p>Francia, Europa, África, Asia, Américas — <strong>sin restricciones geográficas</strong>. Donde estén sus clientes, Tourvia calcula la ruta óptima en la red vial real.</p>
+                        <p>Francia, Europa, África, Asia, Américas — <strong>sin restricciones geográficas</strong>. Donde estén sus clientes, RouteForce calcula la ruta óptima en la red vial real.</p>
                     </div>
                 </div>
 
                 <div class="screenshot-card side" style="border: none; box-shadow: none; background: transparent;">
-                    <div style="display: flex; align-items: center; gap: 40px; flex-wrap: wrap;">
-                        <div style="flex: 1; min-width: 280px;">
-                            <h3>📱 100% Integrado con Salesforce</h3>
-                            <p>Sin herramientas externas. Sin sincronización. Tourvia vive <strong>dentro de</strong> Salesforce:</p>
-                            <ul style="margin: 12px 0 12px 20px; line-height: 2;">
-                                <li>Sus <strong>cuentas</strong> aparecen automáticamente en el mapa</li>
-                                <li>Las <strong>citas</strong> se crean en el calendario SF en un clic</li>
-                                <li>Los <strong>filtros</strong> se adaptan a sus campos custom (industria, tipo, prioridad…)</li>
-                                <li>Las <strong>rutas guardadas</strong> se recargan para la semana siguiente</li>
-                            </ul>
-                        </div>
-                        <div style="flex: 0 0 auto; text-align: center;">
-                            <div class="phone-frame" style="width: 140px; margin: 0 auto;">
-                                <div class="phone-notch"></div>
-                                <img src="../assets/screenshot-mobile.jpg" alt="Tourvia en móvil — interfaz responsive de campo" loading="lazy">
-                            </div>
-                            <span class="mobile-badge" style="display: inline-block; margin-top: 10px;">📱 Compatible móvil</span>
+                    <div class="screenshot-caption" style="padding: 0;">
+                        <h3>📱 100% Integrado con Salesforce</h3>
+                        <p>Sin herramientas externas. Sin sincronización. RouteForce vive <strong>dentro de</strong> Salesforce:</p>
+                        <ul style="margin: 12px 0 12px 20px; line-height: 2;">
+                            <li>Sus <strong>cuentas</strong> aparecen automáticamente en el mapa</li>
+                            <li>Las <strong>citas</strong> se crean en el calendario SF en un clic</li>
+                            <li>Los <strong>filtros</strong> se adaptan a sus campos custom (industria, tipo, prioridad…)</li>
+                            <li>Las <strong>rutas guardadas</strong> se recargan para la semana siguiente</li>
+                        </ul>
+
+                        <div style="background: #eff6ff; border-radius: 8px; padding: 20px; margin-top: 20px;">
+                            <h4 style="color: #1d4ed8; margin-bottom: 12px;">Diseñado por un Experto Salesforce</h4>
+                            <p style="color: #334155; font-size: 0.9rem; line-height: 1.6; margin: 0;">10 años de experiencia CRM, 5 certificaciones Salesforce (App Builder, Sales Cloud, Service Cloud, Pardot). RouteForce nació de una necesidad real del terreno en clientes grandes cuentas.</p>
                         </div>
                     </div>
                 </div>
@@ -678,8 +630,8 @@
     <section class="comparison-section" id="comparison">
         <div class="container">
             <div class="section-header">
-                <h2>Un precio claro según sus usuarios</h2>
-                <p>30€ sin IVA por usuario al mes, facturado anualmente. El presupuesto sigue el tamaño real de su equipo Tourvia.</p>
+                <h2>Un precio que no crece con su equipo</h2>
+                <p>249€/mes sin IVA (facturado anualmente) para toda su org Salesforce — 5 comerciales o 50, el precio no cambia.</p>
             </div>
             <div class="comparison-table-wrapper">
                 <table class="comparison-table">
@@ -694,32 +646,23 @@
                     <tbody>
                         <tr>
                         <tr class="row-highlight">
-                            <td><strong>Tourvia</strong></td>
-                            <td class="highlight"><strong>150 €/mes</strong></td>
-                            <td class="highlight"><strong>300 €/mes</strong></td>
-                            <td class="highlight"><strong>750 €/mes</strong></td>
+                            <td><strong>RouteForce</strong></td>
+                            <td class="highlight"><strong>249 €/mois</strong></td>
+                            <td class="highlight"><strong>249 €/mois</strong></td>
+                            <td class="highlight"><strong>249 €/mois</strong></td>
                         </tr>
                         <tr>
-
+                            
                         <tr>
                             <td>Coste por usuario</td>
-                            <td class="highlight"><strong>30 €/usuario/mes</strong></td>
-                            <td class="highlight"><strong>30 €/usuario/mes</strong></td>
-                            <td class="highlight"><strong>30 €/usuario/mes</strong></td>
+                            <td class="highlight"><span class="check green">0 €</span></td>
+                            <td class="highlight"><span class="check green">0 €</span></td>
+                            <td class="highlight"><span class="check green">0 €</span></td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
-        </div>
-    </section>
-
-    <!-- CTA DEMO -->
-    <section style="padding: 48px 0; background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%); text-align: center;">
-        <div class="container">
-            <h2 style="color: white; margin-bottom: 12px; font-size: 1.8rem;">Véalo en acción</h2>
-            <p style="color: rgba(255,255,255,0.9); margin-bottom: 24px; font-size: 1.1rem;">Demo personalizada de 15 minutos con sus propios datos Salesforce. Sin compromiso.</p>
-            <a href="#contact" class="btn btn-lg" style="background: white; color: #1d4ed8; font-weight: 700; padding: 16px 40px; border-radius: 8px; font-size: 1.1rem; text-decoration: none; display: inline-block;">Solicitar prueba de 30 días</a>
+            
         </div>
     </section>
 
@@ -728,20 +671,20 @@
         <div class="container">
             <div class="section-header">
                 <h2>Precios Simples y Transparentes</h2>
-                <p>Instalación única + suscripción mensual. Suscripción por usuario.</p>
+                <p>Instalación única + suscripción mensual. Sin coste por usuario.</p>
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <div class="discount-badge">-15%<span>launch</span></div>
+                    <div class="discount-badge">-90%<span>launch</span></div>
                     <div class="pricing-header">
                         <h3>Autónomo</h3>
                         <p class="pricing-desc">Su admin Salesforce configura con nuestra documentación</p>
                     </div>
                     <div class="pricing-price">
                         <span class="price-original">3.500€ sin IVA</span>
-                        <span class="price-new">2.975€ <small>sin IVA</small></span>
+                        <span class="price-new">350€ <small>sin IVA</small></span>
                         <span class="price-period">instalación única — oferta early adopter 🔥</span>
-                        <span class="price-maintenance">+ 30€ sin IVA / usuario / mes · facturado anualmente</span>
+                        <span class="price-maintenance">+ 249€/mes sin IVA · facturado anualmente (2.988€/año)</span>
                     </div>
                     <ul class="pricing-features">
                         <li><span class="check">&#10003;</span> Paquete Salesforce instalado en minutos</li>
@@ -767,7 +710,7 @@
                     <div class="pricing-price">
                         <span class="price">5.000€ <small>sin IVA</small></span>
                         <span class="price-period">instalación única</span>
-                        <span class="price-maintenance">+ 30€ sin IVA / usuario / mes · facturado anualmente</span>
+                        <span class="price-maintenance">+ 249€/mes sin IVA · facturado anualmente (2.988€/año)</span>
                     </div>
                     <ul class="pricing-features">
                         <li><span class="check">&#10003;</span> Instalación y configuración por nuestro equipo</li>
@@ -796,7 +739,7 @@
                     </div>
                     <ul class="pricing-features">
                         <li><span class="check">&#10003;</span> <strong>Infraestructura dedicada</strong> — servidor de cálculo aislado, rendimiento garantizado incluso bajo alta carga</li>
-                        <li><span class="check">&#10003;</span> <strong>Acuerdo de nivel de servicio</strong> — disponibilidad y tiempo de respuesta garantizados contractualmente</li>
+                        <li><span class="check">&#10003;</span> <strong>acuerdo de nivel de servicio contractual</strong> — uptime 99,9%, tiempo de respuesta garantizado</li>
                         <li><span class="check">&#10003;</span> <strong>Multi-sede / multi-país</strong> — routing optimizado por zona geográfica</li>
                         <li><span class="check">&#10003;</span> <strong>Onboarding personalizado</strong> — formación equipo terreno + admin SF</li>
                         <li><span class="check">&#10003;</span> <strong>Interlocutor dedicado</strong> — soporte prioritario, respuesta en 4h</li>
@@ -832,13 +775,13 @@
                 </div>
             </div>
             <div class="pricing-comparison">
-                <p><strong>Tourvia:</strong> 30€ sin IVA por usuario al mes, facturado anualmente.</p>
+                <p><p><strong>RouteForce:</strong> un precio fijo de 249€/mes para toda su org Salesforce, sin importar el número de usuarios.</p>
             </div>
         </div>
     </section>
 
     <section class="included-section" style="max-width:800px;margin:0 auto 4rem;padding:0 1.5rem;text-align:center">
-      <h3 style="font-size:1.25rem;font-weight:600;margin-bottom:1.5rem;color:#1e293b">Lo que incluye la suscripción</h3>
+      <h3 style="font-size:1.25rem;font-weight:600;margin-bottom:1.5rem;color:#1e293b">Lo que Incluye en los 249€/mes</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;text-align:left">
         <div style="background:#f8fafc;border-radius:12px;padding:1.25rem">
           <div style="font-size:1.5rem;margin-bottom:.5rem">🖥️</div>
@@ -912,7 +855,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Sí. Tourvia es 100% nativo Salesforce: sus datos CRM permanecen en su org Salesforce. El componente respeta íntegramente sus perfiles, permisos y reglas de compartición. Para el cálculo de itinerarios, las direcciones se transmiten a nuestro servidor dedicado alojado en Francia (OVH Gravelines) — nunca a un servicio americano.</p>
+                        <p>Sí. RouteForce es 100% nativo Salesforce: sus datos CRM permanecen en su org Salesforce. El componente respeta íntegramente sus perfiles, permisos y reglas de compartición. Para el cálculo de itinerarios, las direcciones se transmiten a nuestro servidor dedicado alojado en Francia (OVH Gravelines) — nunca a un servicio americano.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -930,7 +873,7 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>El soporte email está incluido con respuesta en 48h. La suscripción de 30€/usuario/mes cubre actualizaciones, compatibilidad Salesforce y soporte continuo. El onboarding y la formación admin están incluidos en la oferta Llave en Mano.</p>
+                        <p>El soporte email está incluido con respuesta en 48h. La suscripción mensual (249€/mes sin IVA) cubre actualizaciones, compatibilidad Salesforce y soporte continuo. El onboarding y la formación admin están incluidos en la oferta Llave en Mano.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -939,25 +882,25 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Una instalación única (3.500€ sin IVA en autónomo, 5.000€ sin IVA llave en mano) luego una suscripción mensual de 30€ sin IVA por usuario, con compromiso de 12 meses renovable automáticamente. Sin costes ocultos. <strong>🔥 Oferta de lanzamiento: -15% en la instalación Autónomo (2.975€ en lugar de 3.500€) para early adopters!</strong></p>
+                        <p>Una instalación única (3.500€ sin IVA en autónomo, 5.000€ sin IVA llave en mano) luego una suscripción mensual de 249€/mes sin IVA, con compromiso de 12 meses renovable automáticamente. Sin costes ocultos, sin coste por usuario. El precio es el mismo tenga 5 o 50 usuarios. <strong>🔥 Oferta de lanzamiento: -90% en la instalación Autónomo para early adopters!</strong></p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        <span>¿Es Tourvia compatible con mi edición de Salesforce?</span>
+                        <span>¿Es RouteForce compatible con mi edición de Salesforce?</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Tourvia funciona con todas las ediciones Salesforce que soportan Lightning Web Components: Professional, Enterprise, Unlimited y Developer. Se integra con su objeto Account existente.</p>
+                        <p>RouteForce funciona con todas las ediciones Salesforce que soportan Lightning Web Components: Professional, Enterprise, Unlimited y Developer. Se integra con su objeto Account existente.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        <span>¿Cuántos usuarios pueden usar Tourvia?</span>
+                        <span>¿Cuántos usuarios pueden usar RouteForce?</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Cada usuario Tourvia se factura a 30€ al mes, con facturación anual. Puede ajustar las licencias al equipo que usa la planificación de rutas.</p>
+                        <p>No hay límite de usuarios. La suscripción mensual (249€/mes) cubre toda su org Salesforce. Tenga 5 o 500 comerciales, el precio no cambia. Es una de las mayores ventajas frente a las soluciones facturadas por usuario.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -966,25 +909,25 @@
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Tourvia utiliza un algoritmo avanzado de optimización de rutas. Tiene en cuenta las coordenadas GPS de cada cuenta Salesforce, sus restricciones horarias (inicio, fin de jornada, pausa almuerzo) y las duraciones de visita para calcular el orden de paso óptimo. Todo en nuestro servidor alojado en Francia — sin cuota, sin limitación.</p>
+                        <p>RouteForce utiliza un algoritmo avanzado de optimización de rutas. Tiene en cuenta las coordenadas GPS de cada cuenta Salesforce, sus restricciones horarias (inicio, fin de jornada, pausa almuerzo) y las duraciones de visita para calcular el orden de paso óptimo. Todo en nuestro servidor alojado en Francia — sin cuota, sin limitación.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        <span>¿Se puede usar Tourvia en el móvil?</span>
+                        <span>¿Se puede usar RouteForce en el móvil?</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Sí. Tourvia es totalmente responsive y diseñado para el terreno. En móvil, la interfaz adopta un panel "bottom sheet" para mantener el mapa visible. La geolocalización GPS nativa permite encontrar las cuentas cercanas a su posición en tiempo real. Funciona en la aplicación Salesforce mobile o cualquier navegador móvil.</p>
+                        <p>Sí. RouteForce es totalmente responsive y diseñado para el terreno. En móvil, la interfaz adopta un panel "bottom sheet" para mantener el mapa visible. La geolocalización GPS nativa permite encontrar las cuentas cercanas a su posición en tiempo real. Funciona en la aplicación Salesforce mobile o cualquier navegador móvil.</p>
                     </div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">
-                        <span>¿Qué sectores utilizan Tourvia?</span>
+                        <span>¿Qué sectores utilizan RouteForce?</span>
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
                     </button>
                     <div class="faq-answer">
-                        <p>Tourvia se adapta a cualquier sector con equipos comerciales de terreno: <strong>agroalimentario</strong> (rutas GMS, restauración), <strong>industria</strong> y distribución B2B, <strong>farma</strong> (visitadores médicos), <strong>servicios y mantenimiento</strong> técnico, <strong>energía</strong> y medio ambiente. Si sus comerciales tienen citas con clientes en Salesforce, Tourvia puede ayudarles.</p>
+                        <p>RouteForce se adapta a cualquier sector con equipos comerciales de terreno: <strong>agroalimentario</strong> (rutas GMS, restauración), <strong>industria</strong> y distribución B2B, <strong>farma</strong> (visitadores médicos), <strong>servicios y mantenimiento</strong> técnico, <strong>energía</strong> y medio ambiente. Si sus comerciales tienen citas con clientes en Salesforce, RouteForce puede ayudarles.</p>
                     </div>
                 </div>
             </div>
@@ -1004,7 +947,7 @@
                     <div class="routing-split-body">
                         <h4>France & Europe</h4>
                         <p>Calculadas en nuestro servidor dedicado en Francia (OVH Gravelines). Sin cuota, sin dependencia externa, datos alojados en Francia. RGPD nativo.</p>
-                        <span class="routing-split-tag">Servidor dedicado Tourvia · OVH Gravelines</span>
+                        <span class="routing-split-tag">Servidor dedicado RouteForce · OVH Gravelines</span>
                     </div>
                 </div>
                 <div class="routing-split-arrow">+</div>
@@ -1028,7 +971,7 @@
                     <tbody>
                         <tr>
                             <td>Motor de Cálculo</td>
-                            <td class="highlight">Servidor Dedicado Tourvia</td>
+                            <td class="highlight">Servidor Dedicado RouteForce</td>
                         </tr>
                         <tr>
                             <td>Alojamiento</td>
@@ -1072,7 +1015,7 @@
             <div class="blog-teaser-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2rem">
                 <a href="../blog/salesforce-maps-alternative-2026.html" class="blog-teaser-card" style="background:#fff;border-radius:12px;padding:1.5rem;text-decoration:none;color:inherit;border:1px solid #e2e8f0;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
                     <div style="font-size:.75rem;font-weight:600;color:#6366f1;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem">📊 Comparativa</div>
-                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">Herramienta de cartografía CRM: precio por usuario vs costes ocultos — ¿cuál elegir en 2026?</h3>
+                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">Herramienta de cartografía CRM: precio fijo vs facturación por usuario — ¿cuál elegir en 2026?</h3>
                     <p style="font-size:.875rem;color:#64748b;line-height:1.5">Comparativa funcional, precios reales y casos de uso — para elegir la solución adaptada a su equipo.</p>
                     <div style="margin-top:1rem;font-size:.8rem;font-weight:500;color:#6366f1">Leer el artículo →</div>
                 </a>
@@ -1084,8 +1027,8 @@
                 </a>
                 <a href="casos-de-uso.html" class="blog-teaser-card" style="background:#fff;border-radius:12px;padding:1.5rem;text-decoration:none;color:inherit;border:1px solid #e2e8f0;transition:box-shadow .2s" onmouseover="this.style.boxShadow='0 4px 20px rgba(0,0,0,0.08)'" onmouseout="this.style.boxShadow='none'">
                     <div style="font-size:.75rem;font-weight:600;color:#6366f1;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.75rem">🏭 Casos de Uso</div>
-                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">Tourvia en su sector: agroalimentario, industria, farma, servicios...</h3>
-                    <p style="font-size:.875rem;color:#64748b;line-height:1.5">Descubra cómo Tourvia se adapta a las especificidades de su sector y organización comercial.</p>
+                    <h3 style="font-size:1rem;font-weight:600;color:#1e293b;margin-bottom:.5rem;line-height:1.4">RouteForce en su sector: agroalimentario, industria, farma, servicios...</h3>
+                    <p style="font-size:.875rem;color:#64748b;line-height:1.5">Descubra cómo RouteForce se adapta a las especificidades de su sector y organización comercial.</p>
                     <div style="margin-top:1rem;font-size:.8rem;font-weight:500;color:#6366f1">Ver casos de uso →</div>
                 </a>
             </div>
@@ -1098,7 +1041,7 @@
             <div class="contact-wrapper">
                 <div class="contact-info">
                     <h2>Solicite su Demo Gratuita</h2>
-                    <p>Descubra Tourvia con sus propios datos. 30 minutos bastan para ver la diferencia.</p>
+                    <p>Descubra RouteForce con sus propios datos. 30 minutos bastan para ver la diferencia.</p>
                     <div class="contact-benefits">
                         <div class="contact-benefit">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -1163,7 +1106,7 @@
                             <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
                             <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
                         </svg>
-                        <span>Tourvia</span>
+                        <span>RouteForce</span>
                     </a>
                     <p>Optimización de rutas comerciales para Salesforce</p>
                 </div>
@@ -1180,7 +1123,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Tourvia. Todos los derechos reservados.</p>
+                <p>&copy; 2026 RouteForce — Mathieu Szymkiewicz. Tous droits réservés.</p>
             </div>
         </div>
     </footer>
@@ -1193,58 +1136,58 @@
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "¿Cómo funciona la tarificación de Tourvia?",
+                "name": "¿Cómo funciona la tarificación de RouteForce?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Tourvia funciona con una suscripción por usuario. Instalación única (desde 3.500€ sin IVA) y luego 30€ sin IVA por usuario al mes, facturado anualmente."
+                    "text": "RouteForce funciona con un precio fijo sin coste por usuario. Instalación única (desde 3.500€ sin IVA) luego 249€/mes para toda su org Salesforce, sin importar el número de usuarios."
                 }
             },
             {
                 "@type": "Question",
-                "name": "¿Cuál es la diferencia entre Tourvia y las herramientas de cartografía CRM facturadas por usuario?",
+                "name": "¿Cuál es la diferencia entre RouteForce y las herramientas de cartografía CRM facturadas por usuario?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Tourvia es 100% nativo Salesforce, suscripción por usuario. Ofrece optimización de rutas, visualización cartográfica interactiva, creación automática de eventos, historial de rutas y geolocalización de cuentas cercanas — por 30€ sin IVA por usuario al mes, facturado anualmente."
+                    "text": "RouteForce es 100% nativo Salesforce, sin coste por usuario. Ofrece optimización de rutas, visualización cartográfica interactiva, creación automática de eventos, historial de rutas y geolocalización de cuentas cercanas — por un precio fijo mensual de 249€ sin IVA, sin importar el tamaño de su equipo."
                 }
             },
             {
                 "@type": "Question",
-                "name": "¿Cuánto tiempo se tarda en instalar Tourvia?",
+                "name": "¿Cuánto tiempo se tarda en instalar RouteForce?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Nuestro equipo se encarga del despliegue completo. Tourvia es un paquete nativo Salesforce configurado directamente en su org. Plazo medio: 1 a 2 semanas entre la demo y el go-live."
+                    "text": "Nuestro equipo se encarga del despliegue completo. RouteForce es un paquete nativo Salesforce configurado directamente en su org. Plazo medio: 1 a 2 semanas entre la demo y el go-live."
                 }
             },
             {
                 "@type": "Question",
-                "name": "¿Funciona Tourvia con mi Salesforce existente?",
+                "name": "¿Funciona RouteForce con mi Salesforce existente?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí, Tourvia es 100% nativo Salesforce. Funciona con su objeto Account existente (subconsulta Contact incluida). No se requiere sincronización externa, sus datos permanecen en Salesforce."
+                    "text": "Sí, RouteForce es 100% nativo Salesforce. Funciona con su objeto Account existente (subconsulta Contact incluida). No se requiere sincronización externa, sus datos permanecen en Salesforce."
                 }
             },
             {
                 "@type": "Question",
-                "name": "¿Qué sectores utilizan Tourvia?",
+                "name": "¿Qué sectores utilizan RouteForce?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Tourvia se adapta a todos los sectores con equipos de terreno: agroalimentario, industria farmacéutica, distribución B2B, servicios y mantenimiento técnico, energía y medio ambiente. Cualquier empresa con comerciales itinerantes puede beneficiarse."
+                    "text": "RouteForce se adapta a todos los sectores con equipos de terreno: agroalimentario, industria farmacéutica, distribución B2B, servicios y mantenimiento técnico, energía y medio ambiente. Cualquier empresa con comerciales itinerantes puede beneficiarse."
                 }
             },
             {
                 "@type": "Question",
-                "name": "¿Cómo funciona el algoritmo de optimización de Tourvia?",
+                "name": "¿Cómo funciona el algoritmo de optimización de RouteForce?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Tourvia utiliza un algoritmo avanzado de optimización de rutas. Calcula el orden de paso óptimo teniendo en cuenta las coordenadas GPS de cada cuenta Salesforce, los horarios, las duraciones de visita y las pausas. El cálculo se realiza en un servidor dedicado alojado en Francia, sin cuota ni limitación."
+                    "text": "RouteForce utiliza un algoritmo avanzado de optimización de rutas. Calcula el orden de paso óptimo teniendo en cuenta las coordenadas GPS de cada cuenta Salesforce, los horarios, las duraciones de visita y las pausas. El cálculo se realiza en un servidor dedicado alojado en Francia, sin cuota ni limitación."
                 }
             },
             {
                 "@type": "Question",
-                "name": "¿Se puede usar Tourvia en el móvil?",
+                "name": "¿Se puede usar RouteForce en el móvil?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Sí. Tourvia es totalmente responsive y diseñado para el terreno. En móvil, la interfaz usa un panel bottom-sheet para mantener el mapa visible. La geolocalización GPS permite encontrar cuentas cercanas en tiempo real. Funciona en la app Salesforce mobile o cualquier navegador móvil."
+                    "text": "Sí. RouteForce es totalmente responsive y diseñado para el terreno. En móvil, la interfaz usa un panel bottom-sheet para mantener el mapa visible. La geolocalización GPS permite encontrar cuentas cercanas en tiempo real. Funciona en la app Salesforce mobile o cualquier navegador móvil."
                 }
             }
         ]

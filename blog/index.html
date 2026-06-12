@@ -1,257 +1,55 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18063754907');
-</script>
-<meta charset="UTF-8">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PWNN33DN');</script>
+    <!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Tourvia: Salesforce route optimization</title>
-    <meta name="robots" content="index, follow">
-    <script>
-      (function () {
-        var path = window.location.pathname;
-        if (path === '/blog/index.html') {
-          var robots = document.querySelector('meta[name="robots"]');
-          if (robots) robots.setAttribute('content', 'noindex,follow');
-          var googlebot = document.createElement('meta');
-          googlebot.setAttribute('name', 'googlebot');
-          googlebot.setAttribute('content', 'noindex,follow');
-          document.head.appendChild(googlebot);
-          window.location.replace('/blog/' + window.location.search + window.location.hash);
-        }
-      })();
-    </script>
-    <meta name="description" content="Comparisons, guides, and field insights on route optimization for Salesforce field teams. By the Tourvia team.">
+    <title>Blog — Tourvia : optimisation de tournées Salesforce</title>
+    <meta name="description" content="Conseils, comparatifs et guides sur l'optimisation des tournées commerciales dans Salesforce. Par l'équipe Tourvia.">
     <link rel="canonical" href="https://routeforce.app/blog/">
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg"/><link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="stylesheet" href="../style.css">
-    <meta property="og:title" content="Blog | Tourvia: Salesforce route optimization"/>
-    <meta property="og:site_name" content="Tourvia"/>
-    <meta property="og:description" content="Comparisons, guides, and field insights on route optimization for Salesforce field teams. By the Tourvia team."/>
-    <meta property="og:type" content="website"/>
-    <meta property="og:url" content="https://routeforce.app/blog/"/>
-    <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:title" content="Blog | Tourvia: Salesforce route optimization"/>
-    <meta name="twitter:description" content="Comparisons, guides, and field insights on route optimization for Salesforce field teams. By the Tourvia team."/>
-    <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"Tourvia Blog","url":"https://routeforce.app/blog/","publisher":{"@type":"Organization","name":"Tourvia","alternateName":"RouteForce","url":"https://routeforce.app"}}</script>
-    <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        .blog-index-hero {
+            padding: 120px 0 60px;
+            background: linear-gradient(135deg, var(--primary-50) 0%, white 100%);
+            text-align: center;
+        }
+        .blog-index-hero h1 { margin-bottom: 16px; }
+        .blog-index-hero p { color: var(--gray-600); font-size: 1.1rem; max-width: 560px; margin: 0 auto; }
         .blog-list-section { padding: 60px 0 100px; }
         .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 28px;
+            gap: 32px;
             margin-top: 40px;
-            grid-auto-flow: dense;
-        }
-        .blog-section-intro {
-            display: flex;
-            justify-content: space-between;
-            align-items: end;
-            gap: 20px;
-            margin: 18px 0 12px;
-        }
-        .blog-section-label {
-            display: inline-flex;
-            align-items: center;
-            padding: 8px 14px;
-            border-radius: 999px;
-            background: rgba(99,102,241,0.08);
-            border: 1px solid rgba(99,102,241,0.18);
-            color: #c7d2fe;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 0.04em;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-        .blog-section-title {
-            color: #fafafa;
-            font-size: 1.45rem;
-            font-weight: 700;
-            line-height: 1.2;
-            margin: 0 0 8px;
-        }
-        .blog-section-copy {
-            color: #a1a1aa;
-            max-width: 720px;
-            line-height: 1.65;
-        }
-        .blog-grid-secondary {
-            margin-top: 24px;
-        }
-        .blog-list-actions {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 28px;
-        }
-        .blog-load-more {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 13px 20px;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            color: #e4e4e7;
-            font-weight: 700;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
-        }
-        .blog-load-more:hover {
-            background: rgba(99,102,241,0.08);
-            border-color: rgba(99,102,241,0.22);
-            transform: translateY(-1px);
-        }
-        .blog-load-more-count {
-            color: #a5b4fc;
-            font-weight: 600;
-        }
-        .blog-card.is-collapsed {
-            display: none;
-        }
-        .blog-index-signal-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-top: 22px;
-        }
-        .blog-index-signal {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 9px 14px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.07);
-            color: #d4d4d8;
-            font-size: 0.9rem;
-            line-height: 1.2;
-        }
-        .blog-index-signal strong {
-            color: #fafafa;
-            font-weight: 700;
-        }
-        .blog-index-cta-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 24px;
-        }
-        .blog-index-cta {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 18px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 0.95rem;
-        }
-        .blog-index-cta.primary {
-            background: #6366f1;
-            color: #ffffff;
-            box-shadow: 0 18px 36px rgba(99,102,241,0.22);
-        }
-        .blog-index-cta.secondary {
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.08);
-            color: #e4e4e7;
         }
         .blog-card {
-            background: #111114;
-            border: 1px solid #27272a;
-            border-radius: 20px;
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 16px;
             padding: 32px;
-            transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+            transition: box-shadow 0.2s, transform 0.2s;
             text-decoration: none;
             color: inherit;
             display: block;
-            position: relative;
-            overflow: hidden;
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.02), 0 12px 30px rgba(0,0,0,0.12);
-        }
-        .blog-card::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, rgba(99,102,241,0), rgba(99,102,241,0.55), rgba(99,102,241,0));
-            opacity: 0.55;
         }
         .blog-card:hover {
-            box-shadow: 0 24px 56px rgba(0,0,0,0.32), 0 0 0 1px rgba(99,102,241,0.45), 0 0 32px rgba(99,102,241,0.18);
-            transform: translateY(-4px);
-            border-color: rgba(99,102,241,0.55);
-        }
-        .blog-card::after {
-            content: "→";
-            position: absolute;
-            right: 24px;
-            bottom: 22px;
-            color: #9099ff;
-            font-size: 1.1rem;
-            font-weight: 600;
-            opacity: 0;
-            transform: translateX(-8px);
-            transition: opacity 0.2s, transform 0.2s;
-        }
-        .blog-card:hover::after {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .blog-card.featured-primary {
-            grid-column: span 2;
-            padding: 40px;
-            background:
-                radial-gradient(circle at top right, rgba(99,102,241,0.18), transparent 42%),
-                linear-gradient(180deg, #17171d 0%, #101014 100%);
-            border-color: rgba(99,102,241,0.32);
-            box-shadow: inset 0 1px 0 rgba(255,255,255,0.04), 0 22px 48px rgba(0,0,0,0.22);
-        }
-        .blog-card.featured-primary h2 {
-            font-size: 1.55rem;
-            line-height: 1.22;
-            max-width: 18ch;
-        }
-        .blog-card.featured-primary p {
-            color: #d4d4d8;
-            font-size: 1rem;
-            max-width: 62ch;
-        }
-        .blog-card.featured-secondary {
-            background:
-                radial-gradient(circle at top right, rgba(99,102,241,0.1), transparent 52%),
-                linear-gradient(180deg, #151519 0%, #111114 100%);
-            border-color: rgba(99,102,241,0.22);
-        }
-        .blog-grid > .blog-card:nth-child(-n+3) {
-            background:
-                radial-gradient(circle at top right, rgba(99,102,241,0.12), transparent 52%),
-                linear-gradient(180deg, #151519 0%, #111114 100%);
-            border-color: rgba(99,102,241,0.24);
-            box-shadow: 0 18px 44px rgba(0,0,0,0.16);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+            transform: translateY(-2px);
         }
         .blog-card-tag {
-            background: rgba(99,102,241,0.12);
-            border: 1px solid rgba(99,102,241,0.22);
-            color: #c7d2fe;
+            background: var(--primary-100);
+            color: var(--primary-700);
             padding: 4px 12px;
             border-radius: 20px;
             font-weight: 600;
@@ -262,665 +60,126 @@
         .blog-card h2 {
             font-size: 1.15rem;
             font-weight: 700;
-            color: #fafafa;
+            color: var(--gray-900);
             margin-bottom: 12px;
             line-height: 1.4;
         }
         .blog-card p {
             font-size: 0.95rem;
-            color: #a1a1aa;
+            color: var(--gray-600);
             line-height: 1.6;
             margin-bottom: 20px;
         }
         .blog-card-meta {
             font-size: 0.8rem;
-            color: #8f8f98;
+            color: var(--gray-400);
             display: flex;
             gap: 12px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-        .blog-card-meta span {
-            display: inline-flex;
-            align-items: center;
-            min-height: 30px;
-            padding: 5px 10px;
-            border-radius: 999px;
-            background: rgba(255,255,255,0.03);
-            border: 1px solid rgba(255,255,255,0.06);
-        }
-        .blog-card.featured-primary .blog-card-meta span,
-        .blog-card.featured-secondary .blog-card-meta span {
-            background: rgba(255,255,255,0.05);
-            border-color: rgba(255,255,255,0.08);
-        }
-        .blog-card-meta span:nth-child(2) {
-            min-height: auto;
-            padding: 0;
-            background: none;
-            border: 0;
-            color: #52525b;
         }
         .blog-card-readmore {
-            color: #c7d2fe;
+            color: var(--primary-600);
             font-weight: 600;
             font-size: 0.9rem;
         }
-
-        @media (max-width: 980px) {
-            .blog-card.featured-primary {
-                grid-column: span 1;
-                padding: 34px;
-            }
-
-            .blog-card.featured-primary h2 {
-                max-width: none;
-                font-size: 1.35rem;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .blog-index-hero-premium {
-                padding: 92px 0 48px;
-            }
-
-            .blog-index-subtitle {
-                font-size: 1rem;
-                line-height: 1.68;
-            }
-
-            .blog-index-signal-row {
-                gap: 8px;
-                margin-top: 18px;
-            }
-
-            .blog-index-signal {
-                width: 100%;
-                font-size: 0.88rem;
-                padding: 10px 12px;
-            }
-
-            .blog-index-cta-row {
-                flex-direction: column;
-                margin-top: 18px;
-            }
-
-            .blog-index-cta {
-                width: 100%;
-            }
-
-            .blog-hero-sidecard {
-                padding: 20px;
-            }
-
-            .blog-start-link {
-                padding: 12px 14px;
-            }
-
-            .blog-list-section {
-                padding: 36px 0 84px;
-            }
-
-            .blog-section-intro {
-                display: block;
-                margin: 8px 0 10px;
-            }
-
-            .blog-section-title {
-                font-size: 1.18rem;
-                margin-bottom: 6px;
-            }
-
-            .blog-section-copy {
-                font-size: 0.95rem;
-                line-height: 1.6;
-            }
-
-            .blog-grid {
-                gap: 16px;
-                margin-top: 28px;
-            }
-
-            .blog-list-actions {
-                margin-top: 20px;
-            }
-
-            .blog-load-more {
-                width: 100%;
-            }
-
-            .blog-card {
-                padding: 22px 20px;
-                border-radius: 18px;
-            }
-
-            .blog-card.featured-primary,
-            .blog-card.featured-secondary,
-            .blog-grid > .blog-card:nth-child(-n+3) {
-                padding: 24px 22px;
-            }
-
-            .blog-card.featured-primary h2 {
-                font-size: 1.14rem;
-            }
-
-            .blog-card.featured-primary p {
-                font-size: 0.94rem;
-            }
-
-            .blog-card h2 {
-                font-size: 1.05rem;
-                margin-bottom: 10px;
-            }
-
-            .blog-card p {
-                font-size: 0.92rem;
-                line-height: 1.55;
-                margin-bottom: 14px;
-                display: -webkit-box;
-                -webkit-box-orient: vertical;
-                -webkit-line-clamp: 2;
-                overflow: hidden;
-            }
-
-            .blog-grid > .blog-card:nth-child(-n+3) p {
-                -webkit-line-clamp: 3;
-            }
-
-            .blog-card-meta {
-                font-size: 0.78rem;
-                gap: 10px;
-                flex-wrap: wrap;
-            }
-        }
     </style>
 </head>
-<body style="background:#09090b;color:#e4e4e7;">
-<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
-  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
-    <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
-      <img src="../assets/logo-site-brand.png" alt="Tourvia" style="width:32px;height:32px;border-radius:10px;flex-shrink:0;"/>
-      <span style="font-size:1.125rem;font-weight:700;letter-spacing:-0.02em;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tourvia</span>
-    </a>
-    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.95rem;white-space:nowrap;">
-      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
-      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
-      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
-      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
-    </nav>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
-      <a href="/#contact" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">30-day trial access</a>
-      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
-        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
-      </button>
-    </div>
-  </div>
-  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
-    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
-      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
-      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
-      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
-      <a href="../consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
-      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
-      <a href="/#contact" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">30-day trial access</a>
-    </nav>
-  </div>
-  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
-</header>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PWNN33DN" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-    <section class="blog-index-hero-premium">
-        <div class="container">
-            <div class="blog-index-hero-grid">
-                <div class="blog-index-lead">
-                    <div class="blog-index-kicker">Editorial hub</div>
-                    <h1>Tourvia Blog</h1>
-                    <p class="blog-index-subtitle">Comparisons, guides, and field insights for Salesforce teams that need route planning, visit execution, clearer pricing logic, and a more deployable field workflow.</p>
-                    <div class="blog-index-signal-row">
-                        <div class="blog-index-signal"><strong>Pricing</strong><span>€30/user/month pricing</span></div>
-                        <div class="blog-index-signal"><strong>Comparisons</strong><span>maps alternatives and replacement criteria</span></div>
-                        <div class="blog-index-signal"><strong>Setup</strong><span>install path, rollout, and Salesforce-native workflow</span></div>
-                    </div>
-                    <div class="blog-index-cta-row">
-                        <a class="blog-index-cta primary" href="../pricing.html">Start with pricing</a>
-                        <a class="blog-index-cta secondary" href="salesforce-maps-alternatives-compared.html">Compare Salesforce Maps alternatives</a>
-                    </div>
-                </div>
-                <aside class="blog-hero-sidecard">
-                    <div class="blog-hero-sidecard-label">Start here</div>
-                    <div class="blog-hero-sidecard-title">Keep the core journey close</div>
-                    <p class="blog-hero-sidecard-copy">Use the blog to understand the market, then jump directly into pricing, setup, and product pages without losing the evaluation thread.</p>
-                    <div class="blog-start-grid">
-                        <a class="blog-start-link" href="../pricing.html"><strong>Pricing</strong><span>Per-user pricing and commercial logic</span></a>
-                        <a class="blog-start-link" href="../salesforce-route-planning.html"><strong>Route planning</strong><span>Product story and main value prop</span></a>
-                        <a class="blog-start-link" href="../native-integration-salesforce.html"><strong>Native integration</strong><span>Why the Salesforce-native angle matters</span></a>
-                        <a class="blog-start-link" href="../docs/setup-guide.html"><strong>Setup guide</strong><span>Install and onboard faster</span></a>
-                    </div>
-                </aside>
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <a href="../index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                    <path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="8" cy="20" r="2.5" fill="currentColor"/>
+                    <circle cx="14" cy="10" r="2.5" fill="currentColor"/>
+                    <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
+                    <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
+                </svg>
+                <span>Tourvia</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="../index.html#features">Fonctionnalités</a>
+                <a href="../index.html#pricing">Tarifs</a>
+                <a href="../blog/" class="active">Blog</a>
+                <a href="../index.html#contact" class="btn btn-primary btn-sm">Demander une démo</a>
             </div>
+        </div>
+    </nav>
+
+    <section class="blog-index-hero">
+        <div class="container">
+            <h1>Blog Tourvia</h1>
+            <p>Comparatifs, guides et retours terrain sur l'optimisation des tournées commerciales dans Salesforce.</p>
         </div>
     </section>
 
     <section class="blog-list-section">
         <div class="container">
-            <div class="blog-section-intro">
-                <div>
-                    <div class="blog-section-label">Featured reads</div>
-                    <h2 class="blog-section-title">Start with the strongest decision-making pages</h2>
-                    <p class="blog-section-copy">These articles do the most work for pricing, replacement logic, and rollout conversations before a Tourvia evaluation.</p>
-                </div>
-            </div>
             <div class="blog-grid">
 
-                <a href="tourvia-private-appexchange-security-review.html" class="blog-card featured-primary">
-                    <span class="blog-card-tag">Security &middot; AppExchange</span>
-                    <h2>TourviaApp passed Salesforce Security Review. Tourvia is available through 30-day trial access.</h2>
-                    <p>TourviaApp ver 7.25.0, published by SKZ Consulting, cleared Salesforce Security Review on May 22, 2026. The package is installable today through 30-day trial access while public listing remains pending.</p>
+                <a href="salesforce-maps-alternative-2026.html" class="blog-card">
+                    <span class="blog-card-tag">Comparatif</span>
+                    <h2>Salesforce Maps trop cher ? 4 alternatives à connaître en 2026</h2>
+                    <p>Salesforce Maps coûte entre 75€ et 150€ par utilisateur et par mois. Pour une équipe de 10 commerciaux, la facture annuelle dépasse rapidement les 10 000€. Voici 4 alternatives qui font le travail.</p>
                     <div class="blog-card-meta">
-                        <span>May 28, 2026</span>
-                        <span>&middot;</span>
+                        <span>28 février 2026</span>
+                        <span>·</span>
                         <span>6 min</span>
                     </div>
                 </a>
 
-                <a href="routeforce-becomes-tourvia.html" class="blog-card featured-secondary">
-                    <span class="blog-card-tag">Product note</span>
-                    <h2>RouteForce is now Tourvia</h2>
-                    <p>The Salesforce-native route planning app keeps the same package, workflow, pricing logic, and 30-day trial request under a clearer product name.</p>
-                    <div class="blog-card-meta">
-                        <span>May 28, 2026</span>
-                        <span>&middot;</span>
-                        <span>2 min</span>
-                    </div>
-                </a>
-
-                <a href="flat-pricing-vs-per-user-salesforce-field-tools.html" class="blog-card featured-secondary">
-                    <span class="blog-card-tag">Pricing</span>
-                    <h2>Fixed pricing vs per-user: the real cost of Salesforce field tools in 2026</h2>
-                    <p>Per-user licensing adds up fast. See real cost tables comparing Salesforce Maps vs transparent per-user pricing across team sizes.</p>
-                    <div class="blog-card-meta">
-                        <span>March 30, 2026</span>
-                        <span>&middot;</span>
-                        <span>6 min</span>
-                    </div>
-                </a>
-
-                <a href="campaign-members-salesforce-map.html" class="blog-card featured-secondary">
-                    <span class="blog-card-tag">Product update</span>
-                    <h2>Tourvia now maps Salesforce Campaign Members</h2>
-                    <p>Lead and Contact members can appear on the map from Campaign pages or from the global app map with a target campaign picker.</p>
-                    <div class="blog-card-meta">
-                        <span>May 26, 2026</span>
-                        <span>&middot;</span>
-                        <span>4 min</span>
-                    </div>
-                </a>
-
-                <a href="optimize-field-sales-routes-salesforce.html" class="blog-card featured-secondary">
+                <a href="optimiser-tournees-salesforce.html" class="blog-card">
                     <span class="blog-card-tag">Guide</span>
-                    <h2>How to optimize field sales routes in Salesforce (2026 guide)</h2>
-                    <p>A practical walkthrough: save 30-45 min per rep per day, increase visits, and close the reporting loop with Salesforce-native route optimization.</p>
+                    <h2>Comment optimiser les tournées de vos commerciaux terrain avec Salesforce</h2>
+                    <p>Excel, double saisie, oublis de relance : les vrais obstacles à l'optimisation des tournées commerciales et comment un outil natif Salesforce les résout au quotidien.</p>
                     <div class="blog-card-meta">
-                        <span>March 30, 2026</span>
-                        <span>&middot;</span>
+                        <span>2 mars 2026</span>
+                        <span>·</span>
                         <span>7 min</span>
                     </div>
                 </a>
 
-                <a href="field-sales-app.html" class="blog-card featured-secondary">
-                    <span class="blog-card-tag">Comparison</span>
-                    <h2>Field sales app: what mobile field teams need from their tools</h2>
-                    <p>6 field sales apps compared on pricing, CRM integration, offline mode, and GPS check-in. Standalone vs CRM-native trade-offs.</p>
-                    <div class="blog-card-meta">
-                        <span>April 5, 2026</span>
-                        <span>&middot;</span>
-                        <span>6 min</span>
-                    </div>
-                </a>
-            </div>
+                <!-- Prochains articles générés automatiquement -->
 
-            <div class="blog-section-intro">
-                <div>
-                    <div class="blog-section-label">More articles</div>
-                    <h2 class="blog-section-title">Guides, tutorials, and buyer education</h2>
-                    <p class="blog-section-copy">Everything else stays here for deeper research, setup paths, and market comparison work without losing the premium rhythm.</p>
-                </div>
-            </div>
-
-            <div class="blog-grid blog-grid-secondary">
-
-                <a href="how-to-set-up-route-planning-salesforce.html" class="blog-card">
-                    <span class="blog-card-tag">Tutorial</span>
-                    <h2>How to set up route planning in Salesforce: install to first route</h2>
-                    <p>5-step setup guide: AppExchange install, permission sets, App Builder placement, configuration, and go-live verification.</p>
-                    <div class="blog-card-meta">
-                        <span>April 5, 2026</span>
-                        <span>&middot;</span>
-                        <span>5 min</span>
-                    </div>
-                </a>
-
-                <a href="business-case-sales-route-optimization.html" class="blog-card">
-                    <span class="blog-card-tag">Guide</span>
-                    <h2>How to build the business case for sales route optimization</h2>
-                    <p>ROI calculator for a 10-rep team, CFO presentation tips, and answers to the 5 objections that kill field sales software purchases.</p>
-                    <div class="blog-card-meta">
-                        <span>April 5, 2026</span>
-                        <span>&middot;</span>
-                        <span>7 min</span>
-                    </div>
-                </a>
-
-                <a href="route-optimization-software.html" class="blog-card">
-                    <span class="blog-card-tag">Guide</span>
-                    <h2>Best route optimization software in 2026: 8 tools compared</h2>
-                    <p>Delivery, field sales, and field service tools compared with pricing, shortlist logic, and buying criteria.</p>
-                    <div class="blog-card-meta">
-                        <span>April 5, 2026</span>
-                        <span>&middot;</span>
-                        <span>11 min</span>
-                    </div>
-                </a>
-
-                <a href="sales-territory-mapping.html" class="blog-card">
-                    <span class="blog-card-tag">Guide</span>
-                    <h2>Sales territory mapping software for Salesforce: 5 options compared</h2>
-                    <p>Compare ETM, Salesforce Maps, Badger Maps, SPOTIO, and Tourvia with pricing, fit, and practical planning steps.</p>
-                    <div class="blog-card-meta">
-                        <span>April 5, 2026</span>
-                        <span>&middot;</span>
-                        <span>9 min</span>
-                    </div>
-                </a>
-
-                <a href="salesforce-maps-alternatives-compared.html" class="blog-card">
-                    <span class="blog-card-tag">Comparison</span>
-                    <h2>Salesforce Maps alternatives compared: 6 tools for field teams in 2026</h2>
-                    <p>Genuine multi-product comparison: Geopointe, Badger Maps, SPOTIO, Map My Customers, Maptive, and Tourvia side by side.</p>
-                    <div class="blog-card-meta">
-                        <span>April 5, 2026</span>
-                        <span>&middot;</span>
-                        <span>12 min</span>
-                    </div>
-                </a>
-
-                <a href="routeforce-vs-badger-maps.html" class="blog-card">
-                    <span class="blog-card-tag">Comparison</span>
-                    <h2>Tourvia vs Badger Maps: which route planner for Salesforce teams?</h2>
-                    <p>Head-to-head comparison: native Salesforce vs external sync, per-user pricing, and real cost tables at 5 to 20 reps.</p>
-                    <div class="blog-card-meta">
-                        <span>April 5, 2026</span>
-                        <span>&middot;</span>
-                        <span>7 min</span>
-                    </div>
-                </a>
-
-                <a href="salesforce-maps-pricing-breakdown.html" class="blog-card">
-                    <span class="blog-card-tag">Pricing</span>
-                    <h2>Salesforce Maps pricing: what it actually costs for field teams in 2026</h2>
-                    <p>Exact per-user costs for Salesforce Maps Lite and Advanced, total cost tables for 5 to 30 reps, and how per-user alternatives compare.</p>
-                    <div class="blog-card-meta">
-                        <span>April 5, 2026</span>
-                        <span>&middot;</span>
-                        <span>8 min</span>
-                    </div>
-                </a>
-
-                <a href="sales-route-planner.html" class="blog-card">
-                    <span class="blog-card-tag">Guide</span>
-                    <h2>Sales route planner: the complete comparison for field teams</h2>
-                    <p>Side-by-side comparison of 5 route planners across pricing, CRM integration, mobile access, and reporting for field sales teams.</p>
-                    <div class="blog-card-meta">
-                        <span>April 5, 2026</span>
-                        <span>&middot;</span>
-                        <span>12 min</span>
-                    </div>
-                </a>
-
-                <a href="field-route-planning-software.html" class="blog-card">
-                    <span class="blog-card-tag">Guide</span>
-                    <h2>Field route planning software: what growing teams should compare</h2>
-                    <p>A buyer-oriented article on route planning software for field teams that need route logic, execution, and scalable rollout.</p>
-                    <div class="blog-card-meta">
-                        <span>April 3, 2026</span>
-                        <span>&middot;</span>
-                        <span>5 min</span>
-                    </div>
-                </a>
-
-                <a href="salesforce-maps-pricing-alternative.html" class="blog-card">
-                    <span class="blog-card-tag">Pricing</span>
-                    <h2>Salesforce Maps pricing alternative: a simpler way to buy route planning</h2>
-                    <p>A buyer-oriented page on pricing friction, rollout logic, and a simpler path to adoption.</p>
-                    <div class="blog-card-meta">
-                        <span>April 3, 2026</span>
-                        <span>&middot;</span>
-                        <span>4 min</span>
-                    </div>
-                </a>
-
-                <a href="route-planning-in-salesforce.html" class="blog-card">
-                    <span class="blog-card-tag">Guide</span>
-                    <h2>Route planning in Salesforce: why field teams want it inside the CRM</h2>
-                    <p>A buyer-focused article on why route planning works better when it stays inside Salesforce.</p>
-                    <div class="blog-card-meta">
-                        <span>April 3, 2026</span>
-                        <span>&middot;</span>
-                        <span>5 min</span>
-                    </div>
-                </a>
-
-                <a href="salesforce-route-planning-pricing.html" class="blog-card">
-                    <span class="blog-card-tag">Pricing</span>
-                    <h2>Salesforce route planning pricing: per-user vs fixed pricing</h2>
-                    <p>A buyer-oriented page on pricing models, rollout logic, and why per-user costs slow adoption.</p>
-                    <div class="blog-card-meta">
-                        <span>April 3, 2026</span>
-                        <span>&middot;</span>
-                        <span>4 min</span>
-                    </div>
-                </a>
-
-                <a href="visit-planning-software-salesforce.html" class="blog-card">
-                    <span class="blog-card-tag">Guide</span>
-                    <h2>Visit planning software for Salesforce: what field teams should compare</h2>
-                    <p>A buyer-oriented guide to compare visit creation, route logic, field execution, and rollout simplicity.</p>
-                    <div class="blog-card-meta">
-                        <span>April 3, 2026</span>
-                        <span>&middot;</span>
-                        <span>5 min</span>
-                    </div>
-                </a>
-
-                <a href="salesforce-maps-alternative.html" class="blog-card">
-                    <span class="blog-card-tag">Comparison</span>
-                    <h2>Salesforce Maps alternative: a native option for route planning and field execution</h2>
-                    <p>A buyer-oriented page for teams comparing workflow, rollout logic, pricing model, and field execution.</p>
-                    <div class="blog-card-meta">
-                        <span>April 3, 2026</span>
-                        <span>&middot;</span>
-                        <span>5 min</span>
-                    </div>
-                </a>
-
-                <a href="salesforce-route-planning-software.html" class="blog-card">
-                    <span class="blog-card-tag">Guide</span>
-                    <h2>Salesforce route planning software: what field teams should look for</h2>
-                    <p>How to evaluate Salesforce route planning software based on workflow, pricing, rollout logic, and field execution.</p>
-                    <div class="blog-card-meta">
-                        <span>April 3, 2026</span>
-                        <span>&middot;</span>
-                        <span>5 min</span>
-                    </div>
-                </a>
-
-                <a href="routeforce-screen-flows-lwc.html" class="blog-card">
-                    <span class="blog-card-tag">Product</span>
-                    <h2>Tourvia + Screen Flows + LWC: extensibility for field teams</h2>
-                    <p>How Tourvia adapts to advanced business workflows directly from the Salesforce map, without rebuilding the package.</p>
-                    <div class="blog-card-meta">
-                        <span>March 29, 2026</span>
-                        <span>&middot;</span>
-                        <span>5 min</span>
-                    </div>
-                </a>
-
-                <a href="routeforce-worldwide-routing-appexchange.html" class="blog-card">
-                    <span class="blog-card-tag">Product</span>
-                    <h2>Tourvia: Salesforce-native field execution with global routing and paid scope</h2>
-                    <p>Tourvia delivers Salesforce-native field execution with global routing, visit reporting, configurable workflows, and a trial-to-paid model.</p>
-                    <div class="blog-card-meta">
-                        <span>April 2, 2026</span>
-                        <span>&middot;</span>
-                        <span>6 min</span>
-                    </div>
-                </a>
-
-                <a href="from-route-planning-to-visit-reporting-salesforce-native-field-workflow.html" class="blog-card">
-                    <span class="blog-card-tag">Guide</span>
-                    <h2>From route planning to visit reporting: the Salesforce-native field workflow</h2>
-                    <p>Field teams need more than route optimization. They need a Salesforce-native workflow from planning to visit reporting.</p>
-                    <div class="blog-card-meta">
-                        <span>April 1, 2026</span>
-                        <span>&middot;</span>
-                        <span>6 min</span>
-                    </div>
-                </a>
-
-                <a href="what-to-compare-before-replacing-salesforce-maps.html" class="blog-card">
-                    <span class="blog-card-tag">Comparison</span>
-                    <h2>Salesforce Maps alternative: what to compare before you switch</h2>
-                    <p>Looking for a Salesforce Maps alternative? Compare workflow, pricing, rollout logic, and field execution before you switch.</p>
-                    <div class="blog-card-meta">
-                        <span>March 28, 2026</span>
-                        <span>&middot;</span>
-                        <span>5 min</span>
-                    </div>
-                </a>
-
-                <a href="fixed-org-pricing-vs-per-user-field-sales-software.html" class="blog-card">
-                    <span class="blog-card-tag">Pricing</span>
-                    <h2>Per-user pricing vs per-user field sales software</h2>
-                    <p>Per-user pricing looks simple until field teams need broad rollout. Here is why per-user pricing is often easier to defend for Salesforce field execution.</p>
-                    <div class="blog-card-meta">
-                        <span>April 1, 2026</span>
-                        <span>&middot;</span>
-                        <span>5 min</span>
-                    </div>
-                </a>
-
-                <a href="why-route-planning-outside-salesforce-breaks-field-execution.html" class="blog-card">
-                    <span class="blog-card-tag">Guide</span>
-                    <h2>Why route planning outside Salesforce breaks field execution</h2>
-                    <p>Route planning outside Salesforce creates friction between CRM data, visits, and reporting. Here is why native workflow matters.</p>
-                    <div class="blog-card-meta">
-                        <span>April 1, 2026</span>
-                        <span>&middot;</span>
-                        <span>5 min</span>
-                    </div>
-                </a>
-
-                <a href="how-to-improve-field-visit-planning-inside-salesforce.html" class="blog-card">
-                    <span class="blog-card-tag">Guide</span>
-                    <h2>How to improve field visit planning inside Salesforce</h2>
-                    <p>Field visit planning inside Salesforce is more than scheduling. It connects account selection, route decisions, event creation, and reporting in one workflow.</p>
-                    <div class="blog-card-meta">
-                        <span>April 2, 2026</span>
-                        <span>&middot;</span>
-                        <span>4 min</span>
-                    </div>
-                </a>
-
-
-            </div>
-            <div class="blog-list-actions">
-                <button class="blog-load-more" type="button" id="blogLoadMore" hidden>
-                    <span>Show more articles</span>
-                    <span class="blog-load-more-count" id="blogLoadMoreCount"></span>
-                </button>
             </div>
         </div>
     </section>
 
-<section style="text-align:center;padding:48px 24px;margin:32px auto;max-width:680px;">
-  <h2 style="font-size:1.5rem;font-weight:700;color:#fafafa;margin-bottom:12px;">Ready to evaluate Tourvia in your Salesforce org?</h2>
-  <p style="color:#a1a1aa;margin-bottom:24px;">Tourvia is available through 30-day trial access. TourviaApp ver 7.25.0, published by SKZ Consulting, passed Salesforce Security Review on May 22, 2026. Public AppExchange listing is still pending.</p>
-  <a href="mailto:contact@routeforce.app?subject=Request%20private%20AppExchange%20access%20to%20Tourvia" style="display:inline-block;padding:12px 28px;background:#6366f1;color:#fff;border-radius:8px;font-weight:600;text-decoration:none;">Request a 30-day trial</a>
-</section>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="logo">
+                        <svg class="logo-icon" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="16" cy="16" r="15" stroke="currentColor" stroke-width="2"/>
+                            <path d="M8 20L14 10L20 16L26 8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="8" cy="20" r="2.5" fill="currentColor"/>
+                            <circle cx="14" cy="10" r="2.5" fill="currentColor"/>
+                            <circle cx="20" cy="16" r="2.5" fill="currentColor"/>
+                            <circle cx="26" cy="8" r="2.5" fill="currentColor"/>
+                        </svg>
+                        <span>Tourvia</span>
+                    </a>
+                    <p>Optimisation de tournées commerciales pour Salesforce</p>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html#features">Fonctionnalités</a>
+                    <a href="../index.html#pricing">Tarifs</a>
+                    <a href="../blog/">Blog</a>
+                    <a href="../index.html#contact">Contact</a>
+                    <a href="../mentions-legales.html">Mentions légales</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Tourvia — Mathieu Szymkiewicz. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
 
-<footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-        <img src="/assets/logo-site-brand.png" alt="Tourvia" style="width:28px;height:28px;border-radius:8px;"/>
-        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">Tourvia</span>
-      </div>
-      <p style="color:#a1a1aa;font-size:0.9rem;line-height:1.6;max-width:280px;margin:0 0 16px;">Salesforce-native route optimization for field sales teams. Tourvia is the new product name for RouteForce.</p>
-      <a href="/#contact" style="display:inline-flex;align-items:center;gap:6px;background:#6366f1;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">Request trial</a>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
-      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Product</span>
-      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-      <a href="/use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
-      <a href="/native-integration-salesforce.html" style="color:#a1a1aa;text-decoration:none;">Integration</a>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
-      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Resources</span>
-      <a href="/blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
-      <a href="/docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
-      <a href="/consulting.html" style="color:#a1a1aa;text-decoration:none;">Consulting</a>
-      <a href="/flat-rate-route-optimization.html" style="color:#a1a1aa;text-decoration:none;">Pricing ROI</a>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
-      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Company</span>
-      <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
-      <a href="/docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
-      <a href="/docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
-      <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" style="color:#a1a1aa;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Status <span style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span></a>
-    </div>
-  </div>
-  <div style="max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e1e22;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#71717a;font-size:0.8rem;">
-    <span>&copy; 2026 Tourvia. All rights reserved.</span>
-    <span>Built natively on Salesforce. AppExchange managed package.</span>
-  </div>
-</footer>
-
-<script>
-window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
-document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach(function(link){
-  link.addEventListener('click',function(){
-    window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
-  });
-});
-
-(function(){
-  var grid = document.querySelector('.blog-grid-secondary');
-  var button = document.getElementById('blogLoadMore');
-  var count = document.getElementById('blogLoadMoreCount');
-  if (!grid || !button || !count) return;
-
-  var cards = Array.prototype.slice.call(grid.querySelectorAll('.blog-card'));
-  var initialVisible = window.matchMedia('(max-width: 640px)').matches ? 6 : 9;
-  if (cards.length <= initialVisible) return;
-
-  cards.forEach(function(card, index){
-    if (index >= initialVisible) card.classList.add('is-collapsed');
-  });
-
-  var hiddenCount = cards.length - initialVisible;
-  count.textContent = '(' + hiddenCount + ' more)';
-  button.hidden = false;
-
-  button.addEventListener('click', function(){
-    cards.forEach(function(card){ card.classList.remove('is-collapsed'); });
-    button.hidden = true;
-  });
-})();
-</script>
+    <script src="../script.js"></script>
 </body>
 </html>
