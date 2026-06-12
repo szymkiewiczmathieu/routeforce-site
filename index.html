@@ -190,6 +190,38 @@
     z-index: -1;
   }
 
+  /* Floating telemetry chips over the hero screenshot */
+  .hero-visual { position: relative; }
+  .stat-chip {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(24, 24, 27, 0.92);
+    border: 1px solid #3f3f46;
+    border-radius: 0.75rem;
+    padding: 0.55rem 0.85rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #e4e4e7;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.45);
+    backdrop-filter: blur(8px);
+    z-index: 5;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .stat-chip .material-symbols-outlined { font-size: 1rem; color: #06b6d4; }
+  .stat-chip-1 { top: 12%; left: -1.5rem; animation: chipFloat 7s ease-in-out infinite; }
+  .stat-chip-2 { bottom: 16%; right: -1.25rem; animation: chipFloat 8s ease-in-out 1.2s infinite; }
+  @keyframes chipFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  @media (max-width: 1023px) {
+    .stat-chip-1 { left: 0.5rem; }
+    .stat-chip-2 { right: 0.5rem; }
+  }
+
   /* Feature card hover */
   .feature-card {
     background: #18181b;
@@ -292,6 +324,13 @@
   .reveal { opacity: 0; transform: translateY(20px); transition: all 0.6s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
 
+  /* Respect reduced-motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    .hero-orb, .hero-beam, .stat-chip, .gradient-text-animated { animation: none !important; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
   /* Pricing glow */
   .pricing-highlight {
     position: relative;
@@ -303,6 +342,171 @@
     border-radius: 1rem;
     background: linear-gradient(135deg, #6366f1, #06b6d4);
     z-index: -1;
+  }
+
+  /* ===== TRUST / PROOF BAR ===== */
+  .trust-bar {
+    border-top: 1px solid rgba(63, 63, 70, 0.4);
+    border-bottom: 1px solid rgba(63, 63, 70, 0.4);
+    background: linear-gradient(180deg, rgba(99, 102, 241, 0.04), transparent);
+  }
+  .trust-bar-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(63, 63, 70, 0.35);
+  }
+  @media (min-width: 768px) {
+    .trust-bar-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+  .trust-cell {
+    background: #101013;
+    padding: 1.5rem 1.25rem;
+    text-align: center;
+  }
+  .trust-cell .trust-value {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+  }
+  .trust-cell .trust-label {
+    font-size: 0.75rem;
+    color: #a1a1aa;
+    line-height: 1.4;
+  }
+
+  /* ===== OPERATIONAL STORY (day in the field) ===== */
+  .story-rail {
+    position: relative;
+  }
+  @media (min-width: 1024px) {
+    .story-rail::before {
+      content: '';
+      position: absolute;
+      left: 27px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(180deg, rgba(99, 102, 241, 0.6), rgba(6, 182, 212, 0.5), rgba(99, 102, 241, 0.15));
+    }
+  }
+  .story-step {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    align-items: center;
+    position: relative;
+  }
+  @media (min-width: 1024px) {
+    .story-step {
+      grid-template-columns: 56px minmax(0, 5fr) minmax(0, 7fr);
+      gap: 2.5rem;
+    }
+  }
+  .story-step + .story-step { margin-top: 3.5rem; }
+  @media (min-width: 1024px) {
+    .story-step + .story-step { margin-top: 5rem; }
+  }
+  .story-node {
+    display: none;
+  }
+  @media (min-width: 1024px) {
+    .story-node {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 9999px;
+      background: #18181b;
+      border: 1px solid rgba(99, 102, 241, 0.45);
+      color: #9099ff;
+      font-weight: 800;
+      font-size: 1.05rem;
+      position: relative;
+      z-index: 1;
+      align-self: start;
+      box-shadow: 0 0 24px rgba(99, 102, 241, 0.18);
+    }
+  }
+  .story-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #67e8f9;
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(6, 182, 212, 0.25);
+    border-radius: 9999px;
+    padding: 0.3rem 0.75rem;
+    margin-bottom: 1rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ===== FAQ ===== */
+  .faq-item {
+    border: 1px solid #27272a;
+    border-radius: 0.75rem;
+    background: #18181b;
+    transition: border-color 0.25s ease;
+  }
+  .faq-item:hover, .faq-item[open] { border-color: rgba(99, 102, 241, 0.5); }
+  .faq-item summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item summary::after {
+    content: '+';
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #9099ff;
+    line-height: 1;
+    transition: transform 0.2s ease;
+    flex-shrink: 0;
+  }
+  .faq-item[open] summary::after { transform: rotate(45deg); }
+  .faq-item .faq-body {
+    padding: 0 1.25rem 1.15rem;
+    color: #a1a1aa;
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .faq-item .faq-body a { color: #9099ff; }
+  .faq-item .faq-body a:hover { text-decoration: underline; }
+
+  /* Section eyebrow */
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9099ff;
+    margin-bottom: 1rem;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: linear-gradient(90deg, #6366f1, transparent);
   }
 </style>
 </head>
@@ -316,6 +520,7 @@
       <span class="text-lg font-bold tracking-tight truncate">Tourvia</span>
     </a>
     <nav class="hidden md:flex gap-8 items-center text-sm">
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#day-in-the-field">Workflow</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#showcase">Product</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing">Pricing</a>
@@ -340,6 +545,7 @@
   <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/50 bg-surface/95 backdrop-blur-xl px-6 py-4">
     <nav class="flex flex-col gap-4 text-sm">
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#day-in-the-field" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Workflow</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Features</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#showcase" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Product</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Pricing</a>
@@ -371,10 +577,10 @@
           <span class="text-xs font-medium text-primary-light">Tourvia, formerly RouteForce</span>
         </div>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-[1.04] mb-6 max-w-4xl text-balance">
-          Salesforce route planning your field team can actually roll out inside Salesforce.
+          Salesforce route planning, <span class="gradient-text-animated">from map to visit</span>, without leaving the CRM.
         </h1>
         <p class="text-lg text-on-surface-variant max-w-2xl leading-relaxed mb-7">
-          Tourvia is the new name for RouteForce. It helps Salesforce teams optimize routes, turn them into visits, and keep field execution inside the CRM with clear €30/user/month pricing, billed annually.
+          Tourvia — formerly RouteForce — turns your Salesforce records into optimized routes, your routes into scheduled visits, and your visits into GPS-verified reports. One managed package, one workspace, clear €30/user/month pricing billed annually.
         </p>
         <div class="flex flex-wrap gap-3 mb-6">
           <a href="/#contact" class="bg-primary hover:bg-primary-dim text-white px-6 py-3 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-primary/25 inline-flex items-center gap-2">
@@ -394,16 +600,18 @@
           <div class="flex flex-wrap items-center gap-x-3 gap-y-2 text-sm text-on-surface-variant">
             <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="font-semibold text-on-surface hover:text-primary-light transition-colors">5.0 ★ AppExchange reviews</a>
             <span class="hidden sm:inline text-on-surface-variant/50">•</span>
-            <span>Salesforce-native managed package</span>
+            <span>Passed Salesforce security review</span>
             <span class="hidden sm:inline text-on-surface-variant/50">•</span>
             <a href="pricing.html" class="font-semibold text-on-surface hover:text-primary-light transition-colors">€30/user/month, billed annually</a>
           </div>
-          <p class="text-xs text-on-surface-variant mt-3">Formerly RouteForce. Same Salesforce-native app, same Salesforce-native workflow, now under the Tourvia product name.</p>
+          <p class="text-xs text-on-surface-variant mt-3">Formerly RouteForce. Same Salesforce-native managed package, same workflow, now under the Tourvia product name.</p>
         </div>
       </div>
 
-      <!-- Right: Product screenshot in browser mockup -->
+      <!-- Right: Product screenshot in browser mockup with floating telemetry -->
       <div class="hero-visual">
+        <div class="stat-chip stat-chip-1" aria-hidden="true"><span class="material-symbols-outlined">route</span> 38.0 km · 1h11 optimized</div>
+        <div class="stat-chip stat-chip-2" aria-hidden="true"><span class="material-symbols-outlined">event_available</span> 5 stops → Salesforce Events</div>
         <div class="video-glow">
           <div class="rounded-xl overflow-hidden border border-outline bg-surface-container shadow-2xl">
             <div class="flex items-center gap-2 px-4 py-2.5 bg-surface-container-high border-b border-outline-variant/50">
@@ -424,6 +632,117 @@
         </div>
       </div>
 
+    </div>
+  </section>
+
+  <!-- ===== TRUST / PROOF BAR ===== -->
+  <section class="trust-bar" aria-label="Trust and compliance highlights">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 py-4">
+      <div class="trust-bar-grid rounded-xl overflow-hidden border border-outline-variant/30">
+        <div class="trust-cell">
+          <div class="trust-value"><span class="material-symbols-outlined text-accent text-lg">verified_user</span>Security review passed</div>
+          <div class="trust-label">V7 passed the Salesforce security review — private AppExchange listing</div>
+        </div>
+        <div class="trust-cell">
+          <div class="trust-value"><span class="material-symbols-outlined text-accent text-lg">cloud_done</span>Hosted in France</div>
+          <div class="trust-label">Routing engine on OVHcloud (France) — RGPD-aligned by design</div>
+        </div>
+        <div class="trust-cell">
+          <div class="trust-value"><span class="material-symbols-outlined text-accent text-lg">sync_disabled</span>No data sync</div>
+          <div class="trust-label">100% Salesforce-native — your CRM data stays in your org</div>
+        </div>
+        <div class="trust-cell">
+          <div class="trust-value"><span class="material-symbols-outlined text-accent text-lg">route</span>ORS + VROOM engine</div>
+          <div class="trust-label">Proven open-source optimization, tuned for field sales routes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== OPERATIONAL STORY: A DAY WITH TOURVIA ===== -->
+  <section id="day-in-the-field" class="py-24 px-6 lg:px-8 max-w-7xl mx-auto">
+    <div class="text-center mb-14 lg:mb-16">
+      <span class="eyebrow mx-auto">Mission control for field teams</span>
+      <h2 class="text-3xl lg:text-5xl font-bold tracking-tight mb-4 text-balance">A field day, run from one Salesforce screen</h2>
+      <p class="text-on-surface-variant text-lg max-w-2xl mx-auto">Not a pile of screenshots — this is the actual morning-to-evening workflow your reps follow in Tourvia.</p>
+    </div>
+
+    <div class="story-rail max-w-6xl mx-auto">
+
+      <!-- Step 1 -->
+      <div class="story-step">
+        <div class="story-node">1</div>
+        <div>
+          <span class="story-time"><span class="material-symbols-outlined text-base">schedule</span>08:02 · Plan</span>
+          <h3 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">Open the map. See the whole territory.</h3>
+          <p class="text-on-surface-variant leading-relaxed">Accounts, leads, opportunities, and Campaign Members appear on one live map — filtered by any Salesforce field, colored by status, clustered by density. Paris to La Défense, every record in sight.</p>
+        </div>
+        <div class="screenshot-frame glow-primary">
+          <img src="assets/screenshots-2026/map-overview.jpg" alt="Tourvia territory map of Paris showing accounts, leads, and opportunities with filters, route, and history controls" class="w-full h-auto" loading="lazy"/>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="story-step">
+        <div class="story-node">2</div>
+        <div>
+          <span class="story-time"><span class="material-symbols-outlined text-base">lasso_select</span>08:10 · Select &amp; optimize</span>
+          <h3 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">Lasso the stops. Let the engine order them.</h3>
+          <p class="text-on-surface-variant leading-relaxed">Draw an area, add the stops to your route, and the ORS + VROOM optimization engine sequences the day — start point, time windows, lunch break, tolls and highways included.</p>
+        </div>
+        <div class="screenshot-frame glow-accent">
+          <img src="assets/screenshots-2026/lasso-select.png" alt="Tourvia select-area lasso adding five stops to a route with the route planning panel open" class="w-full h-auto" loading="lazy"/>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="story-step">
+        <div class="story-node">3</div>
+        <div>
+          <span class="story-time"><span class="material-symbols-outlined text-base">event_available</span>08:14 · Schedule</span>
+          <h3 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">One click books the calendar — conflicts flagged.</h3>
+          <p class="text-on-surface-variant leading-relaxed">The optimized route becomes real Salesforce Events with timed slots per stop. Tourvia checks the rep's existing agenda first and surfaces schedule conflicts before anything is created.</p>
+        </div>
+        <div class="screenshot-frame glow-primary">
+          <img src="assets/screenshots-2026/events-agenda.png" alt="Tourvia schedule conflicts check listing four timed visits before creating Salesforce Events" class="w-full h-auto" loading="lazy"/>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="story-step">
+        <div class="story-node">4</div>
+        <div>
+          <span class="story-time"><span class="material-symbols-outlined text-base">where_to_vote</span>09:00 · Execute</span>
+          <h3 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">On the road: agenda, navigation, GPS check-in.</h3>
+          <p class="text-on-surface-variant leading-relaxed">Today's agenda rides along on Salesforce Mobile. At each stop the rep checks in with GPS verification, fills the visit report with previous-visit context preloaded, checks out, and moves on.</p>
+        </div>
+        <div class="screenshot-frame glow-accent">
+          <img src="assets/screenshots-2026/checkin-form.png" alt="Tourvia today's agenda with live route on the map and check-in popup at the current stop" class="w-full h-auto" loading="lazy"/>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="story-step">
+        <div class="story-node">5</div>
+        <div>
+          <span class="story-time"><span class="material-symbols-outlined text-base">monitoring</span>18:30 · Review</span>
+          <h3 class="text-2xl lg:text-3xl font-bold tracking-tight mb-3">Every visit lands on the record — and in reporting.</h3>
+          <p class="text-on-surface-variant leading-relaxed">Each stop is a Salesforce record with stage, amount, and next action one click away. Managers track on-site rate, coverage, and route history in the 2 dashboards and 18 reports included.</p>
+        </div>
+        <div class="flex justify-center">
+          <div class="screenshot-frame glow-primary max-w-xs w-full">
+            <img src="assets/screenshots-2026/marker-popup.png" alt="Tourvia marker popup showing an opportunity with address, contact, stage, amount, and a create-an-event action" class="w-full h-auto" loading="lazy"/>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="/#contact" class="bg-primary hover:bg-primary-dim text-white px-6 py-3 rounded-xl font-semibold transition-all hover:shadow-lg hover:shadow-primary/25 inline-flex items-center gap-2">
+        Run this workflow in your org — request a 30-day trial
+        <span class="material-symbols-outlined text-lg">arrow_forward</span>
+      </a>
     </div>
   </section>
 
@@ -603,6 +922,28 @@
     </div>
   </section>
 
+  <!-- ===== ENGINE & TRUST ===== -->
+  <section id="engine" class="py-20 px-6 lg:px-8 bg-surface-container-low/40 border-y border-outline-variant/30">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <span class="eyebrow">Under the hood</span>
+          <h2 class="text-3xl lg:text-4xl font-bold tracking-tight mb-4 text-balance">Serious routing. Sovereign hosting. Admin in control.</h2>
+          <p class="text-on-surface-variant text-lg leading-relaxed mb-6">Tourvia pairs a Salesforce-native managed package with a dedicated optimization backend built on OpenRouteService and VROOM — the same open-source engines trusted for large-scale logistics — hosted on OVHcloud in France.</p>
+          <ul class="space-y-3 text-on-surface-variant">
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span><span><strong class="text-on-surface">ORS + VROOM optimization</strong> — visit order, travel times, time windows, and constraints computed in seconds</span></li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span><span><strong class="text-on-surface">OVHcloud France hosting</strong> — routing requests processed in the EU, RGPD-aligned by design</span></li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span><span><strong class="text-on-surface">Salesforce security review passed</strong> — V7 distributed through a private AppExchange listing, installable by access</span></li>
+            <li class="flex items-start gap-3"><span class="material-symbols-outlined text-accent text-lg mt-0.5">check_circle</span><span><strong class="text-on-surface">Admin-grade configuration</strong> — objects, fields, actions, and check-in forms controlled via Custom Metadata, no code required</span></li>
+          </ul>
+        </div>
+        <div class="screenshot-frame glow-primary">
+          <img src="assets/screenshots-2026/screen-01.jpg" alt="Tourvia route optimization workspace inside Salesforce Lightning" class="w-full h-auto" loading="lazy"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== PRICING ===== -->
   <section id="pricing" class="py-24 px-6 lg:px-8 max-w-5xl mx-auto">
     <div class="text-center mb-14 lg:mb-16">
@@ -664,6 +1005,39 @@
     </p>
   </section>
 
+  <!-- ===== FAQ ===== -->
+  <section id="faq" class="pb-24 px-6 lg:px-8 max-w-3xl mx-auto">
+    <div class="text-center mb-10">
+      <h2 class="text-3xl lg:text-4xl font-bold tracking-tight mb-4">Frequently asked questions</h2>
+    </div>
+    <div class="space-y-3">
+      <details class="faq-item">
+        <summary>What is Tourvia?</summary>
+        <div class="faq-body">Tourvia is Salesforce route planning software that keeps route optimization, visit planning, and field execution inside Salesforce. It is the new product name for RouteForce — same managed package, same workflow.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is Tourvia on the AppExchange?</summary>
+        <div class="faq-body">Tourvia V7 has passed the Salesforce security review and is distributed through a <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">private AppExchange listing</a> — installable by access. Request access via the contact form and we share the install link for your org.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How much does Tourvia cost?</summary>
+        <div class="faq-body">Standard pricing is €30 per user per month, billed annually. Larger enterprise or multi-entity deployments are quoted separately. See <a href="pricing.html">full pricing details</a>.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Where is my data processed?</summary>
+        <div class="faq-body">Your CRM data stays in your Salesforce org — Tourvia is a native managed package with no external data sync. Route optimization requests are processed by our engine hosted on OVHcloud in France, RGPD-aligned by design.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Does it work on mobile?</summary>
+        <div class="faq-body">Yes. Tourvia runs in the Salesforce Mobile App: map, today's agenda, navigation hand-off to Google Maps, GPS check-in, and visit reports all work from the field.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How do I start a trial?</summary>
+        <div class="faq-body">Request a 30-day trial via the <a href="/#contact">contact form</a>. We qualify your Salesforce org, share private install access, and help your admin onboard — then you confirm the paid scope before production rollout.</div>
+      </details>
+    </div>
+  </section>
+
   <!-- ===== CTA + CONTACT ===== -->
   <section id="contact" class="pt-12 pb-24 px-6 lg:px-8">
     <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-12">
@@ -712,9 +1086,6 @@
         </form>
       </div>
     </div>
-        </div>
-      </div>
-    </div>
   </section>
 
 </main>
@@ -754,7 +1125,7 @@
   </div>
   <div class="max-w-7xl mx-auto mt-12 pt-6 border-t border-outline-variant/30 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 text-on-surface-variant text-xs">
     <span>&copy; 2026 Tourvia. All rights reserved.</span>
-    <span>Built natively on Salesforce. AppExchange managed package.</span>
+    <span>Built natively on Salesforce. Managed package, private AppExchange listing.</span>
   </div>
 </footer>
 
@@ -893,10 +1264,34 @@
     },
     {
       "@type": "Question",
+      "name": "Is Tourvia on the AppExchange?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tourvia V7 has passed the Salesforce security review and is distributed through a private AppExchange listing, installable by access on request."
+      }
+    },
+    {
+      "@type": "Question",
       "name": "How much does Tourvia cost?",
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Standard pricing is 30 euros per user per month billed annually, with larger enterprise deployments quoted separately when needed."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is my data processed?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "CRM data stays in the customer's Salesforce org. Route optimization requests are processed by Tourvia's engine hosted on OVHcloud in France, RGPD-aligned by design."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Tourvia work on mobile?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Tourvia runs in the Salesforce Mobile App with map access, daily agenda, navigation hand-off, GPS check-in, and visit reports from the field."
       }
     }
   ]
