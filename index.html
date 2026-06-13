@@ -889,10 +889,10 @@
       <a href="docs/" class="hidden sm:inline-flex text-sm text-on-surface-variant hover:text-on-surface transition-colors">Docs</a>
       <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="hidden lg:inline-flex text-sm text-on-surface-variant hover:text-on-surface transition-colors">Private AppExchange access</a>
       <a href="/#contact" class="hidden md:inline-flex bg-primary hover:bg-primary-dim text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors whitespace-nowrap">
-        30-day trial access
+        Request a 30-day trial
       </a>
       <!-- Mobile hamburger -->
-      <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2 shrink-0" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" aria-label="Open menu">
+      <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2 shrink-0" onclick="var m=document.getElementById('mobile-menu');this.setAttribute('aria-expanded',m.classList.toggle('hidden')?'false':'true')" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
         <span class="block w-5 h-0.5 bg-on-surface"></span>
         <span class="block w-5 h-0.5 bg-on-surface"></span>
         <span class="block w-5 h-0.5 bg-on-surface"></span>
@@ -902,16 +902,16 @@
   <!-- Mobile menu -->
   <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/50 bg-surface/95 backdrop-blur-xl px-6 py-4">
     <nav class="flex flex-col gap-4 text-sm">
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#day-in-the-field" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Field day</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Features</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#showcase" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Product</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Pricing</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#day-in-the-field" onclick="document.getElementById('mobile-menu').classList.add('hidden');document.getElementById('mobile-menu-btn').setAttribute('aria-expanded','false')">Field day</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features" onclick="document.getElementById('mobile-menu').classList.add('hidden');document.getElementById('mobile-menu-btn').setAttribute('aria-expanded','false')">Features</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#showcase" onclick="document.getElementById('mobile-menu').classList.add('hidden');document.getElementById('mobile-menu-btn').setAttribute('aria-expanded','false')">Product</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#pricing" onclick="document.getElementById('mobile-menu').classList.add('hidden');document.getElementById('mobile-menu-btn').setAttribute('aria-expanded','false')">Pricing</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="use-cases.html">Use cases</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="blog/">Blog</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="consulting.html">Consulting</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="docs/">Docs</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
-      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/#contact">30-day trial request</a>
+      <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="/#contact">Request a 30-day trial</a>
     </nav>
   </div>
 </header>
@@ -1184,7 +1184,7 @@
   <section id="showcase" class="tv-sec tv-band">
     <div class="tv-wrap">
       <div class="tv-way reveal"><i aria-hidden="true"></i><em>Waypoint 03</em><span>— Product proof</span></div>
-      <div class="tv-center reveal" style="margin-bottom: 84px;">
+      <div class="tv-center reveal" style="margin-bottom: 64px;">
         <h2 class="tv-h2 text-balance">Product proof, up close.</h2>
         <p class="tv-sub">No mockups on this page — screenshots and screen recordings of the shipping product, expanded below.</p>
       </div>
@@ -1219,7 +1219,7 @@
                 <img src="assets/screenshots-2026/campaign-members-map.jpg" alt="Tourvia map of Campaign Members across France with campaign and status filters" loading="lazy" decoding="async"/>
               </button>
             </div>
-            <div class="tv-collage-inset" aria-hidden="false">
+            <div class="tv-collage-inset">
               <img src="assets/screenshots-2026/marker-popup.png" alt="Tourvia marker popup showing an opportunity with address, contact, stage, amount, and a create-an-event action" loading="lazy" decoding="async"/>
             </div>
           </div>
@@ -1312,7 +1312,7 @@
         <div class="tv-tile">
           <small>Distribution</small>
           <strong>Private AppExchange listing</strong>
-          <p>Installable by access — request it and we share the install link for your org. <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">View listing</a></p>
+          <p>Private listing, referenced from this site — clients can open the listing link here; install access remains controlled for the target org. <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">View listing</a></p>
         </div>
         <div class="tv-tile">
           <small>Admin</small>
@@ -1327,7 +1327,7 @@
         <div class="tv-tile">
           <small>Validation</small>
           <strong>Trial in your own org</strong>
-          <p>30 days with your real Salesforce data and your real territory — not a canned sandbox demo.</p>
+          <p>30 days on request — your real Salesforce data, your real territory, not a canned sandbox demo.</p>
         </div>
       </div>
     </div>
@@ -1408,7 +1408,7 @@
         </details>
         <details class="faq-item">
           <summary>Is Tourvia on the AppExchange?</summary>
-          <div class="faq-body">Tourvia V7 has passed the Salesforce security review and is distributed through a <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">private AppExchange listing</a> — installable by access. Request access via the contact form and we share the install link for your org.</div>
+          <div class="faq-body">Tourvia V7 has passed the Salesforce security review and is distributed through a <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">private AppExchange listing</a>. The listing is linked from this site so clients can open it; installation remains controlled by private access for the target org.</div>
         </details>
         <details class="faq-item">
           <summary>How much does Tourvia cost?</summary>
@@ -1475,7 +1475,7 @@
         <!-- Right: Contact Form (action + tracking preserved) -->
         <div class="tv-form-card reveal">
           <h2 class="text-2xl font-bold tracking-tight mb-2">Get in touch</h2>
-          <p class="text-on-surface-variant text-sm mb-6">Request a demo, ask a question, or request a 30-day trial.</p>
+          <p class="text-on-surface-variant text-sm mb-6">Request a 30-day trial, book a demo, or ask a question.</p>
           <form action="https://formspree.io/f/xqedjpdd" method="POST" class="space-y-4">
             <div>
               <label class="block text-sm font-medium text-on-surface-variant mb-1">Full name</label>
@@ -1514,7 +1514,7 @@
         <span class="font-bold text-base">Tourvia</span>
       </div>
       <p class="text-on-surface-variant text-sm max-w-xs leading-relaxed mb-4">Salesforce-native route optimization for field sales teams. Tourvia is the new product name for RouteForce.</p>
-      <a href="/#contact" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-dim text-white px-3.5 py-2 rounded-lg font-semibold text-sm transition-colors">30-day trial access</a>
+      <a href="/#contact" class="inline-flex items-center gap-1.5 bg-primary hover:bg-primary-dim text-white px-3.5 py-2 rounded-lg font-semibold text-sm transition-colors">Request a 30-day trial</a>
     </div>
     <div class="flex flex-col gap-2.5 text-sm">
       <span class="font-bold text-on-surface mb-1 text-xs uppercase tracking-widest">Product</span>
@@ -1589,6 +1589,13 @@
     var tabs = Array.prototype.slice.call(document.querySelectorAll('.tv-station'));
     var panels = Array.prototype.slice.call(document.querySelectorAll('.tv-stage-panel'));
     var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (prefersReducedMotion) {
+      document.querySelectorAll('video[autoplay]').forEach(function (video) {
+        video.removeAttribute('autoplay');
+        video.pause();
+      });
+    }
 
     function activateStation(index, focus) {
       tabs.forEach(function (tab, i) {
@@ -1743,6 +1750,14 @@
       "acceptedAnswer": {
         "@type": "Answer",
         "text": "Yes. Tourvia runs in the Salesforce Mobile App with map access, daily agenda, navigation hand-off, GPS check-in, and visit reports from the field."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I start a trial?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Request a 30-day trial via the contact form. Tourvia qualifies your Salesforce org, shares private install access, and helps your admin onboard; the paid scope is confirmed before production rollout."
       }
     }
   ]
