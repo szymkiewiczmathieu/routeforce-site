@@ -1,10 +1,10 @@
 # Tourvia — llms.txt
 # For the detailed version with FAQ, comparisons, and technical details, see: https://routeforce.app/llms-full.txt
 
-> Tourvia, formerly RouteForce, is a Salesforce-native route planning and field visit tracking application. It is delivered as a managed package installed in Salesforce orgs.
+> Tourvia, formerly RouteForce, is a Salesforce-native route planning and field visit tracking application operated by SKZ Consulting. It is delivered as a managed package installed in Salesforce orgs.
 
 ## Brand note
-- Tourvia is the new product name for RouteForce. The old name may still appear in historical URLs, screenshots, package internals, or technical object names during the transition.
+- Tourvia is the product name operated by SKZ Consulting. RouteForce is the former product and company name. The old name may still appear in historical URLs, screenshots, package internals, or technical object names during the transition.
 
 ## What Tourvia does
 - Interactive map showing Accounts, Leads, Opportunities, and Campaign Members from Salesforce CRM
@@ -47,6 +47,7 @@
 - AppExchange listing: https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba
 
 ## Company
-- Tourvia SAS, 14 rue Bausset, 75015 Paris, France
+- Operator/legal entity: SKZ Consulting, SAS, 14 rue Bausset, 75015 Paris, France
+- Product: Tourvia, formerly RouteForce
 - SIRET: 102 154 879 00013
 - Contact: contact@routeforce.app
