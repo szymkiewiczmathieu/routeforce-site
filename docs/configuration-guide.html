@@ -696,8 +696,8 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 <tr>
 <td><code>EnableUsageTracking__c</code></td>
 <td>Checkbox</td>
-<td><code>true</code></td>
-<td>Tracks feature usage events (map loads, filter applications, route optimizations, check-ins, etc.). Data is aggregated daily and available in the Usage Dashboard. See <a href="#usage-tracking">Section 7</a>.</td>
+<td><code>false</code></td>
+<td>Opt-in. When enabled, tracks feature usage events (map loads, filter applications, route optimizations, check-ins, etc.). Data is aggregated daily and available in the Usage Dashboard. See <a href="#usage-tracking">Section 7</a>.</td>
 </tr>
 <tr>
 <td><code>EnableRoleFilter__c</code></td>
@@ -1578,7 +1578,7 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 <hr>
 
 <h2 id="usage-tracking">7. Usage Tracking</h2>
-<p>When <code>EnableUsageTracking__c</code> is set to <code>true</code>, Tourvia automatically tracks feature usage to help managers understand adoption and identify training needs.</p>
+<p>Usage tracking is <strong>disabled by default</strong> (opt-in). When <code>EnableUsageTracking__c</code> is set to <code>true</code> on the <code>RouteForceConfig__mdt.Default</code> record, Tourvia automatically tracks feature usage to help managers understand adoption and identify training needs.</p>
 
 <h3>7.1 Tracked Events</h3>
 <table>
@@ -1637,8 +1637,8 @@ To add a custom "Competitor Mentioned" field, create the field on VisitReport__c
 </ul>
 <p>Access the dashboard from the <strong>Configuration</strong> tab (requires Tourvia Admin permission set).</p>
 
-<h3>7.4 Disabling Usage Tracking</h3>
-<p>Set <code>EnableUsageTracking__c</code> to <code>false</code> on the <code>RouteForceConfig__mdt.Default</code> record. This immediately stops all event tracking. Existing aggregated data is retained until manually deleted or purged by the LogPurgeSchedulable job.</p>
+<h3>7.4 Enabling / Disabling Usage Tracking</h3>
+<p>Tracking is off by default. To enable it, set <code>EnableUsageTracking__c</code> to <code>true</code> on the <code>RouteForceConfig__mdt.Default</code> record. Setting it back to <code>false</code> immediately stops all event tracking. Existing aggregated data is retained until manually deleted or purged by the LogPurgeSchedulable job.</p>
 
 <hr>
 
