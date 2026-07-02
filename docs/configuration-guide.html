@@ -7,7 +7,7 @@
   <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html" />
   <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/configuration-guide.html" />
   <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/configuration-guide.html" />
-  <title>Tourvia Configuration Guide | TourviaApp 7.30.0</title>
+  <title>Tourvia Configuration Guide | TourviaApp 7.31.0</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -77,19 +77,19 @@
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
   </style>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="Tourvia Configuration Guide (TourviaApp 7.30.0): CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
+    <meta name="description" content="Tourvia Configuration Guide (TourviaApp 7.31.0): CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
   <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html">
-  <meta property="og:title" content="Tourvia Configuration Guide | TourviaApp 7.30.0">
+  <meta property="og:title" content="Tourvia Configuration Guide | TourviaApp 7.31.0">
   <meta property="og:site_name" content="Tourvia">
   <meta property="og:description" content="Advanced admin guide for RouteForceConfig__mdt and RouteForceAction__mdt configuration.">
   <meta property="og:url" content="https://routeforce.app/docs/configuration-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Tourvia Configuration Guide | TourviaApp 7.30.0"/>
-  <meta name="twitter:description" content="Tourvia Configuration Guide (TourviaApp 7.30.0): CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
+  <meta name="twitter:title" content="Tourvia Configuration Guide | TourviaApp 7.31.0"/>
+  <meta name="twitter:description" content="Tourvia Configuration Guide (TourviaApp 7.31.0): CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Configuration Guide | TourviaApp 7.30.0","url":"https://routeforce.app/docs/configuration-guide.html","description":"Tourvia Configuration Guide (TourviaApp 7.30.0): CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"SKZ Consulting","alternateName":"Tourvia","url":"https://routeforce.app"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Configuration Guide | TourviaApp 7.31.0","url":"https://routeforce.app/docs/configuration-guide.html","description":"Tourvia Configuration Guide (TourviaApp 7.31.0): CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.","publisher":{"@type":"Organization","name":"SKZ Consulting","alternateName":"Tourvia","url":"https://routeforce.app"}}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -155,14 +155,14 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">Tourvia for Salesforce</div></div>
-        <div class="card"><div class="label">Version</div><div class="value">TourviaApp 7.30.0 | July 2026</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">TourviaApp 7.31.0 | July 2026</div></div>
         <div class="card"><div class="label">Audience</div><div class="value">Salesforce Administrators</div></div>
       </div>
     </div>
     <div class="cover-footer">Tourvia for Salesforce | Advanced Configuration Reference | contact@routeforce.app</div>
   </section>
   <main class="content">
-    <div class="note"><strong>What is new in TourviaApp 7.22.0 → 7.30.0 (July 2026).</strong>
+    <div class="note"><strong>What is new in TourviaApp 7.22.0 → 7.31.0 (July 2026).</strong>
       <ul style="margin:0.5rem 0 0 1.2rem;">
         <li><strong>TourviaApp 7.22.0 — Package rebaseline on the Security-Review-passed lineage.</strong> The managed package was renamed <em>Tourvia → TourviaApp</em> on Dev Hub. The fresh <code>Tourvia 1.x</code> package (up to <code>Tourvia 1.6.0</code>) is kept in <code>packageAliases</code> for history only — customers on Tourvia 1.x do <strong>not</strong> auto-upgrade to TourviaApp 7.x (different package id). Install URL and version references move from <code>V1.3.0-1</code> to <code>TourviaApp 7.22.0+</code>.</li>
         <li><strong>TourviaApp 7.22.0 — Today&apos;s Agenda click recenters inside the visible map area.</strong> Clicking an event now uses Leaflet <code>fitBounds</code> with padding accounting for the events panel (desktop) and the mobile bottom sheet, so the marker is no longer hidden behind the overlay.</li>
@@ -174,6 +174,7 @@
         <li><strong>TourviaApp 7.26.0 — Configurable last-visit-date source.</strong> A new RouteForceConfig__mdt field, <code>LastVisitDateSource__c</code>, lets admins choose whether the map &quot;not visited since&quot; filter (and the last-visit date + visit count shown on markers) is driven by VisitReport check-ins (default) or by past calendar Events. Works across Accounts, Leads, Opportunities and Campaign Members. Today&apos;s Agenda also gains a cumulative &quot;C&quot; badge for events whose contact/lead is a campaign member.</li>
 <li><strong>TourviaApp 7.29.0 — Fixed pivot date on the "Not visited since" filter.</strong> The filter dropdown gains a "Pick a date…" option revealing a date field: the map keeps only records with no visit on or after that date (never-visited records always included). Built for calendar-period coverage objectives — enter the first day of the current period to work toward 100% of the account base. The date persists in saved filters.</li>
 <li><strong>TourviaApp 7.30.0 — On-site rate now honors the configured radius + quality wave.</strong> New VisitReport checkbox <code>IsOnSiteComputed__c</code>, set by Apex at check-in against <code>CheckInOnSiteRadiusMeters__c</code> (default 500 m); the RF_OnSiteRate report now uses it. <strong>Upgrading orgs:</strong> grant FLS on the new field in your local permsets (managed permsets are not refreshed on upgrade). Also in 7.30.0: usage tracking is now opt-in (<code>EnableUsageTracking__c</code> defaults to false), routing error messages are fully localized (EN/FR/ES), route recalculations no longer inflate the ROUTE_CREATED adoption KPI, plus a stability wave (agenda loading state, race fixes on fast interactions, Contact Mailing↔Other address fallback on the agenda).</li>
+<li><strong>TourviaApp 7.31.0 — Route scheduling wave.</strong> One shared scheduler now drives optimization, drag-and-drop reordering AND manual time edits: meeting times no longer drift after a reorder (the clock departs at the displayed appointment + visit duration), the lunch break is enforced everywhere — including the new one-tap ±15 min adjustments (direction-aware crossing of the window) — stops that do not fit the working day are announced and kept visible unscheduled, and non-routable stops no longer shift subsequent times. Each step gains an inline appointment editor: tap the time → −15/+15 buttons with the rest of the day cascading live, native 15-min picker, Escape to cancel.</li>
       </ul>
     </div>
     <div class="note"><strong>What's new in V1.3.0-1 (May 2026).</strong>
@@ -187,8 +188,8 @@
         <li><strong>UX polish</strong>: bigger Visit Report text area (EVO-007), bigger route steps list on mobile (EVO-008), sticky route panel on PC (EVO-010).</li>
       </ul>
     </div>
-    <div class="note"><strong>Tourvia (TourviaApp 7.30.0) — Configuration Guide.</strong> This document covers the two-layer configuration model (CMDT-first + App Builder override), deployment patterns, the complete field reference for RouteForceConfig__mdt (44 fields), RouteForceAction__mdt, and the new RoutePreference__c per-user custom setting.</div>
-    <p><strong>Version:</strong> TourviaApp 7.30.0 | July 2026<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> TourviaApp 7.30.0 (Security-Review-passed managed package). A separate fresh package, <code>Tourvia 1.6.0</code>, exists for legacy installs and does <strong>not</strong> auto-upgrade to TourviaApp (different package id).</p>
+    <div class="note"><strong>Tourvia (TourviaApp 7.31.0) — Configuration Guide.</strong> This document covers the two-layer configuration model (CMDT-first + App Builder override), deployment patterns, the complete field reference for RouteForceConfig__mdt (44 fields), RouteForceAction__mdt, and the new RoutePreference__c per-user custom setting.</div>
+    <p><strong>Version:</strong> TourviaApp 7.31.0 | July 2026<br><strong>Audience:</strong> Salesforce Administrators<br><strong>Applies to:</strong> TourviaApp 7.31.0 (Security-Review-passed managed package). A separate fresh package, <code>Tourvia 1.6.0</code>, exists for legacy installs and does <strong>not</strong> auto-upgrade to TourviaApp (different package id).</p>
 
 <h2>Table of Contents</h2>
 <ol>
