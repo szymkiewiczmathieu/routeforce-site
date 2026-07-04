@@ -876,7 +876,7 @@
       <img src="assets/logo-site-brand.png" alt="Tourvia" class="w-8 h-8 rounded-lg shrink-0"/>
       <span class="text-lg font-bold tracking-tight truncate">Tourvia</span>
     </a>
-    <nav class="hidden md:flex gap-8 items-center text-sm">
+    <nav class="hidden lg:flex gap-6 xl:gap-8 items-center text-sm">
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#day-in-the-field">Field day</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features">Features</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#showcase">Product</a>
@@ -886,13 +886,13 @@
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="consulting.html">Consulting</a>
     </nav>
     <div class="flex items-center gap-2 sm:gap-3">
-      <a href="docs/" class="hidden sm:inline-flex text-sm text-on-surface-variant hover:text-on-surface transition-colors">Docs</a>
-      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="hidden lg:inline-flex text-sm text-on-surface-variant hover:text-on-surface transition-colors">Private AppExchange access</a>
+      <a href="docs/" class="hidden lg:inline-flex text-sm text-on-surface-variant hover:text-on-surface transition-colors">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="hidden xl:inline-flex text-sm text-on-surface-variant hover:text-on-surface transition-colors">Private AppExchange access</a>
       <a href="/#contact" class="hidden md:inline-flex bg-primary hover:bg-primary-dim text-white px-4 py-2 rounded-lg text-sm font-semibold transition-colors whitespace-nowrap">
         Request a 30-day trial
       </a>
       <!-- Mobile hamburger -->
-      <button id="mobile-menu-btn" class="md:hidden flex flex-col gap-1.5 p-2 shrink-0" onclick="var m=document.getElementById('mobile-menu');this.setAttribute('aria-expanded',m.classList.toggle('hidden')?'false':'true')" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
+      <button id="mobile-menu-btn" class="lg:hidden flex flex-col gap-1.5 p-2 shrink-0" onclick="var m=document.getElementById('mobile-menu');this.setAttribute('aria-expanded',m.classList.toggle('hidden')?'false':'true')" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
         <span class="block w-5 h-0.5 bg-on-surface"></span>
         <span class="block w-5 h-0.5 bg-on-surface"></span>
         <span class="block w-5 h-0.5 bg-on-surface"></span>
@@ -900,7 +900,7 @@
     </div>
   </div>
   <!-- Mobile menu -->
-  <div id="mobile-menu" class="hidden md:hidden border-t border-outline-variant/50 bg-surface/95 backdrop-blur-xl px-6 py-4">
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-outline-variant/50 bg-surface/95 backdrop-blur-xl px-6 py-4">
     <nav class="flex flex-col gap-4 text-sm">
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#day-in-the-field" onclick="document.getElementById('mobile-menu').classList.add('hidden');document.getElementById('mobile-menu-btn').setAttribute('aria-expanded','false')">Field day</a>
       <a class="text-on-surface-variant hover:text-on-surface transition-colors" href="#features" onclick="document.getElementById('mobile-menu').classList.add('hidden');document.getElementById('mobile-menu-btn').setAttribute('aria-expanded','false')">Features</a>
