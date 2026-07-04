@@ -307,11 +307,13 @@
     </ul>
 
     <h3>Clustering</h3>
-    <p>Lorsque de nombreux markers sont proches, Tourvia les regroupe en <strong>clusters</strong>. Un cluster affiche le nombre d'enregistrements qu'il contient. Cliquez sur un cluster pour zoomer et révéler les markers individuels.</p>
+    <p>Lorsque de nombreux markers sont proches, Tourvia les regroupe en <strong>clusters</strong>. Un cluster affiche le nombre de <strong>positions sur la carte</strong> qu'il contient. Cliquez sur un cluster pour zoomer et révéler les markers individuels.</p>
     <ul>
       <li>Le rayon de clustering est défini à <strong>60 pixels</strong> par défaut (configurable par votre admin).</li>
       <li>En zoomant, les clusters se décomposent automatiquement en markers individuels.</li>
-    </ul>
+      </ul>
+    <div class="note"><strong>Même adresse = un seul marker.</strong> Les enregistrements qui partagent exactement les mêmes coordonnées (p. ex. plusieurs comptes dans le même immeuble) sont fusionnés en <strong>un seul marker</strong> — sa popup liste alors tous les enregistrements à cette adresse. C’est pourquoi le chiffre d’un cluster peut être inférieur à votre nombre d’enregistrements : il compte des lieux, pas des enregistrements.</div>
+    <div class="tip"><strong>Les grands territoires se chargent progressivement.</strong> La carte affiche les 2 000 premiers enregistrements immédiatement, puis charge le reste par vagues de 2 000 en arrière-plan — les chiffres des clusters grossissent pendant quelques secondes sur les très gros territoires. Depuis la 7.32.0, il n’y a plus de plafond : 10 000+ enregistrements se chargent sans problème.</div>
 
     <h3>Contrôles de la carte</h3>
     <table>
@@ -352,6 +354,7 @@
       <li><strong>Dernier compte-rendu de visite</strong> : si un compte-rendu existe, affiche le résultat (Positif/Neutre/Négatif) avec un lien pour ouvrir le rapport complet</li>
       <li><strong>Champs additionnels</strong> : champs supplémentaires configurés par votre admin (industrie, type, étape, etc.)</li>
       <li><strong>Pour les Opportunités</strong> : affiche aussi le nom du Compte parent en lien cliquable</li>
+      <li><strong>Plusieurs enregistrements à la même adresse</strong> : la popup bascule en <strong>vue groupe</strong> et liste tous les enregistrements de ce lieu, chacun avec son lien et ses actions rapides</li>
     </ul>
 
     <h3>Actions disponibles</h3>

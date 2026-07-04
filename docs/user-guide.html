@@ -307,11 +307,13 @@
     </ul>
 
     <h3>Clustering</h3>
-    <p>When many markers are close together, Tourvia groups them into <strong>clusters</strong>. A cluster displays the number of records it contains. Click a cluster to zoom in and reveal individual markers.</p>
+    <p>When many markers are close together, Tourvia groups them into <strong>clusters</strong>. A cluster displays the number of <strong>map positions</strong> it contains. Click a cluster to zoom in and reveal individual markers.</p>
+    <div class="note"><strong>Same address = one marker.</strong> Records that share the exact same coordinates (e.g., several accounts in the same building) are merged into a <strong>single marker</strong> — its popup then lists every record at that address. This is why a cluster number can be lower than your record count: it counts locations, not records.</div>
     <ul>
       <li>The clustering radius is set to <strong>60 pixels</strong> by default (configurable by your admin).</li>
       <li>As you zoom in, clusters automatically break apart into individual markers.</li>
-    </ul>
+      </ul>
+    <div class="tip"><strong>Large territories load progressively.</strong> The map shows the first 2,000 records immediately, then streams the rest in background waves of 2,000 — cluster numbers grow for a few seconds on very large territories. Since 7.32.0 there is no upper ceiling: 10,000+ records load fine.</div>
 
     <h3>Map controls</h3>
     <table>
@@ -352,6 +354,7 @@
       <li><strong>Last visit report</strong>: if a visit report exists, shows the result (Positive/Neutral/Negative) with a link to open the full report</li>
       <li><strong>Additional fields</strong>: extra fields configured by your admin (industry, type, stage, etc.)</li>
       <li><strong>For Opportunities</strong>: also shows the parent Account name as a clickable link</li>
+      <li><strong>Several records at the same address</strong>: the popup switches to a <strong>group view</strong> listing every record at that location, each with its own link and quick actions</li>
     </ul>
 
     <h3>Actions available</h3>
