@@ -7,7 +7,7 @@
   <link rel="canonical" href="https://routeforce.app/docs/setup-guide.html" />
   <link rel="alternate" hreflang="en" href="https://routeforce.app/docs/setup-guide.html" />
   <link rel="alternate" hreflang="x-default" href="https://routeforce.app/docs/setup-guide.html" />
-  <title>Tourvia Setup Guide | TourviaApp 7.32.0</title>
+  <title>Tourvia Setup Guide | TourviaApp 7.33.0</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -74,19 +74,19 @@
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
   </style>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="Tourvia Setup Guide | TourviaApp 7.32.0 for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.">
+    <meta name="description" content="Tourvia Setup Guide | TourviaApp 7.33.0 for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.">
   <link rel="canonical" href="https://routeforce.app/docs/setup-guide.html">
-  <meta property="og:title" content="Tourvia Setup Guide | TourviaApp 7.32.0">
+  <meta property="og:title" content="Tourvia Setup Guide | TourviaApp 7.33.0">
   <meta property="og:site_name" content="Tourvia">
-  <meta property="og:description" content="Implementation guide for Salesforce administrators deploying TourviaApp 7.32.0.">
+  <meta property="og:description" content="Implementation guide for Salesforce administrators deploying TourviaApp 7.33.0.">
   <meta property="og:url" content="https://routeforce.app/docs/setup-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Tourvia Setup Guide | TourviaApp 7.32.0"/>
-  <meta name="twitter:description" content="Tourvia Setup Guide | TourviaApp 7.32.0 for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout."/>
+  <meta name="twitter:title" content="Tourvia Setup Guide | TourviaApp 7.33.0"/>
+  <meta name="twitter:description" content="Tourvia Setup Guide | TourviaApp 7.33.0 for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Setup Guide | TourviaApp 7.32.0","url":"https://routeforce.app/docs/setup-guide.html","description":"Tourvia Setup Guide | TourviaApp 7.32.0 for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.","publisher":{"@type":"Organization","name":"SKZ Consulting","alternateName":"Tourvia","url":"https://routeforce.app"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia Setup Guide | TourviaApp 7.33.0","url":"https://routeforce.app/docs/setup-guide.html","description":"Tourvia Setup Guide | TourviaApp 7.33.0 for Salesforce: package installation, permissions, onboarding, configuration, validation, and rollout.","publisher":{"@type":"Organization","name":"SKZ Consulting","alternateName":"Tourvia","url":"https://routeforce.app"}}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
@@ -152,7 +152,7 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">Tourvia</div></div>
-        <div class="card"><div class="label">Version</div><div class="value">TourviaApp 7.32.0 | July 2026</div></div>
+        <div class="card"><div class="label">Version</div><div class="value">TourviaApp 7.33.0 | July 2026</div></div>
         <div class="card"><div class="label">Format</div><div class="value">PDF / Print-ready HTML</div></div>
       </div>
     </div>
@@ -160,8 +160,8 @@
   </section>
   <main class="content">
     <div class="note"><strong>Tourvia branded edition.</strong> This document is formatted for client delivery and print/PDF export.</div>
-    <p><strong>Version:</strong> TourviaApp 7.32.0 | July 2026<br><strong>Audience:</strong> Salesforce administrators during initial deployment<br><strong>Goal:</strong> Install Tourvia, assign access, run the onboarding wizard, configure core settings, and validate the first working rollout</p>
-<div class="note"><strong>What's new in TourviaApp 7.22.0 → 7.32.0</strong>
+    <p><strong>Version:</strong> TourviaApp 7.33.0 | July 2026<br><strong>Audience:</strong> Salesforce administrators during initial deployment<br><strong>Goal:</strong> Install Tourvia, assign access, run the onboarding wizard, configure core settings, and validate the first working rollout</p>
+<div class="note"><strong>What's new in TourviaApp 7.22.0 → 7.33.0</strong>
 <ul>
 <li><strong>Package rebaseline (7.22.0):</strong> the AppExchange-listed, Security-Review-passed managed package was renamed from <code>Tourvia</code> to <code>TourviaApp</code>. The namespace remains <code>routeforce</code>.</li>
 <li><strong>Today's Agenda — contact + tap-to-call phone (7.22.0, fixed in 7.25.0):</strong> events in Today's Agenda now show the related contact's name and a clickable phone (Mobile preferred, falls back to Phone). The 7.25.0 hotfix ensures the contact line also renders for Account events that carry a Contact in <code>WhoId</code>.</li>
@@ -173,8 +173,9 @@
 <li><strong>TourviaApp 7.30.0 — On-site rate now honors the configured radius + quality wave.</strong> New VisitReport checkbox <code>IsOnSiteComputed__c</code>, set by Apex at check-in against <code>CheckInOnSiteRadiusMeters__c</code> (default 500 m); the RF_OnSiteRate report now uses it. <strong>Upgrading orgs:</strong> grant FLS on the new field in your local permsets (managed permsets are not refreshed on upgrade). Also in 7.30.0: usage tracking is now opt-in (<code>EnableUsageTracking__c</code> defaults to false), routing error messages are fully localized (EN/FR/ES), route recalculations no longer inflate the ROUTE_CREATED adoption KPI, plus a stability wave (agenda loading state, race fixes on fast interactions, Contact Mailing↔Other address fallback on the agenda).</li>
 <li><strong>TourviaApp 7.31.0 — Route scheduling wave.</strong> One shared scheduler now drives optimization, drag-and-drop reordering AND manual time edits: meeting times no longer drift after a reorder (the clock departs at the displayed appointment + visit duration), the lunch break is enforced everywhere — including the new one-tap ±15 min adjustments (direction-aware crossing of the window) — stops that do not fit the working day are announced and kept visible unscheduled, and non-routable stops no longer shift subsequent times. Each step gains an inline appointment editor: tap the time → −15/+15 buttons with the rest of the day cascading live, native 15-min picker, Escape to cancel.</li>
 <li><strong>TourviaApp 7.32.0 — Reliability &amp; scale wave.</strong> Cursor-based map pagination removes the silent 4,000-marker ceiling (verified end-to-end at 10,000+ accounts — markers stream in the background); the route planner keeps a coherent start point after a reset or a late GPS fix and recalculates from the same point it optimized from; manually edited meeting times are honestly recomputed after a reorder (no stale manual badge); usage dashboards stay fast over time (12-month aggregates + automatic summary retention); heavily-visited accounts no longer distort the "Not visited since" filter; plus a security hardening pass (field-level-security gate on map filters) validated by 1,850+ automated tests. Upgrading from 7.31.0 requires <strong>no manual FLS step</strong> (no new fields or objects in this release).</li>
+<li><strong>TourviaApp 7.33.0 — Security &amp; trust wave.</strong> Server-side licence enforcement on every Apex entry point — the 30-day trial and subscription rules now apply at the API level, not only in the UI (a diagnostic logging endpoint stays open so activation issues can always be troubleshot). Previous-visit context on markers, event modals and route steps is only served after verifying the caller can see the parent record. New installs ship the four package objects (Visit Reports, Route Histories, Saved Filters, Tourvia Logs) with a <strong>Private</strong> organization-wide default; <strong>existing orgs keep their current sharing setting on upgrade</strong> — switching them to Private in Setup &rarr; Sharing Settings is recommended (role hierarchies keep manager visibility). Route history step details are now readable by their owner only. Start-of-day visits follow the same scheduling rules as every other stop (lunch break, end of day, 15-minute rounding), the check-in confirmation names the event, agenda check-in/check-out buttons meet the 44&nbsp;px touch-target standard, the route panel scrolls back to step 1 after an optimization, and the step contact picker always offers the account's full contact list regardless of how the stop was added. Validated by 2,500+ automated tests. Upgrading from 7.32.0 requires <strong>no manual FLS step</strong> (no new fields or objects in this release).</li>
 </ul>
-<p><strong>Package lineage note:</strong> a separate fresh package, <code>Tourvia</code> 1.6.0, also exists but does <strong>NOT</strong> auto-upgrade to <code>TourviaApp</code> — they are different package IDs. Customers should install or upgrade to <strong>TourviaApp 7.32.0</strong> on the AppExchange-listed, Security-Review-passed lineage.</p>
+<p><strong>Package lineage note:</strong> a separate fresh package, <code>Tourvia</code> 1.6.0, also exists but does <strong>NOT</strong> auto-upgrade to <code>TourviaApp</code> — they are different package IDs. Customers should install or upgrade to <strong>TourviaApp 7.33.0</strong> on the AppExchange-listed, Security-Review-passed lineage.</p>
 </div>
 <div class="note"><strong>Install Tourvia:</strong> <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener">View the listing on the Salesforce AppExchange</a> and click <em>Get It Now</em> to install in your production, developer, or sandbox org.</div>
 <hr>
@@ -222,7 +223,7 @@ WHERE SubscriberPackage.Name IN ('TourviaApp', 'Tourvia')
 
 <!-- ======================================================== -->
 <h2>3. Assign permission sets</h2>
-<p>TourviaApp 7.32.0 ships with <strong>three managed permission sets</strong> and, since 7.24.0, <strong>three Permission Set Groups (PSGs)</strong> that wrap them. The PSGs are the recommended assignment path.</p>
+<p>TourviaApp 7.33.0 ships with <strong>three managed permission sets</strong> and, since 7.24.0, <strong>three Permission Set Groups (PSGs)</strong> that wrap them. The PSGs are the recommended assignment path.</p>
 
 <h3>3.0 Permission Set Groups (recommended, since TourviaApp 7.24.0)</h3>
 <p>Subscribers cannot edit managed 2GP permission sets directly. The three PSGs let you extend access by creating <strong>one</strong> small custom permset (with your additional FLS or object access) and adding it to the matching PSG — effective access is the union of the managed permset and your overlay.</p>
@@ -788,7 +789,7 @@ For the complete reference with presets, see the <a href="configuration-guide.ht
 <li><strong>Clone layouts, reports, and dashboards</strong>: use Save As on any managed layout, report, or dashboard to create your own version</li>
 <li><strong>Use a configuration preset</strong>: the <a href="configuration-guide.html#presets">Configuration Guide</a> includes 4 ready-to-use presets (Account-only, Sales team, Prospecting, Full operations) with exact values to copy-paste</li>
 </ul>
-<div class="note"><strong>Summary (TourviaApp ver 7.32.0):</strong> <code>RouteForceConfig__mdt.Default</code> is the org-wide source of truth for both behavior (toggles, limits, queries) AND visual configuration (filters, marker colors, popup fields). The App Builder properties on the FlexiPage are an optional <strong>per-page override</strong> for cases where one specific page needs different settings (e.g. a Lead record page with a Lead-only filter set). For most orgs, configuring <code>RouteForceConfig.Default</code> is simpler and safer than editing App Builder properties.</div>
+<div class="note"><strong>Summary (TourviaApp ver 7.33.0):</strong> <code>RouteForceConfig__mdt.Default</code> is the org-wide source of truth for both behavior (toggles, limits, queries) AND visual configuration (filters, marker colors, popup fields). The App Builder properties on the FlexiPage are an optional <strong>per-page override</strong> for cases where one specific page needs different settings (e.g. a Lead record page with a Lead-only filter set). For most orgs, configuring <code>RouteForceConfig.Default</code> is simpler and safer than editing App Builder properties.</div>
 <hr>
 
 <!-- ======================================================== -->
@@ -906,7 +907,7 @@ LIMIT 20
 
 <!-- ======================================================== -->
 <h2>11. Dashboards and reports</h2>
-<p>TourviaApp 7.32.0 ships dashboards and reports for activity, pipeline, and route execution — see the <a href="configuration-guide.html">Configuration Guide</a> for the canonical list. They are ready for use by admins and managers out of the box.</p>
+<p>TourviaApp 7.33.0 ships dashboards and reports for activity, pipeline, and route execution — see the <a href="configuration-guide.html">Configuration Guide</a> for the canonical list. They are ready for use by admins and managers out of the box.</p>
 
 <h3>Included dashboards</h3>
 <table>
@@ -1070,7 +1071,7 @@ AND Type = 'Report'
 <ul>
 <li>Your Salesforce org ID</li>
 <li>Environment type (Production or Sandbox)</li>
-<li>TourviaApp package version (<code>7.32.0</code>)</li>
+<li>TourviaApp package version (<code>7.33.0</code>)</li>
 <li>Description of the issue and steps to reproduce</li>
 </ul>
 <p class="small-muted">Tourvia &bull; contact@routeforce.app &bull; <a href="https://routeforce.app">routeforce.app</a></p>
