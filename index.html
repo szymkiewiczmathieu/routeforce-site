@@ -832,12 +832,16 @@
     .tv-stations {
       flex-direction: row;
       overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-padding-inline: 12px;
+      -webkit-overflow-scrolling: touch;
+      touch-action: pan-x;
       border-right: 0;
       border-bottom: 1px solid var(--tv-line-soft);
       scrollbar-width: none;
     }
     .tv-stations::-webkit-scrollbar { display: none; }
-    .tv-station { flex: 0 0 auto; min-width: 200px; border-bottom: 0; border-right: 1px solid var(--tv-line-soft); padding: 14px 18px; }
+    .tv-station { flex: 0 0 auto; min-width: 200px; scroll-snap-align: start; border-bottom: 0; border-right: 1px solid var(--tv-line-soft); padding: 14px 18px; }
     .tv-station::before { width: 100%; height: 2px; top: auto; bottom: 0; background: linear-gradient(90deg, var(--tv-indigo), var(--tv-cyan)); }
     .tv-st-obj { display: none; }
     .tv-st-sum { display: none; }
@@ -850,6 +854,17 @@
     .tv-tiles { grid-template-columns: 1fr; }
     .tv-collage-inset { left: 8px; width: 52%; }
     .tv-stage-info { padding: 18px 18px 20px; }
+    .tv-stations { gap: 8px; padding: 10px 12px; }
+    .tv-station {
+      min-width: 0;
+      padding: 12px 14px;
+      border: 1px solid var(--tv-line-soft);
+      border-radius: 12px;
+      background: rgba(10, 12, 26, .72);
+    }
+    .tv-station[aria-selected="true"] { border-color: rgba(99, 102, 241, .72); }
+    .tv-st-name { font-size: 13px; white-space: nowrap; }
+    .tv-st-time { display: none; }
     .tv-telemetry { border-radius: 12px; }
     .tv-tcell { flex: 1 1 50%; padding: 13px 16px; }
   }
@@ -989,7 +1004,7 @@
           <span class="tv-console-tag"><i aria-hidden="true"></i>Live product UI</span>
         </div>
         <div class="tv-seq">
-          <div class="tv-stations" role="tablist" aria-label="Field day stations" aria-orientation="vertical">
+          <div class="tv-stations" role="tablist" aria-label="Field day stations" aria-orientation="vertical" tabindex="0">
             <button class="tv-station" role="tab" id="st-tab-1" aria-controls="st-panel-1" aria-selected="true" type="button">
               <span class="tv-st-row"><span class="tv-st-num">01 · PLAN</span><span class="tv-st-time">08:02</span></span>
               <span class="tv-st-name">Territory check</span>
@@ -1591,7 +1606,15 @@
     // Station console (field day tabs)
     var tabs = Array.prototype.slice.call(document.querySelectorAll('.tv-station'));
     var panels = Array.prototype.slice.call(document.querySelectorAll('.tv-stage-panel'));
+    var stationList = document.querySelector('.tv-stations');
     var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function syncStationOrientation() {
+      if (!stationList) return;
+      stationList.setAttribute('aria-orientation', window.matchMedia('(max-width: 1023px)').matches ? 'horizontal' : 'vertical');
+    }
+    syncStationOrientation();
+    window.addEventListener('resize', syncStationOrientation);
 
     if (prefersReducedMotion) {
       document.querySelectorAll('video[autoplay]').forEach(function (video) {
@@ -1617,6 +1640,9 @@
           }
         }
       });
+      if (window.matchMedia('(max-width: 1023px)').matches && tabs[index]) {
+        tabs[index].scrollIntoView({ behavior: prefersReducedMotion ? 'auto' : 'smooth', block: 'nearest', inline: 'center' });
+      }
       if (focus) tabs[index].focus();
     }
 
