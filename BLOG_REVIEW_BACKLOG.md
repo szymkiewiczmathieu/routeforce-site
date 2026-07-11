@@ -174,7 +174,7 @@ These are high-volume keywords where RouteForce has NO presence yet. Winning eve
 ### 3.1 DONE: "How to build the business case for sales route optimization"
 - [x] Target: "field sales software" (110/mo, $41.98 CPC), "field sales management" (170/mo)
 - [x] New article blog/business-case-sales-route-optimization.html, ~1,500 words
-- [x] ROI calculator (7:1 ratio, payback under 6 weeks), objection handling table, CFO tips
+- [x] ROI scenario calculator, objection handling table, and CFO tips; assumptions are presented as illustrative rather than customer results
 
 ### 3.2 DONE: "How to set up route planning in Salesforce: install to first route"
 - [x] Activation content. blog/how-to-set-up-route-planning-salesforce.html, ~1,000 words
