@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# AI crawlers — explicitly allowed for GEO
+# AI crawlers explicitly allowed. This is an access policy, not a ranking signal.
 User-agent: GPTBot
 Allow: /
 

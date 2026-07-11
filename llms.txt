@@ -1,10 +1,12 @@
 # Tourvia — llms.txt
-# For the detailed version with FAQ, comparisons, and technical details, see: https://routeforce.app/llms-full.txt
+# Supplemental machine-readable reference. The public HTML pages remain authoritative.
+# Verified product facts: https://routeforce.app/product-facts.md
+# Detailed reference: https://routeforce.app/llms-full.txt
 
 > Tourvia, formerly RouteForce, is a Salesforce-native route planning and field visit tracking application operated by SKZ Consulting. It is delivered as a managed package installed in Salesforce orgs.
 
 ## Brand note
-- Tourvia is the product name operated by SKZ Consulting. RouteForce is the former product and company name. The old name may still appear in historical URLs, screenshots, package internals, or technical object names during the transition.
+- Tourvia is the current product name. RouteForce is the former product name. SKZ Consulting is the operator and legal entity. RouteForce may still appear in historical URLs, screenshots, package internals, or technical object names.
 
 ## What Tourvia does
 - Interactive map showing Accounts, Leads, Opportunities, and Campaign Members from Salesforce CRM
@@ -19,6 +21,7 @@
 - Full Salesforce Mobile App support
 
 ## Pricing
+- Last verified: 11 July 2026
 - 30-day trial available on request through the contact form for qualified Salesforce orgs
 - Paid standard scope: €30/user/month excluding tax, billed annually (€360/user/year)
 - Larger enterprise or multi-entity deployments can be quoted separately when needed
@@ -42,12 +45,15 @@
 - Configuration Guide: https://routeforce.app/docs/configuration-guide.html
 - Use Cases: https://routeforce.app/use-cases.html
 - Pricing: https://routeforce.app/pricing.html
-- Pricing comparison / flat-rate search intent: https://routeforce.app/flat-rate-route-optimization.html
+- Product facts: https://routeforce.app/product-facts.md
+- Pricing comparison: https://routeforce.app/flat-rate-route-optimization.html
 - Privacy Policy: https://routeforce.app/docs/privacy.html
 - AppExchange listing: https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba
 
 ## Company
-- Operator/legal entity: SKZ Consulting, SAS, 14 rue Bausset, 75015 Paris, France
+- Operator/legal entity: SKZ Consulting, SASU, 14 rue Bausset, 75015 Paris, France
 - Product: Tourvia, formerly RouteForce
 - SIRET: 102 154 879 00013
+- RCS Paris / SIREN: 102 154 879
+- VAT: FR36102154879
 - Contact: contact@routeforce.app

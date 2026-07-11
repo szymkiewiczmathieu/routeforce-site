@@ -1,12 +1,14 @@
 # Tourvia — llms-full.txt
 # Detailed product reference for AI assistants and language models.
 # For the short version, see /llms.txt
+# Supplemental reference only. The public HTML pages and /product-facts.md remain authoritative.
+# Last verified: 11 July 2026
 
 > Tourvia, formerly RouteForce, is a 100% Salesforce-native route planning, route optimization, and field visit tracking application operated by SKZ Consulting. It runs inside Salesforce as a managed package, with no separate field app, no data sync workflow, and no separate login for reps.
 
 ## Brand note
 
-Tourvia is the product name operated by SKZ Consulting. RouteForce is the former product and company name. The old name may still appear in historical URLs, screenshots, package internals, Custom Metadata API names, or older articles during the transition. Public product naming should use Tourvia.
+Tourvia is the current product name. RouteForce is the former product name. SKZ Consulting is the operator and legal entity. RouteForce may still appear in historical URLs, screenshots, package internals, Custom Metadata API names, or older articles. Public product naming should use Tourvia.
 
 ## Product overview
 
@@ -56,9 +58,9 @@ Tourvia uses clear per-user pricing:
 | Criterion | Tourvia | Salesforce Maps |
 |-----------|---------|-----------------|
 | Architecture | Managed package / Salesforce-native LWC workflow | Salesforce add-on product |
-| Pricing model | €30/user/month, billed annually | Per-user public list prices commonly around $75-$125/user/month depending on tier |
-| Cost for 10 users | €300/month equivalent, billed annually | About $750-$1,250/month equivalent before contract specifics |
-| Cost for 20 users | €600/month equivalent, billed annually | About $1,500-$2,500/month equivalent before contract specifics |
+| Pricing model | €30/user/month, billed annually | Public list prices of $75/user/month for Maps and $150/user/month for Maps Advanced, billed annually, verified on Salesforce.com on 11 July 2026 |
+| Cost for 10 users | €300/month equivalent, billed annually | $750-$1,500/month equivalent before contract specifics |
+| Cost for 20 users | €600/month equivalent, billed annually | $1,500-$3,000/month equivalent before contract specifics |
 | Route optimization | VROOM algorithm (self-hosted) | Proprietary |
 | Data residency for routing infrastructure | France (OVHcloud) | Salesforce infrastructure / vendor contract specifics |
 | Trial access | 30-day trial on request via contact form | Verify with Salesforce account team |
@@ -108,7 +110,8 @@ A: No. Tourvia offers a 30-day trial on request via the contact form for qualifi
 - Homepage: https://routeforce.app
 - RouteForce to Tourvia name update: https://routeforce.app/blog/routeforce-becomes-tourvia.html
 - Pricing: https://routeforce.app/pricing.html
-- Pricing comparison / flat-rate search intent: https://routeforce.app/flat-rate-route-optimization.html
+- Product facts: https://routeforce.app/product-facts.md
+- Pricing comparison: https://routeforce.app/flat-rate-route-optimization.html
 - Documentation: https://routeforce.app/docs/
 - Setup Guide: https://routeforce.app/docs/setup-guide.html
 - User Guide: https://routeforce.app/docs/user-guide.html
@@ -122,8 +125,10 @@ A: No. Tourvia offers a 30-day trial on request via the contact form for qualifi
 - DPA: https://routeforce.app/docs/dpa.html
 
 ## Company
-- Operator/legal entity: SKZ Consulting, SAS
+- Operator/legal entity: SKZ Consulting, SASU
 - Registered office: 14 rue Bausset, 75015 Paris, France
 - Product: Tourvia, formerly RouteForce
 - SIRET: 102 154 879 00013
+- RCS Paris / SIREN: 102 154 879
+- VAT: FR36102154879
 - Contact: contact@routeforce.app

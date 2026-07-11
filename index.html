@@ -1643,7 +1643,6 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "SKZ Consulting",
-  "alternateName": ["Tourvia", "RouteForce"],
   "url": "https://routeforce.app",
   "logo": "https://routeforce.app/assets/logo-site-brand.png",
   "contactPoint": {
@@ -1666,6 +1665,20 @@
   "sameAs": [
     "https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba",
     "https://www.linkedin.com/company/routeforce"
+  ],
+  "legalName": "SKZ Consulting",
+  "taxID": "FR36102154879",
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "SIREN",
+      "value": "102154879"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "SIRET",
+      "value": "10215487900013"
+    }
   ]
 }
 </script>
@@ -1687,9 +1700,13 @@
       "priceCurrency": "EUR",
       "priceSpecification": {
         "@type": "UnitPriceSpecification",
-        "billingDuration": "P1M"
+        "billingDuration": "P1M",
+        "unitText": "licensed user per month, billed annually"
       },
-      "description": "Full route optimization, GPS check-in, visit reports, dashboards, and annual per-user subscription"
+      "description": "Full route optimization, GPS check-in, visit reports, dashboards, and annual per-user subscription",
+      "url": "https://routeforce.app/pricing.html",
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2026-12-31"
     }
   ],
   "featureList": "Interactive map, Campaign Member mapping, Route optimization, GPS check-in, Visit reports, Heatmap, Bulk select, Saved filters, Route history, Custom actions, Mobile support, 2 dashboards, 18 reports",
@@ -1698,7 +1715,17 @@
   "author": {
     "@type": "Organization",
     "name": "SKZ Consulting",
-    "alternateName": ["Tourvia", "RouteForce"]
+    "url": "https://routeforce.app"
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "Tourvia",
+    "alternateName": "RouteForce"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SKZ Consulting",
+    "url": "https://routeforce.app"
   }
 }
 </script>
