@@ -3,6 +3,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>
+  // A reload should restart the homepage at the hero. Preserve explicit
+  // anchors so section links such as /#pricing continue to work.
+  if (!window.location.hash) {
+    history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+  }
+</script>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
 <script>
