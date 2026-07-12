@@ -11,7 +11,9 @@
     window.scrollTo(0, 0);
     window.addEventListener('pageshow', function () {
       window.setTimeout(function () {
-        window.scrollTo(0, 0);
+        if (!window.location.hash) {
+          window.scrollTo(0, 0);
+        }
       }, 250);
     });
   }
@@ -105,7 +107,9 @@
     background-color: var(--tv-bg);
   }
   .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+
+  [id] { scroll-margin-top: 96px; }
 
   ::selection { background: rgba(99, 102, 241, .45); color: #fff; }
 
