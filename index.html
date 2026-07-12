@@ -9,9 +9,11 @@
   if (!window.location.hash) {
     history.scrollRestoration = 'manual';
     window.scrollTo(0, 0);
-    window.addEventListener('load', function () {
-      window.scrollTo(0, 0);
-    }, { once: true });
+    window.addEventListener('pageshow', function () {
+      window.setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 0);
+    });
   }
 </script>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
