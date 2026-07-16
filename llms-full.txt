@@ -12,7 +12,7 @@ Tourvia is the current product name. RouteForce is the former product name. SKZ 
 
 ## Product overview
 
-Tourvia helps field sales teams plan visits, optimize driving routes, and track field activity without leaving Salesforce. It works on record pages, app pages, tabs, utility bar, Campaign pages, and Salesforce Mobile.
+Tourvia helps field sales teams plan visits, optimize driving routes, and track field activity without leaving Salesforce. Customer pilots are underway. The product works on record pages, app pages, tabs, utility bar, Campaign pages, and Salesforce Mobile.
 
 ### Core capabilities
 - **Interactive map**: display Accounts, Leads, Opportunities, and Campaign Members on a single map with clustering, coloring, and real-time filters
@@ -48,6 +48,7 @@ Tourvia uses clear per-user pricing:
 | Installation | Customer-managed | The Salesforce admin installs and configures Tourvia using the published documentation |
 
 - Annual equivalent: €360/user/year
+- The same €30 excluding tax per-user price applies at every team size; there is no custom-quote threshold
 - No public free plan is offered
 - Trial access is requested through the contact form, not positioned as a free AppExchange tier
 - No routing API pass-through fees from Tourvia; route optimization is included in the subscription

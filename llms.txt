@@ -23,7 +23,9 @@
 ## Pricing
 - Last verified: 16 July 2026
 - Complete 30-day trial available on request through the contact form
+- Customer pilots are underway
 - Paid standard scope: €30/user/month excluding tax, billed annually (€360/user/year)
+- The same per-user price applies at every team size; Tourvia does not switch larger teams to custom-quote pricing
 - Installation and configuration are handled by the customer using the published documentation
 - Route optimization is included in the subscription; no routing API fees are passed through by Tourvia
 
