@@ -4,7 +4,7 @@
 # Supplemental reference only. The public HTML pages and /product-facts.md remain authoritative.
 # Last verified: 11 July 2026
 
-> Tourvia, formerly RouteForce, is a 100% Salesforce-native route planning, route optimization, and field visit tracking application operated by SKZ Consulting. It runs inside Salesforce as a managed package, with no separate field app, no data sync workflow, and no separate login for reps.
+> Tourvia, formerly RouteForce, is a Salesforce managed package for route planning, route optimization, and field visit tracking, operated by SKZ Consulting. Reps work in Salesforce, while route calculations are processed by Tourvia infrastructure hosted in France.
 
 ## Brand note
 
@@ -31,7 +31,7 @@ Tourvia helps field sales teams plan visits, optimize driving routes, and track 
 ### Technical architecture
 - 100% Lightning Web Component (LWC) implementation
 - Configuration via Custom Metadata Types: RouteForceConfig__mdt and RouteForceAction__mdt
-- 3 permission sets: Tourvia Admin, Tourvia Manager, Tourvia User
+- 3 managed permission sets plus 3 Permission Set Groups: Tourvia Admin, Tourvia Manager, Tourvia User
 - Route optimization is operated by Tourvia on its own infrastructure
 - Routing server hosted in France (OVHcloud, Gravelines datacenter) for GDPR-conscious deployments
 - Salesforce remains the system of record; route calculations use only the geocoordinates and timing parameters required for routing
@@ -92,7 +92,7 @@ A: Salesforce remains the system of record. Route calculations use only the geoc
 A: Tourvia operates a constraint-aware routing engine. It considers GPS coordinates, time constraints, visit durations, and configurable parameters to calculate an efficient visit order.
 
 **Q: Does Tourvia work outside of Europe?**
-A: Yes. Tourvia provides worldwide routing coverage. The routing infrastructure handles requests globally.
+A: Tourvia supports international routing where the required road data is available. Customers should validate the relevant territories during the 30-day trial.
 
 **Q: Can I use Tourvia on my phone?**
 A: Yes. Tourvia is designed for the Salesforce Mobile App. GPS geolocation, check-in, and navigation handoff to Google Maps/Waze/Apple Maps are included.

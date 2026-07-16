@@ -2,13 +2,7 @@
 <html lang="en">
 <head>
   <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18063754907');
-</script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Badger Maps Alternative for Salesforce Teams | Tourvia</title>
@@ -73,7 +67,7 @@
           "name": "What is the cheapest Badger Maps alternative for Salesforce teams?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Tourvia costs EUR 30/user/month, billed annually billed annually. At 10 users, that works out to roughly EUR 60/user/month, compared to Badger Maps Business at $58/user/month. Tourvia becomes significantly cheaper as the team grows, and it is Salesforce-native so there is no data sync to manage."
+            "text": "Tourvia costs EUR 30 excluding tax per licensed user per month, billed annually. Badger Maps Business is listed at $58 per user per month on annual billing. Both totals scale with the number of licensed users. Compare currencies, included features, and contract terms before deciding."
           }
         }
       ]
@@ -151,7 +145,7 @@
     <p>Both tools solve the same core problem: helping field sales reps plan better routes, visit more customers, and log activity without drowning in admin work. Both offer mobile apps, route optimization, and CRM connectivity.</p>
     <p>The difference is in how they connect to Salesforce.</p>
     <p>Badger Maps is a standalone application. It pulls data from Salesforce through a two-way sync, processes it on its own servers (AWS), and pushes updates back. Your reps work in the Badger app, not in Salesforce.</p>
-    <p>Tourvia is Salesforce-native. It is installed from AppExchange and runs directly inside the Salesforce platform. There is no data sync, no external database, and no second login. Your records stay where they are.</p>
+    <p>Tourvia is delivered as a Salesforce managed package. Reps plan and complete visits in Salesforce without a second field login. Salesforce remains the system of record, while the coordinates and timing constraints required for route calculation are processed by Tourvia's routing service in France.</p>
     <p>That architectural difference drives most of the practical trade-offs between the two tools. It affects pricing, data security, admin control, and how much maintenance you sign up for.</p>
 
     <h2>Quick comparison table</h2>
@@ -282,8 +276,8 @@
     <p>In practice, this means your Salesforce data is copied to Badger's AWS servers. Updates flow both ways, and Badger describes the sync as real-time. But "real-time" still means data passes through an external system. If the sync breaks or lags, your reps see stale data in the field. Badger's support team handles integration setup, which removes technical burden from your admin, but also means you depend on their team to troubleshoot sync issues.</p>
 
     <h3>How Tourvia connects to Salesforce</h3>
-    <p>Tourvia does not connect to Salesforce. It runs inside Salesforce. The app is installed from AppExchange and uses the Salesforce data model directly. When a rep opens a route plan, it reads Salesforce records. When they log a visit, it writes to Salesforce objects. No data leaves the platform for CRM operations.</p>
-    <p>Route calculations are sent to Tourvia's routing server (hosted in France on OVHcloud), but the CRM data itself stays in your Salesforce org. This means your Salesforce admin controls permissions, sharing rules, and field-level security the same way they do for any other Salesforce feature.</p>
+    <p>Tourvia is delivered as a Salesforce managed package. When a rep opens a route plan, it reads permitted Salesforce records. When they log a visit, it writes to Salesforce objects.</p>
+    <p>Salesforce remains the system of record. The coordinates and timing constraints required for route calculation are processed by Tourvia's routing service in France under the terms described in the DPA.</p>
 
     <h3>Why this matters in practice</h3>
     <ul>
@@ -297,7 +291,7 @@
     <p>Badger Maps is a well-regarded product with a 4.6/5 rating on Capterra and over 200 reviews. There are real scenarios where it is the better fit:</p>
     <ul>
       <li><strong>Teams not on Salesforce.</strong> Badger integrates with HubSpot, Zoho, Microsoft Dynamics, and other CRMs. If your team does not use Salesforce, Tourvia is not an option at all. Badger is CRM-agnostic.</li>
-      <li><strong>Solo reps and very small teams (1 to 4 users).</strong> At $58/user/month on the Business tier, Badger is more affordable than Tourvia for teams under 5 users. A solo rep should compare the annual per-user prices, contract terms, currencies, and required Salesforce workflow. The math is clear.</li>
+      <li><strong>Teams that do not run the field from Salesforce.</strong> Badger's standalone application can be simpler when Salesforce is not the operational system of record. Compare annual per-user prices, contract terms, currencies, and the workflow each product includes.</li>
       <li><strong>Google Maps power users.</strong> Badger's interface is built around Google Maps and feels familiar to reps who already use Google Maps for navigation. The learning curve is minimal.</li>
       <li><strong>Teams that want a standalone field app.</strong> Some organizations prefer a dedicated mobile app rather than working inside Salesforce Mobile. Badger's native iOS and Android apps are polished and purpose-built for reps in the field.</li>
       <li><strong>Lead generation features.</strong> Badger Maps includes a built-in prospecting feature that surfaces nearby businesses. If your reps do cold prospecting while in the field, this is a useful differentiator.</li>
@@ -321,13 +315,13 @@
     <p>Badger Maps Business costs $58/user/month on an annual plan, or $69/user/month on a monthly plan. Enterprise costs $95/user/month annually, or $109/user/month monthly. Territory management, lead routing, analytics, and scoreboards are separate add-ons that range from $12 to $50 per user per month.</p>
 
     <h3>Is Badger Maps a Salesforce-native app?</h3>
-    <p>No. Badger Maps is a standalone application that connects to Salesforce through a two-way data sync. It has its own database, its own admin console, and its own mobile app. Tourvia is Salesforce-native: it installs from AppExchange and runs directly on the Salesforce platform without copying data to external servers.</p>
+    <p>No. Badger Maps is a standalone application that connects to Salesforce through a two-way data sync. It has its own database, admin console, and mobile app. Tourvia is delivered as a Salesforce managed package; Salesforce remains the system of record, and route inputs are processed as described in the Tourvia DPA.</p>
 
     <h3>Can Badger Maps replace Salesforce Maps?</h3>
     <p>For route planning and field visit tracking, Badger Maps covers the core use case. It handles route optimization, check-ins, and basic territory management. However, it does not match Salesforce Maps on territory analytics or geo-visualization depth. And because it runs outside Salesforce, your admin loses the control and reporting benefits of a native tool. For teams that need a native replacement, Tourvia is a closer fit.</p>
 
     <h3>What is the cheapest Badger Maps alternative for Salesforce teams?</h3>
-    <p>For teams of 5 or more users, Tourvia is cheaper than Badger Maps. At &euro;30/user/month, billed annually, the effective per-user cost drops as the team grows: &euro;120/user at 5 users, &euro;60/user at 10, and &euro;30/user at 20. Badger Maps Business stays fixed at $58/user regardless of team size. The crossover point is around 8 to 9 users.</p>
+    <p>Tourvia costs &euro;30 excluding tax per licensed user per month, billed annually (&euro;360 per user per year). Badger Maps Business is listed at $58 per user per month on annual billing. Both totals scale with licence count. Compare currencies, included features, and contract terms before deciding.</p>
 
     <div class="blog-cta">
       <h3>See how Tourvia works inside Salesforce</h3>

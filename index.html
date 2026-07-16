@@ -19,13 +19,7 @@
   }
 </script>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18063754907');
-</script>
+
 <title>Salesforce route planning inside Salesforce | Tourvia</title>
 <meta name="robots" content="index, follow">
 <script>
@@ -526,6 +520,14 @@
   }
   .tv-ticks .material-symbols-outlined { font-size: 14px; color: var(--tv-cyan); }
   .tv-seq-cta { text-align: center; margin-top: 36px; }
+  .tv-seq-cta .tv-btn {
+    justify-content: center;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.3;
+    text-align: center;
+  }
+  .tv-seq-cta .material-symbols-outlined { flex: 0 0 auto; }
 
   /* ---------- feature clusters ---------- */
   .tv-clusters { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 46px; }
@@ -975,7 +977,7 @@
       <div class="tv-hero-head">
         <span class="tv-bridge"><i aria-hidden="true"></i>Tourvia, formerly RouteForce</span>
         <h1 class="tv-h1 text-balance">Plan and run every field visit <span class="tv-grad">from Salesforce</span>.</h1>
-        <p class="tv-hero-sub">Tourvia turns Salesforce records into optimized routes, routes into scheduled Events, and field visits into GPS-verified reports — one managed package, one workspace, inside the CRM your team already lives in.</p>
+        <p class="tv-hero-sub">Turn Salesforce records into optimized routes, scheduled Events, and completed visit reports. Reps plan and work from one managed package inside Salesforce.</p>
         <div class="tv-hero-cta">
           <a href="#contact" class="tv-btn tv-btn-pri">Request a 30-day trial<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
           <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="tv-btn tv-btn-gho"><span class="material-symbols-outlined" aria-hidden="true">verified</span>Private AppExchange access</a>
@@ -1026,7 +1028,7 @@
       <div class="tv-way reveal"><i aria-hidden="true"></i><em>Waypoint 01</em><span>— The field day</span></div>
       <div class="tv-center reveal">
         <h2 class="tv-h2 text-balance">One field day. Five stations. Zero exports.</h2>
-        <p class="tv-sub">This is the real workflow, on real product screens — morning to evening. Click through the day a rep and their manager actually run.</p>
+        <p class="tv-sub">Follow a field day from territory selection to manager reporting, using screens from the shipping product.</p>
       </div>
 
       <div class="tv-console tv-seq-console reveal">
@@ -1129,9 +1131,9 @@
               </div>
               <div class="tv-stage-info">
                 <h3>Check in. File the report. Roll to the next stop.</h3>
-                <p>Today&#8217;s agenda rides along on Salesforce Mobile. At each stop: GPS-verified check-in, a visit report with previous-visit context preloaded, then check-out and on to the next door.</p>
+                <p>Today&#8217;s agenda runs in Salesforce Mobile. At each stop, the rep uses a GPS-assisted proximity check, completes the visit report, checks out, and moves to the next visit.</p>
                 <ul class="tv-ticks">
-                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>On-site GPS verification — 500 m radius</li>
+                  <li><span class="material-symbols-outlined" aria-hidden="true">check</span>GPS-assisted proximity check with configurable radius</li>
                   <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Result, satisfaction, order amount, notes</li>
                   <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Quick Text templates for fast notes</li>
                 </ul>
@@ -1168,7 +1170,7 @@
       </div>
 
       <div class="tv-seq-cta reveal">
-        <a href="#contact" class="tv-btn tv-btn-pri">Run this sequence in your org — request a trial<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
+        <a href="#contact" class="tv-btn tv-btn-pri">Test this workflow for 30 days<span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span></a>
       </div>
     </div>
   </section>
@@ -1249,7 +1251,7 @@
       <div class="tv-dive">
         <div class="tv-dive-copy reveal">
           <span class="tv-kicker">Salesforce Mobile</span>
-          <h3 class="tv-h3 text-balance">The command center fits in a pocket.</h3>
+          <h3 class="tv-h3 text-balance">Run the field day from Salesforce Mobile.</h3>
           <p>Tourvia runs in the Salesforce Mobile App your reps already carry. Today&#8217;s agenda, the live map, nearby records, and field actions stay one tap away — between doors, not back at the desk.</p>
           <ul class="tv-checklist">
             <li><span class="material-symbols-outlined" aria-hidden="true">check_circle</span>Native Salesforce Mobile experience — no separate app</li>
@@ -1320,8 +1322,8 @@
     <div class="tv-wrap">
       <div class="tv-way reveal"><i aria-hidden="true"></i><em>Waypoint 04</em><span>— Architecture</span></div>
       <div class="tv-center reveal">
-        <h2 class="tv-h2 text-balance">A clean split: your org, our engine.</h2>
-        <p class="tv-sub">Salesforce stays the system of record. The routing core does the heavy math. Nothing else moves.</p>
+        <h2 class="tv-h2 text-balance">Salesforce keeps the records. Tourvia calculates the route.</h2>
+        <p class="tv-sub">Accounts, Events, visits, and reports stay in Salesforce. Tourvia processes only the coordinates and timing constraints required to calculate a route.</p>
       </div>
 
       <div class="tv-arch reveal">
@@ -1334,7 +1336,7 @@
             <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Visit reports stored on your records</li>
             <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Standard Reports &amp; Dashboards</li>
           </ul>
-          <div class="tv-arch-foot">CRM data lives here. Stays here.</div>
+          <div class="tv-arch-foot">Salesforce remains the system of record.</div>
         </div>
 
         <div class="tv-flow" aria-hidden="true">
@@ -1377,8 +1379,8 @@
         </div>
         <div class="tv-tile">
           <small>Access control</small>
-          <strong>3 permission sets</strong>
-          <p>Admin, Manager, and User roles ship with the package — assign and go.</p>
+          <strong>3 access groups</strong>
+          <p>Permission Set Groups for Admin, Manager, and User ship with the package.</p>
         </div>
         <div class="tv-tile">
           <small>Validation</small>
@@ -1394,7 +1396,7 @@
     <div class="tv-wrap">
       <div class="tv-way reveal"><i aria-hidden="true"></i><em>Waypoint 05</em><span>— Pricing</span></div>
       <div class="tv-center reveal">
-        <h2 class="tv-h2 text-balance">One number to remember: <span class="tv-grad">€30</span>.</h2>
+        <h2 class="tv-h2 text-balance">One price for the complete product: <span class="tv-grad">€30</span>.</h2>
         <p class="tv-sub">Per licensed user, per month, billed annually. Larger enterprise deployments can be quoted separately when needed. <a href="flat-rate-route-optimization.html" style="color: var(--tv-indigo-bright); font-weight: 600;">Pricing ROI for field teams</a>.</p>
       </div>
 
@@ -1426,7 +1428,7 @@
             <p class="tv-price-desc">For licensed Salesforce users</p>
             <div class="tv-price-num"><strong>€30</strong><span>/user/month<br/>excl. tax · billed annually</span></div>
             <ul class="tv-price-list">
-              <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Everything in trial scope</li>
+              <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Complete feature set</li>
               <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Route optimization engine</li>
               <li><span class="material-symbols-outlined" aria-hidden="true">check</span>GPS check-in &amp; visit reports</li>
               <li><span class="material-symbols-outlined" aria-hidden="true">check</span>Route history &amp; replay</li>
@@ -1472,7 +1474,7 @@
         </details>
         <details class="faq-item">
           <summary>Where is my data processed?</summary>
-          <div class="faq-body">Your CRM data stays in your Salesforce org — Tourvia is a native managed package with no external data sync. Route optimization requests are processed by our engine hosted on OVHcloud in France, RGPD-aligned by design.</div>
+          <div class="faq-body">Salesforce remains the system of record for accounts, Events, visits, and reports. Route calculations use only the coordinates and timing constraints required for the route. These requests are processed by Tourvia infrastructure hosted in France.</div>
         </details>
         <details class="faq-item">
           <summary>Does it work on mobile?</summary>
@@ -1899,7 +1901,7 @@
       "name": "Where is my data processed?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "CRM data stays in the customer's Salesforce org. Route optimization requests are processed by Tourvia's engine hosted on OVHcloud in France, RGPD-aligned by design."
+        "text": "Salesforce remains the system of record for accounts, Events, visits, and reports. Route calculations use only the coordinates and timing constraints required for the route, processed by Tourvia infrastructure hosted in France."
       }
     },
     {
@@ -1967,7 +1969,7 @@
     "@context": "https://schema.org",
     "@type": "VideoObject",
     "name": "Tourvia GPS Check-in and Visit Reports",
-    "description": "GPS-verified check-in at each stop. Fill visit reports with result, satisfaction, and next action, all inside Salesforce.",
+    "description": "GPS-assisted proximity check at each stop. Fill visit reports with result, satisfaction, and next action, all inside Salesforce.",
     "thumbnailUrl": "https://routeforce.app/assets/screenshots-2026/screen-03.jpg",
     "contentUrl": "https://routeforce.app/assets/videos/CheckOut.mp4",
     "uploadDate": "2026-03-30T08:00:00+02:00",
@@ -2008,13 +2010,6 @@
           form: 'homepage_contact'
         }
       });
-      if (typeof gtag === 'function') {
-        gtag('event', 'conversion', {
-          'send_to': 'AW-18063754907/z6aBCNy52JUcEJuNvKVD',
-          'value': 1.0,
-          'currency': 'EUR'
-        });
-      }
     });
   }
 </script>

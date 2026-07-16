@@ -2,13 +2,7 @@
 <html lang="en">
 <head>
   <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18063754907');
-</script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Native Salesforce Integration | Tourvia</title>
@@ -127,9 +121,9 @@
     <p>The package installs cleanly, then admins can adapt pages, layouts, and reporting surfaces to match the reality of the org instead of forcing teams into a disconnected tool.</p>
     <p>Tourvia is exposed for <strong>Account, Lead, Opportunity, and Campaign record pages</strong>, and can also be placed on <strong>Lightning App Pages, Home Pages, Tabs, the Utility Bar, and Experience Cloud pages</strong>.</p>
 
-    <h2>Why this matters commercially</h2>
-    <p>For Salesforce admins and business stakeholders, this flexibility changes the buying story. Tourvia is not only a route planning product. It is a native operational component that can adapt to the real structure of the org.</p>
-    <p>That makes the product easier to pilot, easier to justify, easier to roll out, and easier to expand once the first workflow is proven.</p>
+    <h2>Adapt Tourvia to the way your org already works</h2>
+    <p>Salesforce admins can place Tourvia on the relevant Lightning pages, use the supplied Permission Set Groups, and connect route planning with existing Flows and record processes.</p>
+    <p>Teams can validate the configuration during the 30-day trial before enabling it for more users.</p>
 
     <h2>Where Tourvia fits in your Salesforce page layouts</h2>
     <p>Because Tourvia ships as a Lightning Web Component, Salesforce admins can place it anywhere Lightning App Builder accepts a component. Each placement opens a different use case.</p>
@@ -181,10 +175,10 @@
     <h2>How Tourvia uses Salesforce platform features</h2>
     <p>Tourvia is built on standard Salesforce platform capabilities. This is what makes it genuinely native rather than just installable inside the org.</p>
     <ul>
-      <li><strong>SOQL for data queries:</strong> account, lead, and opportunity records are retrieved through standard SOQL queries. The component respects sharing rules, field-level security, and record visibility set in your org. No data is extracted or replicated to an external database.</li>
+      <li><strong>Salesforce data access:</strong> account, lead, and opportunity records are retrieved under Salesforce sharing rules, field-level security, and record visibility. Only the route inputs described in the DPA are processed by the Tourvia routing service.</li>
       <li><strong>Lightning Data Service:</strong> record context (such as the current account address on a record page) is accessed through Lightning Data Service, the standard mechanism for reading and writing Salesforce records from Lightning components.</li>
       <li><strong>Custom Metadata Types:</strong> configuration lives in metadata, not hardcoded component properties. This means admins can change behavior without touching the component itself, and settings travel correctly between sandboxes and production through standard deployment tooling.</li>
-      <li><strong>Permission Sets:</strong> feature access is governed by Permission Sets, which integrate with standard Salesforce user management. Adding or removing Tourvia access for a user follows the same process as any other permission change in the org.</li>
+      <li><strong>Permission Sets and Permission Set Groups:</strong> Tourvia ships managed access for users, managers, and admins. Assign the supplied Permission Set Group for each role.</li>
       <li><strong>Platform Events:</strong> real-time updates within the component use Salesforce Platform Events where applicable, keeping event-driven communication on-platform rather than through external webhooks or polling mechanisms.</li>
     </ul>
     <p>The practical effect: Tourvia inherits the security, scalability, and governance of the Salesforce platform by design, not by workaround.</p>

@@ -35,13 +35,7 @@
   <meta name="twitter:description" content="Conditions commerciales Tourvia, pricing, engagement et cadre contractuel."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18063754907');
-</script>
+
 </head>
 <body style="background:#09090b;color:#e4e4e7;">
 <header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
@@ -83,18 +77,20 @@
 
     <div class="preambule">
         <strong>Préambule</strong><br>
-        Les présentes CGV régissent les relations contractuelles entre <strong>SKZ Consulting</strong>, société par actions simplifiée au capital de 1 000 €, siège social : 14 rue Bausset, 75015 Paris, RCS Paris 102 154 879, SIRET 102 154 879 00013, domiciliataire : HIWAY (RCS 801 666 074), représentée par Mathieu Szymkiewicz, Président, et toute personne morale souscrivant au Logiciel (ci-après « le Client »). Le Logiciel est commercialisé sous le nom Tourvia, anciennement RouteForce. Tous les prix sont en euros hors taxes (HT). La TVA applicable sera ajoutée conformément à la réglementation en vigueur.
+        Les présentes CGV régissent les relations contractuelles entre <strong>SKZ Consulting</strong>, société par actions simplifiée unipersonnelle au capital de 1 000 €, siège social : 14 rue Bausset, 75015 Paris, RCS Paris 102 154 879, SIRET 102 154 879 00013, domiciliataire : HIWAY (RCS 801 666 074), représentée par Mathieu Szymkiewicz, Président, et toute personne morale souscrivant au Logiciel (ci-après « le Client »). Le Logiciel est commercialisé sous le nom Tourvia, anciennement RouteForce. Tous les prix sont en euros hors taxes (HT). La TVA applicable sera ajoutée conformément à la réglementation en vigueur.
     </div>
 
     <h2>Article 1 — Définitions</h2>
     <p><strong>Logiciel</strong> : le logiciel Tourvia, anciennement RouteForce, solution d’optimisation de tournées commerciales, distribué sous forme de Managed Package Salesforce installé dans l’environnement Salesforce du Client.</p>
     <p><strong>Service de Routing</strong> : le moteur de calcul d'itinéraires hébergé et opéré par l'Éditeur sur ses propres serveurs, accessible par le Logiciel via API sécurisée.</p>
     <p><strong>Installation</strong> : installation et configuration initiales du Logiciel, réalisées par le Client à l'aide de la documentation fournie.</p>
-    <p><strong>Données Client</strong> : toute donnée appartenant au Client, stockée et traitée au sein de son propre environnement Salesforce. Ces données ne sont ni hébergées, ni stockées par l'Éditeur.</p>
+    <p><strong>Données Client</strong> : les enregistrements métier conservés dans l'environnement Salesforce du Client. Pour fournir le Service de Routing, le Client transmet à l'Éditeur les coordonnées géographiques et contraintes temporelles strictement nécessaires au calcul, conformément au DPA.</p>
+    <p><strong>Date de Mise en Service</strong> : date d'activation de l'abonnement payant dans l'organisation Salesforce du Client, indiquée sur le Devis ou confirmée par écrit entre les Parties.</p>
+    <p><strong>Essai</strong> : accès de trente (30) jours au périmètre fonctionnel complet du Logiciel, sans reconduction automatique en abonnement payant.</p>
 
     <h2>Article 2 — Architecture technique</h2>
-    <p>Le Logiciel est distribué sous forme de package managé installé directement dans l'organisation Salesforce du Client. Les Données Client restent intégralement dans l'environnement Salesforce du Client — elles ne sont ni transférées, ni stockées sur les serveurs de l'Éditeur.</p>
-    <p>Le Service de Routing reçoit uniquement des coordonnées géographiques (latitude/longitude) pour le calcul d'itinéraires. Aucune donnée à caractère personnel (noms, adresses, téléphones) n'est envoyée au Service de Routing.</p>
+    <p>Le Logiciel est distribué sous forme de package managé installé directement dans l'organisation Salesforce du Client. Salesforce reste le système de référence pour les comptes, contacts, opportunités, Events, visites et rapports.</p>
+    <p>Pour calculer les itinéraires, le Service de Routing reçoit les coordonnées géographiques et contraintes temporelles nécessaires. Les noms, adresses postales, téléphones et emails ne sont pas transmis au Service de Routing. Les traitements sont détaillés dans le DPA.</p>
 
     <h2>Article 3 — Entrée en vigueur et durée</h2>
     <p>Le Contrat entre en vigueur à la date de signature du Devis. Il est conclu pour une durée initiale de douze (12) mois à compter de la mise en service effective du Logiciel.</p>
@@ -111,18 +107,18 @@
     <p><strong>Révision tarifaire :</strong> L'Éditeur peut réviser le tarif à chaque renouvellement avec préavis de deux (2) mois. En cas de désaccord, le Client peut résilier dans les conditions de l'article 3.</p>
 
     <h2>Article 5 — Obligations de l'Éditeur</h2>
-    <p>L'Éditeur s'engage à fournir le Logiciel et le Service de Routing avec diligence et selon les règles de l'art (obligation de moyens). L'hébergement du Service de Routing est assuré en France (OVHcloud SAS, Gravelines). L'Éditeur met en œuvre ses meilleurs efforts pour assurer une disponibilité de 99 % sur une base mensuelle, hors maintenance planifiée et indisponibilités Salesforce.</p>
-    <p>Le support technique est assuré par email à <a href="mailto:contact@routeforce.app">contact@routeforce.app</a>, du lundi au vendredi hors jours fériés, avec un objectif de réponse de vingt-quatre (24) heures ouvrées.</p>
+    <p>L'Éditeur s'engage à fournir le Logiciel et le Service de Routing avec diligence et selon les règles de l'art, au titre d'une obligation de moyens. L'hébergement du Service de Routing est assuré en France (OVHcloud SAS, Gravelines). Les opérations de maintenance planifiée et les indisponibilités de Salesforce ou de prestataires hors du contrôle raisonnable de l'Éditeur peuvent affecter le service.</p>
+    <p>Le support technique est assuré par email à <a href="mailto:contact@routeforce.app">contact@routeforce.app</a>, du lundi au vendredi hors jours fériés. L'Éditeur traite les demandes dans un délai raisonnable selon leur nature et leur priorité.</p>
 
     <h2>Article 6 — Obligations du Client</h2>
     <p>Le Client s'engage à disposer d'un abonnement Salesforce actif et compatible, à utiliser le Logiciel conformément à sa documentation, et à ne pas tenter de décompiler ou désassembler le Logiciel.</p>
 
     <h2>Article 7 — Propriété intellectuelle et marque</h2>
-    <p>L’Éditeur conserve l’intégralité des droits de propriété intellectuelle sur le Logiciel, sa documentation, ses interfaces et ses éléments graphiques. Tourvia est le nom du Logiciel exploité par SKZ Consulting. RouteForce est l’ancien nom du Logiciel et de la société. Le Contrat confère au Client un droit d’utilisation personnel, non exclusif, non cessible, pour ses seuls besoins internes.</p>
+    <p>L’Éditeur conserve l’intégralité des droits de propriété intellectuelle sur le Logiciel, sa documentation, ses interfaces et ses éléments graphiques. Tourvia est le nom du Logiciel exploité par SKZ Consulting. RouteForce est l’ancien nom du Logiciel. Le Contrat confère au Client un droit d’utilisation personnel, non exclusif, non cessible, pour ses seuls besoins internes.</p>
     <p><strong>Référence commerciale</strong> — Sauf opposition écrite dans les trente (30) jours suivant la signature, l'Éditeur est autorisé à mentionner le nom du Client à titre de référence. Cette autorisation est révocable à tout moment.</p>
 
     <h2>Article 8 — Données personnelles</h2>
-    <p>Les Données Client sont stockées et traitées exclusivement dans l'environnement Salesforce du Client. L'Éditeur n'y a pas accès. Le Service de Routing reçoit uniquement des coordonnées géographiques (non nominatives) pour le calcul d'itinéraires. Les conditions de traitement des données d'administration sont détaillées dans le DPA annexé.</p>
+    <p>Les enregistrements CRM restent dans l'environnement Salesforce du Client. Pour fournir le service, le Client transmet à SKZ Consulting les coordonnées géographiques, contraintes temporelles et métadonnées techniques strictement nécessaires au calcul. Ces données, les données d'administration de licence et les journaux techniques sont traités conformément au DPA.</p>
 
     <h2>Article 9 — Confidentialité</h2>
     <p>Chaque Partie s'engage à maintenir confidentielles les informations reçues de l'autre Partie pendant la durée du Contrat et deux (2) ans après son terme.</p>

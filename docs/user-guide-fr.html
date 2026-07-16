@@ -97,8 +97,7 @@
     .lang-switch:hover { background: rgba(99, 102, 241, 0.2); }
   </style>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="Guide utilisateur TourviaApp 7.33.0 : visualisation cartographique, filtres, planification de tournées, check-in/check-out, comptes-rendus de visite et historique dans Salesforce.">
-  <link rel="canonical" href="https://routeforce.app/docs/user-guide-fr.html">
+
   <meta property="og:title" content="Guide utilisateur TourviaApp 7.33.0">
   <meta property="og:site_name" content="Tourvia">
   <meta property="og:description" content="Guide utilisateur complet de l'app de tournées commerciales Tourvia sur Salesforce.">
@@ -113,13 +112,7 @@
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18063754907');
-</script>
+
 </head>
 <body style="background:#09090b;color:#e4e4e7;">
 <header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
@@ -200,7 +193,7 @@
 <li><strong>7.33.0 — Sécurité &amp; confort au quotidien</strong> : la confirmation de check-in affiche le nom de la visite (fini le « Pointer votre arrivée ? » générique), les boutons check-in/check-out de l'Agenda du jour sont plus grands et plus faciles à taper en mobilité, le panneau de tournée revient sur l'étape 1 après une optimisation pour montrer immédiatement le nouvel ordre et les horaires, les premières visites de la journée respectent désormais la pause déjeuner et la fin de journée comme toutes les autres, le sélecteur de contact d'une étape propose toujours la liste complète des contacts du compte, et vos comptes-rendus, historiques et filtres enregistrés sont mieux protégés dans votre org.</li>
       </ul>
     </div>
-    <p>Tourvia est un outil de tournées cartographique intégré nativement dans Salesforce. Il vous permet de visualiser votre territoire, filtrer vos enregistrements, planifier des tournées optimisées, effectuer des visites avec vérification GPS, et conserver un historique complet — le tout sans quitter Salesforce.</p>
+    <p>Tourvia est un outil cartographique livré sous forme de package managé Salesforce. Il permet de visualiser un territoire, filtrer les enregistrements, planifier des tournées, utiliser un contrôle de proximité assisté par GPS et conserver l'historique des tournées dans Salesforce.</p>
 
     <nav class="toc">
       <h2>Sommaire</h2>
@@ -618,7 +611,7 @@
     <!-- ============================================================ -->
     <h2 id="checkin-checkout">11. Check-in / Check-out (comptes-rendus de visite)</h2>
 
-    <p>Le système de check-in/check-out vous permet d'enregistrer vos visites en temps réel, avec vérification GPS et un compte-rendu structuré.</p>
+    <p>Le système de check-in/check-out permet d'enregistrer les visites avec un contrôle de proximité assisté par GPS et un compte-rendu structuré. Le résultat dépend de la précision du terminal, du géocodage et du rayon configuré; il ne constitue pas une preuve d'identité ou de présence.</p>
 
     <img loading="lazy" decoding="async" src="../assets/screenshots-2026/checkin-form.webp" alt="Compte-rendu de visite check-in" style="border-radius:8px;border:1px solid #27272a;margin:1rem 0;"/>
 

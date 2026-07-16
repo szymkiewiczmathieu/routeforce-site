@@ -77,8 +77,7 @@
     .small-muted { color: var(--rf-muted); font-size: 9pt; }
   </style>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="Tourvia Configuration Guide (TourviaApp 7.33.0): CMDT-first configuration model (RouteForceConfig__mdt, 44 fields), RouteForceAction__mdt, filters, visit reports, and scheduled jobs.">
-  <link rel="canonical" href="https://routeforce.app/docs/configuration-guide.html">
+
   <meta property="og:title" content="Tourvia Configuration Guide | TourviaApp 7.33.0">
   <meta property="og:site_name" content="Tourvia">
   <meta property="og:description" content="Advanced admin guide for RouteForceConfig__mdt and RouteForceAction__mdt configuration.">
@@ -93,13 +92,7 @@
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18063754907');
-</script>
+
 </head>
 <body style="background:#09090b;color:#e4e4e7;">
 <header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
@@ -1961,348 +1954,26 @@ sf org assign permset --name routeforce__RouteForce_User --target-org &lt;org-al
 
 <hr>
 
-<h2 id="licence">12. Licence System</h2>
+<h2 id="licence">12. Licence and service configuration</h2>
+<p>Licence validation and route calculations are managed by Tourvia. The system settings installed with the managed package must remain active and should not be edited manually.</p>
+<p>If activation or route calculation fails, verify that the packaged Remote Site Settings are active, then contact <a href="mailto:contact@routeforce.app">contact@routeforce.app</a>. Internal endpoints, keys, cache rules, and response handling are managed by Tourvia and are intentionally not documented publicly.</p>
 
-<h3>12.1 How It Works</h3>
+<hr>
+
+<h2 id="api-keys">13. Managed credentials</h2>
+<p>Credentials required by Tourvia services are stored in package-managed configuration. Salesforce administrators should not copy, expose, or replace those values outside the documented activation flow.</p>
+
+<hr>
+
+<h2 id="onboarding">14. Onboarding wizard</h2>
+<p>The Configuration tab guides a Tourvia administrator through four screens:</p>
 <ol>
-<li><strong>Validation callout</strong> to the Tourvia licence service</li>
-<li>Server returns: <code>{ valid: true, expires: "2026-12-31", client: "Acme Corp" }</code></li>
-<li>Result is <strong>cached</strong> in <code>LicenceCache__c</code> for 24 hours</li>
-<li>If the server is unreachable, the app continues for <strong>7 days</strong> (fail-open grace period)</li>
-<li>After 7 days without successful contact, the app blocks with a licence error overlay</li>
+<li><strong>Activation:</strong> confirm the licence information supplied with the trial or subscription.</li>
+<li><strong>Map and route defaults:</strong> set working hours, visit duration, route preferences, and the default map view.</li>
+<li><strong>Salesforce workflow:</strong> review objects, fields, filters, Event defaults, and page placement.</li>
+<li><strong>Validation:</strong> save the configuration and run a test route with the intended User, Manager, and Admin Permission Set Groups.</li>
 </ol>
-
-<h3>12.2 Licence States</h3>
-<table>
-<thead>
-<tr>
-<th>State</th>
-<th>Behavior</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Active</strong></td>
-<td>Normal operation. Green indicator in Configuration tab.</td>
-</tr>
-<tr>
-<td><strong>Inactive</strong></td>
-<td>Licence expired or invalid. Red indicator, app blocked.</td>
-</tr>
-<tr>
-<td><strong>Not Configured</strong></td>
-<td>No licence key entered. Setup prompt displayed.</td>
-</tr>
-<tr>
-<td><strong>Server Unreachable</strong></td>
-<td>Fail-open: app works for up to 7 days. Warning indicator.</td>
-</tr>
-</tbody>
-</table>
-
-<h3>12.3 HTTP Response Handling</h3>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Meaning</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>200</td>
-<td>Success</td>
-<td>Update cache, allow/block based on <code>valid</code> field</td>
-</tr>
-<tr>
-<td>401</td>
-<td>Invalid key</td>
-<td>Block immediately (no fail-open)</td>
-</tr>
-<tr>
-<td>403</td>
-<td>Kill switch</td>
-<td>Block immediately (nginx-level block)</td>
-</tr>
-<tr>
-<td>5xx</td>
-<td>Server error</td>
-<td>Fail-open for 7 days</td>
-</tr>
-<tr>
-<td>Timeout</td>
-<td>Unreachable</td>
-<td>Fail-open for 7 days</td>
-</tr>
-</tbody>
-</table>
-
-<hr>
-
-<h2 id="api-keys">13. API Key Management</h2>
-<p>API keys are stored in <strong>InternalConfig__c</strong> (Hierarchy Custom Setting), protected by the <code>routeforce</code> namespace; subscribers cannot read them directly.</p>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Purpose</th>
-<th>Stored In</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Licence Key</strong></td>
-<td>Tourvia licence validation</td>
-<td><code>InternalConfig__c.LicenceKey__c</code></td>
-</tr>
-<tr>
-<td><strong>Primary Routing API Key</strong></td>
-<td>Tourvia routing service</td>
-<td>Managed secure configuration</td>
-</tr>
-<tr>
-<td><strong>Fallback API Key</strong></td>
-<td>Fallback routing service</td>
-<td><code>InternalConfig__c.FallbackApiKey__c</code></td>
-</tr>
-<tr>
-<td><strong>BAN Endpoint</strong></td>
-<td>BAN geocoding API endpoint</td>
-<td><code>InternalConfig__c.BanEndpoint__c</code></td>
-</tr>
-<tr>
-<td><strong>Licence Endpoint</strong></td>
-<td>Licence validation API endpoint</td>
-<td><code>InternalConfig__c.LicenceEndpoint__c</code></td>
-</tr>
-</tbody>
-</table>
-<div class="note"><strong>Note:</strong> <code>BanEndpoint__c</code> and <code>LicenceEndpoint__c</code> are system-managed fields and are not typically edited by admins.</div>
-<p>Keys are set during the <strong>RF_Onboarding</strong> wizard (Step 1) and stored via <code>SecureConfigService.storeKeys()</code>.</p>
-
-<hr>
-
-<h2 id="onboarding">14. Onboarding Wizard (RF_Onboarding)</h2>
-<p>The onboarding wizard is a Screen Flow accessible from the <strong>Configuration</strong> tab (Tourvia Admin only). It walks through all essential settings in 6 steps.</p>
-
-<h3>Step 1: API Keys</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Licence Key</td>
-<td>Yes</td>
-<td>Your Tourvia licence key (provided by Tourvia support)</td>
-</tr>
-<tr>
-<td>Primary Routing API Key</td>
-<td>Yes</td>
-<td>API key for the Tourvia routing service</td>
-</tr>
-<tr>
-<td>Fallback API Key</td>
-<td>No</td>
-<td>Fallback key used when the primary routing service is unavailable</td>
-</tr>
-</tbody>
-</table>
-
-<h3>Step 2: Map Settings</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Default</th>
-<th>Options</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Address Prefix</td>
-<td>Shipping</td>
-<td>Shipping, Billing</td>
-</tr>
-<tr>
-<td>Default Map Layer</td>
-<td>Standard</td>
-<td>Standard, Terrain, Satellite</td>
-</tr>
-<tr>
-<td>Default Zoom</td>
-<td>10</td>
-<td>1–18</td>
-</tr>
-<tr>
-<td>Display Mode</td>
-<td>both</td>
-<td>accounts, leads, opportunities, both</td>
-</tr>
-</tbody>
-</table>
-
-<h3>Step 3: Feature Toggles</h3>
-<table>
-<thead>
-<tr>
-<th>Feature</th>
-<th>Default</th>
-<th>Impact</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Enable Events</td>
-<td>true</td>
-<td>Calendar panel, event markers, check-in</td>
-</tr>
-<tr>
-<td>Enable Leads</td>
-<td>true</td>
-<td>Lead markers, Lead filters, Lead in route</td>
-</tr>
-<tr>
-<td>Enable Opportunities</td>
-<td>true</td>
-<td>Opportunity markers, Opp filters, Opp in route</td>
-</tr>
-<tr>
-<td>Enable Visit Reports</td>
-<td>true</td>
-<td>Check-in/check-out visit report creation</td>
-</tr>
-<tr>
-<td>Enable CSV Export</td>
-<td>true</td>
-<td>CSV download button in route panel</td>
-</tr>
-<tr>
-<td>Enable History Naming</td>
-<td>true</td>
-<td>Name prompt when saving routes</td>
-</tr>
-<tr>
-<td>Enable Heatmap</td>
-<td>true</td>
-<td>Heatmap overlay toggle in toolbar</td>
-</tr>
-<tr>
-<td>Enable Bulk Select</td>
-<td>true</td>
-<td>Lasso selection tool</td>
-</tr>
-<tr>
-<td>Enable Usage Tracking</td>
-<td>true</td>
-<td>Feature usage event tracking</td>
-</tr>
-<tr>
-<td>Enable Quick Text</td>
-<td>true</td>
-<td>Quick text snippets in check-in modal</td>
-</tr>
-</tbody>
-</table>
-
-<h3>Step 4: Query Configuration</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Contact Fields</td>
-<td>Id,Name,Email,Phone,MobilePhone</td>
-<td>Fields shown in contact lookup popups</td>
-</tr>
-<tr>
-<td>Lead Query Fields</td>
-<td>Rating,LeadSource</td>
-<td>Additional Lead fields for popups</td>
-</tr>
-<tr>
-<td>Lead Query Filter</td>
-<td>IsConverted = false</td>
-<td>SOQL WHERE for Leads</td>
-</tr>
-<tr>
-<td>Opp Query Fields</td>
-<td>StageName,Amount,CloseDate</td>
-<td>Opportunity fields for popups</td>
-</tr>
-<tr>
-<td>Opp Query Filter</td>
-<td>IsClosed = false</td>
-<td>SOQL WHERE for Opportunities</td>
-</tr>
-<tr>
-<td>Not Visited Since</td>
-<td>30</td>
-<td>Default threshold in days</td>
-</tr>
-</tbody>
-</table>
-
-<h3>Step 5: Visit Report &amp; System Settings</h3>
-<table>
-<thead>
-<tr>
-<th>Field</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Check-In Note Prefix</td>
-<td><s>Check-in</s></td>
-<td><strong>DEPRECATED</strong>: No longer used</td>
-</tr>
-<tr>
-<td>On-Site Radius</td>
-<td>500 m</td>
-<td>GPS radius for on-site detection</td>
-</tr>
-<tr>
-<td>Visit Result Options</td>
-<td>Positive,Neutral,Negative,No Answer</td>
-<td>Picklist values for visit outcome</td>
-</tr>
-<tr>
-<td>Visit Alert Days</td>
-<td>0</td>
-<td>Overdue visit alert threshold (0 = disabled)</td>
-</tr>
-<tr>
-<td>Support Email</td>
-<td>contact@routeforce.app</td>
-<td>Contact email in error screens</td>
-</tr>
-<tr>
-<td>Log Retention Days</td>
-<td>30</td>
-<td>Days before log purge</td>
-</tr>
-<tr>
-<td>Event-Opp Link Target</td>
-<td>opportunity</td>
-<td>How Events from Opp markers are linked</td>
-</tr>
-</tbody>
-</table>
-
-<h3>Step 6: Deploy</h3>
-<p>After running the onboarding flow, configure all remaining settings directly in <code>RouteForceConfig__mdt.Default</code> via <strong>Setup &gt; Custom Metadata Types &gt; RouteForceConfig &gt; Default</strong>.</p>
+<p>Business-specific settings can be refined after activation using the configuration references below.</p>
 
 <hr>
 

@@ -2,18 +2,12 @@
 <html lang="en">
 <head>
   <script defer data-domain="routeforce.app" src="https://analytics.routeforce.app/js/script.js"></script>
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18063754907"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18063754907');
-</script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>How to Set Up Route Planning in Salesforce (Step-by-Step) | Tourvia</title>
   <meta name="robots" content="index, follow">
-    <meta name="description" content="Set up route planning in Salesforce in under 30 minutes. Step-by-step guide covering installation, permission sets, App Builder placement, and configuration.">
+    <meta name="description" content="Install Tourvia, assign its Permission Set Groups, add the component in App Builder, and configure route planning in Salesforce.">
   <link rel="canonical" href="https://routeforce.app/blog/how-to-set-up-route-planning-salesforce.html">
   <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
   <link rel="icon" type="image/x-icon" href="../favicon.ico">
@@ -21,13 +15,13 @@
   <link rel="stylesheet" href="../style.css">
   <meta property="og:title" content="How to set up route planning in Salesforce (step-by-step)">
   <meta property="og:site_name" content="Tourvia">
-  <meta property="og:description" content="Request a 30-day trial, assign permission sets, add the component to a Lightning page, and start planning routes. Full walkthrough in 5 steps.">
+  <meta property="og:description" content="Request a 30-day trial, assign Tourvia Permission Set Groups, add the component to a Lightning page, and configure your first route.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://routeforce.app/blog/how-to-set-up-route-planning-salesforce.html">
   <meta property="og:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="How to set up route planning in Salesforce (step-by-step)"/>
-  <meta name="twitter:description" content="Request a 30-day trial, assign permission sets, add the component to a Lightning page, and start planning routes. Full walkthrough."/>
+  <meta name="twitter:description" content="Install Tourvia, assign its Permission Set Groups, add the component in App Builder, and configure your first route."/>
   <meta name="twitter:image" content="https://routeforce.app/assets/screenshots-2026/screen-01.jpg"/>
   <script type="application/ld+json">
   {
@@ -38,7 +32,7 @@
     "dateModified": "2026-04-05",
     "author": {"@type": "Organization", "name": "SKZ Consulting", "alternateName": "Tourvia"},
     "publisher": {"@type": "Organization", "name": "SKZ Consulting", "alternateName": "Tourvia", "url": "https://routeforce.app"},
-    "description": "Step-by-step guide to setting up route planning in Salesforce using Tourvia. Covers installation, permission sets, App Builder placement, and configuration.",
+    "description": "Step-by-step guide to setting up Tourvia in Salesforce, including installation, Permission Set Groups, App Builder placement, and configuration.",
     "image": "https://routeforce.app/assets/screenshots-2026/screen-01.jpg",
     "mainEntityOfPage": "https://routeforce.app/blog/how-to-set-up-route-planning-salesforce.html",
     "mainEntity": {
@@ -120,7 +114,7 @@
       <span>6 min read</span>
     </div>
     <h1>How to set up route planning in Salesforce</h1>
-    <p class="blog-hero-summary">Install a route planning component from AppExchange, assign permission sets, drop it onto a Lightning page, and configure your defaults. The whole process takes about 30 minutes.</p>
+    <p class="blog-hero-summary">Install Tourvia from private AppExchange access, assign the supplied Permission Set Groups, place the component on the relevant Lightning pages, and configure the route defaults.</p>
       </div>
       <aside class="blog-hero-sidecard blog-hero-sidecard-muted">
         <div class="blog-hero-sidecard-label">Quick access</div>
@@ -152,34 +146,27 @@
     <p>If your org uses a sandbox, consider installing there first to test before deploying to production.</p>
 
     <h2>Step 1: Request trial</h2>
-    <p>Request a 30-day trial through the <a href="/#contact">contact form</a>. We qualify the Salesforce org, confirm the trial scope, and then guide your admin through access and first setup.</p>
+    <p>Request a 30-day trial through the <a href="/#contact">contact form</a>. After the Salesforce org is qualified, your admin receives private AppExchange access and follows the setup documentation.</p>
     <p>During installation, you choose whether to install for all users, specific profiles, or admins only. For a first install, "Install for Admins Only" is the safest option. You can extend access later through permission sets.</p>
     <p>The managed package deploys the following to your org:</p>
     <ul>
-      <li><strong>Permission sets</strong> for granting user, manager, and admin access levels.</li>
+      <li><strong>Permission sets and Permission Set Groups</strong> for user, manager, and admin access.</li>
       <li><strong>Custom Metadata Types</strong> for org-wide configuration defaults.</li>
       <li><strong>Lightning Web Components</strong> that you will place on Lightning pages using App Builder.</li>
       <li><strong>Custom objects and fields</strong> for visit tracking and route storage.</li>
     </ul>
-    <p>Installation typically completes in under 5 minutes. You will receive a confirmation email from Salesforce when it finishes. For detailed steps, see the <a href="../docs/setup-guide.html">Setup Guide</a>.</p>
+    <p>Salesforce confirms when package installation is complete. Total setup time depends on org security review, data quality, page configuration, permission assignments, and sandbox testing. For detailed steps, see the <a href="../docs/setup-guide.html">Setup Guide</a>.</p>
 
-    <h2>Step 2: Assign permission sets</h2>
-    <p>Tourvia creates permission sets during installation. These control which users can access the component and which features they see.</p>
-    <p>There are two levels:</p>
-    <ul>
-      <li><strong>30-day trial access.</strong> Lets qualified Salesforce teams validate map visualization, account plotting, and route planning before subscription.</li>
-      <li><strong>Paid access.</strong> Adds route optimization (automatic stop sequencing), advanced filters, and reporting features. Requires an active subscription.</li>
-    </ul>
-    <p>To assign permission sets:</p>
+    <h2>Step 2: Assign Permission Set Groups</h2>
+    <p>Tourvia includes three Permission Set Groups: User, Manager, and Admin. Each group contains the corresponding managed permission set. Assigning the group is the recommended access path.</p>
+    <p>To assign a Permission Set Group:</p>
     <ol>
-      <li>Go to <strong>Setup &gt; Users &gt; Permission Sets</strong>.</li>
-      <li>Find the Tourvia permission sets in the list.</li>
-      <li>Open the permission set you want to assign.</li>
+      <li>Go to <strong>Setup &gt; Users &gt; Permission Set Groups</strong>.</li>
+      <li>Open <strong>TourviaApp_User_Group</strong>, <strong>TourviaApp_Manager_Group</strong>, or <strong>TourviaApp_Admin_Group</strong>.</li>
       <li>Click <strong>Manage Assignments</strong>, then <strong>Add Assignment</strong>.</li>
       <li>Select the users who need access and save.</li>
     </ol>
-    <p>If you installed for "Admins Only" in Step 1, this is where you grant access to your field reps and managers. Assign the free permission set first, verify everything works, then add paid access once your subscription is active.</p>
-    <p>For teams using permission set groups (recommended by Salesforce for scalable access management), you can add the Tourvia permission sets to an existing group rather than assigning them individually.</p>
+    <p>Start by assigning <strong>TourviaApp_Admin_Group</strong> to the Salesforce admin performing the setup. Add the User and Manager groups after validation. The complete feature set is available during the 30-day trial.</p>
 
     <h2>Step 3: Add Tourvia to a Lightning page</h2>
     <p>The component is a standard Lightning Web Component. You place it on any Lightning page using App Builder, the same drag-and-drop editor you use for other page layouts.</p>
@@ -218,19 +205,16 @@
       <li><strong>Open the component.</strong> Navigate to the page where you placed it. The map should load and display your accounts as pins.</li>
       <li><strong>Check geocoding.</strong> Verify that accounts with valid addresses appear on the map in the correct locations. If accounts are missing, check that their addresses are complete and correctly formatted.</li>
       <li><strong>Test route creation.</strong> Select a few accounts and create a manual route. The component should draw a path between the selected stops.</li>
-      <li><strong>Test route optimization (premium).</strong> If you have an active subscription, click the optimize button. The stops should reorder to minimize travel time.</li>
+      <li><strong>Test route optimization.</strong> Click the optimize button. The stops should reorder using the selected travel and time constraints.</li>
       <li><strong>Create a test event.</strong> Plan a visit to an account and confirm that it creates the expected Salesforce event or task record.</li>
     </ol>
     <p>If something is not working as expected, the <a href="../docs/user-guide.html">User Guide</a> covers common issues including missing map pins, geocoding errors, and permission problems.</p>
     <p>Once verified, communicate the rollout to your team. Share the page location, explain what the component does, and point them to the <a href="../docs/user-guide.html">User Guide</a> for self-service help.</p>
 
     <h2>What comes next</h2>
-    <p>With a 30-day trial, your team can validate the Salesforce-native workflow with your own data before moving to the paid subscription.</p>
+    <p>The 30-day trial includes the complete Tourvia workflow. Subscribe to keep access after the trial.</p>
     <p>Tourvia Pro costs <a href="../pricing.html">EUR 30/user/month</a> (excl. tax) per licensed user. Pricing is €30/user/month, billed annually. As your team grows, add licensed users at the same €30/user/month public price. Larger enterprise deployments can be quoted separately when needed.</p>
-    <p>Installation and configuration are customer-managed:</p>
-    <ul>
-      <li><strong>Self-setup (EUR 0).</strong> Follow this guide and the <a href="../docs/configuration-guide.html">Configuration Guide</a>. Most admins complete it in under 30 minutes.</li>
-    </ul>
+    <p>Your Salesforce admin handles installation and configuration with this guide and the <a href="../docs/configuration-guide.html">Configuration Guide</a>.</p>
 
     <h2>Frequently asked questions</h2>
 
@@ -238,7 +222,7 @@
     <p>Yes. Tourvia requires a Salesforce edition with API access. Enterprise, Unlimited, and Developer Editions include it by default. Professional Edition works only if you have purchased the API add-on. The component uses API calls for geocoding account addresses and for route optimization calculations.</p>
 
     <h3>Can I test before subscribing?</h3>
-    <p>Yes. A 30-day trial can be requested through the contact form for qualified Salesforce orgs. The trial scope is confirmed before activation, then the paid subscription covers route optimization and field execution. Request a 30-day trial, verify it works with your data, and move to the subscription when you are ready.</p>
+    <p>Yes. Qualified Salesforce orgs can request a complete 30-day trial through the contact form. Test Tourvia with your own records and routes, then subscribe to keep access.</p>
 
     <h3>How long does setup take?</h3>
     <p>About 30 minutes total. Installation from AppExchange takes roughly 10 minutes (most of that is waiting for Salesforce to process the package). Assigning permission sets, placing the component in App Builder, and configuring defaults takes another 20 minutes. The biggest variable is data quality: if your account addresses are incomplete, you will need additional time to clean them up before accounts appear correctly on the map.</p>
