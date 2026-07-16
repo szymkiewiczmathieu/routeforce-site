@@ -127,7 +127,7 @@
         <p>Most route optimization tools charge per user per month. At $50-75 or more per user, the math gets painful fast for a 20-person team. Look for <strong>clear per-user pricing</strong> that covers your entire team regardless of size. Tourvia, for example, is priced at a €30/user/month, billed annually.</p>
 
         <h3>Optimization quality</h3>
-        <p>Some tools just plot pins on a map and call it "route planning." Real optimization means the tool calculates the best stop sequence based on travel time, time windows, traffic patterns, and constraints like visit duration, lunch breaks, and territory priorities. Tourvia uses the VROOM optimization engine, an open-source vehicle routing solver that handles multi-stop sequencing with real-world road data and supports worldwide routing out of the box.</p>
+        <p>Some tools just plot pins on a map and call it "route planning." Real optimization means the tool calculates the best stop sequence based on travel time, time windows, traffic patterns, and constraints like visit duration, lunch breaks, and territory priorities. Tourvia handles multi-stop sequencing with real-world road data and supports worldwide routing.</p>
 
         <h3>Closed-loop reporting</h3>
         <p>Planning a route is only half the job. The tool should also handle GPS check-ins, visit reports, and Salesforce Event creation so managers can measure what actually happened, not just what was planned.</p>
@@ -151,7 +151,7 @@
         </ul>
 
         <h3>4. Optimize and preview</h3>
-        <p>Hit the optimize button. Tourvia sends the stops and constraints to the VROOM routing engine, which calculates the optimal visit sequence considering real road distances and travel times. The result appears on the map as a reordered route with estimated arrival times and total driving time. You can drag stops to adjust manually if needed.</p>
+        <p>Hit the optimize button. The Tourvia routing engine calculates the visit sequence using real road distances, travel times, and the selected constraints. The result appears on the map as a reordered route with estimated arrival times and total driving time. You can drag stops to adjust manually if needed.</p>
 
         <h3>5. Create Salesforce Events in bulk</h3>
         <p>Once you are satisfied with the route, one click creates a <strong>Salesforce Event for each stop</strong> with the correct time, duration, and account association. No manual data entry. The events appear in the rep's Salesforce calendar and in any reporting dashboard you have built.</p>

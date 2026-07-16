@@ -289,7 +289,7 @@
 
         <section id="how-optimization-works" style="margin-bottom:3rem">
             <h2>How route optimization works</h2>
-            <p>Tourvia uses <strong>VROOM</strong>, an open-source Vehicle Routing Problem (VRP) solver. VROOM is specifically designed for real-world routing problems and handles:</p>
+            <p>Tourvia operates a constraint-aware routing engine designed for field sales workloads. It handles:</p>
             <ul>
                 <li><strong>GPS coordinates:</strong> Each Salesforce account's Latitude/Longitude (geocoded in Salesforce)</li>
                 <li><strong>Time windows:</strong> Start time, end time, appointment slots</li>
@@ -297,8 +297,8 @@
                 <li><strong>Break constraints:</strong> Lunch break timing and duration</li>
                 <li><strong>Travel time matrix:</strong> Realistic driving times between all points</li>
             </ul>
-            <p>The routing engine itself is powered by <strong>OpenRouteService</strong> (ORS), another open-source project. ORS provides the travel time and distance matrices that VROOM needs to solve the optimization problem.</p>
-            <p>Both VROOM and ORS run on Tourvia's own high-performance infrastructure hosted in France (OVH Gravelines). This means:</p>
+            <p>The engine combines road travel times and distances with the constraints configured for the field day.</p>
+            <p>Tourvia operates the routing infrastructure in France (OVHcloud Gravelines). This means:</p>
             <ul>
                 <li>No dependency on Google Maps or any paid third-party service</li>
                 <li>No per-calculation charges</li>
@@ -439,12 +439,11 @@
             <h2>Getting started</h2>
             <ol>
                 <li><strong>Request a 30-day trial via the contact form</strong>. Validate fit inside your Salesforce org first</li>
-                <li><strong>Configuration:</strong> Managed package installed in your org, filters and permissions set up</li>
-                <li><strong>Training:</strong> Your team trained and autonomous (documentation included)</li>
+                <li><strong>Configuration:</strong> Your Salesforce admin installs the managed package and configures filters and permissions</li>
+                <li><strong>Adoption:</strong> Your team uses the included documentation</li>
                 <li><strong>Subscribe to continue:</strong> Activate broader route optimization and field execution capabilities</li>
             </ol>
-            <p>Average timeline: 1 to 2 weeks from first validation to production rollout.</p>
-            <p>Setup options: self-setup or fully managed setup at €3,000 excluding tax (includes training and 30-day follow-up).</p>
+            <p>The customer controls the rollout timeline. Installation and configuration are documented for the Salesforce admin.</p>
         </section>
 
         <section id="shortlist-guidance" style="margin-bottom:3rem;background:#111114;border:1px solid #27272a;border-radius:18px;padding:1.6rem;box-shadow:0 18px 48px rgba(0,0,0,0.18)">
@@ -479,7 +478,7 @@
             <div class="faq-grid">
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false"><span>How many stops can Tourvia optimize in one route?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                    <div class="faq-answer"><p>Tourvia handles typical field sales routes effectively. The VROOM algorithm is designed for real-world Vehicle Routing Problems and can process multi-stop routes efficiently.</p></div>
+                    <div class="faq-answer"><p>Tourvia handles typical field sales routes and processes multi-stop plans with time, duration, and travel constraints.</p></div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false"><span>Does Tourvia work outside of Europe?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>

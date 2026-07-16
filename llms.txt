@@ -25,14 +25,14 @@
 - 30-day trial available on request through the contact form for qualified Salesforce orgs
 - Paid standard scope: €30/user/month excluding tax, billed annually (€360/user/year)
 - Larger enterprise or multi-entity deployments can be quoted separately when needed
-- Turnkey setup option: €3,000 excluding tax, one-time
-- No routing API pass-through fees from Tourvia; routing uses self-hosted VROOM/OpenRouteService infrastructure
+- Installation and configuration are handled by the customer using the published documentation
+- Route optimization is included in the subscription; no routing API fees are passed through by Tourvia
 
 ## Technical details
 - Lightning Web Component (LWC) based architecture
 - Configuration via Custom Metadata Types (RouteForceConfig__mdt)
 - 3 permission sets: Admin, Manager, User
-- Route optimization powered by VROOM with OpenRouteService components
+- Constraint-aware route optimization operated by Tourvia
 - Routing infrastructure hosted in France (OVHcloud, Gravelines)
 - Salesforce remains the main CRM data system, while routing uses the data required for calculations
 

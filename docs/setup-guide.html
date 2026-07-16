@@ -186,7 +186,7 @@
 <li><strong>System Administrator</strong> profile access</li>
 <li>Tourvia package installation link (provided by your Tourvia contact)</li>
 <li>Tourvia <strong>licence key</strong></li>
-<li><strong>ORS API key</strong> (provided for your environment)</li>
+<li><strong>Primary routing API key</strong> (provided for your environment)</li>
 <li>Optional: <strong>Fallback API key</strong> if applicable to your deployment</li>
 <li>Geocoded data (latitude/longitude) on the records you want to display on the map</li>
 </ul>
@@ -328,43 +328,19 @@ ORDER BY PermissionSetGroup.DeveloperName, PermissionSet.Name
 <hr>
 
 <!-- ======================================================== -->
-<h2>4. Verify Remote Site Settings</h2>
-<p>Tourvia requires external access for routing, licence validation, and optional address enrichment. These Remote Site Settings should be created automatically during package installation. Verify that they exist and are active.</p>
-<table>
-<thead>
-<tr>
-<th>Remote Site Name</th>
-<th>URL</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>RouteForce_ORS</td>
-<td><code>https://ors.routeforce.app</code></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>RouteForce_HeiGIT</td>
-<td><code>https://api.openrouteservice.org</code></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>RouteForce_BAN</td>
-<td><code>https://api-adresse.data.gouv.fr</code></td>
-<td>Only if address enrichment is enabled</td>
-</tr>
-</tbody></table>
+<h2>4. Verify package callout access</h2>
+<p>Tourvia requires external access for routing, licence validation, and optional address enrichment. The required Remote Site Settings are included in the managed package and created automatically during installation.</p>
 <h3>Verify in Setup</h3>
 <ol>
 <li>Go to <strong>Setup &gt; Security &gt; Remote Site Settings</strong>.</li>
-<li>Confirm each URL above is listed and marked <strong>Active</strong>.</li>
-<li>If any are missing, click <strong>New Remote Site</strong> and add the URL manually.</li>
+<li>Confirm the Remote Site Settings installed with the Tourvia package are marked <strong>Active</strong>.</li>
+<li>If a managed setting is missing, reinstall the current package version before continuing.</li>
 </ol>
 <hr>
 
 <!-- ======================================================== -->
 <h2>5. Launch the onboarding wizard</h2>
-<p>The <strong>RF_Onboarding</strong> flow has <strong>4 screens</strong>: a <strong>Welcome</strong> screen, an <strong>API Keys</strong> screen where you enter your Licence Key, ORS API Key, and Fallback API Key, a <strong>Done</strong> confirmation screen, and an <strong>Error</strong> screen (displayed if key storage fails). Keys are stored securely via <code>SecureConfigService</code> into <code>InternalConfig__c</code>.</p>
+<p>The <strong>RF_Onboarding</strong> flow has <strong>4 screens</strong>: a <strong>Welcome</strong> screen, an <strong>API Keys</strong> screen where you enter your Licence Key, Primary Routing API Key, and Fallback API Key, a <strong>Done</strong> confirmation screen, and an <strong>Error</strong> screen (displayed if key storage fails). Keys are stored securely via <code>SecureConfigService</code> into <code>InternalConfig__c</code>.</p>
 <h3>How to launch</h3>
 <ol>
 <li>Open the <strong>Tourvia</strong> app from the App Launcher.</li>
@@ -386,12 +362,12 @@ ORDER BY PermissionSetGroup.DeveloperName, PermissionSet.Name
 <td>Your Tourvia licence key (provided during purchase)</td>
 </tr>
 <tr>
-<td><strong>ORS API Key</strong></td>
+<td><strong>Primary Routing API Key</strong></td>
 <td>API key for the Tourvia routing service</td>
 </tr>
 <tr>
 <td><strong>Fallback API Key</strong></td>
-<td>Secondary routing key used when the primary ORS endpoint is unavailable</td>
+<td>Secondary routing key used when the primary routing service is unavailable</td>
 </tr>
 </tbody></table>
 <div class="note"><strong>Security note:</strong> All keys are stored securely in <code>InternalConfig__c</code> via the <code>SecureConfigService</code> class. They are never exposed in Custom Metadata or client-side code.</div>
@@ -996,7 +972,7 @@ AND Type = 'Report'
 </tr>
 <tr>
 <td>Route optimization fails</td>
-<td>ORS access blocked or invalid API key</td>
+<td>Routing service access blocked or invalid API key</td>
 <td>Verify Remote Site Settings (Section 4) and API keys in onboarding.</td>
 </tr>
 <tr>

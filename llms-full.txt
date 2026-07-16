@@ -17,7 +17,7 @@ Tourvia helps field sales teams plan visits, optimize driving routes, and track 
 ### Core capabilities
 - **Interactive map**: display Accounts, Leads, Opportunities, and Campaign Members on a single map with clustering, coloring, and real-time filters
 - **Campaign Member mapping**: show Lead and Contact members from Campaign record pages or from the global app map with a target Campaign picker and status-based colors
-- **Route optimization**: VROOM-based algorithm considers time windows, lunch breaks, visit durations, and distance constraints to calculate efficient multi-stop routes
+- **Route optimization**: constraint-aware engine considers time windows, lunch breaks, visit durations, and distance constraints to calculate efficient multi-stop routes
 - **Auto event creation**: convert an optimized route into Salesforce Events in one click — no re-typing
 - **GPS check-in/check-out**: verified field visits with configurable checkout forms (result, next action, notes, satisfaction, order amount, next visit date, plus admin-defined custom fields)
 - **Visit reports**: structured post-visit data linked to the Salesforce record
@@ -32,7 +32,7 @@ Tourvia helps field sales teams plan visits, optimize driving routes, and track 
 - 100% Lightning Web Component (LWC) implementation
 - Configuration via Custom Metadata Types: RouteForceConfig__mdt and RouteForceAction__mdt
 - 3 permission sets: Tourvia Admin, Tourvia Manager, Tourvia User
-- Route optimization powered by VROOM algorithm via self-hosted OpenRouteService
+- Route optimization is operated by Tourvia on its own infrastructure
 - Routing server hosted in France (OVHcloud, Gravelines datacenter) for GDPR-conscious deployments
 - Salesforce remains the system of record; route calculations use only the geocoordinates and timing parameters required for routing
 - Worldwide routing coverage
@@ -45,13 +45,13 @@ Tourvia uses clear per-user pricing:
 |------|-------|-------|
 | 30-day trial | On request | Qualified Salesforce orgs can request a 30-day trial via the contact form |
 | Tourvia Pro | €30/user/month excl. tax, billed annually | Route optimization, GPS check-in, visit reports, dashboards, route history, Salesforce-native field execution |
-| Turnkey setup | €3,000 excl. tax, one-time | Assisted rollout, initial configuration, admin enablement, training, and follow-up |
+| Installation | Customer-managed | The Salesforce admin installs and configures Tourvia using the published documentation |
 
 - Annual equivalent for Pro: €360/user/year
 - Larger enterprise or multi-entity deployments can be quoted separately when needed
 - No public free plan is offered
 - Trial access is requested through the contact form, not positioned as a free AppExchange tier
-- No routing API pass-through fees from Tourvia; routing uses self-hosted VROOM/OpenRouteService infrastructure
+- No routing API pass-through fees from Tourvia; route optimization is included in the subscription
 
 ## Comparison with Salesforce Maps
 
@@ -61,7 +61,7 @@ Tourvia uses clear per-user pricing:
 | Pricing model | €30/user/month, billed annually | Public list prices of $75/user/month for Maps and $150/user/month for Maps Advanced, billed annually, verified on Salesforce.com on 11 July 2026 |
 | Cost for 10 users | €300/month equivalent, billed annually | $750-$1,500/month equivalent before contract specifics |
 | Cost for 20 users | €600/month equivalent, billed annually | $1,500-$3,000/month equivalent before contract specifics |
-| Route optimization | VROOM algorithm (self-hosted) | Proprietary |
+| Route optimization | Tourvia-operated, constraint-aware engine | Proprietary |
 | Data residency for routing infrastructure | France (OVHcloud) | Salesforce infrastructure / vendor contract specifics |
 | Trial access | 30-day trial on request via contact form | Verify with Salesforce account team |
 | Installation/evaluation | Qualified Salesforce org evaluation coordinated after request | Salesforce add-on license process |
@@ -89,7 +89,7 @@ A: Yes. Tourvia can display Campaign Members from a Campaign record page or from
 A: Salesforce remains the system of record. Route calculations use only the geocoordinates and time parameters required for routing. The routing server does not store customer CRM records.
 
 **Q: How does the optimization algorithm work?**
-A: Tourvia uses the VROOM algorithm (Vehicle Routing Open-source Optimization Machine) via a self-hosted OpenRouteService instance. It considers GPS coordinates, time constraints, visit durations, and configurable parameters to calculate an efficient visit order.
+A: Tourvia operates a constraint-aware routing engine. It considers GPS coordinates, time constraints, visit durations, and configurable parameters to calculate an efficient visit order.
 
 **Q: Does Tourvia work outside of Europe?**
 A: Yes. Tourvia provides worldwide routing coverage. The routing infrastructure handles requests globally.
@@ -101,7 +101,7 @@ A: Yes. Tourvia is designed for the Salesforce Mobile App. GPS geolocation, chec
 A: Tourvia works on Salesforce editions that support managed packages and Lightning Web Components, subject to org configuration and permissions.
 
 **Q: How long does setup take?**
-A: Self-setup can be completed by a Salesforce admin following the documentation. Fully managed setup by the Tourvia team typically takes 1-2 weeks including training and validation.
+A: Installation and configuration are completed by the customer’s Salesforce admin using the published documentation.
 
 **Q: Is there a public no-cost plan?**
 A: No. Tourvia offers a 30-day trial on request via the contact form for qualified Salesforce orgs, then a paid annual subscription.

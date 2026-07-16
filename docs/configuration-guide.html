@@ -746,7 +746,7 @@ Set <code>DefaultMapLayer__c</code> = <code>Satellite</code>, <code>DefaultZoom_
 <td><code>MaxRouteSteps__c</code></td>
 <td>Number</td>
 <td><code>50</code></td>
-<td>Maximum number of stops allowed per route. The ORS routing API enforces a hard limit of 50 waypoints. Values above 50 are clamped to 50.</td>
+<td>Maximum number of stops allowed per route. The Tourvia routing service enforces a hard limit of 50 waypoints. Values above 50 are clamped to 50.</td>
 </tr>
 <tr>
 <td><code>RouteStepFields__c</code></td>
@@ -1957,34 +1957,7 @@ sf org assign permset --name routeforce__RouteForce_User --target-org &lt;org-al
 <hr>
 
 <h2 id="remote-sites">11. Remote Site Settings</h2>
-<p>Tourvia requires callout access to external services:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>URL</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>RouteForce_ORS</strong></td>
-<td><code>https://ors.routeforce.app</code></td>
-<td>Route optimization, directions, licence validation</td>
-</tr>
-<tr>
-<td><strong>RouteForce_HeiGIT</strong></td>
-<td><code>https://api.openrouteservice.org</code></td>
-<td>Fallback routing (when VPS is unavailable)</td>
-</tr>
-<tr>
-<td><strong>RouteForce_BAN</strong></td>
-<td><code>https://api-adresse.data.gouv.fr</code></td>
-<td>French address enrichment (BAN API)</td>
-</tr>
-</tbody>
-</table>
-<p>These are <strong>included in the managed package</strong> and deployed automatically on install. If missing, add them manually via <strong>Setup > Remote Site Settings > New</strong>.</p>
+<p>Tourvia requires callout access for route optimization, licence validation, and optional French address enrichment. The required Remote Site Settings are <strong>included in the managed package</strong> and deployed automatically during installation. They should remain active and should not be edited manually.</p>
 
 <hr>
 
@@ -1992,7 +1965,7 @@ sf org assign permset --name routeforce__RouteForce_User --target-org &lt;org-al
 
 <h3>12.1 How It Works</h3>
 <ol>
-<li><strong>Validation callout</strong> to <code>https://ors.routeforce.app/api/licence/{key}</code></li>
+<li><strong>Validation callout</strong> to the Tourvia licence service</li>
 <li>Server returns: <code>{ valid: true, expires: "2026-12-31", client: "Acme Corp" }</code></li>
 <li>Result is <strong>cached</strong> in <code>LicenceCache__c</code> for 24 hours</li>
 <li>If the server is unreachable, the app continues for <strong>7 days</strong> (fail-open grace period)</li>
@@ -2084,13 +2057,13 @@ sf org assign permset --name routeforce__RouteForce_User --target-org &lt;org-al
 <td><code>InternalConfig__c.LicenceKey__c</code></td>
 </tr>
 <tr>
-<td><strong>ORS API Key</strong></td>
-<td>VPS routing server (<code>ors.routeforce.app</code>)</td>
-<td><code>InternalConfig__c.OrsApiKey__c</code></td>
+<td><strong>Primary Routing API Key</strong></td>
+<td>Tourvia routing service</td>
+<td>Managed secure configuration</td>
 </tr>
 <tr>
 <td><strong>Fallback API Key</strong></td>
-<td>HeiGIT public API (fallback routing)</td>
+<td>Fallback routing service</td>
 <td><code>InternalConfig__c.FallbackApiKey__c</code></td>
 </tr>
 <tr>
@@ -2129,14 +2102,14 @@ sf org assign permset --name routeforce__RouteForce_User --target-org &lt;org-al
 <td>Your Tourvia licence key (provided by Tourvia support)</td>
 </tr>
 <tr>
-<td>ORS API Key</td>
+<td>Primary Routing API Key</td>
 <td>Yes</td>
-<td>API key for the VPS routing server</td>
+<td>API key for the Tourvia routing service</td>
 </tr>
 <tr>
 <td>Fallback API Key</td>
 <td>No</td>
-<td>HeiGIT fallback key (used when VPS is unavailable)</td>
+<td>Fallback key used when the primary routing service is unavailable</td>
 </tr>
 </tbody>
 </table>

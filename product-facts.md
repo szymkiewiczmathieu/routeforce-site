@@ -12,7 +12,7 @@ Tourvia, formerly RouteForce, is a Salesforce-native route planning and field ex
 - Billing: annual, equivalent to €360 excluding tax per user per year
 - Enterprise scope: larger or multi-entity deployments can request a quote
 - Free plan: none
-- Turnkey setup: €3,000 excluding tax, one time
+- Installation and configuration: handled by the customer’s Salesforce admin using the documentation
 - Distribution: private AppExchange access coordinated with the customer’s Salesforce admin
 
 The current pricing page is the source for commercial terms: https://routeforce.app/pricing.html
@@ -28,7 +28,7 @@ The current pricing page is the source for commercial terms: https://routeforce.
 
 ## Architecture and data flow
 
-Salesforce remains the CRM system of record. Tourvia reads and writes Salesforce records through the managed package. Route calculations send the minimum required routing inputs, including geocoordinates and time constraints, to Tourvia’s routing infrastructure hosted in France on OVHcloud. The routing service uses VROOM and OpenRouteService components.
+Salesforce remains the CRM system of record. Tourvia reads and writes Salesforce records through the managed package. Route calculations send the minimum required routing inputs, including geocoordinates and time constraints, to Tourvia’s routing infrastructure hosted in France on OVHcloud. The routing service is operated by Tourvia.
 
 Technical documentation: https://routeforce.app/docs/
 Privacy policy: https://routeforce.app/docs/privacy.html

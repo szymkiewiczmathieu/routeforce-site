@@ -238,7 +238,7 @@
     <p><strong>The Traveling Salesman Problem (TSP)</strong> asks: given a list of locations, what is the shortest route that visits each one exactly once and returns to the start? TSP is the simpler model. It works well when every stop is equal and there are no time constraints. Most basic route planners use some version of TSP.</p>
     <p><strong>The Vehicle Routing Problem (VRP)</strong> is more realistic. VRP handles multiple vehicles (or reps), capacity constraints, time windows ("visit this customer between 10:00 and 12:00"), break periods, and maximum driving times per day. VRP is computationally harder, but it produces routes that match how field sales actually works.</p>
     <p>Why does this matter? A tool using basic TSP will order your stops efficiently, but it will ignore the fact that Customer A only accepts visits before noon, or that your rep needs 45 minutes for lunch in the middle of the day. A VRP-based planner respects those constraints and still finds a fast route.</p>
-    <p>Most modern planners use heuristic algorithms rather than exact solvers because exact solutions for VRP with 25+ stops can take minutes or hours to compute. The open-source VROOM engine, for example, produces near-optimal solutions in under a second for typical field sales workloads. Google's OR-Tools is another popular solver. The specific algorithm matters less than whether the tool supports the constraints your team actually has.</p>
+    <p>Most modern planners use heuristic algorithms rather than exact solvers because exact solutions for VRP with 25+ stops can take minutes or hours to compute. The specific algorithm matters less than whether the tool supports the constraints your team actually has and returns a usable plan quickly.</p>
 
     <h2>What to evaluate in a sales route planner</h2>
     <p>There are six dimensions that separate a useful tool from an expensive disappointment. We will go through each one.</p>
@@ -325,7 +325,7 @@
           </tr>
           <tr style="border-bottom:1px solid #1e1e22;background:rgba(99,102,241,0.04);">
             <td style="padding:10px 16px;color:#a1a1aa;font-weight:600;">Routing engine</td>
-            <td style="padding:10px 16px;color:#e4e4e7;">VROOM (VRP, self-hosted)</td>
+            <td style="padding:10px 16px;color:#e4e4e7;">Tourvia-operated engine</td>
             <td style="padding:10px 16px;color:#e4e4e7;">Google Maps routing</td>
             <td style="padding:10px 16px;color:#e4e4e7;">Proprietary</td>
             <td style="padding:10px 16px;color:#e4e4e7;">Google Maps based</td>
@@ -377,7 +377,7 @@
 
     <h3>Tourvia</h3>
     <p>Tourvia is built entirely on the Salesforce platform as a Lightning Web Component. It does not sync data externally. Routes, visits, check-ins, and reports all live inside your Salesforce org, which means they respect your existing sharing rules, profiles, and permission sets.</p>
-    <p>The routing engine is VROOM, an open-source VRP solver that Tourvia hosts on its own infrastructure. This means routes account for time windows, break periods, and stop duration, not just proximity. Recalculation takes under a second for typical workloads of 25 to 30 stops.</p>
+    <p>Tourvia operates its routing engine on its own infrastructure. Routes account for time windows, break periods, and stop duration, not just proximity. Recalculation takes under a second for typical workloads of 25 to 30 stops.</p>
     <p>Pricing is transparent: &euro;30/user/month excluding tax, billed annually. Larger enterprise deployments can request a custom quote when needed. The requested 30-day trial includes every feature before the paid subscription begins.</p>
     <p>The reporting package includes 18 pre-built Salesforce reports covering visit completion rates, rep activity, route adherence, and territory coverage. Since these are native Salesforce reports, managers can customize them or add them to existing dashboards without learning a new tool.</p>
     <p>Where Tourvia is weaker: it does not yet offer the deep territory management and automatic scheduling features that Salesforce Maps provides. If your primary need is territory rebalancing for 100+ reps across a country, that gap matters.</p>
