@@ -1,12 +1,12 @@
 # Tourvia product facts
 
-Last verified: 11 July 2026
+Last verified: 16 July 2026
 
-Tourvia, formerly RouteForce, is a Salesforce-native route planning and field execution application operated by SKZ Consulting. It is delivered as a managed package for Salesforce orgs.
+Tourvia, formerly RouteForce, is a route planning and field execution application operated by SKZ Consulting. It is delivered as a managed package for Salesforce orgs.
 
 ## Commercial model
 
-- Trial: 30 days, available on request for qualified Salesforce orgs
+- Trial: 30 days, available on request through the contact form
 - Trial scope: every product feature is included during the trial
 - Subscription: €30 excluding tax per licensed user per month
 - Billing: annual, equivalent to €360 excluding tax per user per year
@@ -29,6 +29,10 @@ The current pricing page is the source for commercial terms: https://routeforce.
 ## Architecture and data flow
 
 Salesforce remains the CRM system of record. Tourvia reads and writes Salesforce records through the managed package. Route calculations send the minimum required routing inputs, including geocoordinates and time constraints, to Tourvia’s routing infrastructure hosted in France on OVHcloud. The routing service is operated by Tourvia.
+
+The check-in workflow uses a configurable GPS-assisted proximity check. Its result depends on device accuracy, geocoding quality, and the configured radius; it does not prove identity or physical presence.
+
+International routing is available where the required road data exists. Customers should validate the relevant territories during the 30-day trial.
 
 Technical documentation: https://routeforce.app/docs/
 Privacy policy: https://routeforce.app/docs/privacy.html

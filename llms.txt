@@ -3,7 +3,7 @@
 # Verified product facts: https://routeforce.app/product-facts.md
 # Detailed reference: https://routeforce.app/llms-full.txt
 
-> Tourvia, formerly RouteForce, is a Salesforce-native route planning and field visit tracking application operated by SKZ Consulting. It is delivered as a managed package installed in Salesforce orgs.
+> Tourvia, formerly RouteForce, is a route planning and field visit tracking application operated by SKZ Consulting. It is delivered as a managed package installed in Salesforce orgs.
 
 ## Brand note
 - Tourvia is the current product name. RouteForce is the former product name. SKZ Consulting is the operator and legal entity. RouteForce may still appear in historical URLs, screenshots, package internals, or technical object names.
@@ -11,7 +11,7 @@
 ## What Tourvia does
 - Interactive map showing Accounts, Leads, Opportunities, and Campaign Members from Salesforce CRM
 - Route optimization with configurable time windows, lunch breaks, and visit duration
-- GPS check-in/check-out with visit reports (result, next action, notes, satisfaction, order amount, next visit date)
+- GPS-assisted proximity check-in/check-out with visit reports (result, next action, notes, satisfaction, order amount, next visit date); the proximity result is not proof of identity or physical presence
 - Heatmap visualization and bulk lasso-select for batch operations
 - 2 dashboards and 18 native Salesforce reports included
 - Route history with replay functionality
@@ -21,10 +21,9 @@
 - Full Salesforce Mobile App support
 
 ## Pricing
-- Last verified: 11 July 2026
-- 30-day trial available on request through the contact form for qualified Salesforce orgs
+- Last verified: 16 July 2026
+- Complete 30-day trial available on request through the contact form
 - Paid standard scope: €30/user/month excluding tax, billed annually (€360/user/year)
-- Larger enterprise or multi-entity deployments can be quoted separately when needed
 - Installation and configuration are handled by the customer using the published documentation
 - Route optimization is included in the subscription; no routing API fees are passed through by Tourvia
 

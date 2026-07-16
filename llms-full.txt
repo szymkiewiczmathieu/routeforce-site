@@ -2,7 +2,7 @@
 # Detailed product reference for AI assistants and language models.
 # For the short version, see /llms.txt
 # Supplemental reference only. The public HTML pages and /product-facts.md remain authoritative.
-# Last verified: 11 July 2026
+# Last verified: 16 July 2026
 
 > Tourvia, formerly RouteForce, is a Salesforce managed package for route planning, route optimization, and field visit tracking, operated by SKZ Consulting. Reps work in Salesforce, while route calculations are processed by Tourvia infrastructure hosted in France.
 
@@ -19,14 +19,14 @@ Tourvia helps field sales teams plan visits, optimize driving routes, and track 
 - **Campaign Member mapping**: show Lead and Contact members from Campaign record pages or from the global app map with a target Campaign picker and status-based colors
 - **Route optimization**: constraint-aware engine considers time windows, lunch breaks, visit durations, and distance constraints to calculate efficient multi-stop routes
 - **Auto event creation**: convert an optimized route into Salesforce Events in one click — no re-typing
-- **GPS check-in/check-out**: verified field visits with configurable checkout forms (result, next action, notes, satisfaction, order amount, next visit date, plus admin-defined custom fields)
+- **GPS-assisted check-in/check-out**: configurable proximity check followed by checkout forms (result, next action, notes, satisfaction, order amount, next visit date, plus admin-defined custom fields). Results depend on device accuracy, geocoding quality, and the configured radius; they do not prove identity or physical presence
 - **Visit reports**: structured post-visit data linked to the Salesforce record
 - **Heatmap & lasso select**: visualize density and batch-select records on the map
 - **Saved filters**: save, name, and share filter configurations across teams
-- **Route history**: every planned route is persisted — replay, compare coverage over time
+- **Route history**: planned routes can be retained in Salesforce for replay and coverage comparison
 - **Custom actions**: launch Screen Flows, click-to-call, or navigate directly from map markers via configurable Lightning Web Components
 - **Dashboards & reports**: 2 dashboards and 18 native Salesforce reports included out of the box
-- **Mobile**: full functionality in Salesforce Mobile App — map, routes, check-in, navigation handoff
+- **Mobile**: map, routes, GPS-assisted proximity check, and navigation handoff in Salesforce Mobile
 
 ### Technical architecture
 - 100% Lightning Web Component (LWC) implementation
@@ -35,7 +35,7 @@ Tourvia helps field sales teams plan visits, optimize driving routes, and track 
 - Route optimization is operated by Tourvia on its own infrastructure
 - Routing server hosted in France (OVHcloud, Gravelines datacenter) for GDPR-conscious deployments
 - Salesforce remains the system of record; route calculations use only the geocoordinates and timing parameters required for routing
-- Worldwide routing coverage
+- International routing where the required road data is available; customers should validate the relevant territories during the trial
 
 ## Pricing
 
@@ -43,12 +43,11 @@ Tourvia uses clear per-user pricing:
 
 | Plan | Price | Scope |
 |------|-------|-------|
-| 30-day trial | On request | Qualified Salesforce orgs can request a 30-day trial via the contact form |
-| Tourvia Pro | €30/user/month excl. tax, billed annually | Route optimization, GPS check-in, visit reports, dashboards, route history, Salesforce-native field execution |
+| 30-day trial | On request | The complete product is available for 30 days after access is coordinated through the contact form |
+| Tourvia subscription | €30/user/month excl. tax, billed annually | Route optimization, GPS-assisted proximity check, visit reports, dashboards, route history, and Salesforce field execution |
 | Installation | Customer-managed | The Salesforce admin installs and configures Tourvia using the published documentation |
 
-- Annual equivalent for Pro: €360/user/year
-- Larger enterprise or multi-entity deployments can be quoted separately when needed
+- Annual equivalent: €360/user/year
 - No public free plan is offered
 - Trial access is requested through the contact form, not positioned as a free AppExchange tier
 - No routing API pass-through fees from Tourvia; route optimization is included in the subscription
@@ -64,7 +63,7 @@ Tourvia uses clear per-user pricing:
 | Route optimization | Tourvia-operated, constraint-aware engine | Proprietary |
 | Data residency for routing infrastructure | France (OVHcloud) | Salesforce infrastructure / vendor contract specifics |
 | Trial access | 30-day trial on request via contact form | Verify with Salesforce account team |
-| Installation/evaluation | Qualified Salesforce org evaluation coordinated after request | Salesforce add-on license process |
+| Installation/evaluation | Access coordinated after the trial request; customer admin installs and configures the package | Salesforce add-on license process |
 | Mobile | Full Salesforce Mobile support | Salesforce Mobile support |
 
 ## Use cases
@@ -80,7 +79,7 @@ Tourvia uses clear per-user pricing:
 ## Frequently asked questions
 
 **Q: Does Salesforce include built-in route planning?**
-A: No. Salesforce does not provide full route planning and route optimization in the standard platform. Tourvia adds these capabilities as a Salesforce-native managed package.
+A: No. Salesforce does not provide full route planning and route optimization in the standard platform. Tourvia adds these capabilities through a managed package.
 
 **Q: Can Tourvia map Salesforce Campaign Members?**
 A: Yes. Tourvia can display Campaign Members from a Campaign record page or from the global app map with a target Campaign picker. Both Lead and Contact members are geolocated from their parent record address, and status colors are configurable through Custom Metadata.
@@ -104,7 +103,7 @@ A: Tourvia works on Salesforce editions that support managed packages and Lightn
 A: Installation and configuration are completed by the customer’s Salesforce admin using the published documentation.
 
 **Q: Is there a public no-cost plan?**
-A: No. Tourvia offers a 30-day trial on request via the contact form for qualified Salesforce orgs, then a paid annual subscription.
+A: No. Tourvia offers a complete 30-day trial on request, followed by a paid annual subscription.
 
 ## Key URLs
 - Homepage: https://routeforce.app
@@ -118,7 +117,7 @@ A: No. Tourvia offers a 30-day trial on request via the contact form for qualifi
 - Configuration Guide: https://routeforce.app/docs/configuration-guide.html
 - Use Cases: https://routeforce.app/use-cases.html
 - Blog: https://routeforce.app/blog/
-- Consulting: https://routeforce.app/consulting.html
+
 - AppExchange listing: https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba
 - Privacy Policy: https://routeforce.app/docs/privacy.html
 - Terms: https://routeforce.app/docs/terms.html
