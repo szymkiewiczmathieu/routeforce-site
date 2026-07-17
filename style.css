@@ -1371,6 +1371,7 @@ img {
 
     footer[style*="border-top:1px solid #27272a"][style*="background:#09090b"] > div:first-child {
         flex-direction: column !important;
+        grid-template-columns: 1fr !important;
         gap: 24px !important;
     }
 

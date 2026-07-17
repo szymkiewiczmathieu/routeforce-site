@@ -168,7 +168,7 @@
 </ul>
 <p><strong>Package lineage note:</strong> a separate fresh package, <code>Tourvia</code> 1.6.0, also exists but does <strong>NOT</strong> auto-upgrade to <code>TourviaApp</code> — they are different package IDs. Customers should install or upgrade to <strong>TourviaApp 7.33.0</strong> on the AppExchange-listed, Security-Review-passed lineage.</p>
 </div>
-<div class="note"><strong>Install Tourvia:</strong> <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" target="_blank" rel="noopener">View the listing on the Salesforce AppExchange</a> and click <em>Get It Now</em> to install in your production, developer, or sandbox org.</div>
+<div class="note"><strong>Install Tourvia:</strong> use the private AppExchange listing link provided by your Tourvia contact, then click <em>Get It Now</em> to install in your production, developer, or sandbox org.</div>
 <hr>
 
 <!-- ======================================================== -->
@@ -194,7 +194,7 @@
 
 <!-- ======================================================== -->
 <h2>2. Install the package</h2>
-<p>Tourvia is distributed through 30-day trial access today. Use the private install link shared by SKZ Consulting to install in your production, developer, or sandbox org; public AppExchange discovery is still pending.</p>
+<p>Tourvia is distributed through coordinated 30-day trial access. Use the private install link shared by SKZ Consulting to install in your production, developer, or sandbox org. The listing is not currently available through public AppExchange search.</p>
 <p><a href="/#contact" target="_blank" rel="noopener"><strong>Request a 30-day trial →</strong></a></p>
 <h3>Installation steps</h3>
 <ol>
@@ -582,7 +582,7 @@ WHERE DeveloperName = 'Default'
 <ul>
 <li><code>LogPurgeSchedulable</code>: purges Tourvia log records older than the configured retention period</li>
 <li><code>UsageAggregationSchedulable</code>: aggregates feature usage statistics</li>
-<li><code>UsagePurgeBatch</code>: purges aged usage tracking records on a weekly schedule</li>
+<li><code>UsagePurgeBatch</code>: purges aged usage tracking records every Sunday at 3:00 AM by default</li>
 </ul>
 <p>No manual scheduling is required. These jobs are registered automatically when the package is installed or upgraded.</p>
 <hr>
@@ -975,7 +975,7 @@ AND Type = 'Report'
 </tr>
 <tr>
 <td>Nearby Contact / Campaign Member markers empty, or <code>No such column OtherLatitude</code> error</td>
-<td><code>Contact.OtherAddress</code> (compound) FLS not granted on the user — typically because the user was assigned a permset before TourviaApp 7.23.0 and the 2GP upgrade did not refresh the assignment</td>
+<td><code>Contact.OtherAddress</code> (compound) FLS not granted on the user. This can occur when the user was assigned a permset before TourviaApp 7.23.0 and the 2GP upgrade did not refresh the assignment.</td>
 <td>Re-assign the TourviaApp PSG (e.g., <code>TourviaApp_User_Group</code>) to the affected users so the 7.23.0 FLS deltas (compound addresses, lat/long, phones) land on the existing permset assignment.</td>
 </tr>
 <tr>
@@ -1044,8 +1044,9 @@ AND Type = 'Report'
 <p class="small-muted">Tourvia &bull; contact@routeforce.app &bull; <a href="https://routeforce.app">routeforce.app</a></p>
 
   </main>
+<style>table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}@media(max-width:768px){#siteFooterGrid{grid-template-columns:1fr!important;gap:32px!important}code{overflow-wrap:anywhere;word-break:break-word}}</style>
 <footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
+  <div id="siteFooterGrid" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
     <div>
       <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
         <img src="/assets/logo-site-brand.png" alt="Tourvia" style="width:28px;height:28px;border-radius:8px;"/>
