@@ -1,7 +1,7 @@
 # Tourvia — llms.txt
 # Supplemental machine-readable reference. The public HTML pages remain authoritative.
-# Verified product facts: https://routeforce.app/product-facts.md
-# Detailed reference: https://routeforce.app/llms-full.txt
+# Verified product facts: https://gettourvia.com/product-facts.md
+# Detailed reference: https://gettourvia.com/llms-full.txt
 
 > Tourvia, formerly RouteForce, is a route planning and field visit tracking application operated by SKZ Consulting. It is delivered as a managed package installed in Salesforce orgs.
 
@@ -38,17 +38,17 @@
 - Salesforce remains the main CRM data system, while routing uses the data required for calculations
 
 ## Key pages
-- Homepage: https://routeforce.app
-- RouteForce to Tourvia name update: https://routeforce.app/blog/routeforce-becomes-tourvia.html
-- Documentation: https://routeforce.app/docs/
-- Setup Guide: https://routeforce.app/docs/setup-guide.html
-- User Guide: https://routeforce.app/docs/user-guide.html
-- Configuration Guide: https://routeforce.app/docs/configuration-guide.html
-- Use Cases: https://routeforce.app/use-cases.html
-- Pricing: https://routeforce.app/pricing.html
-- Product facts: https://routeforce.app/product-facts.md
-- Pricing comparison: https://routeforce.app/flat-rate-route-optimization.html
-- Privacy Policy: https://routeforce.app/docs/privacy.html
+- Homepage: https://gettourvia.com
+- RouteForce to Tourvia name update: https://gettourvia.com/blog/routeforce-becomes-tourvia.html
+- Documentation: https://gettourvia.com/docs/
+- Setup Guide: https://gettourvia.com/docs/setup-guide.html
+- User Guide: https://gettourvia.com/docs/user-guide.html
+- Configuration Guide: https://gettourvia.com/docs/configuration-guide.html
+- Use Cases: https://gettourvia.com/use-cases.html
+- Pricing: https://gettourvia.com/pricing.html
+- Product facts: https://gettourvia.com/product-facts.md
+- Pricing comparison: https://gettourvia.com/flat-rate-route-optimization.html
+- Privacy Policy: https://gettourvia.com/docs/privacy.html
 - AppExchange listing: https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba
 
 ## Company

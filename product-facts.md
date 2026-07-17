@@ -15,7 +15,7 @@ Tourvia, formerly RouteForce, is a route planning and field execution applicatio
 - Installation and configuration: handled by the customer’s Salesforce admin using the documentation
 - Distribution: private AppExchange access coordinated with the customer’s Salesforce admin
 
-The current pricing page is the source for commercial terms: https://routeforce.app/pricing.html
+The current pricing page is the source for commercial terms: https://gettourvia.com/pricing.html
 
 ## Product and package
 
@@ -35,9 +35,9 @@ The check-in workflow uses a configurable GPS-assisted proximity check. Its resu
 
 International routing is available where the required road data exists. Customers should validate the relevant territories during the 30-day trial.
 
-Technical documentation: https://routeforce.app/docs/
-Privacy policy: https://routeforce.app/docs/privacy.html
-DPA: https://routeforce.app/docs/dpa.html
+Technical documentation: https://gettourvia.com/docs/
+Privacy policy: https://gettourvia.com/docs/privacy.html
+DPA: https://gettourvia.com/docs/dpa.html
 
 ## Brand and operator
 
@@ -51,15 +51,15 @@ DPA: https://routeforce.app/docs/dpa.html
 - VAT: FR36102154879
 - Contact: contact@routeforce.app
 
-Legal notice: https://routeforce.app/docs/mentions-legales.html
+Legal notice: https://gettourvia.com/docs/mentions-legales.html
 
 ## Primary references
 
-- Homepage: https://routeforce.app/
-- Pricing: https://routeforce.app/pricing.html
-- Route planning: https://routeforce.app/salesforce-route-planning.html
-- Visit planning: https://routeforce.app/visit-planning-salesforce.html
-- Native integration: https://routeforce.app/native-integration-salesforce.html
-- Use cases: https://routeforce.app/use-cases.html
-- Security Review and private access: https://routeforce.app/blog/tourvia-private-appexchange-security-review.html
-- RouteForce to Tourvia name change: https://routeforce.app/blog/routeforce-becomes-tourvia.html
+- Homepage: https://gettourvia.com/
+- Pricing: https://gettourvia.com/pricing.html
+- Route planning: https://gettourvia.com/salesforce-route-planning.html
+- Visit planning: https://gettourvia.com/visit-planning-salesforce.html
+- Native integration: https://gettourvia.com/native-integration-salesforce.html
+- Use cases: https://gettourvia.com/use-cases.html
+- Security Review and private access: https://gettourvia.com/blog/tourvia-private-appexchange-security-review.html
+- RouteForce to Tourvia name change: https://gettourvia.com/blog/routeforce-becomes-tourvia.html

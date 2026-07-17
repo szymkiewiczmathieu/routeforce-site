@@ -17,3 +17,11 @@ Thumbs.db
 .sfdx/
 review-screens/
 .openclaw-review/
+
+# Generated deployment artifacts
+/dist/
+/.wrangler/
+
+# Python caches
+__pycache__/
+*.py[cod]

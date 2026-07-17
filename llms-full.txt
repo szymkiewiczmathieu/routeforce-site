@@ -107,22 +107,22 @@ A: Installation and configuration are completed by the customer’s Salesforce a
 A: No. Tourvia offers a complete 30-day trial on request, followed by a paid annual subscription.
 
 ## Key URLs
-- Homepage: https://routeforce.app
-- RouteForce to Tourvia name update: https://routeforce.app/blog/routeforce-becomes-tourvia.html
-- Pricing: https://routeforce.app/pricing.html
-- Product facts: https://routeforce.app/product-facts.md
-- Pricing comparison: https://routeforce.app/flat-rate-route-optimization.html
-- Documentation: https://routeforce.app/docs/
-- Setup Guide: https://routeforce.app/docs/setup-guide.html
-- User Guide: https://routeforce.app/docs/user-guide.html
-- Configuration Guide: https://routeforce.app/docs/configuration-guide.html
-- Use Cases: https://routeforce.app/use-cases.html
-- Blog: https://routeforce.app/blog/
+- Homepage: https://gettourvia.com
+- RouteForce to Tourvia name update: https://gettourvia.com/blog/routeforce-becomes-tourvia.html
+- Pricing: https://gettourvia.com/pricing.html
+- Product facts: https://gettourvia.com/product-facts.md
+- Pricing comparison: https://gettourvia.com/flat-rate-route-optimization.html
+- Documentation: https://gettourvia.com/docs/
+- Setup Guide: https://gettourvia.com/docs/setup-guide.html
+- User Guide: https://gettourvia.com/docs/user-guide.html
+- Configuration Guide: https://gettourvia.com/docs/configuration-guide.html
+- Use Cases: https://gettourvia.com/use-cases.html
+- Blog: https://gettourvia.com/blog/
 
 - AppExchange listing: https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba
-- Privacy Policy: https://routeforce.app/docs/privacy.html
-- Terms: https://routeforce.app/docs/terms.html
-- DPA: https://routeforce.app/docs/dpa.html
+- Privacy Policy: https://gettourvia.com/docs/privacy.html
+- Terms: https://gettourvia.com/docs/terms.html
+- DPA: https://gettourvia.com/docs/dpa.html
 
 ## Company
 - Operator/legal entity: SKZ Consulting, SASU

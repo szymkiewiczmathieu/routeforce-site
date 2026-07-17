@@ -22,7 +22,7 @@ async function main() {
   console.log(`Date range: ${fmt(startDate)} to ${fmt(endDate)}\n`);
 
   // Try both possible site URL formats
-  const siteUrls = ['sc-domain:routeforce.app', 'https://routeforce.app/'];
+  const siteUrls = ['sc-domain:gettourvia.com', 'https://gettourvia.com/'];
 
   for (const siteUrl of siteUrls) {
     try {
