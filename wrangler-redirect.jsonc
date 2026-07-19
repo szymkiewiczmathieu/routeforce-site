@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "routeforce-redirect",
+  "main": "redirect-worker.js",
+  "compatibility_date": "2026-07-17",
+  "workers_dev": true,
+  "preview_urls": true,
+  "routes": [
+    {
+      "pattern": "routeforce.app/*",
+      "zone_name": "routeforce.app"
+    },
+    {
+      "pattern": "www.routeforce.app/*",
+      "zone_name": "routeforce.app"
+    }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
