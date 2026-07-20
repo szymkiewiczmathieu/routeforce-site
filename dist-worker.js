@@ -85,10 +85,7 @@ export default {
 
     const indexAsset = DIRECTORY_INDEXES.get(pathname);
     if (indexAsset) {
-      // Static Assets applies canonical redirects to directory requests. Fetching
-      // the file via a synthetic origin avoids feeding that redirect back into
-      // the public URL.
-      const assetRequest = new Request(`https://static-assets.local${indexAsset}`, {
+      const assetRequest = new Request(new URL(indexAsset, request.url), {
         method: request.method,
         headers: request.headers,
       });
