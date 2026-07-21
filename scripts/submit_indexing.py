@@ -1,61 +1,59 @@
 #!/usr/bin/env python3
-"""Submit all gettourvia.com sitemap URLs to Google Indexing API.
-Runs every 3 days to force recrawl during migration."""
+"""Safely resubmit the gettourvia.com sitemap through Search Console.
+
+Google's Indexing API is restricted to JobPosting and livestream pages. Tourvia
+uses Search Console sitemap submission for ordinary marketing and blog URLs.
+Successful scheduled runs are silent; set VERBOSE=1 for a status line.
+"""
+
+from __future__ import annotations
+
+import json
 import os
-import re
-import requests
+from pathlib import Path
+
 from google.oauth2.credentials import Credentials
 from googleapiclient.discovery import build
-from googleapiclient.errors import HttpError
 
+SITE_URL = os.environ.get("GSC_SITE_URL", "sc-domain:gettourvia.com")
 SITEMAP_URL = os.environ.get("SITEMAP_URL", "https://gettourvia.com/sitemap.xml")
-KEY_URLS = [
-    "https://gettourvia.com/",
-    "https://gettourvia.com/pricing.html",
-    "https://gettourvia.com/salesforce-route-planning.html",
-    "https://gettourvia.com/field-sales-route-optimization.html",
-    "https://gettourvia.com/native-integration-salesforce.html",
-    "https://gettourvia.com/use-cases.html",
-    "https://gettourvia.com/visit-planning-salesforce.html",
-    "https://gettourvia.com/blog/salesforce-maps-alternatives-compared.html",
-    "https://gettourvia.com/blog/routeforce-becomes-tourvia.html",
-]
+TOKEN_PATH = Path(
+    os.environ.get("GOOGLE_TOKEN_PATH", "/home/ubuntu/.hermes/google_token.json")
+)
 
 
-def get_sitemap_urls():
-    text = requests.get(SITEMAP_URL, timeout=30).text
-    return re.findall(r'<loc>([^\s]+)</loc>', text)
+def main() -> int:
+    credentials = Credentials.from_authorized_user_file(str(TOKEN_PATH))
+    service = build("searchconsole", "v1", credentials=credentials, cache_discovery=False)
 
+    service.sitemaps().submit(siteUrl=SITE_URL, feedpath=SITEMAP_URL).execute()
+    sitemaps = service.sitemaps().list(siteUrl=SITE_URL).execute().get("sitemap", [])
+    status = next((item for item in sitemaps if item.get("path") == SITEMAP_URL), None)
+    if status is None:
+        print(f"ERROR: submitted sitemap is missing from Search Console: {SITEMAP_URL}")
+        return 1
 
-def submit_indexing(urls):
-    creds = Credentials.from_authorized_user_file('/home/ubuntu/.hermes/google_token.json')
-    service = build('indexing', 'v3', credentials=creds)
-    success = 0
-    errors = 0
-    quota_exceeded = False
-    for url in urls:
-        if quota_exceeded:
-            break
-        try:
-            service.urlNotifications().publish(body={"url": url, "type": "URL_UPDATED"}).execute()
-            success += 1
-        except HttpError as e:
-            if e.resp.status in (429, 403):
-                quota_exceeded = True
-            else:
-                errors += 1
-                print(f"ERROR {url}: {e}")
-    return success, errors, quota_exceeded
+    result = {
+        key: status.get(key)
+        for key in (
+            "path",
+            "lastSubmitted",
+            "lastDownloaded",
+            "isPending",
+            "warnings",
+            "errors",
+        )
+    }
+    warnings = int(status.get("warnings") or 0)
+    errors = int(status.get("errors") or 0)
+    if warnings or errors:
+        print("ALERT: Search Console sitemap issue " + json.dumps(result, sort_keys=True))
+        return 1
 
-
-def main():
-    urls = get_sitemap_urls()
-    # Always prioritize key pages first
-    ordered = [u for u in KEY_URLS if u in urls] + [u for u in urls if u not in KEY_URLS]
-    print(f"Submitting {len(ordered)} URLs to Google Indexing API...")
-    success, errors, quota_exceeded = submit_indexing(ordered)
-    print(f"Done: {success} OK, {errors} errors, quota_exceeded={quota_exceeded}")
+    if os.environ.get("VERBOSE") == "1":
+        print("Sitemap submitted: " + json.dumps(result, sort_keys=True))
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
