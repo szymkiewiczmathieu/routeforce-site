@@ -30,7 +30,7 @@
   "@type": "BlogPosting",
   "headline": "Salesforce Maps mobile app is retiring. What field teams should do now.",
   "datePublished": "2026-07-19",
-  "dateModified": "2026-07-19",
+  "dateModified": "2026-07-21",
   "author": {
     "@type": "Organization",
     "name": "SKZ Consulting",
@@ -63,9 +63,24 @@
     </nav>
     <div style="display:flex;align-items:center;gap:8px;">
       <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
-      <a href="../#contact" style="background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request trial</a>
+      <a href="../#contact" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request trial</a>
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
+      </button>
     </div>
   </div>
+  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
+    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
+      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="../#contact" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Request trial</a>
+    </nav>
+  </div>
+  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
 </header>
 
 <section class="blog-hero blog-hero-premium" style="padding:64px 24px 40px;">
@@ -79,13 +94,13 @@
       <span>6 min read</span>
     </div>
     <h1 style="font-size:2.25rem;font-weight:800;line-height:1.15;color:#fafafa;margin-bottom:18px;">Salesforce Maps mobile app is retiring. What field teams should do now.</h1>
-    <p class="blog-hero-summary" style="font-size:1.125rem;color:#a1a1aa;line-height:1.7;">Salesforce announced the retirement of the Salesforce Maps mobile app, effective August 31, 2026. For field sales teams relying on mobile route planning, this means a forced migration. We explain the timeline, what changes, and which alternatives keep your routes inside Salesforce.</p>
+    <p class="blog-hero-summary" style="font-size:1.125rem;color:#a1a1aa;line-height:1.7;">Salesforce will retire the standalone Salesforce Maps mobile app on August 31, 2026. Teams that use it should document the affected mobile workflow and test a replacement before that date.</p>
     <div style="display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:18px;color:#a1a1aa;font-size:0.92rem;"><span>Salesforce-native managed package</span><span>€30/user/month, billed annually</span><span>30-day trial</span></div>
       </div>
       <aside class="blog-hero-sidecard blog-hero-sidecard-muted" style="background:#131316;border:1px solid #27272a;border-radius:18px;padding:24px;">
         <div class="blog-hero-sidecard-label" style="color:#6366f1;font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">Managed-package option</div>
         <div class="blog-hero-sidecard-title" style="font-size:1.1rem;font-weight:700;color:#fafafa;margin-bottom:10px;">Evaluate Tourvia for your Salesforce field team</div>
-        <p class="blog-hero-sidecard-copy" style="color:#a1a1aa;font-size:0.95rem;line-height:1.6;">Tourvia publishes its annual per-user price and offers a complete 30-day trial for testing representative routes and field workflows.</p>
+        <p class="blog-hero-sidecard-copy">Test the affected mobile route and visit workflow before the standalone app retirement date.</p>
         <div class="blog-hero-linklist" style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
           <a href="../pricing.html" style="color:#9099ff;text-decoration:none;">See Tourvia pricing</a>
           <a href="../salesforce-route-planning.html" style="color:#9099ff;text-decoration:none;">Explore route planning</a>
@@ -99,40 +114,37 @@
 <section class="blog-content" style="padding:60px 0 100px;">
   <div class="container longform-rhythm" style="max-width:800px;margin:0 auto;padding:0 24px;">
     <h2>What exactly is retiring?</h2>
-    <p>On August 31, 2026, the Salesforce Maps mobile application will reach end-of-life. After that date, the mobile app will no longer receive updates, support, or critical fixes. The desktop Maps components inside Salesforce are not affected in the same way, but the mobile experience — the one field reps use every day to check routes, log visits, and update records on the road — is gone.</p>
-    <p>Salesforce recommends moving to alternative solutions for mobile route planning and field execution. The window to plan, test, and migrate is short.</p>
+    <p>Salesforce says the standalone Salesforce Maps mobile app will be retired on August 31, 2026. Read the <a href="https://help.salesforce.com/s/articleView?id=005314199&amp;language=en_US&amp;type=1" rel="noopener" style="color:#9099ff;">Salesforce retirement notice</a> for the current scope and migration guidance.</p>
     <h2>Why this matters for field sales teams</h2>
-    <p>Most Salesforce Maps users bought the product for two things: route planning and mobile execution. The mobile app retirement removes the second half of that value. Reps who relied on Maps to plan their day, navigate between accounts, and check in will lose that workflow unless the org migrates to another tool.</p>
-    <p>The risk is not just technical. A forced migration in September means training, data cleanup, and reconfiguration while reps are trying to hit quota.</p>
+    <p>The impact depends on how each organisation uses the standalone app. List the affected route planning, navigation, check-in, record update, and reporting steps before selecting a replacement.</p>
     <h2>What to look for in a replacement</h2>
     <p>A good replacement should cover four things that Salesforce Maps mobile did:</p>
     <ul>
       <li>Route optimization built from Salesforce records</li>
       <li>Mobile app that works without a laptop</li>
       <li>Check-in and visit reporting tied to Events or Tasks</li>
-      <li>Annual per-user pricing that does not scale unpredictably</li>
+      <li>Commercial terms calculated at the required licence count</li>
     </ul>
     <h2>Salesforce Maps alternatives that still have a mobile app</h2>
     <p>The main alternatives fall into two groups: Salesforce-native managed packages and external route planning tools.</p>
-    <p>Native options run inside Salesforce, keep the CRM as the system of record, and require less data synchronization. External tools may have stronger route optimization, but they force reps to switch apps and they create integration overhead.</p>
-    <p>For teams that need both mobile and Salesforce-native, the short list is small. Tourvia is one of the few options delivered as a Salesforce managed package with its own mobile experience.</p>
+    <p>Managed packages and separate field apps use different interfaces and data flows. Test both models with the actual Salesforce objects, mobile devices, offline conditions, and reporting requirements.</p>
     <h2>How to plan the migration before August 31</h2>
-    <p>A clean migration in six weeks is possible if you keep the scope tight:</p>
+    <p>Use a controlled migration plan:</p>
     <ol>
       <li>Audit your current Maps usage: which users, which objects, which workflows.</li>
       <li>Identify the minimum viable route inputs: Accounts, Contacts, Leads, Opportunities, or Campaign Members.</li>
-      <li>Test one alternative in a sandbox with a pilot group of three to five reps.</li>
+      <li>Test one alternative in a sandbox with a representative group of users.</li>
       <li>Compare the annual cost of each option against your current Salesforce Maps contract.</li>
       <li>Roll out in phases: power users first, then the rest of the team.</li>
       <li>Train reps on the new mobile app before the old one stops working.</li>
     </ol>
     <h2>How Tourvia fits the replacement checklist</h2>
-    <p>Tourvia is a Salesforce managed package. It runs inside your org, uses your existing records, and includes a mobile app for field reps. It does not require an external sync. Pricing is published: €30 excluding tax per licensed user per month, billed annually.</p>
+    <p>Tourvia is a Salesforce managed package that uses Salesforce records for the user workflow. It does not add a separate CRM data sync; the minimum route inputs are processed by Tourvia infrastructure in France as described in the DPA. Pricing is €30 excluding tax per licensed user per month, billed annually.</p>
     <p>If your team is evaluating replacements because of the mobile retirement, Tourvia offers a 30-day trial so you can test the route-to-visit workflow with your own data before making a decision.</p>
 
     <div class="blog-cta" style="background:#131316;border:1px solid #27272a;border-radius:16px;padding:28px 32px;margin-top:40px;">
       <h3 style="color:#fafafa;margin-bottom:10px;">Request a 30-day Tourvia trial</h3>
-      <p style="color:#a1a1aa;margin-bottom:18px;">Test Tourvia in your Salesforce org for 30 days. Pricing is €30 excluding tax per licensed user per month, billed annually.</p>
+      <p style="color:#a1a1aa;margin-bottom:18px;">Run the affected mobile route and visit workflow in Tourvia before the standalone Maps app is retired.</p>
       <a href="../#contact" style="display:inline-block;background:#6366f1;color:white;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;margin-right:12px;">Request a 30-day trial</a>
       <a href="../pricing.html" style="display:inline-block;color:#9099ff;text-decoration:none;font-weight:600;">See pricing &rarr;</a>
     </div>
@@ -141,7 +153,7 @@
 </section>
 
 <section style="max-width:800px;margin:0 auto 3rem;padding:0 24px;">
-  <h2 style="font-size:1.25rem;font-weight:700;color:#fafafa;margin-bottom:1rem;">Next pages for evaluation</h2>
+  <h2 style="font-size:1.25rem;font-weight:700;color:#fafafa;margin-bottom:1rem;">Migration and comparison resources</h2>
   <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;">
       <li><a href="../salesforce-route-planning.html" style="color:#9099ff;text-decoration:none;">Salesforce route planning: see the native workflow inside Salesforce &rarr;</a></li>
       <li><a href="../pricing.html" style="color:#9099ff;text-decoration:none;">Tourvia pricing: €30/user/month, billed annually &rarr;</a></li>

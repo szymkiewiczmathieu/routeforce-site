@@ -30,7 +30,7 @@
     "@type": "BlogPosting",
     "headline": "Tourvia + Screen Flows + LWC: extensibility for field teams inside Salesforce",
     "datePublished": "2026-04-03",
-    "dateModified": "2026-07-16",
+    "dateModified": "2026-07-21",
     "author": {"@type": "Organization", "name": "SKZ Consulting", "alternateName": "Tourvia"},
     "publisher": {"@type": "Organization", "name": "SKZ Consulting", "alternateName": "Tourvia", "url": "https://gettourvia.com"},
     "description": "A practical look at how Tourvia, Screen Flows, and Lightning Web Components support extensible field workflows inside Salesforce.",
@@ -91,7 +91,7 @@
       <aside class="blog-hero-sidecard blog-hero-sidecard-muted">
         <div class="blog-hero-sidecard-label">Quick access</div>
         <div class="blog-hero-sidecard-title">Evaluate Tourvia</div>
-        <p class="blog-hero-sidecard-copy">Review the product workflow, annual price, trial request, and private AppExchange access.</p>
+        <p class="blog-hero-sidecard-copy">Open a Screen Flow or Lightning Web Component from the map and keep the record context.</p>
         <div class="blog-hero-linklist">
           <a href="../pricing.html">See Tourvia pricing</a>
           <a href="../salesforce-route-planning.html">Explore route planning</a>
@@ -104,50 +104,37 @@
 
 <section class="blog-content" style="padding:60px 0 100px;">
   <div class="container" style="max-width:800px;">
-    <h2>Why extensibility matters for field teams</h2>
-    <p>Field reps do not only need route planning. They may need to launch additional workflows from the same Salesforce context: a shelf audit, a product availability check, a survey, a reorder form, or a custom visit note flow.</p>
-    <p>If those workflows live outside Salesforce, teams end up splitting planning, execution, and reporting across too many tools.</p>
-    <p>Screen Flows and Lightning Web Components are the standard extensibility mechanism for the Lightning platform. As Salesforce doubles down on low-code and no-code tooling, the ability to build field workflows declaratively -- without custom Apex -- becomes a competitive advantage for teams that want to iterate quickly.</p>
+    <h2>A route is only the start</h2>
+    <p>A rep reaches the next account. Now they need to record the visit, check stock, take an order, qualify a lead, or complete a form. Sending them to another app at that point breaks the workflow.</p>
+    <p>Tourvia can open a Salesforce Screen Flow or Lightning Web Component from the map. The action receives the current record, so the rep starts in the right place instead of searching for the account again.</p>
 
-    <h2>What Tourvia enables</h2>
-    <p>Tourvia can trigger business workflows directly from the map through:</p>
+    <h2>Launch the right action from the map</h2>
+    <p>An administrator can connect Tourvia to:</p>
     <ul>
-      <li><strong>Screen Flows</strong> for guided business actions</li>
-      <li><strong>Lightning Web Components</strong> for custom UX inside the process</li>
-      <li><strong>record-aware actions</strong> so the workflow starts with the right Salesforce context</li>
+      <li><strong>Screen Flows</strong> for guided forms and business steps</li>
+      <li><strong>Lightning Web Components</strong> when the action needs a custom interface</li>
+      <li><strong>record-aware actions</strong> that open with the selected Account, Lead, or Opportunity</li>
     </ul>
-    <p>That means a field rep can select an account on the map and immediately open the right business action without leaving the Salesforce environment.</p>
+    <p>The route stays the same. What happens at each stop can follow the process already configured in Salesforce.</p>
 
-    <h2>What this looks like in practice</h2>
-    <p>A field rep taps a store, account, or lead on the map and launches a workflow adapted to the visit. Because Tourvia supports Account, Lead, and Opportunity records on the map, the same extensibility model covers the most common field scenarios.</p>
+    <h2>Examples from a field visit</h2>
+    <p>A store visit might open a shelf-audit Flow. A sales meeting could end with a visit report and next-step task. A rep working new leads could launch a qualification form directly from the selected pin.</p>
+    <p>Other useful actions include order capture, product-availability checks, competitor surveys and price-verification forms. These are examples, not a fixed Tourvia template. The Salesforce admin decides what the Flow or component does.</p>
+
+    <h2>How the pieces fit together</h2>
     <ul>
-      <li>visit report completion at check-out, with configurable fields and next actions</li>
-      <li>order capture or reorder forms launched directly from a customer marker</li>
-      <li>lead qualification flows triggered from a lead pin on the map</li>
-      <li>shelf audits, competitor surveys, or product availability checks</li>
-      <li>price verification checklists</li>
+      <li><strong>Tourvia</strong> shows the records on the map and launches the action.</li>
+      <li><strong>Screen Flow</strong> runs the guided process with the Salesforce record context.</li>
+      <li><strong>LWC</strong> handles interactions that need more control than a standard Flow screen.</li>
     </ul>
-    <p>Because these flows are built declaratively, admins can adjust them without developer involvement -- a direct benefit of the low-code/no-code approach that Salesforce promotes across the Lightning platform.</p>
+    <p>Many changes can stay in Flow Builder. Custom Apex or LWC is still available when the business rule or interface needs code.</p>
 
-    <h2>Simple architecture, practical result</h2>
-    <p>The extensibility model is straightforward:</p>
-    <ul>
-      <li><strong>Tourvia</strong> handles the map experience and launches the action</li>
-      <li><strong>Screen Flow</strong> acts as the process container and receives the Salesforce context</li>
-      <li><strong>LWC</strong> provides the custom UX when standard flow screens are not enough</li>
-    </ul>
-    <p>This helps teams extend route planning into actual field execution without replacing the product or forcing reps into disconnected tooling.</p>
+    <h2>Use the same component across Salesforce</h2>
+    <p>Tourvia is available on Account, Lead and Opportunity record pages. Administrators can also place it on Lightning App Pages, Home Pages, Tabs, the Utility Bar and Experience Cloud pages.</p>
+    <p><a href="../native-integration-salesforce.html" style="color:#6366f1;font-weight:500">See where Tourvia can run in Salesforce</a></p>
 
-    <h2>Why this is commercially useful</h2>
-    <p>The value is not only technical flexibility. It helps teams adopt Tourvia as a native field workflow layer that can expand with their process maturity.</p>
-    <p>That makes Tourvia more than a map. It becomes a route planning and field execution surface that can still adapt to custom business actions.</p>
-    <p>Tourvia is exposed for Account, Lead, and Opportunity record pages, and can also be placed on Lightning App Pages, Home Pages, Tabs, the Utility Bar, and Experience Cloud pages.</p>
-    <p><a href="../native-integration-salesforce.html" style="color:#6366f1;font-weight:500">→ See how Tourvia works everywhere in Salesforce</a></p>
-
-    <h2>Conclusion</h2>
-    <p>If your field workflow depends on custom business actions, the real question is not only whether your route planning tool can calculate stops. It is whether it can adapt to the way your Salesforce org actually works.</p>
-    <p>With 87% of sales organizations now using some form of AI in their sales cycle, and Salesforce investing heavily in Agentforce for field service, the ability to plug custom flows into the field workflow is only going to become more important.</p>
-    <p>That is where Tourvia, Screen Flows, and LWC become operationally useful together.</p>
+    <h2>Test one field action end to end</h2>
+    <p>Start with a task reps already perform after a visit. Open it from Tourvia, complete it on a phone, then check the resulting Salesforce record and reporting. That test shows whether the extension saves steps or merely moves them around.</p>
 
     <div class="blog-cta">
       <h3>See how Tourvia adapts to advanced field workflows</h3>

@@ -30,7 +30,7 @@
   "@type": "BlogPosting",
   "headline": "Route planning for pharmaceutical sales teams inside Salesforce",
   "datePublished": "2026-07-19",
-  "dateModified": "2026-07-19",
+  "dateModified": "2026-07-21",
   "author": {
     "@type": "Organization",
     "name": "SKZ Consulting",
@@ -67,13 +67,11 @@
   <a href="../blog/" style="color:#9099ff;text-decoration:none;font-size:0.95rem;">&larr; Back to blog</a>
   <p style="text-transform:uppercase;font-size:0.75rem;letter-spacing:0.08em;color:#9099ff;margin-top:24px;">Vertical</p>
   <h1 style="font-size:2.25rem;line-height:1.15;font-weight:700;color:#fafafa;margin:8px 0 16px;">Route planning for pharmaceutical sales teams inside Salesforce</h1>
-  <p style="color:#a1a1aa;font-size:1.05rem;line-height:1.6;">Pharma sales reps visit doctors, clinics, and hospitals on tight schedules. Tourvia turns Salesforce targets into optimized routes, records visits as Events, and keeps managers compliant.</p>
+  <p style="color:#a1a1aa;font-size:1.05rem;line-height:1.6;">Plan visits to healthcare professionals from Salesforce records, create the Events, and keep the resulting activity available for the organisation's own reporting and compliance process.</p>
   <p style="color:#71717a;font-size:0.85rem;margin:12px 0 32px;">Published 2026-07-19 · 7 min</p>
 
-    <h2>Why pharma sales needs route planning</h2>
-    <p>Pharmaceutical sales representatives manage large territories with hundreds of healthcare professionals. Without route planning, reps lose hours in traffic, miss appointments, and under-report visits.</p>
-    <p>Regulatory compliance also requires accurate visit records. A route planning tool that writes events and outcomes into Salesforce makes reporting easier for managers and compliance teams.</p>
-    <h2>Specific constraints for pharma route planning</h2>
+    <h2>Start with the visit constraints already held in Salesforce</h2>
+    <p>Healthcare visits can involve appointment windows, site-access rules, target priorities, call notes, and territory assignments. The route should use the fields and records approved by the organisation rather than a generic list of addresses.</p>
     <ul>
       <li>Strict visit windows and hospital access rules</li>
       <li>High-value targets that must be visited on schedule</li>
@@ -81,22 +79,22 @@
       <li>Territory alignment with sales targets</li>
       <li>Compliance with local pharma regulations</li>
     </ul>
-    <h2>How Salesforce-native route planning helps</h2>
-    <p>A native managed package reads Targets, Accounts, Contacts, and Calls directly from Salesforce. It builds an optimized daily route, creates Events, and records check-ins. The data never leaves Salesforce.</p>
-    <h2>Tourvia for pharmaceutical field teams</h2>
-    <p>Tourvia is installed inside Salesforce as a managed package. It plans routes from CRM targets, guides reps through the day, and writes visit outcomes back into the CRM. Pricing is flat: €30 per user per month, billed annually.</p>
-    <p>A 30-day trial lets you test routes with your own Salesforce data before committing.</p>
+    <h2>Test the full data flow</h2>
+    <p>Tourvia is installed as a Salesforce managed package. Salesforce remains the system of record, while the minimum coordinates and timing constraints required for route calculation are processed by Tourvia infrastructure in France as described in the DPA.</p>
+    <p>The product can create Salesforce Events and record GPS-assisted check-in information. Those records support the customer's reporting process; Tourvia does not determine regulatory compliance.</p>
+    <h2>Run a representative trial</h2>
+    <p>Use the 30-day trial with the objects, permissions, territories, and visit rules that the team will use in production. Continued access costs €30 excluding tax per licensed user per month, billed annually.</p>
 
 
     <div class="blog-cta" style="background:#131316;border:1px solid #27272a;border-radius:16px;padding:28px 32px;margin-top:40px;">
       <h3 style="color:#fafafa;margin-bottom:10px;">Request a 30-day Tourvia trial</h3>
-      <p style="color:#a1a1aa;margin-bottom:18px;">Test Tourvia in your Salesforce org for 30 days. Pricing is €30 excluding tax per licensed user per month, billed annually.</p>
+      <p style="color:#a1a1aa;margin-bottom:18px;">Validate routes, Event creation, mobile visits, permissions, and reporting with your Salesforce admin.</p>
       <a href="../#contact" style="display:inline-block;background:#6366f1;color:white;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;margin-right:12px;">Request a 30-day trial</a>
       <a href="../pricing.html" style="display:inline-block;color:#9099ff;text-decoration:none;font-weight:600;">See pricing &rarr;</a>
     </div>
 
 
-  <h2 style="font-size:1.5rem;color:#fafafa;margin-top:48px;">Next pages for evaluation</h2>
+  <h2 style="font-size:1.5rem;color:#fafafa;margin-top:48px;">Related route-planning pages</h2>
   <ul style="color:#a1a1aa;line-height:1.8;margin-top:12px;">
       <li><a href="route-planning-cpg-field-sales.html" style="color:#9099ff;text-decoration:none;">Route planning for CPG field sales &rarr;</a></li>
       <li><a href="../salesforce-route-planning.html" style="color:#9099ff;text-decoration:none;">How Tourvia works inside Salesforce &rarr;</a></li>

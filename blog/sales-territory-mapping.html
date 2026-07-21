@@ -30,7 +30,7 @@
     "@type": "BlogPosting",
     "headline": "Sales territory mapping software for Salesforce: 5 options compared (2026)",
     "datePublished": "2026-04-05",
-    "dateModified": "2026-07-16",
+    "dateModified": "2026-07-21",
     "author": {"@type": "Organization", "name": "SKZ Consulting", "alternateName": "Tourvia"},
     "publisher": {"@type": "Organization", "name": "SKZ Consulting", "alternateName": "Tourvia", "url": "https://gettourvia.com"},
     "description": "Compare sales territory mapping options for Salesforce teams by territory design, route planning, CRM workflow, and public pricing.",
@@ -152,7 +152,7 @@
       <aside class="blog-hero-sidecard blog-hero-sidecard-muted">
         <div class="blog-hero-sidecard-label">Quick access</div>
         <div class="blog-hero-sidecard-title">Evaluate Tourvia</div>
-        <p class="blog-hero-sidecard-copy">Review the product workflow, annual price, trial request, and private AppExchange access.</p>
+        <p class="blog-hero-sidecard-copy">Separate territory ownership in Salesforce from the map and route workflow used each day.</p>
         <div class="blog-hero-linklist">
           <a href="../pricing.html">See Tourvia pricing</a>
           <a href="../salesforce-route-planning.html">Explore route planning</a>
@@ -168,7 +168,7 @@
 
     <section style="margin-bottom:2rem;background:#111114;border:1px solid #27272a;border-radius:18px;padding:1.35rem 1.35rem 1.1rem;">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:1rem;">
-        <h2 style="margin:0;font-size:1.05rem;color:#fafafa;">Quick answer</h2>
+        <h2 style="margin:0;font-size:1.05rem;color:#fafafa;">Choose by operating need</h2>
         <span style="font-size:0.8rem;color:#a1a1aa;text-transform:uppercase;letter-spacing:0.04em;">Choose by operating need</span>
       </div>
       <p style="margin:0 0 1rem;color:#a1a1aa;line-height:1.75;max-width:760px;">If you need hierarchy and access rules, Salesforce ETM is the foundation. If you need full geo-analytics and boundary design, Salesforce Maps is the heavyweight option. If you need a practical daily map plus route execution inside Salesforce with clear €30/user/month pricing, Tourvia is the sharper shortlist candidate.</p>
@@ -217,14 +217,7 @@
 
     <h3>What ETM does not do</h3>
     <p>ETM is a data model, not a visual tool. There is no map. You cannot draw territory boundaries, see account pins on a geographic view, or visualize coverage gaps. Everything happens in lists, reports, and rule definitions.</p>
-    <p>Other limitations:</p>
-    <ul>
-      <li>Limited to 1,000 territories per model in Enterprise Edition.</li>
-      <li>Only one active territory model at a time.</li>
-      <li>Assignment rules are capped at 10 filter criteria fields per rule.</li>
-      <li>No trigger support on the ObjectTerritory2Association object, making real-time automation difficult.</li>
-      <li>Setup is complex. Most orgs need an admin or consultant to configure territory models properly.</li>
-    </ul>
+    <p>Salesforce limits and automation behaviour depend on edition and release. Confirm the current territory-model limits, assignment-rule fields, active-model rules, and ObjectTerritory2Association automation options in Salesforce documentation before designing the model.</p>
     <p>For field sales teams, the biggest gap is the missing visual layer. You can assign accounts to territories in Salesforce, but you cannot see those territories on a map without adding another tool.</p>
 
     <h2>Territory mapping tools compared</h2>
@@ -266,7 +259,7 @@
           <tr style="border-bottom:1px solid #1e1e22;">
             <td style="padding:10px 12px;font-weight:600;">SPOTIO</td>
             <td style="padding:10px 12px;">Color-coded territory maps, assignment tools, activity tracking by territory.</td>
-            <td style="text-align:right;padding:10px 12px;">$39 - $129/user/mo</td>
+            <td style="text-align:right;padding:10px 12px;">Personalized quote</td>
             <td style="padding:10px 12px;">No (integration)</td>
             <td style="padding:10px 12px;">Door-to-door, outside sales</td>
           </tr>
@@ -281,11 +274,7 @@
       </table>
     </div>
 
-    <p>A few notes on this table.</p>
-    <p>Salesforce ETM is free but incomplete for field teams. It handles the data side of territory management (who owns what, how access works) but gives you nothing visual. If your reps need to see their territory on a map, ETM alone will not get you there.</p>
-    <p>Salesforce Maps is the most complete option. Territory Planning is an add-on to Salesforce Maps, and the full package with route optimization requires the Advanced tier at $150/user/month. For a 15-user team, that is $27,000/year.</p>
-    <p>Badger Maps charges per user plus per territory. A team with 10 users and 10 territories pays $49 x 10 + $20 x 10 = $690/month, or $8,280/year. The Badger Align add-on drops to $10/territory/month above 40 territories, but most small teams will not hit that threshold.</p>
-    <p>SPOTIO is strongest for door-to-door and residential sales teams. Its territory tools are solid, but the platform is not Salesforce-native. Data syncs between systems, which adds a maintenance layer.</p>
+    <p>Salesforce ETM manages hierarchy, assignment, access, and forecasting without a map layer. Salesforce Maps adds visual territory capabilities and publishes separate Maps and Maps Advanced prices. For Badger Maps and SPOTIO, verify current plan scope, add-ons, integration, and the final quote directly with the vendor.</p>
 
     <h2>Territory mapping vs. route planning</h2>
     <p>These two capabilities solve different problems and should be evaluated separately.</p>
@@ -294,13 +283,12 @@
     <p>The two are connected. A rep cannot plan efficient routes if their territory is a scattered mess of accounts spread across three counties. And a perfectly balanced territory plan is worthless if reps are driving in circles because they have no routing tool.</p>
 
     <h3>When to combine territory mapping and route planning</h3>
-    <p>Here is where the budget conversation gets real. Salesforce Maps Advanced ($150/user/month) covers both: territory planning and route optimization in one package. That is its value proposition, and for well-funded teams it works.</p>
-    <p>Teams can also split the problem into two layers:</p>
+    <p>Salesforce Maps and Maps Advanced cover broader mapping and routing requirements. Teams can also split the problem into two layers:</p>
     <ol>
       <li><strong>Territory structure</strong> handled by Salesforce ETM (free). Define your hierarchy, set assignment rules, manage access.</li>
       <li><strong>Daily visual and routing layer</strong> handled by a tool like Tourvia. See accounts on a map, filter by territory or owner, plan optimized routes, spot coverage gaps with heatmaps.</li>
     </ol>
-    <p>This combination covers the operational needs of most field teams at a fraction of the cost. You lose the advanced territory analytics and boundary-drawing features of Salesforce Maps, but you keep the two things reps actually use every day: a map with their accounts and an optimized route.</p>
+    <p>This combination does not reproduce Salesforce Maps territory analytics or boundary drawing. Test whether ETM plus a daily map-and-route tool covers the specific workflow before comparing annual prices.</p>
 
     <h2>How Tourvia handles territory visualization</h2>
     <p>Tourvia is not a full territory management suite. It does not draw territory boundaries or run territory optimization algorithms. That is worth stating clearly.</p>
@@ -332,17 +320,17 @@
       <li>Geographic spread (total drive time or square miles)</li>
       <li>Historical conversion rates by region</li>
     </ul>
-    <p>Pull these numbers from Salesforce reports. If two territories show a 3:1 ratio on revenue potential, you have an imbalance that will burn out one rep and bore another.</p>
+    <p>Pull these measures from Salesforce reports and investigate large differences. The acceptable balance depends on account value, travel time, rep capacity, and the sales model; there is no universal ratio.</p>
 
     <h3>3. Assign owners and set visit frequency targets</h3>
     <p>Every territory needs a clear owner. No shared territories unless you have a specific reason (like overlaying a specialist on top of a geographic rep).</p>
-    <p>Set visit frequency targets by account tier:</p>
+    <p>Set visit frequency targets from account value, service commitments, sales capacity, and measured outcomes. For example, a team might test:</p>
     <ul>
       <li>Tier 1 accounts: visit every 2 weeks</li>
       <li>Tier 2 accounts: visit monthly</li>
       <li>Tier 3 accounts: visit quarterly</li>
     </ul>
-    <p>These targets feed directly into route planning. A rep with 20 Tier 1 accounts and a 2-week cadence needs to schedule 10 visits per week just for top accounts. If their territory also has 40 Tier 2 accounts, they need another 10 visits per week. That math tells you whether the territory is realistic or overloaded.</p>
+    <p>These example cadences are not benchmarks. Whatever targets the team chooses, convert them into weekly visit demand and compare that demand with travel time and rep capacity.</p>
 
     <h3>4. Validate with a map</h3>
     <p>Plot every account on a map, color-coded by territory. Look for:</p>
@@ -352,10 +340,10 @@
       <li><strong>Long-haul outliers.</strong> Single accounts 90 minutes from the nearest cluster. These destroy route efficiency.</li>
       <li><strong>Density mismatches.</strong> One rep has 80 accounts in a 20-mile radius while another has 30 accounts spread across 200 miles.</li>
     </ul>
-    <p>This is where visual tools earn their value. A heatmap in Tourvia or a territory overlay in Salesforce Maps makes these problems visible in seconds. A spreadsheet never will.</p>
+    <p>A map can reveal clusters, overlaps, and outliers that are difficult to spot in a table. Keep the underlying account and capacity measures beside the visual check.</p>
 
     <h3>5. Measure coverage and adjust</h3>
-    <p>A territory plan is not a one-time exercise. Review quarterly at minimum. Track:</p>
+    <p>Review the territory plan when account distribution, staffing, travel constraints, or sales priorities change. Track:</p>
     <ul>
       <li>Visit completion rate by territory (actual visits vs. target)</li>
       <li>Account coverage percentage (accounts visited at least once in the period)</li>

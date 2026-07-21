@@ -30,7 +30,7 @@
   "@type": "BlogPosting",
   "headline": "Tourvia vs SPOTIO: which field sales route tool fits Salesforce better?",
   "datePublished": "2026-07-19",
-  "dateModified": "2026-07-19",
+  "dateModified": "2026-07-21",
   "author": {
     "@type": "Organization",
     "name": "SKZ Consulting",
@@ -63,9 +63,24 @@
     </nav>
     <div style="display:flex;align-items:center;gap:8px;">
       <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
-      <a href="../#contact" style="background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request trial</a>
+      <a href="../#contact" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request trial</a>
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
+      </button>
     </div>
   </div>
+  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
+    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
+      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="../#contact" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Request trial</a>
+    </nav>
+  </div>
+  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
 </header>
 
 <section class="blog-hero blog-hero-premium" style="padding:64px 24px 40px;">
@@ -85,7 +100,7 @@
       <aside class="blog-hero-sidecard blog-hero-sidecard-muted" style="background:#131316;border:1px solid #27272a;border-radius:18px;padding:24px;">
         <div class="blog-hero-sidecard-label" style="color:#6366f1;font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">Managed-package option</div>
         <div class="blog-hero-sidecard-title" style="font-size:1.1rem;font-weight:700;color:#fafafa;margin-bottom:10px;">Evaluate Tourvia for your Salesforce field team</div>
-        <p class="blog-hero-sidecard-copy" style="color:#a1a1aa;font-size:0.95rem;line-height:1.6;">Tourvia publishes its annual per-user price and offers a complete 30-day trial for testing representative routes and field workflows.</p>
+        <p class="blog-hero-sidecard-copy">Compare Tourvia's Salesforce workflow with SPOTIO's separate field-sales application.</p>
         <div class="blog-hero-linklist" style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
           <a href="../pricing.html" style="color:#9099ff;text-decoration:none;">See Tourvia pricing</a>
           <a href="../salesforce-route-planning.html" style="color:#9099ff;text-decoration:none;">Explore route planning</a>
@@ -98,19 +113,17 @@
 
 <section class="blog-content" style="padding:60px 0 100px;">
   <div class="container longform-rhythm" style="max-width:800px;margin:0 auto;padding:0 24px;">
-    <h2>What SPOTIO does well</h2>
-    <p>SPOTIO is built for field sales teams. It offers route planning, activity tracking, sales performance dashboards, and gamification. It is a strong choice for teams that want a standalone field sales platform with CRM-like capabilities.</p>
-    <h2>Where SPOTIO becomes less ideal for Salesforce teams</h2>
-    <p>SPOTIO runs outside Salesforce. Data syncs between SPOTIO and your CRM require a connector, which creates latency, maintenance, and duplicate records. If your Salesforce is the system of record, field reps may end up working in two systems.</p>
-    <p>Pricing is also quoted and can include platform, integration, and per-user fees.</p>
+    <h2>Start with SPOTIO's standalone field workflow</h2>
+    <p>SPOTIO combines route planning, activity tracking, dashboards, and field-sales functions in its own application. When Salesforce is part of the architecture, verify the connector, supported objects, sync timing, conflict handling, API use, and reporting ownership.</p>
+    <p>SPOTIO supplies personalized pricing. Ask the vendor to identify licence, platform, integration, implementation, support, and renewal terms in the quote.</p>
     <h2>What to look for in a SPOTIO alternative</h2>
     <p>If you want to keep field execution inside Salesforce, prioritize:</p>
     <ul>
-      <li>Salesforce-native managed package with no external sync</li>
+      <li>Salesforce managed-package workflow and documented external processing</li>
       <li>Route optimization from Salesforce records</li>
       <li>Mobile app that creates Events and Tasks in Salesforce</li>
       <li>Published per-user annual pricing</li>
-      <li>Short implementation and training cycle</li>
+      <li>Implementation and training effort measured in the target Salesforce org</li>
     </ul>
     <h2>Tourvia vs SPOTIO at a glance</h2>
     <div style="overflow-x:auto;margin:24px 0;">
@@ -137,7 +150,7 @@
       </tr>
       <tr>
         <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Salesforce data sync</td>
-        <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Native, real-time</td>
+        <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Salesforce records; route inputs processed in France</td>
         <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Connector-based</td>
       </tr>
       <tr>
@@ -148,18 +161,18 @@
       <tr>
         <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Pricing model</td>
         <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">€30/user/month billed annually</td>
-        <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Quoted, platform + per-user</td>
+        <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Personalized quote</td>
       </tr>
     </table>
     </div>
     <h2>When to choose Tourvia over SPOTIO</h2>
-    <p>Choose Tourvia if Salesforce is your single source of truth, you want reps to work inside one system, and you need route-to-visit execution. Choose SPOTIO if you want a broader field sales platform with its own reporting and CRM features.</p>
+    <p>Include Tourvia when reps should plan routes and record visits from Salesforce. Include SPOTIO when the team wants a separate field-sales application with its own activity and management workflow. Test both against the same Salesforce integration and mobile requirements.</p>
     <h2>Pricing comparison</h2>
-    <p>Tourvia is €30 excluding tax per user per month billed annually. SPOTIO does not publish pricing; teams typically request a quote. Include connector and integration maintenance costs when comparing.</p>
+    <p>Tourvia is €30 excluding tax per licensed user per month, billed annually. SPOTIO supplies a personalized quote. Compare the same seat count, contract period, implementation, connector, support, and renewal scope.</p>
 
     <div class="blog-cta" style="background:#131316;border:1px solid #27272a;border-radius:16px;padding:28px 32px;margin-top:40px;">
       <h3 style="color:#fafafa;margin-bottom:10px;">Request a 30-day Tourvia trial</h3>
-      <p style="color:#a1a1aa;margin-bottom:18px;">Test Tourvia in your Salesforce org for 30 days. Pricing is €30 excluding tax per licensed user per month, billed annually.</p>
+      <p style="color:#a1a1aa;margin-bottom:18px;">Test the Salesforce objects, mobile visits, reporting, and administration that the field team needs.</p>
       <a href="../#contact" style="display:inline-block;background:#6366f1;color:white;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;margin-right:12px;">Request a 30-day trial</a>
       <a href="../pricing.html" style="display:inline-block;color:#9099ff;text-decoration:none;font-weight:600;">See pricing &rarr;</a>
     </div>
@@ -168,7 +181,7 @@
 </section>
 
 <section style="max-width:800px;margin:0 auto 3rem;padding:0 24px;">
-  <h2 style="font-size:1.25rem;font-weight:700;color:#fafafa;margin-bottom:1rem;">Next pages for evaluation</h2>
+  <h2 style="font-size:1.25rem;font-weight:700;color:#fafafa;margin-bottom:1rem;">Related field-sales comparisons</h2>
   <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;">
       <li><a href="tourvia-vs-route4me.html" style="color:#9099ff;text-decoration:none;">Tourvia vs Route4Me: route optimization comparison &rarr;</a></li>
       <li><a href="../salesforce-route-planning.html" style="color:#9099ff;text-decoration:none;">Salesforce route planning: how Tourvia works &rarr;</a></li>

@@ -30,7 +30,7 @@
     "@type": "BlogPosting",
     "headline": "Badger Maps alternative: Tourvia vs Badger Maps for Salesforce teams",
     "datePublished": "2026-04-05",
-    "dateModified": "2026-07-16",
+    "dateModified": "2026-07-21",
     "author": {"@type": "Organization", "name": "SKZ Consulting", "alternateName": "Tourvia"},
     "publisher": {"@type": "Organization", "name": "SKZ Consulting", "alternateName": "Tourvia", "url": "https://gettourvia.com"},
     "description": "Side-by-side comparison of Tourvia and Badger Maps for field sales teams using Salesforce. Covers pricing at different team sizes, native vs sync integration, features, and when each tool makes sense.",
@@ -128,7 +128,7 @@
       <aside class="blog-hero-sidecard blog-hero-sidecard-muted">
         <div class="blog-hero-sidecard-label">Quick access</div>
         <div class="blog-hero-sidecard-title">Evaluate Tourvia</div>
-        <p class="blog-hero-sidecard-copy">Review the product workflow, annual price, trial request, and private AppExchange access.</p>
+        <p class="blog-hero-sidecard-copy">Compare a Salesforce managed-package workflow with Badger Maps' standalone field application.</p>
         <div class="blog-hero-linklist">
           <a href="../pricing.html">See Tourvia pricing</a>
           <a href="../salesforce-route-planning.html">Explore route planning</a>
@@ -282,30 +282,30 @@
 
     <h3>Why this matters in practice</h3>
     <ul>
-      <li><strong>Data governance.</strong> With Badger Maps, your customer data exists in two systems. Your Salesforce DLP policies, field-level security, and sharing rules do not extend to the Badger database. With a native tool, Salesforce security applies everywhere.</li>
-      <li><strong>Sync maintenance.</strong> Two-way syncs can fail. Field mapping changes, API limit consumption, and conflict resolution all require ongoing attention. A native app eliminates this category of work entirely.</li>
+      <li><strong>Data governance.</strong> A separate application adds its own data store and access controls. Tourvia uses Salesforce records and permissions for the user workflow; the minimum route inputs are processed by Tourvia infrastructure in France as described in the DPA.</li>
+      <li><strong>Sync maintenance.</strong> A two-way CRM integration adds mappings, API usage, failure handling, and support ownership to the deployment. A managed package reduces that integration surface but does not remove administration or external route processing.</li>
       <li><strong>Admin control.</strong> Salesforce admins can configure Tourvia using standard tools: permission sets, page layouts, Screen Flows, and Lightning Web Components. Badger Maps has its own admin console with its own user management, separate from Salesforce.</li>
-      <li><strong>Reporting.</strong> With a native tool, all visit data lives in Salesforce objects. You can build reports and dashboards using standard Salesforce reporting. With Badger, you need to wait for the sync or build reports inside Badger's own interface.</li>
+      <li><strong>Reporting.</strong> Tourvia writes its visit records to Salesforce objects for Salesforce reporting. For Badger Maps, verify which activities sync to Salesforce, how quickly, and which reports remain in the Badger interface.</li>
     </ul>
 
     <h2>When Badger Maps makes more sense</h2>
-    <p>Badger Maps is a well-regarded product with a 4.6/5 rating on Capterra and over 200 reviews. There are real scenarios where it is the better fit:</p>
+    <p>Badger Maps can fit teams that want a standalone field-sales application:</p>
     <ul>
       <li><strong>Teams not on Salesforce.</strong> Badger integrates with HubSpot, Zoho, Microsoft Dynamics, and other CRMs. If your team does not use Salesforce, Tourvia is not an option at all. Badger is CRM-agnostic.</li>
       <li><strong>Teams that do not run the field from Salesforce.</strong> Badger's standalone application can be simpler when Salesforce is not the operational system of record. Compare annual per-user prices, contract terms, currencies, and the workflow each product includes.</li>
-      <li><strong>Google Maps power users.</strong> Badger's interface is built around Google Maps and feels familiar to reps who already use Google Maps for navigation. The learning curve is minimal.</li>
-      <li><strong>Teams that want a standalone field app.</strong> Some organizations prefer a dedicated mobile app rather than working inside Salesforce Mobile. Badger's native iOS and Android apps are polished and purpose-built for reps in the field.</li>
+      <li><strong>Google Maps users.</strong> Badger's interface uses Google Maps. Test the route-building and navigation workflow with the reps who will use it.</li>
+      <li><strong>Teams that want a standalone field app.</strong> Some organizations prefer a dedicated mobile app rather than working inside Salesforce Mobile.</li>
       <li><strong>Lead generation features.</strong> Badger Maps includes a built-in prospecting feature that surfaces nearby businesses. If your reps do cold prospecting while in the field, this is a useful differentiator.</li>
     </ul>
-    <p>Credit where it is due: Badger Maps does route planning well. The 120-stop limit on the Business plan is generous. The mobile experience is strong. And their support team gets consistent praise in reviews for hands-on onboarding.</p>
+    <p>Confirm current route limits, mobile behaviour, onboarding, support, and add-ons directly with Badger Maps during evaluation.</p>
 
     <h2>When Tourvia makes more sense</h2>
     <p>Tourvia is built for a specific profile: Salesforce-first field teams that want their tools inside the platform, not alongside it.</p>
     <ul>
       <li><strong>Salesforce-centric organizations.</strong> If your company treats Salesforce as the single source of truth, adding an external tool that copies data out creates friction. A native app respects that architecture.</li>
-      <li><strong>Growing teams (5+ users).</strong> Public pricing at &euro;30 per licensed user per month means each additional licence adds EUR 360 excluding tax per year. With Badger, every hire increases the software bill.</li>
+      <li><strong>Teams comparing public seat prices.</strong> Tourvia costs &euro;30 per licensed user per month excluding tax, so each additional licence adds EUR 360 per year. Badger Maps also scales by licensed user at its published rates.</li>
       <li><strong>Admin control requirements.</strong> Salesforce admins can manage Tourvia through permission sets, page layouts, and flows. No separate admin console to learn, no separate user provisioning.</li>
-      <li><strong>EU data residency needs.</strong> Tourvia's routing server runs in France (OVHcloud, Gravelines datacenter). CRM data stays in your Salesforce org. Badger Maps hosts data on AWS with no published EU data residency option. For teams subject to GDPR data localization requirements, this is a practical consideration.</li>
+      <li><strong>Documented routing location.</strong> Tourvia processes the minimum route inputs in France. Compare the DPA, subprocessors, retention, transfer safeguards, and hosting commitments supplied by each vendor. GDPR does not create a general rule that all data must remain in the EU.</li>
       <li><strong>Annual billing.</strong> Tourvia is billed annually at EUR 30 excluding tax per licensed user per month. Badger offers monthly and annual billing at different listed rates.</li>
       <li><strong>Screen Flows and LWC integration.</strong> Tourvia works with Salesforce Screen Flows and Lightning Web Components, so admins can embed route planning into existing business processes without custom code.</li>
     </ul>

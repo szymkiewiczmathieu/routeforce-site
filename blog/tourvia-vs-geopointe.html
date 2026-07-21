@@ -30,7 +30,7 @@
   "@type": "BlogPosting",
   "headline": "Tourvia vs Geopointe: which one fits your Salesforce field team?",
   "datePublished": "2026-07-19",
-  "dateModified": "2026-07-19",
+  "dateModified": "2026-07-21",
   "author": {
     "@type": "Organization",
     "name": "SKZ Consulting",
@@ -63,9 +63,24 @@
     </nav>
     <div style="display:flex;align-items:center;gap:8px;">
       <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
-      <a href="../#contact" style="background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request trial</a>
+      <a href="../#contact" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request trial</a>
+      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
+        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
+      </button>
     </div>
   </div>
+  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
+    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
+      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
+      <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
+      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
+      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
+      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
+      <a href="../#contact" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Request trial</a>
+    </nav>
+  </div>
+  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
 </header>
 
 <section class="blog-hero blog-hero-premium" style="padding:64px 24px 40px;">
@@ -85,7 +100,7 @@
       <aside class="blog-hero-sidecard blog-hero-sidecard-muted" style="background:#131316;border:1px solid #27272a;border-radius:18px;padding:24px;">
         <div class="blog-hero-sidecard-label" style="color:#6366f1;font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">Managed-package option</div>
         <div class="blog-hero-sidecard-title" style="font-size:1.1rem;font-weight:700;color:#fafafa;margin-bottom:10px;">Evaluate Tourvia for your Salesforce field team</div>
-        <p class="blog-hero-sidecard-copy" style="color:#a1a1aa;font-size:0.95rem;line-height:1.6;">Tourvia publishes its annual per-user price and offers a complete 30-day trial for testing representative routes and field workflows.</p>
+        <p class="blog-hero-sidecard-copy">Compare the Salesforce data flow, mobile work, implementation, and current commercial terms.</p>
         <div class="blog-hero-linklist" style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
           <a href="../pricing.html" style="color:#9099ff;text-decoration:none;">See Tourvia pricing</a>
           <a href="../salesforce-route-planning.html" style="color:#9099ff;text-decoration:none;">Explore route planning</a>
@@ -119,22 +134,22 @@
       <tr>
         <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Route optimization</td>
         <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Built-in, multi-stop daily routes</td>
-        <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Basic routing</td>
+        <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Verify current route constraints</td>
       </tr>
       <tr>
         <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Mobile app</td>
         <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Yes, dedicated field rep app</td>
-        <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Limited mobile experience</td>
+        <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Verify current mobile workflow</td>
       </tr>
       <tr>
         <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Check-in / visit reporting</td>
         <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Yes, tied to Salesforce Events</td>
-        <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Not a core feature</td>
+        <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Verify check-in and reporting scope</td>
       </tr>
       <tr>
         <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Pricing model</td>
         <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">€30/user/month billed annually</td>
-        <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Quoted per user, ~$75/user/month</td>
+        <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Request current quote</td>
       </tr>
       <tr>
         <td style="padding:12px;border-bottom:1px solid #27272a;color:#d4d4d8;">Data residency</td>
@@ -144,22 +159,20 @@
     </table>
     </div>
     <h2>Integration: both are Salesforce-native</h2>
-    <p>Both products run inside Salesforce as managed packages. This means they read your existing records, respect your permissions, and write updates back into the CRM. No third-party connector is required.</p>
-    <p>The difference is in how they use that data. Geopointe focuses on visualization and territory analytics. Tourvia focuses on turning records into an executable route and visit plan.</p>
+    <p>Both products are Salesforce managed packages. Compare the objects, permissions, external processing, and records written back by each product. Tourvia processes the minimum route inputs in France as described in its DPA.</p>
     <h2>Route optimization</h2>
     <p>Tourvia is built around route optimization. You select a set of records, set constraints like time windows or visit duration, and Tourvia returns an optimized sequence. The route then becomes Salesforce Events.</p>
-    <p>Geopointe can draw routes on a map, but the optimization is lighter. It is not designed for daily field scheduling with multiple constraints.</p>
+    <p>For Geopointe, verify the supported stop count, time windows, visit duration, start and end constraints, optimization method, and Event creation directly in the product.</p>
     <h2>Mobile experience</h2>
-    <p>For field reps, the mobile experience determines adoption. Tourvia provides a mobile app built for the route-to-visit workflow. Geopointe’s mobile experience is more limited and not centered on daily execution.</p>
+    <p>Test both mobile workflows on the devices and Salesforce records used by the field team. Include navigation, check-in, notes, offline conditions, and visit reporting.</p>
     <h2>Pricing</h2>
-    <p>Tourvia publishes a flat price: €30 excluding tax per licensed user per month, billed annually. Geopointe is typically quoted, with public references around $75 per user per month. For a 15-person team, Tourvia can be less than half the cost.</p>
+    <p>Tourvia publishes €30 excluding tax per licensed user per month, billed annually. Geopointe asks buyers to request current pricing. Compare the final quote at the same seat count, currency, and requirement scope.</p>
     <h2>Which one should you choose?</h2>
-    <p>Choose Tourvia if you want optimized routes, a mobile app for reps, and visit reporting inside Salesforce. Choose Geopointe if you need deep territory mapping, geographic search, and visualization dashboards.</p>
-    <p>If your need is both, start with the one that solves the most urgent pain. For most field teams executing visits daily, that is route planning.</p>
+    <p>Include Tourvia when routes, Salesforce Events, mobile visits, and reports are central. Include Geopointe when mapping, territory, and geo-analytics requirements are central. Run the same representative workflow in both products where the scope overlaps.</p>
 
     <div class="blog-cta" style="background:#131316;border:1px solid #27272a;border-radius:16px;padding:28px 32px;margin-top:40px;">
       <h3 style="color:#fafafa;margin-bottom:10px;">Request a 30-day Tourvia trial</h3>
-      <p style="color:#a1a1aa;margin-bottom:18px;">Test Tourvia in your Salesforce org for 30 days. Pricing is €30 excluding tax per licensed user per month, billed annually.</p>
+      <p style="color:#a1a1aa;margin-bottom:18px;">Run the same Salesforce route, mobile visit, and reporting scenario before comparing the two products.</p>
       <a href="../#contact" style="display:inline-block;background:#6366f1;color:white;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;margin-right:12px;">Request a 30-day trial</a>
       <a href="../pricing.html" style="display:inline-block;color:#9099ff;text-decoration:none;font-weight:600;">See pricing &rarr;</a>
     </div>
@@ -168,7 +181,7 @@
 </section>
 
 <section style="max-width:800px;margin:0 auto 3rem;padding:0 24px;">
-  <h2 style="font-size:1.25rem;font-weight:700;color:#fafafa;margin-bottom:1rem;">Next pages for evaluation</h2>
+  <h2 style="font-size:1.25rem;font-weight:700;color:#fafafa;margin-bottom:1rem;">Related Geopointe pages</h2>
   <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;">
       <li><a href="geopointe-alternative.html" style="color:#9099ff;text-decoration:none;">Geopointe alternative: why teams switch &rarr;</a></li>
       <li><a href="geopointe-pricing.html" style="color:#9099ff;text-decoration:none;">Geopointe pricing: cost breakdown &rarr;</a></li>
