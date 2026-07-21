@@ -8,7 +8,7 @@
   <link rel="alternate" hreflang="en" href="https://gettourvia.com/docs/user-guide.html" />
   <link rel="alternate" hreflang="fr" href="https://gettourvia.com/docs/user-guide-fr.html" />
   <link rel="alternate" hreflang="x-default" href="https://gettourvia.com/docs/user-guide.html" />
-  <title>Tourvia User Guide | TourviaApp 7.33.0</title>
+  <title>Tourvia User Guide | TourviaApp 7.34.0.1</title>
   <style>
     @page { size: A4; margin: 18mm 14mm 18mm 14mm; }
     :root {
@@ -98,17 +98,17 @@
   </style>
   <meta name="robots" content="index, follow">
 
-  <meta property="og:title" content="Tourvia User Guide TourviaApp 7.33.0">
+  <meta property="og:title" content="Tourvia User Guide TourviaApp 7.34.0.1">
   <meta property="og:site_name" content="Tourvia">
   <meta property="og:description" content="Complete user guide for Tourvia field sales app on Salesforce.">
   <meta property="og:url" content="https://gettourvia.com/docs/user-guide.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Tourvia User Guide TourviaApp 7.33.0"/>
-  <meta name="twitter:description" content="TourviaApp 7.33.0 User Guide: map visualization, filters, route planning, check-in/check-out, visit reports, and route history in Salesforce."/>
+  <meta name="twitter:title" content="Tourvia User Guide TourviaApp 7.34.0.1"/>
+  <meta name="twitter:description" content="TourviaApp 7.34.0.1 User Guide: map visualization, filters, route planning, check-in/check-out, visit reports, and route history in Salesforce."/>
   <meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia User Guide TourviaApp 7.33.0","url":"https://gettourvia.com/docs/user-guide.html","description":"TourviaApp 7.33.0 User Guide: map visualization, filters, route planning, check-in/check-out, visit reports, and route history in Salesforce.","publisher":{"@type":"Organization","name":"SKZ Consulting","alternateName":"Tourvia","url":"https://gettourvia.com"}}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Tourvia User Guide TourviaApp 7.34.0.1","url":"https://gettourvia.com/docs/user-guide.html","description":"TourviaApp 7.34.0.1 User Guide: map visualization, filters, route planning, check-in/check-out, visit reports, and route history in Salesforce.","publisher":{"@type":"Organization","name":"SKZ Consulting","alternateName":"Tourvia","url":"https://gettourvia.com"}}</script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <link rel="stylesheet" href="guide-dark.css"/>
 <script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
@@ -167,7 +167,7 @@
       </div>
       <div class="meta">
         <div class="card"><div class="label">Product</div><div class="value">Tourvia for Salesforce</div></div>
-        <div class="card"><div class="label">Package version</div><div class="value">TourviaApp 7.33.0 | July 2026</div></div>
+        <div class="card"><div class="label">Package version</div><div class="value">TourviaApp 7.34.0.1 | July 2026</div></div>
         <div class="card"><div class="label">Audience</div><div class="value">Field Sales Reps &amp; Managers</div></div>
       </div>
     </div>
@@ -177,12 +177,12 @@
   <main class="content">
     <a href="user-guide-fr.html" class="lang-switch">🇫🇷 Lire en français</a>
 
-    <div class="note"><strong>TourviaApp 7.33.0</strong>: This guide covers every feature available to field sales representatives and their managers. Keep it as a daily reference.</div>
+    <div class="note"><strong>TourviaApp 7.34.0.1</strong>: This guide covers every feature available to field sales representatives and their managers. Keep it as a daily reference.</div>
 
-    <p><strong>Package version:</strong> TourviaApp 7.33.0 | July 2026<br><strong>Audience:</strong> Field sales reps, territory managers<br><strong>Platform:</strong> Salesforce Desktop &amp; Salesforce Mobile App</p>
+    <p><strong>Package version:</strong> TourviaApp 7.34.0.1 | July 2026<br><strong>Audience:</strong> Field sales reps, territory managers<br><strong>Platform:</strong> Salesforce Desktop &amp; Salesforce Mobile App</p>
     <p>Tourvia is a map-based field operations tool delivered as a Salesforce managed package. It lets you visualize your territory, filter records, plan routes, use GPS-assisted proximity checks, and maintain route history from Salesforce. GPS results depend on device accuracy, geocoding quality, and the configured radius; they do not prove identity or physical presence.</p>
 
-    <div class="tip"><strong>What is new (7.26.0 → 7.33.0)</strong>
+    <div class="tip"><strong>What is new (7.26.0 → 7.34.0.1)</strong>
       <ul style="margin:8px 0 0;">
         <li><strong>Today's Agenda now shows the linked contact and a tap-to-call phone</strong> on each event (since 7.22.0). 7.25.0 fixes the case where the event has an Account in WhatId and a Contact in WhoId — the contact + phone row now displays there too.</li>
         <li><strong>Plan a tour directly from a Salesforce Campaign</strong> (since 7.22.0). A second inline picker next to the Account/Lead/Opp picker loads every geocoded Campaign Member as route steps in one click.</li>
@@ -193,6 +193,7 @@
 <li><strong>7.31.0 — Reliable meeting times &amp; one-tap adjustments.</strong> Reordering your route keeps realistic times (same rules as the optimization), the lunch break is always respected — even when nudging times manually — stops that don't fit the day stay visible with an alert, and tapping a meeting time opens −15/+15 buttons that shift the rest of the day live.</li>
 <li><strong>7.32.0 — Big-territory reliability.</strong> The map now loads every marker even on very large territories (it could previously stop silently around 4,000), your chosen starting point survives a route reset and a late GPS fix (recalculation departs from the point you picked), a hand-edited meeting time is clearly recomputed after you reorder (the manual badge no longer lies), the check-in button shows a loader while GPS is being acquired, and the "Not visited since" filter stays accurate next to frequently-visited accounts.</li>
 <li><strong>7.33.0 — Security &amp; day-to-day polish.</strong> The check-in confirmation now names the visit (no more generic "Check in to this event?"), the check-in and check-out buttons in Today's Agenda are bigger and easier to tap on the road, the route panel jumps back to step 1 after an optimization so you immediately see the new order and times, the first visits of your day now respect the lunch break and end-of-day like every other stop, the contact picker on a route step always offers the account's full contact list, and your visit reports, route histories and saved filters are better protected inside your org.</li>
+<li><strong>7.34.0.1 — Reliable replanning &amp; keyboard access.</strong> Changing route options now clears the previous schedule before Events are created, slow recalculations no longer bring back an obsolete step, and keyboard focus moves correctly to step actions. Agentforce recency filtering is applied before the result limit. Map markers remain visible when an optional marker type field is empty or invalid.</li>
       </ul>
     </div>
 
@@ -936,10 +937,10 @@
     </ol>
 
     <hr>
-    <p class="small-muted" style="text-align:center; margin-top: 24px;">TourviaApp 7.33.0 | User Guide | July 2026<br>https://gettourvia.com</p>
+    <p class="small-muted" style="text-align:center; margin-top: 24px;">TourviaApp 7.34.0.1 | User Guide | July 2026<br>https://gettourvia.com</p>
 
   </main>
-<style>table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}@media(max-width:768px){#siteFooterGrid{grid-template-columns:1fr!important;gap:32px!important}code{overflow-wrap:anywhere;word-break:break-word}}</style>
+<style>table{display:block;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}@media(max-width:768px){.meta{grid-template-columns:1fr!important;margin-top:10mm}.meta .card{padding:12px 14px}#siteFooterGrid{grid-template-columns:1fr!important;gap:32px!important}code{overflow-wrap:anywhere;word-break:break-word}}</style>
 <footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
   <div id="siteFooterGrid" style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
     <div>

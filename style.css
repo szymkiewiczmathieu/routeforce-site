@@ -2132,6 +2132,11 @@ img {
     .premium-hero {
         padding: 92px 0 58px;
     }
+
+    .premium-hero h1 {
+        font-size: 2.6rem;
+        line-height: 1.08;
+    }
 }
 
 /* Single-column product heroes */

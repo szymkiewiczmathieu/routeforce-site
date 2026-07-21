@@ -20,8 +20,13 @@
 - Custom actions via Screen Flows and Lightning Web Components from map markers
 - Full Salesforce Mobile App support
 
+## Current package
+- Current documented release: TourviaApp 7.34.0.1
+- Released 21 July 2026 on the Security-Review-approved TourviaApp package lineage
+- Release focus: current scheduling after option changes, stale-recalculation protection, Agentforce recency filtering before result limits, keyboard focus for step actions, and marker resilience when an optional type field is empty or invalid
+
 ## Pricing
-- Last verified: 16 July 2026
+- Last verified: 21 July 2026
 - Complete 30-day trial available on request through the contact form
 - Customer pilots are underway
 - Paid standard scope: €30/user/month excluding tax, billed annually (€360/user/year)

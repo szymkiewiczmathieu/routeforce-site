@@ -2,7 +2,7 @@
 # Detailed product reference for AI assistants and language models.
 # For the short version, see /llms.txt
 # Supplemental reference only. The public HTML pages and /product-facts.md remain authoritative.
-# Last verified: 16 July 2026
+# Last verified: 21 July 2026
 
 > Tourvia, formerly RouteForce, is a Salesforce managed package for route planning, route optimization, and field visit tracking, operated by SKZ Consulting. Reps work in Salesforce, while route calculations are processed by Tourvia infrastructure hosted in France.
 
@@ -13,6 +13,11 @@ Tourvia is the current product name. RouteForce is the former product name. SKZ 
 ## Product overview
 
 Tourvia helps field sales teams plan visits, optimize driving routes, and track field activity without leaving Salesforce. Customer pilots are underway. The product works on record pages, app pages, tabs, utility bar, Campaign pages, and Salesforce Mobile.
+
+### Current package release
+- **Version**: TourviaApp 7.34.0.1
+- **Released**: 21 July 2026 on the Security-Review-approved TourviaApp package lineage
+- **Release focus**: schedules are invalidated when route options change; stale asynchronous recalculations cannot restore obsolete steps; Agentforce applies recency before limiting results; keyboard focus reaches step actions; markers remain visible when an optional type field is empty, invalid, or relationship-based
 
 ### Core capabilities
 - **Interactive map**: display Accounts, Leads, Opportunities, and Campaign Members on a single map with clustering, coloring, and real-time filters
