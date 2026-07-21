@@ -96,10 +96,25 @@ def public_path_to_file(url: str) -> Path:
     return target
 
 
+def date_modified_values(value) -> set[str]:
+    """Collect ISO dateModified values from a JSON-LD object or graph."""
+    dates: set[str] = set()
+    if isinstance(value, dict):
+        if isinstance(value.get("dateModified"), str):
+            dates.add(value["dateModified"][:10])
+        for child in value.values():
+            dates.update(date_modified_values(child))
+    elif isinstance(value, list):
+        for child in value:
+            dates.update(date_modified_values(child))
+    return dates
+
+
 def main() -> int:
     errors: list[str] = []
     html_files = sorted(DIST.rglob("*.html"))
     pages: dict[Path, PageParser] = {}
+    modified_dates: dict[Path, set[str]] = {}
     jsonld_count = 0
     link_count = 0
 
@@ -131,8 +146,9 @@ def main() -> int:
 
         for block in parser.jsonld:
             try:
-                json.loads(block)
+                data = json.loads(block)
                 jsonld_count += 1
+                modified_dates.setdefault(file.resolve(), set()).update(date_modified_values(data))
             except json.JSONDecodeError as exc:
                 errors.append(f"{relative}: invalid JSON-LD ({exc.msg})")
 
@@ -157,18 +173,50 @@ def main() -> int:
     sitemap = DIST / "sitemap.xml"
     if sitemap.is_file():
         sitemap_source = sitemap.read_text(errors="strict")
-        sitemap_urls = re.findall(r"<loc>(https://[^<]+)</loc>", sitemap_source)
+        sitemap_entries = re.findall(
+            r"<url>\s*<loc>(https://[^<]+)</loc>\s*"
+            r"<lastmod>(\d{4}-\d{2}-\d{2})</lastmod>.*?</url>",
+            sitemap_source,
+            flags=re.DOTALL,
+        )
+        sitemap_urls = [url for url, _ in sitemap_entries]
         if "<urlset" not in sitemap_source or "</urlset>" not in sitemap_source:
             errors.append("Invalid sitemap document")
+        if len(sitemap_entries) != sitemap_source.count("<url>"):
+            errors.append("Sitemap URL entries must include loc and ISO lastmod")
+        if len(sitemap_urls) != len(set(sitemap_urls)):
+            errors.append("Sitemap contains duplicate URLs")
     else:
         errors.append("Missing sitemap.xml")
+        sitemap_entries = []
         sitemap_urls = []
 
-    for url in sitemap_urls:
+    sitemap_url_set = set(sitemap_urls)
+    for url, lastmod in sitemap_entries:
         if not url.startswith(CANONICAL_ORIGIN):
             errors.append(f"Sitemap uses wrong origin: {url}")
-        if not public_path_to_file(url).is_file():
+        target = public_path_to_file(url)
+        if not target.is_file():
             errors.append(f"Sitemap target missing: {url}")
+            continue
+        parser = pages.get(target.resolve())
+        if parser and parser.noindex:
+            errors.append(f"Sitemap target is noindex: {url}")
+        dates = modified_dates.get(target.resolve(), set())
+        if len(dates) > 1:
+            errors.append(f"{target.relative_to(DIST)}: conflicting dateModified values={sorted(dates)}")
+        elif dates and lastmod != next(iter(dates)):
+            errors.append(
+                f"{target.relative_to(DIST)}: sitemap lastmod={lastmod} "
+                f"does not match dateModified={next(iter(dates))}"
+            )
+
+    for path, parser in pages.items():
+        if parser.noindex or not parser.canonicals:
+            continue
+        canonical = parser.canonicals[0]
+        if canonical not in sitemap_url_set:
+            errors.append(f"{path.relative_to(DIST)}: indexable canonical missing from sitemap ({canonical})")
 
     robots = (DIST / "robots.txt").read_text(errors="ignore") if (DIST / "robots.txt").exists() else ""
     if f"Sitemap: {CANONICAL_ORIGIN}/sitemap.xml" not in robots:
