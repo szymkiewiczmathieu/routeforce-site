@@ -30,7 +30,7 @@
   "@type": "BlogPosting",
   "headline": "Route planning for pharmaceutical sales teams inside Salesforce",
   "datePublished": "2026-07-19",
-  "dateModified": "2026-07-21",
+  "dateModified": "2026-07-26",
   "author": {
     "@type": "Organization",
     "name": "SKZ Consulting",
@@ -44,6 +44,46 @@
   },
   "description": "How pharmaceutical sales teams use Salesforce-native route planning to optimize HCP visits, stay compliant, and report visits directly in the CRM.",
   "mainEntityOfPage": "https://gettourvia.com/blog/route-planning-pharma-sales.html"
+}
+  </script>
+  <script type="application/ld+json">
+  {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can pharma reps plan visits to healthcare professionals from Salesforce?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Tourvia plans routes from the Salesforce records the organisation approves, including Accounts and Contacts for healthcare professionals and pharmacies, with time windows and visit duration as constraints. The optimized route becomes Salesforce Events on the rep's calendar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Where is pharma field data processed with Tourvia?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Salesforce remains the system of record. The minimum coordinates and timing constraints required for route calculation are processed by Tourvia infrastructure in France (OVHcloud, Gravelines), as described in the DPA. Visit reports and check-ins are recorded in your Salesforce org."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Tourvia handle pharma regulatory compliance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tourvia records visits, check-ins, and outcomes as Salesforce records that support the customer's own reporting and compliance process. Tourvia does not determine regulatory compliance; your compliance team validates the process against local pharma regulations."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does Tourvia cost for a pharma field team?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EUR 30 excluding tax per licensed user per month, billed annually (EUR 360 per user per year). A 30-day trial is available to test routes, Event creation, mobile visits, permissions, and reporting with your Salesforce admin."
+      }
+    }
+  ]
 }
   </script>
 </head>
@@ -82,8 +122,31 @@
     <h2>Test the full data flow</h2>
     <p>Tourvia is installed as a Salesforce managed package. Salesforce remains the system of record, while the minimum coordinates and timing constraints required for route calculation are processed by Tourvia infrastructure in France as described in the DPA.</p>
     <p>The product can create Salesforce Events and record GPS-assisted check-in information. Those records support the customer's reporting process; Tourvia does not determine regulatory compliance.</p>
+    <h2>A weekly route workflow inside Salesforce</h2>
+    <p>The planning cycle below uses only Salesforce records and standard Tourvia functions:</p>
+    <ol>
+      <li>Filter targets by last visit date, priority, or territory on the map, for example every HCP not visited in 4 weeks.</li>
+      <li>Set the day's constraints: start and end location, visit duration, appointment windows, lunch break.</li>
+      <li>Run the optimization and review the proposed sequence on the map before confirming.</li>
+      <li>Confirm the route: Tourvia creates the Salesforce Events on the rep's calendar.</li>
+      <li>On site, the rep checks in from mobile and files the visit report (result, next action, notes), which lands on the Salesforce record for the organisation's own reporting.</li>
+    </ol>
     <h2>Run a representative trial</h2>
     <p>Use the 30-day trial with the objects, permissions, territories, and visit rules that the team will use in production. Continued access costs €30 excluding tax per licensed user per month, billed annually.</p>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>Can pharma reps plan visits to healthcare professionals from Salesforce?</h3>
+    <p>Yes. Tourvia plans routes from the Salesforce records the organisation approves, including Accounts and Contacts for healthcare professionals and pharmacies, with time windows and visit duration as constraints. The optimized route becomes Salesforce Events on the rep's calendar.</p>
+
+    <h3>Where is pharma field data processed with Tourvia?</h3>
+    <p>Salesforce remains the system of record. The minimum coordinates and timing constraints required for route calculation are processed by Tourvia infrastructure in France (OVHcloud, Gravelines), as described in the DPA. Visit reports and check-ins are recorded in your Salesforce org.</p>
+
+    <h3>Does Tourvia handle pharma regulatory compliance?</h3>
+    <p>Tourvia records visits, check-ins, and outcomes as Salesforce records that support the customer's own reporting and compliance process. Tourvia does not determine regulatory compliance; your compliance team validates the process against local pharma regulations.</p>
+
+    <h3>How much does Tourvia cost for a pharma field team?</h3>
+    <p>&euro;30 excluding tax per licensed user per month, billed annually (&euro;360 per user per year). A 30-day trial is available to test routes, Event creation, mobile visits, permissions, and reporting with your Salesforce admin.</p>
 
 
     <div class="blog-cta" style="background:#131316;border:1px solid #27272a;border-radius:16px;padding:28px 32px;margin-top:40px;">
