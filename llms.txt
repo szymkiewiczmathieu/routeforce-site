@@ -44,6 +44,7 @@
 
 ## Key pages
 - Homepage: https://gettourvia.com
+- Compare route planning apps: https://gettourvia.com/compare.html
 - RouteForce to Tourvia name update: https://gettourvia.com/blog/routeforce-becomes-tourvia.html
 - Documentation: https://gettourvia.com/docs/
 - Setup Guide: https://gettourvia.com/docs/setup-guide.html
