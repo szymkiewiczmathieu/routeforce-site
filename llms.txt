@@ -21,9 +21,9 @@
 - Full Salesforce Mobile App support
 
 ## Current package
-- Current documented release: TourviaApp 7.34.0.1
-- Released 21 July 2026 on the Security-Review-approved TourviaApp package lineage
-- Release focus: current scheduling after option changes, stale-recalculation protection, Agentforce recency filtering before result limits, keyboard focus for step actions, and marker resilience when an optional type field is empty or invalid
+- Current documented release: TourviaApp 7.36.0.2
+- Released 7 August 2026 on the Security-Review-approved TourviaApp package lineage
+- Release focus: incremental marker rendering for large maps, complete Salesforce Event addresses, safer asynchronous state and save handling, local-calendar dates, stronger mobile touch and keyboard behavior, and localized Lightning interfaces
 
 ## Pricing
 - Last verified: 21 July 2026
