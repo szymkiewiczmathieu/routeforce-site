@@ -236,8 +236,8 @@ select:focus-visible {
   display: flex;
   align-items: center;
   gap: 11px;
-  color: #536078;
-  font: 600 12px/1.2 var(--font-mono);
+  color: #3f4d66;
+  font: 650 13px/1.2 var(--font-mono);
   letter-spacing: 0.11em;
   text-transform: uppercase;
 }
@@ -392,9 +392,9 @@ select:focus-visible {
 .proof-rail > * + * { border-left: 1px solid var(--line); }
 .proof-rail a { transition: background 180ms ease; }
 .proof-rail a:hover { background: #fff; }
-.proof-kicker { color: #7b8496; font: 600 10px/1 var(--font-mono); letter-spacing: 0.11em; text-transform: uppercase; }
+.proof-kicker { color: #566178; font: 650 11px/1.1 var(--font-mono); letter-spacing: 0.1em; text-transform: uppercase; }
 .proof-rail strong { margin-top: 9px; color: var(--ink); font: 800 17px/1.2 var(--font-display); letter-spacing: -0.02em; }
-.proof-rail small { margin-top: 7px; color: #5f6a7e; font-size: 13px; line-height: 1.3; }
+.proof-rail small { margin-top: 7px; color: #4b586d; font-size: 14px; line-height: 1.35; }
 
 .section { position: relative; padding: 112px 24px; }
 .anchor-alias { position: absolute; top: 0; left: 0; width: 1px; height: 1px; }
@@ -647,7 +647,7 @@ select:focus-visible {
 .text-link span { display: inline-block; margin-left: 5px; transition: transform 160ms ease; }
 .text-link:hover span { transform: translateX(4px); }
 .price-card { padding: 32px; border: 1px solid var(--line-strong); border-radius: 22px; background: #fff; box-shadow: 0 24px 55px rgba(33, 47, 77, 0.12); }
-.price-topline { display: flex; justify-content: space-between; gap: 20px; padding-bottom: 22px; color: #6f798d; border-bottom: 1px solid var(--line); font: 600 11px/1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
+.price-topline { display: flex; justify-content: space-between; gap: 20px; padding-bottom: 22px; color: #566178; border-bottom: 1px solid var(--line); font: 650 12px/1.1 var(--font-mono); letter-spacing: .08em; text-transform: uppercase; }
 .price-topline b { color: var(--mint); }
 .price-value { display: flex; align-items: center; gap: 18px; margin-top: 25px; }
 .price-value strong { color: var(--ink); font: 800 68px/.95 var(--font-display); letter-spacing: -.07em; }
@@ -656,7 +656,7 @@ select:focus-visible {
 .price-card ul { display: grid; gap: 10px; margin: 24px 0 27px; padding: 22px 0 0; border-top: 1px solid var(--line); list-style: none; }
 .price-card li { position: relative; padding-left: 26px; color: #394459; font-size: 16px; }
 .price-card li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--mint); font-weight: 800; }
-.price-card > small { display: block; margin: 13px auto 0; color: #80899a; font-size: 12px; line-height: 1.35; text-align: center; }
+.price-card > small { display: block; margin: 13px auto 0; color: #58657a; font-size: 13px; line-height: 1.4; text-align: center; }
 
 .faq-section { background: #fff; }
 .faq-shell { width: min(100%, var(--shell)); margin: 0 auto; display: grid; grid-template-columns: 0.7fr 1.3fr; gap: 100px; align-items: start; }
