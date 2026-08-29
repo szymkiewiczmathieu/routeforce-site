@@ -63,9 +63,9 @@ Tourvia uses clear per-user pricing:
 | Criterion | Tourvia | Salesforce Maps |
 |-----------|---------|-----------------|
 | Architecture | Managed package / Salesforce-native LWC workflow | Salesforce add-on product |
-| Pricing model | €30/user/month, billed annually | Salesforce public pages checked 29 August 2026 agree on $75/user/month for Maps but list either $125 or $150/user/month for Maps Advanced; both show annual billing |
-| Cost for 10 users | €300/month equivalent, billed annually | $750/month for Maps; $1,250-$1,500/month equivalent for Maps Advanced before contract specifics |
-| Cost for 20 users | €600/month equivalent, billed annually | $1,500/month for Maps; $2,500-$3,000/month equivalent for Maps Advanced before contract specifics |
+| Pricing model | €30/user/month, billed annually | Public list prices of $75/user/month for Maps and $150/user/month for Maps Advanced, billed annually, verified on Salesforce.com on 11 July 2026 |
+| Cost for 10 users | €300/month equivalent, billed annually | $750-$1,500/month equivalent before contract specifics |
+| Cost for 20 users | €600/month equivalent, billed annually | $1,500-$3,000/month equivalent before contract specifics |
 | Route optimization | Tourvia-operated, constraint-aware engine | Proprietary |
 | Data residency for routing infrastructure | France (OVHcloud) | Salesforce infrastructure / vendor contract specifics |
 | Trial access | 30-day trial on request via contact form | Verify with Salesforce account team |
