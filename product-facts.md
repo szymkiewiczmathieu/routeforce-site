@@ -50,7 +50,7 @@ DPA: https://gettourvia.com/docs/dpa.html
 - RCS Paris / SIREN: 102 154 879
 - SIRET: 102 154 879 00013
 - VAT: FR36102154879
-- Contact: contact@routeforce.app
+- Contact: contact@gettourvia.com
 
 Legal notice: https://gettourvia.com/docs/mentions-legales.html
 

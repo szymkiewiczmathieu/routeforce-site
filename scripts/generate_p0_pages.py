@@ -468,7 +468,7 @@ def render_html(slug, page):
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
       <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Company</span>
-      <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
+      <a href="mailto:contact@gettourvia.com" style="color:#a1a1aa;text-decoration:none;">Contact</a>
       <a href="../docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
       <a href="../docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
       <a href="../docs/mentions-legales.html" style="color:#a1a1aa;text-decoration:none;">Legal notice</a>
