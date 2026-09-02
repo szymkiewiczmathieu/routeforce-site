@@ -1,5 +1,7 @@
-/* Tourvia homepage, "The Field Sheet": progressive enhancement only.
-   Everything on the page reads and works without this file. */
+/* Tourvia site system, "The Field Sheet": progressive enhancement only.
+   Every page reads and works without this file. Shared with the homepage
+   behaviours (menu, route line, lightbox, reveal) and adds the contents
+   spy and reading progress used by long documents. */
 (function () {
   'use strict';
 
@@ -49,11 +51,11 @@
   var resizeTimer = null;
 
   function drawRail() {
-    if (!rail || !stops.length) { return; }
+    if (!stops.length) { return; }
     var reduced = reduceMotion.matches;
     var pen = window.pageYOffset + window.innerHeight * 0.72 - mainTop;
     var ratio = reduced ? 1 : Math.min(1, Math.max(0, (pen - railTop) / railHeight));
-    rail.style.setProperty('--rail-drawn', (ratio * 100).toFixed(2) + '%');
+    if (rail) { rail.style.setProperty('--rail-drawn', (ratio * 100).toFixed(2) + '%'); }
     var drawnTo = railTop + ratio * railHeight;
     stops.forEach(function (stop, index) {
       stop.classList.toggle('is-passed', reduced || stopOffsets[index] <= drawnTo + 1);
@@ -61,7 +63,7 @@
   }
 
   function measureRail() {
-    if (!main || !rail || !stops.length) { return; }
+    if (!main || !stops.length) { return; }
     var mainRect = main.getBoundingClientRect();
     mainTop = mainRect.top + window.pageYOffset;
     stopOffsets = stops.map(function (stop) {
@@ -72,8 +74,10 @@
     var last = lastStop ? stopOffsets[stops.indexOf(lastStop)] : Math.max.apply(null, stopOffsets);
     railTop = first;
     railHeight = Math.max(1, last - first);
-    rail.style.top = Math.round(first) + 'px';
-    rail.style.bottom = Math.round(Math.max(0, mainRect.height - last)) + 'px';
+    if (rail) {
+      rail.style.top = Math.round(first) + 'px';
+      rail.style.bottom = Math.round(Math.max(0, mainRect.height - last)) + 'px';
+    }
     drawRail();
   }
 
@@ -82,37 +86,82 @@
     ticking = true;
     window.requestAnimationFrame(function () {
       drawRail();
+      updateProgress();
+      spy();
       ticking = false;
     });
   }
 
-  if (rail && stops.length) {
+  /* ---------------------------------------------------------------
+     Reading progress on long documents (guides, legal, articles)
+     --------------------------------------------------------------- */
+  var progress = doc.querySelector('.progress');
+
+  function updateProgress() {
+    if (!progress) { return; }
+    var total = doc.documentElement.scrollHeight - window.innerHeight;
+    var ratio = total > 0 ? Math.min(1, Math.max(0, window.pageYOffset / total)) : 0;
+    progress.style.setProperty('--progress', (ratio * 100).toFixed(1) + '%');
+  }
+
+  /* ---------------------------------------------------------------
+     Contents spy: the current section is marked in the contents list
+     --------------------------------------------------------------- */
+  var tocLinks = Array.prototype.slice.call(doc.querySelectorAll('.guide-toc a[href^="#"], .doc-nav a[href^="#"], .longform > .on-page a[href^="#"]'));
+  var tocTargets = [];
+  var activeLink = null;
+
+  function collectTargets() {
+    tocTargets = [];
+    tocLinks.forEach(function (link) {
+      var id = decodeURIComponent(link.getAttribute('href').slice(1));
+      var target = id ? doc.getElementById(id) : null;
+      if (target) { tocTargets.push({ link: link, target: target }); }
+    });
+  }
+
+  function spy() {
+    if (!tocTargets.length) { return; }
+    var line = window.pageYOffset + Math.max(96, window.innerHeight * 0.28);
+    var current = null;
+    tocTargets.forEach(function (item) {
+      var top = item.target.getBoundingClientRect().top + window.pageYOffset;
+      if (top <= line) { current = item.link; }
+    });
+    if (!current) { current = tocTargets[0].link; }
+    if (current !== activeLink) {
+      if (activeLink) {
+        activeLink.classList.remove('is-active');
+        activeLink.removeAttribute('aria-current');
+      }
+      current.classList.add('is-active');
+      current.setAttribute('aria-current', 'location');
+      activeLink = current;
+    }
+  }
+
+  /* Collapse the contents list on narrow screens; it stays open without JS. */
+  var tocDetails = doc.querySelector('.guide-toc details');
+  if (tocDetails && window.matchMedia('(max-width: 1023px)').matches) {
+    tocDetails.removeAttribute('open');
+  }
+
+  if (tocLinks.length) { collectTargets(); }
+
+  if (stops.length || progress || tocTargets.length) {
     measureRail();
+    updateProgress();
+    spy();
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', function () {
       window.clearTimeout(resizeTimer);
-      resizeTimer = window.setTimeout(measureRail, 120);
+      resizeTimer = window.setTimeout(function () { measureRail(); updateProgress(); }, 120);
     });
     window.addEventListener('load', measureRail);
     if (doc.fonts && doc.fonts.ready) { doc.fonts.ready.then(measureRail); }
     window.setTimeout(measureRail, 1200);
     if (reduceMotion.addEventListener) { reduceMotion.addEventListener('change', drawRail); }
   }
-
-  /* ---------------------------------------------------------------
-     Plates strip: buttons scroll the native, keyboard-reachable strip
-     --------------------------------------------------------------- */
-  var strip = doc.querySelector('.strip');
-  Array.prototype.forEach.call(doc.querySelectorAll('.strip-btn'), function (button) {
-    button.addEventListener('click', function () {
-      if (!strip) { return; }
-      var direction = parseInt(button.getAttribute('data-strip'), 10) || 1;
-      strip.scrollBy({
-        left: direction * Math.round(strip.clientWidth * 0.8),
-        behavior: reduceMotion.matches ? 'auto' : 'smooth'
-      });
-    });
-  });
 
   /* ---------------------------------------------------------------
      Lightbox for plates
@@ -204,4 +253,30 @@
       });
     });
   });
+
+  /* ---------------------------------------------------------------
+     Analytics hooks (Plausible), unchanged from the previous site:
+     AppExchange clicks and trial-form submissions.
+     --------------------------------------------------------------- */
+  window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
+
+  Array.prototype.forEach.call(doc.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]'), function (link) {
+    link.addEventListener('click', function () {
+      window.plausible('AppExchange Click', {
+        props: {
+          page_path: window.location.pathname,
+          link_text: (link.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80)
+        }
+      });
+    });
+  });
+
+  var contactForm = doc.querySelector('form[action*="formspree.io"]');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function () {
+      window.plausible('Lead Form Submit', {
+        props: { page_path: window.location.pathname, form: 'site_contact' }
+      });
+    });
+  }
 })();

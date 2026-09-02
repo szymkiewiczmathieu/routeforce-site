@@ -1,239 +1,186 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>document.documentElement.classList.add('js');</script>
+<script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
 <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Optimize Field Sales Routes in Salesforce (2026)</title>
-    <meta name="robots" content="index, follow">
-    <meta name="description" content="A practical guide to optimizing field sales routes in Salesforce. Plan routes, create visits, execute, and report, all without leaving Salesforce.">
-    <link rel="canonical" href="https://gettourvia.com/blog/optimize-field-sales-routes-salesforce.html">
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg"/><link rel="icon" type="image/x-icon" href="../favicon.ico">
-    <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
-    <link rel="stylesheet" href="../style.css">
-    <meta property="og:title" content="How to optimize field sales routes in Salesforce (2026 guide)">
-    <meta property="og:site_name" content="Tourvia">
-    <meta property="og:description" content="A practical guide to optimizing field sales routes directly in Salesforce. Plan routes, create visits, execute in the field, and complete reporting without leaving Salesforce.">
-    <meta property="og:type" content="article">
-    <meta property="og:url" content="https://gettourvia.com/blog/optimize-field-sales-routes-salesforce.html">
-    <meta property="og:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:title" content="How to optimize field sales routes in Salesforce (2026 guide)"/>
-    <meta name="twitter:description" content="A practical guide to optimizing field sales routes directly in Salesforce. Plan routes, create visits, execute in the field, and complete reporting without leaving Salesforce."/>
-    <meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
-
+<title>Optimize Field Sales Routes in Salesforce (2026)</title>
+<meta name="robots" content="index, follow">
+<meta name="description" content="A practical guide to optimizing field sales routes in Salesforce. Plan routes, create visits, execute, and report, all without leaving Salesforce.">
+<link rel="canonical" href="https://gettourvia.com/blog/optimize-field-sales-routes-salesforce.html">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/><link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+<meta property="og:title" content="How to optimize field sales routes in Salesforce (2026 guide)">
+<meta property="og:site_name" content="Tourvia">
+<meta property="og:description" content="A practical guide to optimizing field sales routes directly in Salesforce. Plan routes, create visits, execute in the field, and complete reporting without leaving Salesforce.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gettourvia.com/blog/optimize-field-sales-routes-salesforce.html">
+<meta property="og:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="How to optimize field sales routes in Salesforce (2026 guide)"/>
+<meta name="twitter:description" content="A practical guide to optimizing field sales routes directly in Salesforce. Plan routes, create visits, execute in the field, and complete reporting without leaving Salesforce."/>
+<meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="/assets/css/site.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script defer src="/assets/js/site.js"></script>
 </head>
-<body style="background:#09090b;color:#e4e4e7;">
+<body class="sheet sheet--article sheet--article-howto">
+<a class="skip" href="#main">Skip to content</a>
 
-<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
-  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
-    <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
-      <img src="../assets/logo-site-brand.png" alt="Tourvia" style="width:32px;height:32px;border-radius:10px;flex-shrink:0;"/>
-      <span style="font-size:1.125rem;font-weight:700;letter-spacing:-0.02em;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tourvia</span>
-    </a>
-    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.95rem;white-space:nowrap;">
-      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
-      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
-      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+<header class="site-head">
+  <div class="wrap">
+    <a href="/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="32" height="32"/><b>Tourvia</b><small>formerly RouteForce</small></a>
+    <nav class="nav-main" aria-label="Primary">
+      <a class="nav-a" href="/salesforce-route-planning.html">Route planning</a>
+      <a class="nav-a" href="/pricing.html">Pricing</a>
+      <a class="nav-a" href="/compare.html">Compare</a>
+      <a class="nav-a" href="/use-cases.html">Use cases</a>
+      <a class="nav-a" href="/blog/" aria-current="page">Blog</a>
+      <a class="nav-a" href="/docs/">Docs</a>
     </nav>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
-      <a href="/#contact" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request trial</a>
-      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
-        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
-      </button>
+    <div class="head-right">
+      <a class="nav-a head-link" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
+      <a href="/#contact" class="btn btn-primary head-cta">Request a 30-day trial</a>
+      <button id="mobile-menu-btn" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
-    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
-      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
-      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
-      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
-      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
-      <a href="/#contact" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Request trial</a>
+  <div id="mobile-menu" class="nav-mobile">
+    <nav class="wrap" aria-label="Mobile">
+      <a href="/salesforce-route-planning.html">Route planning</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/compare.html">Compare</a>
+      <a href="/use-cases.html">Use cases</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
+      <a href="/#contact">Request a 30-day trial</a>
     </nav>
   </div>
-  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
 </header>
 
-<section class="blog-hero blog-hero-premium">
-  <div class="container">
-    <div class="blog-hero-premium-grid">
-      <div class="blog-hero-copy">
-        <div class="blog-kicker-row">
-            <span class="blog-kicker-chip">Guide</span>
-            <time datetime="2026-03-30">March 30, 2026</time>
-            <span>&middot;</span>
-            <span>7 min read</span>
-        </div>
-        <h1>How to optimize field sales routes in Salesforce (2026 guide)</h1>
-        <p class="blog-hero-summary">Plan a field day from Salesforce records, create the Events, run the visits on mobile, and keep the reports attached to the CRM.</p>
+<div class="progress" aria-hidden="true"></div>
+<main id="main" tabindex="-1">
+  <section class="mast mast--howto">
+    <div class="wrap">
+      <div class="mast-copy">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark"><a href="/blog/">Field journal</a> <small>Guide</small> <small><time datetime="2026-04-03">3 April 2026</time></small> <small>7 min read</small></p>
+
+        <h1 id="article-title">How to optimize field sales routes in Salesforce (2026 guide)</h1>
+        <ol class="steps-strip" aria-label="Sections on this page"><li><a href="#where-manual-route-planning-breaks-down">Where manual route planning breaks down</a></li><li><a href="#measure-the-workflow-before-choosing-a-tool">Measure the workflow before choosing a tool</a></li><li><a href="#what-to-look-for-in-a-salesforce-route-planning-tool">What to look for in a Salesforce route planning tool</a></li><li><a href="#step-by-step-planning-an-optimized-day-with-tourvia">Step by step: planning an optimized day with Tourvia</a></li><li><a href="#check-in-and-visit-reports">Check-in and visit reports</a></li><li><a href="#measuring-results-with-native-dashboards">Measuring results with native dashboards</a></li><li><a href="#getting-started">Getting started</a></li></ol>
+        <p class="lead">Plan a field day from Salesforce records, create the Events, run the visits on mobile, and keep the reports attached to the CRM.</p>
+
+
+
       </div>
-      <aside class="blog-hero-sidecard blog-hero-sidecard-muted">
-        <div class="blog-hero-sidecard-label">Quick access</div>
-        <div class="blog-hero-sidecard-title">Evaluate Tourvia</div>
-        <p class="blog-hero-sidecard-copy">Plan a representative day, create the Salesforce Events, and verify the mobile visit records.</p>
-        <div class="blog-hero-linklist">
-          <a href="../pricing.html">See Tourvia pricing</a>
-          <a href="../salesforce-route-planning.html">Explore route planning</a>
-          <a href="/#contact">Request trial</a>
-        </div>
-      </aside>
+      <div class="mast-side"><ul class="art-meta"><li><b>Published</b><span><time datetime="2026-04-03">3 April 2026</time></span></li><li><b>Updated</b><span><time datetime="2026-07-21">21 July 2026</time></span></li><li><b>Reading</b><span>7 min read</span></li><li><b>Section</b><span>Guide</span></li><li><b>Author</b><span>SKZ Consulting, the team behind Tourvia</span></li></ul></div>
     </div>
+  </section>
+
+  <div class="wrap art-body">
+    <article class="prose" aria-labelledby="article-title">
+<h2 id="where-manual-route-planning-breaks-down">Where manual route planning breaks down</h2><p>A rep starts with accounts in Salesforce, moves the addresses into a spreadsheet, copies them into a navigation app and rearranges the stops by eye. After the drive, they return to Salesforce to create Events and write visit notes.</p><p>The work is split across several places:</p><ul>
+<li>account selection happens in Salesforce;</li>
+<li>stop sequencing happens in a spreadsheet or navigation app;</li>
+<li>Events and visit notes are entered later, if the rep has time.</li>
+</ul><p>That separation creates duplicate entry and makes the final report less reliable. The account address, last visit date, opportunity and territory already exist in Salesforce. A route-planning tool should use those records without forcing the rep to rebuild the day elsewhere.</p><h2 id="measure-the-workflow-before-choosing-a-tool">Measure the workflow before choosing a tool</h2><p>Do not start with a generic promise about time or fuel. Record a baseline from the routes your team already runs.</p><ul>
+<li><strong>Planning time:</strong> compare the current manual process with the Tourvia workflow.</li>
+<li><strong>Visit capacity:</strong> measure completed visits per rep during the trial.</li>
+<li><strong>Travel efficiency:</strong> compare distance driven per completed visit.</li>
+<li><strong>Salesforce activity data:</strong> review Event creation and visit-report completeness.</li>
+</ul><p>Record the baseline before the trial, then compare the same measures after the team has tested the workflow on real territories.</p><h2 id="what-to-look-for-in-a-salesforce-route-planning-tool">What to look for in a Salesforce route planning tool</h2><p>Salesforce route planning tools differ in how they access CRM records, create Events, support mobile visits, and report results.</p><h3>Native vs. external</h3><p>An external tool adds a separate login, data exchange, vendor, and support boundary. A Salesforce managed package can read CRM records, create Events, and apply Salesforce access controls. Review any external processing in the vendor DPA.</p><h3>Compare the annual licence cost</h3><p>Pricing is commonly quoted per user per month but billed annually. Calculate the total at your current headcount and the team size you expect next year. Tourvia costs €30 per licensed user per month excluding tax, billed annually.</p><h3>Optimization quality</h3><p>Some tools plot pins without handling route constraints. Tourvia calculates a stop sequence from road data, working hours, time windows, visit duration, lunch breaks, and configured priorities. International coverage depends on available road data, so validate the required territories during the trial.</p><h3>Visit reporting</h3><p>Check what happens after the route is calculated. The evaluation should cover Salesforce Event creation, mobile check-in and check-out, visit reports and the records available to managers.</p><h2 id="step-by-step-planning-an-optimized-day-with-tourvia">Step by step: planning an optimized day with Tourvia</h2><p>Here is how a rep or manager turns selected Salesforce accounts into a scheduled field day.</p><h3>1. Filter accounts on the map</h3><p>Open Tourvia from the Salesforce app launcher. The map loads your accounts (or leads, contacts, or any object with an address). Use list views and filters to narrow down: territory, last visit date, opportunity stage, account type. Only the relevant pins appear on the map.</p><h3>2. Select your stops</h3><p>Click individual pins to add them to your route, or use the <strong>lasso tool</strong> to draw a selection around a geographic area. You can also select stops directly from the list panel. The route panel shows your selected stops in real time.</p><h3>3. Set your constraints</h3><p>Tell the optimizer what it needs to know:</p><ul>
+<li><strong>Departure point and time</strong> (home, office, hotel)</li>
+<li><strong>Lunch break</strong> (optional: fixed time or flexible window)</li>
+<li><strong>End-of-day location</strong> (same as departure or different)</li>
+<li><strong>Visit duration</strong> per stop (default or custom per account)</li>
+</ul><h3>4. Optimize and preview</h3><p>Hit the optimize button. The Tourvia routing engine calculates the visit sequence using real road distances, travel times, and the selected constraints. The result appears on the map as a reordered route with estimated arrival times and total driving time. You can drag stops to adjust manually if needed.</p><h3>5. Create Salesforce Events in bulk</h3><p>Once you are satisfied with the route, one click creates a <strong>Salesforce Event for each stop</strong> with the correct time, duration, and account association. No manual data entry. The events appear in the rep's Salesforce calendar and in any reporting dashboard you have built.</p><h3>6. Export to Google Maps and go mobile</h3><p>For actual turn-by-turn navigation, Tourvia exports the optimized stop sequence directly to <strong>Google Maps</strong> on the rep's phone. The rep taps the export button, Google Maps opens with all stops pre-loaded in the right order, and they start driving. Since field reps spend most of their day in the field rather than at a desk, this mobile-first handoff is critical. The entire execute-and-report loop happens from the phone, not from a laptop back at the office.</p><h2 id="check-in-and-visit-reports">Check-in and visit reports</h2><p>Tourvia can record a GPS-assisted proximity result at check-in and check-out. Treat that location and timestamp as an operational signal, not proof that a customer meeting took place.</p><p>After the visit, the rep can complete a report from the Tourvia workflow. Administrators can also expose Salesforce Screen Flows or Lightning Web Components for actions such as a shelf audit, order form or customer survey.</p><h2 id="measuring-results-with-native-dashboards">Measuring results with native dashboards</h2><p>Because Tourvia writes data back to standard Salesforce objects (Events, custom objects for check-ins), you can build dashboards with native Salesforce reporting tools. No external BI tool required.</p><p>Useful metrics to track:</p><ul>
+<li><strong>Visits per rep per week</strong> (are they increasing?)</li>
+<li><strong>Visit coverage by territory</strong> (are all accounts being touched?)</li>
+<li><strong>Check-in rate</strong> (what percentage of planned visits actually happened?)</li>
+<li><strong>Average time between visits</strong> per key account</li>
+<li><strong>Planned vs. actual visit count</strong> (planning accuracy)</li>
+</ul><p>Choose the measures that match the team's operating goals, then compare them with the baseline recorded before the trial.</p><h2 id="getting-started">Getting started</h2><p>Request a complete 30-day trial and test Tourvia with representative Salesforce records and routes. The setup guide covers Permission Set Groups, map configuration, and the first route.</p><p>Request a complete 30-day trial, then subscribe at <strong>€30/user/month</strong> excluding tax, billed annually, to keep access.</p><div class="next-stop"><div>
+<h3>Test the complete route-to-visit workflow</h3>
+<p>Request a 30-day trial and compare Tourvia with your current process on representative routes.</p>
+
+
+</div><div class="btn-row"><a class="btn btn-primary" href="/#contact">Request trial</a><a class="textlink" href="../salesforce-route-planning.html">See route planning</a></div></div>
+
+    </article>
+    <aside class="art-side"><nav class="on-page" aria-label="On this page"><b>On this page</b><ol><li><a href="#where-manual-route-planning-breaks-down">Where manual route planning breaks down</a></li><li><a href="#measure-the-workflow-before-choosing-a-tool">Measure the workflow before choosing a tool</a></li><li><a href="#what-to-look-for-in-a-salesforce-route-planning-tool">What to look for in a Salesforce route planning tool</a></li><li><a href="#step-by-step-planning-an-optimized-day-with-tourvia">Step by step: planning an optimized day with Tourvia</a></li><li><a href="#check-in-and-visit-reports">Check-in and visit reports</a></li><li><a href="#measuring-results-with-native-dashboards">Measuring results with native dashboards</a></li><li><a href="#getting-started">Getting started</a></li></ol></nav><aside class="docket art-aside"><span class="docket-tag">Quick access</span><h2>Evaluate Tourvia</h2><p>Plan a representative day, create the Salesforce Events, and verify the mobile visit records.</p><ul><li><a href="../pricing.html">See Tourvia pricing</a></li><li><a href="../salesforce-route-planning.html">Explore route planning</a></li><li><a href="/#contact">Request trial</a></li></ul></aside></aside>
   </div>
-</section>
-
-<section class="blog-content" style="padding:60px 0 100px;">
-    <div class="container" style="max-width:800px;">
-
-        <h2>Where manual route planning breaks down</h2>
-        <p>A rep starts with accounts in Salesforce, moves the addresses into a spreadsheet, copies them into a navigation app and rearranges the stops by eye. After the drive, they return to Salesforce to create Events and write visit notes.</p>
-        <p>The work is split across several places:</p>
-        <ul>
-            <li>account selection happens in Salesforce;</li>
-            <li>stop sequencing happens in a spreadsheet or navigation app;</li>
-            <li>Events and visit notes are entered later, if the rep has time.</li>
-        </ul>
-        <p>That separation creates duplicate entry and makes the final report less reliable. The account address, last visit date, opportunity and territory already exist in Salesforce. A route-planning tool should use those records without forcing the rep to rebuild the day elsewhere.</p>
-
-        <h2>Measure the workflow before choosing a tool</h2>
-        <p>Do not start with a generic promise about time or fuel. Record a baseline from the routes your team already runs.</p>
-        <ul>
-            <li><strong>Planning time:</strong> compare the current manual process with the Tourvia workflow.</li>
-            <li><strong>Visit capacity:</strong> measure completed visits per rep during the trial.</li>
-            <li><strong>Travel efficiency:</strong> compare distance driven per completed visit.</li>
-            <li><strong>Salesforce activity data:</strong> review Event creation and visit-report completeness.</li>
-        </ul>
-        <p>Record the baseline before the trial, then compare the same measures after the team has tested the workflow on real territories.</p>
-
-        <h2>What to look for in a Salesforce route planning tool</h2>
-        <p>Salesforce route planning tools differ in how they access CRM records, create Events, support mobile visits, and report results.</p>
-
-        <h3>Native vs. external</h3>
-        <p>An external tool adds a separate login, data exchange, vendor, and support boundary. A Salesforce managed package can read CRM records, create Events, and apply Salesforce access controls. Review any external processing in the vendor DPA.</p>
-
-        <h3>Compare the annual licence cost</h3>
-        <p>Pricing is commonly quoted per user per month but billed annually. Calculate the total at your current headcount and the team size you expect next year. Tourvia costs €30 per licensed user per month excluding tax, billed annually.</p>
-
-        <h3>Optimization quality</h3>
-        <p>Some tools plot pins without handling route constraints. Tourvia calculates a stop sequence from road data, working hours, time windows, visit duration, lunch breaks, and configured priorities. International coverage depends on available road data, so validate the required territories during the trial.</p>
-
-        <h3>Visit reporting</h3>
-        <p>Check what happens after the route is calculated. The evaluation should cover Salesforce Event creation, mobile check-in and check-out, visit reports and the records available to managers.</p>
-
-        <h2>Step by step: planning an optimized day with Tourvia</h2>
-        <p>Here is how a rep or manager turns selected Salesforce accounts into a scheduled field day.</p>
-
-        <h3>1. Filter accounts on the map</h3>
-        <p>Open Tourvia from the Salesforce app launcher. The map loads your accounts (or leads, contacts, or any object with an address). Use list views and filters to narrow down: territory, last visit date, opportunity stage, account type. Only the relevant pins appear on the map.</p>
-
-        <h3>2. Select your stops</h3>
-        <p>Click individual pins to add them to your route, or use the <strong>lasso tool</strong> to draw a selection around a geographic area. You can also select stops directly from the list panel. The route panel shows your selected stops in real time.</p>
-
-        <h3>3. Set your constraints</h3>
-        <p>Tell the optimizer what it needs to know:</p>
-        <ul>
-            <li><strong>Departure point and time</strong> (home, office, hotel)</li>
-            <li><strong>Lunch break</strong> (optional: fixed time or flexible window)</li>
-            <li><strong>End-of-day location</strong> (same as departure or different)</li>
-            <li><strong>Visit duration</strong> per stop (default or custom per account)</li>
-        </ul>
-
-        <h3>4. Optimize and preview</h3>
-        <p>Hit the optimize button. The Tourvia routing engine calculates the visit sequence using real road distances, travel times, and the selected constraints. The result appears on the map as a reordered route with estimated arrival times and total driving time. You can drag stops to adjust manually if needed.</p>
-
-        <h3>5. Create Salesforce Events in bulk</h3>
-        <p>Once you are satisfied with the route, one click creates a <strong>Salesforce Event for each stop</strong> with the correct time, duration, and account association. No manual data entry. The events appear in the rep's Salesforce calendar and in any reporting dashboard you have built.</p>
-
-        <h3>6. Export to Google Maps and go mobile</h3>
-        <p>For actual turn-by-turn navigation, Tourvia exports the optimized stop sequence directly to <strong>Google Maps</strong> on the rep's phone. The rep taps the export button, Google Maps opens with all stops pre-loaded in the right order, and they start driving. Since field reps spend most of their day in the field rather than at a desk, this mobile-first handoff is critical. The entire execute-and-report loop happens from the phone, not from a laptop back at the office.</p>
-
-        <h2>Check-in and visit reports</h2>
-        <p>Tourvia can record a GPS-assisted proximity result at check-in and check-out. Treat that location and timestamp as an operational signal, not proof that a customer meeting took place.</p>
-        <p>After the visit, the rep can complete a report from the Tourvia workflow. Administrators can also expose Salesforce Screen Flows or Lightning Web Components for actions such as a shelf audit, order form or customer survey.</p>
-
-        <h2>Measuring results with native dashboards</h2>
-        <p>Because Tourvia writes data back to standard Salesforce objects (Events, custom objects for check-ins), you can build dashboards with native Salesforce reporting tools. No external BI tool required.</p>
-        <p>Useful metrics to track:</p>
-        <ul>
-            <li><strong>Visits per rep per week</strong> (are they increasing?)</li>
-            <li><strong>Visit coverage by territory</strong> (are all accounts being touched?)</li>
-            <li><strong>Check-in rate</strong> (what percentage of planned visits actually happened?)</li>
-            <li><strong>Average time between visits</strong> per key account</li>
-            <li><strong>Planned vs. actual visit count</strong> (planning accuracy)</li>
-        </ul>
-        <p>Choose the measures that match the team's operating goals, then compare them with the baseline recorded before the trial.</p>
-
-        <h2>Getting started</h2>
-        <p>Request a complete 30-day trial and test Tourvia with representative Salesforce records and routes. The setup guide covers Permission Set Groups, map configuration, and the first route.</p>
-        <p>Request a complete 30-day trial, then subscribe at <strong>&euro;30/user/month</strong> excluding tax, billed annually, to keep access.</p>
-
-        <div class="blog-cta">
-            <h3>Test the complete route-to-visit workflow</h3>
-            <p>Request a 30-day trial and compare Tourvia with your current process on representative routes.</p>
-            <a href="/#contact" class="btn-cta-primary">Request trial</a>
-            <a href="../salesforce-route-planning.html" class="btn-cta-secondary">See route planning</a>
-        </div>
-
-    </div>
-</section>
-
-<footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-        <img src="/assets/logo-site-brand.png" alt="Tourvia" style="width:28px;height:28px;border-radius:8px;"/>
-        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">Tourvia</span>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="28" height="28"/><b>Tourvia</b></a>
+        <p>Salesforce managed package for route planning and field execution. Tourvia is the new product name for RouteForce.</p>
+        <a href="/#contact" class="btn btn-primary">Request a 30-day trial</a>
       </div>
-      <p style="color:#a1a1aa;font-size:0.9rem;line-height:1.6;max-width:280px;margin:0 0 16px;">Salesforce managed package for route planning and field execution.</p>
-      <a href="/#contact" style="display:inline-flex;align-items:center;gap:6px;background:#6366f1;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">Request trial</a>
+      <div class="foot-col">
+        <span class="foot-h">Product</span>
+        <a href="/#features">Features</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/use-cases.html">Use cases</a>
+        <a href="/native-integration-salesforce.html">Integration</a>
+        <a href="/compare.html">Compare</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Resources</span>
+        <a href="/blog/">Blog</a>
+        <a href="/docs/">Docs</a>
+        <a href="/docs/setup-guide.html">Setup guide</a>
+        <a href="/docs/user-guide.html">User guide</a>
+        <a href="/docs/configuration-guide.html">Configuration guide</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Company</span>
+        <a href="mailto:contact@routeforce.app">Contact</a>
+        <a href="/docs/privacy.html">Privacy</a>
+        <a href="/docs/terms.html">Terms</a>
+        <a href="/docs/mentions-legales.html">Legal notice</a>
+        <a href="/docs/cgv.html">CGV</a>
+        <a href="/docs/dpa.html">DPA</a>
+        <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener">Status <span class="dot-ok" aria-hidden="true"></span></a>
+      </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
-      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Product</span>
-      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-      <a href="/use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
-      <a href="/native-integration-salesforce.html" style="color:#a1a1aa;text-decoration:none;">Integration</a>
+    <div class="foot-bottom">
+      <span>&copy; 2026 SKZ Consulting. Tourvia is a product of SKZ Consulting.</span>
+      <span>Salesforce managed package, private AppExchange listing. Salesforce does not endorse or recommend Tourvia.</span>
     </div>
-    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
-      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Resources</span>
-      <a href="/blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
-      <a href="/docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
-      <a href="/pricing.html" style="color:#a1a1aa;text-decoration:none;">Pricing ROI</a>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
-      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Company</span>
-      <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
-      <a href="/docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
-      <a href="/docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
-      <a href="/docs/mentions-legales.html" style="color:#a1a1aa;text-decoration:none;">Legal notice</a>
-      <a href="/docs/cgv.html" style="color:#a1a1aa;text-decoration:none;">CGV</a>
-      <a href="/docs/dpa.html" style="color:#a1a1aa;text-decoration:none;">DPA</a>
-      <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" style="color:#a1a1aa;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Status <span style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span></a>
-    </div>
-  </div>
-  <div style="max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e1e22;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#71717a;font-size:0.8rem;">
-    <span>&copy; 2026 SKZ Consulting. Tourvia is a product of SKZ Consulting.</span>
-    <span>Delivered as an AppExchange managed package.</span>
   </div>
 </footer>
 
-<script>
-window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
-document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach(function(link){
-  link.addEventListener('click',function(){
-    window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
-  });
-});
-</script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to optimize field sales routes in Salesforce (2026 guide)","description":"A practical guide to optimizing field sales routes in Salesforce. Plan routes, create visits, execute, and report, all without leaving Salesforce.","author":{"@type":"Organization","name":"SKZ Consulting","alternateName":"Tourvia"},"publisher":{"@type":"Organization","name":"SKZ Consulting","alternateName":"Tourvia","url":"https://gettourvia.com"},"datePublished":"2026-04-03","dateModified":"2026-07-21","image":"https://gettourvia.com/assets/screenshots-2026/screen-01.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"https://gettourvia.com/blog/optimize-field-sales-routes-salesforce.html"}}
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Tourvia",
+   "item": "https://gettourvia.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Blog",
+   "item": "https://gettourvia.com/blog/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "How to optimize field sales routes in Salesforce (2026 guide)",
+   "item": "https://gettourvia.com/blog/optimize-field-sales-routes-salesforce.html"
+  }
+ ]
+}
 </script>
 </body>
 </html>

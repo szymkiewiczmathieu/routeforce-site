@@ -1,573 +1,439 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>document.documentElement.classList.add('js');</script>
+<script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
 <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
-
-<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Field Sales Route Optimization for Salesforce | Tourvia</title>
-    <meta name="description" content="Plan field sales routes, create Salesforce Events, complete mobile visits, and report from Salesforce with Tourvia.">
-    <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://gettourvia.com/field-sales-route-optimization.html">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Field Sales Route Optimization Software for Salesforce | Route Planning Workflow">
-    <meta property="og:site_name" content="Tourvia">
-    <meta property="og:description" content="Field sales route optimization software for Salesforce teams that need route planning and visit execution inside the CRM. Reduce drive time and improve visit coverage.">
-    <meta property="og:url" content="https://gettourvia.com/field-sales-route-optimization.html">
-    <meta property="og:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg">
-    <meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:title" content="Field Sales Route Optimization Software for Salesforce | Route Planning Workflow"/>
-    <meta name="twitter:description" content="Field sales route optimization software for Salesforce teams that need route planning and visit execution inside the CRM. Reduce drive time and improve visit coverage."/>
-    <meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg"/><link rel="icon" type="image/x-icon" href="favicon.ico">
-    <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>/* dark-page-override */ body{background:#09090b!important;color:#e4e4e7!important} .hero,.blog-hero,.page-hero{background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(99,102,241,0.12),transparent 60%),linear-gradient(180deg,#0d0d12 0%,#09090b 100%)!important} .hero h1,.blog-hero h1,.page-hero h1{color:#fafafa!important} .hero p,.blog-hero p,.page-hero p{color:#a1a1aa!important} .section-header h2{color:#fafafa!important} .section-header p{color:#a1a1aa!important} .feature-card,.trust-card,.pricing-card,.comparison-card,.step-card,.faq-item{background:#18181b!important;border-color:#27272a!important;color:#e4e4e7!important} .feature-card h3,.trust-card h3,.pricing-card h3,.step-card h3{color:#fafafa!important} .feature-card p,.trust-card p,.pricing-card p,.step-card p{color:#a1a1aa!important} .features-section,.trust-section,.comparison-section,.steps-section,.faq-section,.pricing-section{background:#09090b!important} .footer{background:#09090b!important;border-color:#27272a!important} .footer a,.footer p,.footer span{color:#a1a1aa!important} table th{background:#1e1e22!important;color:#fafafa!important;border-color:#27272a!important} table td{background:#131316!important;color:#a1a1aa!important;border-color:#27272a!important} a{color:#9099ff} .btn-primary{background:#6366f1!important;border-color:#6366f1!important} .badge,.tag{background:rgba(99,102,241,0.15)!important;color:#9099ff!important} hr{border-color:#27272a!important} blockquote{border-color:#6366f1!important;background:rgba(99,102,241,0.06)!important;color:#a1a1aa!important} .cta-box,.blog-cta{background:linear-gradient(135deg,#4f46e5,#3730a3)!important} .highlight,.callout,.info-box{background:rgba(99,102,241,0.06)!important;border-color:#6366f1!important}</style>
+<title>Field Sales Route Optimization for Salesforce | Tourvia</title>
+<meta name="description" content="Plan field sales routes, create Salesforce Events, complete mobile visits, and report from Salesforce with Tourvia.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://gettourvia.com/field-sales-route-optimization.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Field Sales Route Optimization Software for Salesforce | Route Planning Workflow">
+<meta property="og:site_name" content="Tourvia">
+<meta property="og:description" content="Field sales route optimization software for Salesforce teams that need route planning and visit execution inside the CRM. Reduce drive time and improve visit coverage.">
+<meta property="og:url" content="https://gettourvia.com/field-sales-route-optimization.html">
+<meta property="og:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg">
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Field Sales Route Optimization Software for Salesforce | Route Planning Workflow"/>
+<meta name="twitter:description" content="Field sales route optimization software for Salesforce teams that need route planning and visit execution inside the CRM. Reduce drive time and improve visit coverage."/>
+<meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/><link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="/assets/css/site.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script defer src="/assets/js/site.js"></script>
 </head>
-<body style="background:#09090b;color:#e4e4e7;">
-<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
-  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
-    <a href="/" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
-      <img src="assets/logo-site-brand.png" alt="Tourvia" style="width:32px;height:32px;border-radius:10px;flex-shrink:0;"/>
-      <span style="font-size:1.125rem;font-weight:700;letter-spacing:-0.02em;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tourvia</span>
-    </a>
-    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.95rem;white-space:nowrap;">
-      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="/#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
-      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-      <a href="use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
-      <a href="blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+<body class="sheet sheet--core">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="32" height="32"/><b>Tourvia</b><small>formerly RouteForce</small></a>
+    <nav class="nav-main" aria-label="Primary">
+      <a class="nav-a" href="/salesforce-route-planning.html" aria-current="page">Route planning</a>
+      <a class="nav-a" href="/pricing.html">Pricing</a>
+      <a class="nav-a" href="/compare.html">Compare</a>
+      <a class="nav-a" href="/use-cases.html">Use cases</a>
+      <a class="nav-a" href="/blog/">Blog</a>
+      <a class="nav-a" href="/docs/">Docs</a>
     </nav>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <a href="docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
-      <a href="/#contact" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request trial</a>
-      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
-        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
-      </button>
+    <div class="head-right">
+      <a class="nav-a head-link" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
+      <a href="/#contact" class="btn btn-primary head-cta">Request a 30-day trial</a>
+      <button id="mobile-menu-btn" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
-    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
-      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="/#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
-      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-      <a href="use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
-      <a href="blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
-      <a href="docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
-      <a href="/#contact" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Request trial</a>
+  <div id="mobile-menu" class="nav-mobile">
+    <nav class="wrap" aria-label="Mobile">
+      <a href="/salesforce-route-planning.html" aria-current="page">Route planning</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/compare.html">Compare</a>
+      <a href="/use-cases.html">Use cases</a>
+      <a href="/blog/">Blog</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
+      <a href="/#contact">Request a 30-day trial</a>
     </nav>
   </div>
-  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
 </header>
 
-    <header class="hero single-column-hero" style="padding-bottom:2rem">
-        <div class="container">
-            <div class="hero-content" style="max-width:900px">
-                <div class="hero-badge">Field sales optimization</div>
-                <h1>Field sales route optimization software for Salesforce teams</h1>
-                <p class="hero-subtitle">Tourvia helps field sales teams cut travel time, build denser days, and create Salesforce events from the optimized route instead of stitching together Maps, CRM, and manual admin.</p>
-                <p style="margin-top:14px;color:#a1a1aa;max-width:760px;line-height:1.75;">Field sales route optimization software is used to choose the right accounts, calculate the visit order, and turn that route into Salesforce activity. Salesforce teams can keep this workflow in the CRM instead of adding a separate routing application.</p>
-                <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0 28px;max-width:900px;">
-                    <div style="background:rgba(99,102,241,0.08);border:1px solid rgba(99,102,241,0.22);border-radius:18px;padding:18px 18px 16px;">
-                        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Planning time</div>
-                        <div style="font-size:1.08rem;font-weight:700;color:#fafafa;line-height:1.35;">From manual route building to one-click optimization</div>
-                        <div style="margin-top:8px;color:#a1a1aa;font-size:0.95rem;">select accounts, optimize the visit order, then create the Salesforce events</div>
-                    </div>
-                    <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:18px 18px 16px;">
-                        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Operational fit</div>
-                        <div style="font-size:1.08rem;font-weight:700;color:#fafafa;line-height:1.35;">Field activity stays inside Salesforce</div>
-                        <div style="margin-top:8px;color:#a1a1aa;font-size:0.95rem;">route planning, visit execution, and reporting remain tied to the CRM workflow</div>
-                    </div>
-                    <div style="background:#111114;border:1px solid #27272a;border-radius:18px;padding:18px 18px 16px;">
-                        <div style="font-size:0.8rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Annual price</div>
-                        <div style="font-size:1.08rem;font-weight:700;color:#fafafa;line-height:1.35;">€30 per user per month</div>
-                        <div style="margin-top:8px;color:#a1a1aa;font-size:0.95rem;">a public EUR 30 per-user monthly price, billed annually</div>
-                    </div>
-                </div>
-                <div class="hero-cta">
-                    <a href="/#contact" class="btn btn-primary btn-lg">Request trial</a>
-                    <a href="pricing.html" class="btn btn-outline btn-lg">See pricing</a>
-                </div>
-                <div style="display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:18px;color:#a1a1aa;font-size:0.92rem;">
-                    <span>Native managed package</span>
-                    <span>One-click Salesforce event creation</span>
-                    <span>EU-hosted routing infrastructure</span>
-                </div>
-            </div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="18" r="2.25"/><circle cx="19" cy="6" r="2.25"/><path d="M6.6 16.4C9 13 8 11 12 11s4.4-2.3 5.4-3.6"/></symbol>
+    <symbol id="i-event" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M9 15l2 2 4-4"/></symbol>
+    <symbol id="i-checkin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></symbol>
+    <symbol id="i-report" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h8l4 4v13H6z"/><path d="M14 3.5v4h4M9 12h6M9 15.5h6"/></symbol>
+    <symbol id="i-heat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c3 3 7 5 7 9.5a7 7 0 0 1-14 0C5 9 9 7 12 4z"/><path d="M12 12c1.5 1.5 3 2.5 3 4a3 3 0 0 1-6 0c0-1.5 1.5-2.5 3-4z"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5h17l-6.5 8v6l-4 2v-8z"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.3-5.7"/><path d="M4 4v4.5h4.5"/><path d="M12 8v4.5l3 1.8"/></symbol>
+    <symbol id="i-campaign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l7 4V6l-7 4z"/><path d="M17 9.5a3.5 3.5 0 0 1 0 5"/></symbol>
+    <symbol id="i-action" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M7 16v-5M12 16V6M17 16v-8"/></symbol>
+    <symbol id="i-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 17.5h2"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  </defs>
+</svg>
+<main id="main" tabindex="-1">
+  <div class="sheet-rail" aria-hidden="true"></div>
+
+  <section class="mast" aria-labelledby="fs-title">
+    <div class="wrap">
+      <div class="mast-copy">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Field sales optimization <small>Route optimization software for Salesforce teams</small></p>
+        <h1 id="fs-title">Field sales route optimization software for Salesforce teams</h1>
+        <p class="lead">Tourvia helps field sales teams cut travel time, build denser days, and create Salesforce events from the optimized route instead of stitching together Maps, CRM, and manual admin.</p>
+        <p>Field sales route optimization software is used to choose the right accounts, calculate the visit order, and turn that route into Salesforce activity. Salesforce teams can keep this workflow in the CRM instead of adding a separate routing application.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="/#contact">Request a 30-day trial</a>
+          <a class="btn btn-secondary" href="/pricing.html">See pricing</a>
         </div>
-    </header>
-
-    <section class="container" style="max-width:920px;margin:0 auto 0;padding:0 1.5rem 1rem;">
-        <div style="background:#111114;border:1px solid #27272a;border-radius:18px;overflow:hidden;box-shadow:0 18px 48px rgba(0,0,0,0.24);">
-            <div style="display:flex;align-items:center;gap:8px;padding:12px 16px;background:#18181b;border-bottom:1px solid #27272a;"><span style="width:10px;height:10px;border-radius:999px;background:rgba(239,68,68,0.7);"></span><span style="width:10px;height:10px;border-radius:999px;background:rgba(245,158,11,0.7);"></span><span style="width:10px;height:10px;border-radius:999px;background:rgba(34,197,94,0.7);"></span><span style="margin-left:12px;color:#a1a1aa;font-size:0.85rem;">Salesforce Lightning, Tourvia route optimization workspace</span></div>
-            <img src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Tourvia route optimization inside Salesforce Lightning with map, filters, and route list" style="display:block;width:100%;height:auto;"/>
-        </div>
-        <p style="margin:12px 0 0;color:#a1a1aa;line-height:1.7;">Tourvia running inside Salesforce Lightning with record filters, map pins, and the route panel visible.</p>
-    </section>
-
-    <article class="container longform-rhythm" style="max-width:800px;margin:0 auto;padding:3rem 1.5rem">
-        <section style="margin-bottom:3rem;background:#111114;border:1px solid #27272a;border-radius:20px;padding:1.6rem;box-shadow:0 18px 48px rgba(0,0,0,0.22);">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:1rem;">
-                <h2 style="margin:0;font-size:1.05rem;color:#fafafa;">Choose the right category</h2>
-                <span style="font-size:0.8rem;color:#a1a1aa;text-transform:uppercase;letter-spacing:0.04em;">Salesforce route planning</span>
-            </div>
-            <p style="margin:0 0 1rem;color:#a1a1aa;line-height:1.75;max-width:760px;">For Salesforce field teams, compare whether route planning, Event creation, mobile visits, and reporting remain connected. If the requirement centres on technician dispatch or emergency scheduling, evaluate a field service platform. See the main <a href="salesforce-route-planning.html" style="color:#6366f1;font-weight:500;">Salesforce route planning page</a>.</p>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:16px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#86efac;margin-bottom:8px;">Tourvia</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;">Salesforce-centered field teams</div>
-                    <div style="margin-top:8px;color:#a1a1aa;font-size:0.94rem;line-height:1.7;">Route planning and visit reporting stay connected to CRM records.</div>
-                </div>
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:16px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Core gain</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;">Optimize the route, then create the day</div>
-                    <div style="margin-top:8px;color:#a1a1aa;font-size:0.94rem;line-height:1.7;">better route quality matters more when the route becomes Salesforce Events in one workflow</div>
-                </div>
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:16px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#fda4af;margin-bottom:8px;">Not designed for</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;">Dispatch-first service operations</div>
-                    <div style="margin-top:8px;color:#a1a1aa;font-size:0.94rem;line-height:1.7;">if SLAs, technician capacity, and emergency rescheduling dominate, use a field service stack</div>
-                </div>
-            </div>
-        </section>
-
-        <section style="margin-bottom:3rem;background:#111114;border:1px solid #27272a;border-radius:20px;padding:1.75rem 1.75rem 1rem;box-shadow:0 18px 48px rgba(0,0,0,0.22);">
-            <h2 style="margin-bottom:0.6rem;">Tourvia in 4 clear answers</h2>
-            <p style="color:#a1a1aa;max-width:720px;margin-bottom:1.5rem;">Tourvia connects account selection, route planning, Salesforce Events, field visits, and reporting.</p>
-            <div class="features-grid">
-                <div class="feature-card"><h3>What is it?</h3><p>Tourvia is Salesforce-native route optimization software built for field sales teams that need planning and execution inside the CRM.</p></div>
-                <div class="feature-card"><h3>Who is it for?</h3><p>For teams that want lower travel time, better visit density, and operational visibility without leaving Salesforce.</p></div>
-                <div class="feature-card"><h3>How much does it cost?</h3><p>€30/user/month excluding tax, billed annually in that standard scope.</p></div>
-                <div class="feature-card"><h3>What is the main benefit?</h3><p>Faster route planning, lower travel time, and one-click Salesforce Event creation from the optimized route.</p></div>
-            </div>
-        </section>
-
-        <section style="margin-bottom:3rem;background:#111114;border:1px solid #27272a;border-radius:20px;padding:1.6rem;box-shadow:0 18px 48px rgba(0,0,0,0.18);">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:1.25rem;">
-                <div style="max-width:720px;">
-                    <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid rgba(99,102,241,0.28);border-radius:999px;background:rgba(99,102,241,0.08);color:#a5b4fc;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;">30-day product trial</div>
-                    <h2 style="margin:0 0 10px;color:#fafafa;">Run the workflow during the 30-day trial</h2>
-                    <p style="margin:0;color:#a1a1aa;line-height:1.75;max-width:760px;">Plan routes with your Salesforce records, create Salesforce Events, and complete a field visit from the mobile app.</p>
-                </div>
-                <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" style="display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border-radius:12px;background:#6366f1;color:#fff;text-decoration:none;font-weight:700;white-space:nowrap;">See AppExchange listing</a>
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:18px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Salesforce workflow</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px;">Routes become Salesforce events in one workflow</div>
-                    <div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7;">That matters more than raw routing math because reps do not have to rebuild the day manually in the CRM.</div>
-                </div>
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:18px;">
-                    <div style="color:#fbbf24;font-size:1rem;margin-bottom:10px;">★★★★★</div>
-                    <p style="margin:0 0 10px;color:#fafafa;font-weight:700;line-height:1.5;">5.0 out of 5 on AppExchange</p>
-                    <p style="margin:0;color:#a1a1aa;line-height:1.7;font-size:0.95rem;">Based on two public reviews, verified 16 July 2026. Open the listing to read them in full.</p>
-                </div>
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:18px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Public price</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px;">€30 per user per month</div>
-                    <div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7;">Multiply the number of licensed users by €360 to calculate the annual subscription excluding tax.</div>
-                </div>
-            </div>
-        </section>
-
-        <nav aria-label="Table of contents" class="premium-toc">
-            <div class="premium-toc-head">
-                <h2 style="font-size:1.1rem;margin-bottom:0;">Table of Contents</h2>
-                <span class="premium-toc-kicker">Field sales guide</span>
-            </div>
-            <ol>
-                <li><a href="#challenge">The field sales routing challenge</a></li>
-                <li><a href="#manual-vs-optimized">Manual planning vs. algorithm optimization</a></li>
-                <li><a href="#switch-triggers">When teams evaluate a switch</a></li>
-                <li><a href="#how-optimization-works">How route optimization works</a></li>
-                <li><a href="#crm-integration">Why CRM integration matters</a></li>
-                <li><a href="#mobile-field">Mobile optimization for the field</a></li>
-                <li><a href="#field-service">Field service route optimization vs field sales</a></li>
-                <li><a href="#roi">What route optimization saves field teams</a></li>
-                <li><a href="#routeforce-approach">The Tourvia approach</a></li>
-                <li><a href="#getting-started">Getting started</a></li>
-                <li><a href="#shortlist-guidance">Who should shortlist Tourvia</a></li>
-                <li><a href="#faq">Frequently asked questions</a></li>
-            </ol>
-        </nav>
-
-        <section id="challenge" style="margin-bottom:3rem">
-            <h2>The field sales routing challenge</h2>
-            <p>Field sales teams decide which accounts to visit and in what order while accounting for travel time, working hours, customer availability and business priorities. Tourvia calculates a workable sequence from those constraints.</p>
-            <p>Most field reps solve this puzzle manually, using experience and intuition. While experienced reps develop good instincts, manual planning has inherent limitations:</p>
-            <ul>
-                <li><strong>Time-consuming:</strong> account selection, route sequencing, and Event creation are repeated manually</li>
-                <li><strong>Suboptimal sequences:</strong> Humans struggle to find the best visiting order when more than 5-6 stops are involved</li>
-                <li><strong>No constraint handling:</strong> Factoring in lunch breaks, time windows, visit durations and return-to-base constraints simultaneously is extremely difficult mentally</li>
-                <li><strong>Static plans:</strong> Manual plans don't adapt easily when a meeting is cancelled or a new priority appears mid-day</li>
-            </ul>
-        </section>
-
-        <section id="manual-vs-optimized" style="margin-bottom:3rem">
-            <h2>Manual planning vs. algorithm optimization</h2>
-            <h3>How most field reps plan today</h3>
-            <ol>
-                <li>Open Salesforce, check which accounts need a visit</li>
-                <li>Open Google Maps in another tab</li>
-                <li>Manually enter each address</li>
-                <li>Try different orderings to minimize drive time</li>
-                <li>Go back to Salesforce, create events for each visit</li>
-                <li>Enter account, contact, time and address for each event</li>
-            </ol>
-            <p>This process takes significant time and produces results that are far from optimal, especially for routes with more than a handful of stops.</p>
-
-            <h3>How algorithm-powered optimization works</h3>
-            <ol>
-                <li>Select accounts to visit on an interactive map (inside Salesforce)</li>
-                <li>Set constraints: start time, end time, lunch break, visit duration</li>
-                <li>Click "Optimize route": the algorithm calculates the best sequence</li>
-                <li>Review the optimized route on the map</li>
-                <li>Click "Create events": all Salesforce events are created in one click</li>
-            </ol>
-            <p>The rep reviews one route that accounts for the configured working hours, visit durations, breaks, and time constraints before creating Salesforce Events.</p>
-        </section>
-
-        <section style="margin-bottom:3rem;background:#111114;border:1px solid #27272a;border-radius:20px;padding:1.5rem 1.5rem 1.2rem;box-shadow:0 18px 48px rgba(0,0,0,0.18);">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:1rem;">
-                <h2 style="font-size:1.05rem;margin:0;color:#fafafa;">Product scope</h2>
-                <span style="font-size:0.8rem;color:#a1a1aa;text-transform:uppercase;letter-spacing:0.04em;">What Tourvia is built for</span>
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:16px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Salesforce teams</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;">Teams already working in Salesforce</div>
-                    <div style="margin-top:8px;color:#a1a1aa;font-size:0.92rem;">Planning, visit execution, and reporting stay inside the CRM.</div>
-                </div>
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:16px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Why it moves</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;">Time saved becomes extra visits</div>
-                    <div style="margin-top:8px;color:#a1a1aa;font-size:0.92rem;">less manual planning and less re-entry in Salesforce gives reps more field time</div>
-                </div>
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:16px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Next step</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;">Validate the workflow during the trial</div>
-                    <div style="margin-top:8px;color:#a1a1aa;font-size:0.92rem;">test installation, route planning, mobile visits, reporting, and the annual seat cost</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="switch-triggers" style="margin-bottom:3rem;background:#111114;border:1px solid #27272a;border-radius:20px;padding:1.6rem;box-shadow:0 18px 48px rgba(0,0,0,0.18);">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:1.25rem;">
-                <div style="max-width:760px;">
-                    <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid rgba(99,102,241,0.28);border-radius:999px;background:rgba(99,102,241,0.08);color:#a5b4fc;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px;">Why teams switch</div>
-                    <h2 style="margin:0 0 10px;color:#fafafa;">When teams evaluate a switch</h2>
-                    <p style="margin:0;color:#a1a1aa;line-height:1.75;max-width:760px;">Field sales teams switch when manual planning wastes rep time, visit coverage becomes inconsistent, or route data has to be copied between Salesforce and another tool.</p>
-                </div>
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:18px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#86efac;margin-bottom:8px;">For reps</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px;">Too much morning planning and re-entry</div>
-                    <div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7;">The pain is not just building a route. It is rebuilding the day across Google Maps, Salesforce, and manual Event creation.</div>
-                </div>
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:18px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#fcd34d;margin-bottom:8px;">For managers</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px;">Coverage varies too much by rep</div>
-                    <div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7;">When planning quality depends on territory memory alone, visit density, repeat coverage, and reporting discipline drift fast.</div>
-                </div>
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:18px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">For finance and ops</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px;">Annual cost is easy to calculate</div>
-                    <div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7;">Each licensed user costs €360 excluding tax per year. Ten users cost €3,600; twenty cost €7,200.</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="how-optimization-works" style="margin-bottom:3rem">
-            <h2>How route optimization works</h2>
-            <p>Tourvia operates a constraint-aware routing engine designed for field sales workloads. It handles:</p>
-            <ul>
-                <li><strong>GPS coordinates:</strong> Each Salesforce account's Latitude/Longitude (geocoded in Salesforce)</li>
-                <li><strong>Time windows:</strong> Start time, end time, appointment slots</li>
-                <li><strong>Service duration:</strong> How long each visit takes</li>
-                <li><strong>Break constraints:</strong> Lunch break timing and duration</li>
-                <li><strong>Travel time matrix:</strong> Realistic driving times between all points</li>
-            </ul>
-            <p>The engine combines road travel times and distances with the constraints configured for the field day.</p>
-            <p>Tourvia operates the routing infrastructure in France (OVHcloud Gravelines). This means:</p>
-            <ul>
-                <li>No dependency on Google Maps or any paid third-party service</li>
-                <li>No per-calculation charges</li>
-                <li>Worldwide coverage, from Europe to Asia, Africa, Americas and Oceania</li>
-                <li>EU-hosted routing infrastructure for organizations that care about data residency</li>
-            </ul>
-        </section>
-
-        <section id="crm-integration" style="margin-bottom:3rem">
-            <h2>Why CRM integration matters</h2>
-            <p>Route optimization in isolation, without CRM integration, solves only half the problem. The real value comes from connecting route planning with your customer data.</p>
-
-            <h3>CRM-aware filtering</h3>
-            <p>Before planning a route, filter accounts by any Salesforce field: last visit date, account type, revenue, territory, owner. This ensures you're visiting the right accounts, not just the nearest ones.</p>
-
-            <h3>Automatic event creation</h3>
-            <p>The biggest time saver is creating Salesforce Events in bulk. After optimizing a route, one click creates all calendar events with the correct account, contact, time slot and address. No manual data entry.</p>
-
-            <h3>Visit history and coverage analysis</h3>
-            <p>When route data lives in Salesforce, managers can build reports and dashboards showing visited accounts, visit frequency, under-covered territories, and field-time allocation.</p>
-
-            <h3>Permission-aware access</h3>
-            <p>A native Salesforce route planner respects your org's security model. Reps see only the accounts they have access to. Sharing rules, profiles and field-level security all apply.</p>
-        </section>
-
-        <section id="mobile-field" style="margin-bottom:3rem">
-            <h2>Mobile optimization for the field</h2>
-            <p>Field sales reps work on smartphones and tablets, not desktop computers. A route optimization tool must work well on mobile to be useful in the field.</p>
-
-            <h3>Key mobile capabilities</h3>
-            <ul>
-                <li><strong>Responsive interface:</strong> Map and controls adapt to smaller screens with a bottom-sheet panel design</li>
-                <li><strong>GPS geolocation:</strong> Tap a button to see all Salesforce accounts within a configurable radius around your current position</li>
-                <li><strong>Navigation handoff:</strong> Send the optimized route to Google Maps or Waze for turn-by-turn navigation</li>
-                <li><strong>Works in Salesforce Mobile:</strong> Teams can use it inside the Salesforce mobile environment instead of rolling out a separate field sales app</li>
-            </ul>
-
-            <h3>Nearby accounts: the impromptu visit feature</h3>
-            <p>One of the most valuable field features is finding nearby accounts. When a meeting finishes early or gets cancelled, reps can instantly see which Salesforce accounts are nearby and add a spontaneous visit to their day.</p>
-        </section>
-
-        <section id="field-service" style="margin-bottom:3rem">
-            <h2>Field service route optimization vs field sales</h2>
-            <p>The terms "field service route optimization" and "field sales route optimization" are sometimes used interchangeably, but they describe different workflows with different priorities.</p>
-
-            <h3>Field service: technicians, SLAs, and emergency dispatch</h3>
-            <p>Field service teams send technicians to customer sites for installation, maintenance, or repair. Their scheduling is driven by <strong>service-level agreements (SLAs)</strong>, equipment availability, and skill-based assignment. A broken HVAC unit in July cannot wait until Thursday because the route looks better that day. Dispatchers need to handle emergency calls mid-day, reassign jobs when a technician runs late, and track parts inventory per van.</p>
-            <p>Dedicated field service platforms like ServiceTitan and WorkWave are built for exactly this. They include dispatch boards, work order management, parts tracking, and customer self-service portals. If your team's primary job is reactive maintenance with strict SLA windows, those tools are worth evaluating.</p>
-
-            <h3>Field sales: account visits, relationships, and territory coverage</h3>
-            <p>Field sales teams visit prospects and existing customers to build relationships, close deals, and ensure account coverage across a territory. Their planning is driven by <strong>pipeline value, visit frequency targets, and geographic density</strong>. A rep might need to visit 8 accounts in Lyon this week, prioritized by deal stage and days since last contact. There is rarely an emergency dispatch scenario.</p>
-
-            <h3>When one tool can serve both</h3>
-            <p>Some organizations have hybrid teams. A medical device company might send the same rep to both sell new equipment and check on installed units. A building materials distributor might combine sales calls with delivery coordination. If these teams already use Salesforce as their system of record, a single route optimization tool inside the CRM can handle both visit types. Tourvia works for any Salesforce account-based visit planning, whether the visit is a sales call, a service check, or a delivery confirmation. The key requirement is that the accounts and contacts live in Salesforce.</p>
-        </section>
-
-        <section id="roi" style="margin-bottom:3rem">
-            <h2>Measure the result against your own baseline</h2>
-            <p>Tourvia does not publish a universal ROI benchmark. Territory density, current planning habits, visit duration, and customer availability all affect the result.</p>
-            <p>Use the 30-day trial to compare four measures before and after deployment:</p>
-            <ul>
-                <li>weekly planning time per rep;</li>
-                <li>distance driven per completed visit;</li>
-                <li>visits completed per rep;</li>
-                <li>time spent creating and updating Salesforce Events.</li>
-            </ul>
-            <p>For 10 licensed users, Tourvia costs €3,600 excluding tax per year. Compare that fixed annual budget with the measured time, mileage, and visit-capacity changes from your pilot.</p>
-        </section>
-
-        <section id="routeforce-approach" style="margin-bottom:3rem">
-            <h2>The Tourvia approach</h2>
-            <p>Tourvia is delivered as a Salesforce managed package. Reps plan and execute visits in Salesforce, while route calculations are processed by Tourvia infrastructure hosted in France.</p>
-            <p>The workflow keeps route planning, Event creation, mobile execution, and reporting attached to the Salesforce records that drive the day.</p>
-
-            <h3>What makes it different</h3>
-            <ul>
-                <li><strong>Salesforce workflow:</strong> Lightning components, Salesforce records, Events, reports, and Permission Set Groups</li>
-                <li><strong>Per-user pricing:</strong> €30/user/month billed annually at €360/user/year per licensed user.</li>
-                <li><strong>Tourvia routing service:</strong> Routing infrastructure hosted in France, with processing described in the DPA</li>
-                <li><strong>International routing:</strong> Availability depends on the road-data coverage for the relevant territory</li>
-                <li><strong>Multi-language:</strong> Interface available in French, English and Spanish</li>
-                <li><strong>EU-hosted routing infrastructure:</strong> Route calculations run on infrastructure hosted in France, which supports EU data residency goals</li>
-            </ul>
-
-            <div style="background:#f0f0ff;border-radius:12px;padding:1.5rem;margin:2rem 0;border-left:4px solid #6366f1">
-                <p style="margin:0;font-weight:600;color:#1e293b">Built for Salesforce field teams</p>
-                <p style="margin:0.5rem 0 0;color:#475569">Tourvia is for organizations that already use Salesforce and need route optimization with predictable costs and €30/user/month.</p>
-            </div>
-        </section>
-
-        <section id="getting-started" style="margin-bottom:3rem">
-            <h2>Getting started</h2>
-            <ol>
-                <li><strong>Request a 30-day trial via the contact form</strong>. Validate fit inside your Salesforce org first</li>
-                <li><strong>Configuration:</strong> Your Salesforce admin installs the managed package and configures filters and permissions</li>
-                <li><strong>Adoption:</strong> Your team uses the included documentation</li>
-                <li><strong>Subscribe to continue:</strong> Keep the complete feature set after the trial</li>
-            </ol>
-            <p>The customer controls the rollout timeline. Installation and configuration are documented for the Salesforce admin.</p>
-        </section>
-
-        <section id="shortlist-guidance" style="margin-bottom:3rem;background:#111114;border:1px solid #27272a;border-radius:18px;padding:1.6rem;box-shadow:0 18px 48px rgba(0,0,0,0.18)">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap;margin-bottom:1.25rem">
-                <div style="max-width:760px">
-                    <div style="display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border:1px solid rgba(99,102,241,0.28);border-radius:999px;background:rgba(99,102,241,0.08);color:#a5b4fc;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:14px">Product scope</div>
-                    <h2 style="margin:0 0 10px;color:#fafafa">Who Tourvia is built for</h2>
-                    <p style="margin:0;color:#a1a1aa;line-height:1.75;max-width:760px">Tourvia is built for Salesforce-led field sales and recurring customer visits. It is not a technician dispatch or service appointment orchestration product.</p>
-                </div>
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px">
-                <div style="background:#18181b;border:1px solid rgba(16,185,129,0.25);border-radius:16px;padding:18px">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#6ee7b7;margin-bottom:8px">Salesforce field sales</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px">Account-based field sales inside Salesforce</div>
-                    <div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7">Reps plan visits from Salesforce accounts, create Events, log outcomes, and give managers reportable CRM data.</div>
-                </div>
-                <div style="background:#18181b;border:1px solid rgba(16,185,129,0.25);border-radius:16px;padding:18px">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#6ee7b7;margin-bottom:8px">Predictable pricing</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px">Teams that want predictable rollout economics</div>
-                    <div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7">Public per-user pricing lets managers, admins, and finance calculate the annual subscription directly.</div>
-                </div>
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:18px">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#fda4af;margin-bottom:8px">Use a different category</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.4;margin-bottom:8px">Emergency dispatch or field service SLAs</div>
-                    <div style="color:#a1a1aa;font-size:0.95rem;line-height:1.7">If you need live dispatching, technician skills matrices, or service appointment orchestration, use a dedicated field service stack instead.</div>
-                </div>
-            </div>
-        </section>
-
-        <section id="faq" style="margin-bottom:3rem">
-            <h2>Frequently asked questions</h2>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false"><span>How many stops can Tourvia optimize in one route?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                    <div class="faq-answer"><p>Tourvia handles typical field sales routes and processes multi-stop plans with time, duration, and travel constraints.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false"><span>Does Tourvia work outside of Europe?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                    <div class="faq-answer"><p>Tourvia supports international routing where the required road data is available. Validate the relevant territories during the 30-day trial.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false"><span>Can I use Tourvia on my phone?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                    <div class="faq-answer"><p>Yes. Tourvia is designed for the Salesforce Mobile App. Depending on your setup, teams can access GPS geolocation, nearby accounts, and navigation handoff to Google Maps or Waze.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false"><span>What Salesforce objects does Tourvia use?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                    <div class="faq-answer"><p>Tourvia works with Account, Lead, Opportunity and Campaign Member records. It creates standard Salesforce Events for scheduled visits. No custom objects are required for basic usage.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false"><span>How does field service route optimization differ from sales route optimization?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                    <div class="faq-answer"><p>Field service optimization focuses on technician dispatch, SLA compliance, emergency rescheduling, and parts tracking. Sales route optimization focuses on account coverage, visit frequency, territory planning, and pipeline-driven prioritization. Both benefit from algorithmic routing, but the scheduling constraints and business rules differ. Tools like ServiceTitan and WorkWave specialize in field service dispatch, while Tourvia is built for Salesforce-based sales and hybrid teams.</p></div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false"><span>What ROI can I expect from route optimization software?</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
-                    <div class="faq-answer"><p>ROI depends on team density, travel patterns, and current planning discipline. Use the trial to measure planning time, distance per completed visit, completed visits, and reporting completeness against your baseline.</p></div>
-                </div>
-            </div>
-        </section>
-
-        <section style="margin:3rem 0;background:#111114;border:1px solid #27272a;border-radius:18px;padding:1.6rem;box-shadow:0 18px 48px rgba(0,0,0,0.18)">
-            <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:1rem;">
-                <h2 style="font-size:1.05rem;margin:0;color:#fafafa;">Three checks before you subscribe</h2>
-                <span style="font-size:0.8rem;color:#a1a1aa;text-transform:uppercase;letter-spacing:0.04em;">Decision checklist</span>
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;">
-                <div style="background:#18181b;border:1px solid rgba(99,102,241,0.22);border-radius:16px;padding:16px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Execution</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;">Can the optimized route turn into a usable Salesforce day without re-entry?</div>
-                </div>
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:16px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Economics</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;">What is the annual subscription for every licensed user who needs Tourvia?</div>
-                </div>
-                <div style="background:#18181b;border:1px solid #27272a;border-radius:16px;padding:16px;">
-                    <div style="font-size:0.78rem;letter-spacing:0.04em;text-transform:uppercase;color:#a5b4fc;margin-bottom:8px;">Team fit</div>
-                    <div style="font-size:1rem;font-weight:700;color:#fafafa;line-height:1.35;">Is this a Salesforce-led field team, not a dispatch-first service operation?</div>
-                </div>
-            </div>
-        </section>
-
-        <div style="background:linear-gradient(135deg,#6366f1,#8b5cf6);border-radius:16px;padding:2.5rem;text-align:center;color:#fff;margin:3rem 0">
-            <h2 style="color:#fff;margin-bottom:0.5rem">Test the Account-to-Event workflow in your Salesforce org</h2>
-            <p style="opacity:0.9;margin-bottom:1.5rem;max-width:720px;margin-left:auto;margin-right:auto;">Request a complete 30-day trial and validate the route-to-visit workflow with your own Salesforce records.</p>
-            <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
-                <a href="/#contact" class="btn btn-primary btn-lg" style="background:#ffffff;color:#1e1b4b !important;border:2px solid #ffffff;display:inline-flex;align-items:center;justify-content:center;font-weight:800;box-shadow:0 14px 34px rgba(15,23,42,0.22);border-radius:10px">Request trial</a>
-                <a href="pricing.html" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,0.55);color:#fff;">See pricing</a>
-            </div>
-        </div>
-
-        <nav style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;margin-top:2rem">
-            <a href="salesforce-route-planning.html" style="color:#6366f1">← Salesforce route planning</a>
-            <a href="visit-planning-salesforce.html" style="color:#6366f1">Visit planning for Salesforce →</a>
-        </nav>
-    </article>
-
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-        {"@type":"Question","name":"What is field sales route optimization software?","acceptedAnswer":{"@type":"Answer","text":"Field sales route optimization software helps reps choose the right accounts, calculate the most efficient visit order, and turn that route into an executable day plan."}},
-        {"@type":"Question","name":"Does Tourvia work outside of Europe?","acceptedAnswer":{"@type":"Answer","text":"Tourvia supports international routing where the required road data is available. Validate the relevant territories during the 30-day trial."}},
-        {"@type":"Question","name":"Can I use Tourvia on my phone?","acceptedAnswer":{"@type":"Answer","text":"Yes. Tourvia is designed to work in the Salesforce mobile experience and in mobile browsers. Depending on your setup, teams can access GPS geolocation, nearby accounts, and navigation handoff."}},
-        {"@type":"Question","name":"What Salesforce objects does Tourvia use?","acceptedAnswer":{"@type":"Answer","text":"Standard Account object with Contact sub-queries. Creates standard Salesforce Events for scheduled visits."}},
-        {"@type":"Question","name":"How does field service route optimization differ from sales route optimization?","acceptedAnswer":{"@type":"Answer","text":"Field service optimization focuses on technician dispatch, SLA compliance, and emergency rescheduling. Sales route optimization focuses on account coverage, visit frequency, and pipeline-driven prioritization. Both benefit from algorithmic routing, but the scheduling constraints differ."}},
-        {"@type":"Question","name":"How should I measure ROI from route optimization software?","acceptedAnswer":{"@type":"Answer","text":"ROI depends on territory density, current planning habits, and visit frequency. Use the 30-day trial to compare planning time, distance driven per completed visit, visits completed, and time spent creating Salesforce Events."}}
-    ]}
-    </script>
-    <script type="application/ld+json">
-    {"@context":"https://schema.org","@type":"ItemList","name":"Field sales route optimization workflow in Tourvia","itemListElement":[
-        {"@type":"ListItem","position":1,"name":"Select the right Salesforce accounts on the map"},
-        {"@type":"ListItem","position":2,"name":"Set route constraints and optimize the visit order"},
-        {"@type":"ListItem","position":3,"name":"Create Salesforce Events from the optimized route"},
-        {"@type":"ListItem","position":4,"name":"Execute visits and keep reporting inside Salesforce"}
-    ]}
-    </script>
-
-<section style="max-width:800px;margin:0 auto 3rem;padding:0 24px;">
-  <h2 style="font-size:1.25rem;font-weight:700;color:#fafafa;margin-bottom:1rem;">Related pages</h2>
-  <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:10px;">
-    <li><a href="salesforce-route-planning.html" style="color:#9099ff;text-decoration:none;">Salesforce route planning: native route planner for field teams &rarr;</a></li>
-    <li><a href="visit-planning-salesforce.html" style="color:#9099ff;text-decoration:none;">Visit planning for Salesforce: automate field visit scheduling &rarr;</a></li>
-    <li><a href="blog/salesforce-maps-alternatives-compared.html" style="color:#9099ff;text-decoration:none;">Salesforce Maps alternatives compared for field teams &rarr;</a></li>
-    <li><a href="blog/optimize-field-sales-routes-salesforce.html" style="color:#9099ff;text-decoration:none;">How to optimize field sales routes in Salesforce (2026 guide) &rarr;</a></li>
-    <li><a href="blog/sales-route-planner.html" style="color:#9099ff;text-decoration:none;">Sales route planner: what teams should compare before they buy &rarr;</a></li>
-    <li><a href="blog/route-optimization-software.html" style="color:#9099ff;text-decoration:none;">Route optimization software buyer's guide (2026) &rarr;</a></li>
-    <li><a href="blog/routeforce-vs-badger-maps.html" style="color:#9099ff;text-decoration:none;">Tourvia vs Badger Maps: detailed comparison &rarr;</a></li>
-    <li><a href="blog/salesforce-maps-pricing-breakdown.html" style="color:#9099ff;text-decoration:none;">Salesforce Maps pricing breakdown: what it actually costs &rarr;</a></li>
-  </ul>
-</section>
-
-    <footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-        <img src="/assets/logo-site-brand.png" alt="Tourvia" style="width:28px;height:28px;border-radius:8px;"/>
-        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">Tourvia</span>
+        <ul class="facts-strip" aria-label="Key facts">
+          <li>Native managed package</li>
+          <li>One-click Salesforce event creation</li>
+          <li>EU-hosted routing infrastructure</li>
+        </ul>
       </div>
-      <p style="color:#a1a1aa;font-size:0.9rem;line-height:1.6;max-width:280px;margin:0 0 16px;">Salesforce managed package for route planning and field execution.</p>
-      <a href="/#contact" style="display:inline-flex;align-items:center;gap:6px;background:#6366f1;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">Request trial</a>
+      <div class="mast-side">
+        <aside class="docket" aria-label="What changes with Tourvia">
+          <span class="docket-tag">What changes</span>
+          <dl>
+            <div><dt>Planning time</dt><dd><b>From manual route building to one-click optimization.</b> Select accounts, optimize the visit order, then create the Salesforce events.</dd></div>
+            <div><dt>Operational fit</dt><dd><b>Field activity stays inside Salesforce.</b> Route planning, visit execution, and reporting remain tied to the CRM workflow.</dd></div>
+            <div><dt>Annual price</dt><dd><b>€30 per user per month.</b> A public EUR 30 per-user monthly price, billed annually.</dd></div>
+          </dl>
+        </aside>
+      </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
-      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Product</span>
-      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-      <a href="/use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
-      <a href="/native-integration-salesforce.html" style="color:#a1a1aa;text-decoration:none;">Integration</a>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
-      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Resources</span>
-      <a href="/blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
-      <a href="/docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
-      <a href="/pricing.html" style="color:#a1a1aa;text-decoration:none;">Pricing ROI</a>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
-      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Company</span>
-      <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
-      <a href="/docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
-      <a href="/docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
-      <a href="/docs/mentions-legales.html" style="color:#a1a1aa;text-decoration:none;">Legal notice</a>
-      <a href="/docs/cgv.html" style="color:#a1a1aa;text-decoration:none;">CGV</a>
-      <a href="/docs/dpa.html" style="color:#a1a1aa;text-decoration:none;">DPA</a>
-      <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" style="color:#a1a1aa;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Status <span style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span></a>
-    </div>
+  </section>
+
+  <section class="sec-tight" aria-label="Product screenshot">
+    <div class="wrap">
+      <figure class="">
+  <div class="plate">
+    <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-user/routeforce-salesforce-map-ui.jpg" data-lightbox-alt="Tourvia route optimization inside Salesforce Lightning with map, filters, and route list" aria-label="Enlarge the screenshot">
+      <img src="/assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Tourvia route optimization inside Salesforce Lightning with map, filters, and route list" width="1280" height="644" loading="lazy" decoding="async"/>
+    </button>
   </div>
-  <div style="max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e1e22;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#71717a;font-size:0.8rem;">
-    <span>&copy; 2026 SKZ Consulting. Tourvia is a product of SKZ Consulting.</span>
-    <span>Delivered as an AppExchange managed package.</span>
+  <figcaption class="fig-cap"><i>Fig. 1</i>Tourvia running inside Salesforce Lightning with record filters, map pins, and the route panel visible. Select the image to enlarge it.</figcaption>
+</figure>
+    </div>
+  </section>
+
+  <section class="sec ticks band-2" id="category" aria-labelledby="cat-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Salesforce route planning</p>
+        <h2 id="cat-title">Choose the right category</h2>
+        <p>For Salesforce field teams, compare whether route planning, Event creation, mobile visits, and reporting remain connected. If the requirement centres on technician dispatch or emergency scheduling, evaluate a field service platform. See the main <a href="/salesforce-route-planning.html">Salesforce route planning page</a>.</p>
+      </div>
+      <ul class="brief">
+        <li><span class="brief-label">Tourvia</span><h3>Salesforce-centered field teams</h3><p>Route planning and visit reporting stay connected to CRM records.</p></li>
+        <li><span class="brief-label">Core gain</span><h3>Optimize the route, then create the day</h3><p>Better route quality matters more when the route becomes Salesforce Events in one workflow.</p></li>
+        <li><span class="brief-label">Not designed for</span><h3>Dispatch-first service operations</h3><p>If SLAs, technician capacity, and emergency rescheduling dominate, use a field service stack.</p></li>
+      </ul>
+      <div class="brief-head"><h2>Tourvia in 4 clear answers</h2><span class="mark">Tourvia connects account selection, route planning, Salesforce Events, field visits, and reporting</span></div>
+      <ul class="brief">
+        <li><h3>What is it?</h3><p>Tourvia is Salesforce-native route optimization software built for field sales teams that need planning and execution inside the CRM.</p></li>
+        <li><h3>Who is it for?</h3><p>For teams that want lower travel time, better visit density, and operational visibility without leaving Salesforce.</p></li>
+        <li><h3>How much does it cost?</h3><p>€30/user/month excluding tax, billed annually in that standard scope.</p></li>
+        <li><h3>What is the main benefit?</h3><p>Faster route planning, lower travel time, and one-click Salesforce Event creation from the optimized route.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec ticks" id="trial" aria-labelledby="trial-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">30-day product trial</p>
+        <h2 id="trial-title">Run the workflow during the 30-day trial</h2>
+        <p>Plan routes with your Salesforce records, create Salesforce Events, and complete a field visit from the mobile app.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Salesforce workflow</dt><dd><b>Routes become Salesforce events in one workflow.</b> That matters more than raw routing math because reps do not have to rebuild the day manually in the CRM.</dd></div>
+        <div><dt>Rating</dt><dd><span class="stars" aria-hidden="true">★★★★★</span> <b class="num">5.0 out of 5 on AppExchange</b>, based on two public reviews, verified 16 July 2026. <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Open the listing</a> to read them in full.</dd></div>
+        <div><dt>Public price</dt><dd><b>€30 per user per month.</b> Multiply the number of licensed users by €360 to calculate the annual subscription excluding tax.</dd></div>
+        <div><dt>Listing</dt><dd><a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">See the private AppExchange listing</a>. Access is coordinated with your Salesforce admin after a trial request.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec ticks band-2" aria-label="Field sales route optimization guide">
+    <div class="wrap longform">
+      <nav class="on-page" aria-label="Table of contents">
+        <b>Field sales guide</b>
+        <ol><li><a href="#challenge">The field sales routing challenge</a></li><li><a href="#manual-vs-optimized">Manual planning vs. algorithm optimization</a></li><li><a href="#switch-triggers">When teams evaluate a switch</a></li><li><a href="#how-optimization-works">How route optimization works</a></li><li><a href="#crm-integration">Why CRM integration matters</a></li><li><a href="#mobile-field">Mobile optimization for the field</a></li><li><a href="#field-service">Field service route optimization vs field sales</a></li><li><a href="#roi">What route optimization saves field teams</a></li><li><a href="#routeforce-approach">The Tourvia approach</a></li><li><a href="#getting-started">Getting started</a></li><li><a href="#shortlist-guidance">Who should shortlist Tourvia</a></li><li><a href="#faq">Frequently asked questions</a></li></ol>
+      </nav>
+      <div class="prose">
+        <span class="stop" aria-hidden="true"></span>
+        <h2 id="challenge">The field sales routing challenge</h2>
+        <p>Field sales teams decide which accounts to visit and in what order while accounting for travel time, working hours, customer availability and business priorities. Tourvia calculates a workable sequence from those constraints.</p>
+        <p>Most field reps solve this puzzle manually, using experience and intuition. While experienced reps develop good instincts, manual planning has inherent limitations:</p>
+        <ul>
+          <li><strong>Time-consuming:</strong> account selection, route sequencing, and Event creation are repeated manually</li>
+          <li><strong>Suboptimal sequences:</strong> Humans struggle to find the best visiting order when more than 5-6 stops are involved</li>
+          <li><strong>No constraint handling:</strong> Factoring in lunch breaks, time windows, visit durations and return-to-base constraints simultaneously is extremely difficult mentally</li>
+          <li><strong>Static plans:</strong> Manual plans don't adapt easily when a meeting is cancelled or a new priority appears mid-day</li>
+        </ul>
+
+        <h2 id="manual-vs-optimized">Manual planning vs. algorithm optimization</h2>
+        <h3>How most field reps plan today</h3>
+        <ol>
+          <li>Open Salesforce, check which accounts need a visit</li>
+          <li>Open Google Maps in another tab</li>
+          <li>Manually enter each address</li>
+          <li>Try different orderings to minimize drive time</li>
+          <li>Go back to Salesforce, create events for each visit</li>
+          <li>Enter account, contact, time and address for each event</li>
+        </ol>
+        <p>This process takes significant time and produces results that are far from optimal, especially for routes with more than a handful of stops.</p>
+        <h3>How algorithm-powered optimization works</h3>
+        <ol>
+          <li>Select accounts to visit on an interactive map (inside Salesforce)</li>
+          <li>Set constraints: start time, end time, lunch break, visit duration</li>
+          <li>Click "Optimize route": the algorithm calculates the best sequence</li>
+          <li>Review the optimized route on the map</li>
+          <li>Click "Create events": all Salesforce events are created in one click</li>
+        </ol>
+        <p>The rep reviews one route that accounts for the configured working hours, visit durations, breaks, and time constraints before creating Salesforce Events.</p>
+
+        <div class="brief-head"><h2 id="product-scope">Product scope</h2><span class="mark">What Tourvia is built for</span></div>
+        <ul class="brief">
+          <li><span class="brief-label">Salesforce teams</span><h3>Teams already working in Salesforce</h3><p>Planning, visit execution, and reporting stay inside the CRM.</p></li>
+          <li><span class="brief-label">Why it moves</span><h3>Time saved becomes extra visits</h3><p>Less manual planning and less re-entry in Salesforce gives reps more field time.</p></li>
+          <li><span class="brief-label">Next step</span><h3>Validate the workflow during the trial</h3><p>Test installation, route planning, mobile visits, reporting, and the annual seat cost.</p></li>
+        </ul>
+
+        <h2 id="switch-triggers">When teams evaluate a switch</h2>
+        <p>Field sales teams switch when manual planning wastes rep time, visit coverage becomes inconsistent, or route data has to be copied between Salesforce and another tool.</p>
+        <ul class="brief">
+          <li><span class="brief-label">For reps</span><h3>Too much morning planning and re-entry</h3><p>The pain is not just building a route. It is rebuilding the day across Google Maps, Salesforce, and manual Event creation.</p></li>
+          <li><span class="brief-label">For managers</span><h3>Coverage varies too much by rep</h3><p>When planning quality depends on territory memory alone, visit density, repeat coverage, and reporting discipline drift fast.</p></li>
+          <li><span class="brief-label">For finance and ops</span><h3>Annual cost is easy to calculate</h3><p>Each licensed user costs €360 excluding tax per year. Ten users cost €3,600; twenty cost €7,200.</p></li>
+        </ul>
+
+        <h2 id="how-optimization-works">How route optimization works</h2>
+        <p>Tourvia operates a constraint-aware routing engine designed for field sales workloads. It handles:</p>
+        <ul>
+          <li><strong>GPS coordinates:</strong> Each Salesforce account's Latitude/Longitude (geocoded in Salesforce)</li>
+          <li><strong>Time windows:</strong> Start time, end time, appointment slots</li>
+          <li><strong>Service duration:</strong> How long each visit takes</li>
+          <li><strong>Break constraints:</strong> Lunch break timing and duration</li>
+          <li><strong>Travel time matrix:</strong> Realistic driving times between all points</li>
+        </ul>
+        <p>The engine combines road travel times and distances with the constraints configured for the field day.</p>
+        <p>Tourvia operates the routing infrastructure in France (OVHcloud Gravelines). This means:</p>
+        <ul>
+          <li>No dependency on Google Maps or any paid third-party service</li>
+          <li>No per-calculation charges</li>
+          <li>Worldwide coverage, from Europe to Asia, Africa, Americas and Oceania</li>
+          <li>EU-hosted routing infrastructure for organizations that care about data residency</li>
+        </ul>
+
+        <h2 id="crm-integration">Why CRM integration matters</h2>
+        <p>Route optimization in isolation, without CRM integration, solves only half the problem. The real value comes from connecting route planning with your customer data.</p>
+        <h3>CRM-aware filtering</h3>
+        <p>Before planning a route, filter accounts by any Salesforce field: last visit date, account type, revenue, territory, owner. This ensures you're visiting the right accounts, not just the nearest ones.</p>
+        <h3>Automatic event creation</h3>
+        <p>The biggest time saver is creating Salesforce Events in bulk. After optimizing a route, one click creates all calendar events with the correct account, contact, time slot and address. No manual data entry.</p>
+        <h3>Visit history and coverage analysis</h3>
+        <p>When route data lives in Salesforce, managers can build reports and dashboards showing visited accounts, visit frequency, under-covered territories, and field-time allocation.</p>
+        <h3>Permission-aware access</h3>
+        <p>A native Salesforce route planner respects your org's security model. Reps see only the accounts they have access to. Sharing rules, profiles and field-level security all apply.</p>
+
+        <h2 id="mobile-field">Mobile optimization for the field</h2>
+        <p>Field sales reps work on smartphones and tablets, not desktop computers. A route optimization tool must work well on mobile to be useful in the field.</p>
+        <h3>Key mobile capabilities</h3>
+        <ul>
+          <li><strong>Responsive interface:</strong> Map and controls adapt to smaller screens with a bottom-sheet panel design</li>
+          <li><strong>GPS geolocation:</strong> Tap a button to see all Salesforce accounts within a configurable radius around your current position</li>
+          <li><strong>Navigation handoff:</strong> Send the optimized route to Google Maps or Waze for turn-by-turn navigation</li>
+          <li><strong>Works in Salesforce Mobile:</strong> Teams can use it inside the Salesforce mobile environment instead of rolling out a separate field sales app</li>
+        </ul>
+        <h3>Nearby accounts: the impromptu visit feature</h3>
+        <p>One of the most valuable field features is finding nearby accounts. When a meeting finishes early or gets cancelled, reps can instantly see which Salesforce accounts are nearby and add a spontaneous visit to their day.</p>
+
+        <h2 id="field-service">Field service route optimization vs field sales</h2>
+        <p>The terms "field service route optimization" and "field sales route optimization" are sometimes used interchangeably, but they describe different workflows with different priorities.</p>
+        <h3>Field service: technicians, SLAs, and emergency dispatch</h3>
+        <p>Field service teams send technicians to customer sites for installation, maintenance, or repair. Their scheduling is driven by <strong>service-level agreements (SLAs)</strong>, equipment availability, and skill-based assignment. A broken HVAC unit in July cannot wait until Thursday because the route looks better that day. Dispatchers need to handle emergency calls mid-day, reassign jobs when a technician runs late, and track parts inventory per van.</p>
+        <p>Dedicated field service platforms like ServiceTitan and WorkWave are built for exactly this. They include dispatch boards, work order management, parts tracking, and customer self-service portals. If your team's primary job is reactive maintenance with strict SLA windows, those tools are worth evaluating.</p>
+        <h3>Field sales: account visits, relationships, and territory coverage</h3>
+        <p>Field sales teams visit prospects and existing customers to build relationships, close deals, and ensure account coverage across a territory. Their planning is driven by <strong>pipeline value, visit frequency targets, and geographic density</strong>. A rep might need to visit 8 accounts in Lyon this week, prioritized by deal stage and days since last contact. There is rarely an emergency dispatch scenario.</p>
+        <h3>When one tool can serve both</h3>
+        <p>Some organizations have hybrid teams. A medical device company might send the same rep to both sell new equipment and check on installed units. A building materials distributor might combine sales calls with delivery coordination. If these teams already use Salesforce as their system of record, a single route optimization tool inside the CRM can handle both visit types. Tourvia works for any Salesforce account-based visit planning, whether the visit is a sales call, a service check, or a delivery confirmation. The key requirement is that the accounts and contacts live in Salesforce.</p>
+
+        <h2 id="roi">Measure the result against your own baseline</h2>
+        <p>Tourvia does not publish a universal ROI benchmark. Territory density, current planning habits, visit duration, and customer availability all affect the result.</p>
+        <p>Use the 30-day trial to compare four measures before and after deployment:</p>
+        <ul>
+          <li>weekly planning time per rep;</li>
+          <li>distance driven per completed visit;</li>
+          <li>visits completed per rep;</li>
+          <li>time spent creating and updating Salesforce Events.</li>
+        </ul>
+        <p>For 10 licensed users, Tourvia costs €3,600 excluding tax per year. Compare that fixed annual budget with the measured time, mileage, and visit-capacity changes from your pilot.</p>
+
+        <h2 id="routeforce-approach">The Tourvia approach</h2>
+        <p>Tourvia is delivered as a Salesforce managed package. Reps plan and execute visits in Salesforce, while route calculations are processed by Tourvia infrastructure hosted in France.</p>
+        <p>The workflow keeps route planning, Event creation, mobile execution, and reporting attached to the Salesforce records that drive the day.</p>
+        <h3>What makes it different</h3>
+        <ul>
+          <li><strong>Salesforce workflow:</strong> Lightning components, Salesforce records, Events, reports, and Permission Set Groups</li>
+          <li><strong>Per-user pricing:</strong> €30/user/month billed annually at €360/user/year per licensed user.</li>
+          <li><strong>Tourvia routing service:</strong> Routing infrastructure hosted in France, with processing described in the DPA</li>
+          <li><strong>International routing:</strong> Availability depends on the road-data coverage for the relevant territory</li>
+          <li><strong>Multi-language:</strong> Interface available in French, English and Spanish</li>
+          <li><strong>EU-hosted routing infrastructure:</strong> Route calculations run on infrastructure hosted in France, which supports EU data residency goals</li>
+        </ul>
+        <div class="note"><strong>Built for Salesforce field teams.</strong> Tourvia is for organizations that already use Salesforce and need route optimization with predictable costs and €30/user/month.</div>
+
+        <h2 id="getting-started">Getting started</h2>
+        <ol>
+          <li><strong>Request a 30-day trial via the contact form</strong>. Validate fit inside your Salesforce org first</li>
+          <li><strong>Configuration:</strong> Your Salesforce admin installs the managed package and configures filters and permissions</li>
+          <li><strong>Adoption:</strong> Your team uses the included documentation</li>
+          <li><strong>Subscribe to continue:</strong> Keep the complete feature set after the trial</li>
+        </ol>
+        <p>The customer controls the rollout timeline. Installation and configuration are documented for the Salesforce admin.</p>
+
+        <h2 id="shortlist-guidance">Who Tourvia is built for</h2>
+        <p>Tourvia is built for Salesforce-led field sales and recurring customer visits. It is not a technician dispatch or service appointment orchestration product.</p>
+        <ul class="brief">
+          <li><span class="brief-label">Salesforce field sales</span><h3>Account-based field sales inside Salesforce</h3><p>Reps plan visits from Salesforce accounts, create Events, log outcomes, and give managers reportable CRM data.</p></li>
+          <li><span class="brief-label">Predictable pricing</span><h3>Teams that want predictable rollout economics</h3><p>Public per-user pricing lets managers, admins, and finance calculate the annual subscription directly.</p></li>
+          <li><span class="brief-label">Use a different category</span><h3>Emergency dispatch or field service SLAs</h3><p>If you need live dispatching, technician skills matrices, or service appointment orchestration, use a dedicated field service stack instead.</p></li>
+        </ul>
+
+        <h2 id="faq">Frequently asked questions</h2>
+        <div class="faq-list"><details><summary>How many stops can Tourvia optimize in one route?</summary><div class="faq-body"><p>Tourvia handles typical field sales routes and processes multi-stop plans with time, duration, and travel constraints.</p></div></details><details><summary>Does Tourvia work outside of Europe?</summary><div class="faq-body"><p>Tourvia supports international routing where the required road data is available. Validate the relevant territories during the 30-day trial.</p></div></details><details><summary>Can I use Tourvia on my phone?</summary><div class="faq-body"><p>Yes. Tourvia is designed for the Salesforce Mobile App. Depending on your setup, teams can access GPS geolocation, nearby accounts, and navigation handoff to Google Maps or Waze.</p></div></details><details><summary>What Salesforce objects does Tourvia use?</summary><div class="faq-body"><p>Tourvia works with Account, Lead, Opportunity and Campaign Member records. It creates standard Salesforce Events for scheduled visits. No custom objects are required for basic usage.</p></div></details><details><summary>How does field service route optimization differ from sales route optimization?</summary><div class="faq-body"><p>Field service optimization focuses on technician dispatch, SLA compliance, emergency rescheduling, and parts tracking. Sales route optimization focuses on account coverage, visit frequency, territory planning, and pipeline-driven prioritization. Both benefit from algorithmic routing, but the scheduling constraints and business rules differ. Tools like ServiceTitan and WorkWave specialize in field service dispatch, while Tourvia is built for Salesforce-based sales and hybrid teams.</p></div></details><details><summary>What ROI can I expect from route optimization software?</summary><div class="faq-body"><p>ROI depends on team density, travel patterns, and current planning discipline. Use the trial to measure planning time, distance per completed visit, completed visits, and reporting completeness against your baseline.</p></div></details></div>
+
+        <div class="brief-head"><h2 id="three-checks">Three checks before you subscribe</h2><span class="mark">Decision checklist</span></div>
+        <ul class="brief">
+          <li><span class="brief-label">Execution</span><h3>Can the optimized route turn into a usable Salesforce day without re-entry?</h3></li>
+          <li><span class="brief-label">Economics</span><h3>What is the annual subscription for every licensed user who needs Tourvia?</h3></li>
+          <li><span class="brief-label">Team fit</span><h3>Is this a Salesforce-led field team, not a dispatch-first service operation?</h3></li>
+        </ul>
+
+        <nav class="related" aria-labelledby="fs-related">
+          <h2 id="fs-related">Related pages</h2>
+          <ul>
+            <li><a href="/salesforce-route-planning.html">Salesforce route planning: native route planner for field teams</a></li>
+            <li><a href="/visit-planning-salesforce.html">Visit planning for Salesforce: automate field visit scheduling</a></li>
+            <li><a href="/blog/salesforce-maps-alternatives-compared.html">Salesforce Maps alternatives compared for field teams</a></li>
+            <li><a href="/blog/optimize-field-sales-routes-salesforce.html">How to optimize field sales routes in Salesforce (2026 guide)</a></li>
+            <li><a href="/blog/sales-route-planner.html">Sales route planner: what teams should compare before they buy</a></li>
+            <li><a href="/blog/route-optimization-software.html">Route optimization software buyer's guide (2026)</a></li>
+            <li><a href="/blog/routeforce-vs-badger-maps.html">Tourvia vs Badger Maps: detailed comparison</a></li>
+            <li><a href="/blog/salesforce-maps-pricing-breakdown.html">Salesforce Maps pricing breakdown: what it actually costs</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-path" class="sec night" aria-labelledby="last-title">
+    <div class="wrap">
+      <div>
+        <div class="sec-head">
+          <span class="stop stop-last" aria-hidden="true"></span>
+          <p class="mark">Last stop</p>
+          <h2 id="last-title">Test the Account-to-Event workflow in your Salesforce org.</h2>
+          <p>Request a complete 30-day trial and validate the route-to-visit workflow with your own Salesforce records.</p>
+        </div>
+        <ol class="steps">
+          <li class="step"><b>Send the request</b><p>Use the form on the homepage or write to <a href="mailto:contact@routeforce.app">contact@routeforce.app</a>.</p></li>
+          <li class="step"><b>We qualify your Salesforce org</b><p>and coordinate private AppExchange access with your Salesforce admin.</p></li>
+          <li class="step"><b>Your admin installs the package</b><p>with the <a href="/docs/setup-guide.html">setup guide</a> and <a href="/docs/configuration-guide.html">configuration guide</a>.</p></li>
+          <li class="step"><b>Your team runs 30 days with every feature</b><p>Subscribe at €30 per user per month, excluding tax and billed annually, to keep access.</p></li>
+        </ol>
+      </div>
+      <div class="last-stop-side">
+        <h3>Trial request</h3>
+        <p>Private package access for a 30-day trial in your Salesforce org. No public free plan, no custom-quote threshold: the same €30 per user applies at every team size.</p>
+        <div class="btn-row">
+          <a class="btn btn-paper" href="/#contact">Request a 30-day trial</a>
+          <a class="textlink" href="/pricing.html">Pricing</a>
+        </div>
+        <p class="fine">TourviaApp 7.34.0.1. Salesforce Security Review passed 22 May 2026. Salesforce does not endorse or recommend Tourvia.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="28" height="28"/><b>Tourvia</b></a>
+        <p>Salesforce managed package for route planning and field execution. Tourvia is the new product name for RouteForce.</p>
+        <a href="/#contact" class="btn btn-primary">Request a 30-day trial</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Product</span>
+        <a href="/#features">Features</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/use-cases.html">Use cases</a>
+        <a href="/native-integration-salesforce.html">Integration</a>
+        <a href="/compare.html">Compare</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Resources</span>
+        <a href="/blog/">Blog</a>
+        <a href="/docs/">Docs</a>
+        <a href="/docs/setup-guide.html">Setup guide</a>
+        <a href="/docs/user-guide.html">User guide</a>
+        <a href="/docs/configuration-guide.html">Configuration guide</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Company</span>
+        <a href="mailto:contact@routeforce.app">Contact</a>
+        <a href="/docs/privacy.html">Privacy</a>
+        <a href="/docs/terms.html">Terms</a>
+        <a href="/docs/mentions-legales.html">Legal notice</a>
+        <a href="/docs/cgv.html">CGV</a>
+        <a href="/docs/dpa.html">DPA</a>
+        <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener">Status <span class="dot-ok" aria-hidden="true"></span></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 SKZ Consulting. Tourvia is a product of SKZ Consulting.</span>
+      <span>Salesforce managed package, private AppExchange listing. Salesforce does not endorse or recommend Tourvia.</span>
+    </div>
   </div>
 </footer>
-<script>
-window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
-document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach(function(link){
-  link.addEventListener('click',function(){
-    window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
-  });
-});
-document.querySelectorAll('.faq-question').forEach(function(btn){btn.addEventListener('click',function(){var item=btn.closest('.faq-item');var open=item.classList.contains('open');document.querySelectorAll('.faq-item').forEach(function(other){other.classList.remove('open');var q=other.querySelector('.faq-question');if(q){q.setAttribute('aria-expanded','false');}});if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true');}});});
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Enlarged screenshot" aria-hidden="true">
+  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close the enlarged screenshot"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+  <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Full-size screenshot"/>
+</div>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Tourvia",
+   "item": "https://gettourvia.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Field sales route optimization software for Salesforce teams",
+   "item": "https://gettourvia.com/field-sales-route-optimization.html"
+  }
+ ]
+}
 </script>
 </body>
 </html>

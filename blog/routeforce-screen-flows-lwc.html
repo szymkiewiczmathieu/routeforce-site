@@ -1,196 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>document.documentElement.classList.add('js');</script>
+<script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
 <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tourvia + Screen Flows + LWC in Salesforce</title>
-  <meta name="robots" content="index, follow">
-    <meta name="description" content="How Tourvia combines Salesforce Screen Flows and Lightning Web Components to support richer field workflows directly from the map.">
-  <link rel="canonical" href="https://gettourvia.com/blog/routeforce-screen-flows-lwc.html">
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
-  <link rel="stylesheet" href="../style.css">
-  <meta property="og:title" content="Tourvia + Screen Flows + LWC: extensibility for field teams inside Salesforce">
-  <meta property="og:site_name" content="Tourvia">
-  <meta property="og:description" content="A practical look at how Tourvia, Screen Flows, and Lightning Web Components support extensible field workflows inside Salesforce.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://gettourvia.com/blog/routeforce-screen-flows-lwc.html">
-  <meta property="og:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Tourvia + Screen Flows + LWC: extensibility for field teams inside Salesforce"/>
-  <meta name="twitter:description" content="A practical look at how Tourvia, Screen Flows, and Lightning Web Components support extensible field workflows inside Salesforce."/>
-  <meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Tourvia + Screen Flows + LWC: extensibility for field teams inside Salesforce",
-    "datePublished": "2026-04-03",
-    "dateModified": "2026-07-21",
-    "author": {"@type": "Organization", "name": "SKZ Consulting", "alternateName": "Tourvia"},
-    "publisher": {"@type": "Organization", "name": "SKZ Consulting", "alternateName": "Tourvia", "url": "https://gettourvia.com"},
-    "description": "A practical look at how Tourvia, Screen Flows, and Lightning Web Components support extensible field workflows inside Salesforce.",
-    "image": "https://gettourvia.com/assets/screenshots-2026/screen-01.jpg",
-    "mainEntityOfPage": "https://gettourvia.com/blog/routeforce-screen-flows-lwc.html"
-  }
-  </script>
+<title>Tourvia + Screen Flows + LWC in Salesforce</title>
+<meta name="robots" content="index, follow">
+<meta name="description" content="How Tourvia combines Salesforce Screen Flows and Lightning Web Components to support richer field workflows directly from the map.">
+<link rel="canonical" href="https://gettourvia.com/blog/routeforce-screen-flows-lwc.html">
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+<meta property="og:title" content="Tourvia + Screen Flows + LWC: extensibility for field teams inside Salesforce">
+<meta property="og:site_name" content="Tourvia">
+<meta property="og:description" content="A practical look at how Tourvia, Screen Flows, and Lightning Web Components support extensible field workflows inside Salesforce.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gettourvia.com/blog/routeforce-screen-flows-lwc.html">
+<meta property="og:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Tourvia + Screen Flows + LWC: extensibility for field teams inside Salesforce"/>
+<meta name="twitter:description" content="A practical look at how Tourvia, Screen Flows, and Lightning Web Components support extensible field workflows inside Salesforce."/>
+<meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "Tourvia + Screen Flows + LWC: extensibility for field teams inside Salesforce",
+ "datePublished": "2026-04-03",
+ "dateModified": "2026-07-21",
+ "author": {
+  "@type": "Organization",
+  "name": "SKZ Consulting",
+  "@id": "https://gettourvia.com/#organization",
+  "url": "https://gettourvia.com"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "SKZ Consulting",
+  "url": "https://gettourvia.com",
+  "@id": "https://gettourvia.com/#organization"
+ },
+ "description": "A practical look at how Tourvia, Screen Flows, and Lightning Web Components support extensible field workflows inside Salesforce.",
+ "image": "https://gettourvia.com/assets/screenshots-2026/screen-01.jpg",
+ "mainEntityOfPage": "https://gettourvia.com/blog/routeforce-screen-flows-lwc.html",
+ "isPartOf": {
+  "@type": "WebSite",
+  "@id": "https://gettourvia.com/#website"
+ }
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="/assets/css/site.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script defer src="/assets/js/site.js"></script>
 </head>
-<body style="background:#09090b;color:#e4e4e7;">
-<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
-  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
-    <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
-      <img src="../assets/logo-site-brand.png" alt="Tourvia" style="width:32px;height:32px;border-radius:10px;flex-shrink:0;"/>
-      <span style="font-size:1.125rem;font-weight:700;letter-spacing:-0.02em;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tourvia</span>
-    </a>
-    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.95rem;white-space:nowrap;">
-      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
-      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
-      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+<body class="sheet sheet--article sheet--article-bulletin">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="32" height="32"/><b>Tourvia</b><small>formerly RouteForce</small></a>
+    <nav class="nav-main" aria-label="Primary">
+      <a class="nav-a" href="/salesforce-route-planning.html">Route planning</a>
+      <a class="nav-a" href="/pricing.html">Pricing</a>
+      <a class="nav-a" href="/compare.html">Compare</a>
+      <a class="nav-a" href="/use-cases.html">Use cases</a>
+      <a class="nav-a" href="/blog/" aria-current="page">Blog</a>
+      <a class="nav-a" href="/docs/">Docs</a>
     </nav>
-    <div style="display:flex;align-items:center;gap:8px;">
-      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;font-size:0.95rem;" id="docsLink">Docs</a>
-      <a href="/#contact" style="display:none;background:#6366f1;color:white;padding:10px 18px;border-radius:10px;font-weight:600;text-decoration:none;font-size:0.92rem;">Request trial</a>
-      <button onclick="document.getElementById('mobileMenu').style.display=document.getElementById('mobileMenu').style.display==='none'?'block':'none'" style="display:none;background:none;border:none;cursor:pointer;padding:8px;" id="burgerBtn" aria-label="Open menu">
-        <svg width="20" height="20" viewBox="0 0 20 20"><rect y="3" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="9" width="20" height="2" rx="1" fill="#e4e4e7"/><rect y="15" width="20" height="2" rx="1" fill="#e4e4e7"/></svg>
-      </button>
+    <div class="head-right">
+      <a class="nav-a head-link" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
+      <a href="/#contact" class="btn btn-primary head-cta">Request a 30-day trial</a>
+      <button id="mobile-menu-btn" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
     </div>
   </div>
-  <div id="mobileMenu" style="display:none;border-top:1px solid #27272a;background:rgba(9,9,11,0.98);padding:16px 24px;">
-    <nav style="display:flex;flex-direction:column;gap:16px;font-size:0.95rem;">
-      <a href="../#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="../#showcase" style="color:#a1a1aa;text-decoration:none;">Product</a>
-      <a href="../#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-      <a href="../use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
-      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
-      <a href="../docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
-      <a href="/#contact" style="background:#6366f1;color:white;padding:10px;border-radius:8px;font-weight:600;text-decoration:none;text-align:center;margin-top:8px;">Request trial</a>
+  <div id="mobile-menu" class="nav-mobile">
+    <nav class="wrap" aria-label="Mobile">
+      <a href="/salesforce-route-planning.html">Route planning</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/compare.html">Compare</a>
+      <a href="/use-cases.html">Use cases</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
+      <a href="/#contact">Request a 30-day trial</a>
     </nav>
   </div>
-  <style>@media(max-width:768px){#desktopNav,#docsLink{display:none!important}#burgerBtn{display:block!important}}@media(min-width:769px){a[href*="appexchange.salesforce.com/appxListingDetail"]{display:inline-block!important}}</style>
 </header>
 
-<section class="blog-hero blog-hero-premium">
-  <div class="container">
-    <div class="blog-hero-premium-grid">
-      <div class="blog-hero-copy">
-        <div class="blog-kicker-row">
-      <span class="blog-kicker-chip">Product</span>
-      <time datetime="2026-04-03">April 3, 2026</time>
-      <span>&middot;</span>
-      <span>5 min read</span>
-    </div>
-    <h1>Tourvia + Screen Flows + LWC: extensibility for field teams inside Salesforce</h1>
-    <p class="blog-hero-summary">Tourvia does more than display a map. It can launch Salesforce Screen Flows and Lightning Web Components directly from the field workflow, so custom business actions stay native inside Salesforce.</p>
+<div class="progress" aria-hidden="true"></div>
+<main id="main" tabindex="-1">
+  <section class="mast mast--bulletin mast--single">
+    <div class="wrap">
+      <div class="mast-copy">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark"><a href="/blog/">Field journal</a> <small>Product note</small> <small><time datetime="2026-04-03">3 April 2026</time></small> <small>5 min read</small></p>
+        <p class="stamp">Product</p>
+        <h1 id="article-title">Tourvia + Screen Flows + LWC: extensibility for field teams inside Salesforce</h1>
+
+        <p class="lead">Tourvia does more than display a map. It can launch Salesforce Screen Flows and Lightning Web Components directly from the field workflow, so custom business actions stay native inside Salesforce.</p>
+
+
+        <ul class="art-meta"><li><b>Published</b><span><time datetime="2026-04-03">3 April 2026</time></span></li><li><b>Updated</b><span><time datetime="2026-07-21">21 July 2026</time></span></li><li><b>Reading</b><span>5 min read</span></li><li><b>Section</b><span>Product</span></li><li><b>Author</b><span>SKZ Consulting, the team behind Tourvia</span></li></ul>
       </div>
-      <aside class="blog-hero-sidecard blog-hero-sidecard-muted">
-        <div class="blog-hero-sidecard-label">Quick access</div>
-        <div class="blog-hero-sidecard-title">Evaluate Tourvia</div>
-        <p class="blog-hero-sidecard-copy">Open a Screen Flow or Lightning Web Component from the map and keep the record context.</p>
-        <div class="blog-hero-linklist">
-          <a href="../pricing.html">See Tourvia pricing</a>
-          <a href="../salesforce-route-planning.html">Explore route planning</a>
-          <a href="/#contact">Request trial</a>
-        </div>
-      </aside>
+
     </div>
+  </section>
+
+  <div class="wrap art-body">
+    <article class="prose" aria-labelledby="article-title">
+<h2 id="a-route-is-only-the-start">A route is only the start</h2><p>A rep reaches the next account. Now they need to record the visit, check stock, take an order, qualify a lead, or complete a form. Sending them to another app at that point breaks the workflow.</p><p>Tourvia can open a Salesforce Screen Flow or Lightning Web Component from the map. The action receives the current record, so the rep starts in the right place instead of searching for the account again.</p><h2 id="launch-the-right-action-from-the-map">Launch the right action from the map</h2><p>An administrator can connect Tourvia to:</p><ul>
+<li><strong>Screen Flows</strong> for guided forms and business steps</li>
+<li><strong>Lightning Web Components</strong> when the action needs a custom interface</li>
+<li><strong>record-aware actions</strong> that open with the selected Account, Lead, or Opportunity</li>
+</ul><p>The route stays the same. What happens at each stop can follow the process already configured in Salesforce.</p><h2 id="examples-from-a-field-visit">Examples from a field visit</h2><p>A store visit might open a shelf-audit Flow. A sales meeting could end with a visit report and next-step task. A rep working new leads could launch a qualification form directly from the selected pin.</p><p>Other useful actions include order capture, product-availability checks, competitor surveys and price-verification forms. These are examples, not a fixed Tourvia template. The Salesforce admin decides what the Flow or component does.</p><h2 id="how-the-pieces-fit-together">How the pieces fit together</h2><ul>
+<li><strong>Tourvia</strong> shows the records on the map and launches the action.</li>
+<li><strong>Screen Flow</strong> runs the guided process with the Salesforce record context.</li>
+<li><strong>LWC</strong> handles interactions that need more control than a standard Flow screen.</li>
+</ul><p>Many changes can stay in Flow Builder. Custom Apex or LWC is still available when the business rule or interface needs code.</p><h2 id="use-the-same-component-across-salesforce">Use the same component across Salesforce</h2><p>Tourvia is available on Account, Lead and Opportunity record pages. Administrators can also place it on Lightning App Pages, Home Pages, Tabs, the Utility Bar and Experience Cloud pages.</p><p><a href="../native-integration-salesforce.html">See where Tourvia can run in Salesforce</a></p><h2 id="test-one-field-action-end-to-end">Test one field action end to end</h2><p>Start with a task reps already perform after a visit. Open it from Tourvia, complete it on a phone, then check the resulting Salesforce record and reporting. That test shows whether the extension saves steps or merely moves them around.</p><div class="next-stop"><div>
+<h3>See how Tourvia adapts to advanced field workflows</h3>
+<p>Request a 30-day trial via the contact form, then explore how Tourvia connects native route planning with configurable business actions inside Salesforce.</p>
+
+
+</div><div class="btn-row"><a class="btn btn-primary" href="/#contact">Request trial</a><a class="textlink" href="../use-cases.html">See use cases</a></div></div>
+
+    </article>
+    <aside class="art-side"><nav class="on-page" aria-label="On this page"><b>On this page</b><ol><li><a href="#a-route-is-only-the-start">A route is only the start</a></li><li><a href="#launch-the-right-action-from-the-map">Launch the right action from the map</a></li><li><a href="#examples-from-a-field-visit">Examples from a field visit</a></li><li><a href="#how-the-pieces-fit-together">How the pieces fit together</a></li><li><a href="#use-the-same-component-across-salesforce">Use the same component across Salesforce</a></li><li><a href="#test-one-field-action-end-to-end">Test one field action end to end</a></li></ol></nav><aside class="docket art-aside"><span class="docket-tag">Quick access</span><h2>Evaluate Tourvia</h2><p>Open a Screen Flow or Lightning Web Component from the map and keep the record context.</p><ul><li><a href="../pricing.html">See Tourvia pricing</a></li><li><a href="../salesforce-route-planning.html">Explore route planning</a></li><li><a href="/#contact">Request trial</a></li></ul></aside></aside>
   </div>
-</section>
-
-<section class="blog-content" style="padding:60px 0 100px;">
-  <div class="container" style="max-width:800px;">
-    <h2>A route is only the start</h2>
-    <p>A rep reaches the next account. Now they need to record the visit, check stock, take an order, qualify a lead, or complete a form. Sending them to another app at that point breaks the workflow.</p>
-    <p>Tourvia can open a Salesforce Screen Flow or Lightning Web Component from the map. The action receives the current record, so the rep starts in the right place instead of searching for the account again.</p>
-
-    <h2>Launch the right action from the map</h2>
-    <p>An administrator can connect Tourvia to:</p>
-    <ul>
-      <li><strong>Screen Flows</strong> for guided forms and business steps</li>
-      <li><strong>Lightning Web Components</strong> when the action needs a custom interface</li>
-      <li><strong>record-aware actions</strong> that open with the selected Account, Lead, or Opportunity</li>
-    </ul>
-    <p>The route stays the same. What happens at each stop can follow the process already configured in Salesforce.</p>
-
-    <h2>Examples from a field visit</h2>
-    <p>A store visit might open a shelf-audit Flow. A sales meeting could end with a visit report and next-step task. A rep working new leads could launch a qualification form directly from the selected pin.</p>
-    <p>Other useful actions include order capture, product-availability checks, competitor surveys and price-verification forms. These are examples, not a fixed Tourvia template. The Salesforce admin decides what the Flow or component does.</p>
-
-    <h2>How the pieces fit together</h2>
-    <ul>
-      <li><strong>Tourvia</strong> shows the records on the map and launches the action.</li>
-      <li><strong>Screen Flow</strong> runs the guided process with the Salesforce record context.</li>
-      <li><strong>LWC</strong> handles interactions that need more control than a standard Flow screen.</li>
-    </ul>
-    <p>Many changes can stay in Flow Builder. Custom Apex or LWC is still available when the business rule or interface needs code.</p>
-
-    <h2>Use the same component across Salesforce</h2>
-    <p>Tourvia is available on Account, Lead and Opportunity record pages. Administrators can also place it on Lightning App Pages, Home Pages, Tabs, the Utility Bar and Experience Cloud pages.</p>
-    <p><a href="../native-integration-salesforce.html" style="color:#6366f1;font-weight:500">See where Tourvia can run in Salesforce</a></p>
-
-    <h2>Test one field action end to end</h2>
-    <p>Start with a task reps already perform after a visit. Open it from Tourvia, complete it on a phone, then check the resulting Salesforce record and reporting. That test shows whether the extension saves steps or merely moves them around.</p>
-
-    <div class="blog-cta">
-      <h3>See how Tourvia adapts to advanced field workflows</h3>
-      <p>Request a 30-day trial via the contact form, then explore how Tourvia connects native route planning with configurable business actions inside Salesforce.</p>
-      <a href="/#contact" class="btn-cta-primary">Request trial</a>
-      <a href="../use-cases.html" class="btn-cta-secondary">See use cases</a>
-    </div>
-  </div>
-</section>
-
-<footer style="border-top:1px solid #27272a;padding:64px 24px 32px;background:#09090b;">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;">
-    <div>
-      <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;">
-        <img src="/assets/logo-site-brand.png" alt="Tourvia" style="width:28px;height:28px;border-radius:8px;"/>
-        <span style="font-weight:700;color:#fafafa;font-size:1.05rem;">Tourvia</span>
+</main>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="28" height="28"/><b>Tourvia</b></a>
+        <p>Salesforce managed package for route planning and field execution. Tourvia is the new product name for RouteForce.</p>
+        <a href="/#contact" class="btn btn-primary">Request a 30-day trial</a>
       </div>
-      <p style="color:#a1a1aa;font-size:0.9rem;line-height:1.6;max-width:280px;margin:0 0 16px;">Salesforce managed package for route planning and field execution.</p>
-      <a href="/#contact" style="display:inline-flex;align-items:center;gap:6px;background:#6366f1;color:#fff;padding:8px 14px;border-radius:8px;text-decoration:none;font-weight:600;font-size:0.85rem;">Request trial</a>
+      <div class="foot-col">
+        <span class="foot-h">Product</span>
+        <a href="/#features">Features</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/use-cases.html">Use cases</a>
+        <a href="/native-integration-salesforce.html">Integration</a>
+        <a href="/compare.html">Compare</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Resources</span>
+        <a href="/blog/">Blog</a>
+        <a href="/docs/">Docs</a>
+        <a href="/docs/setup-guide.html">Setup guide</a>
+        <a href="/docs/user-guide.html">User guide</a>
+        <a href="/docs/configuration-guide.html">Configuration guide</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Company</span>
+        <a href="mailto:contact@routeforce.app">Contact</a>
+        <a href="/docs/privacy.html">Privacy</a>
+        <a href="/docs/terms.html">Terms</a>
+        <a href="/docs/mentions-legales.html">Legal notice</a>
+        <a href="/docs/cgv.html">CGV</a>
+        <a href="/docs/dpa.html">DPA</a>
+        <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener">Status <span class="dot-ok" aria-hidden="true"></span></a>
+      </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
-      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Product</span>
-      <a href="/#features" style="color:#a1a1aa;text-decoration:none;">Features</a>
-      <a href="/#pricing" style="color:#a1a1aa;text-decoration:none;">Pricing</a>
-      <a href="/use-cases.html" style="color:#a1a1aa;text-decoration:none;">Use cases</a>
-      <a href="/native-integration-salesforce.html" style="color:#a1a1aa;text-decoration:none;">Integration</a>
+    <div class="foot-bottom">
+      <span>&copy; 2026 SKZ Consulting. Tourvia is a product of SKZ Consulting.</span>
+      <span>Salesforce managed package, private AppExchange listing. Salesforce does not endorse or recommend Tourvia.</span>
     </div>
-    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
-      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Resources</span>
-      <a href="/blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
-      <a href="/docs/" style="color:#a1a1aa;text-decoration:none;">Docs</a>
-      <a href="/pricing.html" style="color:#a1a1aa;text-decoration:none;">Pricing ROI</a>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px;font-size:0.875rem;">
-      <span style="font-weight:700;color:#fafafa;margin-bottom:4px;font-size:0.8rem;letter-spacing:0.06em;text-transform:uppercase;">Company</span>
-      <a href="mailto:contact@routeforce.app" style="color:#a1a1aa;text-decoration:none;">Contact</a>
-      <a href="/docs/privacy.html" style="color:#a1a1aa;text-decoration:none;">Privacy</a>
-      <a href="/docs/terms.html" style="color:#a1a1aa;text-decoration:none;">Terms</a>
-      <a href="/docs/mentions-legales.html" style="color:#a1a1aa;text-decoration:none;">Legal notice</a>
-      <a href="/docs/cgv.html" style="color:#a1a1aa;text-decoration:none;">CGV</a>
-      <a href="/docs/dpa.html" style="color:#a1a1aa;text-decoration:none;">DPA</a>
-      <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener" style="color:#a1a1aa;text-decoration:none;display:inline-flex;align-items:center;gap:6px;">Status <span style="width:7px;height:7px;background:#22c55e;border-radius:50%;display:inline-block;"></span></a>
-    </div>
-  </div>
-  <div style="max-width:1200px;margin:40px auto 0;padding-top:24px;border-top:1px solid #1e1e22;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;color:#71717a;font-size:0.8rem;">
-    <span>&copy; 2026 SKZ Consulting. Tourvia is a product of SKZ Consulting.</span>
-    <span>Delivered as an AppExchange managed package.</span>
   </div>
 </footer>
-<script>
-window.plausible=window.plausible||function(){(window.plausible.q=window.plausible.q||[]).push(arguments)};
-document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach(function(link){
-  link.addEventListener('click',function(){
-    window.plausible('AppExchange Click',{props:{page_path:window.location.pathname,link_text:(link.textContent||'').trim().replace(/\s+/g,' ').slice(0,80)}});
-  });
-});
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Tourvia",
+   "item": "https://gettourvia.com/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Blog",
+   "item": "https://gettourvia.com/blog/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "Tourvia + Screen Flows + LWC: extensibility for field teams inside Salesforce",
+   "item": "https://gettourvia.com/blog/routeforce-screen-flows-lwc.html"
+  }
+ ]
+}
 </script>
 </body>
 </html>

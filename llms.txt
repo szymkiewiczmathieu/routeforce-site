@@ -55,7 +55,7 @@
 - Use Cases: https://gettourvia.com/use-cases.html
 - Pricing: https://gettourvia.com/pricing.html
 - Product facts: https://gettourvia.com/product-facts.md
-- Pricing comparison: https://gettourvia.com/flat-rate-route-optimization.html
+- Blog: https://gettourvia.com/blog/
 - Privacy Policy: https://gettourvia.com/docs/privacy.html
 - AppExchange listing: https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba
 

@@ -116,7 +116,7 @@ A: No. Tourvia offers a complete 30-day trial on request, followed by a paid ann
 - RouteForce to Tourvia name update: https://gettourvia.com/blog/routeforce-becomes-tourvia.html
 - Pricing: https://gettourvia.com/pricing.html
 - Product facts: https://gettourvia.com/product-facts.md
-- Pricing comparison: https://gettourvia.com/flat-rate-route-optimization.html
+- Compare route planning apps: https://gettourvia.com/compare.html
 - Documentation: https://gettourvia.com/docs/
 - Setup Guide: https://gettourvia.com/docs/setup-guide.html
 - User Guide: https://gettourvia.com/docs/user-guide.html

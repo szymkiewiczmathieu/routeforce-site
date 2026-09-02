@@ -29,7 +29,9 @@ const REDIRECTS = new Map([
   ['/flat-rate-route-optimization.html', '/pricing.html'],
   ['/consulting.html', '/'],
   ['/index.html', '/'],
+  ['/docs', '/docs/'],
   ['/docs/index.html', '/docs/'],
+  ['/blog', '/blog/'],
   ['/blog/index.html', '/blog/'],
 ]);
 
