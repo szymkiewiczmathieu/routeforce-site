@@ -12,21 +12,27 @@
     }).format(value);
   }
 
+  function validationError(message, inputId) {
+    var error = new Error(message);
+    error.inputId = inputId;
+    return error;
+  }
+
   function parseValue(rawValue, label, options) {
     var raw = String(rawValue === undefined || rawValue === null ? '' : rawValue).trim();
     if (!raw) {
-      throw new Error('Enter ' + label + '.');
+      throw validationError('Enter ' + label + '.', options.inputId);
     }
     var integer = Boolean(options.integer);
     if (!(integer ? INTEGER : DECIMAL).test(raw)) {
-      throw new Error(integer ? 'Use a whole number.' : 'Use a number with up to 2 decimal places.');
+      throw validationError(integer ? 'Use a whole number.' : 'Use a number with up to 2 decimal places.', options.inputId);
     }
     var value = Number(raw.replace(',', '.'));
     if (!Number.isFinite(value) || value < options.min || value > options.max) {
-      throw new Error('Enter a value from ' + numberFormat(options.min, 2) + ' to ' + numberFormat(options.max, 2) + '.');
+      throw validationError('Enter a value from ' + numberFormat(options.min, 2) + ' to ' + numberFormat(options.max, 2) + '.', options.inputId);
     }
     if (options.positive && value === 0) {
-      throw new Error('Enter a visit duration greater than 0 and no more than 1,440 minutes.');
+      throw validationError('Enter a visit duration greater than 0 and no more than 1,440 minutes.', options.inputId);
     }
     return value;
   }
@@ -37,15 +43,15 @@
 
   function calculateScenario(input) {
     var scenario = {
-      teamSize: parseValue(input.teamSize, 'Field reps', { integer: true, min: 0, max: 100000 }),
-      fieldDaysPerRepPerWeek: parseValue(input.fieldDaysPerRepPerWeek, 'Field days per rep per week', { min: 0, max: 7 }),
-      fieldHoursPerDay: parseValue(input.fieldHoursPerDay, 'Field hours per day', { min: 0, max: 24 }),
-      visitMinutes: parseValue(input.visitMinutes, 'Average visit duration', { min: 0, max: 1440, positive: true }),
-      travelMinutesBetweenVisits: parseValue(input.travelMinutesBetweenVisits, 'Average travel between consecutive visits', { min: 0, max: 1440 }),
-      fixedNonVisitMinutes: parseValue(input.fixedNonVisitMinutes, 'Reserved non-visit time per field day', { min: 0, max: 1440 }),
-      accountsInScope: parseValue(input.accountsInScope, 'Accounts in scope', { integer: true, min: 0, max: 100000000 }),
-      targetVisitsPerAccount: parseValue(input.targetVisitsPerAccount, 'Target visits per account in the period', { integer: true, min: 0, max: 10000 }),
-      planningHorizonWeeks: parseValue(input.planningHorizonWeeks, 'Planning period in weeks', { integer: true, min: 1, max: 520 })
+      teamSize: parseValue(input.teamSize, 'Field reps', { inputId: 'team-size', integer: true, min: 0, max: 100000 }),
+      fieldDaysPerRepPerWeek: parseValue(input.fieldDaysPerRepPerWeek, 'Field days per rep per week', { inputId: 'field-days-per-rep-per-week', min: 0, max: 7 }),
+      fieldHoursPerDay: parseValue(input.fieldHoursPerDay, 'Field hours per day', { inputId: 'field-hours-per-day', min: 0, max: 24 }),
+      visitMinutes: parseValue(input.visitMinutes, 'Average visit duration', { inputId: 'visit-minutes', min: 0, max: 1440, positive: true }),
+      travelMinutesBetweenVisits: parseValue(input.travelMinutesBetweenVisits, 'Average travel between consecutive visits', { inputId: 'travel-minutes-between-visits', min: 0, max: 1440 }),
+      fixedNonVisitMinutes: parseValue(input.fixedNonVisitMinutes, 'Reserved non-visit time per field day', { inputId: 'fixed-non-visit-minutes', min: 0, max: 1440 }),
+      accountsInScope: parseValue(input.accountsInScope, 'Accounts in scope', { inputId: 'accounts-in-scope', integer: true, min: 0, max: 100000000 }),
+      targetVisitsPerAccount: parseValue(input.targetVisitsPerAccount, 'Target visits per account in the period', { inputId: 'target-visits-per-account', integer: true, min: 0, max: 10000 }),
+      planningHorizonWeeks: parseValue(input.planningHorizonWeeks, 'Planning period in weeks', { inputId: 'planning-horizon-weeks', integer: true, min: 1, max: 520 })
     };
 
     var windowCenti = Math.round(scenario.fieldHoursPerDay * 60 * 100);
@@ -216,20 +222,12 @@
     } catch (error) {
       results.hidden = true;
       download.disabled = true;
-      var firstInput = form.querySelector('input:not([value=""])');
-      var raw = String(error.message || 'Cannot calculate this scenario.');
-      var labels = Array.from(form.querySelectorAll('label'));
-      var target = labels.map(function (label) {
-        var input = label.querySelector('input');
-        return input && raw.indexOf(label.childNodes[0].textContent.trim()) === 0 ? input : null;
-      }).find(Boolean);
+      var target = error.inputId ? byId(error.inputId) : null;
       if (target) {
         target.setAttribute('aria-invalid', 'true');
         target.focus();
-      } else if (firstInput) {
-        firstInput.focus();
       }
-      setStatus(raw, true);
+      setStatus(String(error.message || 'Cannot calculate this scenario.'), true);
     }
   }
   function quoteCsv(value) {
