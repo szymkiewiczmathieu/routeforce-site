@@ -53,7 +53,7 @@ jobs:
       - name: Deploy legacy-domain redirect Worker
         uses: cloudflare/wrangler-action@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          apiToken: ${{ secrets.CLOUDFLARE_ROUTEFORCE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "4.112.0"
           command: deploy --config wrangler-redirect.jsonc
