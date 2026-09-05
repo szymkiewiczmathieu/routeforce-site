@@ -5,6 +5,8 @@
   --capacity-gap: #b92c1a;
 }
 .capacity-tool .mast-copy h1 { max-width: 23ch; }
+.capacity-tool .mast .btn-secondary { border-color:var(--ink-3); }
+.capacity-tool .mast .btn-secondary:hover { border-color:var(--ink); }
 .capacity-tool .mast-side { padding-top: 16px; }
 .capacity-ledger { background: var(--ink); color: var(--paper); padding: 26px 28px 24px; border: 1px solid var(--ink); position: relative; overflow: hidden; }
 .capacity-ledger::before,.capacity-ledger::after { content:""; position:absolute; border-radius:50%; pointer-events:none; border:1px solid rgba(244,241,234,.16); }
