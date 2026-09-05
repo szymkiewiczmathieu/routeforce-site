@@ -91,7 +91,7 @@
       targetLoadPercent: targetLoadPercent,
       cadence: cadence,
       minimumReps: minimumReps,
-      reservedTimeExhaustsDay: fixedCenti >= windowCenti,
+      reservedTimeExhaustsDay: windowCenti > 0 && fixedCenti >= windowCenti,
       status: requiredVisitsInPeriod === 0
         ? 'No target visit volume entered'
         : teamVisitsInPeriod >= requiredVisitsInPeriod
@@ -264,7 +264,10 @@
     URL.revokeObjectURL(url);
   }
   function resetScenario() {
-    if (!form.querySelector('input').value && !lastScenario) { return; }
+    var hasInput = Array.from(form.querySelectorAll('input')).some(function (input) {
+      return input.value !== '';
+    });
+    if (!hasInput && !lastScenario) { return; }
     if (window.confirm('Clear the inputs and result for this scenario?')) {
       form.reset();
       clearInvalid();

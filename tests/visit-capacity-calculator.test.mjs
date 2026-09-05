@@ -44,6 +44,7 @@ test('handles zero day allocation and a zero capacity without invented values', 
   assert.equal(s.teamVisitsInPeriod, 0);
   assert.equal(s.cadence, null);
   assert.equal(s.minimumReps, null);
+  assert.equal(s.reservedTimeExhaustsDay, false);
 });
 
 test('supports fractional field days and hours using travel only between visits', () => {
