@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>document.documentElement.classList.add('js');</script>
+<script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
+<script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+<title>Salesforce Route Planning Data Readiness Checker | Tourvia</title>
+<meta name="description" content="Check a Salesforce CSV locally for address fields, unusable coordinates, GeocodeAccuracy, owner and territory coverage before route planning.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://gettourvia.com/salesforce-route-planning-data-readiness-checker.html">
+<link rel="alternate" hreflang="en" href="https://gettourvia.com/salesforce-route-planning-data-readiness-checker.html">
+<link rel="alternate" hreflang="x-default" href="https://gettourvia.com/salesforce-route-planning-data-readiness-checker.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<meta property="og:title" content="Salesforce route-planning data readiness checker">
+<meta property="og:description" content="Inspect a Salesforce CSV locally for address fields and usable coordinates before route planning. Nothing is uploaded.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://gettourvia.com/salesforce-route-planning-data-readiness-checker.html">
+<meta property="og:image" content="https://gettourvia.com/assets/screenshots-user/routeforce-salesforce-map-ui.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Salesforce route-planning data readiness checker">
+<meta name="twitter:description" content="Inspect a Salesforce CSV locally for address fields and usable coordinates before route planning. Nothing is uploaded.">
+<meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-user/routeforce-salesforce-map-ui.jpg">
+<link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="/assets/css/site.css"/>
+<link rel="stylesheet" href="/assets/css/data-readiness-checker.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script defer src="/assets/js/site.js"></script>
+<script defer src="/assets/js/data-readiness-checker.js"></script>
+</head>
+<body class="sheet sheet--core readiness-tool">
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="32" height="32"/><b>Tourvia</b><small>formerly RouteForce</small></a>
+    <nav class="nav-main" aria-label="Primary">
+      <a class="nav-a" href="/salesforce-route-planning.html" aria-current="page">Route planning</a>
+      <a class="nav-a" href="/pricing.html">Pricing</a>
+      <a class="nav-a" href="/compare.html">Compare</a>
+      <a class="nav-a" href="/use-cases.html">Use cases</a>
+      <a class="nav-a" href="/blog/">Blog</a>
+      <a class="nav-a" href="/docs/">Docs</a>
+    </nav>
+    <div class="head-right">
+      <a class="nav-a head-link" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
+      <a href="/#contact" class="btn btn-primary head-cta">Request a 30-day trial</a>
+      <button id="mobile-menu-btn" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="nav-mobile">
+    <nav class="wrap" aria-label="Mobile">
+      <a href="/salesforce-route-planning.html" aria-current="page">Route planning</a>
+      <a href="/pricing.html">Pricing</a>
+      <a href="/compare.html">Compare</a>
+      <a href="/use-cases.html">Use cases</a>
+      <a href="/blog/">Blog</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
+      <a href="/#contact">Request a 30-day trial</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="sheet-rail" aria-hidden="true"></div>
+
+  <section class="mast" aria-labelledby="checker-title">
+    <div class="wrap">
+      <div class="mast-copy">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Free admin utility <small>Browser-only CSV check</small></p>
+        <h1 id="checker-title">Screen Salesforce data before you plan a route.</h1>
+        <p class="lead">Read a Salesforce CSV in this browser for recognised address fields, usable coordinate pairs, GeocodeAccuracy, owner coverage and territory coverage. The checker reports aggregate counts only. Your file never leaves this browser tab.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#checker">Check a CSV locally</a>
+          <a class="btn btn-secondary" href="/docs/setup-guide.html#verify-your-geocoded-data">Read the Tourvia geocoding setup step</a>
+        </div>
+        <ul class="facts-strip" aria-label="Checker principles">
+          <li><b>Local:</b> no CSV upload or server-side processing</li>
+          <li><b>Count-based:</b> no record values, file names or raw headers appear in the result</li>
+          <li><b>Vendor-neutral:</b> this is not a Tourvia compatibility verdict</li>
+        </ul>
+      </div>
+      <div class="mast-side">
+        <aside class="readiness-ledger" aria-label="What the checker looks for">
+          <span class="ledger-tag">Field note 01</span>
+          <h2>From a record export to a map review.</h2>
+          <p>A valid coordinate syntax is only a first screen. The admin still decides which address source, territory and visit policy belong in the routing workflow.</p>
+          <ol>
+            <li><b>01</b>Read the export</li>
+            <li><b>02</b>Count the gaps</li>
+            <li><b>03</b>Validate on a map</li>
+          </ol>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ticks band-2" id="checker" aria-labelledby="checker-workspace-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Local workspace</p>
+        <h2 id="checker-workspace-title">Inspect an export without sending it anywhere.</h2>
+        <p>Choose a CSV exported from Salesforce, or run the synthetic demonstration file. The scan checks field presence and simple data-quality signals; it does not prove that an address or a geocode is correct.</p>
+      </div>
+
+      <div class="tool-shell">
+        <div class="tool-panel">
+          <div id="dropzone" class="upload-well" aria-describedby="file-status privacy-note">
+            <div class="field-glyph" aria-hidden="true"></div>
+            <h2>Choose a Salesforce CSV</h2>
+            <p>Drop a <code>.csv</code> export here or select it from your device. The file is read with your browser’s local FileReader; it is not uploaded, stored or displayed as record values, file names or raw headers.</p>
+            <div class="upload-actions">
+              <label for="csv-file" class="btn btn-primary">Choose a CSV</label>
+              <input id="csv-file" type="file" accept=".csv,text/csv" class="visually-hidden"/>
+              <button id="use-demo" class="btn btn-secondary" type="button">Run the synthetic demo</button>
+            </div>
+            <p id="file-status" class="file-status" role="status">No CSV selected. Choose an export or run the synthetic demonstration.</p>
+            <p id="privacy-note" class="privacy-strip"><b>Privacy boundary:</b> page analytics may record a page visit, but this checker sends no file, row, header, file name or result to Tourvia. Use a redacted export if your internal policy requires it.</p>
+          </div>
+
+          <section id="results" class="results" aria-live="polite" hidden>
+            <div class="results-head">
+              <div>
+                <p class="mark">Local result</p>
+                <h2>Data-readiness screen</h2>
+                <p id="results-source"></p>
+              </div>
+              <div class="results-actions">
+                <button id="download-summary" class="btn btn-secondary" type="button">Download count summary</button>
+                <button id="clear-results" class="btn btn-secondary" type="button">Clear local result</button>
+              </div>
+            </div>
+
+            <div id="scoreline" class="scoreline" data-tone="watch">
+              <span class="score-marker" aria-hidden="true">—</span>
+              <div><h3 id="score-title">Waiting for a CSV</h3><p id="score-copy">Select a local file or run the synthetic demonstration.</p></div>
+            </div>
+
+            <div id="metrics" class="metric-grid" aria-label="Coordinate screen summary"></div>
+
+            <div class="findings">
+              <section class="finding" aria-labelledby="detected-fields-title">
+                <h3 id="detected-fields-title">Fields detected</h3>
+                <p>Recognised Salesforce-style categories and simple coverage counts. No record values, file names or raw headers are shown.</p>
+                <ul id="field-findings" class="finding-list"></ul>
+              </section>
+              <section class="finding" aria-labelledby="quality-signals-title">
+                <h3 id="quality-signals-title">Quality signals</h3>
+                <p>These are review prompts, not a verdict on customer location accuracy or routing suitability.</p>
+                <ul id="data-findings" class="finding-list"></ul>
+              </section>
+            </div>
+
+            <div id="next-checks" class="next-checks"></div>
+          </section>
+        </div>
+
+        <aside class="tool-aside" aria-label="Checker notes">
+          <div class="docket">
+            <span class="docket-tag">What this checks</span>
+            <h2>Useful signals, not a black-box score.</h2>
+            <p>The utility deliberately avoids claiming that any record is route-ready or compatible with a specific product.</p>
+            <ul class="docket-list">
+              <li><b>Coordinates:</b> blanks, values outside latitude/longitude ranges, zero pairs and repeated non-zero pairs.</li>
+              <li><b>Address fields:</b> recognised Billing, Shipping, Mailing, Other or generic address fields.</li>
+              <li><b>Routing context:</b> GeocodeAccuracy, owner and territory coverage when those headers exist.</li>
+              <li><b>Output:</b> counts and field names only, plus a local text summary you can download.</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ticks" aria-labelledby="interpret-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Interpret the result</p>
+        <h2 id="interpret-title">A coordinate is not the whole decision.</h2>
+        <p>Route planning depends on the records you intend to visit, the address source you trust, your territory model and the operational constraints for a field day. This screen helps start that review; it cannot replace it.</p>
+      </div>
+      <div class="method-grid">
+        <article><span class="method-no">01</span><h3>Confirm the address source</h3><p>Accounts can carry more than one address. Make sure the export uses the address that represents the visit location, not simply the first address available.</p></article>
+        <article><span class="method-no">02</span><h3>Sample the map</h3><p>Open a representative sample in Salesforce. A pair can be in range and still point to an old address, a postcode centroid or the wrong site.</p></article>
+        <article><span class="method-no">03</span><h3>Test the field-day rules</h3><p>Only then validate visit duration, time windows, breaks, existing Events and territory coverage with the people who plan the work.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec ticks band-2" aria-labelledby="privacy-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Privacy</p>
+        <h2 id="privacy-title">The CSV remains local to your browser.</h2>
+        <p>This page has no upload endpoint. The checker reads the selected file in browser memory, generates aggregate counts, and clears its local result when you choose “Clear local result”, reload or close the page.</p>
+      </div>
+      <div class="notice"><p><b>Do not treat this screen as a data-processing agreement.</b> Your own Salesforce export, browser and device policies still apply. For Tourvia’s route-calculation data boundary, read the <a href="/docs/privacy.html">Privacy Policy</a> and <a href="/docs/dpa.html">DPA</a>.</p></div>
+    </div>
+  </section>
+
+  <section class="sec ticks" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Questions</p>
+        <h2 id="faq-title">Before you inspect an export</h2>
+      </div>
+      <div class="faq-list">
+        <details><summary>Does the checker upload my CSV?</summary><div class="faq-body"><p>No. The selected file is read in browser memory. The checker has no upload endpoint and does not send rows, headers, counts or downloaded summaries to Tourvia.</p></div></details>
+        <details><summary>Which Salesforce fields does it recognise?</summary><div class="faq-body"><p>It looks for common Billing, Shipping, Mailing, Other and generic address headers; latitude and longitude pairs; GeocodeAccuracy; owner; and territory fields. Custom field labels and exports vary, so the recognised category counts are always part of the review.</p></div></details>
+        <details><summary>Does a clear result prove that records are accurate?</summary><div class="faq-body"><p>No. It means the screen found usable coordinate syntax according to the checks shown. It cannot establish that coordinates represent the intended visit location, that a geocode is current, or that a route will be feasible.</p></div></details>
+        <details><summary>Does this prove Tourvia compatibility?</summary><div class="faq-body"><p>No. This is a vendor-neutral CSV data screen. A Tourvia trial evaluates the actual Salesforce objects, configuration and field workflow in your own org.</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec night" aria-labelledby="next-title">
+    <div class="wrap">
+      <div>
+        <div class="sec-head">
+          <span class="stop stop-last" aria-hidden="true"></span>
+          <p class="mark">Next field check</p>
+          <h2 id="next-title">Once the records are mapped, test the workflow.</h2>
+          <p>Tourvia turns selected Salesforce records into an optimised route, timed Events, field visits and reporting. Validate that workflow during the complete 30-day trial.</p>
+        </div>
+      </div>
+      <div class="last-stop-side">
+        <h3>Continue the evaluation</h3>
+        <p>See how route planning stays connected to Salesforce records and Events, then use the trial to test it in the target org.</p>
+        <div class="btn-row">
+          <a class="btn btn-paper" href="/salesforce-route-planning.html">See Salesforce route planning</a>
+          <a class="textlink" href="/#contact">Request a 30-day trial</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="28" height="28"/><b>Tourvia</b></a>
+        <p>Salesforce managed package for route planning and field execution. Tourvia is the new product name for RouteForce.</p>
+        <a href="/#contact" class="btn btn-primary">Request a 30-day trial</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Product</span>
+        <a href="/salesforce-route-planning.html">Route planning</a>
+        <a href="/pricing.html">Pricing</a>
+        <a href="/use-cases.html">Use cases</a>
+        <a href="/native-integration-salesforce.html">Integration</a>
+        <a href="/compare.html">Compare</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Resources</span>
+        <a href="/blog/">Blog</a>
+        <a href="/docs/">Docs</a>
+        <a href="/docs/setup-guide.html">Setup guide</a>
+        <a href="/docs/user-guide.html">User guide</a>
+        <a href="/docs/configuration-guide.html">Configuration guide</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Company</span>
+        <a href="mailto:contact@gettourvia.com">Contact</a>
+        <a href="/docs/privacy.html">Privacy</a>
+        <a href="/docs/terms.html">Terms</a>
+        <a href="/docs/mentions-legales.html">Legal notice</a>
+        <a href="/docs/cgv.html">CGV</a>
+        <a href="/docs/dpa.html">DPA</a>
+        <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener">Status <span class="dot-ok" aria-hidden="true"></span></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 SKZ Consulting · Salesforce ISV partner.</span>
+      <span>Salesforce managed package, private AppExchange listing. Salesforce does not endorse or recommend Tourvia.</span>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "@id": "https://gettourvia.com/salesforce-route-planning-data-readiness-checker.html#webpage",
+ "url": "https://gettourvia.com/salesforce-route-planning-data-readiness-checker.html",
+ "name": "Salesforce Route Planning Data Readiness Checker | Tourvia",
+ "description": "Check a Salesforce CSV locally for address fields, unusable coordinates, GeocodeAccuracy, owner and territory coverage before route planning.",
+ "inLanguage": "en",
+ "dateModified": "2026-09-05",
+ "isPartOf": {"@id": "https://gettourvia.com/#website"},
+ "about": {"@id": "https://gettourvia.com/#tourvia"},
+ "publisher": {"@id": "https://gettourvia.com/#organization"},
+ "mainEntity": {"@id": "https://gettourvia.com/salesforce-route-planning-data-readiness-checker.html#tool"}
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebApplication",
+ "@id": "https://gettourvia.com/salesforce-route-planning-data-readiness-checker.html#tool",
+ "name": "Salesforce Route Planning Data Readiness Checker",
+ "applicationCategory": "BusinessApplication",
+ "operatingSystem": "Web browser",
+ "isAccessibleForFree": true,
+ "url": "https://gettourvia.com/salesforce-route-planning-data-readiness-checker.html",
+ "description": "A browser-only CSV screen for Salesforce address, coordinate, GeocodeAccuracy, owner and territory field coverage before route planning.",
+ "featureList": "Local CSV reading, coordinate syntax checks, recognised field coverage counts, local text summary download",
+ "publisher": {"@id": "https://gettourvia.com/#organization"}
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {"@type": "ListItem", "position": 1, "name": "Tourvia", "item": "https://gettourvia.com/"},
+  {"@type": "ListItem", "position": 2, "name": "Salesforce route-planning data readiness checker", "item": "https://gettourvia.com/salesforce-route-planning-data-readiness-checker.html"}
+ ]
+}
+</script>
+</body>
+</html>
