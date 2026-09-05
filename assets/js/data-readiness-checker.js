@@ -60,6 +60,7 @@
     var row = [];
     var field = '';
     var inQuotes = false;
+    var afterQuote = false;
     var i;
 
     for (i = 0; i < text.length; i += 1) {
@@ -71,9 +72,28 @@
             i += 1;
           } else {
             inQuotes = false;
+            afterQuote = true;
           }
         } else {
           field += char;
+        }
+      } else if (afterQuote) {
+        if (char === ',') {
+          row.push(field);
+          field = '';
+          afterQuote = false;
+        } else if (char === '\n') {
+          row.push(field);
+          if (row.some(function (cell) { return cell !== ''; })) {
+            rows.push(row);
+          }
+          row = [];
+          field = '';
+          afterQuote = false;
+        } else if (char === '\r' && text[i + 1] === '\n') {
+          // CRLF is handled by the following newline; no trailing text is allowed.
+        } else {
+          throw new Error('A quoted CSV field has text after its closing quote. Export the file again as CSV UTF-8.');
         }
       } else if (char === '"') {
         if (field.length !== 0) {
@@ -202,28 +222,32 @@
     }).filter(Boolean);
   }
 
-  function accuracyDistribution(rows, header) {
-    if (!header) { return []; }
-    var known = {
-      address: 'Address', nearaddress: 'NearAddress', block: 'Block', street: 'Street', extendedzip: 'ExtendedZip',
-      zip: 'Zip', zippostalcode: 'Zip', neighborhood: 'Neighborhood', city: 'City', county: 'County',
-      state: 'State', stateprovince: 'State', unknown: 'Unknown'
-    };
-    var counts = {};
-    rows.forEach(function (row) {
-      var raw = valueAt(row, header);
-      var label = raw ? (known[normalise(raw)] || 'Unrecognised') : 'Blank';
-      counts[label] = (counts[label] || 0) + 1;
+  function coordinatePair(index) {
+    var families = [
+      { name: 'Billing', lat: ['billinglatitude'], lng: ['billinglongitude'] },
+      { name: 'Shipping', lat: ['shippinglatitude'], lng: ['shippinglongitude'] },
+      { name: 'Mailing', lat: ['mailinglatitude'], lng: ['mailinglongitude'] },
+      { name: 'Other', lat: ['otherlatitude'], lng: ['otherlongitude'] },
+      { name: 'Generic', lat: ['latitude', 'geocodelatitude', 'lat'], lng: ['longitude', 'geocodelongitude', 'lng', 'long'] }
+    ];
+    var found = null;
+    families.some(function (family) {
+      var lat = firstHeader(index, family.lat);
+      var lng = firstHeader(index, family.lng);
+      if (lat && lng) {
+        found = { family: family.name, lat: lat, lng: lng };
+        return true;
+      }
+      return false;
     });
-    return Object.keys(counts).sort(function (a, b) { return counts[b] - counts[a] || a.localeCompare(b); }).map(function (label) {
-      return { label: label, count: counts[label] };
-    });
+    return found;
   }
 
   function analyse(headers, rows, source) {
     var index = buildHeaderIndex(headers);
-    var lat = firstHeader(index, ['latitude', 'billinglatitude', 'shippinglatitude', 'mailinglatitude', 'otherlatitude', 'geocodelatitude', 'lat']);
-    var lng = firstHeader(index, ['longitude', 'billinglongitude', 'shippinglongitude', 'mailinglongitude', 'otherlongitude', 'geocodelongitude', 'lng', 'long']);
+    var pair = coordinatePair(index);
+    var lat = pair && pair.lat;
+    var lng = pair && pair.lng;
     var accuracy = firstHeader(index, ['geocodeaccuracy', 'billinggeocodeaccuracy', 'shippinggeocodeaccuracy', 'mailinggeocodeaccuracy']);
     var owner = firstHeader(index, ['ownername', 'ownerid', 'owner']);
     var territory = firstHeader(index, ['territory2name', 'territory2id', 'territoryname', 'territory']);
@@ -250,8 +274,8 @@
           return;
         }
         coordinate.valid += 1;
-        var pair = latValue.toFixed(6) + ',' + lngValue.toFixed(6);
-        coordinateCounts[pair] = (coordinateCounts[pair] || 0) + 1;
+        var pairKey = String(latValue) + ',' + String(lngValue);
+        coordinateCounts[pairKey] = (coordinateCounts[pairKey] || 0) + 1;
       });
       Object.keys(coordinateCounts).forEach(function (pair) {
         if (coordinateCounts[pair] > 1) {
@@ -295,11 +319,11 @@
       lat: lat,
       lng: lng,
       accuracy: accuracy,
+      accuracyFilled: presentCount(rows, accuracy),
       owner: ownership,
       territory: territories,
       coordinate: coordinate,
       addresses: addressResults,
-      accuracyDistribution: accuracyDistribution(rows, accuracy),
       status: status
     };
   }
@@ -344,7 +368,7 @@
     var fields = [];
     if (report.lat) { fields.push(fieldRow('Latitude', coordinate.valid + coordinate.invalid + coordinate.zero, report.rowCount)); }
     if (report.lng) { fields.push(fieldRow('Longitude', coordinate.valid + coordinate.invalid + coordinate.zero, report.rowCount)); }
-    if (report.accuracy) { fields.push(fieldRow('Geocode accuracy', report.rowCount, report.rowCount)); }
+    if (report.accuracy) { fields.push(fieldRow('Geocode accuracy', report.accuracyFilled, report.rowCount)); }
     if (report.owner) { fields.push(fieldRow('Owner', report.owner.filled, report.rowCount)); }
     if (report.territory) { fields.push(fieldRow('Territory', report.territory.filled, report.rowCount)); }
     report.addresses.forEach(function (group) {
@@ -363,9 +387,9 @@
     if (report.territory) {
       checks.push({ label: '<strong>Territory coverage</strong><br><span class="small-muted">Recognised territory field</span>', count: (report.rowCount - report.territory.filled) + ' blank' });
     }
-    report.accuracyDistribution.slice(0, 6).forEach(function (item) {
-      checks.push({ label: '<strong>GeocodeAccuracy: ' + esc(item.label) + '</strong>', count: item.count });
-    });
+    if (report.accuracy) {
+      checks.push({ label: '<strong>Geocode accuracy coverage</strong><br><span class="small-muted">Recognised field; values are not displayed</span>', count: (report.rowCount - report.accuracyFilled) + ' blank' });
+    }
     dataFindings.innerHTML = list(checks, 'No additional field-quality checks were available from this export.');
 
     var guidance = [];

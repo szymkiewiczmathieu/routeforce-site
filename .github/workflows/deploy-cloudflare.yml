@@ -42,6 +42,9 @@ jobs:
       - name: Test redirect behavior
         run: npm run test:redirects
 
+      - name: Test data-readiness checker behavior
+        run: npm run test:data-checker
+
       - name: Deploy Cloudflare Worker
         uses: cloudflare/wrangler-action@v3
         with:
