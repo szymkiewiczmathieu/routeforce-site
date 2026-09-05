@@ -37,10 +37,15 @@ class PageParser(HTMLParser):
         self.ids: set[str] = set()
         self.hrefs: list[str] = []
         self.canonicals: list[str] = []
+        self.og_urls: list[str] = []
         self.descriptions: list[str] = []
+        self.titles: list[str] = []
         self.h1_count = 0
         self.noindex = False
         self.jsonld: list[str] = []
+        self.jsonld_data: list[object] = []
+        self._in_title = False
+        self._title_buffer: list[str] = []
         self._in_jsonld = False
         self._json_buffer: list[str] = []
 
@@ -50,10 +55,15 @@ class PageParser(HTMLParser):
             self.ids.add(data["id"])
         if tag == "a" and data.get("href"):
             self.hrefs.append(data["href"])
+        if tag == "title":
+            self._in_title = True
+            self._title_buffer = []
         if tag == "h1":
             self.h1_count += 1
         if tag == "meta" and data.get("name", "").lower() == "description":
             self.descriptions.append(data.get("content", ""))
+        if tag == "meta" and data.get("property", "").lower() == "og:url":
+            self.og_urls.append(data.get("content", ""))
         if tag == "meta" and data.get("name", "").lower() == "robots":
             self.noindex = "noindex" in data.get("content", "").lower()
         if tag == "link" and "canonical" in data.get("rel", "").lower():
@@ -63,10 +73,15 @@ class PageParser(HTMLParser):
             self._json_buffer = []
 
     def handle_data(self, data: str) -> None:
+        if self._in_title:
+            self._title_buffer.append(data)
         if self._in_jsonld:
             self._json_buffer.append(data)
 
     def handle_endtag(self, tag: str) -> None:
+        if tag == "title" and self._in_title:
+            self.titles.append("".join(self._title_buffer).strip())
+            self._in_title = False
         if tag == "script" and self._in_jsonld:
             self.jsonld.append("".join(self._json_buffer))
             self._in_jsonld = False
@@ -110,6 +125,40 @@ def date_modified_values(value) -> set[str]:
     return dates
 
 
+def expected_canonical(relative: Path) -> str:
+    """Return the exact canonical URL expected for a built HTML artifact."""
+    path = relative.as_posix()
+    if path == "index.html":
+        return f"{CANONICAL_ORIGIN}/"
+    if path.endswith("/index.html"):
+        return f"{CANONICAL_ORIGIN}/{path[:-len('index.html')]}"
+    return f"{CANONICAL_ORIGIN}/{path}"
+
+
+def top_level_schema_nodes(value) -> list[dict]:
+    """Return schema definitions, never nested property/reference objects."""
+    if isinstance(value, list):
+        return [node for node in value if isinstance(node, dict)]
+    if not isinstance(value, dict):
+        return []
+    graph = value.get("@graph")
+    if isinstance(graph, list):
+        return [node for node in graph if isinstance(node, dict)]
+    return [value]
+
+
+def entity_reference(value, expected_id: str) -> bool:
+    return value == {"@id": expected_id}
+
+
+def only_node(nodes: list[dict], node_id: str, node_type: str) -> dict | None:
+    matches = [
+        node for node in nodes
+        if node.get("@id") == node_id and node.get("@type") == node_type
+    ]
+    return matches[0] if len(matches) == 1 else None
+
+
 def main() -> int:
     errors: list[str] = []
     html_files = sorted(DIST.rglob("*.html"))
@@ -137,20 +186,127 @@ def main() -> int:
         link_count += len(parser.hrefs)
 
         if not parser.noindex:
+            canonical = expected_canonical(relative)
             if len(parser.descriptions) != 1:
                 errors.append(f"{relative}: descriptions={len(parser.descriptions)}")
-            if len(parser.canonicals) != 1 or not parser.canonicals[0].startswith(CANONICAL_ORIGIN):
-                errors.append(f"{relative}: canonical={parser.canonicals}")
+            if parser.canonicals != [canonical]:
+                errors.append(f"{relative}: canonical={parser.canonicals} expected={canonical}")
+            if parser.og_urls != [canonical]:
+                errors.append(f"{relative}: og:url={parser.og_urls} expected={canonical}")
             if parser.h1_count != 1:
                 errors.append(f"{relative}: h1={parser.h1_count}")
 
         for block in parser.jsonld:
             try:
                 data = json.loads(block)
+                parser.jsonld_data.append(data)
                 jsonld_count += 1
                 modified_dates.setdefault(file.resolve(), set()).update(date_modified_values(data))
             except json.JSONDecodeError as exc:
                 errors.append(f"{relative}: invalid JSON-LD ({exc.msg})")
+
+    homepage = pages.get((DIST / "index.html").resolve())
+    if not homepage:
+        errors.append("Missing index.html")
+    else:
+        home_nodes = [
+            node
+            for data in homepage.jsonld_data
+            for node in top_level_schema_nodes(data)
+        ]
+        website_id = f"{CANONICAL_ORIGIN}/#website"
+        organization_id = f"{CANONICAL_ORIGIN}/#organization"
+        product_id = f"{CANONICAL_ORIGIN}/#tourvia"
+        website = only_node(home_nodes, website_id, "WebSite")
+        organization = only_node(home_nodes, organization_id, "Organization")
+        product = only_node(home_nodes, product_id, "SoftwareApplication")
+        if not website:
+            errors.append("index.html: missing canonical WebSite entity")
+        elif not (
+            website.get("url") == f"{CANONICAL_ORIGIN}/"
+            and entity_reference(website.get("publisher"), organization_id)
+            and entity_reference(website.get("about"), product_id)
+        ):
+            errors.append("index.html: WebSite identity links are incomplete")
+        if not organization:
+            errors.append("index.html: missing canonical Organization entity")
+        elif (
+            organization.get("name") != "SKZ Consulting"
+            or organization.get("legalName") != "SKZ Consulting"
+            or "sameAs" in organization
+        ):
+            errors.append("index.html: Organization identity is invalid")
+        if not product:
+            errors.append("index.html: missing canonical SoftwareApplication entity")
+        elif not (
+            product.get("name") == "Tourvia"
+            and product.get("url") == f"{CANONICAL_ORIGIN}/"
+            and product.get("sameAs") == [
+                "https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba"
+            ]
+            and entity_reference(product.get("author"), organization_id)
+            and entity_reference(product.get("publisher"), organization_id)
+        ):
+            errors.append("index.html: SoftwareApplication identity is invalid")
+
+    strategic_pages = (
+        "pricing.html",
+        "salesforce-route-planning.html",
+        "visit-planning-salesforce.html",
+        "field-sales-route-optimization.html",
+        "native-integration-salesforce.html",
+        "use-cases.html",
+    )
+    prohibited_page_product_fields = {
+        "offers",
+        "price",
+        "priceCurrency",
+        "priceSpecification",
+        "softwareVersion",
+        "featureList",
+        "applicationCategory",
+        "operatingSystem",
+    }
+    for relative in strategic_pages:
+        parser = pages.get((DIST / relative).resolve())
+        if not parser:
+            errors.append(f"{relative}: missing built page")
+            continue
+        canonical = expected_canonical(Path(relative))
+        expected_id = f"{canonical}#webpage"
+        nodes = [
+            node
+            for data in (parser.jsonld_data if parser else [])
+            for node in top_level_schema_nodes(data)
+        ]
+        webpage_nodes = [node for node in nodes if node.get("@type") == "WebPage"]
+        breadcrumb_nodes = [node for node in nodes if node.get("@type") == "BreadcrumbList"]
+        webpage = only_node(nodes, expected_id, "WebPage")
+        node_ids = [node["@id"] for node in nodes if isinstance(node.get("@id"), str)]
+        if len(node_ids) != len(set(node_ids)):
+            errors.append(f"{relative}: duplicate top-level JSON-LD @id")
+        if len(webpage_nodes) != 1 or not webpage:
+            errors.append(f"{relative}: missing canonical WebPage entity")
+        elif not (
+            len(parser.titles) == 1
+            and len(parser.descriptions) == 1
+            and webpage.get("url") == canonical
+            and webpage.get("name") == parser.titles[0]
+            and webpage.get("description") == parser.descriptions[0]
+            and webpage.get("inLanguage") == "en"
+            and webpage.get("dateModified") == "2026-09-05"
+            and entity_reference(webpage.get("isPartOf"), f"{CANONICAL_ORIGIN}/#website")
+            and entity_reference(webpage.get("about"), f"{CANONICAL_ORIGIN}/#tourvia")
+            and entity_reference(webpage.get("mainEntity"), f"{CANONICAL_ORIGIN}/#tourvia")
+            and entity_reference(webpage.get("publisher"), f"{CANONICAL_ORIGIN}/#organization")
+        ):
+            errors.append(f"{relative}: WebPage identity links are incomplete")
+        if len(breadcrumb_nodes) != 1:
+            errors.append(f"{relative}: expected one BreadcrumbList")
+        if any(node.get("@type") in {"Product", "SoftwareApplication"} for node in nodes):
+            errors.append(f"{relative}: page-local product definition is forbidden")
+        if webpage and prohibited_page_product_fields & webpage.keys():
+            errors.append(f"{relative}: WebPage duplicates product fields")
 
     for source, parser in pages.items():
         for href in parser.hrefs:
