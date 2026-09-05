@@ -4,6 +4,7 @@
  * public pages to their final canonical URL in one permanent redirect.
  */
 const LEGACY_REDIRECTS = new Map([
+  ['/en', '/'],
   ['/en/', '/'],
   ['/en/index.html', '/'],
   ['/en/use-cases.html', '/use-cases.html'],
@@ -13,13 +14,18 @@ const LEGACY_REDIRECTS = new Map([
   ['/en/flat-rate-route-optimization.html', '/pricing.html'],
   ['/en/salesforce-route-planning.html', '/salesforce-route-planning.html'],
   ['/en/docs/', '/docs/'],
+  ['/en/docs', '/docs/'],
   ['/en/blog/', '/blog/'],
+  ['/en/blog', '/blog/'],
+  ['/es', '/'],
   ['/es/', '/'],
   ['/es/index.html', '/'],
   ['/es/casos-de-uso.html', '/use-cases.html'],
   ['/es/pricing.html', '/pricing.html'],
   ['/es/docs/', '/docs/'],
+  ['/es/docs', '/docs/'],
   ['/es/blog/', '/blog/'],
+  ['/es/blog', '/blog/'],
   ['/blog/optimiser-tournees-salesforce.html', '/blog/optimize-field-sales-routes-salesforce.html'],
   ['/blog/routeforce-vs-salesforce-maps-en.html', '/blog/salesforce-maps-alternatives-compared.html'],
   ['/blog/salesforce-maps-alternative-2026.html', '/blog/salesforce-maps-alternatives-compared.html'],

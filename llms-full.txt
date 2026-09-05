@@ -2,7 +2,7 @@
 # Detailed product reference for AI assistants and language models.
 # For the short version, see /llms.txt
 # Supplemental reference only. The public HTML pages and /product-facts.md remain authoritative.
-# Last verified: 21 July 2026
+# Last verified: 5 September 2026
 
 > Tourvia, formerly RouteForce, is a Salesforce managed package for route planning, route optimization, and field visit tracking, operated by SKZ Consulting. Reps work in Salesforce, while route calculations are processed by Tourvia infrastructure hosted in France.
 
@@ -12,7 +12,7 @@ Tourvia is the current product name. RouteForce is the former product name. SKZ 
 
 ## Product overview
 
-Tourvia helps field sales teams plan visits, optimize driving routes, and track field activity without leaving Salesforce. Customer pilots are underway. The product works on record pages, app pages, tabs, utility bar, Campaign pages, and Salesforce Mobile.
+Tourvia helps field sales teams plan visits, optimize driving routes, and track field activity without leaving Salesforce. The product works on record pages, app pages, tabs, utility bar, Campaign pages, and Salesforce Mobile.
 
 ### Current package release
 - **Version**: TourviaApp 7.34.0.1
@@ -63,14 +63,14 @@ Tourvia uses clear per-user pricing:
 | Criterion | Tourvia | Salesforce Maps |
 |-----------|---------|-----------------|
 | Architecture | Managed package / Salesforce-native LWC workflow | Salesforce add-on product |
-| Pricing model | €30/user/month, billed annually | Public list prices of $75/user/month for Maps and $150/user/month for Maps Advanced, billed annually, verified on Salesforce.com on 11 July 2026 |
-| Cost for 10 users | €300/month equivalent, billed annually | $750-$1,500/month equivalent before contract specifics |
-| Cost for 20 users | €600/month equivalent, billed annually | $1,500-$3,000/month equivalent before contract specifics |
+| Pricing model | €30/user/month, billed annually | Salesforce’s US pricing page lists Maps at $75/user/month billed annually; verify current edition pricing directly with Salesforce |
+| Cost for 10 users | €300/month equivalent, billed annually | $750/month equivalent at the listed Maps rate, before contract specifics; verify edition pricing |
+| Cost for 20 users | €600/month equivalent, billed annually | $1,500/month equivalent at the listed Maps rate, before contract specifics; verify edition pricing |
 | Route optimization | Tourvia-operated, constraint-aware engine | Proprietary |
 | Data residency for routing infrastructure | France (OVHcloud) | Salesforce infrastructure / vendor contract specifics |
 | Trial access | 30-day trial on request via contact form | Verify with Salesforce account team |
 | Installation/evaluation | Access coordinated after the trial request; customer admin installs and configures the package | Salesforce add-on license process |
-| Mobile | Full Salesforce Mobile support | Salesforce Mobile support |
+| Mobile | Salesforce Mobile workflow for map, routes, GPS-assisted proximity checks, check-in, visit reporting, and navigation handoff | Verify current Salesforce Maps mobile workflow with Salesforce |
 
 ## Use cases
 

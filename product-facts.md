@@ -21,7 +21,7 @@ The current pricing page is the source for commercial terms: https://gettourvia.
 
 - Current documented version: TourviaApp 7.34.0.1
 - Current release focus: planning invalidation when options change, protection against stale asynchronous recalculation, Agentforce recency filtering before result limits, keyboard focus for route-step actions, and resilient marker rendering when an optional type field is empty or invalid
-- Commercial status: customer pilots are underway and 30-day trial access is available on request
+- Trial access: 30-day trial available on request
 - Security Review: passed on 22 May 2026 for the reviewed package lineage
 - Salesforce does not endorse or recommend Tourvia
 - Main surfaces: Salesforce record pages, app pages, tabs, utility bar, Campaign pages and Salesforce Mobile

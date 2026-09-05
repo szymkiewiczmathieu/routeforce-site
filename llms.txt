@@ -18,7 +18,7 @@
 - Saved and shared filter configurations
 - Campaign Member mapping from Campaign record pages or the global app map, with Lead/Contact geolocation and status-based colors
 - Custom actions via Screen Flows and Lightning Web Components from map markers
-- Full Salesforce Mobile App support
+- Salesforce Mobile workflow for map, routes, GPS-assisted proximity checks, check-in, visit reporting, and navigation handoff
 
 ## Current package
 - Current documented release: TourviaApp 7.34.0.1
@@ -28,7 +28,6 @@
 ## Pricing
 - Last verified: 21 July 2026
 - Complete 30-day trial available on request through the contact form
-- Customer pilots are underway
 - Paid standard scope: €30/user/month excluding tax, billed annually (€360/user/year)
 - The same per-user price applies at every team size; Tourvia does not switch larger teams to custom-quote pricing
 - Installation and configuration are handled by the customer using the published documentation

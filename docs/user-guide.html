@@ -111,7 +111,7 @@
     <div class="guide-body">
 
 <a class="lang-switch" href="user-guide-fr.html">🇫🇷 Lire en français</a>
-<div class="note"><strong>TourviaApp 7.34.0.1</strong>: This guide covers every feature available to field sales representatives and their managers. Keep it as a daily reference.</div>
+<div class="note"><strong>TourviaApp 7.34.0.1</strong>: This guide covers day-to-day mapping, route, visit, and reporting workflows for field sales representatives and managers. Keep it as a daily reference.</div>
 <p><strong>Package version:</strong> TourviaApp 7.34.0.1 | July 2026<br/><strong>Audience:</strong> Field sales reps, territory managers<br/><strong>Platform:</strong> Salesforce Desktop &amp; Salesforce Mobile App</p>
 <p>Tourvia is a map-based field operations tool delivered as a Salesforce managed package. It lets you visualize your territory, filter records, plan routes, use GPS-assisted proximity checks, and maintain route history from Salesforce. GPS results depend on device accuracy, geocoding quality, and the configured radius; they do not prove identity or physical presence.</p>
 <div class="tip"><strong>What is new (7.26.0 → 7.34.0.1)</strong>
@@ -572,7 +572,7 @@
 <hr/>
 
 <h2 id="mobile">16. Mobile Usage</h2>
-<p>Tourvia is fully functional on the <strong>Salesforce Mobile App</strong>. The map, routes, check-in, and visit reports all work on your phone.</p>
+<p>Tourvia’s <strong>Salesforce Mobile</strong> workflow supports the map, routes, GPS-assisted proximity checks, check-in, and visit reports. Available actions depend on your org configuration and device.</p>
 <img alt="Tourvia on Salesforce Mobile: map with clusters and FAB button" decoding="async" height="1028" loading="lazy" src="../assets/screenshots-2026/mobile-map.webp" width="523"/>
 <h3>Mobile interface overview</h3>
 <p>The mobile view shows the full interactive map with your accounts, leads, and opportunities displayed as markers and clusters (green circles with numbers). The map supports <strong>pinch to zoom</strong> and <strong>drag</strong> to navigate.</p>
@@ -595,7 +595,7 @@
 <tr><th scope="col">Workflow</th><th scope="col">How It Works on Mobile</th></tr>
 </thead>
 <tbody>
-<tr><td><strong>GPS Check-In</strong></td><td>Uses your phone's GPS for accurate location verification. On-site detection (500m radius) works with better precision than desktop.</td></tr>
+<tr><td><strong>GPS Check-In</strong></td><td>Uses your phone’s GPS to evaluate proximity against the configured radius. Results depend on device accuracy, geocoding quality, and configuration; they do not prove identity or physical presence.</td></tr>
 <tr><td><strong>Click-to-Call</strong></td><td>Tap a phone number on any marker popup: initiates a phone call directly.</td></tr>
 <tr><td><strong>Tap to Call from Today's Agenda</strong></td><td>The contact phone shown on each event in Today's Agenda is a clickable <code>tel:</code> link that opens your phone dialer directly — no need to open the contact record first.</td></tr>
 <tr><td><strong>Navigate</strong></td><td>Tap "Navigate" on any marker: opens Google Maps with turn-by-turn directions.</td></tr>
