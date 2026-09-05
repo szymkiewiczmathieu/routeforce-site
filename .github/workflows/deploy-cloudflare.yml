@@ -45,6 +45,9 @@ jobs:
       - name: Test data-readiness checker behavior
         run: npm run test:data-checker
 
+      - name: Test visit-capacity calculator behavior
+        run: npm run test:visit-capacity
+
       - name: Deploy Cloudflare Worker
         uses: cloudflare/wrangler-action@v3
         with:

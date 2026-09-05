@@ -6,6 +6,7 @@
     "verify:public": "python3 scripts/verify_public.py",
     "test:redirects": "node --test tests/dist-worker.test.mjs",
     "test:data-checker": "node --test tests/data-readiness-checker.test.mjs",
+    "test:visit-capacity": "node --test tests/visit-capacity-calculator.test.mjs",
     "deploy:production": "python3 scripts/build_public.py && python3 scripts/verify_public.py && npx wrangler@4.112.0 deploy"
   },
   "dependencies": {

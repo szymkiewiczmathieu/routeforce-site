@@ -59,6 +59,8 @@
 .results-head p { margin:6px 0 0; color:var(--ink-2); font-size:14.5px; }
 .results-actions { display:flex; flex-wrap:wrap; gap:10px; }
 .results-actions .btn { min-height:42px; padding:9px 14px; font-size:13.5px; }
+.results-actions .btn:disabled { cursor:not-allowed; opacity:.5; }
+.inline-warning { margin:0 0 22px; padding:12px 14px; border-left:4px solid var(--capacity-watch); background:#fff3df; color:var(--ink-2); font-size:14px; line-height:1.45; }
 .scenario-status { display:grid; grid-template-columns:auto minmax(0,1fr); gap:18px; align-items:center; padding:18px 20px; background:var(--paper-2); border:1px solid var(--rule-strong); margin-bottom:26px; }
 .scenario-status > span { width:60px; height:60px; display:grid; place-items:center; border:2px solid currentColor; border-radius:50%; color:var(--capacity-watch); background:var(--paper-0); font:700 26px/1 var(--font-display); }
 .scenario-status[data-tone="good"] > span { color:var(--capacity-good); }
@@ -79,6 +81,9 @@
 .scenario-detail dl div { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; padding:10px 0; border-bottom:1px solid var(--rule); }
 .scenario-detail dt { color:var(--ink-2); font-size:14px; }
 .scenario-detail dd { margin:0; color:var(--ink); font-weight:600; font-variant-numeric:tabular-nums; text-align:right; }
+.result-notes { display:grid; grid-template-columns:1fr 1fr; gap:12px 24px; margin-top:24px; padding:17px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+.result-notes p { margin:0; color:var(--ink-2); font-size:14px; line-height:1.45; }
+.result-notes b { color:var(--ink); }
 .formula-card { margin-top:31px; padding:23px 24px; border-left:4px solid var(--route-line); background:var(--route-wash); }
 .formula-card h2 { margin:0 0 12px; font-size:clamp(1.3rem,2.2vw,1.75rem); }
 .formula-card ol { margin:0; padding-left:22px; color:var(--ink-2); }
@@ -94,4 +99,4 @@
 .notice b { color:var(--ink); }
 
 @media (max-width:1023px) { .calculator-shell { grid-template-columns:minmax(0,1fr); } .capacity-aside { position:static; } .metric-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .method-grid { grid-template-columns:1fr; } }
-@media (max-width:719px) { .capacity-ledger { padding:22px 20px; } .capacity-ledger ol { grid-template-columns:1fr; } .capacity-ledger li + li { border-left:0; padding-left:0; border-top:1px solid rgba(244,241,234,.18); margin-top:10px; padding-top:10px; } .capacity-form { padding:22px 20px; } .field-grid--three,.field-grid--four,.field-grid--two,.metric-grid,.scenario-detail { grid-template-columns:minmax(0,1fr); } .tier-row { grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) minmax(0,.85fr); } .tier-row > :last-child { grid-column:2 / -1; border-top:1px solid var(--rule); } .tier-head > :last-child { display:none; } .tier-head { grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) minmax(0,.85fr); } .tier-row output { min-height:43px; } .scenario-status { grid-template-columns:1fr; } .scenario-status > span { width:52px; height:52px; font-size:23px; } .formula-card { padding:18px; } }
+@media (max-width:719px) { .capacity-ledger { padding:22px 20px; } .capacity-ledger ol { grid-template-columns:1fr; } .capacity-ledger li + li { border-left:0; padding-left:0; border-top:1px solid rgba(244,241,234,.18); margin-top:10px; padding-top:10px; } .capacity-form { padding:22px 20px; } .field-grid--three,.field-grid--four,.field-grid--two,.metric-grid,.scenario-detail,.result-notes { grid-template-columns:minmax(0,1fr); } .tier-row { grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) minmax(0,.85fr); } .tier-row > :last-child { grid-column:2 / -1; border-top:1px solid var(--rule); } .tier-head > :last-child { display:none; } .tier-head { grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) minmax(0,.85fr); } .tier-row output { min-height:43px; } .scenario-status { grid-template-columns:1fr; } .scenario-status > span { width:52px; height:52px; font-size:23px; } .formula-card { padding:18px; } }
