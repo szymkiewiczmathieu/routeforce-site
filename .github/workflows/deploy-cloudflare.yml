@@ -28,11 +28,19 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
       - name: Build public artifact
         run: python scripts/build_public.py
 
       - name: Verify public artifact
         run: python scripts/verify_public.py
+
+      - name: Test redirect behavior
+        run: npm run test:redirects
 
       - name: Deploy Cloudflare Worker
         uses: cloudflare/wrangler-action@v3
@@ -41,6 +49,14 @@ jobs:
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: "4.112.0"
           command: deploy
+
+      - name: Deploy legacy-domain redirect Worker
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: "4.112.0"
+          command: deploy --config wrangler-redirect.jsonc
 
       - name: Smoke production
         run: python scripts/smoke_production.py
