@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>document.documentElement.classList.add('js');</script>
+<script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
+<script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+<title>Field Sales Visit Capacity Calculator | Tourvia</title>
+<meta name="description" content="Model field-sales visit demand and team capacity from your own cadence, workday and travel assumptions. Browser-only, no scenario data is uploaded."/>
+<meta name="robots" content="index, follow"/>
+<link rel="canonical" href="https://gettourvia.com/field-sales-visit-capacity-calculator.html"/>
+<link rel="alternate" hreflang="en" href="https://gettourvia.com/field-sales-visit-capacity-calculator.html"/>
+<link rel="alternate" hreflang="x-default" href="https://gettourvia.com/field-sales-visit-capacity-calculator.html"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<meta property="og:title" content="Field sales visit capacity calculator"/>
+<meta property="og:description" content="Use your own visit cadence, field-day and travel assumptions to compare required visits with modeled team capacity. Nothing is uploaded."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://gettourvia.com/field-sales-visit-capacity-calculator.html"/>
+<meta property="og:image" content="https://gettourvia.com/assets/screenshots-user/routeforce-salesforce-map-ui.jpg"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Field sales visit capacity calculator"/>
+<meta name="twitter:description" content="Model visit demand and field-team capacity from your own assumptions. Nothing is uploaded."/>
+<meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-user/routeforce-salesforce-map-ui.jpg"/>
+<link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="/assets/css/site.css"/>
+<link rel="stylesheet" href="/assets/css/visit-capacity-calculator.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script defer src="/assets/js/site.js"></script>
+<script defer src="/assets/js/visit-capacity-calculator.js"></script>
+</head>
+<body class="sheet sheet--core capacity-tool">
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-head">
+  <div class="wrap">
+    <a href="/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="32" height="32"/><b>Tourvia</b><small>formerly RouteForce</small></a>
+    <nav class="nav-main" aria-label="Primary">
+      <a class="nav-a" href="/salesforce-route-planning.html" aria-current="page">Route planning</a>
+      <a class="nav-a" href="/pricing.html">Pricing</a>
+      <a class="nav-a" href="/compare.html">Compare</a>
+      <a class="nav-a" href="/use-cases.html">Use cases</a>
+      <a class="nav-a" href="/blog/">Blog</a>
+      <a class="nav-a" href="/docs/">Docs</a>
+    </nav>
+    <div class="head-right">
+      <a class="nav-a head-link" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
+      <a href="/#contact" class="btn btn-primary head-cta">Request a 30-day trial</a>
+      <button id="mobile-menu-btn" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="nav-mobile"><nav class="wrap" aria-label="Mobile">
+    <a href="/salesforce-route-planning.html" aria-current="page">Route planning</a><a href="/pricing.html">Pricing</a><a href="/compare.html">Compare</a><a href="/use-cases.html">Use cases</a><a href="/blog/">Blog</a><a href="/docs/">Docs</a><a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a><a href="/#contact">Request a 30-day trial</a>
+  </nav></div>
+</header>
+
+<main id="main" tabindex="-1">
+  <div class="sheet-rail" aria-hidden="true"></div>
+  <section class="mast" aria-labelledby="capacity-title">
+    <div class="wrap">
+      <div class="mast-copy">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Free planning utility <small>Browser-only scenario calculator</small></p>
+        <h1 id="capacity-title">Test the visit capacity behind a field-sales coverage plan.</h1>
+        <p class="lead">Enter your own account tiers, visit cadence and field-day assumptions. Compare the visits required in one planning period with modeled team slots, without turning an assumption into a forecast.</p>
+        <div class="btn-row"><a class="btn btn-primary" href="#calculator">Build a scenario</a><a class="btn btn-secondary" href="#method">See the calculation method</a></div>
+        <ul class="facts-strip" aria-label="Calculator principles"><li><b>Local:</b> no scenario data is uploaded</li><li><b>Transparent:</b> every result shows its formula</li><li><b>Bounded:</b> scenarios are not staffing advice or savings claims</li></ul>
+      </div>
+      <div class="mast-side"><aside class="capacity-ledger" aria-label="What the calculator compares">
+        <span class="ledger-tag">Planning note 01</span><h2>One coverage policy. One period. One capacity check.</h2>
+        <p>Start with how often accounts should be visited. Then make the time available to the field team explicit before asking a route planner to carry the gap.</p>
+        <ol><li><b>01</b>Set demand</li><li><b>02</b>Set time</li><li><b>03</b>Compare</li></ol>
+      </aside></div>
+    </div>
+  </section>
+
+  <section class="sec ticks band-2" id="calculator" aria-labelledby="calculator-title">
+    <div class="wrap">
+      <div class="sec-head"><span class="stop" aria-hidden="true"></span><p class="mark">Local workspace</p><h2 id="calculator-title">Model a coverage scenario from your own operating assumptions.</h2><p>Leave the fields empty until you have your numbers, or load an illustrative scenario. The example is only a demonstration of the math, not a recommended cadence, utilisation rate or headcount.</p></div>
+      <div class="calculator-shell">
+        <form id="capacity-form" class="capacity-form" novalidate>
+          <fieldset><legend>Planning period and team</legend><div class="field-grid field-grid--three">
+            <label>Planning period<select id="period" name="period" required><option value="" selected>Select a period</option><option value="month">Month</option><option value="quarter">Quarter</option><option value="custom period">Custom period</option></select></label>
+            <label>Field reps<input id="rep-count" name="repCount" type="number" min="1" max="100000" step="1" inputmode="numeric" required/></label>
+            <label>Field days per rep<input id="field-days" name="fieldDays" type="number" min="0.1" max="366" step="0.1" inputmode="decimal" required/></label>
+          </div></fieldset>
+          <fieldset><legend>Time available per rep, per field day</legend><div class="field-grid field-grid--four">
+            <label>Field hours<input id="field-hours" name="fieldHours" type="number" min="0.1" max="24" step="0.1" inputmode="decimal" required/></label>
+            <label>Admin hours<input id="admin-hours" name="adminHours" type="number" min="0" max="23.9" step="0.1" inputmode="decimal" required/></label>
+            <label>Absence / contingency buffer <span>%</span><input id="buffer-percent" name="bufferPercent" type="number" min="0" max="95" step="0.1" inputmode="decimal" required/></label>
+            <label>Average travel <span>minutes / visit</span><input id="travel-minutes" name="travelMinutes" type="number" min="0" max="1440" step="1" inputmode="numeric" required/></label>
+          </div></fieldset>
+          <fieldset><legend>Visit policy</legend><div class="field-grid field-grid--two"><label>Average visit duration <span>minutes</span><input id="visit-minutes" name="visitMinutes" type="number" min="1" max="1440" step="1" inputmode="numeric" required/></label><p class="field-note">Travel plus visit duration gives the modeled time per visit. The calculator does not estimate route sequence, traffic, geography or appointment constraints.</p></div>
+            <div class="tier-table" role="group" aria-label="Account tiers and visit cadence"><div class="tier-row tier-head"><span>Account tier</span><span>Accounts</span><span>Visits / period</span><span>Visits required</span></div>
+              <div class="tier-row"><strong>Priority tier A</strong><label class="visually-hidden" for="tier-a-accounts">Tier A accounts</label><input id="tier-a-accounts" type="number" min="0" max="10000000" step="1" inputmode="numeric"/><label class="visually-hidden" for="tier-a-cadence">Tier A visits per period</label><input id="tier-a-cadence" type="number" min="0" max="365" step="0.01" inputmode="decimal"/><output id="tier-a-required">—</output></div>
+              <div class="tier-row"><strong>Standard tier B</strong><label class="visually-hidden" for="tier-b-accounts">Tier B accounts</label><input id="tier-b-accounts" type="number" min="0" max="10000000" step="1" inputmode="numeric"/><label class="visually-hidden" for="tier-b-cadence">Tier B visits per period</label><input id="tier-b-cadence" type="number" min="0" max="365" step="0.01" inputmode="decimal"/><output id="tier-b-required">—</output></div>
+              <div class="tier-row"><strong>Coverage tier C</strong><label class="visually-hidden" for="tier-c-accounts">Tier C accounts</label><input id="tier-c-accounts" type="number" min="0" max="10000000" step="1" inputmode="numeric"/><label class="visually-hidden" for="tier-c-cadence">Tier C visits per period</label><input id="tier-c-cadence" type="number" min="0" max="365" step="0.01" inputmode="decimal"/><output id="tier-c-required">—</output></div>
+            </div>
+          </fieldset>
+          <div class="form-actions"><button class="btn btn-primary" type="submit">Calculate scenario</button><button class="btn btn-secondary" id="load-example" type="button">Load illustrative scenario</button><button class="text-btn" id="reset-calculator" type="button">Clear inputs</button></div>
+          <p id="form-status" class="form-status" role="status">Nothing is stored or sent. Inputs stay in this browser tab until you clear, reload or close it.</p>
+        </form>
+        <aside class="capacity-aside" aria-label="What the calculator can and cannot tell you"><div class="docket"><span class="docket-tag">Read this result correctly</span><h2>Capacity math is a planning prompt, not an operating forecast.</h2><ul class="docket-list"><li><b>Includes:</b> user-entered coverage demand, workdays, admin time, a contingency buffer, visit time and travel time.</li><li><b>Does not model:</b> real geography, traffic, route sequence, appointment windows, no-shows, skill mix or actual territory assignments.</li><li><b>Does not conclude:</b> which reps to hire, how many visits will occur, or what value a route tool will create.</li></ul></div></aside>
+      </div>
+      <section id="results" class="capacity-results" aria-live="polite" hidden>
+        <div class="results-head"><div><p class="mark">Scenario result</p><h2>Coverage capacity screen</h2><p id="result-period">Results are calculated from the current inputs only.</p></div><div class="results-actions"><button id="download-summary" class="btn btn-secondary" type="button">Download local summary</button><button id="clear-results" class="btn btn-secondary" type="button">Clear result</button></div></div>
+        <div id="scenario-status" class="scenario-status" data-tone="watch"><span id="scenario-marker" aria-hidden="true">—</span><div><h3 id="scenario-title">Waiting for inputs</h3><p id="scenario-copy">Complete the assumptions above to compare visit demand with modeled slots.</p></div></div>
+        <div class="metric-grid"><article class="metric"><span>Visits required</span><strong id="visits-required">—</strong><small>Accounts × visits per selected period</small></article><article class="metric"><span>Modeled visit slots</span><strong id="visit-capacity">—</strong><small>Whole visits that fit inside modeled team time</small></article><article class="metric"><span>Coverage balance</span><strong id="coverage-balance">—</strong><small>Slots minus required visits</small></article><article class="metric"><span>Rep-equivalent demand</span><strong id="rep-equivalent">—</strong><small>Modeled time equivalent, not a hiring recommendation</small></article></div>
+        <div class="scenario-detail"><section><h3>Demand by tier</h3><dl id="tier-summary"></dl></section><section><h3>Time behind the result</h3><dl id="time-summary"></dl></section></div>
+        <section class="formula-card" id="method"><p class="mark">Calculation method</p><h2>Every number can be checked.</h2><ol><li><b>Required visits</b> = accounts in each tier × visits per period, summed across tiers.</li><li><b>Minutes per visit</b> = average visit duration + average travel time.</li><li><b>Available team minutes</b> = reps × field days × (field hours − admin hours) × 60 × (1 − buffer).</li><li><b>Modeled visit slots</b> = floor(available team minutes ÷ minutes per visit).</li><li><b>Rep-equivalent demand</b> = required visit minutes ÷ modeled minutes available per rep. It is a scenario ratio, not a staffing recommendation.</li></ol></section>
+      </section>
+    </div>
+  </section>
+
+  <section class="sec ticks" aria-labelledby="interpret-title"><div class="wrap"><div class="sec-head"><span class="stop" aria-hidden="true"></span><p class="mark">Interpret the gap</p><h2 id="interpret-title">A positive balance does not prove a route will work.</h2><p>The calculator only makes the aggregate constraint visible. A coverage policy may still fail in practice if visits cluster in the wrong places, appointment windows conflict, travel estimates are too low, or priorities change during the period.</p></div><div class="method-grid"><article><span>01</span><h3>Test the account policy</h3><p>First check whether the selected cadence reflects the commercial reality for each tier.</p></article><article><span>02</span><h3>Test a representative map</h3><p>Then sample the geography, visit locations and territories in Salesforce before relying on aggregate travel time.</p></article><article><span>03</span><h3>Test a real field day</h3><p>Finally validate day constraints, routes and Salesforce Event creation with the people who execute the plan.</p></article></div></div></section>
+
+  <section class="sec ticks band-2" aria-labelledby="privacy-title"><div class="wrap"><div class="sec-head"><span class="stop" aria-hidden="true"></span><p class="mark">Privacy</p><h2 id="privacy-title">The scenario remains in your browser.</h2><p>This calculator has no upload endpoint. It reads the inputs on this page, generates a local result and does not send your assumptions or result to Tourvia. Page analytics may record a page visit only.</p></div><div class="notice"><p><b>Use your own internal planning policy.</b> The calculator does not process Salesforce records, modify your CRM or replace a capacity plan, a territory decision or a data-processing agreement.</p></div></div></section>
+
+  <section class="sec ticks" aria-labelledby="faq-title"><div class="wrap"><div class="sec-head"><span class="stop" aria-hidden="true"></span><p class="mark">Questions</p><h2 id="faq-title">Before you use a capacity scenario</h2></div><div class="faq-list"><details><summary>Are the illustrative inputs recommended values?</summary><div class="faq-body"><p>No. They exist only to show the calculation. Replace every value with your own policy and operating assumptions before using the result.</p></div></details><details><summary>Does the result tell me how many reps to hire?</summary><div class="faq-body"><p>No. The rep-equivalent number is a time ratio under the assumptions you entered. It does not account for skills, territories, hiring, absences, contracts, route feasibility or management decisions.</p></div></details><details><summary>Does this calculate a route?</summary><div class="faq-body"><p>No. It makes an aggregate coverage constraint visible. Route sequence, appointment windows, real travel time and field-day feasibility need a map and operational validation.</p></div></details><details><summary>Is Tourvia required to use this calculator?</summary><div class="faq-body"><p>No. This is a vendor-neutral planning utility. A Tourvia trial is a separate evaluation of route planning and Salesforce workflow in the target org.</p></div></details></div></div></section>
+
+  <section class="sec night" aria-labelledby="next-title"><div class="wrap"><div><div class="sec-head"><span class="stop stop-last" aria-hidden="true"></span><p class="mark">Next field check</p><h2 id="next-title">Once capacity looks plausible, test the route workflow.</h2><p>Use Salesforce records, territories and actual day constraints to evaluate whether selection, route planning and Event creation fit the way your team operates.</p></div></div><div class="last-stop-side"><h3>Continue the evaluation</h3><p>See how route planning stays connected to Salesforce records and Events, then validate it during the 30-day trial.</p><div class="btn-row"><a class="btn btn-paper" href="/visit-planning-salesforce.html">See Salesforce visit planning</a><a class="textlink" href="/#contact">Request a 30-day trial</a></div></div></div></section>
+</main>
+
+<footer class="site-foot"><div class="wrap"><div class="foot-grid"><div class="foot-brand"><a href="/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="28" height="28"/><b>Tourvia</b></a><p>Salesforce managed package for route planning and field execution. Tourvia is the new product name for RouteForce.</p><a href="/#contact" class="btn btn-primary">Request a 30-day trial</a></div><div class="foot-col"><span class="foot-h">Product</span><a href="/salesforce-route-planning.html">Route planning</a><a href="/pricing.html">Pricing</a><a href="/use-cases.html">Use cases</a><a href="/native-integration-salesforce.html">Integration</a><a href="/compare.html">Compare</a></div><div class="foot-col"><span class="foot-h">Resources</span><a href="/blog/">Blog</a><a href="/docs/">Docs</a><a href="/docs/setup-guide.html">Setup guide</a><a href="/docs/user-guide.html">User guide</a><a href="/docs/configuration-guide.html">Configuration guide</a></div><div class="foot-col"><span class="foot-h">Company</span><a href="mailto:contact@gettourvia.com">Contact</a><a href="/docs/privacy.html">Privacy</a><a href="/docs/terms.html">Terms</a><a href="/docs/mentions-legales.html">Legal notice</a><a href="/docs/cgv.html">CGV</a><a href="/docs/dpa.html">DPA</a><a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener">Status <span class="dot-ok" aria-hidden="true"></span></a></div></div><div class="foot-bottom"><span>&copy; 2026 SKZ Consulting · Salesforce ISV partner.</span><span>Salesforce managed package, private AppExchange listing. Salesforce does not endorse or recommend Tourvia.</span></div></div></footer>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","@id":"https://gettourvia.com/field-sales-visit-capacity-calculator.html#webpage","url":"https://gettourvia.com/field-sales-visit-capacity-calculator.html","name":"Field Sales Visit Capacity Calculator | Tourvia","description":"Model field-sales visit demand and team capacity from your own cadence, workday and travel assumptions.","inLanguage":"en","dateModified":"2026-09-05","isPartOf":{"@id":"https://gettourvia.com/#website"},"about":{"@id":"https://gettourvia.com/#tourvia"},"publisher":{"@id":"https://gettourvia.com/#organization"},"mainEntity":{"@id":"https://gettourvia.com/field-sales-visit-capacity-calculator.html#tool"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","@id":"https://gettourvia.com/field-sales-visit-capacity-calculator.html#tool","name":"Field Sales Visit Capacity Calculator","applicationCategory":"BusinessApplication","operatingSystem":"Web browser","isAccessibleForFree":true,"url":"https://gettourvia.com/field-sales-visit-capacity-calculator.html","description":"A browser-only calculator for user-entered field-sales visit cadence and capacity assumptions.","featureList":"Local scenario calculation, tiered visit demand, time-capacity formula, local text summary download","publisher":{"@id":"https://gettourvia.com/#organization"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Tourvia","item":"https://gettourvia.com/"},{"@type":"ListItem","position":2,"name":"Field sales visit capacity calculator","item":"https://gettourvia.com/field-sales-visit-capacity-calculator.html"}]}
+</script>
+</body>
+</html>

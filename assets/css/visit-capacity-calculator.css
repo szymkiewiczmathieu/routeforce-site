@@ -1,0 +1,97 @@
+/* Field-sales capacity calculator: a paper planning ledger, not a KPI dashboard. */
+.capacity-tool {
+  --capacity-good: #2f6b4c;
+  --capacity-watch: #9a5b0a;
+  --capacity-gap: #b92c1a;
+}
+.capacity-tool .mast-copy h1 { max-width: 23ch; }
+.capacity-tool .mast-side { padding-top: 16px; }
+.capacity-ledger { background: var(--ink); color: var(--paper); padding: 26px 28px 24px; border: 1px solid var(--ink); position: relative; overflow: hidden; }
+.capacity-ledger::before,.capacity-ledger::after { content:""; position:absolute; border-radius:50%; pointer-events:none; border:1px solid rgba(244,241,234,.16); }
+.capacity-ledger::before { width:310px; height:310px; right:-145px; top:-180px; }
+.capacity-ledger::after { width:190px; height:190px; right:-90px; top:-105px; border-color:rgba(244,241,234,.1); }
+.capacity-ledger > * { position:relative; }
+.ledger-tag,.docket-tag { display:block; color:var(--route); font:600 11px/1.4 var(--font-text); letter-spacing:.14em; text-transform:uppercase; margin-bottom:12px; }
+.capacity-ledger h2 { font-size:clamp(1.35rem,2.2vw,1.8rem); max-width:18ch; margin-bottom:10px; }
+.capacity-ledger p { color:var(--night-muted); font-size:14.5px; line-height:1.5; max-width:41ch; margin:0 0 18px; }
+.capacity-ledger ol { list-style:none; display:grid; grid-template-columns:repeat(3,1fr); margin:0; padding:0; border-top:1px solid rgba(244,241,234,.25); }
+.capacity-ledger li { min-width:0; padding:12px 10px 0 0; color:var(--night-muted); font-size:12.5px; line-height:1.35; }
+.capacity-ledger li + li { padding-left:10px; border-left:1px solid rgba(244,241,234,.18); }
+.capacity-ledger li b { display:block; color:var(--paper); font:700 19px/1 var(--font-display); margin-bottom:5px; }
+
+.calculator-shell { display:grid; grid-template-columns:minmax(0,8fr) minmax(280px,4fr); gap:30px 42px; align-items:start; }
+.capacity-form { background:var(--paper-0); border:1.5px solid var(--ink); padding:28px; min-width:0; }
+.capacity-form fieldset { border:0; padding:0; margin:0; }
+.capacity-form fieldset + fieldset { margin-top:30px; padding-top:25px; border-top:1px solid var(--rule-strong); }
+.capacity-form legend { padding:0; color:var(--ink); font:700 clamp(1.2rem,2vw,1.55rem)/1.18 var(--font-display); margin-bottom:16px; }
+.field-grid { display:grid; gap:14px 16px; }
+.field-grid--three { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.field-grid--four { grid-template-columns:repeat(4,minmax(0,1fr)); }
+.field-grid--two { grid-template-columns:minmax(0,1fr) minmax(0,1.5fr); align-items:end; }
+.capacity-form label { display:grid; gap:7px; color:var(--ink-2); font-size:13px; line-height:1.35; }
+.capacity-form label span { color:var(--ink-3); font-size:12px; }
+.capacity-form input,.capacity-form select { width:100%; min-height:45px; padding:9px 10px; border:1px solid var(--rule-strong); border-radius:0; background:var(--paper); color:var(--ink); font:500 16px/1.2 var(--font-text); }
+.capacity-form input:focus,.capacity-form select:focus { outline:3px solid rgba(185,44,26,.2); outline-offset:1px; border-color:var(--route); }
+.capacity-form input[aria-invalid="true"],.capacity-form select[aria-invalid="true"] { border-color:var(--capacity-gap); background:#fff7f5; }
+.field-note { margin:0; color:var(--ink-3); font-size:13px; line-height:1.45; }
+.tier-table { margin-top:22px; border-top:2px solid var(--ink); border-left:1px solid var(--rule); }
+.tier-row { display:grid; grid-template-columns:minmax(125px,1.25fr) repeat(3,minmax(0,1fr)); gap:0; align-items:stretch; border-bottom:1px solid var(--rule); }
+.tier-row > * { min-width:0; margin:0; padding:10px; border-right:1px solid var(--rule); }
+.tier-row strong { display:flex; align-items:center; color:var(--ink); font-size:14px; }
+.tier-row input { min-height:42px; padding:8px; }
+.tier-row output { display:flex; align-items:center; color:var(--ink); font:700 18px/1 var(--font-display); font-variant-numeric:tabular-nums; }
+.tier-head { background:var(--paper-2); color:var(--ink-3); font:600 10.5px/1.4 var(--font-text); letter-spacing:.09em; text-transform:uppercase; }
+.form-actions { display:flex; flex-wrap:wrap; align-items:center; gap:10px 14px; margin-top:25px; }
+.text-btn { appearance:none; padding:9px 0; border:0; background:transparent; color:var(--ink-2); font:600 14px/1.4 var(--font-text); text-decoration:underline; text-underline-offset:3px; cursor:pointer; }
+.form-status { min-height:20px; margin:15px 0 0; color:var(--ink-3); font-size:13px; line-height:1.4; }
+.form-status.is-error { color:var(--capacity-gap); font-weight:600; }
+.capacity-aside { position:sticky; top:calc(var(--header-h) + 20px); }
+.docket { padding:22px 23px; background:var(--paper-2); border-top:2px solid var(--ink); }
+.docket h2 { max-width:20ch; font-size:clamp(1.25rem,2.1vw,1.65rem); margin:0 0 15px; }
+.docket-list { list-style:none; padding:0; margin:0; border-top:1px solid var(--rule); }
+.docket-list li { padding:11px 0; border-bottom:1px solid var(--rule); color:var(--ink-2); font-size:14px; line-height:1.43; }
+.docket-list b { color:var(--ink); }
+
+.capacity-results { margin-top:40px; padding-top:29px; border-top:2px solid var(--ink); scroll-margin-top:calc(var(--header-h) + 24px); }
+.capacity-results[hidden] { display:none; }
+.results-head { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:end; gap:14px 24px; margin-bottom:22px; }
+.results-head h2 { font-size:clamp(1.5rem,2.5vw,2.1rem); }
+.results-head p { margin:6px 0 0; color:var(--ink-2); font-size:14.5px; }
+.results-actions { display:flex; flex-wrap:wrap; gap:10px; }
+.results-actions .btn { min-height:42px; padding:9px 14px; font-size:13.5px; }
+.scenario-status { display:grid; grid-template-columns:auto minmax(0,1fr); gap:18px; align-items:center; padding:18px 20px; background:var(--paper-2); border:1px solid var(--rule-strong); margin-bottom:26px; }
+.scenario-status > span { width:60px; height:60px; display:grid; place-items:center; border:2px solid currentColor; border-radius:50%; color:var(--capacity-watch); background:var(--paper-0); font:700 26px/1 var(--font-display); }
+.scenario-status[data-tone="good"] > span { color:var(--capacity-good); }
+.scenario-status[data-tone="gap"] > span { color:var(--capacity-gap); }
+.scenario-status h3 { margin:0 0 3px; font-size:19px; }
+.scenario-status p { margin:0; color:var(--ink-2); font-size:14px; line-height:1.48; }
+.metric-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border-top:2px solid var(--ink); border-left:1px solid var(--rule); }
+.metric { min-height:145px; padding:17px 16px; border-right:1px solid var(--rule); border-bottom:1px solid var(--rule); background:var(--paper-0); }
+.metric > span { display:block; color:var(--ink-3); font:600 10.5px/1.4 var(--font-text); letter-spacing:.12em; text-transform:uppercase; }
+.metric strong { display:block; margin:9px 0 7px; color:var(--ink); font:700 clamp(1.7rem,3vw,2.25rem)/1 var(--font-display); font-variant-numeric:tabular-nums; }
+.metric small { display:block; color:var(--ink-2); font-size:12.5px; line-height:1.4; }
+.metric[data-tone="good"] strong { color:var(--capacity-good); }
+.metric[data-tone="gap"] strong { color:var(--capacity-gap); }
+.scenario-detail { display:grid; grid-template-columns:1fr 1fr; gap:24px 36px; margin-top:32px; }
+.scenario-detail section { padding-top:14px; border-top:2px solid var(--ink); }
+.scenario-detail h3 { margin:0 0 11px; font-size:19px; }
+.scenario-detail dl { margin:0; border-top:1px solid var(--rule); }
+.scenario-detail dl div { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:12px; padding:10px 0; border-bottom:1px solid var(--rule); }
+.scenario-detail dt { color:var(--ink-2); font-size:14px; }
+.scenario-detail dd { margin:0; color:var(--ink); font-weight:600; font-variant-numeric:tabular-nums; text-align:right; }
+.formula-card { margin-top:31px; padding:23px 24px; border-left:4px solid var(--route-line); background:var(--route-wash); }
+.formula-card h2 { margin:0 0 12px; font-size:clamp(1.3rem,2.2vw,1.75rem); }
+.formula-card ol { margin:0; padding-left:22px; color:var(--ink-2); }
+.formula-card li { margin:7px 0; }
+.formula-card b { color:var(--ink); }
+.method-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0 28px; border-top:2px solid var(--ink); }
+.method-grid article { padding:17px 0 20px; border-bottom:1px solid var(--rule); }
+.method-grid article > span { display:block; color:var(--route); font:700 13px/1 var(--font-display); margin-bottom:10px; }
+.method-grid h3 { margin-bottom:7px; font-size:18px; }
+.method-grid p { margin:0; color:var(--ink-2); font-size:14.5px; line-height:1.5; }
+.notice { max-width:800px; padding:17px 20px; border-left:4px solid var(--capacity-good); background:rgba(47,107,76,.08); color:var(--ink-2); }
+.notice p { margin:0; }
+.notice b { color:var(--ink); }
+
+@media (max-width:1023px) { .calculator-shell { grid-template-columns:minmax(0,1fr); } .capacity-aside { position:static; } .metric-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .method-grid { grid-template-columns:1fr; } }
+@media (max-width:719px) { .capacity-ledger { padding:22px 20px; } .capacity-ledger ol { grid-template-columns:1fr; } .capacity-ledger li + li { border-left:0; padding-left:0; border-top:1px solid rgba(244,241,234,.18); margin-top:10px; padding-top:10px; } .capacity-form { padding:22px 20px; } .field-grid--three,.field-grid--four,.field-grid--two,.metric-grid,.scenario-detail { grid-template-columns:minmax(0,1fr); } .tier-row { grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) minmax(0,.85fr); } .tier-row > :last-child { grid-column:2 / -1; border-top:1px solid var(--rule); } .tier-head > :last-child { display:none; } .tier-head { grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr) minmax(0,.85fr); } .tier-row output { min-height:43px; } .scenario-status { grid-template-columns:1fr; } .scenario-status > span { width:52px; height:52px; font-size:23px; } .formula-card { padding:18px; } }
