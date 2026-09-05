@@ -41,10 +41,21 @@ const DIRECTORY_INDEXES = new Map([
   ['/blog/', '/blog/index.html'],
 ]);
 
-function redirect(url, pathname, status = 301) {
-  const destination = new URL(pathname, url.origin);
+function redirect(url, pathname, status = 301, origin = url.origin) {
+  const destination = new URL(pathname, origin);
   destination.search = url.search;
   return Response.redirect(destination.toString(), status);
+}
+
+function canonicalOrigin(url) {
+  const origin = new URL(url.origin);
+  origin.hostname = 'gettourvia.com';
+  return origin.toString();
+}
+
+function extensionlessHtmlPath(pathname) {
+  if (pathname.endsWith('/') || /\.[^/]+$/.test(pathname)) return null;
+  return `${pathname}.html`;
 }
 
 function withHeaders(response, hostname, pathname) {
@@ -76,17 +87,20 @@ export default {
     const url = new URL(request.url);
     const { pathname } = url;
 
-    if (url.hostname === 'www.gettourvia.com') {
-      const destination = new URL(request.url);
-      destination.hostname = 'gettourvia.com';
-      return Response.redirect(destination.toString(), 301);
-    }
+    const htmlPath = extensionlessHtmlPath(pathname);
+    const directTarget = REDIRECTS.get(pathname);
+    const extensionTarget = htmlPath ? REDIRECTS.get(htmlPath) : null;
+    const canonical = canonicalOrigin(url);
 
-    const target = REDIRECTS.get(pathname);
-    if (target) return redirect(url, target);
+    // Resolve mapped aliases before normalising the host or adding .html. This keeps
+    // retired paths to a single permanent redirect, including on www.
+    if (directTarget || extensionTarget) {
+      return redirect(url, directTarget || extensionTarget, 301, canonical);
+    }
 
     const indexAsset = DIRECTORY_INDEXES.get(pathname);
     if (indexAsset) {
+      if (url.hostname === 'www.gettourvia.com') return redirect(url, pathname, 301, canonical);
       const assetRequest = new Request(new URL(indexAsset, request.url), {
         method: request.method,
         headers: request.headers,
@@ -97,16 +111,18 @@ export default {
 
     const response = await env.ASSETS.fetch(request);
     if (response.status !== 404) {
+      if (url.hostname === 'www.gettourvia.com') return redirect(url, pathname, 301, canonical);
       return withHeaders(response, url.hostname, pathname);
     }
 
     // Keep existing public URLs canonical: extensionless requests redirect to .html when that asset exists.
-    if (!pathname.endsWith('/') && !/\.[^/]+$/.test(pathname)) {
-      const htmlPath = `${pathname}.html`;
+    if (htmlPath) {
       const htmlUrl = new URL(htmlPath, url.origin);
       const htmlResponse = await env.ASSETS.fetch(htmlUrl);
-      if (htmlResponse.status !== 404) return redirect(url, htmlPath);
+      if (htmlResponse.status !== 404) return redirect(url, htmlPath, 301, canonical);
     }
+
+    if (url.hostname === 'www.gettourvia.com') return redirect(url, pathname, 301, canonical);
 
     const notFound = await env.ASSETS.fetch(new URL('/404.html', url.origin));
     const headers = new Headers(notFound.headers);

@@ -34,7 +34,7 @@ Tourvia helps field sales teams plan visits, optimize driving routes, and track 
 - **Mobile**: map, routes, GPS-assisted proximity check, and navigation handoff in Salesforce Mobile
 
 ### Technical architecture
-- 100% Lightning Web Component (LWC) implementation
+- Lightning Web Component user interface backed by managed-package Apex services
 - Configuration via Custom Metadata Types: RouteForceConfig__mdt and RouteForceAction__mdt
 - 3 managed permission sets plus 3 Permission Set Groups: Tourvia Admin, Tourvia Manager, Tourvia User
 - Route optimization is operated by Tourvia on its own infrastructure
