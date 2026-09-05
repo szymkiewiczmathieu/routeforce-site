@@ -55,6 +55,9 @@
 - Pricing: https://gettourvia.com/pricing.html
 - Product facts: https://gettourvia.com/product-facts.md
 - Blog: https://gettourvia.com/blog/
+- Free browser tools: https://gettourvia.com/tools.html
+- Data-readiness checker: https://gettourvia.com/salesforce-route-planning-data-readiness-checker.html (local CSV structural screen; not an address-accuracy or product-compatibility verdict)
+- Visit-capacity calculator: https://gettourvia.com/field-sales-visit-capacity-calculator.html (local scenario arithmetic; not a route, forecast, or staffing recommendation)
 - Privacy Policy: https://gettourvia.com/docs/privacy.html
 - AppExchange listing: https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba
 

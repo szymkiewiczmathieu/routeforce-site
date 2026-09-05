@@ -308,6 +308,82 @@ def main() -> int:
         if webpage and prohibited_page_product_fields & webpage.keys():
             errors.append(f"{relative}: WebPage duplicates product fields")
 
+    tools_relative = "tools.html"
+    tools_canonical = expected_canonical(Path(tools_relative))
+    tools_parser = pages.get((DIST / tools_relative).resolve())
+    tool_urls = (
+        f"{CANONICAL_ORIGIN}/salesforce-route-planning-data-readiness-checker.html",
+        f"{CANONICAL_ORIGIN}/field-sales-visit-capacity-calculator.html",
+    )
+    if not tools_parser:
+        errors.append("tools.html: missing built page")
+    else:
+        tools_nodes = [
+            node
+            for data in tools_parser.jsonld_data
+            for node in top_level_schema_nodes(data)
+        ]
+        collection = only_node(
+            tools_nodes, f"{tools_canonical}#webpage", "CollectionPage"
+        )
+        item_list = only_node(
+            tools_nodes, f"{tools_canonical}#tool-list", "ItemList"
+        )
+        breadcrumbs = [
+            node for node in tools_nodes if node.get("@type") == "BreadcrumbList"
+        ]
+        if not collection or not (
+            len(tools_parser.titles) == 1
+            and len(tools_parser.descriptions) == 1
+            and collection.get("url") == tools_canonical
+            and collection.get("name") == tools_parser.titles[0]
+            and collection.get("description") == tools_parser.descriptions[0]
+            and collection.get("inLanguage") == "en"
+            and collection.get("dateModified") == "2026-09-05"
+            and entity_reference(collection.get("isPartOf"), f"{CANONICAL_ORIGIN}/#website")
+            and entity_reference(collection.get("publisher"), f"{CANONICAL_ORIGIN}/#organization")
+            and entity_reference(collection.get("mainEntity"), f"{tools_canonical}#tool-list")
+        ):
+            errors.append("tools.html: CollectionPage identity is incomplete")
+        list_urls = tuple(
+            entry.get("url")
+            for entry in (item_list or {}).get("itemListElement", [])
+            if isinstance(entry, dict)
+        )
+        if not item_list or item_list.get("numberOfItems") != 2 or list_urls != tool_urls:
+            errors.append("tools.html: ItemList must name the two canonical tools in order")
+        if len(breadcrumbs) != 1:
+            errors.append("tools.html: expected one BreadcrumbList")
+        if not all(url.removeprefix(CANONICAL_ORIGIN) in tools_parser.hrefs for url in tool_urls):
+            errors.append("tools.html: missing crawlable edge to a tool")
+
+    for tool_url in tool_urls:
+        relative = tool_url.removeprefix(f"{CANONICAL_ORIGIN}/")
+        parser = pages.get((DIST / relative).resolve())
+        if not parser:
+            errors.append(f"{relative}: missing built tool page")
+            continue
+        nodes = [
+            node
+            for data in parser.jsonld_data
+            for node in top_level_schema_nodes(data)
+        ]
+        breadcrumbs = [node for node in nodes if node.get("@type") == "BreadcrumbList"]
+        breadcrumb_items = (breadcrumbs[0] if len(breadcrumbs) == 1 else {}).get(
+            "itemListElement", []
+        )
+        breadcrumb_urls = tuple(
+            item.get("item") for item in breadcrumb_items if isinstance(item, dict)
+        )
+        if breadcrumb_urls != (f"{CANONICAL_ORIGIN}/", tools_canonical, tool_url):
+            errors.append(f"{relative}: breadcrumb must run Tourvia → Free tools → tool")
+        if "/tools.html" not in parser.hrefs:
+            errors.append(f"{relative}: missing visible backlink to the tools hub")
+
+    llms = DIST / "llms.txt"
+    if not llms.is_file() or not all(url in llms.read_text(errors="ignore") for url in (tools_canonical, *tool_urls)):
+        errors.append("llms.txt: missing bounded free-tools references")
+
     for source, parser in pages.items():
         for href in parser.hrefs:
             target, fragment = local_target(source, href)

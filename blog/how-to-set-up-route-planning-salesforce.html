@@ -144,7 +144,7 @@
 <p>Adding route planning to Salesforce does not require custom development. With a managed package from AppExchange, you get a Lightning Web Component that plugs into your existing org. This guide walks through the full setup using Tourvia as the example, from installation to a working route on screen.</p><h2 id="what-you-need-before-you-start">What you need before you start</h2><p>Before you begin, confirm you have the following:</p><ul>
 <li><strong>A Salesforce org with API access.</strong> Enterprise, Unlimited, and Developer Editions include API access by default. Professional Edition requires the API add-on.</li>
 <li><strong>System Administrator profile</strong> (or equivalent permissions) for the person doing the installation and initial configuration.</li>
-<li><strong>Accounts with addresses.</strong> The component geocodes your account addresses to plot them on the map. If your accounts have blank or incomplete addresses, they will not appear. Clean up your data first.</li>
+<li><strong>Accounts with addresses.</strong> The component geocodes your account addresses to plot them on the map. If your accounts have blank or incomplete addresses, they will not appear. Use the free <a href="../salesforce-route-planning-data-readiness-checker.html">data-readiness checker</a> to screen a CSV locally for field coverage; it does not validate address accuracy.</li>
 <li><strong>About 30 minutes.</strong> Installation takes roughly 10 minutes. Configuration and verification take another 20.</li>
 </ul><p>If your org uses a sandbox, consider installing there first to test before deploying to production.</p><h2 id="step-1-request-trial">Step 1: Request trial</h2><p>Request a 30-day trial through the <a href="/#contact">contact form</a>. After the Salesforce org is qualified, your admin receives private AppExchange access and follows the setup documentation.</p><p>During installation, you choose whether to install for all users, specific profiles, or admins only. For a first install, "Install for Admins Only" is the safest option. You can extend access later through permission sets.</p><p>The managed package deploys the following to your org:</p><ul>
 <li><strong>Permission sets and Permission Set Groups</strong> for user, manager, and admin access.</li>
@@ -207,7 +207,7 @@
       <div class="foot-col">
         <span class="foot-h">Resources</span>
         <a href="/blog/">Blog</a>
-        <a href="/docs/">Docs</a>
+        <a href="/docs/">Docs</a><a href="/tools.html">Free tools</a>
         <a href="/docs/setup-guide.html">Setup guide</a>
         <a href="/docs/user-guide.html">User guide</a>
         <a href="/docs/configuration-guide.html">Configuration guide</a>

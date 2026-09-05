@@ -1,0 +1,32 @@
+/* Tourvia free tools hub: two local planning utilities, not a product dashboard. */
+.tools-hub { --tool-good:#2f6b4c; --tool-route:#b92c1a; }
+.tools-hub .mast-copy h1 { max-width:21ch; }
+.tools-hub .mast .btn-secondary { border-color:var(--ink-3); }
+.tools-hub .mast .btn-secondary:hover { border-color:var(--ink); }
+.tools-ledger { background:var(--ink); color:var(--paper); padding:28px; border:1px solid var(--ink); position:relative; overflow:hidden; }
+.tools-ledger::before { content:""; position:absolute; width:280px; height:280px; right:-138px; top:-144px; border:1px solid rgba(244,241,234,.16); border-radius:50%; }
+.tools-ledger > * { position:relative; }
+.tools-ledger .ledger-tag { display:block; margin:0 0 14px; color:var(--night-route); font:600 11px/1.4 var(--font-text); letter-spacing:.14em; text-transform:uppercase; }
+.tools-ledger h2 { max-width:18ch; margin-bottom:13px; font-size:clamp(1.4rem,2.2vw,1.85rem); }
+.tools-ledger p { max-width:39ch; margin:0; color:var(--night-muted); font-size:14.5px; line-height:1.55; }
+.tool-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.tool-card { display:flex; flex-direction:column; min-width:0; padding:27px; background:var(--paper-0); border-top:3px solid var(--ink); border-right:1px solid var(--rule); border-bottom:1px solid var(--rule); border-left:1px solid var(--rule); }
+.tool-card > span { display:block; color:var(--tool-route); font:600 11px/1.4 var(--font-text); letter-spacing:.14em; text-transform:uppercase; }
+.tool-card h3 { margin:11px 0 12px; font-size:clamp(1.35rem,2.2vw,1.85rem); }
+.tool-card p { color:var(--ink-2); max-width:48ch; }
+.tool-card ul { margin:6px 0 24px; padding:0; list-style:none; border-top:1px solid var(--rule); }
+.tool-card li { padding:9px 0; color:var(--ink-2); border-bottom:1px solid var(--rule); font-size:14px; line-height:1.42; }
+.tool-card li::before { content:""; display:inline-block; width:7px; height:7px; margin:0 9px 1px 0; border-radius:50%; background:var(--tool-route); }
+.tool-card .btn { margin-top:auto; align-self:flex-start; }
+.tools-flow { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:0; border-top:2px solid var(--ink); border-left:1px solid var(--rule); }
+.tools-flow article { min-width:0; padding:22px 21px; background:var(--paper-0); border-right:1px solid var(--rule); border-bottom:1px solid var(--rule); }
+.tools-flow span { display:block; margin-bottom:10px; color:var(--tool-route); font:700 22px/1 var(--font-display); }
+.tools-flow h3 { margin:0 0 9px; font-size:20px; }
+.tools-flow p { margin:0; color:var(--ink-2); font-size:14px; line-height:1.5; }
+.tools-privacy { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr); gap:28px 48px; align-items:start; }
+.tools-privacy .notice { margin:0; }
+.tools-privacy .notice p { margin:0; }
+.tools-privacy ul { margin:0; padding:0; list-style:none; border-top:1px solid var(--rule); }
+.tools-privacy li { padding:11px 0; border-bottom:1px solid var(--rule); color:var(--ink-2); font-size:14px; line-height:1.45; }
+.tools-privacy li b { color:var(--ink); }
+@media (max-width:719px) { .tools-ledger { padding:23px 21px; } .tool-grid,.tools-privacy { grid-template-columns:1fr; } .tool-card { padding:22px 20px; } .tools-flow { grid-template-columns:1fr; } .tools-flow article { padding:20px; } }

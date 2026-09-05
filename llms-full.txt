@@ -111,6 +111,12 @@ A: Installation and configuration are completed by the customer’s Salesforce a
 **Q: Is there a public no-cost plan?**
 A: No. Tourvia offers a complete 30-day trial on request, followed by a paid annual subscription.
 
+## Free browser tools
+
+- Hub: https://gettourvia.com/tools.html
+- Salesforce route-planning data-readiness checker: https://gettourvia.com/salesforce-route-planning-data-readiness-checker.html. It screens a selected CSV locally for structural field coverage and aggregate signals; it does not validate addresses or declare product compatibility.
+- Field sales visit-capacity calculator: https://gettourvia.com/field-sales-visit-capacity-calculator.html. It models capacity from user-entered time and coverage assumptions locally; it is not a route optimizer, forecast, or staffing recommendation.
+
 ## Key URLs
 - Homepage: https://gettourvia.com
 - RouteForce to Tourvia name update: https://gettourvia.com/blog/routeforce-becomes-tourvia.html
