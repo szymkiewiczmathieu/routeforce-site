@@ -44,17 +44,25 @@ class PageParser(HTMLParser):
         self.noindex = False
         self.jsonld: list[str] = []
         self.jsonld_data: list[object] = []
+        self.anchors: list[tuple[str, str, bool]] = []
+        self.footer_count = 0
         self._in_title = False
         self._title_buffer: list[str] = []
         self._in_jsonld = False
         self._json_buffer: list[str] = []
+        self._footer_depth = 0
+        self._active_anchor: tuple[str, bool, list[str]] | None = None
 
     def handle_starttag(self, tag: str, attrs) -> None:
         data = {key: value or "" for key, value in attrs}
         if data.get("id"):
             self.ids.add(data["id"])
+        if tag == "footer":
+            self.footer_count += 1
+            self._footer_depth += 1
         if tag == "a" and data.get("href"):
             self.hrefs.append(data["href"])
+            self._active_anchor = (data["href"], self._footer_depth > 0, [])
         if tag == "title":
             self._in_title = True
             self._title_buffer = []
@@ -77,6 +85,8 @@ class PageParser(HTMLParser):
             self._title_buffer.append(data)
         if self._in_jsonld:
             self._json_buffer.append(data)
+        if self._active_anchor:
+            self._active_anchor[2].append(data)
 
     def handle_endtag(self, tag: str) -> None:
         if tag == "title" and self._in_title:
@@ -85,6 +95,12 @@ class PageParser(HTMLParser):
         if tag == "script" and self._in_jsonld:
             self.jsonld.append("".join(self._json_buffer))
             self._in_jsonld = False
+        if tag == "a" and self._active_anchor:
+            href, in_footer, text = self._active_anchor
+            self.anchors.append((href, " ".join("".join(text).split()), in_footer))
+            self._active_anchor = None
+        if tag == "footer" and self._footer_depth:
+            self._footer_depth -= 1
 
 
 def local_target(source: Path, href: str) -> tuple[Path | None, str]:
@@ -345,13 +361,24 @@ def main() -> int:
             and entity_reference(collection.get("mainEntity"), f"{tools_canonical}#tool-list")
         ):
             errors.append("tools.html: CollectionPage identity is incomplete")
-        list_urls = tuple(
-            entry.get("url")
-            for entry in (item_list or {}).get("itemListElement", [])
-            if isinstance(entry, dict)
+        expected_list_items = (
+            (1, "Salesforce route-planning data-readiness checker", tool_urls[0]),
+            (2, "Field sales visit-capacity calculator", tool_urls[1]),
         )
-        if not item_list or item_list.get("numberOfItems") != 2 or list_urls != tool_urls:
-            errors.append("tools.html: ItemList must name the two canonical tools in order")
+        list_items = (item_list or {}).get("itemListElement")
+        item_shape_is_exact = isinstance(list_items, list) and tuple(
+            (entry.get("position"), entry.get("name"), entry.get("url"))
+            for entry in list_items
+            if isinstance(entry, dict) and entry.get("@type") == "ListItem"
+        ) == expected_list_items
+        if not (
+            item_list
+            and item_list.get("numberOfItems") == len(expected_list_items)
+            and isinstance(list_items, list)
+            and len(list_items) == len(expected_list_items)
+            and item_shape_is_exact
+        ):
+            errors.append("tools.html: ItemList must define the two canonical ListItems in order")
         if len(breadcrumbs) != 1:
             errors.append("tools.html: expected one BreadcrumbList")
         if not all(url.removeprefix(CANONICAL_ORIGIN) in tools_parser.hrefs for url in tool_urls):
@@ -377,8 +404,24 @@ def main() -> int:
         )
         if breadcrumb_urls != (f"{CANONICAL_ORIGIN}/", tools_canonical, tool_url):
             errors.append(f"{relative}: breadcrumb must run Tourvia → Free tools → tool")
-        if "/tools.html" not in parser.hrefs:
-            errors.append(f"{relative}: missing visible backlink to the tools hub")
+        visible_hub_backlinks = [
+            (href, text)
+            for href, text, in_footer in parser.anchors
+            if href == "/tools.html" and text == "All free tools" and not in_footer
+        ]
+        if len(visible_hub_backlinks) != 1:
+            errors.append(f"{relative}: missing visible All free tools backlink to the tools hub")
+
+    for source, parser in pages.items():
+        if not parser.footer_count:
+            continue
+        footer_hub_links = [
+            (href, text)
+            for href, text, in_footer in parser.anchors
+            if href == "/tools.html" and text == "Free tools" and in_footer
+        ]
+        if len(footer_hub_links) != 1:
+            errors.append(f"{source.relative_to(DIST)}: footer must contain one Free tools hub link")
 
     llms = DIST / "llms.txt"
     if not llms.is_file() or not all(url in llms.read_text(errors="ignore") for url in (tools_canonical, *tool_urls)):

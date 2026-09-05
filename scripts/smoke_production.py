@@ -31,6 +31,9 @@ CHECKS = {
     "/blog/salesforce-maps-alternative.html": 301,
     "/definitely-not-a-page": 404,
 }
+EXPECTED_REDIRECTS = {
+    "/tools": f"{ORIGIN}/tools.html",
+}
 
 
 def status(path: str) -> tuple[int, str]:
@@ -48,6 +51,9 @@ def run_checks() -> list[str]:
         actual, location = status(path)
         if actual != expected:
             errors.append(f"{path}: expected {expected}, got {actual}")
+        expected_location = EXPECTED_REDIRECTS.get(path)
+        if expected_location and location != expected_location:
+            errors.append(f"{path}: expected redirect to {expected_location}, got {location}")
         if actual == 301 and location in {path, ORIGIN + path}:
             errors.append(f"{path}: self-redirect")
 
