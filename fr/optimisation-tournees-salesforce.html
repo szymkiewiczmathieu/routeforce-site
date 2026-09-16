@@ -1,123 +1,462 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>document.documentElement.classList.add('js');</script>
+<script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
 <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Optimisation des tournées Salesforce : planifier sans quitter le CRM | Tourvia</title>
-  <meta name="robots" content="index, follow">
-    <meta name="description" content="Découvrez comment optimiser les tournées de vos commerciaux et techniciens terrain dans Salesforce. Route planning native, app mobile et reporting de visites intégrés.">
-  <link rel="canonical" href="https://gettourvia.com/fr/optimisation-tournees-salesforce.html">
-  <link rel="alternate" hreflang="en" href="https://gettourvia.com/salesforce-route-planning.html"/>
-  <link rel="alternate" hreflang="fr" href="https://gettourvia.com/fr/optimisation-tournees-salesforce.html"/>
-  <link rel="alternate" hreflang="x-default" href="https://gettourvia.com/salesforce-route-planning.html"/>
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
-  <link rel="stylesheet" href="../style.css">
-  <meta property="og:title" content="Optimisation des tournées Salesforce : planifier sans quitter le CRM">
-  <meta property="og:site_name" content="Tourvia">
-  <meta property="og:description" content="Découvrez comment optimiser les tournées de vos commerciaux et techniciens terrain dans Salesforce. Route planning native, app mobile et reporting de visites intégrés.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://gettourvia.com/fr/optimisation-tournees-salesforce.html">
-  <meta property="og:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Optimisation des tournées Salesforce : planifier sans quitter le CRM"/>
-  <meta name="twitter:description" content="Découvrez comment optimiser les tournées de vos commerciaux et techniciens terrain dans Salesforce. Route planning native, app mobile et reporting de visites intégrés."/>
-  <meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Optimiser les tournées terrain directement dans Salesforce",
-  "datePublished": "2026-07-19",
-  "dateModified": "2026-09-16",
-  "author": {
-    "@type": "Organization",
-    "name": "SKZ Consulting",
-    "alternateName": "Tourvia"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "SKZ Consulting",
-    "alternateName": "Tourvia",
-    "url": "https://gettourvia.com"
-  },
-  "description": "Découvrez comment optimiser les tournées de vos commerciaux et techniciens terrain dans Salesforce. Route planning native, app mobile et reporting de visites intégrés.",
-  "mainEntityOfPage": "https://gettourvia.com/fr/optimisation-tournees-salesforce.html",
-  "inLanguage": "fr"
-}
-  </script>
+<title>Optimisation de tournées Salesforce | Tourvia</title>
+<meta name="description" content="Planifiez les tournées des commerciaux terrain, créez des événements Salesforce, réalisez les visites mobiles et reportez dans Salesforce avec Tourvia.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://gettourvia.com/fr/optimisation-tournees-salesforce.html">
+<link rel="alternate" hreflang="fr" href="https://gettourvia.com/fr/optimisation-tournees-salesforce.html"/>
+<link rel="alternate" hreflang="en" href="https://gettourvia.com/field-sales-route-optimization.html"/>
+<link rel="alternate" hreflang="x-default" href="https://gettourvia.com/field-sales-route-optimization.html"/>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Logiciel d'optimisation de tournées commerciales terrain pour Salesforce | Workflow de planification">
+<meta property="og:site_name" content="Tourvia">
+<meta property="og:description" content="Logiciel d'optimisation de tournées pour les équipes commerciales terrain qui veulent planifier les tournées et exécuter les visites dans le CRM. Réduisez le temps de route et améliorez la couverture de visite.">
+<meta property="og:url" content="https://gettourvia.com/fr/optimisation-tournees-salesforce.html">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg">
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Logiciel d'optimisation de tournées commerciales terrain pour Salesforce | Workflow de planification"/>
+<meta name="twitter:description" content="Logiciel d'optimisation de tournées pour les équipes commerciales terrain qui veulent planifier les tournées et exécuter les visites dans le CRM. Réduisez le temps de route et améliorez la couverture de visite."/>
+<meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/><link rel="icon" type="image/x-icon" href="favicon.ico">
+<link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="/assets/css/site.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script defer src="/assets/js/site.js"></script>
 </head>
-<body style="background:#09090b;color:#e4e4e7;">
-<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
-  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
-    <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
-      <img src="../assets/logo-site-brand.png" alt="Tourvia" style="width:32px;height:32px;border-radius:10px;flex-shrink:0;"/>
-      <span style="font-size:1.125rem;font-weight:700;letter-spacing:-0.02em;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tourvia</span>
-    </a>
-    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.95rem;white-space:nowrap;">
-      <a href="../" style="color:#a1a1aa;text-decoration:none;">Accueil</a>
-      <a href="../salesforce-route-planning.html" style="color:#a1a1aa;text-decoration:none;">Route planning</a>
-      <a href="../pricing.html" style="color:#a1a1aa;text-decoration:none;">Tarifs</a>
-      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+<body class="sheet sheet--core">
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="/fr/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="32" height="32"/><b>Tourvia</b><small>anciennement RouteForce</small></a>
+    <nav class="nav-main" aria-label="Navigation principale">
+      <a class="nav-a" href="/fr/#day-in-the-field">Journée terrain</a>
+      <a class="nav-a" href="/fr/#features">Fonctionnalités</a>
+      <a class="nav-a" href="/fr/#showcase">Produit</a>
+      <a class="nav-a" href="/fr/#pricing">Tarifs</a>
+      <a class="nav-a" href="/fr/cas-d-usage.html">Cas d'usage</a>
+      <a class="nav-a" href="/blog/">Blog</a>
+      <a class="nav-a" href="/docs/">Docs</a>
+    </nav>
+    <div class="head-right">
+      <a class="nav-a head-link" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary head-cta">Démarrer l'essai 30 jours</a>
+      <button id="mobile-menu-btn" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="nav-mobile">
+    <nav class="wrap" aria-label="Menu mobile">
+      <a href="/fr/#day-in-the-field">Journée terrain</a>
+      <a href="/fr/#features">Fonctionnalités</a>
+      <a href="/fr/#showcase">Produit</a>
+      <a href="/fr/#pricing">Tarifs</a>
+      <a href="/fr/cas-d-usage.html">Cas d'usage</a>
+      <a href="/blog/">Blog</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a>
+      <a href="/fr/#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<main class="blog-post" style="max-width:760px;margin:0 auto;padding:60px 20px 80px;">
-  <a href="../" style="color:#9099ff;text-decoration:none;font-size:0.95rem;">&larr; Retour à l'accueil</a>
-  <p style="text-transform:uppercase;font-size:0.75rem;letter-spacing:0.08em;color:#9099ff;margin-top:24px;">Guide</p>
-  <h1 style="font-size:2.25rem;line-height:1.15;font-weight:700;color:#fafafa;margin:8px 0 16px;">Optimiser les tournées terrain directement dans Salesforce</h1>
-  <p style="color:#a1a1aa;font-size:1.05rem;line-height:1.6;">L'optimisation des tournées dans Salesforce permet de transformer vos comptes, contacts, leads et opportunités en itinéraires optimisés. Tourvia est un managed package natif qui crée des événements Salesforce et guide les équipes terrain via une application mobile.</p>
-  <p style="color:#71717a;font-size:0.85rem;margin:12px 0 32px;">Publié le 2026-07-19 · 9 min</p>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="18" r="2.25"/><circle cx="19" cy="6" r="2.25"/><path d="M6.6 16.4C9 13 8 11 12 11s4.4-2.3 5.4-3.6"/></symbol>
+    <symbol id="i-event" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M9 15l2 2 4-4"/></symbol>
+    <symbol id="i-checkin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></symbol>
+    <symbol id="i-report" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h8l4 4v13H6z"/><path d="M14 3.5v4h4M9 12h6M9 15.5h6"/></symbol>
+    <symbol id="i-heat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c3 3 7 5 7 9.5a7 7 0 0 1-14 0C5 9 9 7 12 4z"/><path d="M12 12c1.5 1.5 3 2.5 3 4a3 3 0 0 1-6 0c0-1.5 1.5-2.5 3-4z"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5h17l-6.5 8v6l-4 2v-8z"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.3-5.7"/><path d="M4 4v4.5h4.5"/><path d="M12 8v4.5l3 1.8"/></symbol>
+    <symbol id="i-campaign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l7 4V6l-7 4z"/><path d="M17 9.5a3.5 3.5 0 0 1 0 5"/></symbol>
+    <symbol id="i-action" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M7 16v-5M12 16V6M17 16v-8"/></symbol>
+    <symbol id="i-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 17.5h2"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  </defs>
+</svg>
+<main id="main" tabindex="-1">
+  <div class="sheet-rail" aria-hidden="true"></div>
 
-    <h2>Pourquoi optimiser les tournées dans Salesforce ?</h2>
-    <p>Les équipes terrain passent encore beaucoup de temps à jongler entre le CRM, une feuille Excel et un GPS. Cela crée des pertes de temps, des données incomplètes et des opportunités manquées. Optimiser les tournées directement dans Salesforce centralise la planification, l'exécution et le reporting dans un seul système.</p>
-    <p>Avec une solution native, vous ne synchronisez pas des données entre deux outils. Les comptes, contacts, leads et opportunités servent directement de points de passage.</p>
-    <h2>Les étapes clés de l'optimisation</h2>
-    <ol>
-      <li>Sélectionner les enregistrements à visiter (comptes, contacts, leads, opportunités ou membres de campagne).</li>
-      <li>Définir les contraintes : créneaux horaires, durée des visites, localisation de départ.</li>
-      <li>Lancer l'optimisation pour obtenir l'ordre de passage idéal.</li>
-      <li>Convertir l'itinéraire en événements Salesforce.</li>
-      <li>Guider l'équipe terrain avec l'application mobile.</li>
-      <li>Récupérer les comptes-rendus et les check-ins dans le CRM.</li>
-    </ol>
-    <h2>Quels gains attendre ?</h2>
-    <ul>
-      <li>Réduction du temps de planification quotidienne</li>
-      <li>Plus de visites par jour et par commercial</li>
-      <li>Données terrain à jour dans Salesforce</li>
-      <li>Meilleure visibilité manager sur l'activité terrain</li>
-    </ul>
-    <h2>Tourvia : une solution native pour Salesforce</h2>
-    <p>Tourvia est un managed package Salesforce. Il s'installe dans votre org, respecte vos profils et permissions, et utilise vos données existantes. Le prix est public : 30 € HT par utilisateur et par mois, facturé annuellement.</p>
-    <p>Vous pouvez tester Tourvia pendant 30 jours dans votre environnement Salesforce avec vos propres données.</p>
-
-
-    <div class="blog-cta" style="background:#131316;border:1px solid #27272a;border-radius:16px;padding:28px 32px;margin-top:40px;">
-      <h3 style="color:#fafafa;margin-bottom:10px;">Demandez un essai Tourvia de 30 jours</h3>
-      <p style="color:#a1a1aa;margin-bottom:18px;">Testez Tourvia dans votre environnement Salesforce pendant 30 jours. Tarif : 30 € HT par utilisateur et par mois, facturé annuellement.</p>
-      <a href="../#contact" style="display:inline-block;background:#6366f1;color:white;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;margin-right:12px;">Demander un essai</a>
-      <a href="../pricing.html" style="display:inline-block;color:#9099ff;text-decoration:none;font-weight:600;">Voir les tarifs &rarr;</a>
+  <section class="mast" aria-labelledby="fs-title">
+    <div class="wrap">
+      <div class="mast-copy">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Optimisation commerciale terrain <small>Logiciel d'optimisation de tournées pour les équipes Salesforce</small></p>
+        <h1 id="fs-title">Logiciel d'optimisation de tournées commerciales terrain pour les équipes Salesforce</h1>
+        <p class="lead">Tourvia aide les équipes commerciales terrain à réduire le temps de route, à densifier les journées et à créer les événements Salesforce depuis la tournée optimisée, au lieu de jongler entre Maps, le CRM et la saisie manuelle.</p>
+        <p>Un logiciel d'optimisation de tournées commerciales terrain sert à choisir les bons comptes, à calculer l'ordre des visites et à transformer cette tournée en activité Salesforce. Les équipes Salesforce gardent ce workflow dans le CRM au lieu d'ajouter une application de calcul d'itinéraires séparée.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a>
+          <a class="btn btn-secondary" href="/fr/tarifs.html">Voir les tarifs</a>
+        </div>
+        <ul class="facts-strip" aria-label="Faits clés">
+          <li>Package managé natif</li>
+          <li>Création d'événements Salesforce en un clic</li>
+          <li>Infrastructure de calcul d'itinéraires hébergée dans l'UE</li>
+        </ul>
+      </div>
+      <div class="mast-side">
+        <aside class="docket" aria-label="Ce qui change avec Tourvia">
+          <span class="docket-tag">Ce qui change</span>
+          <dl>
+            <div><dt>Temps de planification</dt><dd><b>De la construction manuelle des tournées à l'optimisation en un clic.</b> Sélectionnez les comptes, optimisez l'ordre des visites, puis créez les événements Salesforce.</dd></div>
+            <div><dt>Adéquation opérationnelle</dt><dd><b>L'activité terrain reste dans Salesforce.</b> Planification de tournées, exécution des visites et reporting restent liés au workflow CRM.</dd></div>
+            <div><dt>Prix annuel</dt><dd><b>30 € HT par utilisateur et par mois.</b> Un prix public de 30 € HT par utilisateur et par mois, facturé annuellement.</dd></div>
+          </dl>
+        </aside>
+      </div>
     </div>
+  </section>
 
+  <section class="sec-tight" aria-label="Capture d'écran produit">
+    <div class="wrap">
+      <figure class="">
+  <div class="plate">
+    <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-user/routeforce-salesforce-map-ui.jpg" data-lightbox-alt="Optimisation de tournées Tourvia dans Salesforce Lightning avec carte, filtres et liste de tournée" aria-label="Agrandir la capture d'écran">
+      <img src="/assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Optimisation de tournées Tourvia dans Salesforce Lightning avec carte, filtres et liste de tournée" width="1280" height="644" loading="lazy" decoding="async"/>
+    </button>
+  </div>
+  <figcaption class="fig-cap"><i>Fig. 1</i>Tourvia dans Salesforce Lightning avec filtres d'enregistrements, épingles de carte et panneau de tournée visibles. Sélectionnez l'image pour l'agrandir.</figcaption>
+</figure>
+    </div>
+  </section>
 
-  <h2 style="font-size:1.5rem;color:#fafafa;margin-top:48px;">Pages liées</h2>
-  <ul style="color:#a1a1aa;line-height:1.8;margin-top:12px;">
-      <li><a href="planification-visites-salesforce.html" style="color:#9099ff;text-decoration:none;">Planification de visites Salesforce &rarr;</a></li>
-      <li><a href="tarifs-outils-terrain-salesforce.html" style="color:#9099ff;text-decoration:none;">Tarifs des outils terrain Salesforce &rarr;</a></li>
-      <li><a href="alternative-salesforce-maps.html" style="color:#9099ff;text-decoration:none;">Alternative à Salesforce Maps &rarr;</a></li>
-      <li><a href="../salesforce-route-planning.html" style="color:#9099ff;text-decoration:none;">Route planning Salesforce (EN) &rarr;</a></li>
+  <section class="sec ticks band-2" id="category" aria-labelledby="cat-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Planification de tournées Salesforce</p>
+        <h2 id="cat-title">Choisissez la bonne catégorie</h2>
+        <p>Pour les équipes terrain Salesforce, comparez si la planification de tournées, la création d'événements, les visites mobiles et le reporting restent connectés. Si le besoin porte surtout sur la répartition de techniciens ou la planification d'urgences, évaluez une plateforme de field service. Voir la page principale <a href="/fr/planification-tournees-salesforce.html">planification de tournées Salesforce</a>.</p>
+      </div>
+      <ul class="brief">
+        <li><span class="brief-label">Tourvia</span><h3>Équipes terrain centrées Salesforce</h3><p>Planification de tournées et rapports de visite restent connectés aux enregistrements CRM.</p></li>
+        <li><span class="brief-label">Gain principal</span><h3>Optimisez la tournée, puis créez la journée</h3><p>La qualité de la tournée compte davantage quand la tournée devient des événements Salesforce dans le même workflow.</p></li>
+        <li><span class="brief-label">Non conçu pour</span><h3>Opérations de service orientées répartition</h3><p>Si les SLA, la capacité des techniciens et la replanification d'urgence dominent, utilisez une stack de field service.</p></li>
+      </ul>
+      <div class="brief-head"><h2>Tourvia en 4 réponses claires</h2><span class="mark">Tourvia connecte sélection des comptes, planification de tournées, événements Salesforce, visites terrain et reporting</span></div>
+      <ul class="brief">
+        <li><h3>Qu'est-ce que c'est ?</h3><p>Tourvia est un logiciel d'optimisation de tournées natif Salesforce, conçu pour les équipes commerciales terrain qui veulent planifier et exécuter dans le CRM.</p></li>
+        <li><h3>Pour qui ?</h3><p>Pour les équipes qui veulent moins de temps de route, une meilleure densité de visites et une visibilité opérationnelle sans quitter Salesforce.</p></li>
+        <li><h3>Combien ça coûte ?</h3><p>30 € HT par utilisateur et par mois, facturé annuellement dans ce périmètre standard.</p></li>
+        <li><h3>Quel est le bénéfice principal ?</h3><p>Planification de tournées plus rapide, temps de route réduit et création d'événements Salesforce en un clic depuis la tournée optimisée.</p></li>
+      </ul>
+    </div>
+  </section>
 
-  </ul>
+  <section class="sec ticks" id="trial" aria-labelledby="trial-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Essai produit de 30 jours</p>
+        <h2 id="trial-title">Testez le workflow pendant l'essai de 30 jours</h2>
+        <p>Planifiez des tournées avec vos enregistrements Salesforce, créez des événements Salesforce et réalisez une visite terrain depuis l'application mobile.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Workflow Salesforce</dt><dd><b>Les tournées deviennent des événements Salesforce dans un seul workflow.</b> Cela compte plus que le calcul d'itinéraire brut, car les commerciaux n'ont pas à reconstruire la journée manuellement dans le CRM.</dd></div>
+        <div><dt>Note</dt><dd><span class="stars" aria-hidden="true">★★★★★</span> <b class="num">5,0 sur 5 sur AppExchange</b>, sur la base de deux avis publics, vérifié le 16 septembre 2026. <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Ouvrez la fiche</a> pour les lire en intégralité.</dd></div>
+        <div><dt>Prix public</dt><dd><b>30 € HT par utilisateur et par mois.</b> Multipliez le nombre d'utilisateurs licenciés par 360 € HT pour calculer l'abonnement annuel.</dd></div>
+        <div><dt>Fiche</dt><dd><a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Voir la fiche AppExchange publique</a>. Votre administrateur Salesforce installe l'essai de 30 jours avec Get It Now.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec ticks band-2" aria-label="Guide d'optimisation des tournées commerciales terrain">
+    <div class="wrap longform">
+      <nav class="on-page" aria-label="Table des matières">
+        <b>Guide vente terrain</b>
+        <ol><li><a href="#challenge">Le défi des tournées commerciales terrain</a></li><li><a href="#manual-vs-optimized">Planification manuelle ou optimisation algorithmique</a></li><li><a href="#switch-triggers">Quand les équipes évaluent un changement</a></li><li><a href="#how-optimization-works">Comment fonctionne l'optimisation de tournées</a></li><li><a href="#crm-integration">Pourquoi l'intégration CRM compte</a></li><li><a href="#mobile-field">L'optimisation mobile pour le terrain</a></li><li><a href="#field-service">Optimisation de tournées field service ou vente terrain</a></li><li><a href="#roi">Ce que l'optimisation de tournées fait gagner</a></li><li><a href="#routeforce-approach">L'approche Tourvia</a></li><li><a href="#getting-started">Premiers pas</a></li><li><a href="#shortlist-guidance">Qui devrait présélectionner Tourvia</a></li><li><a href="#faq">Questions fréquentes</a></li></ol>
+      </nav>
+      <div class="prose">
+        <span class="stop" aria-hidden="true"></span>
+        <h2 id="challenge">Le défi des tournées commerciales terrain</h2>
+        <p>Les équipes commerciales terrain décident quels comptes visiter et dans quel ordre, en tenant compte du temps de route, des horaires de travail, des disponibilités des clients et des priorités métier. Tourvia calcule une séquence réalisable à partir de ces contraintes.</p>
+        <p>La plupart des commerciaux terrain résolvent ce puzzle manuellement, à l'expérience et à l'intuition. Les commerciaux expérimentés développent de bons réflexes, mais la planification manuelle a des limites inhérentes :</p>
+        <ul>
+          <li><strong>Chronophage :</strong> sélection des comptes, séquencement de la tournée et création d'événements répétés manuellement</li>
+          <li><strong>Séquences sous-optimales :</strong> difficile de trouver le meilleur ordre de passage au-delà de 5-6 arrêts</li>
+          <li><strong>Aucune gestion des contraintes :</strong> intégrer simultanément pause déjeuner, fenêtres horaires, durées de visite et retour au point de départ est très difficile mentalement</li>
+          <li><strong>Plans statiques :</strong> un plan manuel s'adapte mal quand un rendez-vous s'annule ou qu'une priorité apparaît en cours de journée</li>
+        </ul>
+
+        <h2 id="manual-vs-optimized">Planification manuelle ou optimisation algorithmique</h2>
+        <h3>Comment la plupart des commerciaux terrain planifient aujourd'hui</h3>
+        <ol>
+          <li>Ouvrir Salesforce, vérifier quels comptes nécessitent une visite</li>
+          <li>Ouvrir Google Maps dans un autre onglet</li>
+          <li>Saisir manuellement chaque adresse</li>
+          <li>Essayer différents ordres pour réduire le temps de route</li>
+          <li>Revenir dans Salesforce, créer les événements pour chaque visite</li>
+          <li>Saisir compte, contact, horaire et adresse pour chaque événement</li>
+        </ol>
+        <p>Ce processus prend beaucoup de temps et produit des résultats loin de l'optimal, surtout pour les tournées de plus de quelques arrêts.</p>
+        <h3>Comment fonctionne l'optimisation algorithmique</h3>
+        <ol>
+          <li>Sélectionner les comptes à visiter sur une carte interactive (dans Salesforce)</li>
+          <li>Définir les contraintes : heure de début, heure de fin, pause déjeuner, durée des visites</li>
+          <li>Cliquer sur « Optimiser la tournée » : l'algorithme calcule la meilleure séquence</li>
+          <li>Vérifier la tournée optimisée sur la carte</li>
+          <li>Cliquer sur « Créer les événements » : tous les événements Salesforce sont créés en un clic</li>
+        </ol>
+        <p>Le commercial vérifie une tournée qui tient compte des horaires de travail, des durées de visite, des pauses et des contraintes horaires configurées avant de créer les événements Salesforce.</p>
+        <p class="fine"><a href="/field-sales-visit-capacity-calculator.html">Vérifiez la capacité de couverture derrière une politique de visites</a> avant d'optimiser. Le calculateur local compare vos propres hypothèses de demande et de temps ; il ne prédit pas les résultats de tournée.</p>
+
+        <div class="brief-head"><h2 id="product-scope">Périmètre produit</h2><span class="mark">Ce pour quoi Tourvia est conçu</span></div>
+        <ul class="brief">
+          <li><span class="brief-label">Équipes Salesforce</span><h3>Équipes qui travaillent déjà dans Salesforce</h3><p>Planification, exécution des visites et reporting restent dans le CRM.</p></li>
+          <li><span class="brief-label">Pourquoi ça change</span><h3>Le temps gagné devient des visites en plus</h3><p>Moins de planification manuelle et moins de ressaisie dans Salesforce donnent plus de temps terrain aux commerciaux.</p></li>
+          <li><span class="brief-label">Prochaine étape</span><h3>Validez le workflow pendant l'essai</h3><p>Testez l'installation, la planification de tournées, les visites mobiles, le reporting et le coût annuel par licence.</p></li>
+        </ul>
+
+        <h2 id="switch-triggers">Quand les équipes évaluent un changement</h2>
+        <p>Les équipes commerciales terrain changent quand la planification manuelle fait perdre du temps aux commerciaux, quand la couverture de visite devient irrégulière, ou quand les données de tournée doivent être copiées entre Salesforce et un autre outil.</p>
+        <ul class="brief">
+          <li><span class="brief-label">Pour les commerciaux</span><h3>Trop de planification matinale et de ressaisie</h3><p>La douleur n'est pas seulement de construire une tournée. C'est de reconstruire la journée entre Google Maps, Salesforce et la création manuelle d'événements.</p></li>
+          <li><span class="brief-label">Pour les managers</span><h3>La couverture varie trop d'un commercial à l'autre</h3><p>Quand la qualité de planification repose uniquement sur la mémoire du secteur, la densité de visites, la couverture récurrente et la discipline de reporting dérivent vite.</p></li>
+          <li><span class="brief-label">Pour la finance et les ops</span><h3>Un coût annuel facile à calculer</h3><p>Chaque utilisateur licencié coûte 360 € HT par an. Dix utilisateurs coûtent 3 600 € ; vingt coûtent 7 200 €.</p></li>
+        </ul>
+
+        <h2 id="how-optimization-works">Comment fonctionne l'optimisation de tournées</h2>
+        <p>Tourvia exploite un moteur de calcul d'itinéraires sensible aux contraintes, conçu pour les charges de travail des commerciaux terrain. Il gère :</p>
+        <ul>
+          <li><strong>Coordonnées GPS :</strong> Latitude/Longitude de chaque compte Salesforce (géocodées dans Salesforce)</li>
+          <li><strong>Fenêtres horaires :</strong> heure de début, heure de fin, créneaux de rendez-vous</li>
+          <li><strong>Durée de visite :</strong> combien de temps dure chaque visite</li>
+          <li><strong>Contraintes de pause :</strong> horaire et durée de la pause déjeuner</li>
+          <li><strong>Matrice de temps de trajet :</strong> temps de conduite réalistes entre tous les points</li>
+        </ul>
+        <p>Le moteur combine les temps et distances routiers avec les contraintes configurées pour la journée terrain.</p>
+        <p>Tourvia exploite l'infrastructure de calcul d'itinéraires en France (OVHcloud Gravelines). Cela signifie :</p>
+        <ul>
+          <li>Aucune dépendance à Google Maps ou à un service tiers payant</li>
+          <li>Aucun frais par calcul</li>
+          <li>Couverture mondiale, de l'Europe à l'Asie, l'Afrique, les Amériques et l'Océanie</li>
+          <li>Infrastructure de calcul d'itinéraires hébergée dans l'UE pour les organisations attentives à la résidence des données</li>
+        </ul>
+
+        <h2 id="crm-integration">Pourquoi l'intégration CRM compte</h2>
+        <p>L'optimisation de tournées isolée, sans intégration CRM, ne résout que la moitié du problème. La vraie valeur vient de la connexion entre la planification de tournées et vos données clients.</p>
+        <h3>Filtrage basé sur le CRM</h3>
+        <p>Avant de planifier une tournée, filtrez les comptes sur n'importe quel champ Salesforce : date de dernière visite, type de compte, chiffre d'affaires, secteur, propriétaire. Vous visitez ainsi les bons comptes, pas seulement les plus proches.</p>
+        <h3>Création automatique d'événements</h3>
+        <p>Le plus grand gain de temps est la création d'événements Salesforce en masse. Après l'optimisation d'une tournée, un clic crée tous les événements du calendrier avec le bon compte, le bon contact, le bon créneau et la bonne adresse. Aucune saisie manuelle.</p>
+        <h3>Historique des visites et analyse de couverture</h3>
+        <p>Quand les données de tournée vivent dans Salesforce, les managers construisent des rapports et tableaux de bord montrant les comptes visités, la fréquence de visite, les secteurs sous-couverts et l'allocation du temps terrain.</p>
+        <h3>Accès respectant les permissions</h3>
+        <p>Un planificateur de tournées natif Salesforce respecte le modèle de sécurité de votre org. Les commerciaux ne voient que les comptes auxquels ils ont accès. Règles de partage, profils et sécurité au niveau champ s'appliquent.</p>
+
+        <h2 id="mobile-field">L'optimisation mobile pour le terrain</h2>
+        <p>Les commerciaux terrain travaillent sur smartphones et tablettes, pas sur des postes fixes. Un outil d'optimisation de tournées doit bien fonctionner sur mobile pour être utile sur le terrain.</p>
+        <h3>Capacités mobiles clés</h3>
+        <ul>
+          <li><strong>Interface responsive :</strong> carte et contrôles s'adaptent aux petits écrans avec un panneau en bottom-sheet</li>
+          <li><strong>Géolocalisation GPS :</strong> un bouton affiche tous les comptes Salesforce dans un rayon configurable autour de votre position</li>
+          <li><strong>Passerelle de navigation :</strong> envoyez la tournée optimisée vers Google Maps ou Waze pour la navigation guidée</li>
+          <li><strong>Fonctionne dans Salesforce Mobile :</strong> les équipes l'utilisent dans l'environnement mobile Salesforce au lieu de déployer une application terrain séparée</li>
+        </ul>
+        <h3>Comptes à proximité : la visite impromptue</h3>
+        <p>L'une des fonctionnalités terrain les plus utiles est la recherche de comptes à proximité. Quand un rendez-vous finit tôt ou s'annule, le commercial voit immédiatement quels comptes Salesforce sont proches et ajoute une visite spontanée à sa journée.</p>
+
+        <h2 id="field-service">Optimisation de tournées field service ou vente terrain</h2>
+        <p>Les termes « optimisation de tournées field service » et « optimisation de tournées commerciales terrain » sont parfois utilisés de façon interchangeable, mais ils décrivent des workflows différents avec des priorités différentes.</p>
+        <h3>Field service : techniciens, SLA et répartition d'urgence</h3>
+        <p>Les équipes field service envoient des techniciens sur les sites clients pour l'installation, la maintenance ou la réparation. Leur planification est pilotée par les <strong>accords de niveau de service (SLA)</strong>, la disponibilité des équipements et l'affectation par compétence. Une climatisation en panne en juillet ne peut pas attendre jeudi parce que la tournée est plus jolie ce jour-là. Les répartiteurs gèrent les appels d'urgence en cours de journée, réaffectent les interventions quand un technicien prend du retard et suivent le stock de pièces par camionnette.</p>
+        <p>Les plateformes field service dédiées comme ServiceTitan et WorkWave sont conçues exactement pour cela. Elles incluent des tableaux de répartition, la gestion des ordres de travail, le suivi des pièces et des portails self-service client. Si le travail principal de votre équipe est la maintenance réactive avec des fenêtres SLA strictes, ces outils méritent d'être évalués.</p>
+        <h3>Vente terrain : visites de comptes, relations et couverture de secteur</h3>
+        <p>Les équipes commerciales terrain visitent des prospects et des clients existants pour construire la relation, conclure des affaires et assurer la couverture des comptes sur un secteur. Leur planification est pilotée par la <strong>valeur du pipeline, les objectifs de fréquence de visite et la densité géographique</strong>. Un commercial peut devoir visiter 8 comptes à Lyon cette semaine, priorisés par étape d'opportunité et jours depuis le dernier contact. Il n'y a rarement de scénario de répartition d'urgence.</p>
+        <h3>Quand un seul outil peut servir les deux</h3>
+        <p>Certaines organisations ont des équipes hybrides. Un fabricant de matériel médical peut envoyer le même commercial vendre des équipements neufs et vérifier les unités installées. Un distributeur de matériaux de construction peut combiner visites commerciales et coordination de livraisons. Si ces équipes utilisent déjà Salesforce comme système de référence, un seul outil d'optimisation de tournées dans le CRM peut gérer les deux types de visites. Tourvia fonctionne pour toute planification de visites basée sur les comptes Salesforce, que la visite soit commerciale, un contrôle de service ou une confirmation de livraison. La condition clé est que les comptes et contacts vivent dans Salesforce.</p>
+
+        <h2 id="roi">Mesurez le résultat par rapport à votre propre référence</h2>
+        <p>Tourvia ne publie pas de benchmark ROI universel. La densité du secteur, les habitudes de planification actuelles, la durée des visites et les disponibilités clients influencent toutes le résultat.</p>
+        <p>Utilisez l'essai de 30 jours pour comparer quatre mesures avant et après déploiement :</p>
+        <ul>
+          <li>temps de planification hebdomadaire par commercial ;</li>
+          <li>distance parcourue par visite réalisée ;</li>
+          <li>visites réalisées par commercial ;</li>
+          <li>temps passé à créer et mettre à jour les événements Salesforce.</li>
+        </ul>
+        <p>Pour 10 utilisateurs licenciés, Tourvia coûte 3 600 € HT par an. Comparez ce budget annuel fixe avec les changements mesurés de temps, de kilométrage et de capacité de visites pendant votre pilote.</p>
+
+        <h2 id="routeforce-approach">L'approche Tourvia</h2>
+        <p>Tourvia est livré comme package managé Salesforce. Les commerciaux planifient et exécutent les visites dans Salesforce, tandis que les calculs de tournée sont traités par l'infrastructure Tourvia hébergée en France.</p>
+        <p>Le workflow garde planification de tournées, création d'événements, exécution mobile et reporting attachés aux enregistrements Salesforce qui pilotent la journée.</p>
+        <h3>Ce qui le différencie</h3>
+        <ul>
+          <li><strong>Workflow Salesforce :</strong> composants Lightning, enregistrements Salesforce, événements, rapports et Permission Set Groups</li>
+          <li><strong>Prix par utilisateur :</strong> 30 € HT par utilisateur et par mois, facturé annuellement à 360 € HT par utilisateur et par an.</li>
+          <li><strong>Service de calcul d'itinéraires Tourvia :</strong> infrastructure hébergée en France, avec un traitement décrit dans le DPA</li>
+          <li><strong>Calcul d'itinéraires international :</strong> la disponibilité dépend de la couverture des données routières du secteur concerné</li>
+          <li><strong>Multilingue :</strong> interface disponible en français, anglais et espagnol</li>
+          <li><strong>Infrastructure de calcul hébergée dans l'UE :</strong> les calculs de tournée s'exécutent sur une infrastructure hébergée en France, ce qui soutient les objectifs de résidence des données UE</li>
+        </ul>
+        <div class="note"><strong>Conçu pour les équipes terrain Salesforce.</strong> Tourvia s'adresse aux organisations qui utilisent déjà Salesforce et veulent une optimisation de tournées à coûts prévisibles, à 30 € HT par utilisateur et par mois.</div>
+
+        <h2 id="getting-started">Premiers pas</h2>
+        <ol>
+          <li><strong>Installez l'essai de 30 jours depuis la fiche AppExchange</strong>. Validez d'abord l'adéquation dans votre org Salesforce</li>
+          <li><strong>Configuration :</strong> votre administrateur Salesforce installe le package managé et configure les filtres et permissions</li>
+          <li><strong>Adoption :</strong> votre équipe utilise la documentation incluse</li>
+          <li><strong>Abonnez-vous pour continuer :</strong> conservez l'ensemble des fonctionnalités après l'essai</li>
+        </ol>
+        <p>Le client contrôle le calendrier de déploiement. L'installation et la configuration sont documentées pour l'administrateur Salesforce.</p>
+
+        <h2 id="shortlist-guidance">Pour qui Tourvia est conçu</h2>
+        <p>Tourvia est conçu pour la vente terrain pilotée par Salesforce et les visites clients récurrentes. Ce n'est pas un produit de répartition de techniciens ni d'orchestration de rendez-vous de service.</p>
+        <ul class="brief">
+          <li><span class="brief-label">Vente terrain Salesforce</span><h3>Vente terrain basée sur les comptes, dans Salesforce</h3><p>Les commerciaux planifient les visites depuis les comptes Salesforce, créent les événements, consignent les résultats et donnent aux managers des données CRM exploitables en rapports.</p></li>
+          <li><span class="brief-label">Prix prévisibles</span><h3>Équipes qui veulent une économie de déploiement prévisible</h3><p>Le prix public par utilisateur permet aux managers, administrateurs et à la finance de calculer directement l'abonnement annuel.</p></li>
+          <li><span class="brief-label">Utilisez une autre catégorie</span><h3>Répartition d'urgence ou SLA field service</h3><p>Si vous avez besoin de répartition en direct, de matrices de compétences techniciens ou d'orchestration de rendez-vous de service, utilisez plutôt une stack field service dédiée.</p></li>
+        </ul>
+
+        <h2 id="faq">Questions fréquentes</h2>
+        <div class="faq-list"><details><summary>Combien d'arrêts Tourvia peut-il optimiser dans une tournée ?</summary><div class="faq-body"><p>Tourvia gère les tournées commerciales terrain habituelles et traite les plans multi-arrêts avec contraintes horaires, de durée et de trajet.</p></div></details><details><summary>Tourvia fonctionne-t-il hors d'Europe ?</summary><div class="faq-body"><p>Tourvia prend en charge le calcul d'itinéraires international là où les données routières requises sont disponibles. Validez les secteurs concernés pendant l'essai de 30 jours.</p></div></details><details><summary>Puis-je utiliser Tourvia sur mon téléphone ?</summary><div class="faq-body"><p>Oui. Tourvia est conçu pour l'application Salesforce Mobile. Selon votre configuration, les équipes accèdent à la géolocalisation GPS, aux comptes à proximité et à la passerelle de navigation vers Google Maps ou Waze.</p></div></details><details><summary>Quels objets Salesforce Tourvia utilise-t-il ?</summary><div class="faq-body"><p>Tourvia fonctionne avec les enregistrements compte, prospect, opportunité et membre de campagne. Il crée des événements Salesforce standard pour les visites planifiées. Aucun objet personnalisé n'est requis pour l'usage de base.</p></div></details><details><summary>Quelle différence entre optimisation de tournées field service et optimisation de tournées commerciales ?</summary><div class="faq-body"><p>L'optimisation field service se concentre sur la répartition des techniciens, le respect des SLA, la replanification d'urgence et le suivi des pièces. L'optimisation des tournées commerciales se concentre sur la couverture des comptes, la fréquence de visite, la planification de secteur et la priorisation pilotée par le pipeline. Les deux bénéficient du calcul algorithmique d'itinéraires, mais les contraintes de planification et les règles métier diffèrent. Des outils comme ServiceTitan et WorkWave sont spécialisés dans la répartition field service, tandis que Tourvia est conçu pour les équipes commerciales et hybrides sur Salesforce.</p></div></details><details><summary>Quel ROI attendre d'un logiciel d'optimisation de tournées ?</summary><div class="faq-body"><p>Le ROI dépend de la densité de l'équipe, des habitudes de déplacement et de la discipline de planification actuelle. Utilisez l'essai pour mesurer le temps de planification, la distance par visite réalisée, les visites réalisées et la complétude du reporting par rapport à votre référence.</p></div></details></div>
+
+        <div class="brief-head"><h2 id="three-checks">Trois vérifications avant de vous abonner</h2><span class="mark">Checklist de décision</span></div>
+        <ul class="brief">
+          <li><span class="brief-label">Exécution</span><h3>La tournée optimisée peut-elle devenir une journée Salesforce utilisable sans ressaisie ?</h3></li>
+          <li><span class="brief-label">Économie</span><h3>Quel est l'abonnement annuel pour chaque utilisateur licencié qui a besoin de Tourvia ?</h3></li>
+          <li><span class="brief-label">Adéquation équipe</span><h3>Est-ce une équipe terrain pilotée par Salesforce, et non une opération de service orientée répartition ?</h3></li>
+        </ul>
+
+        <nav class="related" aria-labelledby="fs-related">
+          <h2 id="fs-related">Pages liées</h2>
+          <ul>
+            <li><a href="/fr/planification-tournees-salesforce.html">Planification de tournées Salesforce : planificateur de tournées natif pour les équipes terrain</a></li>
+            <li><a href="/fr/planification-visites-salesforce.html">Planification des visites Salesforce : automatisez la planification des visites terrain</a></li>
+            <li><a href="/fr/alternative-salesforce-maps.html">Alternatives à Salesforce Maps comparées pour les équipes terrain</a></li>
+            <li><a href="/blog/optimize-field-sales-routes-salesforce.html">Comment optimiser les tournées commerciales terrain dans Salesforce (guide 2026)</a></li>
+            <li><a href="/blog/sales-route-planner.html">Planificateur de tournées commerciales : ce que les équipes doivent comparer avant d'acheter</a></li>
+            <li><a href="/blog/route-optimization-software.html">Guide d'achat des logiciels d'optimisation de tournées (2026)</a></li>
+            <li><a href="/blog/routeforce-vs-badger-maps.html">Tourvia vs Badger Maps : comparaison détaillée</a></li>
+            <li><a href="/blog/salesforce-maps-pricing-breakdown.html">Tarification Salesforce Maps décortiquée : ce que ça coûte vraiment</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact-path" class="sec night" aria-labelledby="last-title">
+    <div class="wrap">
+      <div>
+        <div class="sec-head">
+          <span class="stop stop-last" aria-hidden="true"></span>
+          <p class="mark">Dernier arrêt</p>
+          <h2 id="last-title">Testez le workflow compte-événement dans votre org Salesforce.</h2>
+          <p>Installez l'essai de 30 jours depuis l'AppExchange et validez le workflow tournée-visite avec vos propres enregistrements Salesforce.</p>
+        </div>
+        <ol class="steps">
+          <li class="step"><b>Get It Now sur l'AppExchange</b><p>Ouvrez la <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">fiche Tourvia</a> et démarrez l'essai de 30 jours. Des questions d'abord : écrivez à <a href="mailto:contact@gettourvia.com">contact@gettourvia.com</a>.</p></li>
+          <li class="step"><b>Votre administrateur installe le package</b><p>avec le <a href="/docs/setup-guide.html">guide d'installation</a> et le <a href="/docs/configuration-guide.html">guide de configuration</a>.</p></li>
+          <li class="step"><b>Votre équipe profite de 30 jours avec toutes les fonctionnalités</b><p>Abonnez-vous à 30 € HT par utilisateur et par mois, facturé annuellement, pour garder l'accès.</p></li>
+        </ol>
+      </div>
+      <div class="last-stop-side">
+        <h3>Démarrer l'essai 30 jours</h3>
+        <p>Get It Now sur la <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">fiche AppExchange</a> installe l'essai de 30 jours dans votre org Salesforce. Pas d'offre gratuite publique, pas de seuil de devis personnalisé : les mêmes 30 € HT par utilisateur s'appliquent à toutes les tailles d'équipe.</p>
+        <div class="btn-row">
+          <a class="btn btn-paper" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a>
+          <a class="textlink" href="/fr/tarifs.html">Tarifs</a>
+        </div>
+        <p class="fine">TourviaApp 7.36.0. Security Review Salesforce passée le 22 mai 2026. Salesforce ne soutient ni ne recommande Tourvia.</p>
+      </div>
+    </div>
+  </section>
+
 </main>
-
-<footer style="border-top:1px solid #27272a;padding:40px 28px;text-align:center;color:#71717a;font-size:0.85rem;">
-  <p>&copy; 2026 SKZ Consulting / Tourvia. <a href="../docs/privacy.html" style="color:#9099ff;text-decoration:none;">Confidentialité</a></p>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="/fr/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="28" height="28"/><b>Tourvia</b></a>
+        <p>Package managé Salesforce pour la planification de tournées et l'exécution terrain. Tourvia est le nouveau nom de RouteForce.</p>
+        <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary">Disponible sur AppExchange</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Produit</span>
+        <a href="/fr/#features">Fonctionnalités</a>
+        <a href="/fr/tarifs.html">Tarifs</a>
+        <a href="/fr/cas-d-usage.html">Cas d'usage</a>
+        <a href="/native-integration-salesforce.html">Intégration</a>
+        <a href="/compare.html">Comparatif</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Ressources</span>
+        <a href="/blog/">Blog</a>
+        <a href="/docs/">Docs</a><a href="/tools.html">Outils gratuits</a>
+        <a href="/docs/setup-guide.html">Guide d'installation</a>
+        <a href="/docs/user-guide-fr.html">Guide utilisateur</a>
+        <a href="/docs/configuration-guide.html">Guide de configuration</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Entreprise</span>
+        <a href="mailto:contact@gettourvia.com">Contact</a>
+        <a href="/docs/privacy.html">Confidentialité</a>
+        <a href="/docs/terms.html">Conditions</a>
+        <a href="/docs/mentions-legales.html">Mentions légales</a>
+        <a href="/docs/cgv.html">CGV</a>
+        <a href="/docs/dpa.html">DPA</a>
+        <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener">Status <span class="dot-ok" aria-hidden="true"></span></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 SKZ Consulting · partenaire ISV Salesforce.</span>
+      <span>Package managé Salesforce édité par SKZ Consulting, partenaire ISV Salesforce, distribué sur la Salesforce AppExchange. Salesforce ne soutient ni ne recommande Tourvia.</span>
+      <span>Langue : Français · <a href="/field-sales-route-optimization.html" hreflang="en" lang="en">English</a></span>
+    </div>
+  </div>
 </footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Capture d'écran agrandie" aria-hidden="true">
+  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Fermer la capture d'écran agrandie"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+  <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Capture d'écran en taille réelle"/>
+</div>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebPage",
+ "@id": "https://gettourvia.com/fr/optimisation-tournees-salesforce.html#webpage",
+ "url": "https://gettourvia.com/fr/optimisation-tournees-salesforce.html",
+ "name": "Optimisation de tournées Salesforce | Tourvia",
+ "description": "Planifiez les tournées des commerciaux terrain, créez des événements Salesforce, réalisez les visites mobiles et reportez dans Salesforce avec Tourvia.",
+ "inLanguage": "fr",
+ "dateModified": "2026-09-16",
+ "isPartOf": {"@id": "https://gettourvia.com/#website"},
+ "about": {"@id": "https://gettourvia.com/#tourvia"},
+ "mainEntity": {"@id": "https://gettourvia.com/#tourvia"},
+ "publisher": {"@id": "https://gettourvia.com/#organization"}
+}
+</script>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Tourvia",
+   "item": "https://gettourvia.com/fr/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Logiciel d'optimisation de tournées commerciales terrain pour les équipes Salesforce",
+   "item": "https://gettourvia.com/fr/optimisation-tournees-salesforce.html"
+  }
+ ]
+}
+</script>
 </body>
 </html>

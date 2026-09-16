@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "dist"
-PUBLIC_DIRECTORIES = ("assets", "blog", "docs", "en", "es")
+PUBLIC_DIRECTORIES = ("assets", "blog", "docs", "en", "es", "fr")
 PUBLIC_FILES = (
     "style.css",
     "favicon.ico",

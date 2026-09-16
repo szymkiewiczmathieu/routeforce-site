@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url><loc>https://gettourvia.com/blog/business-case-sales-route-optimization.html</loc><lastmod>2026-09-16</lastmod><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://gettourvia.com/blog/campaign-members-salesforce-map.html</loc><lastmod>2026-09-16</lastmod><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://gettourvia.com/blog/field-sales-app.html</loc><lastmod>2026-09-16</lastmod><priority>0.6</priority><changefreq>monthly</changefreq></url>
@@ -51,4 +52,32 @@
   <url><loc>https://gettourvia.com/compare.html</loc><lastmod>2026-09-16</lastmod><priority>0.9</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://gettourvia.com/blog/tourvia-vs-salesforce-maps.html</loc><lastmod>2026-09-16</lastmod><priority>0.9</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://gettourvia.com/blog/tourvia-vs-mapsly.html</loc><lastmod>2026-09-16</lastmod><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://gettourvia.com/fr/</loc><lastmod>2026-09-16</lastmod><priority>0.9</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gettourvia.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gettourvia.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gettourvia.com/"/></url>
+  <url><loc>https://gettourvia.com/fr/tarifs.html</loc><lastmod>2026-09-16</lastmod><priority>0.8</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gettourvia.com/fr/tarifs.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gettourvia.com/pricing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gettourvia.com/pricing.html"/></url>
+  <url><loc>https://gettourvia.com/fr/cas-d-usage.html</loc><lastmod>2026-09-16</lastmod><priority>0.8</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gettourvia.com/fr/cas-d-usage.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gettourvia.com/use-cases.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gettourvia.com/use-cases.html"/></url>
+  <url><loc>https://gettourvia.com/fr/planification-tournees-salesforce.html</loc><lastmod>2026-09-16</lastmod><priority>0.8</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gettourvia.com/fr/planification-tournees-salesforce.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gettourvia.com/salesforce-route-planning.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gettourvia.com/salesforce-route-planning.html"/></url>
+  <url><loc>https://gettourvia.com/fr/optimisation-tournees-salesforce.html</loc><lastmod>2026-09-16</lastmod><priority>0.8</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gettourvia.com/fr/optimisation-tournees-salesforce.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gettourvia.com/field-sales-route-optimization.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gettourvia.com/field-sales-route-optimization.html"/></url>
+  <url><loc>https://gettourvia.com/fr/planification-visites-salesforce.html</loc><lastmod>2026-09-16</lastmod><priority>0.8</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gettourvia.com/fr/planification-visites-salesforce.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gettourvia.com/visit-planning-salesforce.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gettourvia.com/visit-planning-salesforce.html"/></url>
+  <url><loc>https://gettourvia.com/fr/alternative-salesforce-maps.html</loc><lastmod>2026-09-16</lastmod><priority>0.8</priority><changefreq>monthly</changefreq>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://gettourvia.com/fr/alternative-salesforce-maps.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://gettourvia.com/blog/salesforce-maps-alternatives-compared.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://gettourvia.com/blog/salesforce-maps-alternatives-compared.html"/></url>
 </urlset>

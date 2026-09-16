@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>document.documentElement.classList.add('js');</script>
+<script>
+  // A reload should restart the homepage at the hero. Preserve explicit
+  // anchors so section links such as /fr/#pricing continue to work.
+  if (!window.location.hash) {
+    history.scrollRestoration = 'manual';
+    window.scrollTo(0, 0);
+    window.addEventListener('pageshow', function () {
+      window.setTimeout(function () {
+        if (!window.location.hash) {
+          window.scrollTo(0, 0);
+        }
+      }, 250);
+    });
+  }
+</script>
+<script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
+<script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
+
+<title>Planification de tournées dans Salesforce | Tourvia</title>
+<meta name="robots" content="index, follow">
+<script>
+  (function () {
+    var path = window.location.pathname;
+    if (path === '/fr/index.html') {
+      var robots = document.querySelector('meta[name="robots"]');
+      if (robots) robots.setAttribute('content', 'noindex,follow');
+      var googlebot = document.createElement('meta');
+      googlebot.setAttribute('name', 'googlebot');
+      googlebot.setAttribute('content', 'noindex,follow');
+      document.head.appendChild(googlebot);
+      window.location.replace('/fr/' + window.location.search + window.location.hash);
+    }
+  })();
+</script>
+    <meta name="description" content="Transformez vos enregistrements Salesforce en tournées, événements, visites mobiles et rapports avec Tourvia. Essai de 30 jours complet, tarif annuel clair."/>
+<link rel="icon" type="image/svg+xml" href="/favicon.svg"/><link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<link rel="canonical" href="https://gettourvia.com/fr/"/>
+<link rel="alternate" hreflang="fr" href="https://gettourvia.com/fr/"/>
+<link rel="alternate" hreflang="en" href="https://gettourvia.com/"/>
+<link rel="alternate" hreflang="x-default" href="https://gettourvia.com/"/>
+<meta name="geo.region" content="FR-75"/>
+<meta name="geo.placename" content="Paris"/>
+<meta name="geo.position" content="48.8422;2.3016"/>
+<meta name="ICBM" content="48.8422, 2.3016"/>
+<meta name="author" content="SKZ Consulting"/>
+<meta name="publisher" content="SKZ Consulting"/>
+<meta property="og:locale" content="fr_FR"/>
+<!-- Open Graph -->
+<meta property="og:title" content="Planification de tournées dans Salesforce | Tourvia"/>
+<meta property="og:description" content="Tourvia, anciennement RouteForce, garde la planification de tournées, l’optimisation de tournées, la planification des visites et l’exécution terrain dans Salesforce."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://gettourvia.com/fr/"/>
+<meta property="og:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
+<meta property="og:site_name" content="Tourvia"/>
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Planification de tournées dans Salesforce | Tourvia"/>
+<meta name="twitter:description" content="Tourvia, anciennement RouteForce, garde la planification de tournées, l’optimisation de tournées, la planification des visites et l’exécution terrain dans Salesforce."/>
+<meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
+<link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt"/>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="image" href="/assets/screenshots-user/routeforce-salesforce-map-ui.jpg" fetchpriority="high"/>
+<link rel="stylesheet" href="/assets/css/home.css?v=cd841a7"/>
+<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script defer src="/assets/js/home.js"></script>
+</head>
+<body>
+
+<a class="skip" href="#main">Aller au contenu</a>
+
+<!-- Map-legend symbols, drawn inline so no icon font is loaded -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.4-6-10a6 6 0 0 1 12 0c0 4.6-6 10-6 10z"/><circle cx="12" cy="11" r="2.2"/></symbol>
+    <symbol id="i-route" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="18" r="2.25"/><circle cx="19" cy="6" r="2.25"/><path d="M6.6 16.4C9 13 8 11 12 11s4.4-2.3 5.4-3.6"/></symbol>
+    <symbol id="i-event" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M9 15l2 2 4-4"/></symbol>
+    <symbol id="i-checkin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7.5"/><circle cx="12" cy="12" r="2.5"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></symbol>
+    <symbol id="i-report" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3.5h8l4 4v13H6z"/><path d="M14 3.5v4h4M9 12h6M9 15.5h6"/></symbol>
+    <symbol id="i-heat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c3 3 7 5 7 9.5a7 7 0 0 1-14 0C5 9 9 7 12 4z"/><path d="M12 12c1.5 1.5 3 2.5 3 4a3 3 0 0 1-6 0c0-1.5 1.5-2.5 3-4z"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 5h17l-6.5 8v6l-4 2v-8z"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 1 0 2.3-5.7"/><path d="M4 4v4.5h4.5"/><path d="M12 8v4.5l3 1.8"/></symbol>
+    <symbol id="i-campaign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 10v4h3l7 4V6l-7 4z"/><path d="M17 9.5a3.5 3.5 0 0 1 0 5"/></symbol>
+    <symbol id="i-action" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3L5 13.5h6L10 21l8-10.5h-6z"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16"/><path d="M7 16v-5M12 16V6M17 16v-8"/></symbol>
+    <symbol id="i-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 17.5h2"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+  </defs>
+</svg>
+
+<!-- ===== HEADER ===== -->
+<header class="site-head">
+  <div class="wrap">
+    <a href="/fr/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="32" height="32"/><b>Tourvia</b><small>anciennement RouteForce</small></a>
+    <nav class="nav-main" aria-label="Principale">
+      <a class="nav-a" href="#day-in-the-field">Journée terrain</a>
+      <a class="nav-a" href="#features">Fonctionnalités</a>
+      <a class="nav-a" href="#showcase">Produit</a>
+      <a class="nav-a" href="#pricing">Tarifs</a>
+      <a class="nav-a" href="/fr/cas-d-usage.html">Cas d’usage</a>
+      <a class="nav-a" href="/blog/">Blog</a>
+      <a class="nav-a" href="/docs/">Docs</a>
+    </nav>
+    <div class="head-right">
+      <a class="nav-a head-link" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary head-cta">Démarrer l’essai 30 jours</a>
+      <button id="mobile-menu-btn" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="nav-mobile">
+    <nav class="wrap" aria-label="Mobile">
+      <a href="#day-in-the-field">Journée terrain</a>
+      <a href="#features">Fonctionnalités</a>
+      <a href="#showcase">Produit</a>
+      <a href="#pricing">Tarifs</a>
+      <a href="/fr/cas-d-usage.html">Cas d’usage</a>
+      <a href="/blog/">Blog</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a>
+      <a href="/fr/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <div class="sheet-rail" aria-hidden="true"></div>
+
+  <!-- ===== HERO: THE SHEET ===== -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="stop stop-start" aria-hidden="true"></span>
+        <p class="mark">Tourvia <small>anciennement RouteForce, un package managé pour Salesforce</small></p>
+        <h1 id="hero-title">La planification de tournées Salesforce, dans Salesforce. <em>Des enregistrements CRM à une journée de visites.</em></h1>
+        <p class="lead">Tourvia est un package managé qu’installe votre administrateur Salesforce. Les commerciaux choisissent des comptes, prospects, opportunités ou membres de campagne sur une carte, Tourvia ordonne les arrêts, et la journée arrive dans Salesforce sous forme d’événements horodatés, de visites mobiles et de rapports de visite.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a>
+          <a class="btn btn-secondary" href="#day-in-the-field">Suivre une journée terrain</a>
+        </div>
+        <ul class="proof" aria-label="Éléments de preuve">
+          <li><strong>Partenaire ISV Salesforce</strong> — Tourvia est édité par SKZ Consulting</li>
+          <li><a href="/blog/tourvia-private-appexchange-security-review.html">Security Review Salesforce réussie</a>, 22 mai 2026</li>
+          <li><a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Fiche AppExchange publique</a></li>
+          <li><span class="num">5,0 sur 5</span> sur AppExchange, deux avis publics, vérifié le 16 septembre 2026</li>
+          <li class="proof-note">TourviaApp 7.36.0. Salesforce ne soutient ni ne recommande Tourvia.</li>
+        </ul>
+      </div>
+
+      <figure class="hero-plate hero-fig">
+        <div class="plate">
+          <div class="plate-inner">
+            <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-user/routeforce-salesforce-map-ui.jpg" data-lightbox-alt="Espace de travail des tournées Tourvia dans Salesforce Lightning : panneau de filtres, carte de New York avec quinze arrêts numérotés, et le panneau « Plan a route » affichant 17,4 km, 44 min et un bouton « Create 15 visits in calendar »" aria-label="Agrandir la capture de l’espace de travail des tournées">
+              <img src="/assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Espace de travail des tournées Tourvia dans Salesforce Lightning : panneau de filtres, carte de New York avec quinze arrêts numérotés, et le panneau « Plan a route » affichant 17,4 km, 44 min et un bouton « Create 15 visits in calendar »" width="1280" height="644" fetchpriority="high" decoding="async"/>
+            </button>
+            <span class="mk mk-1" aria-hidden="true">1</span>
+            <span class="mk mk-2" aria-hidden="true">2</span>
+            <span class="mk mk-3" aria-hidden="true">3</span>
+          </div>
+        </div>
+        <figcaption>
+          <ol class="fig-notes">
+            <li><b>1</b><span>Quinze enregistrements Salesforce choisis sur la carte, devenus quinze arrêts numérotés.</span></li>
+            <li><b>2</b><span><span class="num">17,4 km et 44 min</span> de route pour la journée entière, ordonnée par le moteur de calcul d’itinéraires Tourvia.</span></li>
+            <li><b>3</b><span>Un clic crée les 15 visites dans le calendrier Salesforce. Le transfert vers Google Maps et l’export CSV sont juste à côté.</span></li>
+          </ol>
+          <p class="fig-cap"><i>Fig. 1</i>Espace de travail des tournées Tourvia dans Salesforce Lightning, enregistrements d’exemple. Sélectionnez l’image pour l’agrandir.</p>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ===== A FIELD DAY: FIVE STOPS ON THE LINE ===== -->
+  <section id="day-in-the-field" class="sec ticks" aria-labelledby="fd-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Une journée terrain</p>
+        <h2 id="fd-title">Un enregistrement, suivi pendant une journée terrain.</h2>
+        <p>Un enregistrement Salesforce commence comme une épingle sur la carte et finit comme une ligne dans un rapport Salesforce. Cinq arrêts, tout dans Salesforce, rien à ressaisir.</p>
+      </div>
+
+      <article class="fd-stop fd-1">
+        <span class="stop stop-num" aria-hidden="true">1</span>
+        <div class="fd-text">
+          <p class="mark">Arrêt 1 <small>encore un enregistrement Salesforce</small></p>
+          <h3>Sur la carte</h3>
+          <p>Chaque compte, prospect, opportunité et membre de campagne géocodé apparaît sur une carte unique dans Salesforce, filtrée sur les champs Salesforce, regroupée là où les enregistrements sont denses et colorée par statut. Les filtres enregistrés donnent à toute l’équipe la même vue.</p>
+        </div>
+        <figure class="fd-media reveal">
+          <div class="plate">
+            <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-2026/map-overview.jpg" data-lightbox-alt="Carte Tourvia de Paris dans Salesforce avec des marqueurs de comptes, prospects et opportunités et les commandes « Filters », « My position », « Route », « History » et « Show My Events »" aria-label="Agrandir la capture de la carte du secteur">
+              <img src="/assets/screenshots-2026/map-overview.jpg" alt="Carte Tourvia de Paris dans Salesforce avec des marqueurs de comptes, prospects et opportunités et les commandes « Filters », « My position », « Route », « History » et « Show My Events »" width="1872" height="790" loading="lazy" decoding="async"/>
+            </button>
+          </div>
+          <figcaption class="fig-cap"><i>Fig. 2</i>Carte du secteur avec comptes, prospects et opportunités, filtrée sur les champs Salesforce.</figcaption>
+        </figure>
+      </article>
+
+      <article class="fd-stop fd-2">
+        <span class="stop stop-num" aria-hidden="true">2</span>
+        <figure class="fd-media reveal">
+          <div class="plate">
+            <video controls muted playsinline preload="none" poster="/assets/screenshots-2026/screen-04.jpg" width="1280" height="662" aria-label="Vidéo de démonstration : Tourvia ordonne une tournée de cinq arrêts dans Salesforce">
+              <source src="/assets/videos/OptimiseRoute.mp4" type="video/mp4"/>
+            </video>
+          </div>
+          <figcaption class="fig-cap"><i>Fig. 3</i>Optimisation de tournées, 29 secondes. L’affiche montre une tournée de cinq arrêts entre La Défense et le centre de Paris.</figcaption>
+        </figure>
+        <div class="fd-text">
+          <p class="mark">Arrêt 2 <small>un arrêt avec une heure</small></p>
+          <h3>Dans la tournée</h3>
+          <p class="fd-note">Choisissez les enregistrements un par un, ou dessinez une zone et ajoutez tous les enregistrements qu’elle contient. Le moteur de calcul d’itinéraires Tourvia ordonne les arrêts autour de l’heure de départ, de la pause déjeuner, de la durée des visites et de la fin de journée, avec les préférences de péages et d’autoroutes. Quand une option change, le planning est recalculé au lieu de rester figé. Annuler et rétablir sont là quand la journée change.</p>
+        </div>
+      </article>
+
+      <article class="fd-stop fd-3">
+        <span class="stop stop-num" aria-hidden="true">3</span>
+        <div class="fd-text">
+          <p class="mark">Arrêt 3 <small>un événement Salesforce</small></p>
+          <h3>Dans le calendrier</h3>
+          <p>Un clic transforme la tournée en événements Salesforce horodatés sur les bons enregistrements. Tourvia lit d’abord l’agenda existant du commercial et liste les conflits avant toute création. L’agenda du jour montre ensuite chaque visite avec son heure et son enregistrement.</p>
+        </div>
+        <div class="fd-media reveal">
+          <figure>
+            <div class="plate">
+              <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-2026/screen-05.jpg" data-lightbox-alt="Panneau « Today’s Agenda » de Tourvia listant quatre visites horodatées le 4 juillet 2026 à côté de la carte de Paris, avec un bouton « Load today’s events »" aria-label="Agrandir la capture de l’agenda">
+                <img src="/assets/screenshots-2026/screen-05.jpg" alt="Panneau « Today’s Agenda » de Tourvia listant quatre visites horodatées le 4 juillet 2026 à côté de la carte de Paris, avec un bouton « Load today’s events »" width="1500" height="1000" loading="lazy" decoding="async"/>
+              </button>
+            </div>
+            <figcaption class="fig-cap"><i>Fig. 4</i>L’agenda du jour une fois les événements créés.</figcaption>
+          </figure>
+          <figure class="plate inset">
+            <img src="/assets/screenshots-2026/events-agenda.png" alt="Boîte de dialogue « Schedule Conflicts » listant quatre visites avec leurs horaires et une question « Create the visits anyway? » avec les boutons « Cancel » et « Submit »" width="911" height="453" loading="lazy" decoding="async"/>
+            <figcaption class="fig-cap"><i>Fig. 5</i>Le contrôle des conflits avant la création.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="fd-stop fd-4">
+        <span class="stop stop-num" aria-hidden="true">4</span>
+        <div class="fd-media reveal">
+          <figure>
+            <div class="plate">
+              <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-2026/mobile-map.png" data-lightbox-alt="Carte Tourvia dans Salesforce Mobile avec les boutons « Filters », « My position », « Route », « History » et « Show My Events » et des marqueurs regroupés autour de Paris" aria-label="Agrandir la capture Salesforce Mobile">
+                <img src="/assets/screenshots-2026/mobile-map.png" alt="Carte Tourvia dans Salesforce Mobile avec les boutons « Filters », « My position », « Route », « History » et « Show My Events » et des marqueurs regroupés autour de Paris" width="523" height="1028" loading="lazy" decoding="async"/>
+              </button>
+            </div>
+            <figcaption class="fig-cap"><i>Fig. 6</i>La carte dans Salesforce Mobile.</figcaption>
+          </figure>
+          <figure>
+            <div class="plate">
+              <video controls muted playsinline preload="none" poster="/assets/screenshots-2026/checkin-form.webp" width="1280" height="656" aria-label="Vidéo de démonstration : check-in assisté par GPS et rapport de visite au check-out dans Tourvia">
+                <source src="/assets/videos/CheckOut.mp4" type="video/mp4"/>
+              </video>
+            </div>
+            <figcaption class="fig-cap"><i>Fig. 7</i>Check-in et check-out, 45 secondes.</figcaption>
+          </figure>
+        </div>
+        <div class="fd-text">
+          <p class="mark">Arrêt 4 <small>une visite avec un rapport</small></p>
+          <h3>Sur le téléphone</h3>
+          <p>Dans Salesforce Mobile, le commercial ouvre l’agenda du jour, confie la navigation à Google Maps, Waze ou Apple Maps, et fait son check-in à l’arrivée avec un contrôle de proximité assisté par GPS. Le check-out enregistre le résultat, la prochaine action, les notes, la satisfaction, le montant de la commande et la date de la prochaine visite sur l’enregistrement.</p>
+          <p class="cap">Le résultat de proximité dépend de la précision de l’appareil, de la qualité du géocodage et du rayon configuré. Il ne prouve ni l’identité ni la présence physique.</p>
+        </div>
+      </article>
+
+      <article class="fd-stop fd-5">
+        <span class="stop stop-num" aria-hidden="true">5</span>
+        <div class="fd-text">
+          <p class="mark">Arrêt 5 <small>une ligne dans un rapport</small></p>
+          <h3>Dans le tableau de bord</h3>
+          <p>Chaque visite est une donnée Salesforce standard. Deux tableaux de bord et 18 rapports sont livrés avec le package, et les administrateurs les clonent et les ajustent comme n’importe quel rapport de l’org. Les tournées planifiées peuvent être conservées pour être rejouées et pour comparer la couverture d’un secteur.</p>
+        </div>
+        <div class="fd-media reveal">
+          <figure>
+            <div class="plate">
+              <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-2026/screen-07.jpg" data-lightbox-alt="Tableau de bord Tourvia « Field Activity » dans Salesforce avec les visites du mois, la durée moyenne des visites, les tournées du mois, le taux de présence sur site, les résultats des visites, les visites par commercial et une tendance des visites" aria-label="Agrandir la capture du tableau de bord">
+                <img src="/assets/screenshots-2026/screen-07.jpg" alt="Tableau de bord Tourvia « Field Activity » dans Salesforce avec les visites du mois, la durée moyenne des visites, les tournées du mois, le taux de présence sur site, les résultats des visites, les visites par commercial et une tendance des visites" width="1500" height="1000" loading="lazy" decoding="async"/>
+              </button>
+            </div>
+            <figcaption class="fig-cap"><i>Fig. 8</i>« Field Activity », l’un des deux tableaux de bord inclus.</figcaption>
+          </figure>
+          <figure>
+            <div class="plate">
+              <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-2026/screen-06.jpg" data-lightbox-alt="Panneau « Route History » de Tourvia listant trois tournées enregistrées avec la date, le nombre d’étapes, la distance et le temps de conduite" aria-label="Agrandir la capture de l’historique des tournées">
+                <img src="/assets/screenshots-2026/screen-06.jpg" alt="Panneau « Route History » de Tourvia listant trois tournées enregistrées avec la date, le nombre d’étapes, la distance et le temps de conduite" width="1500" height="1000" loading="lazy" decoding="async"/>
+              </button>
+            </div>
+            <figcaption class="fig-cap"><i>Fig. 9</i>Historique des tournées : tournées enregistrées avec étapes, distance et temps de conduite.</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <div class="fd-cta">
+        <a class="btn btn-primary" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a>
+        <p>Déroulez cette journée avec vos propres enregistrements. L’essai inclut toutes les fonctionnalités pendant 30 jours.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LEGEND: WHAT SHIPS IN THE PACKAGE ===== -->
+  <section id="features" class="sec ticks legend" aria-labelledby="legend-title">
+    <div class="wrap">
+      <div class="legend-head">
+        <div class="sec-head">
+          <span class="stop" aria-hidden="true"></span>
+          <p class="mark">Légende</p>
+          <h2 id="legend-title">Ce que contient le package.</h2>
+          <p>Chaque capacité ci-dessous est incluse dans l’abonnement et dans l’essai de 30 jours. À lire comme la légende d’une carte.</p>
+        </div>
+        <a class="textlink" href="/native-integration-salesforce.html">Comment fonctionne l’intégration native à Salesforce</a>
+      </div>
+      <div class="legend-body">
+        <dl class="legend-list">
+          <div class="legend-item"><svg aria-hidden="true"><use href="#i-map"/></svg><dt>Carte interactive</dt><dd>Comptes, prospects, opportunités et membres de campagne sur une carte unique, avec regroupement, couleurs de statut et filtres sur les champs Salesforce.</dd></div>
+          <div class="legend-item"><svg aria-hidden="true"><use href="#i-route"/></svg><dt>Optimisation de tournées</dt><dd>Un moteur qui tient compte des contraintes ordonne les arrêts autour des plages horaires, des pauses déjeuner, des durées de visite et des contraintes de distance.</dd></div>
+          <div class="legend-item"><svg aria-hidden="true"><use href="#i-event"/></svg><dt>Événements Salesforce</dt><dd>Un clic transforme une tournée optimisée en événements horodatés sur les bons enregistrements, après un contrôle des conflits avec l’agenda.</dd></div>
+          <div class="legend-item"><svg aria-hidden="true"><use href="#i-checkin"/></svg><dt>Check-in et check-out assistés par GPS</dt><dd>Un contrôle de proximité configurable à l’arrivée, puis un formulaire de check-out avec résultat, prochaine action, notes, satisfaction, montant de la commande et date de la prochaine visite.</dd></div>
+          <div class="legend-item"><svg aria-hidden="true"><use href="#i-report"/></svg><dt>Rapports de visite</dt><dd>Des données post-visite structurées liées à l’enregistrement Salesforce, avec des champs personnalisés définis par l’administrateur.</dd></div>
+          <div class="legend-item"><svg aria-hidden="true"><use href="#i-heat"/></svg><dt>Carte de chaleur et sélection au lasso</dt><dd>Voyez la densité d’un coup d’œil, dessinez une zone et agissez sur tous les enregistrements qu’elle contient en une fois.</dd></div>
+          <div class="legend-item"><svg aria-hidden="true"><use href="#i-filter"/></svg><dt>Filtres enregistrés</dt><dd>Enregistrez, nommez et partagez des configurations de filtres dans toute l’équipe.</dd></div>
+          <div class="legend-item"><svg aria-hidden="true"><use href="#i-history"/></svg><dt>Historique des tournées</dt><dd>Les tournées planifiées peuvent être conservées dans Salesforce pour être rejouées et comparer la couverture.</dd></div>
+          <div class="legend-item"><svg aria-hidden="true"><use href="#i-campaign"/></svg><dt>Cartographie des membres de campagne</dt><dd>Membres prospects et contacts depuis la page d’une campagne ou la carte globale, colorés par statut de membre.</dd></div>
+          <div class="legend-item"><svg aria-hidden="true"><use href="#i-action"/></svg><dt>Actions personnalisées</dt><dd>Lancez des Screen Flows, appelez en un clic ou naviguez depuis un marqueur de carte grâce à des Lightning Web Components configurables.</dd></div>
+          <div class="legend-item"><svg aria-hidden="true"><use href="#i-chart"/></svg><dt>Tableaux de bord et rapports</dt><dd>Deux tableaux de bord et 18 rapports Salesforce natifs inclus, prêts à être clonés et ajustés par les administrateurs.</dd></div>
+          <div class="legend-item"><svg aria-hidden="true"><use href="#i-mobile"/></svg><dt>Salesforce Mobile</dt><dd>Carte, tournées, agenda du jour, contrôle de proximité et transfert de navigation dans Salesforce Mobile.</dd></div>
+        </dl>
+        <p class="legend-foot"><b>Surfaces.</b> Pages d’enregistrement, pages d’application, onglets, barre d’utilitaires, pages de campagne et Salesforce Mobile. La configuration réside dans les Custom Metadata Types.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PLATES: A CONTACT SHEET FROM THE PRODUCT ===== -->
+  <section id="showcase" class="sec ticks band-2 plates" aria-labelledby="plates-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <span class="stop" aria-hidden="true"></span>
+          <p class="mark">Planches</p>
+          <h2 id="plates-title">Six planches du produit.</h2>
+          <p>Des enregistrements d’exemple dans une org Salesforce de test, chaque planche à ses proportions réelles. Sélectionnez une planche pour l’agrandir.</p>
+        </div>
+        <div class="strip-nav">
+          <button type="button" class="strip-btn" data-strip="-1" aria-label="Faire défiler les planches vers la gauche"><svg aria-hidden="true"><use href="#i-left"/></svg></button>
+          <button type="button" class="strip-btn" data-strip="1" aria-label="Faire défiler les planches vers la droite"><svg aria-hidden="true"><use href="#i-right"/></svg></button>
+        </div>
+      </div>
+
+      <div class="strip" tabindex="0" role="region" aria-label="Planches du produit, faites défiler horizontalement">
+        <figure data-orient="landscape">
+          <div class="plate">
+            <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-2026/campaign-members-map.jpg" data-lightbox-alt="Carte Tourvia des membres de campagne dans toute la France avec le sélecteur de campagne, le filtre de statut de membre et des marqueurs violets dans dix villes" aria-label="Agrandir la planche 1, carte des membres de campagne">
+              <img src="/assets/screenshots-2026/campaign-members-map.jpg" alt="Carte Tourvia des membres de campagne dans toute la France avec le sélecteur de campagne, le filtre de statut de membre et des marqueurs violets dans dix villes" width="1800" height="890" loading="lazy" decoding="async"/>
+            </button>
+          </div>
+          <figcaption class="fig-cap"><i>Planche 1</i>Membres de campagne dans toute la France, colorés par statut de membre, avec le sélecteur de campagne dans le panneau de filtres.</figcaption>
+        </figure>
+        <figure data-orient="landscape">
+          <div class="plate">
+            <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-2026/marker-popup.png" data-lightbox-alt="Popup de marqueur Tourvia pour une opportunité avec adresse, téléphone, contact, compte, étape, montant, date de clôture et un bouton « Create an event »" aria-label="Agrandir la planche 2, popup d’opportunité">
+              <img src="/assets/screenshots-2026/marker-popup.png" alt="Popup de marqueur Tourvia pour une opportunité avec adresse, téléphone, contact, compte, étape, montant, date de clôture et un bouton « Create an event »" width="675" height="559" loading="lazy" decoding="async"/>
+            </button>
+          </div>
+          <figcaption class="fig-cap"><i>Planche 2</i>Popup d’opportunité : adresse, téléphone, contact, compte, étape, montant, date de clôture et « Create an event ».</figcaption>
+        </figure>
+        <figure data-orient="landscape">
+          <div class="plate">
+            <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-2026/lasso-select.webp" data-lightbox-alt="Boîte de dialogue « Select area » proposant d’ajouter cinq arrêts à la tournée, à côté du panneau « Plan a route » avec la date, le départ, la pause déjeuner, la fin de journée, la durée des visites et les options d’évitement des péages et autoroutes" aria-label="Agrandir la planche 3, boîte de dialogue Select area">
+              <img src="/assets/screenshots-2026/lasso-select.webp" alt="Boîte de dialogue « Select area » proposant d’ajouter cinq arrêts à la tournée, à côté du panneau « Plan a route » avec la date, le départ, la pause déjeuner, la fin de journée, la durée des visites et les options d’évitement des péages et autoroutes" width="1800" height="878" loading="lazy" decoding="async"/>
+            </button>
+          </div>
+          <figcaption class="fig-cap"><i>Planche 3</i>« Select area » : cinq enregistrements ajoutés à la tournée en une fois. Départ, pause déjeuner, fin de journée, durée des visites et options de péages ou d’autoroutes dans le panneau.</figcaption>
+        </figure>
+        <figure data-orient="landscape">
+          <div class="plate">
+            <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-2026/screen-03.jpg" data-lightbox-alt="Popup de compte Tourvia sur la carte de Paris avec adresse, téléphone, propriétaire, date du dernier rapport de visite, résultat du dernier rapport et un bouton « Create an event »" aria-label="Agrandir la planche 4, popup de compte">
+              <img src="/assets/screenshots-2026/screen-03.jpg" alt="Popup de compte Tourvia sur la carte de Paris avec adresse, téléphone, propriétaire, date du dernier rapport de visite, résultat du dernier rapport et un bouton « Create an event »" width="1500" height="1000" loading="lazy" decoding="async"/>
+            </button>
+          </div>
+          <figcaption class="fig-cap"><i>Planche 4</i>Popup de compte avec le dernier rapport de visite et une action « Create an event ».</figcaption>
+        </figure>
+        <figure data-orient="landscape">
+          <div class="plate">
+            <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-2026/screen-02.jpg" data-lightbox-alt="Panneau « Filters and Options » de Tourvia sur la carte de Paris avec fond de carte, puces de type d’enregistrement, centrage sur un compte, rayon de recherche et contrôles « not visited since »" aria-label="Agrandir la planche 5, filtres et options">
+              <img src="/assets/screenshots-2026/screen-02.jpg" alt="Panneau « Filters and Options » de Tourvia sur la carte de Paris avec fond de carte, puces de type d’enregistrement, centrage sur un compte, rayon de recherche et contrôles « not visited since »" width="1500" height="1000" loading="lazy" decoding="async"/>
+            </button>
+          </div>
+          <figcaption class="fig-cap"><i>Planche 5</i>Filtres et options : fond de carte, types d’enregistrement, centrage sur un compte, rayon de recherche, « not visited since ».</figcaption>
+        </figure>
+        <figure data-orient="portrait">
+          <div class="plate">
+            <video controls muted playsinline preload="none" poster="/assets/screenshots-2026/mobile-map.webp" width="720" height="1560" aria-label="Vidéo de démonstration : Tourvia dans Salesforce Mobile avec la carte, les tournées et le check-in">
+              <source src="/assets/videos/routeforce-mobile-demo.mp4" type="video/mp4"/>
+            </video>
+          </div>
+          <figcaption class="fig-cap"><i>Planche 6</i>Démo Salesforce Mobile, 47 secondes : carte, tournée et check-in.</figcaption>
+        </figure>
+      </div>
+      <p class="strip-note">Les écrans montrent des enregistrements d’exemple dans une org Salesforce de test. RouteForce apparaît encore dans certains noms techniques.</p>
+    </div>
+  </section>
+
+  <!-- ===== WHERE THE DATA GOES ===== -->
+  <section id="architecture" class="sec ticks" aria-labelledby="arch-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Où vont les données</p>
+        <h2 id="arch-title">Salesforce garde les enregistrements. Tourvia calcule l’ordre.</h2>
+        <p>Tourvia est un package managé qui lit et écrit vos enregistrements Salesforce. Seul un calcul de tournée quitte l’org, et il transporte des coordonnées et des contraintes horaires, pas de noms ni d’adresses.</p>
+      </div>
+
+      <div class="arch-diagram">
+        <div class="territory territory-sf">
+          <span class="territory-tag">Secteur 1</span>
+          <h3>Votre org Salesforce</h3>
+          <p class="cap">Système de référence. Le package s’exécute ici sous forme de Lightning Web Components.</p>
+          <ul>
+            <li><b>Comptes, prospects, opportunités, membres de campagne</b> avec leurs adresses et géocoordonnées</li>
+            <li><b>Événements</b> créés depuis la tournée dans le calendrier du commercial</li>
+            <li><b>Visites et rapports de visite</b> liés à l’enregistrement</li>
+            <li><b>Tableaux de bord et rapports</b>, deux et 18 inclus</li>
+            <li><b>Configuration</b> dans les Custom Metadata Types, trois Permission Set Groups</li>
+          </ul>
+          <p class="territory-foot">Noms, adresses postales, numéros de téléphone et e-mails restent dans Salesforce.</p>
+        </div>
+        <div class="lanes">
+          <div class="lane"><b>Sortie</b><span class="lane-line" aria-hidden="true"></span>Géocoordonnées et contraintes horaires pour un calcul</div>
+          <div class="lane lane-back"><b>Retour</b><span class="lane-line" aria-hidden="true"></span>L’ordre des visites, avec la distance et le temps de conduite par arrêt</div>
+        </div>
+        <div class="territory territory-tv">
+          <span class="territory-tag">Secteur 2</span>
+          <h3>Service de calcul d’itinéraires Tourvia</h3>
+          <p class="cap">Exploité par Tourvia chez OVHcloud à Gravelines, France.</p>
+          <ul>
+            <li><b>Reçoit</b> des coordonnées, des durées de visite, des plages horaires, des pauses et des horaires de travail</li>
+            <li><b>Calcule</b> l’ordre des visites avec un moteur qui tient compte des contraintes</li>
+            <li><b>Renvoie</b> la séquence au package dans Salesforce</li>
+            <li><b>Ne conserve</b> rien : le calcul s’exécute en mémoire et les coordonnées ne sont pas stockées</li>
+            <li><b>Inclus</b> dans l’abonnement, sans refacturation de frais d’API de calcul d’itinéraires</li>
+          </ul>
+          <p class="territory-foot">Le service de calcul d’itinéraires ne transfère aucune donnée hors de l’UE.</p>
+        </div>
+      </div>
+      <p class="arch-note">La description complète figure dans la <a href="/docs/privacy.html">politique de confidentialité</a> et l’<a href="/docs/dpa.html">accord de traitement des données</a>. Le calcul d’itinéraires international fonctionne là où les données routières nécessaires existent ; validez vos secteurs pendant l’essai.</p>
+
+      <dl class="facts">
+        <div class="wide partner-attribution" data-partner-attribution><dt>Éditeur</dt><dd><span>Tourvia est développé par SKZ Consulting, partenaire ISV Salesforce.</span><img class="partner-badge" src="/assets/brand/salesforce-partner-badge-rgb.png" width="1022" height="300" alt="Salesforce Partner"/></dd></div>
+        <div><dt>Package</dt><dd>TourviaApp 7.36.0 sur la lignée approuvée par la Security Review, distribué via le pipeline AppExchange.</dd></div>
+        <div><dt>Security Review</dt><dd>Réussie le 22 mai 2026. <a href="/blog/tourvia-private-appexchange-security-review.html">Ce que couvre la revue</a>.</dd></div>
+        <div><dt>Distribution</dt><dd>Fiche AppExchange publique. Votre administrateur Salesforce installe l’essai de 30 jours avec Get It Now.</dd></div>
+        <div><dt>Installation</dt><dd>Votre administrateur Salesforce installe et configure le package avec le <a href="/docs/setup-guide.html">guide d’installation</a> et le <a href="/docs/configuration-guide.html">guide de configuration</a>.</dd></div>
+        <div><dt>Contrôle d’accès</dt><dd>Trois permission sets managés et trois Permission Set Groups : Admin, Manager, User.</dd></div>
+        <div><dt>Configuration</dt><dd>Objets, champs, actions et formulaires de check-in se règlent dans les Custom Metadata, sans Apex.</dd></div>
+        <div class="wide"><dt>Approbation</dt><dd>Salesforce ne soutient ni ne recommande Tourvia. Réussir la Security Review signifie que le package a satisfait aux exigences de sécurité que Salesforce publie pour la distribution sur l’AppExchange.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <!-- ===== PRICE ===== -->
+  <section id="pricing" class="sec ticks band-2 price" aria-labelledby="price-title">
+    <div class="wrap">
+      <div class="price-statement">
+        <div class="sec-head">
+          <span class="stop" aria-hidden="true"></span>
+          <p class="mark">Tarif</p>
+          <h2 id="price-title">Un tarif, toutes les fonctionnalités.</h2>
+        </div>
+        <p class="price-big"><strong class="num">30 €</strong><span>par utilisateur et par mois</span></p>
+        <p class="price-terms"><b>HT, facturé annuellement</b>, soit 360 € HT par utilisateur et par an. Le même tarif quelle que soit la taille de l’équipe, pas d’offre gratuite, et l’optimisation de tournées incluse sans refacturation de frais d’API de calcul d’itinéraires.</p>
+        <div class="price-actions">
+          <a class="btn btn-primary" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a>
+          <a class="textlink" href="/fr/tarifs.html">Toute la tarification et la comparaison avec Salesforce Maps</a>
+        </div>
+      </div>
+
+      <table class="fare">
+        <caption>Ce que vous payez, ligne par ligne</caption>
+        <thead>
+          <tr><th scope="col">Ligne</th><th scope="col">Conditions</th><th scope="col">Ce que ça couvre</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Essai de 30 jours</th>
+            <td class="terms">Depuis la <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">fiche AppExchange</a>, avec Get It Now</td>
+            <td>Toutes les fonctionnalités, dans votre propre org avec vos propres enregistrements. Votre administrateur Salesforce installe Tourvia depuis la fiche publique.</td>
+          </tr>
+          <tr>
+            <th scope="row">Abonnement</th>
+            <td class="terms">30 € HT par utilisateur et par mois, facturé annuellement</td>
+            <td>Optimisation de tournées, événements Salesforce, contrôle de proximité assisté par GPS, rapports de visite, historique des tournées, tableaux de bord et rapports, Salesforce Mobile, support par e-mail.</td>
+          </tr>
+          <tr>
+            <th scope="row">Installation</th>
+            <td class="terms">Gérée par le client</td>
+            <td>Votre administrateur Salesforce installe et configure Tourvia avec la documentation publiée.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== QUESTIONS ===== -->
+  <section id="faq" class="sec ticks" aria-labelledby="faq-title">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark">Questions</p>
+        <h2 id="faq-title">Questions avant de demander l’accès.</h2>
+      </div>
+      <div class="faq-list">
+        <details>
+          <summary>Qu’est-ce que Tourvia ?</summary>
+          <div class="faq-body"><p>Tourvia est un package managé Salesforce pour la planification de tournées, l’optimisation de tournées, la planification des visites et l’exécution terrain. C’est le nom actuel de RouteForce, avec le même package et le même workflow.</p></div>
+        </details>
+        <details>
+          <summary>À qui s’adresse Tourvia ?</summary>
+          <div class="faq-body"><p>Aux équipes de commerciaux terrain qui travaillent dans Salesforce et veulent des tournées, des événements, des visites et des rapports liés à leurs enregistrements CRM au lieu d’être exportés vers une application de calcul d’itinéraires séparée.</p></div>
+        </details>
+        <details>
+          <summary>Tourvia est-il sur l’AppExchange ?</summary>
+          <div class="faq-body"><p>Oui, sur une <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">fiche publique</a>. TourviaApp a réussi la Security Review Salesforce le 22 mai 2026 et la version 7.36.0 actuelle est sur la même lignée approuvée. Votre administrateur Salesforce installe l’essai de 30 jours avec Get It Now. Salesforce ne soutient ni ne recommande Tourvia.</p></div>
+        </details>
+        <details>
+          <summary>Combien coûte Tourvia ?</summary>
+          <div class="faq-body"><p>30 € HT par utilisateur et par mois, facturé annuellement, soit 360 € HT par utilisateur et par an. Le même tarif s’applique quelle que soit la taille de l’équipe et il n’y a pas d’offre gratuite. Voir la <a href="/fr/tarifs.html">page des tarifs</a>.</p></div>
+        </details>
+        <details>
+          <summary>Où mes données sont-elles traitées ?</summary>
+          <div class="faq-body"><p>Salesforce reste le système de référence pour les comptes, prospects, opportunités, membres de campagne, événements, visites et rapports. Un calcul de tournée n’envoie que les géocoordonnées et les contraintes horaires dont il a besoin au service de calcul d’itinéraires Tourvia hébergé par OVHcloud à Gravelines, en France, qui renvoie l’ordre des visites. Noms, adresses, numéros de téléphone et e-mails restent dans Salesforce.</p></div>
+        </details>
+        <details>
+          <summary>Le contrôle GPS prouve-t-il que le commercial était sur site ?</summary>
+          <div class="faq-body"><p>Non. Le check-in utilise un contrôle de proximité assisté par GPS configurable. Son résultat dépend de la précision de l’appareil, de la qualité du géocodage et du rayon configuré, et il ne prouve ni l’identité ni la présence physique.</p></div>
+        </details>
+        <details>
+          <summary>Tourvia fonctionne-t-il en dehors de la France ?</summary>
+          <div class="faq-body"><p>Tourvia calcule des tournées à l’international là où les données routières nécessaires existent. Validez les secteurs dont vous avez besoin pendant l’essai de 30 jours.</p></div>
+        </details>
+        <details>
+          <summary>Tourvia fonctionne-t-il sur mobile ?</summary>
+          <div class="faq-body"><p>Oui. Tourvia fonctionne dans Salesforce Mobile avec la carte, les tournées, l’agenda du jour, le contrôle de proximité assisté par GPS, les rapports de visite et le transfert de navigation vers Google Maps, Waze ou Apple Maps.</p></div>
+        </details>
+        <details>
+          <summary>Comment démarrer un essai ?</summary>
+          <div class="faq-body"><p>Installez Tourvia depuis la <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">fiche AppExchange</a> avec Get It Now. Votre administrateur Salesforce installe et configure Tourvia à l’aide de la documentation. L’essai dure 30 jours et inclut toutes les fonctionnalités. Souscrire ensuite conserve l’accès. Pour une prise en main accompagnée, utilisez le <a href="/fr/#contact">formulaire de contact</a>.</p></div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== LAST STOP: REQUEST THE TRIAL ===== -->
+  <section id="contact" class="sec night" aria-labelledby="contact-title">
+    <div class="wrap">
+      <div>
+        <div class="sec-head">
+          <span class="stop" aria-hidden="true"></span>
+          <p class="mark">Dernier arrêt</p>
+          <h2 id="contact-title">Démarrez l’essai de 30 jours.</h2>
+          <p>De la fiche AppExchange à la première journée de tournées de votre équipe.</p>
+        </div>
+        <ol class="steps">
+          <li class="step">
+            <span class="stop stop-num" aria-hidden="true">1</span>
+            <b>Get It Now sur l’AppExchange</b>
+            <p>Ouvrez la <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">fiche Tourvia</a> et démarrez l’essai de 30 jours. Des questions d’abord : écrivez à <a href="mailto:contact@gettourvia.com">contact@gettourvia.com</a>.</p>
+          </li>
+          <li class="step">
+            <span class="stop stop-num" aria-hidden="true">2</span>
+            <b>Votre administrateur Salesforce installe le package</b>
+            <p>en production ou dans un sandbox, puis le configure avec les guides d’installation et de configuration.</p>
+          </li>
+          <li class="step">
+            <span class="stop stop-num" aria-hidden="true">3</span>
+            <b>Votre équipe travaille 30 jours avec toutes les fonctionnalités</b>
+            <p>dans votre propre org, avec vos propres enregistrements et secteurs.</p>
+          </li>
+          <li class="step">
+            <span class="stop stop-num stop-last" aria-hidden="true">4</span>
+            <b>Votre équipe travaille 30 jours avec toutes les fonctionnalités</b>
+            <p>Abonnez-vous à 30 € HT par utilisateur et par mois, facturé annuellement, pour conserver l’accès.</p>
+          </li>
+        </ol>
+      </div>
+
+      <form class="form" action="https://formspree.io/f/xqedjpdd" method="POST">
+        <h3>Demande d’essai</h3>
+        <p>Get It Now sur la <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">fiche AppExchange</a> démarre directement l’essai de 30 jours. Vous préférez une prise en main accompagnée ? Envoyez ce formulaire.</p>
+        <div class="field">
+          <label for="full-name">Nom complet</label>
+          <input type="text" id="full-name" name="name" autocomplete="name" placeholder="Marie Dupont"/>
+        </div>
+        <div class="field">
+          <label for="work-email">E-mail professionnel *</label>
+          <input type="email" id="work-email" name="email" autocomplete="email" required placeholder="marie@entreprise.com"/>
+        </div>
+        <div class="field">
+          <label for="company">Société</label>
+          <input type="text" id="company" name="company" autocomplete="organization" placeholder="Nom de la société"/>
+        </div>
+        <div class="field">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="3" placeholder="Votre édition Salesforce, la taille de l’équipe et vos secteurs"></textarea>
+        </div>
+        <button type="submit" class="btn btn-paper">Envoyer la demande d’essai</button>
+        <p class="form-note">En envoyant, vous acceptez notre <a href="/docs/privacy.html">politique de confidentialité</a>.</p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="/fr/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="28" height="28"/><b>Tourvia</b></a>
+        <p>Package managé Salesforce pour la planification de tournées et l’exécution terrain. Tourvia est le nouveau nom de RouteForce.</p>
+        <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary">Disponible sur AppExchange</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Produit</span>
+        <a href="/fr/#features">Fonctionnalités</a>
+        <a href="/fr/tarifs.html">Tarifs</a>
+        <a href="/fr/cas-d-usage.html">Cas d’usage</a>
+        <a href="/native-integration-salesforce.html">Intégration</a>
+        <a href="/compare.html">Comparatif</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Ressources</span>
+        <a href="/blog/">Blog</a>
+        <a href="/docs/">Docs</a>
+        <a href="/tools.html">Outils gratuits</a>
+        <a href="/docs/setup-guide.html">Guide d’installation</a>
+        <a href="/docs/user-guide-fr.html">Guide utilisateur</a>
+        <a href="/docs/configuration-guide.html">Guide de configuration</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Entreprise</span>
+        <a href="mailto:contact@gettourvia.com">Contact</a>
+        <a href="/docs/privacy.html">Confidentialité</a>
+        <a href="/docs/terms.html">Conditions</a>
+        <a href="/docs/mentions-legales.html">Mentions légales</a>
+        <a href="/docs/cgv.html">CGV</a>
+        <a href="/docs/dpa.html">DPA</a>
+        <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener">Status <span class="dot-ok" aria-hidden="true"></span></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 SKZ Consulting · partenaire ISV Salesforce.</span>
+      <span>Package managé Salesforce édité par SKZ Consulting, partenaire ISV Salesforce, distribué sur la Salesforce AppExchange. Salesforce ne soutient ni ne recommande Tourvia.</span>
+      <span>Langue : Français · <a href="/" hreflang="en" lang="en">English</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Capture d’écran agrandie" aria-hidden="true">
+  <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Fermer la capture agrandie"><svg aria-hidden="true"><use href="#i-close"/></svg></button>
+  <img id="lightbox-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Capture d’écran en taille réelle"/>
+</div>
+
+<!-- Structured Data: Organization + SoftwareApplication + WebSite -->
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "WebSite",
+ "@id": "https://gettourvia.com/#website",
+ "url": "https://gettourvia.com/",
+ "name": "Tourvia",
+ "inLanguage": "fr",
+ "description": "Tourvia, anciennement RouteForce, est un package managé Salesforce pour la planification de tournées, l’optimisation de tournées, la planification des visites et l’exécution terrain, édité par SKZ Consulting.",
+ "publisher": {
+  "@id": "https://gettourvia.com/#organization"
+ },
+ "about": {
+  "@id": "https://gettourvia.com/#tourvia"
+ }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "@id": "https://gettourvia.com/#organization",
+  "name": "SKZ Consulting",
+  "url": "https://gettourvia.com",
+  "logo": "https://gettourvia.com/assets/logo-site-brand.png",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "contact@gettourvia.com",
+    "contactType": "sales"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "14 rue Bausset",
+    "addressLocality": "Paris",
+    "postalCode": "75015",
+    "addressCountry": "FR"
+  },
+  "areaServed": [
+    "France",
+    "Europe",
+    "Amérique du Nord"
+  ],
+  "legalName": "SKZ Consulting",
+  "taxID": "FR36102154879",
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "SIREN",
+      "value": "102154879"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "SIRET",
+      "value": "10215487900013"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "@id": "https://gettourvia.com/#tourvia",
+  "name": "Tourvia",
+  "alternateName": "RouteForce",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Salesforce",
+  "description": "Planification de tournées, optimisation et suivi des visites terrain natifs dans Salesforce pour les équipes commerciales. 30 €/utilisateur/mois, facturé annuellement.",
+  "url": "https://gettourvia.com/",
+  "sameAs": [
+    "https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba"
+  ],
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Abonnement Tourvia",
+      "price": "30",
+      "priceCurrency": "EUR",
+      "priceSpecification": {
+        "@type": "UnitPriceSpecification",
+        "billingDuration": "P1M",
+        "unitText": "utilisateur sous licence par mois, facturé annuellement"
+      },
+      "description": "Optimisation de tournées, contrôle de proximité assisté par GPS, rapports de visite, tableaux de bord, historique des tournées et abonnement annuel par utilisateur",
+      "url": "https://gettourvia.com/fr/tarifs.html",
+      "availability": "https://schema.org/InStock",
+      "priceValidUntil": "2026-12-31"
+    }
+  ],
+  "featureList": "Carte interactive, Cartographie des membres de campagne, Optimisation de tournées, Check-in assisté par GPS, Rapports de visite, Carte de chaleur, Sélection au lasso, Filtres enregistrés, Historique des tournées, Actions personnalisées, Support de Salesforce Mobile, 2 tableaux de bord, 18 rapports",
+  "screenshot": "https://gettourvia.com/assets/screenshots-2026/screen-01.jpg",
+  "softwareVersion": "7.36.0",
+  "author": {
+    "@id": "https://gettourvia.com/#organization"
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "Tourvia",
+    "alternateName": "RouteForce"
+  },
+  "publisher": {
+    "@id": "https://gettourvia.com/#organization"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "inLanguage": "fr",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Qu’est-ce que Tourvia ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tourvia est un package managé Salesforce pour la planification de tournées, l’optimisation de tournées, la planification des visites et l’exécution terrain. C’est le nom actuel de RouteForce, avec le même package et le même workflow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "À qui s’adresse Tourvia ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Aux équipes de commerciaux terrain qui travaillent dans Salesforce et veulent des tournées, des événements, des visites et des rapports liés à leurs enregistrements CRM au lieu d’être exportés vers une application de calcul d’itinéraires séparée."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Tourvia est-il sur l’AppExchange ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui, sur une fiche publique. TourviaApp a réussi la Security Review Salesforce le 22 mai 2026 et la version 7.36.0 actuelle est sur la même lignée approuvée. Votre administrateur Salesforce installe l’essai de 30 jours avec Get It Now. Salesforce ne soutient ni ne recommande Tourvia."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Combien coûte Tourvia ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "30 € HT par utilisateur et par mois, facturé annuellement, soit 360 € HT par utilisateur et par an. Le même tarif s’applique quelle que soit la taille de l’équipe et il n’y a pas d’offre gratuite. Voir la page des tarifs."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Où mes données sont-elles traitées ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Salesforce reste le système de référence pour les comptes, prospects, opportunités, membres de campagne, événements, visites et rapports. Un calcul de tournée n’envoie que les géocoordonnées et les contraintes horaires dont il a besoin au service de calcul d’itinéraires Tourvia hébergé par OVHcloud à Gravelines, en France, qui renvoie l’ordre des visites. Noms, adresses, numéros de téléphone et e-mails restent dans Salesforce."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Le contrôle GPS prouve-t-il que le commercial était sur site ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Le check-in utilise un contrôle de proximité assisté par GPS configurable. Son résultat dépend de la précision de l’appareil, de la qualité du géocodage et du rayon configuré, et il ne prouve ni l’identité ni la présence physique."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Tourvia fonctionne-t-il en dehors de la France ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Tourvia calcule des tournées à l’international là où les données routières nécessaires existent. Validez les secteurs dont vous avez besoin pendant l’essai de 30 jours."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Tourvia fonctionne-t-il sur mobile ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Tourvia fonctionne dans Salesforce Mobile avec la carte, les tournées, l’agenda du jour, le contrôle de proximité assisté par GPS, les rapports de visite et le transfert de navigation vers Google Maps, Waze ou Apple Maps."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment démarrer un essai ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Installez Tourvia depuis la fiche AppExchange avec Get It Now. Votre administrateur Salesforce installe et configure Tourvia à l’aide de la documentation. L’essai dure 30 jours et inclut toutes les fonctionnalités. Souscrire ensuite conserve l’accès. Pour une prise en main accompagnée, utilisez le formulaire de contact."
+      }
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+[
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Démonstration d’optimisation de tournées Tourvia",
+    "description": "Voyez comment Tourvia optimise les tournées des commerciaux terrain dans Salesforce. Sélectionnez des comptes sur la carte, optimisez l’ordre des visites et créez des événements Salesforce en quelques secondes.",
+    "thumbnailUrl": "https://gettourvia.com/assets/screenshots-2026/screen-04.jpg",
+    "contentUrl": "https://gettourvia.com/assets/videos/OptimiseRoute.mp4",
+    "uploadDate": "2026-03-30T08:00:00+02:00",
+    "duration": "PT29S",
+    "embedUrl": "https://gettourvia.com",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SKZ Consulting",
+      "@id": "https://gettourvia.com/#organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gettourvia.com/assets/logo-site-brand.png"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Démonstration mobile terrain Tourvia",
+    "description": "Tourvia fonctionne nativement dans Salesforce Mobile. Carte, tournées, comptes à proximité et check-in depuis le terrain.",
+    "thumbnailUrl": "https://gettourvia.com/assets/screenshots-2026/mobile-map.png",
+    "contentUrl": "https://gettourvia.com/assets/videos/routeforce-mobile-demo.mp4",
+    "uploadDate": "2026-03-30T08:00:00+02:00",
+    "duration": "PT47S",
+    "embedUrl": "https://gettourvia.com",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SKZ Consulting",
+      "@id": "https://gettourvia.com/#organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gettourvia.com/assets/logo-site-brand.png"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Check-in GPS et rapports de visite Tourvia",
+    "description": "Contrôle de proximité assisté par GPS à chaque arrêt. Renseignez les rapports de visite avec résultat, satisfaction et prochaine action, tout dans Salesforce.",
+    "thumbnailUrl": "https://gettourvia.com/assets/screenshots-2026/checkin-form.png",
+    "contentUrl": "https://gettourvia.com/assets/videos/CheckOut.mp4",
+    "uploadDate": "2026-03-30T08:00:00+02:00",
+    "duration": "PT45S",
+    "embedUrl": "https://gettourvia.com",
+    "publisher": {
+      "@type": "Organization",
+      "name": "SKZ Consulting",
+      "@id": "https://gettourvia.com/#organization",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://gettourvia.com/assets/logo-site-brand.png"
+      }
+    }
+  }
+]
+</script>
+<script>
+  window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };
+
+  document.querySelectorAll('a[href*="appexchange.salesforce.com/appxListingDetail"]').forEach((link) => {
+    link.addEventListener('click', () => {
+      window.plausible('AppExchange Click', {
+        props: {
+          page_path: window.location.pathname,
+          link_text: (link.textContent || '').trim().replace(/\s+/g, ' ').slice(0, 80)
+        }
+      });
+    });
+  });
+
+  const contactForm = document.querySelector('form[action*="formspree.io"]');
+  if (contactForm) {
+    contactForm.addEventListener('submit', () => {
+      window.plausible('Lead Form Submit', {
+        props: {
+          page_path: window.location.pathname,
+          form: 'homepage_contact'
+        }
+      });
+    });
+  }
+</script>
+
+</body>
+</html>

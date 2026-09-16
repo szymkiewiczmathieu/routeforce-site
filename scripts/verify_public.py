@@ -46,6 +46,7 @@ class PageParser(HTMLParser):
         self.jsonld_data: list[object] = []
         self.anchors: list[tuple[str, str, bool]] = []
         self.footer_count = 0
+        self.alternates: list[tuple[str, str]] = []
         self._in_title = False
         self._title_buffer: list[str] = []
         self._in_jsonld = False
@@ -76,6 +77,8 @@ class PageParser(HTMLParser):
             self.noindex = "noindex" in data.get("content", "").lower()
         if tag == "link" and "canonical" in data.get("rel", "").lower():
             self.canonicals.append(data.get("href", ""))
+        if tag == "link" and "alternate" in data.get("rel", "").lower() and data.get("hreflang"):
+            self.alternates.append((data["hreflang"].lower(), data.get("href", "")))
         if tag == "script" and data.get("type", "").lower() == "application/ld+json":
             self._in_jsonld = True
             self._json_buffer = []
@@ -418,7 +421,7 @@ def main() -> int:
         footer_hub_links = [
             (href, text)
             for href, text, in_footer in parser.anchors
-            if href == "/tools.html" and text == "Free tools" and in_footer
+            if href == "/tools.html" and text in ("Free tools", "Outils gratuits") and in_footer
         ]
         if len(footer_hub_links) != 1:
             errors.append(f"{source.relative_to(DIST)}: footer must contain one Free tools hub link")
@@ -492,6 +495,45 @@ def main() -> int:
         canonical = parser.canonicals[0]
         if canonical not in sitemap_url_set:
             errors.append(f"{path.relative_to(DIST)}: indexable canonical missing from sitemap ({canonical})")
+
+    # ---- i18n gate: hreflang targets, reciprocity, uniqueness ----
+    def own_language(relative: Path) -> str:
+        parts = relative.parts
+        if parts and parts[0] == "fr":
+            return "fr"
+        if relative.name.endswith("-fr.html"):
+            return "fr"
+        return "en"
+
+    by_canonical: dict[str, tuple[Path, PageParser]] = {}
+    for path, parser in pages.items():
+        if not parser.noindex and len(parser.canonicals) == 1:
+            by_canonical[parser.canonicals[0]] = (path.relative_to(DIST), parser)
+
+    declared_targets: dict[tuple[str, str, str], set[str]] = {}
+    for canonical, (relative, parser) in sorted(by_canonical.items()):
+        my_lang = own_language(relative)
+        for lang, target in parser.alternates:
+            if lang == "x-default":
+                continue
+            target_info = by_canonical.get(target)
+            if target_info is None:
+                errors.append(f"{relative}: hreflang[{lang}] target is not an indexable canonical page: {target}")
+                continue
+            target_rel, target_parser = target_info
+            target_lang = own_language(target_rel)
+            if lang != target_lang:
+                errors.append(f"{relative}: hreflang[{lang}] points to a {target_lang} page: {target}")
+            if (my_lang, canonical) not in target_parser.alternates:
+                errors.append(f"{relative}: hreflang[{lang}] to {target} is not reciprocated")
+            declared_targets.setdefault((my_lang, lang, target), set()).add(canonical)
+    for (src_lang, lang, target), sources in sorted(declared_targets.items()):
+        if len(sources) > 1:
+            errors.append(f"hreflang[{lang}] target {target} declared by {len(sources)} {src_lang} pages: {sorted(sources)}")
+    for path, parser in pages.items():
+        if parser.noindex:
+            for lang, target in parser.alternates:
+                errors.append(f"{path.relative_to(DIST)}: noindex page must not declare hreflang[{lang}]")
 
     robots = (DIST / "robots.txt").read_text(errors="ignore") if (DIST / "robots.txt").exists() else ""
     if f"Sitemap: {CANONICAL_ORIGIN}/sitemap.xml" not in robots:

@@ -1,115 +1,481 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script>document.documentElement.classList.add('js');</script>
+<script async src="https://analytics.routeforce.app/js/pa-_n3TcjLOcbLv8zogcyMJM.js"></script>
 <script>window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};plausible.init()</script>
-
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alternative à Salesforce Maps : quelle solution choisir en 2026 ? | Tourvia</title>
-  <meta name="robots" content="index, follow">
-    <meta name="description" content="Salesforce Maps retire son app mobile le 31 août 2026. Découvrez les alternatives natives Salesforce comme Tourvia pour remplacer la planification et les visites terrain.">
-  <link rel="canonical" href="https://gettourvia.com/fr/alternative-salesforce-maps.html">
-  <link rel="alternate" hreflang="en" href="https://gettourvia.com/salesforce-route-planning.html"/>
-  <link rel="alternate" hreflang="fr" href="https://gettourvia.com/fr/alternative-salesforce-maps.html"/>
-  <link rel="alternate" hreflang="x-default" href="https://gettourvia.com/salesforce-route-planning.html"/>
-  <link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
-  <link rel="icon" type="image/x-icon" href="../favicon.ico">
-  <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
-  <link rel="stylesheet" href="../style.css">
-  <meta property="og:title" content="Alternative à Salesforce Maps : quelle solution choisir en 2026 ?">
-  <meta property="og:site_name" content="Tourvia">
-  <meta property="og:description" content="Salesforce Maps retire son app mobile le 31 août 2026. Découvrez les alternatives natives Salesforce comme Tourvia pour remplacer la planification et les visites terrain.">
-  <meta property="og:type" content="article">
-  <meta property="og:url" content="https://gettourvia.com/fr/alternative-salesforce-maps.html">
-  <meta property="og:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Alternative à Salesforce Maps : quelle solution choisir en 2026 ?"/>
-  <meta name="twitter:description" content="Salesforce Maps retire son app mobile le 31 août 2026. Découvrez les alternatives natives Salesforce comme Tourvia pour remplacer la planification et les visites terrain."/>
-  <meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
-  <script type="application/ld+json">
-  {
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Une alternative à Salesforce Maps pour la planification terrain",
-  "datePublished": "2026-07-19",
-  "dateModified": "2026-09-16",
-  "author": {
-    "@type": "Organization",
-    "name": "SKZ Consulting",
-    "alternateName": "Tourvia"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "SKZ Consulting",
-    "alternateName": "Tourvia",
-    "url": "https://gettourvia.com"
-  },
-  "description": "Salesforce Maps retire son app mobile le 31 août 2026. Découvrez les alternatives natives Salesforce comme Tourvia pour remplacer la planification et les visites terrain.",
-  "mainEntityOfPage": "https://gettourvia.com/fr/alternative-salesforce-maps.html",
-  "inLanguage": "fr"
+<title>Alternatives à Salesforce Maps : 6 outils comparés | Tourvia</title>
+<meta name="robots" content="index, follow">
+<meta name="description" content="Comparez six alternatives à Salesforce Maps : intégration Salesforce, planification de tournées, exécution terrain, gestion des secteurs et tarifs publics.">
+<link rel="canonical" href="https://gettourvia.com/fr/alternative-salesforce-maps.html">
+<link rel="alternate" hreflang="fr" href="https://gettourvia.com/fr/alternative-salesforce-maps.html"/>
+<link rel="alternate" hreflang="en" href="https://gettourvia.com/blog/salesforce-maps-alternatives-compared.html"/>
+<link rel="alternate" hreflang="x-default" href="https://gettourvia.com/blog/salesforce-maps-alternatives-compared.html"/>
+<link rel="icon" type="image/svg+xml" href="../favicon.svg"/>
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
+<meta property="og:title" content="Alternatives à Salesforce Maps : 6 outils comparés">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:site_name" content="Tourvia">
+<meta property="og:description" content="Comparez Tourvia, Geopointe, Badger Maps, SPOTIO, Map My Customers et Maptive : tarifs, adéquation Salesforce et cas d'usage de planification de tournées.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://gettourvia.com/fr/alternative-salesforce-maps.html">
+<meta property="og:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Alternatives à Salesforce Maps : 6 outils comparés"/>
+<meta name="twitter:description" content="Comparez Tourvia, Geopointe, Badger Maps, SPOTIO, Map My Customers et Maptive : tarifs, adéquation Salesforce et cas d'usage de planification de tournées."/>
+<meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BlogPosting",
+ "headline": "Alternatives à Salesforce Maps : 6 outils comparés",
+ "datePublished": "2026-04-05",
+ "dateModified": "2026-09-16",
+ "inLanguage": "fr",
+ "author": {
+  "@type": "Organization",
+  "name": "SKZ Consulting",
+  "@id": "https://gettourvia.com/#organization",
+  "url": "https://gettourvia.com"
+ },
+ "publisher": {
+  "@type": "Organization",
+  "name": "SKZ Consulting",
+  "url": "https://gettourvia.com",
+  "@id": "https://gettourvia.com/#organization"
+ },
+ "description": "Comparez six alternatives à Salesforce Maps : intégration Salesforce, planification de tournées, exécution terrain, gestion des secteurs et tarifs publics.",
+ "image": "https://gettourvia.com/assets/screenshots-2026/screen-01.jpg",
+ "mainEntityOfPage": "https://gettourvia.com/fr/alternative-salesforce-maps.html",
+ "mainEntity": {
+  "@type": "FAQPage",
+  "inLanguage": "fr",
+  "mainEntity": [
+   {
+    "@type": "Question",
+    "name": "Quelle est la meilleure alternative à Salesforce Maps pour une équipe terrain en croissance ?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Comparez le flux de données Salesforce, le workflow de tournées, les capacités de gestion des secteurs, l'exécution mobile et le devis annuel actuel de chaque produit. Tourvia coûte 30 € HT par utilisateur licencié et par mois, facturé annuellement."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Quelles alternatives à Salesforce Maps sont natives Salesforce ?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Deux alternatives de cette liste sont natives Salesforce : elles s'installent comme des packages managés depuis AppExchange et s'exécutent dans votre organisation Salesforce. Il s'agit de Tourvia et Geopointe. Badger Maps, SPOTIO, Map My Customers et Maptive fonctionnent comme des applications séparées et synchronisent leurs données avec Salesforce via une intégration."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Combien coûte Salesforce Maps par rapport aux alternatives ?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Le 5 septembre 2026, la grille tarifaire américaine de Salesforce affichait Maps à 75 $ et Maps Advanced à 125 $ par utilisateur et par mois, facturé annuellement ; une FAQ sur la même page mentionnait 150 $ pour Advanced. Vérifiez les tarifs de l'édition actuelle directement auprès de Salesforce. Sur la base du tarif affiché de 125 $, 10 utilisateurs Advanced représentent 15 000 $ par an. Tourvia coûte 360 € HT par utilisateur licencié et par an, Badger Maps Business affiche 5 880 $ par an pour 10 licences annuelles, et Geopointe exige un devis actuel."
+    }
+   },
+   {
+    "@type": "Question",
+    "name": "Puis-je remplacer Salesforce Maps sans perdre mes données CRM ?",
+    "acceptedAnswer": {
+     "@type": "Answer",
+     "text": "Les alternatives en package managé peuvent conserver Salesforce comme système de référence, mais le changement peut tout de même exiger la configuration du package, le mapping des objets, l'attribution des Permission Set Groups et une revue des flux de données. Tourvia traite les données minimales de calcul d'itinéraires en France."
+    }
+   }
+  ]
+ },
+ "isPartOf": {
+  "@type": "WebSite",
+  "@id": "https://gettourvia.com/#website"
+ }
 }
-  </script>
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="stylesheet" href="/assets/css/site.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
+<script defer src="/assets/js/site.js"></script>
 </head>
-<body style="background:#09090b;color:#e4e4e7;">
-<header style="position:sticky;top:0;z-index:1000;background:rgba(9,9,11,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #27272a;">
-  <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 28px;max-width:1320px;margin:0 auto;">
-    <a href="../" style="display:flex;align-items:center;gap:10px;text-decoration:none;min-width:0;padding-right:12px;">
-      <img src="../assets/logo-site-brand.png" alt="Tourvia" style="width:32px;height:32px;border-radius:10px;flex-shrink:0;"/>
-      <span style="font-size:1.125rem;font-weight:700;letter-spacing:-0.02em;color:#fafafa;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Tourvia</span>
-    </a>
-    <nav id="desktopNav" style="display:flex;gap:24px;align-items:center;font-size:0.95rem;white-space:nowrap;">
-      <a href="../" style="color:#a1a1aa;text-decoration:none;">Accueil</a>
-      <a href="../salesforce-route-planning.html" style="color:#a1a1aa;text-decoration:none;">Route planning</a>
-      <a href="../pricing.html" style="color:#a1a1aa;text-decoration:none;">Tarifs</a>
-      <a href="../blog/" style="color:#a1a1aa;text-decoration:none;">Blog</a>
+<body class="sheet sheet--article sheet--article-roundup">
+<a class="skip" href="#main">Aller au contenu</a>
+
+<header class="site-head">
+  <div class="wrap">
+    <a href="/fr/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="32" height="32"/><b>Tourvia</b><small>anciennement RouteForce</small></a>
+    <nav class="nav-main" aria-label="Principal">
+      <a class="nav-a" href="/fr/#day-in-the-field">Journée terrain</a>
+      <a class="nav-a" href="/fr/#features">Fonctionnalités</a>
+      <a class="nav-a" href="/fr/#showcase">Produit</a>
+      <a class="nav-a" href="/fr/tarifs.html">Tarifs</a>
+      <a class="nav-a" href="/fr/cas-d-usage.html">Cas d'usage</a>
+      <a class="nav-a" href="/blog/" aria-current="page">Blog</a>
+      <a class="nav-a" href="/docs/">Docs</a>
+    </nav>
+    <div class="head-right">
+      <a class="nav-a head-link" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary head-cta">Démarrer l'essai 30 jours</a>
+      <button id="mobile-menu-btn" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="nav-mobile">
+    <nav class="wrap" aria-label="Mobile">
+      <a href="/fr/#day-in-the-field">Journée terrain</a>
+      <a href="/fr/#features">Fonctionnalités</a>
+      <a href="/fr/#showcase">Produit</a>
+      <a href="/fr/tarifs.html">Tarifs</a>
+      <a href="/fr/cas-d-usage.html">Cas d'usage</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/docs/">Docs</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a>
+      <a href="/fr/#contact">Contact</a>
     </nav>
   </div>
 </header>
 
-<main class="blog-post" style="max-width:760px;margin:0 auto;padding:60px 20px 80px;">
-  <a href="../" style="color:#9099ff;text-decoration:none;font-size:0.95rem;">&larr; Retour à l'accueil</a>
-  <p style="text-transform:uppercase;font-size:0.75rem;letter-spacing:0.08em;color:#9099ff;margin-top:24px;">Alternatives</p>
-  <h1 style="font-size:2.25rem;line-height:1.15;font-weight:700;color:#fafafa;margin:8px 0 16px;">Une alternative à Salesforce Maps pour la planification terrain</h1>
-  <p style="color:#a1a1aa;font-size:1.05rem;line-height:1.6;">Salesforce Maps met fin à son application mobile le 31 août 2026. Tourvia est une alternative native Salesforce avec optimisation de tournées, app mobile et reporting de visites.</p>
-  <p style="color:#71717a;font-size:0.85rem;margin:12px 0 32px;">Publié le 2026-07-19 · 8 min</p>
+<div class="progress" aria-hidden="true"></div>
+<main id="main" tabindex="-1">
+  <section class="mast mast--roundup">
+    <div class="wrap">
+      <div class="mast-copy">
+        <span class="stop" aria-hidden="true"></span>
+        <p class="mark"><a href="/blog/">Field journal</a> <small>Comparatif</small> <small><time datetime="2026-04-05">5 avril 2026</time></small> <small>11 min de lecture</small></p>
 
-    <h2>Pourquoi chercher une alternative à Salesforce Maps ?</h2>
-    <p>Salesforce a annoncé la fin de l'application mobile Salesforce Maps le 31 août 2026. Les équipes terrain qui l'utilisent pour planifier leurs journées et naviguer entre les comptes doivent migrer vers une autre solution.</p>
-    <h2>Les critères d'une bonne alternative</h2>
-    <ul>
-      <li>Solution native Salesforce (managed package)</li>
-      <li>Optimisation de tournées multi-arrêts</li>
-      <li>Application mobile pour les équipes terrain</li>
-      <li>Check-in et comptes-rendus de visites</li>
-      <li>Tarification transparente</li>
-    </ul>
-    <h2>Les principales alternatives</h2>
-    <p>Les alternatives se divisent en deux catégories : les solutions natives Salesforce et les outils externes synchronisés. Les solutions natives gardent Salesforce comme référentiel unique et évitent les synchronisations.</p>
-    <h2>Tourvia, alternative native</h2>
-    <p>Tourvia est un managed package Salesforce qui crée des tournées optimisées à partir des comptes, contacts, leads et opportunités. L'application mobile guide les commerciaux et les comptes-rendus sont écrits dans Salesforce.</p>
-    <p>Le prix est fixe : 30 € HT par utilisateur et par mois, facturé annuellement. Un essai de 30 jours est proposé.</p>
+        <h1 id="article-title">6 alternatives à Salesforce Maps comparées : tarifs, fonctionnalités et adéquation</h1>
+        <ol class="steps-strip" aria-label="Sections de cette page"><li><a href="#why-teams-look-for-a-salesforce-maps-alternative">Pourquoi les équipes cherchent une alternative à Salesforce Maps</a></li><li><a href="#what-salesforce-maps-costs-a-quick-recap">Ce que coûte Salesforce Maps : rappel rapide</a></li><li><a href="#choose-by-team-profile-first">Choisissez d'abord par profil d'équipe</a></li><li><a href="#match-requirements-to-products">Faites correspondre vos besoins aux produits</a></li><li><a href="#fast-shortlist">Shortlist express</a></li><li><a href="#6-salesforce-maps-alternatives-compared">6 alternatives à Salesforce Maps comparées</a></li><li><a href="#comparison-table-all-7-tools-side-by-side">Tableau comparatif : les 7 outils côte à côte</a></li><li><a href="#how-to-decide-a-framework-for-choosing">Comment décider : une méthode de choix</a></li></ol>
+        <p class="lead">La page tarifaire américaine de Salesforce affiche Maps à 75 $ par utilisateur et par mois, facturé annuellement ; vérifiez les tarifs de l'édition actuelle directement auprès de Salesforce. Voici six alternatives, ce qu'elles coûtent, et laquelle convient si le besoin réel est la planification de tournées dans Salesforce ou au plus près.</p>
 
+        <ul class="facts-strip" aria-label="Faits clés"><li>Option package managé natif</li><li>30 €/utilisateur/mois, facturé annuellement</li><li>Essai de 30 jours via Get It Now</li></ul>
 
-    <div class="blog-cta" style="background:#131316;border:1px solid #27272a;border-radius:16px;padding:28px 32px;margin-top:40px;">
-      <h3 style="color:#fafafa;margin-bottom:10px;">Demandez un essai Tourvia de 30 jours</h3>
-      <p style="color:#a1a1aa;margin-bottom:18px;">Testez Tourvia dans votre environnement Salesforce pendant 30 jours. Tarif : 30 € HT par utilisateur et par mois, facturé annuellement.</p>
-      <a href="../#contact" style="display:inline-block;background:#6366f1;color:white;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;margin-right:12px;">Demander un essai</a>
-      <a href="../pricing.html" style="display:inline-block;color:#9099ff;text-decoration:none;font-weight:600;">Voir les tarifs &rarr;</a>
+      </div>
+      <div class="mast-side"><ul class="art-meta"><li><b>Publié</b><span><time datetime="2026-04-05">5 avril 2026</time></span></li><li><b>Mis à jour</b><span><time datetime="2026-09-16">16 septembre 2026</time></span></li><li><b>Lecture</b><span>11 min de lecture</span></li><li><b>Section</b><span>Comparatif</span></li><li><b>Auteur</b><span>SKZ Consulting, l'équipe derrière Tourvia</span></li></ul></div>
     </div>
+  </section>
+
+  <div class="wrap art-body">
+    <article class="prose" aria-labelledby="article-title">
+<h2 id="why-teams-look-for-a-salesforce-maps-alternative">Pourquoi les équipes cherchent une alternative à Salesforce Maps</h2><p>Salesforce Maps (anciennement MapAnything) est un produit complet. Il couvre le géocodage, la planification des secteurs, l'optimisation de tournées et le suivi en direct. Le problème vient rarement des fonctionnalités. Il vient du modèle de coût.</p><p>Trois facteurs poussent les équipes à regarder ailleurs :</p><ul>
+<li><strong>La tarification par utilisateur grimpe vite.</strong> Sur la base du tarif Advanced de 125 $ affiché le 5 septembre 2026, une équipe de 10 personnes représente 15 000 $ par an et une équipe de 20 personnes 30 000 $. La FAQ de Salesforce mentionnait 150 $ pour Advanced : vérifiez les tarifs de l'édition actuelle directement. Chaque nouvelle recrue augmente la facture.</li>
+<li><strong>Le périmètre fonctionnel peut dépasser le besoin.</strong> Séparez les besoins quotidiens de planification de tournées et de comptes-rendus de visites des besoins d'analyse des secteurs, de géo-visualisation et de planification avant de comparer les niveaux d'offre.</li>
+<li><strong>Les conditions commerciales annuelles comptent.</strong> Salesforce publie une facturation annuelle. Validez l'engagement, le renouvellement, l'évaluation et les conditions de résiliation dans le devis.</li>
+</ul><p>Salesforce Maps peut ne pas convenir aux équipes dont les besoins se limitent à la planification de tournées et à l'exécution des visites. Comparez le niveau Maps pertinent avec des produits plus ciblés, à nombre de licences et période de contrat identiques.</p><h2 id="what-salesforce-maps-costs-a-quick-recap">Ce que coûte Salesforce Maps : rappel rapide</h2><p>Salesforce vend Maps en deux niveaux, tous deux facturés annuellement :</p><ul>
+<li><strong>Salesforce Maps (Standard) :</strong> 75 $/utilisateur/mois. Inclut le géocodage, les visualisations cartographiques, la planification des secteurs et la planification de tournées de base. Pas d'optimisation automatisée.</li>
+<li><strong>Salesforce Maps (Advanced) :</strong> la carte tarifaire affichait 125 $/utilisateur/mois, facturé annuellement, le 5 septembre 2026 ; une FAQ sur la même page mentionnait 150 $. Ajoute l'optimisation de tournées avancée et la géo-analytique. Vérifiez les tarifs de l'édition actuelle directement auprès de Salesforce.</li>
+</ul><p>La page tarifaire publique indique une facturation annuelle. Confirmez l'accès d'évaluation, les conditions contractuelles et le niveau qui couvre les contraintes de tournées de votre équipe.</p><section>
+<div class="brief-head">
+<h2 id="choose-by-team-profile-first">Choisissez d'abord par profil d'équipe</h2>
+<span class="brief-label">Chemin rapide dans la page</span>
+</div>
+<div class="brief-grid">
+<div>
+<div class="brief-label">Équipes terrain natives Salesforce</div>
+<div class="brief-title">Commencez par Tourvia ou Geopointe</div>
+<div class="brief-copy">à considérer quand le calcul d'itinéraires, le reporting et l'exécution doivent rester connectés aux objets Salesforce</div>
+</div>
+<div>
+<div class="brief-label">Commerciaux seuls ou très petites équipes</div>
+<div class="brief-title">Badger Maps est le choix le plus rapide</div>
+<div class="brief-copy">pertinent quand l'expérience mobile du commercial compte plus que la profondeur du workflow CRM natif</div>
+</div>
+<div>
+<div class="brief-label">Vente en porte-à-porte</div>
+<div class="brief-title">SPOTIO mérite le premier regard</div>
+<div class="brief-copy">à considérer quand le suivi d'activité et le management des commerciaux sont des besoins centraux</div>
+</div>
+<div>
+<div class="brief-label">Ops et conception des secteurs</div>
+<div class="brief-title">Geopointe ou Maptive</div>
+<div class="brief-copy">mieux adaptés quand la géo-visualisation et l'analyse des secteurs priment sur l'exécution quotidienne des visites</div>
+</div>
+</div>
+</section><section>
+<div class="brief-head">
+<h2 id="match-requirements-to-products">Faites correspondre vos besoins aux produits</h2>
+<span class="brief-label">Si vous connaissez déjà votre direction</span>
+</div>
+<div class="brief-grid">
+<a class="brief-card" href="/fr/planification-tournees-salesforce.html">
+<div class="brief-label">Équipes Salesforce d'abord</div>
+<div class="brief-title">Consultez la page planification de tournées Salesforce</div>
+<div class="brief-copy">pour l'évaluation de la planification de tournées en package managé</div>
+</a>
+<a class="brief-card" href="/fr/tarifs.html">
+<div class="brief-label">Vérification des coûts</div>
+<div class="brief-title">Voir les tarifs Tourvia</div>
+<div class="brief-copy">comprenez l'économie par utilisateur avant de choisir</div>
+</a>
+<a class="brief-card" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">
+<div class="brief-label">En pratique</div>
+<div class="brief-title">Disponible sur AppExchange</div>
+<div class="brief-copy">consultez la fiche publique, la note et les avis</div>
+</a>
+</div>
+</section><section>
+<div class="brief-head">
+<h2 id="fast-shortlist">Shortlist express</h2>
+<span class="brief-label">Qui doit regarder quoi en premier</span>
+</div>
+<div class="brief-grid">
+<div>
+<div class="brief-label">Équipes natives Salesforce</div>
+<div class="brief-title">Tourvia ou Geopointe</div>
+<div class="brief-copy">comparez quand le workflow utilisateur doit rester dans Salesforce</div>
+</div>
+<div>
+<div class="brief-label">Petites équipes menées par les commerciaux</div>
+<div class="brief-title">Badger Maps</div>
+<div class="brief-copy">comparez quand une expérience mobile autonome est préférée</div>
+</div>
+<div>
+<div class="brief-label">Équipes de porte-à-porte</div>
+<div class="brief-title">SPOTIO</div>
+<div class="brief-copy">mieux adapté quand le découpage des secteurs et le suivi d'activité priment sur l'adéquation au workflow CRM natif</div>
+</div>
+<div>
+<div class="brief-label">Acheteurs Salesforce les plus sensibles au coût</div>
+<div class="brief-title">Commencez par Tourvia</div>
+<div class="brief-copy">Choisissez Tourvia quand le calcul d'itinéraires natif dans Salesforce et une tarification claire comptent plus qu'une géo-analytique lourde</div>
+</div>
+</div>
+</section><div class="tbl">
+<table>
+<thead>
+<tr>
+<th class="hl">Taille de l'équipe</th>
+<th class="ta-r">Standard (75 $/mois)</th>
+<th class="ta-r">Advanced (125 $/mois affiché)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="rowhead">5 utilisateurs</td>
+<td class="ta-r">4 500 $/an</td>
+<td class="ta-r">7 500 $/an</td>
+</tr>
+<tr>
+<td class="rowhead">10 utilisateurs</td>
+<td class="ta-r">9 000 $/an</td>
+<td class="ta-r">15 000 $/an</td>
+</tr>
+<tr>
+<td class="rowhead">20 utilisateurs</td>
+<td class="ta-r">18 000 $/an</td>
+<td class="ta-r">30 000 $/an</td>
+</tr>
+</tbody>
+</table>
+</div><h2 id="6-salesforce-maps-alternatives-compared">6 alternatives à Salesforce Maps comparées</h2><h3>1. Geopointe</h3><p><strong>De quoi s'agit-il :</strong> Un package managé Salesforce de cartographie et de géo-analytique. Geopointe est disponible sur AppExchange depuis plus de dix ans.</p><p><strong>Tarifs :</strong> Demandez les tarifs actuels ; l'éditeur annonce un essai de 15 jours en production.</p><p><strong>Intégration Salesforce :</strong> Package managé AppExchange. Vérifiez le stockage des enregistrements, le traitement externe, les permissions et les flux de données avec l'éditeur.</p><p><strong>Fonctionnalités clés :</strong> Gestion des secteurs, visualisation géographique des données, suivi des check-ins, planification de tournées et géo-analytique. Solide pour cartographier de gros volumes de données et construire des modèles de secteurs.</p><p><strong>À évaluer quand :</strong> l'analyse des secteurs, la géo-visualisation et les rapports géolocalisés sont plus prioritaires que l'exécution quotidienne des tournées. Confirmez les capacités Agentforce actuelles avec l'éditeur.</p><p><strong>Vérifiez :</strong> les contraintes de tournées, l'exécution des visites mobiles, le reporting, les flux de données, l'implémentation et le devis actuel. Ne déduisez pas les priorités produit de la seule catégorie marketing.</p><h3>2. Badger Maps</h3><p><strong>De quoi s'agit-il :</strong> Un outil autonome de planification de tournées et de vente terrain, avec une application mobile aboutie. Populaire auprès des commerciaux terrain individuels et des petites équipes.</p><p><strong>Tarifs :</strong> Les documents publics consultés le 16 juillet 2026 annoncent Business à partir de 58 $/utilisateur/mois, Enterprise à 95 $/utilisateur/mois et un essai de 14 jours. Vérifiez les conditions actuelles.</p><p><strong>Intégration Salesforce :</strong> Non native. Badger Maps fonctionne comme une application séparée et synchronise ses données avec Salesforce via une intégration intégrée. Vos données terrain vivent d'abord dans Badger Maps, puis sont resynchronisées vers Salesforce. Cela fonctionne, mais cela signifie que deux systèmes détiennent vos données.</p><p><strong>Fonctionnalités clés :</strong> Optimisation de tournées, génération de prospects (via des données de prospection intégrées), check-ins, intégration calendrier et une application mobile bien conçue. Le niveau Enterprise ajoute le support prioritaire, des intégrations personnalisées et une sécurité avancée.</p><p><strong>À évaluer quand :</strong> un planificateur de tournées autonome, mobile d'abord, et des fonctionnalités de prospection sont requis. Testez directement la synchronisation Salesforce et le workflow de gestion d'équipe.</p><p><strong>Vérifiez :</strong> le mapping des objets Salesforce, la fréquence de synchronisation, la gestion des conflits, l'usage de l'API, les limites de tournées, la gestion d'équipe et les fonctionnalités réservées à Enterprise.</p><h3>3. SPOTIO</h3><p><strong>De quoi s'agit-il :</strong> Une plateforme d'engagement des ventes terrain conçue pour la vente extérieure et le porte-à-porte. Va au-delà de la cartographie : gestion des prospects, suivi d'activité et engagement commercial.</p><p><strong>Tarifs :</strong> Devis personnalisé. Vérifiez le nombre minimal de licences et le niveau qui inclut l'optimisation de tournées.</p><p><strong>Intégration Salesforce :</strong> Non native. SPOTIO se connecte à Salesforce via une intégration et synchronise les données entre les deux plateformes. Convient bien aux équipes qui traitent Salesforce comme système de référence mais travaillent au quotidien dans SPOTIO.</p><p><strong>Fonctionnalités clés :</strong> Gestion des secteurs, suivi des prospects et prospection, journalisation d'activité, classements de performance des commerciaux, planification de tournées et outils d'engagement commercial comme les séquences d'e-mails et l'automatisation des tâches.</p><p><strong>Évaluation :</strong> Comparez SPOTIO quand le découpage des secteurs, le suivi des prospects, le démarchage et l'activité des commerciaux sont des besoins centraux. Confirmez le flux de données Salesforce et le workflow mobile en démo.</p><p><strong>Limites :</strong> Demandez directement à SPOTIO le minimum de licences actuel, l'engagement annuel, le périmètre de l'optimisation de tournées, l'effort d'implémentation et les conditions d'intégration.</p><h3>4. Map My Customers</h3><p><strong>De quoi s'agit-il :</strong> Un CRM de vente terrain avec cartographie, calcul d'itinéraires et suivi d'activité. Conçu comme un outil mobile d'abord pour les commerciaux extérieurs, avec sa propre couche CRM au-dessus de votre CRM back-end.</p><p><strong>Tarifs :</strong> Demandez les tarifs actuels et confirmez les limites d'enregistrements, le minimum de licences et l'accès API.</p><p><strong>Intégration Salesforce :</strong> Vérifiez avec l'éditeur le sens de synchronisation Salesforce, la fréquence, la gestion des conflits, les permissions et les objets pris en charge.</p><p><strong>Fonctionnalités clés :</strong> Cartographie des clients, optimisation de tournées, journalisation d'activité, recherche de prospects, classements, objectifs et concours, suivi kilométrique et fonctionnalités de conformité (HIPAA/SOC-2 sur les offres d'équipe).</p><p><strong>Évaluation :</strong> Comparez Map My Customers quand la cartographie, le calcul d'itinéraires, l'activité terrain et des exigences de secteur réglementé font partie du périmètre. Vérifiez la documentation de conformité actuelle.</p><p><strong>Limites :</strong> Confirmez le sens de synchronisation Salesforce, les limites d'enregistrements, l'accès API, le workflow mobile et le devis actuel pour l'offre requise.</p><h3>5. Maptive</h3><p><strong>De quoi s'agit-il :</strong> Un outil web de cartographie et d'optimisation des secteurs construit sur Google Maps. Centré sur la visualisation de données, la planification des secteurs et l'analyse démographique plutôt que sur l'exécution quotidienne des ventes terrain.</p><p><strong>Tarifs :</strong> Pass 45 jours à 250 $ (paiement unique). Offre Pro à 1 250 $/an pour 1 utilisateur (110 $/mois en facturation mensuelle). Offre Team à 2 500 $/an pour 5 utilisateurs (220 $/mois). Tarifs Enterprise sur devis pour 10+ utilisateurs. Licences supplémentaires à 750 $/an (Pro) ou 500 $/an (Team).</p><p><strong>Intégration Salesforce :</strong> Non native. Maptive se connecte à Salesforce via une intégration CRM, en important les comptes et les données de secteurs pour la cartographie et l'analyse. L'intégration sert principalement à extraire des données vers Maptive, pas à l'exécution terrain en temps réel.</p><p><strong>Fonctionnalités clés :</strong> Cartes de chaleur, recherche par rayon, optimisation des secteurs (via l'algorithme WeMapSales), planification de tournées, couches de données démographiques et capacité à traiter jusqu'à 600 000 enregistrements de localisation sur l'offre Pro (15 millions sur Team).</p><p><strong>À évaluer quand :</strong> le besoin se concentre sur la conception des secteurs, l'analyse démographique et la visualisation de gros volumes de données plutôt que sur l'exécution terrain quotidienne.</p><p><strong>Limites :</strong> Non conçu pour l'exécution terrain quotidienne (pas d'application mobile pour les commerciaux, pas de journalisation des visites, pas de check-ins). La planification de tournées existe mais reste secondaire par rapport aux fonctionnalités de secteurs et d'analytique. Le modèle par licence avec des licences supplémentaires payantes peut devenir coûteux pour les grandes équipes. Les données partent dans Maptive pour l'analyse, pas pour des workflows terrain en temps réel.</p><h3>6. Tourvia</h3><p><strong>De quoi s'agit-il :</strong> Un package managé Salesforce de deuxième génération pour la planification de tournées, la création d'événements Salesforce, les visites mobiles et les rapports.</p><p><strong>Tarifs :</strong> Un essai complet de 30 jours est disponible sur demande. L'abonnement coûte 30 € HT par utilisateur licencié et par mois, facturé annuellement.</p><p><strong>Intégration Salesforce :</strong> Tourvia lit et écrit les enregistrements Salesforce via le package managé. Salesforce reste le système de référence ; les données de calcul d'itinéraires décrites dans le DPA sont traitées par l'infrastructure de Tourvia en France.</p><p><strong>Fonctionnalités clés :</strong> Optimisation de tournées, planification des visites, journalisation des check-in/check-out, Screen Flows et Lightning Web Components pour des workflows terrain personnalisés, et calcul d'itinéraires international là où les données routières sont disponibles.</p><p><strong>À évaluer quand :</strong> les équipes terrain Salesforce ont besoin d'un workflow connecté de la tournée à la visite, d'une tarification publique par licence et du reporting Salesforce.</p><p><strong>Limites :</strong> Tourvia n'inclut pas de prospection de prospects intégrée. Les équipes qui privilégient la modélisation avancée des secteurs ou une géo-analytique étendue doivent comparer Salesforce Maps et Geopointe pendant l'évaluation.</p><h2 id="comparison-table-all-7-tools-side-by-side">Tableau comparatif : les 7 outils côte à côte</h2><div class="tbl tbl--wide">
+<table>
+<thead>
+<tr>
+<th class="hl">Outil</th>
+<th class="hl">Modèle tarifaire</th>
+<th class="ta-c">Natif SF</th>
+<th class="ta-c">Optimisation de tournées</th>
+<th class="ta-c">Gestion des secteurs</th>
+<th class="ta-c">Application mobile</th>
+<th class="hl">Engagement min.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Salesforce Maps</td>
+<td>75 $/utilisateur/mois pour Maps ; vérifiez les tarifs de l'édition</td>
+<td class="ta-c">Oui</td>
+<td class="ta-c">Advanced uniquement</td>
+<td class="ta-c">Oui</td>
+<td class="ta-c">Oui</td>
+<td>Contrat annuel</td>
+</tr>
+<tr>
+<td>Geopointe</td>
+<td>Tarifs actuels sur demande</td>
+<td class="ta-c">Oui</td>
+<td class="ta-c">Oui</td>
+<td class="ta-c">Oui</td>
+<td class="ta-c">Oui (SF mobile)</td>
+<td>Contrat annuel</td>
+</tr>
+<tr>
+<td>Badger Maps</td>
+<td>58-95 $/utilisateur/mois</td>
+<td class="ta-c">Non (synchro)</td>
+<td class="ta-c">Oui</td>
+<td class="ta-c">Basique</td>
+<td class="ta-c">Oui (app propre)</td>
+<td>Annuel ou mensuel</td>
+</tr>
+<tr>
+<td>SPOTIO</td>
+<td>Devis personnalisé</td>
+<td class="ta-c">Non (synchro)</td>
+<td class="ta-c">Business+ uniquement</td>
+<td class="ta-c">Oui</td>
+<td class="ta-c">Oui (app propre)</td>
+<td>Annuel, 5 licences min.</td>
+</tr>
+<tr>
+<td>Map My Customers</td>
+<td>55-129 $/utilisateur/mois</td>
+<td class="ta-c">Non (synchro)</td>
+<td class="ta-c">Oui</td>
+<td class="ta-c">Niveaux supérieurs</td>
+<td class="ta-c">Oui (app propre)</td>
+<td>Annuel ou mensuel</td>
+</tr>
+<tr>
+<td>Maptive</td>
+<td>1 250-2 500 $/an</td>
+<td class="ta-c">Non (import)</td>
+<td class="ta-c">Basique</td>
+<td class="ta-c">Oui</td>
+<td class="ta-c">Non</td>
+<td>45 jours ou annuel</td>
+</tr>
+<tr>
+<td>Tourvia</td>
+<td>30 €/utilisateur/mois</td>
+<td class="ta-c">Oui</td>
+<td class="ta-c">Oui</td>
+<td class="ta-c">Non</td>
+<td class="ta-c">Oui (SF mobile)</td>
+<td>Abonnement annuel après un essai complet de 30 jours</td>
+</tr>
+</tbody>
+</table>
+</div><p>Tourvia publie un tarif de 30 € HT par utilisateur licencié et par mois, facturé annuellement. Comparez directement l'architecture, les flux de données, les capacités de tournées, le workflow mobile, le périmètre d'implémentation et les conditions commerciales actuelles de chaque éditeur.</p><h2 id="how-to-decide-a-framework-for-choosing">Comment décider : une méthode de choix</h2><p>Le choix d'une alternative dépend de quatre facteurs. Traitez-les dans l'ordre.</p><h3>1. Quelle importance accordez-vous à l'intégration native Salesforce ?</h3><p>Si vos commerciaux vivent dans Salesforce toute la journée et que votre organisation a investi dans les automatisations, les flows et le reporting Salesforce, un outil natif réduit le problème des « deux systèmes ». Visites, tournées et check-ins sont enregistrés sur les objets Salesforce, ce qui facilite la cohérence du reporting et du suivi.</p><p>Si vos commerciaux utilisent à peine Salesforce (ils s'y connectent une fois par jour pour mettre à jour les enregistrements), un outil non natif avec une bonne synchronisation peut suffire. Des outils comme Badger Maps et SPOTIO ont leurs propres interfaces mobiles abouties, que certains commerciaux préfèrent à l'application Salesforce Mobile.</p><p><strong>Options natives :</strong> Salesforce Maps, Geopointe, Tourvia.</p><p><strong>Non natives avec synchronisation Salesforce :</strong> Badger Maps, SPOTIO, Map My Customers, Maptive.</p><h3>2. Que fait réellement votre équipe chaque jour ?</h3><ul>
+<li><strong>Planifier des tournées optimisées et exécuter des visites :</strong> Tourvia, Badger Maps ou Salesforce Maps Advanced.</li>
+<li><strong>Gérer les secteurs et analyser les géo-données :</strong> Geopointe, Salesforce Maps ou Maptive.</li>
+<li><strong>Suivre l'activité de vente en porte-à-porte :</strong> SPOTIO.</li>
+<li><strong>Tout cela à la fois :</strong> Salesforce Maps Advanced (si le budget le permet).</li>
+</ul><h3>3. Combien de licences vous faudra-t-il l'an prochain ?</h3><p>Calculez chaque devis actuel au même nombre de licences et à la même période de facturation. Sur la base du tarif Advanced de 125 $ affiché le 5 septembre 2026, 15 utilisateurs Salesforce Maps Advanced représentent 22 500 $ par an ; Tourvia coûte 5 400 € HT par an. Vérifiez les tarifs de l'édition Salesforce actuelle directement. Les autres produits de cet article exigent un devis actuel ou une nouvelle vérification de l'offre publiée par l'éditeur.</p><p>Gardez les devises séparées sauf si vous appliquez un taux de change daté, et ne traitez pas des périmètres produit différents comme équivalents au seul motif qu'ils incluent tous deux le calcul d'itinéraires.</p><h3>4. Quel est votre budget ?</h3><p>Fixez le nombre de licences et le périmètre fonctionnel requis, puis comparez les devis annuels actuels dans une seule devise. Le coût annuel standard de Tourvia est : utilisateurs licenciés × 360 € HT.</p><section>
+<div>
+<div>
+<div>Shortlist par besoin</div>
+<h2 id="match-the-product-to-the-field-workflow">Faites correspondre le produit au workflow terrain</h2>
+<p>Tourvia ne couvre pas tous les cas d'usage de Salesforce Maps. Comparez l'exécution des tournées, l'analyse des secteurs, l'intégration et le prix par rapport à vos besoins.</p>
+</div>
+</div>
+<div class="brief-grid">
+<div>
+<div class="brief-label">Choisissez Tourvia si</div>
+<div class="brief-title">Salesforce est déjà le lieu de la planification et de l'exécution</div>
+<div class="brief-copy">C'est l'option la plus solide pour les équipes qui veulent la planification de tournées native, les événements, le reporting et un prix par utilisateur clair plutôt qu'un outil terrain externe de plus.</div>
+</div>
+<div>
+<div class="brief-label">Choisissez Badger Maps ou SPOTIO si</div>
+<div class="brief-title">Vos commerciaux veulent surtout une expérience autonome, mobile d'abord</div>
+<div class="brief-copy">Ces outils peuvent être plus pertinents quand Salesforce n'est qu'une cible de synchronisation et que l'expérience du commercial vit ailleurs.</div>
+</div>
+<div>
+<div class="brief-label">Choisissez Salesforce Maps Advanced si</div>
+<div class="brief-title">Vous avez besoin du périmètre fonctionnel d'entreprise le plus large et le budget est secondaire</div>
+<div class="brief-copy">Pour certaines petites équipes avec des budgets plus importants, la stack Salesforce Maps premium peut rester la bonne réponse malgré le coût.</div>
+</div>
+</div>
+</section><section>
+<div class="brief-head">
+<h2 id="if-you-are-close-to-choosing-filter-the-shortlist-one-last-t">Si vous êtes proche d'un choix, filtrez la shortlist une dernière fois</h2>
+<span class="brief-label">Checklist de décision</span>
+</div>
+<div class="brief-grid">
+<div>
+<div class="brief-label">Choisissez Tourvia si</div>
+<div class="brief-title">vous voulez que la planification de tournées, les événements, les visites mobiles et le reporting restent dans Salesforce</div>
+</div>
+<div>
+<div class="brief-label">Choisissez Geopointe si</div>
+<div class="brief-title">la conception des secteurs et la géo-analytique comptent plus que la chaîne complète d'exécution des visites</div>
+</div>
+<div>
+<div class="brief-label">Choisissez Badger Maps ou SPOTIO si</div>
+<div class="brief-title">vos commerciaux veulent surtout une application mobile d'abord, séparée, et peuvent vivre avec un workflow CRM basé sur la synchronisation</div>
+</div>
+</div>
+</section><h2 id="frequently-asked-questions">Questions fréquentes</h2><h3>Quelle est la meilleure alternative à Salesforce Maps pour une équipe terrain en croissance ?</h3><p>Comparez le flux de données Salesforce, le workflow de tournées, les capacités de gestion des secteurs, l'exécution mobile et le devis annuel actuel de chaque produit. Tourvia coûte 30 € HT par utilisateur licencié et par mois, facturé annuellement.</p><h3>Quelles alternatives à Salesforce Maps sont natives Salesforce ?</h3><p>Deux alternatives de cette liste sont natives Salesforce : elles s'installent comme des packages managés depuis AppExchange et s'exécutent dans votre organisation Salesforce. Il s'agit de Tourvia et Geopointe. Badger Maps, SPOTIO, Map My Customers et Maptive fonctionnent comme des applications séparées et synchronisent leurs données avec Salesforce via une intégration.</p><h3>Combien coûte Salesforce Maps par rapport aux alternatives ?</h3><p>Le 5 septembre 2026, la grille tarifaire américaine de Salesforce affichait Maps à 75 $ et Maps Advanced à 125 $ par utilisateur et par mois, facturé annuellement ; une FAQ sur la même page mentionnait 150 $ pour Advanced. Vérifiez les tarifs de l'édition actuelle directement auprès de Salesforce. Sur la base du tarif affiché de 125 $, 10 utilisateurs Advanced représentent 15 000 $ par an. Tourvia coûte 360 € HT par utilisateur licencié et par an, Badger Maps Business affiche 5 880 $ par an pour 10 licences annuelles, et Geopointe exige un devis actuel.</p><h3>Puis-je remplacer Salesforce Maps sans perdre mes données CRM ?</h3><p>Les alternatives en package managé peuvent conserver Salesforce comme système de référence, mais le changement peut tout de même exiger la configuration du package, le mapping des objets, l'attribution des Permission Set Groups et une revue des flux de données. Tourvia traite les données minimales de calcul d'itinéraires en France.</p><div class="next-stop"><div>
+<h3>Démarrez un essai Tourvia de 30 jours</h3>
+<p>Testez toutes les fonctionnalités de Tourvia pendant 30 jours dans votre organisation Salesforce. L'accès continu coûte 30 € HT par utilisateur licencié et par mois, facturé annuellement.</p>
 
 
-  <h2 style="font-size:1.5rem;color:#fafafa;margin-top:48px;">Pages liées</h2>
-  <ul style="color:#a1a1aa;line-height:1.8;margin-top:12px;">
-      <li><a href="optimisation-tournees-salesforce.html" style="color:#9099ff;text-decoration:none;">Optimisation des tournées Salesforce &rarr;</a></li>
-      <li><a href="planification-visites-salesforce.html" style="color:#9099ff;text-decoration:none;">Planification des visites Salesforce &rarr;</a></li>
-      <li><a href="../blog/salesforce-maps-mobile-retirement.html" style="color:#9099ff;text-decoration:none;">Salesforce Maps mobile retirement (EN) &rarr;</a></li>
-
-  </ul>
+</div><div class="btn-row"><a class="btn btn-primary" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a><a class="textlink" href="/fr/tarifs.html">Voir les tarifs</a></div></div>
+<nav class="related" aria-labelledby="related-title"><h2 id="related-title">Comparatifs liés</h2><ul><li><a href="/fr/tarifs.html">Tarifs Tourvia : le modèle par utilisateur et la logique d'approbation</a></li><li><a href="/fr/planification-tournees-salesforce.html">Planification de tournées Salesforce : le workflow natif dans Salesforce</a></li><li><a href="/fr/optimisation-tournees-salesforce.html">Optimisation des tournées pour les commerciaux terrain : comprendre le ROI opérationnel</a></li><li><a href="/fr/planification-visites-salesforce.html">Planification des visites pour Salesforce : comment les tournées deviennent des événements</a></li><li><a href="/blog/salesforce-maps-pricing-breakdown.html">Tarifs Salesforce Maps : ce que cela coûte réellement aux équipes terrain</a></li><li><a href="/fr/alternative-salesforce-maps.html">Quoi comparer avant de remplacer Salesforce Maps</a></li></ul></nav>
+    </article>
+    <aside class="art-side"><nav class="on-page" aria-label="Sur cette page"><b>Sur cette page</b><ol><li><a href="#why-teams-look-for-a-salesforce-maps-alternative">Pourquoi les équipes cherchent une alternative à Salesforce Maps</a></li><li><a href="#what-salesforce-maps-costs-a-quick-recap">Ce que coûte Salesforce Maps : rappel rapide</a></li><li><a href="#choose-by-team-profile-first">Choisissez d'abord par profil d'équipe</a></li><li><a href="#match-requirements-to-products">Faites correspondre vos besoins aux produits</a></li><li><a href="#fast-shortlist">Shortlist express</a></li><li><a href="#6-salesforce-maps-alternatives-compared">6 alternatives à Salesforce Maps comparées</a></li><li><a href="#comparison-table-all-7-tools-side-by-side">Tableau comparatif : les 7 outils côte à côte</a></li><li><a href="#how-to-decide-a-framework-for-choosing">Comment décider : une méthode de choix</a></li><li><a href="#match-the-product-to-the-field-workflow">Faites correspondre le produit au workflow terrain</a></li><li><a href="#if-you-are-close-to-choosing-filter-the-shortlist-one-last-t">Si vous êtes proche d'un choix, filtrez la shortlist une dernière fois</a></li><li><a href="#frequently-asked-questions">Questions fréquentes</a></li></ol></nav><aside class="docket art-aside"><span class="docket-tag">Option package managé</span><h2>Évaluez Tourvia par rapport à vos besoins Salesforce, de la tournée à la visite</h2><p>Comparez les besoins de tournées, de secteurs, de mobilité, de flux de données et de reporting avant de construire une shortlist.</p><ul><li><a href="/fr/tarifs.html">Voir les tarifs Tourvia</a></li><li><a href="/fr/planification-tournees-salesforce.html">Explorer la planification de tournées Salesforce</a></li><li><a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a></li></ul></aside></aside>
+  </div>
 </main>
-
-<footer style="border-top:1px solid #27272a;padding:40px 28px;text-align:center;color:#71717a;font-size:0.85rem;">
-  <p>&copy; 2026 SKZ Consulting / Tourvia. <a href="../docs/privacy.html" style="color:#9099ff;text-decoration:none;">Confidentialité</a></p>
+<footer class="site-foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="/fr/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="28" height="28"/><b>Tourvia</b></a>
+        <p>Package managé Salesforce pour la planification de tournées et l'exécution terrain. Tourvia est le nouveau nom de RouteForce.</p>
+        <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary">Disponible sur AppExchange</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Produit</span>
+        <a href="/fr/#features">Fonctionnalités</a>
+        <a href="/fr/tarifs.html">Tarifs</a>
+        <a href="/fr/cas-d-usage.html">Cas d'usage</a>
+        <a href="/native-integration-salesforce.html">Intégration</a>
+        <a href="/compare.html">Comparatif</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Ressources</span>
+        <a href="/blog/">Blog</a>
+        <a href="/docs/">Docs</a>
+        <a href="/tools.html">Outils gratuits</a>
+        <a href="/docs/setup-guide.html">Guide d'installation</a>
+        <a href="/docs/user-guide-fr.html">Guide utilisateur</a>
+        <a href="/docs/configuration-guide.html">Guide de configuration</a>
+      </div>
+      <div class="foot-col">
+        <span class="foot-h">Entreprise</span>
+        <a href="mailto:contact@gettourvia.com">Contact</a>
+        <a href="/docs/privacy.html">Confidentialité</a>
+        <a href="/docs/terms.html">Conditions</a>
+        <a href="/docs/mentions-legales.html">Mentions légales</a>
+        <a href="/docs/cgv.html">CGV</a>
+        <a href="/docs/dpa.html">DPA</a>
+        <a href="https://stats.uptimerobot.com/Z4Rq6R0Trb" target="_blank" rel="noopener">Status <span class="dot-ok" aria-hidden="true"></span></a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>&copy; 2026 SKZ Consulting · partenaire ISV Salesforce.</span>
+      <span>Package managé Salesforce édité par SKZ Consulting, partenaire ISV Salesforce, distribué sur la Salesforce AppExchange. Salesforce ne soutient ni ne recommande Tourvia.</span>
+      <span>Langue : Français · <a href="/blog/salesforce-maps-alternatives-compared.html" hreflang="en" lang="en">English</a></span>
+    </div>
+  </div>
 </footer>
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "BreadcrumbList",
+ "inLanguage": "fr",
+ "itemListElement": [
+  {
+   "@type": "ListItem",
+   "position": 1,
+   "name": "Tourvia",
+   "item": "https://gettourvia.com/fr/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 2,
+   "name": "Blog",
+   "item": "https://gettourvia.com/blog/"
+  },
+  {
+   "@type": "ListItem",
+   "position": 3,
+   "name": "6 alternatives à Salesforce Maps comparées : tarifs, fonctionnalités et adéquation",
+   "item": "https://gettourvia.com/fr/alternative-salesforce-maps.html"
+  }
+ ]
+}
+</script>
 </body>
 </html>
