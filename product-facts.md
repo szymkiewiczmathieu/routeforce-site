@@ -6,22 +6,22 @@ Tourvia, formerly RouteForce, is a route planning and field execution applicatio
 
 ## Commercial model
 
-- Trial: 30 days, available on request through the contact form
+- Trial: 30 days, installed from the public AppExchange listing with Get It Now
 - Trial scope: every product feature is included during the trial
 - Subscription: €30 excluding tax per licensed user per month
 - Billing: annual, equivalent to €360 excluding tax per user per year
 - Team size: the same €30 excluding tax per-user price applies at every team size
 - Free plan: none
 - Installation and configuration: handled by the customer’s Salesforce admin using the documentation
-- Distribution: private AppExchange access coordinated with the customer’s Salesforce admin
+- Distribution: public AppExchange listing; the customer’s Salesforce admin installs with Get It Now
 
 The current pricing page is the source for commercial terms: https://gettourvia.com/pricing.html
 
 ## Product and package
 
-- Current documented version: TourviaApp 7.34.0.1
+- Current documented version: TourviaApp 7.36.0
 - Current release focus: planning invalidation when options change, protection against stale asynchronous recalculation, Agentforce recency filtering before result limits, keyboard focus for route-step actions, and resilient marker rendering when an optional type field is empty or invalid
-- Trial access: 30-day trial available on request
+- Trial access: 30-day trial installed from the public AppExchange listing (Get It Now)
 - Security Review: passed on 22 May 2026 for the reviewed package lineage
 - Salesforce does not endorse or recommend Tourvia
 - Main surfaces: Salesforce record pages, app pages, tabs, utility bar, Campaign pages and Salesforce Mobile
@@ -45,6 +45,7 @@ DPA: https://gettourvia.com/docs/dpa.html
 - Product name: Tourvia
 - Former product name: RouteForce
 - Operator: SKZ Consulting
+- Salesforce ISV Partner: yes
 - Legal form: société par actions simplifiée unipersonnelle (SASU)
 - Registered office: 14 rue Bausset, 75015 Paris, France
 - RCS Paris / SIREN: 102 154 879
@@ -62,5 +63,5 @@ Legal notice: https://gettourvia.com/docs/mentions-legales.html
 - Visit planning: https://gettourvia.com/visit-planning-salesforce.html
 - Native integration: https://gettourvia.com/native-integration-salesforce.html
 - Use cases: https://gettourvia.com/use-cases.html
-- Security Review and private access: https://gettourvia.com/blog/tourvia-private-appexchange-security-review.html
+- Security Review and AppExchange listing: https://gettourvia.com/blog/tourvia-private-appexchange-security-review.html
 - RouteForce to Tourvia name change: https://gettourvia.com/blog/routeforce-becomes-tourvia.html

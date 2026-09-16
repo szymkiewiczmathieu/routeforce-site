@@ -15,7 +15,7 @@ Tourvia is the current product name. RouteForce is the former product name. SKZ 
 Tourvia helps field sales teams plan visits, optimize driving routes, and track field activity without leaving Salesforce. The product works on record pages, app pages, tabs, utility bar, Campaign pages, and Salesforce Mobile.
 
 ### Current package release
-- **Version**: TourviaApp 7.34.0.1
+- **Version**: TourviaApp 7.36.0
 - **Released**: 21 July 2026 on the Security-Review-approved TourviaApp package lineage
 - **Release focus**: schedules are invalidated when route options change; stale asynchronous recalculations cannot restore obsolete steps; Agentforce applies recency before limiting results; keyboard focus reaches step actions; markers remain visible when an optional type field is empty, invalid, or relationship-based
 
@@ -48,14 +48,14 @@ Tourvia uses clear per-user pricing:
 
 | Plan | Price | Scope |
 |------|-------|-------|
-| 30-day trial | On request | The complete product is available for 30 days after access is coordinated through the contact form |
+| 30-day trial | Get It Now on the public AppExchange listing | The complete product is available for 30 days from installation |
 | Tourvia subscription | €30/user/month excl. tax, billed annually | Route optimization, GPS-assisted proximity check, visit reports, dashboards, route history, and Salesforce field execution |
 | Installation | Customer-managed | The Salesforce admin installs and configures Tourvia using the published documentation |
 
 - Annual equivalent: €360/user/year
 - The same €30 excluding tax per-user price applies at every team size; there is no custom-quote threshold
 - No public free plan is offered
-- Trial access is requested through the contact form, not positioned as a free AppExchange tier
+- Trial access installs from the public AppExchange listing with Get It Now; there is no free plan
 - No routing API pass-through fees from Tourvia; route optimization is included in the subscription
 
 ## Comparison with Salesforce Maps
@@ -69,7 +69,7 @@ Tourvia uses clear per-user pricing:
 | Route optimization | Tourvia-operated, constraint-aware engine | Proprietary |
 | Data residency for routing infrastructure | France (OVHcloud) | Salesforce infrastructure / vendor contract specifics |
 | Trial access | 30-day trial on request via contact form | Verify with Salesforce account team |
-| Installation/evaluation | Access coordinated after the trial request; customer admin installs and configures the package | Salesforce add-on license process |
+| Installation/evaluation | Public AppExchange listing; the customer admin installs and configures the package | Salesforce add-on license process |
 | Mobile | Salesforce Mobile workflow for map, routes, GPS-assisted proximity checks, check-in, visit reporting, and navigation handoff | Verify current Salesforce Maps mobile workflow with Salesforce |
 
 ## Use cases
@@ -137,6 +137,7 @@ A: No. Tourvia offers a complete 30-day trial on request, followed by a paid ann
 
 ## Company
 - Operator/legal entity: SKZ Consulting, SASU
+- Salesforce ISV Partner: yes
 - Registered office: 14 rue Bausset, 75015 Paris, France
 - Product: Tourvia, formerly RouteForce
 - SIRET: 102 154 879 00013
