@@ -39,12 +39,15 @@ const REDIRECTS = new Map([
   ['/docs/index.html', '/docs/'],
   ['/blog', '/blog/'],
   ['/blog/index.html', '/blog/'],
+  ['/fr', '/fr/'],
+  ['/fr/index.html', '/fr/'],
 ]);
 
 const DIRECTORY_INDEXES = new Map([
   ['/', '/index.html'],
   ['/docs/', '/docs/index.html'],
   ['/blog/', '/blog/index.html'],
+  ['/fr/', '/fr/index.html'],
 ]);
 
 function redirect(url, pathname, status = 301, origin = url.origin) {

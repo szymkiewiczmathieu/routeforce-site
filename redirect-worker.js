@@ -44,6 +44,8 @@ const LEGACY_REDIRECTS = new Map([
   ['/docs/index.html', '/docs/'],
   ['/blog', '/blog/'],
   ['/blog/index.html', '/blog/'],
+  ['/fr', '/fr/'],
+  ['/fr/index.html', '/fr/'],
 ]);
 
 function extensionlessHtmlPath(pathname) {
