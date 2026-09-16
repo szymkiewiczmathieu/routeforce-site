@@ -310,7 +310,7 @@ def main() -> int:
             and webpage.get("name") == parser.titles[0]
             and webpage.get("description") == parser.descriptions[0]
             and webpage.get("inLanguage") == "en"
-            and webpage.get("dateModified") == "2026-09-05"
+            and webpage.get("dateModified") == "2026-09-16"
             and entity_reference(webpage.get("isPartOf"), f"{CANONICAL_ORIGIN}/#website")
             and entity_reference(webpage.get("about"), f"{CANONICAL_ORIGIN}/#tourvia")
             and entity_reference(webpage.get("mainEntity"), f"{CANONICAL_ORIGIN}/#tourvia")
@@ -355,7 +355,7 @@ def main() -> int:
             and collection.get("name") == tools_parser.titles[0]
             and collection.get("description") == tools_parser.descriptions[0]
             and collection.get("inLanguage") == "en"
-            and collection.get("dateModified") == "2026-09-05"
+            and collection.get("dateModified") == "2026-09-16"
             and entity_reference(collection.get("isPartOf"), f"{CANONICAL_ORIGIN}/#website")
             and entity_reference(collection.get("publisher"), f"{CANONICAL_ORIGIN}/#organization")
             and entity_reference(collection.get("mainEntity"), f"{tools_canonical}#tool-list")

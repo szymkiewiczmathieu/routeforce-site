@@ -15,7 +15,7 @@
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
 <meta property="og:title" content="How to set up route planning in Salesforce (step-by-step)">
 <meta property="og:site_name" content="Tourvia">
-<meta property="og:description" content="Request a 30-day trial, assign Tourvia Permission Set Groups, add the component to a Lightning page, and configure your first route.">
+<meta property="og:description" content="Install the 30-day trial, assign Tourvia Permission Set Groups, add the component to a Lightning page, and configure your first route.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://gettourvia.com/blog/how-to-set-up-route-planning-salesforce.html">
 <meta property="og:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
@@ -29,7 +29,7 @@
  "@type": "BlogPosting",
  "headline": "How to set up route planning in Salesforce (step-by-step)",
  "datePublished": "2026-04-05",
- "dateModified": "2026-07-16",
+ "dateModified": "2026-09-16",
  "author": {
   "@type": "Organization",
   "name": "SKZ Consulting",
@@ -61,7 +61,7 @@
     "name": "Can I test route planning before subscribing?",
     "acceptedAnswer": {
      "@type": "Answer",
-     "text": "Yes. Tourvia can be evaluated through a complete 30-day trial requested via the contact form. The subscription then costs EUR 30/user/month excluding tax, billed annually."
+     "text": "Yes. Tourvia can be evaluated through a complete 30-day trial installed from the public AppExchange listing with Get It Now. The subscription then costs EUR 30/user/month excluding tax, billed annually."
     }
    },
    {
@@ -101,8 +101,8 @@
       <a class="nav-a" href="/docs/">Docs</a>
     </nav>
     <div class="head-right">
-      <a class="nav-a head-link" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
-      <a href="/#contact" class="btn btn-primary head-cta">Request a 30-day trial</a>
+      <a class="nav-a head-link" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Get it on AppExchange</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary head-cta">Start the 30-day trial</a>
       <button id="mobile-menu-btn" class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -114,8 +114,8 @@
       <a href="/use-cases.html">Use cases</a>
       <a href="/blog/" aria-current="page">Blog</a>
       <a href="/docs/">Docs</a>
-      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Private AppExchange access</a>
-      <a href="/#contact">Request a 30-day trial</a>
+      <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Get it on AppExchange</a>
+      <a href="/#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -130,12 +130,12 @@
 
         <h1 id="article-title">How to set up route planning in Salesforce</h1>
         <ol class="steps-strip" aria-label="Sections on this page"><li><a href="#what-you-need-before-you-start">What you need before you start</a></li><li><a href="#step-2-assign-permission-set-groups">Step 2: Assign Permission Set Groups</a></li><li><a href="#step-3-add-tourvia-to-a-lightning-page">Step 3: Add Tourvia to a Lightning page</a></li><li><a href="#step-4-configure-filters-and-defaults">Step 4: Configure filters and defaults</a></li><li><a href="#step-5-verify-and-go-live">Step 5: Verify and go live</a></li><li><a href="#what-comes-next">What comes next</a></li></ol>
-        <p class="lead">Install Tourvia from private AppExchange access, assign the supplied Permission Set Groups, place the component on the relevant Lightning pages, and configure the route defaults.</p>
+        <p class="lead">Install Tourvia from the public AppExchange listing, assign the supplied Permission Set Groups, place the component on the relevant Lightning pages, and configure the route defaults.</p>
 
 
 
       </div>
-      <div class="mast-side"><ul class="art-meta"><li><b>Published</b><span><time datetime="2026-04-05">5 April 2026</time></span></li><li><b>Updated</b><span><time datetime="2026-07-16">16 July 2026</time></span></li><li><b>Reading</b><span>6 min read</span></li><li><b>Section</b><span>Setup guide</span></li><li><b>Author</b><span>SKZ Consulting, the team behind Tourvia</span></li></ul></div>
+      <div class="mast-side"><ul class="art-meta"><li><b>Published</b><span><time datetime="2026-04-05">5 April 2026</time></span></li><li><b>Updated</b><span><time datetime="2026-09-16">16 September 2026</time></span></li><li><b>Reading</b><span>6 min read</span></li><li><b>Section</b><span>Setup guide</span></li><li><b>Author</b><span>SKZ Consulting, the team behind Tourvia</span></li></ul></div>
     </div>
   </section>
 
@@ -146,7 +146,7 @@
 <li><strong>System Administrator profile</strong> (or equivalent permissions) for the person doing the installation and initial configuration.</li>
 <li><strong>Accounts with addresses.</strong> The component geocodes your account addresses to plot them on the map. If your accounts have blank or incomplete addresses, they will not appear. Use the free <a href="../salesforce-route-planning-data-readiness-checker.html">data-readiness checker</a> to screen a CSV locally for field coverage; it does not validate address accuracy.</li>
 <li><strong>About 30 minutes.</strong> Installation takes roughly 10 minutes. Configuration and verification take another 20.</li>
-</ul><p>If your org uses a sandbox, consider installing there first to test before deploying to production.</p><h2 id="step-1-request-trial">Step 1: Request trial</h2><p>Request a 30-day trial through the <a href="/#contact">contact form</a>. After the Salesforce org is qualified, your admin receives private AppExchange access and follows the setup documentation.</p><p>During installation, you choose whether to install for all users, specific profiles, or admins only. For a first install, "Install for Admins Only" is the safest option. You can extend access later through permission sets.</p><p>The managed package deploys the following to your org:</p><ul>
+</ul><p>If your org uses a sandbox, consider installing there first to test before deploying to production.</p><h2 id="step-1-request-trial">Step 1: Install from the AppExchange</h2><p>Open the <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Tourvia listing</a> and click Get It Now to install the 30-day trial. Your admin then follows the setup documentation.</p><p>During installation, you choose whether to install for all users, specific profiles, or admins only. For a first install, "Install for Admins Only" is the safest option. You can extend access later through permission sets.</p><p>The managed package deploys the following to your org:</p><ul>
 <li><strong>Permission sets and Permission Set Groups</strong> for user, manager, and admin access.</li>
 <li><strong>Custom Metadata Types</strong> for org-wide configuration defaults.</li>
 <li><strong>Lightning Web Components</strong> that you will place on Lightning pages using App Builder.</li>
@@ -179,13 +179,13 @@
 <li><strong>Create a test event.</strong> Plan a visit to an account and confirm that it creates the expected Salesforce event or task record.</li>
 </ol><p>If something is not working as expected, the <a href="../docs/user-guide.html">User Guide</a> covers common issues including missing map pins, geocoding errors, and permission problems.</p><p>Once verified, communicate the rollout to your team. Share the page location, explain what the component does, and point them to the <a href="../docs/user-guide.html">User Guide</a> for self-service help.</p><h2 id="what-comes-next">What comes next</h2><p>The 30-day trial includes the complete Tourvia workflow. Subscribe to keep access after the trial.</p><p>Tourvia costs <a href="../pricing.html">EUR 30/user/month</a> (excl. tax) per licensed user. Pricing is €30/user/month, billed annually. As your team grows, add licensed users at the same €30/user/month public price.</p><p>Your Salesforce admin handles installation and configuration with this guide and the <a href="../docs/configuration-guide.html">Configuration Guide</a>.</p><h2 id="frequently-asked-questions">Frequently asked questions</h2><h3>Do I need API access?</h3><p>Yes. Tourvia requires a Salesforce edition with API access. Enterprise, Unlimited, and Developer Editions include it by default. Professional Edition works only if you have purchased the API add-on. The component uses API calls for geocoding account addresses and for route optimization calculations.</p><h3>Can I test before subscribing?</h3><p>Yes. Request a complete 30-day trial through the contact form. Test Tourvia with your own records and routes, then subscribe to keep access.</p><h3>How long does setup take?</h3><p>Setup time depends on Salesforce package processing, org security review, address quality, Lightning page configuration, Permission Set Group assignments, and sandbox testing. Use the setup guide as the deployment checklist.</p><div class="next-stop"><div>
 <h3>Ready to add route planning to Salesforce?</h3>
-<p>Start with a 30-day trial request. Installation takes 10 minutes, and you can test with your own data before deciding to subscribe.</p>
+<p>Start with the 30-day trial on the AppExchange. Installation takes 10 minutes, and you can test with your own data before deciding to subscribe.</p>
 
 
-</div><div class="btn-row"><a class="btn btn-primary" href="/#contact">Request trial</a><a class="textlink" href="../docs/setup-guide.html">Read the full setup guide</a></div></div>
+</div><div class="btn-row"><a class="btn btn-primary" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Get it on AppExchange</a><a class="textlink" href="../docs/setup-guide.html">Read the full setup guide</a></div></div>
 <nav class="related" aria-labelledby="related-title"><h2 id="related-title">From the blog</h2><ul><li><a href="../salesforce-route-planning.html">Route planning in Salesforce: how it works and what to look for</a></li><li><a href="salesforce-maps-alternatives-compared.html">Salesforce Maps alternatives compared for field teams</a></li><li><a href="salesforce-maps-pricing-breakdown.html">Salesforce Maps pricing: what it actually costs for field teams</a></li><li><a href="optimize-field-sales-routes-salesforce.html">How to optimize field sales routes inside Salesforce</a></li><li><a href="../salesforce-route-planning.html">Salesforce route planning: native route planner for field teams</a></li></ul></nav>
     </article>
-    <aside class="art-side"><nav class="on-page" aria-label="On this page"><b>On this page</b><ol><li><a href="#what-you-need-before-you-start">What you need before you start</a></li><li><a href="#step-1-request-trial">Step 1: Request trial</a></li><li><a href="#step-2-assign-permission-set-groups">Step 2: Assign Permission Set Groups</a></li><li><a href="#step-3-add-tourvia-to-a-lightning-page">Step 3: Add Tourvia to a Lightning page</a></li><li><a href="#step-4-configure-filters-and-defaults">Step 4: Configure filters and defaults</a></li><li><a href="#step-5-verify-and-go-live">Step 5: Verify and go live</a></li><li><a href="#what-comes-next">What comes next</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ol></nav><aside class="docket art-aside"><span class="docket-tag">Quick access</span><h2>Evaluate Tourvia</h2><p>Review the product workflow, annual price, trial request, and private AppExchange access.</p><ul><li><a href="../pricing.html">See Tourvia pricing</a></li><li><a href="../salesforce-route-planning.html">Explore route planning</a></li><li><a href="/#contact">Request trial</a></li></ul></aside></aside>
+    <aside class="art-side"><nav class="on-page" aria-label="On this page"><b>On this page</b><ol><li><a href="#what-you-need-before-you-start">What you need before you start</a></li><li><a href="#step-1-request-trial">Step 1: Install from the AppExchange</a></li><li><a href="#step-2-assign-permission-set-groups">Step 2: Assign Permission Set Groups</a></li><li><a href="#step-3-add-tourvia-to-a-lightning-page">Step 3: Add Tourvia to a Lightning page</a></li><li><a href="#step-4-configure-filters-and-defaults">Step 4: Configure filters and defaults</a></li><li><a href="#step-5-verify-and-go-live">Step 5: Verify and go live</a></li><li><a href="#what-comes-next">What comes next</a></li><li><a href="#frequently-asked-questions">Frequently asked questions</a></li></ol></nav><aside class="docket art-aside"><span class="docket-tag">Quick access</span><h2>Evaluate Tourvia</h2><p>Review the product workflow, annual price, trial, and public AppExchange listing.</p><ul><li><a href="../pricing.html">See Tourvia pricing</a></li><li><a href="../salesforce-route-planning.html">Explore route planning</a></li><li><a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Get it on AppExchange</a></li></ul></aside></aside>
   </div>
 </main>
 <footer class="site-foot">
@@ -194,7 +194,7 @@
       <div class="foot-brand">
         <a href="/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="28" height="28"/><b>Tourvia</b></a>
         <p>Salesforce managed package for route planning and field execution. Tourvia is the new product name for RouteForce.</p>
-        <a href="/#contact" class="btn btn-primary">Request a 30-day trial</a>
+        <a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba" class="btn btn-primary">Get it on AppExchange</a>
       </div>
       <div class="foot-col">
         <span class="foot-h">Product</span>
@@ -225,7 +225,7 @@
     </div>
     <div class="foot-bottom">
       <span>&copy; 2026 SKZ Consulting · Salesforce ISV partner.</span>
-      <span>Salesforce managed package, private AppExchange listing. Salesforce does not endorse or recommend Tourvia.</span>
+      <span>Salesforce managed package by SKZ Consulting, a Salesforce ISV Partner, listed on the Salesforce AppExchange. Salesforce does not endorse or recommend Tourvia.</span>
     </div>
   </div>
 </footer>
