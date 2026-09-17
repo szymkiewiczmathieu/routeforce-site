@@ -136,9 +136,8 @@
 <ul>
 <li>Salesforce org with <strong>Lightning Experience</strong> enabled</li>
 <li><strong>System Administrator</strong> profile access</li>
-<li>Tourvia package installation link (provided by your Tourvia contact)</li>
-<li>Tourvia <strong>licence key</strong></li>
-<li><strong>Primary routing API key</strong> (provided for your environment)</li>
+<li>Tourvia package installation link (AppExchange listing or private install link)</li>
+<li>Tourvia <strong>licence key</strong> and <strong>routing API key</strong> — delivered automatically by email after installation (see §2, “Licences and access credentials”)</li>
 <li>Optional: <strong>Fallback API key</strong> if applicable to your deployment</li>
 <li>Geocoded data (latitude/longitude) on the records you want to display on the map</li>
 </ul>
@@ -170,6 +169,18 @@ WHERE SubscriberPackage.Name IN ('TourviaApp', 'Tourvia')
 </code></pre>
 <p class="small-muted">The managed package node-name is <code>TourviaApp</code> (since 7.22.0); the namespace remains <code>routeforce</code>.</p>
 <hr/>
+<h3>Licences and access credentials</h3>
+<p>Since September 2026, access provisioning is automated through Salesforce's licence management:</p>
+<ol>
+<li><strong>Production or developer org:</strong> when you install TourviaApp, Salesforce registers a 30-day per-seat trial licence. Tourvia is notified automatically and provisions your access: the installing administrator receives an email with a <strong>one-time secure link (valid 48&nbsp;h)</strong> that reveals your Tourvia licence key and routing API key. Keep them safe — the link burns after one view.</li>
+<li><strong>Assign the licence to users:</strong> the trial is per-seat. Go to <strong>Setup → Installed Packages → TourviaApp → Manage Licenses → Add Users</strong> and select every user who needs the app. Users without an assigned licence cannot open Tourvia.</li>
+<li><strong>Sandbox org:</strong> Salesforce automatically applies a site-wide licence to sandbox installations and <strong>no credentials email is sent</strong>. Email <a href="mailto:support@gettourvia.com">support@gettourvia.com</a> and we will issue sandbox access manually within one business day.</li>
+<li><strong>Trial end:</strong> when the 30 days expire, access stops automatically. Contact us to convert to a paid subscription — no reinstallation is needed.</li>
+</ol>
+<p class="small-muted">If the credentials email has not arrived within 15 minutes of installation, check spam, then write to <a href="mailto:support@gettourvia.com">support@gettourvia.com</a> — we can re-issue a secure link.</p>
+<hr>
+
+<!-- ======================================================== -->
 
 <h2 id="assign-permission-sets">3. Assign permission sets</h2>
 <p>TourviaApp 7.36.0 ships with <strong>three managed permission sets</strong> and, since 7.24.0, <strong>three Permission Set Groups (PSGs)</strong> that wrap them. The PSGs are the recommended assignment path.</p>
