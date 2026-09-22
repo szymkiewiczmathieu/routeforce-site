@@ -38,10 +38,22 @@ DEFAULT_URLS = [
 
 
 def verify_key_file() -> bool:
-    """The key file must be publicly readable or engines reject the payload."""
+    """The key file must be publicly readable or engines reject the payload.
+
+    The default urllib user-agent is challenged by the CDN in front of the
+    site, so identify the client explicitly: a 403 here would otherwise look
+    like a missing key file rather than a blocked request.
+    """
+    request = urllib.request.Request(
+        KEY_LOCATION,
+        headers={"User-Agent": "tourvia-indexnow-check/1.0 (+https://gettourvia.com/)"},
+    )
     try:
-        with urllib.request.urlopen(KEY_LOCATION, timeout=20) as response:
+        with urllib.request.urlopen(request, timeout=20) as response:
             served = response.read().decode("utf-8").strip()
+    except urllib.error.HTTPError as error:
+        print(f"ERROR: key file returned HTTP {error.code} at {KEY_LOCATION}")
+        return False
     except urllib.error.URLError as error:
         print(f"ERROR: key file unreachable at {KEY_LOCATION}: {error}")
         return False
