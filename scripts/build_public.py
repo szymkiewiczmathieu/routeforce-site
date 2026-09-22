@@ -18,6 +18,9 @@ PUBLIC_FILES = (
     "llms.txt",
     "llms-full.txt",
     "product-facts.md",
+    # IndexNow ownership key. Public by design: it proves domain ownership to
+    # Bing/Yandex/Seznam/Naver and is not a secret.
+    "25b62d24cb92c76df10ae2213769ffd3.txt",
 )
 PUBLIC_ROOT_PATTERNS = ("*.html", "*.png", "*.jpg", "*.jpeg", "*.webp", "*.webmanifest")
 
