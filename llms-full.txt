@@ -26,7 +26,7 @@ Tourvia helps field sales teams plan visits, optimize driving routes, and track 
 - **Auto event creation**: convert an optimized route into Salesforce Events in one click — no re-typing
 - **GPS-assisted check-in/check-out**: configurable proximity check followed by checkout forms (result, next action, notes, satisfaction, order amount, next visit date, plus admin-defined custom fields). Results depend on device accuracy, geocoding quality, and the configured radius; they do not prove identity or physical presence
 - **Visit reports**: structured post-visit data linked to the Salesforce record
-- **Heatmap & lasso select**: visualize density and batch-select records on the map
+- **Bulk selection & heatmap**: draw an area on the map and add every record inside it to the route in one action, instead of picking records one by one; the heatmap shows record density before selecting. A route covers one day for one user; Tourvia does not plan multiple reps or multiple days in a single pass
 - **Saved filters**: save, name, and share filter configurations across teams
 - **Route history**: planned routes can be retained in Salesforce for replay and coverage comparison
 - **Custom actions**: launch Screen Flows, click-to-call, or navigate directly from map markers via configurable Lightning Web Components

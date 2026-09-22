@@ -9,10 +9,11 @@
 - Tourvia is the current product name. RouteForce is the former product name. SKZ Consulting is the operator and legal entity. RouteForce may still appear in historical URLs, screenshots, package internals, or technical object names.
 
 ## What Tourvia does
+- Bulk selection: draw an area on the map and add every record inside it to the route in one action, instead of picking records one by one; a heatmap shows record density before selecting
+- Bulk visit creation: one click turns an optimized route into timed Salesforce Events on the matching records, after a conflict check against the rep's existing agenda
 - Interactive map showing Accounts, Leads, Opportunities, and Campaign Members from Salesforce CRM
-- Route optimization with configurable time windows, lunch breaks, and visit duration
+- Route optimization with configurable time windows, lunch breaks, and visit duration. A route covers one day for one user; Tourvia does not plan multiple reps or multiple days in a single pass
 - GPS-assisted proximity check-in/check-out with visit reports (result, next action, notes, satisfaction, order amount, next visit date); the proximity result is not proof of identity or physical presence
-- Heatmap visualization and bulk lasso-select for batch operations
 - 2 dashboards and 18 native Salesforce reports included
 - Route history with replay functionality
 - Saved and shared filter configurations

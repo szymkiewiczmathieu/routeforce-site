@@ -26,6 +26,8 @@ The current pricing page is the source for commercial terms: https://gettourvia.
 - Salesforce does not endorse or recommend Tourvia
 - Main surfaces: Salesforce record pages, app pages, tabs, utility bar, Campaign pages and Salesforce Mobile
 - Supported mapped records: Accounts, Leads, Opportunities and Campaign Members
+- Bulk selection: records can be added to a route one by one or by drawing an area on the map that takes every record inside it in a single action
+- Planning scope: one route covers one day for one user. Tourvia does not plan multiple reps or multiple days in a single pass
 - Included analytics: 2 dashboards and 18 Salesforce reports
 
 ## Architecture and data flow
