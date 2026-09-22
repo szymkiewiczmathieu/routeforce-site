@@ -68,7 +68,7 @@ Tourvia uses clear per-user pricing:
 | Cost for 20 users | €600/month equivalent, billed annually | $1,500/month equivalent at the listed Maps rate, before contract specifics; verify edition pricing |
 | Route optimization | Tourvia-operated, constraint-aware engine | Proprietary |
 | Data residency for routing infrastructure | France (OVHcloud) | Salesforce infrastructure / vendor contract specifics |
-| Trial access | 30-day trial on request via contact form | Verify with Salesforce account team |
+| Trial access | 30-day trial via Get It Now on the public AppExchange listing | Verify with Salesforce account team |
 | Installation/evaluation | Public AppExchange listing; the customer admin installs and configures the package | Salesforce add-on license process |
 | Mobile | Salesforce Mobile workflow for map, routes, GPS-assisted proximity checks, check-in, visit reporting, and navigation handoff | Verify current Salesforce Maps mobile workflow with Salesforce |
 
@@ -109,7 +109,7 @@ A: Tourvia works on Salesforce editions that support managed packages and Lightn
 A: Installation and configuration are completed by the customer’s Salesforce admin using the published documentation.
 
 **Q: Is there a public no-cost plan?**
-A: No. Tourvia offers a complete 30-day trial on request, followed by a paid annual subscription.
+A: No. Tourvia offers a complete 30-day trial installed from AppExchange, followed by a paid annual subscription.
 
 ## Free browser tools
 
