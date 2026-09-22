@@ -44,13 +44,13 @@ PAGES = {
                 'Train reps on the chosen workflow before broader rollout.'
             ]),
             ('h2', 'How Tourvia fits the replacement checklist'),
-            ('p', 'Tourvia is a Salesforce managed package. It uses Salesforce records for the workflow and supports map, routes, GPS-assisted proximity checks, check-in, visit reports, and navigation handoff in Salesforce Mobile. It does not add a separate CRM data sync. Pricing is €30 excluding tax per licensed user per month, billed annually.'),
+            ('p', 'Tourvia is a Salesforce managed package. It uses Salesforce records for the workflow and supports map, routes, GPS-assisted proximity checks, check-in, visit reports, and navigation handoff in Salesforce Mobile. It does not add a separate CRM data sync. Pricing is €30 excluding tax per licensed user per month, billed monthly.'),
             ('p', 'If your team is evaluating options following the retirement notice, Tourvia offers a 30-day trial to test the route-to-visit workflow with your own data before making a decision.'),
         ],
         'cta': True,
         'next': [
             ('../salesforce-route-planning.html', 'Salesforce route planning: see the native workflow inside Salesforce'),
-            ('../pricing.html', 'Tourvia pricing: €30/user/month, billed annually'),
+            ('../pricing.html', 'Tourvia pricing: €30/user/month, billed monthly'),
             ('salesforce-maps-alternatives-compared.html', 'Salesforce Maps alternatives: full comparison of 6 tools'),
             ('geopointe-alternative.html', 'Geopointe alternative: a Salesforce-native route planning option'),
         ]
@@ -83,7 +83,7 @@ PAGES = {
             ('p', 'Tourvia builds the route from Accounts, Contacts, Leads, or Opportunities, optimizes the sequence, and creates Events in Salesforce. The mobile app then guides reps through the day, records check-ins, and writes the visit report back into the CRM.'),
             ('p', 'Geopointe visualizes the data and supports basic routing, but it is not designed around daily field execution in the same way.'),
             ('h2', 'Pricing comparison'),
-            ('p', 'Geopointe is typically quoted per user per month, often around $75/user/month, billed annually. Tourvia is priced at €30 excluding tax per licensed user per month, billed annually. For a 15-person field team, the difference can exceed $10,000 per year.'),
+            ('p', 'Geopointe is typically quoted per user per month, often around $75/user/month, billed annually. Tourvia is priced at €30 excluding tax per licensed user per month, billed monthly. For a 15-person field team, the difference can exceed $10,000 per year.'),
             ('p', 'Exact pricing varies by contract and region. Always verify the current Geopointe price directly with the vendor.'),
             ('h2', 'When to choose Tourvia over Geopointe'),
             ('p', 'Choose Tourvia if your priority is daily route optimization, mobile visit execution, and keeping field data inside Salesforce. Choose Geopointe if your priority is territory mapping, geocoding, and geographic analytics.'),
@@ -114,7 +114,7 @@ PAGES = {
                 ['Route optimization', 'Built-in, multi-stop daily routes', 'Basic routing'],
                 ['Mobile app', 'Yes, dedicated field rep app', 'Limited mobile experience'],
                 ['Check-in / visit reporting', 'Yes, tied to Salesforce Events', 'Not a core feature'],
-                ['Pricing model', '€30/user/month billed annually', 'Quoted per user, ~$75/user/month'],
+                ['Pricing model', '€30/user/month billed monthly', 'Quoted per user, ~$75/user/month'],
                 ['Data residency', 'Routing inputs processed in France', 'Check with vendor'],
             ]),
             ('h2', 'Integration: both are Salesforce-native'),
@@ -126,7 +126,7 @@ PAGES = {
             ('h2', 'Mobile experience'),
             ('p', 'For field reps, the mobile experience determines adoption. Tourvia provides a mobile app built for the route-to-visit workflow. Geopointe’s mobile experience is more limited and not centered on daily execution.'),
             ('h2', 'Pricing'),
-            ('p', 'Tourvia publishes a flat price: €30 excluding tax per licensed user per month, billed annually. Geopointe is typically quoted, with public references around $75 per user per month. For a 15-person team, Tourvia can be less than half the cost.'),
+            ('p', 'Tourvia publishes a flat price: €30 excluding tax per licensed user per month, billed monthly. Geopointe is typically quoted, with public references around $75 per user per month. For a 15-person team, Tourvia can be less than half the cost.'),
             ('h2', 'Which one should you choose?'),
             ('p', 'Choose Tourvia if you want optimized routes, a mobile app for reps, and visit reporting inside Salesforce. Choose Geopointe if you need deep territory mapping, geographic search, and visualization dashboards.'),
             ('p', 'If your need is both, start with the one that solves the most urgent pain. For most field teams executing visits daily, that is route planning.'),
@@ -135,7 +135,7 @@ PAGES = {
         'next': [
             ('geopointe-alternative.html', 'Geopointe alternative: why teams switch'),
             ('geopointe-pricing.html', 'Geopointe pricing: cost breakdown'),
-            ('../pricing.html', 'Tourvia pricing: flat annual model'),
+            ('../pricing.html', 'Tourvia pricing: flat monthly model'),
             ('../salesforce-route-planning.html', 'See how Tourvia plans routes inside Salesforce'),
         ]
     },
@@ -166,7 +166,7 @@ PAGES = {
             ('h2', 'What is included in the Geopointe license'),
             ('p', 'Geopointe licenses usually include core mapping, geocoding, territory management, and basic routing. Advanced features like custom layers, API access, and premium support may be add-ons.'),
             ('h2', 'Geopointe vs Tourvia pricing'),
-            ('p', 'Tourvia publishes a flat price: €30 excluding tax per licensed user per month, billed annually. There is no separate quote process for the standard license.'),
+            ('p', 'Tourvia publishes a flat price: €30 excluding tax per licensed user per month, billed monthly. There is no separate quote process for the standard license.'),
             ('table', [
                 ['Team size', 'Geopointe (estimated $75/user/mo)', 'Tourvia (€30/user/mo, HT)'],
                 ['10 users', '$9,000/year', '€3,600/year'],
@@ -226,12 +226,12 @@ PAGES = {
                 ['Mobile app', 'Dedicated route app', 'Yes, field sales app'],
                 ['Salesforce data sync', 'Native, real-time', 'Connector-based'],
                 ['System of record', 'Salesforce', 'SPOTIO or shared'],
-                ['Pricing model', '€30/user/month billed annually', 'Quoted, platform + per-user'],
+                ['Pricing model', '€30/user/month billed monthly', 'Quoted, platform + per-user'],
             ]),
             ('h2', 'When to choose Tourvia over SPOTIO'),
             ('p', 'Choose Tourvia if Salesforce is your single source of truth, you want reps to work inside one system, and you need route-to-visit execution. Choose SPOTIO if you want a broader field sales platform with its own reporting and CRM features.'),
             ('h2', 'Pricing comparison'),
-            ('p', 'Tourvia is €30 excluding tax per user per month billed annually. SPOTIO does not publish pricing; teams typically request a quote. Include connector and integration maintenance costs when comparing.'),
+            ('p', 'Tourvia is €30 excluding tax per user per month billed monthly. SPOTIO does not publish pricing; teams typically request a quote. Include connector and integration maintenance costs when comparing.'),
         ],
         'cta': True,
         'next': [
@@ -272,12 +272,12 @@ PAGES = {
                 ['Route optimization', 'Multi-stop with time windows', 'Advanced, vehicle-based constraints'],
                 ['Mobile app', 'Route-to-visit app for reps', 'Driver app with proof of delivery'],
                 ['Visit reporting', 'Tied to Salesforce Events', 'In-app or exported'],
-                ['Pricing model', '€30/user/month billed annually', 'Tiered plans, often per route/vehicle'],
+                ['Pricing model', '€30/user/month billed monthly', 'Tiered plans, often per route/vehicle'],
             ]),
             ('h2', 'When to choose Tourvia over Route4Me'),
             ('p', 'Choose Tourvia if your routes are sales visits, your data lives in Salesforce, and you want the outcome written back into the CRM. Choose Route4Me if you manage deliveries, fleets, or complex logistics constraints where Salesforce is not the primary operational system.'),
             ('h2', 'Pricing comparison'),
-            ('p', 'Tourvia is €30 excluding tax per user per month billed annually. Route4Me uses tiered plans that depend on route count, vehicle count, and features. For sales teams, the simpler Salesforce-native option often wins on total cost and implementation speed.'),
+            ('p', 'Tourvia is €30 excluding tax per user per month billed monthly. Route4Me uses tiered plans that depend on route count, vehicle count, and features. For sales teams, the simpler Salesforce-native option often wins on total cost and implementation speed.'),
         ],
         'cta': True,
         'next': [
@@ -334,7 +334,7 @@ def render_html(slug, page):
         cta_html = '''
     <div class="blog-cta" style="background:#131316;border:1px solid #27272a;border-radius:16px;padding:28px 32px;margin-top:40px;">
       <h3 style="color:#fafafa;margin-bottom:10px;">Request a 30-day Tourvia trial</h3>
-      <p style="color:#a1a1aa;margin-bottom:18px;">Test Tourvia in your Salesforce org for 30 days. Pricing is €30 excluding tax per licensed user per month, billed annually.</p>
+      <p style="color:#a1a1aa;margin-bottom:18px;">Test Tourvia in your Salesforce org for 30 days. Pricing is €30 excluding tax per licensed user per month, billed monthly.</p>
       <a href="../#contact" style="display:inline-block;background:#6366f1;color:white;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;margin-right:12px;">Request a 30-day trial</a>
       <a href="../pricing.html" style="display:inline-block;color:#9099ff;text-decoration:none;font-weight:600;">See pricing &rarr;</a>
     </div>
@@ -415,12 +415,12 @@ def render_html(slug, page):
     </div>
     <h1 style="font-size:2.25rem;font-weight:800;line-height:1.15;color:#fafafa;margin-bottom:18px;">{page['h1']}</h1>
     <p class="blog-hero-summary" style="font-size:1.125rem;color:#a1a1aa;line-height:1.7;">{page['summary']}</p>
-    <div style="display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:18px;color:#a1a1aa;font-size:0.92rem;"><span>Salesforce-native managed package</span><span>€30/user/month, billed annually</span><span>30-day trial</span></div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:18px;color:#a1a1aa;font-size:0.92rem;"><span>Salesforce-native managed package</span><span>€30/user/month, billed monthly</span><span>30-day trial</span></div>
       </div>
       <aside class="blog-hero-sidecard blog-hero-sidecard-muted" style="background:#131316;border:1px solid #27272a;border-radius:18px;padding:24px;">
         <div class="blog-hero-sidecard-label" style="color:#6366f1;font-size:0.8rem;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;margin-bottom:8px;">Managed-package option</div>
         <div class="blog-hero-sidecard-title" style="font-size:1.1rem;font-weight:700;color:#fafafa;margin-bottom:10px;">Evaluate Tourvia for your Salesforce field team</div>
-        <p class="blog-hero-sidecard-copy" style="color:#a1a1aa;font-size:0.95rem;line-height:1.6;">Tourvia publishes its annual per-user price and offers a complete 30-day trial for testing representative routes and field workflows.</p>
+        <p class="blog-hero-sidecard-copy" style="color:#a1a1aa;font-size:0.95rem;line-height:1.6;">Tourvia publishes its per-user price and offers a complete 30-day trial for testing representative routes and field workflows.</p>
         <div class="blog-hero-linklist" style="display:flex;flex-direction:column;gap:10px;margin-top:16px;">
           <a href="../pricing.html" style="color:#9099ff;text-decoration:none;">See Tourvia pricing</a>
           <a href="../salesforce-route-planning.html" style="color:#9099ff;text-decoration:none;">Explore route planning</a>

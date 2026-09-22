@@ -35,7 +35,7 @@ PAGES = {
                 'Meilleure visibilité manager sur l\'activité terrain'
             ]),
             ('h2', 'Tourvia : une solution native pour Salesforce'),
-            ('p', 'Tourvia est un managed package Salesforce. Il s\'installe dans votre org, respecte vos profils et permissions, et utilise vos données existantes. Le prix est public : 30 € HT par utilisateur et par mois, facturé annuellement.'),
+            ('p', 'Tourvia est un managed package Salesforce. Il s\'installe dans votre org, respecte vos profils et permissions, et utilise vos données existantes. Le prix est public : 30 € HT par utilisateur et par mois, facturé mensuellement.'),
             ('p', 'Vous pouvez tester Tourvia pendant 30 jours dans votre environnement Salesforce avec vos propres données.'),
         ],
         'cta': True,
@@ -86,7 +86,7 @@ PAGES = {
         'kicker': 'Comparatif',
         'date': '2026-07-19',
         'read': '7 min',
-        'summary': 'Les outils terrain Salesforce facturent généralement à l\'utilisateur et par mois. Tourvia affiche un prix fixe : 30 € HT par utilisateur et par mois, facturé annuellement.',
+        'summary': 'Les outils terrain Salesforce facturent généralement à l\'utilisateur et par mois. Tourvia affiche un prix fixe : 30 € HT par utilisateur et par mois, facturé mensuellement.',
         'body': [
             ('h2', 'Modèles de tarification des outils terrain'),
             ('p', 'La plupart des solutions de tournées et visites terrain se facturent par utilisateur et par mois, avec une facturation annuelle. Certains éditeurs ajoutent des frais de mise en œuvre, de support ou d\'intégration.'),
@@ -110,7 +110,7 @@ PAGES = {
                 'Intégration CRM si l\'outil est externe'
             ]),
             ('h2', 'Tourvia : tarif transparent'),
-            ('p', 'Tourvia propose un tarif unique et public : 30 € HT par utilisateur et par mois, facturé annuellement. Pas de devis, pas de tarif caché. Un essai de 30 jours est disponible.'),
+            ('p', 'Tourvia propose un tarif unique et public : 30 € HT par utilisateur et par mois, facturé mensuellement. Pas de devis, pas de tarif caché. Un essai de 30 jours est disponible.'),
         ],
         'cta': True,
         'next': [
@@ -142,7 +142,7 @@ PAGES = {
             ('p', 'Les alternatives se divisent en deux catégories : les solutions natives Salesforce et les outils externes synchronisés. Les solutions natives gardent Salesforce comme référentiel unique et évitent les synchronisations.'),
             ('h2', 'Tourvia, alternative native'),
             ('p', 'Tourvia est un managed package Salesforce qui crée des tournées optimisées à partir des comptes, contacts, leads et opportunités. L\'application mobile guide les commerciaux et les comptes-rendus sont écrits dans Salesforce.'),
-            ('p', 'Le prix est fixe : 30 € HT par utilisateur et par mois, facturé annuellement. Un essai de 30 jours est proposé.'),
+            ('p', 'Le prix est fixe : 30 € HT par utilisateur et par mois, facturé mensuellement. Un essai de 30 jours est proposé.'),
         ],
         'cta': True,
         'next': [
@@ -196,7 +196,7 @@ def render_html(slug, page):
         cta_html = '''
     <div class="blog-cta" style="background:#131316;border:1px solid #27272a;border-radius:16px;padding:28px 32px;margin-top:40px;">
       <h3 style="color:#fafafa;margin-bottom:10px;">Demandez un essai Tourvia de 30 jours</h3>
-      <p style="color:#a1a1aa;margin-bottom:18px;">Testez Tourvia dans votre environnement Salesforce pendant 30 jours. Tarif : 30 € HT par utilisateur et par mois, facturé annuellement.</p>
+      <p style="color:#a1a1aa;margin-bottom:18px;">Testez Tourvia dans votre environnement Salesforce pendant 30 jours. Tarif : 30 € HT par utilisateur et par mois, facturé mensuellement.</p>
       <a href="../#contact" style="display:inline-block;background:#6366f1;color:white;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;margin-right:12px;">Demander un essai</a>
       <a href="../pricing.html" style="display:inline-block;color:#9099ff;text-decoration:none;font-weight:600;">Voir les tarifs &rarr;</a>
     </div>

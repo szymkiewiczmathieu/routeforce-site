@@ -40,6 +40,6 @@
 - Ancres `id` INCHANGÉES (même valeurs que la page EN : `day-in-the-field`, `features`, `showcase`, `pricing`, `contact`…).
 - Classes CSS inchangées. Structure HTML identique, seul le texte visible change.
 - Vouvoiement. Ton direct, concret, zéro hype. Pas d'émojis.
-- Prix : « 30 € HT par utilisateur et par mois, facturé annuellement, soit 360 € HT par utilisateur et par an ».
+- Prix : « 30 € HT par utilisateur et par mois, facturé mensuellement, soit 360 € HT par utilisateur et par an ».
 - CTA principal : `Disponible sur AppExchange` / `Démarrer l'essai 30 jours` ; secondaire selon page.
 - Interdit : « Dans un monde en constante évolution », « il est important de noter », « n'hésitez pas », « afin de » en boucle, « plongée en profondeur », « tirer parti de » systématique. Privilégier des verbes directs.

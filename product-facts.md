@@ -9,7 +9,7 @@ Tourvia, formerly RouteForce, is a route planning and field execution applicatio
 - Trial: 30 days, installed from the public AppExchange listing with Get It Now
 - Trial scope: every product feature is included during the trial
 - Subscription: €30 excluding tax per licensed user per month
-- Billing: annual, equivalent to €360 excluding tax per user per year
+- Billing: monthly through AppExchange Checkout; €360 excluding tax per user per year
 - Team size: the same €30 excluding tax per-user price applies at every team size
 - Free plan: none
 - Installation and configuration: handled by the customer’s Salesforce admin using the documentation

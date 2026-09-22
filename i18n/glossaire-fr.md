@@ -29,7 +29,7 @@
 | stop | arrêt |
 | territory | secteur |
 | pricing | tarifs / tarification |
-| billed annually | facturé annuellement |
+| billed monthly | facturé mensuellement |
 | excluding tax | HT |
 | heatmap | carte de chaleur |
 | saved filters | filtres enregistrés |

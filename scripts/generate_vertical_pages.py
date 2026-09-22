@@ -29,7 +29,7 @@ PAGES = {
             ('h2', 'How Salesforce-native route planning helps'),
             ('p', 'A native managed package reads Targets, Accounts, Contacts, and Calls directly from Salesforce. It builds an optimized daily route, creates Events, and records check-ins. The data never leaves Salesforce.'),
             ('h2', 'Tourvia for pharmaceutical field teams'),
-            ('p', 'Tourvia is installed inside Salesforce as a managed package. It plans routes from CRM targets, guides reps through the day, and writes visit outcomes back into the CRM. Pricing is flat: €30 per user per month, billed annually.'),
+            ('p', 'Tourvia is installed inside Salesforce as a managed package. It plans routes from CRM targets, guides reps through the day, and writes visit outcomes back into the CRM. Pricing is flat: €30 per user per month, billed monthly.'),
             ('p', 'A 30-day trial lets you test routes with your own Salesforce data before committing.'),
         ],
         'cta': True,
@@ -62,7 +62,7 @@ PAGES = {
             ('p', 'Retail accounts, contacts, and opportunities already live in Salesforce. A native route planning tool uses that data without sync, exports, or duplicate records. Managers see coverage in real time.'),
             ('h2', 'Tourvia for CPG field teams'),
             ('p', 'Tourvia turns Salesforce accounts into optimized daily routes for CPG reps. It creates Events, guides the rep through the day, and records check-ins. Territory managers can measure coverage and visits per store.'),
-            ('p', 'Pricing is flat at €30 per user per month billed annually. A 30-day trial is available.'),
+            ('p', 'Pricing is flat at €30 per user per month billed monthly. A 30-day trial is available.'),
         ],
         'cta': True,
         'next': [
@@ -101,7 +101,7 @@ def render_html(slug, page):
     cta_html = '''
     <div class="blog-cta" style="background:#131316;border:1px solid #27272a;border-radius:16px;padding:28px 32px;margin-top:40px;">
       <h3 style="color:#fafafa;margin-bottom:10px;">Request a 30-day Tourvia trial</h3>
-      <p style="color:#a1a1aa;margin-bottom:18px;">Test Tourvia in your Salesforce org for 30 days. Pricing is €30 excluding tax per licensed user per month, billed annually.</p>
+      <p style="color:#a1a1aa;margin-bottom:18px;">Test Tourvia in your Salesforce org for 30 days. Pricing is €30 excluding tax per licensed user per month, billed monthly.</p>
       <a href="../#contact" style="display:inline-block;background:#6366f1;color:white;padding:12px 22px;border-radius:10px;font-weight:600;text-decoration:none;margin-right:12px;">Request a 30-day trial</a>
       <a href="../pricing.html" style="display:inline-block;color:#9099ff;text-decoration:none;font-weight:600;">See pricing &rarr;</a>
     </div>

@@ -7,7 +7,7 @@
 **Website:** https://gettourvia.com
 **Category:** Field Sales Management, Route Planning, Salesforce AppExchange
 **Tagline:** Salesforce-native route planning and visit execution for field teams
-**Description:** Tourvia is a Salesforce managed package that turns your CRM records into optimized daily routes. It creates Salesforce Events, guides field reps through visits with a mobile app, and writes check-ins and reports back into the CRM. No external sync. Flat pricing: €30 excluding tax per licensed user per month, billed annually.
+**Description:** Tourvia is a Salesforce managed package that turns your CRM records into optimized daily routes. It creates Salesforce Events, guides field reps through visits with a mobile app, and writes check-ins and reports back into the CRM. No external sync. Flat pricing: €30 excluding tax per licensed user per month, billed monthly.
 **Key features:**
 - Route optimization from Accounts, Contacts, Leads, Opportunities, or Campaign Members
 - Multi-stop daily routes with time windows and visit duration
@@ -15,7 +15,7 @@
 - Automatic creation of Salesforce Events and Tasks
 - Native Salesforce security model and permissions
 - Worldwide routing, hosted in France
-**Pricing:** €30/user/month (excluding VAT), billed annually. No custom quote, no free tier.
+**Pricing:** €30/user/month (excluding VAT), billed monthly. No custom quote, no free tier.
 **Ideal for:** Salesforce field sales teams, medical device reps, CPG/FMCG field teams, pharma sales, service technicians.
 **AppExchange URL:** (to update once public listing is live)
 
@@ -28,7 +28,7 @@
 **Vendor:** SKZ Consulting
 **Website:** https://gettourvia.com
 **Description:** Tourvia is a Salesforce-native route planning and visit execution tool. It builds optimized routes from Salesforce records, pushes them to a mobile app for field reps, and records visits directly into Salesforce Events.
-**Starting price:** €30.00/user/month (billed annually)
+**Starting price:** €30.00/user/month (billed monthly)
 **Free trial:** Yes, 30-day trial in your Salesforce org
 **Free version:** No
 **Deployment:** Cloud, SaaS, Web-based, iOS, Android
@@ -49,7 +49,7 @@ No external sync. No CSV import. No duplicate systems. Tourvia respects your Sal
 
 Use cases: field sales, medical device sales, CPG/FMCG, pharma sales, field service, commercial distribution.
 
-**Price:** €30 per user per month, billed annually.
+**Price:** €30 per user per month, billed monthly.
 **Trial:** 30-day free trial in sandbox or production.
 **Category:** Sales > Field Sales
 **Key benefits:**
@@ -79,7 +79,7 @@ A few quick facts:
 - Managed package on Salesforce AppExchange (Security Review passed)
 - Route optimization from Accounts, Contacts, Leads, Opportunities, Campaign Members
 - Mobile app with check-in/check-out
-- Flat pricing: €30/user/month, billed annually
+- Flat pricing: €30/user/month, billed monthly
 - Free 30-day trial
 
 Would you consider adding Tourvia to your [Salesforce Maps alternatives / field sales tools / route planning software] page? I’m happy to provide a product demo, screenshots, or review access.
