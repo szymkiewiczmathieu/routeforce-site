@@ -246,12 +246,25 @@ window.location.replace('/docs/' + window.location.search + window.location.hash
           <span class="stop" aria-hidden="true"></span>
           <p class="mark">Latest release</p>
           <h2 id="release-title">What is new in TourviaApp 7.37.0</h2>
-          <p>Released 30 September 2026 on the Security-Review-approved lineage. Details for admins are in the <a href="setup-guide.html">setup guide</a> and the <a href="user-guide.html">user guide</a>. The prior 7.36.0 release notes remain preserved in the repository history.</p>
+          <p>Released 30 September 2026 on the Security-Review-approved lineage. Details for admins are in the <a href="setup-guide.html">setup guide</a> and the <a href="user-guide.html">user guide</a>.</p>
         </div>
         <ul>
-          <li><b>Current schedules:</b> changing route options invalidates the previous plan before Events are created, preventing stale appointment times.</li>
-          <li><b>Stable recalculation:</b> a slow response can no longer restore an obsolete route step.</li>
-          <li><b>Stronger access and data handling:</b> keyboard focus reaches step actions, Agentforce filters recency before limiting results, and optional marker type configuration can no longer hide the map.</li>
+          <li><b>Day planning:</b> Plan My Day is mobile-first, with working date, start point, available stops, departure time, visit duration, lunch window, and end-of-day controls before creating Salesforce Events.</li>
+          <li><b>Offline check-in:</b> check-in can queue while offline and synchronize automatically when connectivity returns, or manually with Sync now; Check out is not queued.</li>
+          <li><b>Next step configuration:</b> admins can expose a configurable Task or Event follow-up after a visit, with the block hidden when no next-step options are configured.</li>
+        </ul>
+      </div>
+      <div class="release" aria-labelledby="release-history-title">
+        <div class="sec-head">
+          <span class="stop" aria-hidden="true"></span>
+          <p class="mark">Release history</p>
+          <h2 id="release-history-title">TourviaApp 7.36.0</h2>
+          <p>Released 21 July 2026 on the Security-Review-approved lineage. These are the historical 7.36.0 release notes; the current package and guides above are 7.37.0.</p>
+        </div>
+        <ul>
+          <li><b>Reliable replanning:</b> changing route options clears the previous schedule before Events are created.</li>
+          <li><b>Stable recalculation:</b> slow recalculations no longer bring back an obsolete route step.</li>
+          <li><b>Keyboard access and data handling:</b> keyboard focus moves correctly to step actions, Agentforce recency filtering is applied before the result limit, and map markers remain visible when an optional marker type field is empty or invalid.</li>
         </ul>
       </div>
     </div>
