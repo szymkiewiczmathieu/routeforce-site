@@ -204,4 +204,55 @@
       });
     });
   });
+
+  /* ---------------------------------------------------------------
+     Demo plates at rest: the poster and a paper play cue.
+     A browser draws its control bar as a dark band across the poster;
+     here the native controls only appear once the reader starts the
+     video, and the plate returns to its poster when the video ends.
+     Without this script the videos keep their native controls.
+     --------------------------------------------------------------- */
+  var playWord = doc.documentElement.lang === 'fr' ? 'Lire' : 'Play';
+  var playSeparator = doc.documentElement.lang === 'fr' ? ' : ' : ': ';
+
+  videos.forEach(function (video) {
+    var plate = video.parentElement;
+    if (!video.hasAttribute('controls') || !plate || !plate.classList.contains('plate')) { return; }
+
+    var cue = doc.createElement('button');
+    var title = video.getAttribute('aria-label');
+    cue.type = 'button';
+    cue.className = 'video-cue';
+    cue.setAttribute('aria-label', title ? playWord + playSeparator + title : playWord);
+    cue.innerHTML = '<span class="video-cue-disc" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8.6 5.4v13.2L19.4 12z"/></svg></span>';
+    plate.appendChild(cue);
+    video.removeAttribute('controls');
+
+    cue.addEventListener('click', function () {
+      cue.hidden = true;
+      video.setAttribute('controls', '');
+      /* the cue had the focus: hand it to the video, in every browser, so the keyboard keeps its place */
+      video.setAttribute('tabindex', '0');
+      var started = video.play();
+      if (started && typeof started.catch === 'function') { started.catch(function () {}); }
+      video.focus();
+    });
+
+    video.addEventListener('ended', function () {
+      /* in full screen the reader still needs the controls to leave it */
+      if (doc.fullscreenElement || doc.webkitFullscreenElement || video.webkitDisplayingFullscreen) { return; }
+      var hadFocus = doc.activeElement === video;
+      /* the poster and the video do not share one ratio: keep the box the video gave the plate,
+         so nothing below it moves when the poster comes back (the poster then fills that box) */
+      if (video.videoWidth && video.videoHeight) {
+        video.style.aspectRatio = video.videoWidth + ' / ' + video.videoHeight;
+        video.style.objectFit = 'cover';
+      }
+      video.removeAttribute('controls');
+      video.removeAttribute('tabindex');
+      video.load();
+      cue.hidden = false;
+      if (hadFocus) { cue.focus(); }
+    });
+  });
 })();

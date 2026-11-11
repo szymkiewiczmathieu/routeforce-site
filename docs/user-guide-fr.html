@@ -52,11 +52,10 @@
 }
 </script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="stylesheet" href="/assets/css/site.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
-<script defer src="/assets/js/site.js"></script>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/besley-latin.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin/>
+<link rel="stylesheet" href="/assets/css/site.css?v=46e3e23"/>
+<script defer src="/assets/js/site.js?v=e034ceb"></script>
 </head>
 <body class="sheet sheet--guide">
 <a class="skip" href="#main">Aller au contenu</a>
@@ -426,7 +425,7 @@
 <p>Après optimisation, vous pouvez créer des événements pour <strong>toutes les étapes en une fois</strong> plutôt qu'un par un. La création en masse depuis le panneau Tournée utilise un Apex direct (<code>RouteService.createRouteEvents</code>) pour la performance. C'est le moyen le plus rapide de remplir votre calendrier de la journée.</p>
 <h3>Détection de chevauchement de calendrier</h3>
 <p>Tourvia vérifie votre calendrier Salesforce existant avant de créer les événements. Si un nouvel événement chevauche un existant, vous verrez un <strong>avertissement</strong> pour ajuster la temporalité ou sauter cette étape.</p>
-<img alt="Événements et agenda" decoding="async" height="453" loading="lazy" src="../assets/screenshots-2026/events-agenda.png" width="911"/>
+<img alt="Événements et agenda" decoding="async" height="245" loading="lazy" src="../assets/screenshots-2026/schedule-conflicts-dialog.png" width="750"/>
 <hr/>
 
 <h2 id="agenda">10. Agenda du jour (panneau Événements)</h2>

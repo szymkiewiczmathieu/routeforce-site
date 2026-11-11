@@ -64,12 +64,12 @@
 <meta name="twitter:description" content="Sélectionnez vos enregistrements en masse sur une carte, créez chaque visite en événement Salesforce horodaté d’un clic, puis pointez et rendez compte depuis l’application Salesforce Mobile."/>
 <meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt"/>
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/besley-latin.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/besley-italic-latin.woff2" crossorigin/>
 <link rel="preload" as="image" href="/assets/screenshots-user/routeforce-salesforce-map-ui.jpg" fetchpriority="high"/>
-<link rel="stylesheet" href="/assets/css/home.css?v=cd841a7"/>
-<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
-<script defer src="/assets/js/home.js"></script>
+<link rel="stylesheet" href="/assets/css/home.css?v=f9efefd"/>
+<script defer src="/assets/js/home.js?v=fbbde45"></script>
 </head>
 <body>
 
@@ -97,7 +97,7 @@
 </svg>
 
 <!-- ===== HEADER ===== -->
-<header class="site-head">
+<header class="site-head site-head--fr">
   <div class="wrap">
     <a href="/fr/" class="brand"><img src="/assets/logo-site-brand.png" alt="" width="32" height="32"/><b>Tourvia</b><small>anciennement RouteForce</small></a>
     <nav class="nav-main" aria-label="Principale">
@@ -145,6 +145,29 @@
           <a class="btn btn-primary" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Disponible sur AppExchange</a>
           <a class="btn btn-secondary" href="#day-in-the-field">Suivre une journée terrain</a>
         </div>
+      </div>
+
+      <div class="hero-plate">
+        <figure class="hero-fig">
+          <div class="plate">
+            <div class="plate-inner">
+              <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-user/routeforce-salesforce-map-ui.jpg" data-lightbox-alt="Espace de travail des tournées Tourvia dans Salesforce Lightning : panneau de filtres, carte de New York avec quinze arrêts numérotés, et le panneau « Plan a route » affichant 17,4 km, 44 min et un bouton « Create 15 visits in calendar »" aria-label="Agrandir la capture de l’espace de travail des tournées">
+                <img src="/assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Espace de travail des tournées Tourvia dans Salesforce Lightning : panneau de filtres, carte de New York avec quinze arrêts numérotés, et le panneau « Plan a route » affichant 17,4 km, 44 min et un bouton « Create 15 visits in calendar »" width="1280" height="644" fetchpriority="high" decoding="async"/>
+              </button>
+              <span class="mk mk-1" aria-hidden="true">1</span>
+              <span class="mk mk-2" aria-hidden="true">2</span>
+              <span class="mk mk-3" aria-hidden="true">3</span>
+            </div>
+          </div>
+          <figcaption>
+            <ol class="fig-notes">
+              <li><b>1</b><span>Quinze enregistrements Salesforce choisis sur la carte, devenus quinze arrêts numérotés.</span></li>
+              <li><b>2</b><span><span class="num">17,4 km et 44 min</span> de route pour la journée entière, ordonnée par le moteur de calcul d’itinéraires Tourvia.</span></li>
+              <li><b>3</b><span>Un clic crée les 15 visites dans le calendrier Salesforce. Le transfert vers Google Maps et l’export CSV sont juste à côté.</span></li>
+            </ol>
+            <p class="fig-cap"><i>Fig. 1</i>Espace de travail des tournées Tourvia dans Salesforce Lightning, enregistrements d’exemple. Sélectionnez l’image pour l’agrandir.</p>
+          </figcaption>
+        </figure>
         <ul class="proof" aria-label="Éléments de preuve">
           <li><a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba"><span class="num">5,0 sur 5</span> sur l’AppExchange</a> — deux avis publics, vérifié le 16 septembre 2026</li>
           <li><a href="/blog/tourvia-private-appexchange-security-review.html">Security Review Salesforce réussie</a>, 22 mai 2026</li>
@@ -152,27 +175,6 @@
           <li class="proof-note">TourviaApp 7.36.0. Salesforce ne soutient ni ne recommande Tourvia.</li>
         </ul>
       </div>
-
-      <figure class="hero-plate hero-fig">
-        <div class="plate">
-          <div class="plate-inner">
-            <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="/assets/screenshots-user/routeforce-salesforce-map-ui.jpg" data-lightbox-alt="Espace de travail des tournées Tourvia dans Salesforce Lightning : panneau de filtres, carte de New York avec quinze arrêts numérotés, et le panneau « Plan a route » affichant 17,4 km, 44 min et un bouton « Create 15 visits in calendar »" aria-label="Agrandir la capture de l’espace de travail des tournées">
-              <img src="/assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Espace de travail des tournées Tourvia dans Salesforce Lightning : panneau de filtres, carte de New York avec quinze arrêts numérotés, et le panneau « Plan a route » affichant 17,4 km, 44 min et un bouton « Create 15 visits in calendar »" width="1280" height="644" fetchpriority="high" decoding="async"/>
-            </button>
-            <span class="mk mk-1" aria-hidden="true">1</span>
-            <span class="mk mk-2" aria-hidden="true">2</span>
-            <span class="mk mk-3" aria-hidden="true">3</span>
-          </div>
-        </div>
-        <figcaption>
-          <ol class="fig-notes">
-            <li><b>1</b><span>Quinze enregistrements Salesforce choisis sur la carte, devenus quinze arrêts numérotés.</span></li>
-            <li><b>2</b><span><span class="num">17,4 km et 44 min</span> de route pour la journée entière, ordonnée par le moteur de calcul d’itinéraires Tourvia.</span></li>
-            <li><b>3</b><span>Un clic crée les 15 visites dans le calendrier Salesforce. Le transfert vers Google Maps et l’export CSV sont juste à côté.</span></li>
-          </ol>
-          <p class="fig-cap"><i>Fig. 1</i>Espace de travail des tournées Tourvia dans Salesforce Lightning, enregistrements d’exemple. Sélectionnez l’image pour l’agrandir.</p>
-        </figcaption>
-      </figure>
     </div>
   </section>
 
@@ -237,7 +239,7 @@
             <figcaption class="fig-cap"><i>Fig. 4</i>L’agenda du jour une fois les événements créés.</figcaption>
           </figure>
           <figure class="plate inset">
-            <img src="/assets/screenshots-2026/events-agenda.png" alt="Boîte de dialogue « Schedule Conflicts » listant quatre visites avec leurs horaires et une question « Create the visits anyway? » avec les boutons « Cancel » et « Submit »" width="911" height="453" loading="lazy" decoding="async"/>
+            <img src="/assets/screenshots-2026/schedule-conflicts-dialog.png" alt="Boîte de dialogue « Schedule Conflicts » listant quatre visites avec leurs horaires et une question « Create the visits anyway? » avec les boutons « Cancel » et « Submit »" width="750" height="245" loading="lazy" decoding="async"/>
             <figcaption class="fig-cap"><i>Fig. 5</i>Le contrôle des conflits avant la création.</figcaption>
           </figure>
         </div>

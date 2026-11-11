@@ -64,12 +64,12 @@
 <meta name="twitter:description" content="Select records in bulk on a map, create every visit as a timed Salesforce Event in one click, then check in and report from the Salesforce Mobile App."/>
 <meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt"/>
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/besley-latin.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/archivo-latin.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="assets/fonts/besley-italic-latin.woff2" crossorigin/>
 <link rel="preload" as="image" href="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" fetchpriority="high"/>
-<link rel="stylesheet" href="assets/css/home.css?v=cd841a7"/>
-<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
-<script defer src="assets/js/home.js"></script>
+<link rel="stylesheet" href="assets/css/home.css?v=f9efefd"/>
+<script defer src="assets/js/home.js?v=fbbde45"></script>
 </head>
 <body>
 
@@ -145,6 +145,29 @@
           <a class="btn btn-primary" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Get it on AppExchange</a>
           <a class="btn btn-secondary" href="#day-in-the-field">Follow a field day</a>
         </div>
+      </div>
+
+      <div class="hero-plate">
+        <figure class="hero-fig">
+          <div class="plate">
+            <div class="plate-inner">
+              <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" data-lightbox-alt="Tourvia route workspace inside Salesforce Lightning: filters panel, map of New York with fifteen numbered stops, and the Plan a route panel showing 17.4 km, 44 min and a Create 15 visits in calendar button" aria-label="Enlarge the route workspace screenshot">
+                <img src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Tourvia route workspace inside Salesforce Lightning: filters panel, map of New York with fifteen numbered stops, and the Plan a route panel showing 17.4 km, 44 min and a Create 15 visits in calendar button" width="1280" height="644" fetchpriority="high" decoding="async"/>
+              </button>
+              <span class="mk mk-1" aria-hidden="true">1</span>
+              <span class="mk mk-2" aria-hidden="true">2</span>
+              <span class="mk mk-3" aria-hidden="true">3</span>
+            </div>
+          </div>
+          <figcaption>
+            <ol class="fig-notes">
+              <li><b>1</b><span>Fifteen Salesforce records picked on the map, now fifteen numbered stops.</span></li>
+              <li><b>2</b><span><span class="num">17.4 km and 44 min</span> of driving for the whole day, sequenced by the Tourvia routing engine.</span></li>
+              <li><b>3</b><span>One click creates the 15 visits in the Salesforce calendar. Google Maps handoff and CSV export sit beside it.</span></li>
+            </ol>
+            <p class="fig-cap"><i>Fig. 1</i>Tourvia route workspace in Salesforce Lightning, sample records. Select the image to enlarge it.</p>
+          </figcaption>
+        </figure>
         <ul class="proof" aria-label="Proof points">
           <li><a href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba"><span class="num">5.0 out of 5</span> on the AppExchange</a> — two public reviews, verified 16 September 2026</li>
           <li><a href="blog/tourvia-private-appexchange-security-review.html">Salesforce Security Review passed</a>, 22 May 2026</li>
@@ -152,27 +175,6 @@
           <li class="proof-note">TourviaApp 7.36.0. Salesforce does not endorse or recommend Tourvia.</li>
         </ul>
       </div>
-
-      <figure class="hero-plate hero-fig">
-        <div class="plate">
-          <div class="plate-inner">
-            <button type="button" class="plate-btn js-open-lightbox-direct" data-lightbox-src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" data-lightbox-alt="Tourvia route workspace inside Salesforce Lightning: filters panel, map of New York with fifteen numbered stops, and the Plan a route panel showing 17.4 km, 44 min and a Create 15 visits in calendar button" aria-label="Enlarge the route workspace screenshot">
-              <img src="assets/screenshots-user/routeforce-salesforce-map-ui.jpg" alt="Tourvia route workspace inside Salesforce Lightning: filters panel, map of New York with fifteen numbered stops, and the Plan a route panel showing 17.4 km, 44 min and a Create 15 visits in calendar button" width="1280" height="644" fetchpriority="high" decoding="async"/>
-            </button>
-            <span class="mk mk-1" aria-hidden="true">1</span>
-            <span class="mk mk-2" aria-hidden="true">2</span>
-            <span class="mk mk-3" aria-hidden="true">3</span>
-          </div>
-        </div>
-        <figcaption>
-          <ol class="fig-notes">
-            <li><b>1</b><span>Fifteen Salesforce records picked on the map, now fifteen numbered stops.</span></li>
-            <li><b>2</b><span><span class="num">17.4 km and 44 min</span> of driving for the whole day, sequenced by the Tourvia routing engine.</span></li>
-            <li><b>3</b><span>One click creates the 15 visits in the Salesforce calendar. Google Maps handoff and CSV export sit beside it.</span></li>
-          </ol>
-          <p class="fig-cap"><i>Fig. 1</i>Tourvia route workspace in Salesforce Lightning, sample records. Select the image to enlarge it.</p>
-        </figcaption>
-      </figure>
     </div>
   </section>
 
@@ -237,7 +239,7 @@
             <figcaption class="fig-cap"><i>Fig. 4</i>Today’s agenda once the Events exist.</figcaption>
           </figure>
           <figure class="plate inset">
-            <img src="assets/screenshots-2026/events-agenda.png" alt="Schedule Conflicts dialog listing four visits with their times and a Create the visits anyway? prompt with Cancel and Submit buttons" width="911" height="453" loading="lazy" decoding="async"/>
+            <img src="assets/screenshots-2026/schedule-conflicts-dialog.png" alt="Schedule Conflicts dialog listing four visits with their times and a Create the visits anyway? prompt with Cancel and Submit buttons" width="750" height="245" loading="lazy" decoding="async"/>
             <figcaption class="fig-cap"><i>Fig. 5</i>The conflict check before creation.</figcaption>
           </figure>
         </div>

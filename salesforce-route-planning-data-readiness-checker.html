@@ -23,12 +23,11 @@
 <meta name="twitter:description" content="Inspect a Salesforce CSV locally for address fields and usable coordinates before route planning. Nothing is uploaded.">
 <meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-user/routeforce-salesforce-map-ui.jpg">
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt"/>
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="stylesheet" href="/assets/css/site.css"/>
-<link rel="stylesheet" href="/assets/css/data-readiness-checker.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
-<script defer src="/assets/js/site.js"></script>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/besley-latin.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin/>
+<link rel="stylesheet" href="/assets/css/site.css?v=46e3e23"/>
+<link rel="stylesheet" href="/assets/css/data-readiness-checker.css?v=894d76e"/>
+<script defer src="/assets/js/site.js?v=e034ceb"></script>
 <script defer src="/assets/js/data-readiness-checker.js"></script>
 </head>
 <body class="sheet sheet--core readiness-tool">
@@ -223,7 +222,7 @@
     </div>
   </section>
 
-  <section class="sec night" aria-labelledby="next-title">
+  <section class="sec ticks band-2 next-check" aria-labelledby="next-title">
     <div class="wrap">
       <div>
         <div class="sec-head">
@@ -237,7 +236,7 @@
         <h3>Continue the evaluation</h3>
         <p>Review the route-planning guide, then use the trial to test the workflow in the target org.</p>
         <div class="btn-row">
-          <a class="btn btn-paper" href="/salesforce-route-planning.html">See Salesforce route planning</a>
+          <a class="btn btn-secondary" href="/salesforce-route-planning.html">See Salesforce route planning</a>
           <a class="textlink" href="/field-sales-visit-capacity-calculator.html">Model field-sales visit capacity</a>
           <a class="textlink" href="https://appexchange.salesforce.com/appxListingDetail?listingId=0b5cf9f9-e7d9-40c1-a513-2a5847a813ba">Get it on AppExchange</a>
         </div>

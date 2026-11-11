@@ -21,11 +21,10 @@
 <meta name="twitter:description" content="Politique de confidentialité Tourvia et informations de traitement des données."/>
 <meta name="twitter:image" content="https://gettourvia.com/assets/screenshots-2026/screen-01.jpg"/>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt"/>
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="stylesheet" href="/assets/css/site.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
-<script defer src="/assets/js/site.js"></script>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/besley-latin.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin/>
+<link rel="stylesheet" href="/assets/css/site.css?v=46e3e23"/>
+<script defer src="/assets/js/site.js?v=e034ceb"></script>
 </head>
 <body class="sheet sheet--legal">
 <a class="skip" href="#main">Aller au contenu</a>
@@ -155,7 +154,7 @@
 </table></div>
 <h2 id="5-cookies-et-traceurs">5. Cookies et traceurs</h2>
 <p>Le site utilise <strong>Plausible Analytics</strong>, auto-hébergé sur l’infrastructure opérée par SKZ Consulting pour Tourvia, pour la mesure d’audience.</p>
-<p>Le site charge également <strong>Google Fonts</strong> (fonts.googleapis.com) pour l'affichage des polices de caractères. Ce chargement peut entraîner la transmission de votre adresse IP à Google.</p>
+<p>Les polices de caractères (<strong>Besley</strong>, <strong>Archivo</strong>) sont hébergées sur le site lui-même : leur affichage n'entraîne aucune transmission de votre adresse IP à un tiers.</p>
 <p><strong>Calendly</strong> est utilisé comme outil de prise de rendez-vous (lien externe). Lorsque vous accédez à Calendly, les données collectées (nom, email, créneau) sont régies par la politique de confidentialité de Calendly.</p>
 <p>Aucun traceur publicitaire n'est chargé sur le site. Si SKZ Consulting active ultérieurement un traceur soumis à consentement, celui-ci restera désactivé jusqu'au choix explicite de l'utilisateur et pourra être refusé ou retiré à tout moment.</p>
 <h2 id="6-h-bergement-et-sous-traitants">6. Hébergement et sous-traitants</h2>
@@ -167,7 +166,6 @@
 <tbody>
 <tr><td>Cloudflare Workers</td><td>Hébergement et diffusion du site vitrine</td><td>Réseau mondial (Cloudflare, Inc., USA)</td></tr>
 <tr><td>OVHcloud SAS</td><td>Hébergement du service de routing et de Plausible Analytics (Gravelines, France)</td><td>France</td></tr>
-<tr><td>Google Fonts</td><td>Fourniture des polices web</td><td>USA/UE</td></tr>
 <tr><td>Formspree</td><td>Traitement des demandes envoyées via le formulaire de contact</td><td>USA</td></tr>
 <tr><td>Calendly</td><td>Prise de rendez-vous</td><td>USA</td></tr>
 <tr><td>Brevo (ex-Sendinblue)</td><td>Emails transactionnels (SMTP)</td><td>France/UE</td></tr>
@@ -187,7 +185,7 @@
 <p>Les données sont accessibles, selon le besoin, au responsable du traitement et aux prestataires techniques intervenant pour l'hébergement, l'exploitation, la maintenance ou la sécurité du service. Elles ne sont pas vendues ni cédées à des tiers à des fins commerciales.</p>
 <h2 id="9-transferts-hors-union-europ-enne">9. Transferts hors Union européenne</h2>
 <p>Les données de calcul d'itinéraires (coordonnées GPS) ainsi que les données de mesure d'audience issues de Plausible Analytics sont traitées exclusivement en France (OVHcloud, Gravelines).</p>
-<p>Le site vitrine est hébergé et diffusé par Cloudflare Workers sur le réseau mondial de Cloudflare, Inc. L'utilisation de Cloudflare Workers, Google Fonts, Formspree, Calendly, Tailscale et Stripe peut impliquer des traitements techniques hors Union européenne. Ces transferts éventuels sont encadrés par les mécanismes contractuels applicables de ces prestataires.</p>
+<p>Le site vitrine est hébergé et diffusé par Cloudflare Workers sur le réseau mondial de Cloudflare, Inc. L'utilisation de Cloudflare Workers, Formspree, Calendly, Tailscale et Stripe peut impliquer des traitements techniques hors Union européenne. Ces transferts éventuels sont encadrés par les mécanismes contractuels applicables de ces prestataires.</p>
 <p>Les sauvegardes de la base d'administration sont stockées sur GitHub de manière chiffrée (GPG). GitHub n'a pas accès aux données en clair.</p>
 <h2 id="10-s-curit">10. Sécurité</h2>
 <p>SKZ Consulting met en œuvre des mesures techniques et organisationnelles adaptées, notamment :</p>

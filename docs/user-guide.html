@@ -52,11 +52,10 @@
 }
 </script>
 <link rel="alternate" type="text/plain" title="LLMs.txt" href="/llms.txt">
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link rel="stylesheet" href="/assets/css/site.css"/>
-<link href="https://fonts.googleapis.com/css2?family=Besley:ital,wght@0,600;0,700;0,800;1,600&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet"/>
-<script defer src="/assets/js/site.js"></script>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/besley-latin.woff2" crossorigin/>
+<link rel="preload" as="font" type="font/woff2" href="/assets/fonts/archivo-latin.woff2" crossorigin/>
+<link rel="stylesheet" href="/assets/css/site.css?v=46e3e23"/>
+<script defer src="/assets/js/site.js?v=e034ceb"></script>
 </head>
 <body class="sheet sheet--guide">
 <a class="skip" href="#main">Skip to content</a>
@@ -427,7 +426,7 @@
 <p>After optimization, you can create events for <strong>all stops at once</strong> rather than one by one. Bulk event creation from the route panel uses direct Apex (<code>RouteService.createRouteEvents</code>) for performance. This is the fastest way to populate your calendar for the day.</p>
 <h3>Calendar overlap detection</h3>
 <p>Tourvia checks your existing Salesforce calendar before creating events. If a new event would overlap with an existing one, you will see a <strong>warning</strong> so you can adjust the timing or skip that stop.</p>
-<img alt="Events and agenda" decoding="async" height="453" loading="lazy" src="../assets/screenshots-2026/events-agenda.png" width="911"/>
+<img alt="Events and agenda" decoding="async" height="245" loading="lazy" src="../assets/screenshots-2026/schedule-conflicts-dialog.png" width="750"/>
 <hr/>
 
 <h2 id="agenda">10. Today's Agenda (Events Panel)</h2>

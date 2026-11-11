@@ -17,6 +17,14 @@
    Self-contained: no Tailwind, no icon font, works without JavaScript.
    ========================================================================== */
 
+/* ---------- fonts: self-hosted variable files (SIL Open Font License 1.1), no third-party request ---------- */
+@font-face { font-family: "Besley"; font-style: normal; font-weight: 600 800; font-display: swap; src: url("../fonts/besley-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Besley"; font-style: normal; font-weight: 600 800; font-display: swap; src: url("../fonts/besley-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Besley"; font-style: italic; font-weight: 600; font-display: swap; src: url("../fonts/besley-italic-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Besley"; font-style: italic; font-weight: 600; font-display: swap; src: url("../fonts/besley-italic-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 600; font-stretch: 100%; font-display: swap; src: url("../fonts/archivo-latin.woff2") format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Archivo"; font-style: normal; font-weight: 400 600; font-stretch: 100%; font-display: swap; src: url("../fonts/archivo-latin-ext.woff2") format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C4, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+
 :root {
   --paper: #f4f1ea;
   --paper-2: #ece7dc;
@@ -81,11 +89,16 @@ hr { border: 0; border-top: 1px solid var(--rule); margin: 32px 0; }
 .night :focus-visible { outline-color: var(--night-route); }
 main:focus { outline: none; }
 
+/* The skip link is a paper tab with an ink rule and a route ring, never a black chip. */
 .skip {
   position: absolute; left: -9999px; top: 8px; z-index: 200;
-  background: var(--ink); color: var(--paper); padding: 12px 16px; min-height: 44px;
+  display: inline-flex; align-items: center; gap: 10px;
+  background: var(--paper-0); color: var(--ink); border: 1.5px solid var(--ink);
+  padding: 10px 16px; min-height: 44px;
   font-weight: 600; font-size: 14px; text-decoration: none;
+  box-shadow: 0 10px 22px -12px rgba(28, 27, 24, 0.5);
 }
+.skip::before { content: ""; width: 10px; height: 10px; border-radius: 50%; border: 2.5px solid var(--route-line); flex: none; }
 .skip:focus { left: 8px; }
 .visually-hidden {
   position: absolute !important; width: 1px; height: 1px; overflow: hidden;
@@ -100,13 +113,13 @@ main:focus { outline: none; }
 }
 
 /* ---------- typography ---------- */
-h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; color: inherit; overflow-wrap: anywhere; }
+h1, h2, h3, h4 { font-family: var(--font-display); margin: 0; color: inherit; overflow-wrap: anywhere; text-wrap: balance; }
 h1 { font-weight: 800; font-size: clamp(2.1rem, 3.5vw, 3.1rem); line-height: 1.05; letter-spacing: -0.015em; }
 h1 em { font-style: italic; font-weight: 600; color: var(--ink-2); }
 h2 { font-weight: 700; font-size: clamp(1.6rem, 2.6vw, 2.25rem); line-height: 1.1; letter-spacing: -0.01em; }
 h3 { font-weight: 700; font-size: clamp(1.2rem, 1.6vw, 1.45rem); line-height: 1.24; }
 h4 { font-weight: 700; font-size: 1.05rem; line-height: 1.3; }
-.lead { font-size: clamp(1.02rem, 1.3vw, 1.18rem); line-height: 1.58; color: var(--ink-2); max-width: 52ch; }
+.lead { font-size: clamp(1.02rem, 1.3vw, 1.18rem); line-height: 1.58; color: var(--ink-2); max-width: 52ch; text-wrap: pretty; }
 .mark {
   display: flex; align-items: center; flex-wrap: wrap; gap: 6px 12px;
   font: 600 12px/1.3 var(--font-text); letter-spacing: 0.14em; text-transform: uppercase;
@@ -119,7 +132,7 @@ h4 { font-weight: 700; font-size: 1.05rem; line-height: 1.3; }
 .fig-cap i { font: italic 600 14px/1 var(--font-display); color: var(--ink-2); margin-right: 6px; }
 .num { font-variant-numeric: tabular-nums; }
 .sec-head { position: relative; max-width: 760px; margin-bottom: 40px; }
-.sec-head p { color: var(--ink-2); font-size: 17px; max-width: 58ch; margin: 14px 0 0; }
+.sec-head p { color: var(--ink-2); font-size: 17px; max-width: 58ch; margin: 14px 0 0; text-wrap: pretty; }
 .sec-head p a { color: var(--ink); }
 .sec-head > .stop, .sec-head > div > .stop { top: 2px; }
 .fine { font-size: 13.5px; color: var(--ink-3); }
@@ -140,12 +153,13 @@ h4 { font-weight: 700; font-size: 1.05rem; line-height: 1.3; }
 .btn-primary { background: var(--route); color: #fff; border-color: var(--route); }
 .btn-primary::before { content: ""; width: 10px; height: 10px; border-radius: 50%; border: 2.5px solid #fff; flex: none; }
 .btn-primary:hover { background: var(--route-deep); border-color: var(--route-deep); color: #fff; }
-.btn-secondary { background: transparent; color: var(--ink); border-color: var(--rule-strong); }
-.btn-secondary:hover { border-color: var(--ink); color: var(--ink); }
+.btn-secondary { background: transparent; color: var(--ink); border-color: var(--ink-3); }
+.btn-secondary:hover { border-color: var(--ink); color: var(--ink); background: rgba(28, 27, 24, 0.05); }
 .btn-paper { background: var(--paper); color: var(--ink); border-color: var(--paper); }
 .btn-paper::before { content: ""; width: 10px; height: 10px; border-radius: 50%; border: 2.5px solid var(--route-line); flex: none; }
 .btn-paper:hover { background: #fff; border-color: #fff; color: var(--ink); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px 14px; align-items: center; }
+.btn-row + .fine { margin-top: 14px; }
 .textlink { font-weight: 600; color: var(--ink); text-decoration-color: var(--route-line); text-decoration-thickness: 2px; }
 .textlink:hover { color: var(--route); }
 
@@ -164,7 +178,7 @@ h4 { font-weight: 700; font-size: 1.05rem; line-height: 1.3; }
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); min-height: 44px; }
 .brand img { width: 32px; height: 32px; border-radius: 6px; display: block; }
 .brand b { font: 700 19px/1 var(--font-display); letter-spacing: -0.01em; }
-.brand small { font: 400 12px/1 var(--font-text); color: var(--ink-3); margin-left: 2px; }
+.brand small { font: 400 12px/1 var(--font-text); color: var(--ink-3); margin-left: 2px; white-space: nowrap; }
 .nav-main { display: flex; align-items: center; gap: 4px 18px; margin-left: 20px; }
 .nav-a {
   display: inline-flex; align-items: center; min-height: 44px; padding: 0 2px;
@@ -209,6 +223,8 @@ html.js .nav-mobile:not(.is-open) { display: none; }
   .site-head .wrap { padding-left: 4px; }
 }
 @media (min-width: 1024px) and (max-width: 1399px) { .head-link { display: none; } }
+/* French labels run longer: the French header keeps one call to action so nothing leaves the sheet. */
+.site-head--fr .head-link { display: none; }
 @media (min-width: 1024px) and (max-width: 1239px) {
   .brand small { display: none; }
   .nav-main { gap: 4px 14px; margin-left: 14px; }
@@ -264,6 +280,8 @@ html.js .stop-num:not(.is-passed) { color: var(--route); }
 .night .stop-num { color: var(--night); }
 html.js .night .stop:not(.is-passed) { background: var(--night); }
 html.js .night .stop-num:not(.is-passed) { color: var(--night-route); }
+/* a stop placed in a reading column is measured from the sheet, so it still lands on the route line */
+.prose > .stop { left: calc(var(--rail-x) - var(--stop-r)); margin-top: 0.5rem; }
 .stop-hollow { background: var(--paper) !important; }
 .stop-end { background: var(--paper) !important; border-style: dashed; }
 
@@ -299,9 +317,12 @@ html.js .night .stop-num:not(.is-passed) { color: var(--night-route); }
 .mast-copy .mark { margin-bottom: 18px; }
 .mast-copy h1 { margin-bottom: 18px; max-width: 24ch; }
 .mast--single .mast-copy h1 { max-width: 30ch; }
+/* long, search-led titles step down a size so the headline stays a headline, not a wall */
+.mast-copy h1.h1-long { font-size: clamp(1.9rem, 3vw, 2.65rem); line-height: 1.07; }
 .mast-copy .lead { margin-bottom: 24px; }
 .mast-copy .lead + .lead-more { margin-top: -10px; font-size: 1.02rem; }
 .mast-copy .btn-row { margin-bottom: 8px; }
+.mast-copy .btn-row + .facts-strip { margin-top: 20px; }
 .mast-side { padding-top: 26px; min-width: 0; }
 .mast-side > figure { margin: 0; }
 .mast-side .fig-cap { margin-top: 10px; }
@@ -350,9 +371,44 @@ html.js .night .stop-num:not(.is-passed) { color: var(--night-route); }
 .docket ul li { padding: 8px 0; border-top: 1px solid var(--rule); font-size: 14.5px; line-height: 1.45; color: var(--ink-2); }
 .docket ul li:first-child { border-top: 0; }
 .docket ul li a { color: var(--ink); font-weight: 600; }
+.docket .docket-list { margin-top: 14px; border-top: 1px solid var(--rule); }
+.docket .docket-list li:first-child { border-top: 0; }
+.docket .docket-list b { color: var(--ink); font-weight: 600; }
 .docket .btn { width: 100%; margin-top: 14px; }
 .docket-foot { margin: 12px 0 0; padding-top: 10px; border-top: 2px solid var(--ink); font: 600 13px/1.45 var(--font-text); color: var(--ink); }
 @media (max-width: 719px) { .docket dl div { grid-template-columns: 1fr; gap: 2px; } }
+
+/* ---------- planning note: the field note that opens each free tool ----------
+   Drawn like a docket, on paper with corner ticks; the tools never use a dark card. */
+.tools-ledger, .capacity-ledger, .readiness-ledger {
+  position: relative; background: var(--paper-0); color: var(--ink);
+  border: 1.5px solid var(--ink); padding: 22px 24px 22px;
+}
+.tools-ledger::before, .tools-ledger::after,
+.capacity-ledger::before, .capacity-ledger::after,
+.readiness-ledger::before, .readiness-ledger::after {
+  content: ""; position: absolute; width: 14px; height: 14px; pointer-events: none;
+  border-color: var(--route-line); border-style: solid; border-width: 0;
+}
+.tools-ledger::before, .capacity-ledger::before, .readiness-ledger::before { left: -1.5px; top: -1.5px; border-left-width: 3px; border-top-width: 3px; }
+.tools-ledger::after, .capacity-ledger::after, .readiness-ledger::after { right: -1.5px; bottom: -1.5px; border-right-width: 3px; border-bottom-width: 3px; }
+.ledger-tag { display: block; margin-bottom: 10px; font: 600 11.5px/1.3 var(--font-text); letter-spacing: 0.14em; text-transform: uppercase; color: var(--route); }
+.tools-ledger h2, .capacity-ledger h2, .readiness-ledger h2 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.16; max-width: 19ch; margin-bottom: 10px; }
+.tools-ledger p, .capacity-ledger p, .readiness-ledger p { margin: 0; max-width: 42ch; font-size: 14.5px; line-height: 1.55; color: var(--ink-2); }
+.capacity-ledger ol, .readiness-ledger ol {
+  list-style: none; margin: 18px 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 2px solid var(--ink);
+}
+.capacity-ledger li, .readiness-ledger li { min-width: 0; padding: 12px 10px 0 0; font-size: 13px; line-height: 1.35; color: var(--ink-2); }
+.capacity-ledger li + li, .readiness-ledger li + li { padding-left: 12px; border-left: 1px solid var(--rule); }
+.capacity-ledger li b, .readiness-ledger li b { display: block; margin-bottom: 5px; font: 700 18px/1 var(--font-display); color: var(--route); font-variant-numeric: tabular-nums; }
+@media (max-width: 479px) {
+  .capacity-ledger ol, .readiness-ledger ol { grid-template-columns: minmax(0, 1fr); }
+  .capacity-ledger li, .readiness-ledger li { display: flex; align-items: baseline; gap: 12px; padding: 10px 0; }
+  .capacity-ledger li + li, .readiness-ledger li + li { padding-left: 0; border-left: 0; border-top: 1px solid var(--rule); }
+  .capacity-ledger li b, .readiness-ledger li b { margin-bottom: 0; }
+}
 
 /* ---------- ruled lists (the survey list) ---------- */
 .ruled { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); counter-reset: ruled; }
@@ -385,7 +441,7 @@ html.js .night .stop-num:not(.is-passed) { color: var(--night-route); }
 
 /* the legend list (feature dl) */
 .legend-list { margin: 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 40px; border-top: 2px solid var(--ink); }
-.legend-item { display: grid; grid-template-columns: 30px 1fr; column-gap: 14px; padding: 18px 0; border-bottom: 1px solid var(--rule); }
+.legend-item { display: grid; grid-template-columns: 30px 1fr; column-gap: 14px; align-content: start; padding: 18px 0; border-bottom: 1px solid var(--rule); }
 .legend-item svg { grid-row: 1 / span 2; width: 26px; height: 26px; color: var(--route); margin-top: 2px; }
 .legend-item dt { font: 700 17px/1.25 var(--font-display); }
 .legend-item dd { grid-column: 2; margin: 5px 0 0; font-size: 14.5px; line-height: 1.5; color: var(--ink-2); }
@@ -411,13 +467,50 @@ html.js .night .stop-num:not(.is-passed) { color: var(--night-route); }
   box-shadow: 0 1px 0 rgba(28, 27, 24, 0.05), 0 30px 50px -36px rgba(28, 27, 24, 0.55);
 }
 .plate img, .plate video { display: block; width: 100%; height: auto; }
+/* The route-workspace capture starts with the 5 px navy band that tops every Salesforce page and ends with
+   blank rows that carry the black wedge of a rounded screen corner. On paper they read as a dark rule and a
+   dark corner on the plate, so the plate (and the enlarged view) shows the file without its first and last
+   8 rows (1280 x 628 of 1280 x 644): only that band and blank margin go, no part of the interface. */
+img[src$="routeforce-salesforce-map-ui.jpg"] { aspect-ratio: 1280 / 628; object-fit: cover; object-position: 50% 50%; }
 .plate-btn { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; text-align: left; font: inherit; color: inherit; }
+.plate:has(.plate-btn:hover) { border-color: var(--ink); }
+/* Demo videos at rest (site.js): the poster and a paper play cue. The cue covers the poster, so the whole
+   plate starts the video; the browser's own control bar, a dark band across the poster in most browsers,
+   only shows once the reader has started the video. Without JavaScript the native controls stay. */
+.video-cue {
+  position: absolute; inset: 6px; z-index: 2; container-type: inline-size;
+  display: flex; align-items: flex-end; justify-content: flex-start;
+  margin: 0; padding: clamp(8px, 3%, 26px); border: 0; border-radius: 0;
+  background: transparent; color: var(--ink); cursor: pointer; font: inherit;
+}
+.video-cue[hidden] { display: none; }
+.video-cue-disc {
+  display: grid; place-items: center; flex: none;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--paper-0); border: 1.5px solid var(--ink);
+  box-shadow: 0 0 0 3px rgba(251, 250, 247, 0.92), 0 10px 20px -8px rgba(28, 27, 24, 0.5);
+  transition: background-color 0.18s ease, border-color 0.18s ease;
+}
+@supports (width: 1cqw) {
+  .video-cue-disc { width: clamp(40px, 9cqw, 64px); height: clamp(40px, 9cqw, 64px); }
+}
+.video-cue-disc svg { display: block; width: 46%; height: 46%; margin-left: 5%; fill: var(--route); }
+.video-cue:hover .video-cue-disc { background: #fff; border-color: var(--route); }
+.plate:has(.video-cue:hover) { border-color: var(--ink); }
 figure { margin: 0; }
+figure > figcaption { margin-top: 10px; }
 figure.plate-fig { margin: 28px 0; }
-figure.plate-fig figcaption { margin-top: 10px; }
 
 /* ---------- tables ---------- */
 .tbl { overflow-x: auto; margin: 26px 0; -webkit-overflow-scrolling: touch; scrollbar-width: thin; scrollbar-color: var(--rule-strong) transparent; }
+/* a table wider than its column scrolls sideways: site.js marks which edges still hide content */
+.tbl[data-more~="right"] { background: linear-gradient(to left, rgba(28, 27, 24, 0.15), transparent) right center / 16px 100% no-repeat; }
+.tbl[data-more~="left"] { background: linear-gradient(to right, rgba(28, 27, 24, 0.15), transparent) left center / 16px 100% no-repeat; }
+.tbl[data-more="left right"] {
+  background:
+    linear-gradient(to right, rgba(28, 27, 24, 0.15), transparent) left center / 16px 100% no-repeat,
+    linear-gradient(to left, rgba(28, 27, 24, 0.15), transparent) right center / 16px 100% no-repeat;
+}
 .tbl > table { width: 100%; }
 .tbl--wide > table { min-width: 620px; }
 table { border-collapse: collapse; border-top: 2px solid var(--ink); font-size: 14.5px; line-height: 1.5; color: var(--ink-2); }
@@ -439,8 +532,11 @@ table code { white-space: normal; }
   .fare thead { display: none; }
   .fare tr, .fare th, .fare td { display: block; width: auto !important; padding: 0; border: 0; }
   .fare tr { padding: 16px 0; border-bottom: 1px solid var(--rule); }
-  .fare th[scope="row"] { margin-bottom: 4px; }
+  .fare th[scope="row"] { padding: 0; margin-bottom: 4px; }
   .fare td.terms { margin-bottom: 4px; }
+  /* the total keeps one rule above the row, not one per stacked cell */
+  .fare tr.ledger-total { border-top: 2px solid var(--ink); border-bottom: 0; }
+  .fare .ledger-total th, .fare .ledger-total td { border-top: 0; }
 }
 
 /* ---------- field notes (notes, tips, warnings) ---------- */
@@ -461,6 +557,15 @@ table code { white-space: normal; }
 .warning::before { content: "Warning"; color: var(--route); }
 html[lang="fr"] .tip::before { content: "Astuce"; }
 html[lang="fr"] .warning::before { content: "Attention"; }
+/* notice: a plain-language boundary note (what a tool does not do, what still applies) */
+.notice {
+  max-width: 800px; margin: 0; padding: 16px 20px;
+  background: var(--paper-0); border: 1px solid var(--rule); border-left: 3px solid var(--field);
+  font-size: 15px; line-height: 1.55; color: var(--ink-2);
+}
+.notice p { margin: 0; }
+.notice b { color: var(--ink); font-weight: 600; }
+.notice a { color: var(--ink); }
 
 /* ---------- code ---------- */
 code, kbd, samp { font-family: var(--font-mono); font-size: 0.9em; }
@@ -483,6 +588,7 @@ pre code { background: transparent; padding: 0; color: inherit; font-size: inher
 .prose h3 { margin: 1.8em 0 0.5em; font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
 .prose h4 { margin: 1.4em 0 0.4em; }
 .prose h2 + h3 { margin-top: 1em; }
+.prose > :first-child:not(.stop), .prose > .stop:first-child + * { margin-top: 0; }
 .prose ul, .prose ol { padding-left: 22px; margin: 0 0 1.2em; }
 .prose li { margin: 0 0 0.45em; }
 .prose li::marker { color: var(--route); font-weight: 600; }
@@ -586,6 +692,18 @@ pre code { background: transparent; padding: 0; color: inherit; font-size: inher
 .night .fine a { color: var(--night-ink); }
 @media (max-width: 1023px) { .night .wrap { grid-template-columns: minmax(0, 1fr); row-gap: 36px; } }
 
+/* next check: the closing band of pages whose next step is more reading, not the access request.
+   It stays on paper; night green is kept for the last stop where access is requested. */
+.next-check .wrap { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); column-gap: 64px; align-items: start; }
+.next-check .sec-head { margin-bottom: 0; }
+.next-check .last-stop-side { padding: 20px 0 0; border-top: 2px solid var(--ink); }
+.next-check .last-stop-side h3 { font-size: 20px; margin-bottom: 8px; }
+.next-check .last-stop-side p { color: var(--ink-2); font-size: 15px; max-width: 48ch; }
+.next-check .last-stop-side .btn-row { margin-top: 20px; }
+.next-check .last-stop-side .textlink { color: var(--ink); text-decoration-color: var(--route-line); }
+.next-check .last-stop-side .textlink:hover { color: var(--route); }
+@media (max-width: 1023px) { .next-check .wrap { grid-template-columns: minmax(0, 1fr); row-gap: 28px; } }
+
 /* ---------- footer ---------- */
 .site-foot { position: relative; background: var(--paper); border-top: 1px solid var(--rule); padding: 56px 0 28px; }
 .foot-grid { display: grid; grid-template-columns: minmax(0, 2fr) repeat(3, minmax(0, 1fr)); gap: 36px 40px; }
@@ -604,21 +722,27 @@ pre code { background: transparent; padding: 0; color: inherit; font-size: inher
 @media (max-width: 719px) { .foot-grid { grid-template-columns: 1fr; gap: 28px; } }
 
 /* ---------- lightbox ---------- */
+/* The enlarged plate is laid on a clean sheet of paper, not on a dark screen: same mat, rule and
+   shadow as a plate in the page. The mat is drawn as rings so the image box keeps its exact ratio. */
 .lightbox {
   display: none; position: fixed; inset: 0; z-index: 9999;
-  background: rgba(28, 27, 24, 0.94);
+  background: var(--paper);
   align-items: center; justify-content: center; padding: 24px;
   cursor: zoom-out;
 }
 .lightbox.active { display: flex; }
-.lightbox img { max-width: 95vw; max-height: 90vh; background: #fff; padding: 4px; cursor: default; }
+.lightbox img {
+  max-width: min(94vw, calc(100vw - 62px)); max-height: 88vh; cursor: default;
+  background: var(--paper-0);
+  box-shadow: 0 0 0 6px var(--paper-0), 0 0 0 7px var(--rule-strong), 0 44px 70px -40px rgba(28, 27, 24, 0.55);
+}
 .lightbox-close {
   position: absolute; top: 14px; right: 14px; width: 46px; height: 46px;
-  border-radius: 50%; border: 1.5px solid rgba(255, 255, 255, 0.5); background: transparent; color: #fff;
+  border-radius: 50%; border: 1.5px solid var(--ink); background: var(--paper-0); color: var(--ink);
   cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
 }
+.lightbox-close:hover { border-color: var(--route); color: var(--route); }
 .lightbox-close svg { width: 18px; height: 18px; }
-.lightbox-close:focus-visible { outline-color: #fff; }
 body.lightbox-open { overflow: hidden; }
 
 /* ---------- scroll reveal ---------- */
@@ -680,6 +804,7 @@ html.js .reveal.is-in { opacity: 1; transform: none; }
 .territory p { font-size: 14.5px; color: var(--ink-2); }
 .territory-foot { margin: 14px 0 0; padding-top: 12px; border-top: 2px solid var(--ink); font: 600 13.5px/1.4 var(--font-text); color: var(--ink); }
 .territory--out { border-style: dashed; background: transparent; }
+.territories + p { margin: 16px 0 0; }
 @media (max-width: 1023px) { .territories, .territories-3 { grid-template-columns: minmax(0, 1fr); } }
 
 /* itinerary: a horizontal strip of numbered stops */
@@ -746,7 +871,7 @@ html.js .reveal.is-in { opacity: 1; transform: none; }
 /* ==========================================================================
    ARCHETYPE: pricing ledger
    ========================================================================== */
-.sheet--ledger .mast .wrap { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: 64px; }
+.sheet--ledger .mast .wrap { grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); column-gap: 56px; }
 .price-big { display: flex; align-items: flex-end; gap: 14px; flex-wrap: wrap; margin: 8px 0 12px; }
 .price-big strong { font: 800 clamp(4.6rem, 10vw, 8.5rem)/0.86 var(--font-display); letter-spacing: -0.045em; font-variant-numeric: tabular-nums; color: var(--ink); }
 .price-big span { font: 600 13px/1.5 var(--font-text); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-2); padding-bottom: 0.35em; max-width: 12ch; }
@@ -778,7 +903,11 @@ html.js .reveal.is-in { opacity: 1; transform: none; }
 /* ==========================================================================
    ARCHETYPE: documentation hub
    ========================================================================== */
-.register { width: 100%; }
+.register { width: 100%; table-layout: fixed; }
+.register thead th:nth-child(1) { width: 44px; }
+.register thead th:nth-child(3) { width: 19%; }
+.register thead th:nth-child(4) { width: 10%; }
+.register thead th:nth-child(5) { width: 15%; }
 .register th[scope="row"] { font: 700 17px/1.3 var(--font-display); color: var(--ink); }
 .register th[scope="row"] a { color: var(--ink); text-decoration: none; }
 .register th[scope="row"] a:hover { color: var(--route); text-decoration: underline; }
@@ -807,14 +936,15 @@ html.js .reveal.is-in { opacity: 1; transform: none; }
 .release ul { list-style: none; margin: 0; padding: 0; border-top: 2px solid var(--ink); }
 .release li { padding: 12px 0; border-bottom: 1px solid var(--rule); font-size: 15px; line-height: 1.5; color: var(--ink-2); }
 .release li b { color: var(--ink); font-weight: 600; }
-@media (max-width: 1023px) { .release { grid-template-columns: minmax(0, 1fr); row-gap: 20px; } }
+.release + .release { margin-top: 56px; padding-top: 48px; border-top: 1px solid var(--rule); }
+@media (max-width: 1023px) { .release { grid-template-columns: minmax(0, 1fr); row-gap: 20px; } .release + .release { margin-top: 40px; padding-top: 36px; } }
 
 /* ==========================================================================
    ARCHETYPE: long technical guides
    ========================================================================== */
 .sheet--guide .mast .wrap { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
 .guide { display: grid; grid-template-columns: 252px minmax(0, 1fr); column-gap: 56px; align-items: start; padding-top: 40px; padding-bottom: 80px; }
-.guide-toc { min-width: 0; position: sticky; top: calc(var(--header-h) + 20px); max-height: calc(100vh - var(--header-h) - 40px); overflow: auto; scrollbar-width: thin; padding-right: 6px; }
+.guide-toc { min-width: 0; position: sticky; top: calc(var(--header-h) + 20px); max-height: calc(100vh - var(--header-h) - 40px); overflow: auto; scrollbar-width: thin; padding: 0 6px; margin-left: -6px; }
 .guide-toc details { border-top: 2px solid var(--ink); }
 .guide-toc summary { list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; min-height: 44px; padding: 10px 0 8px; font: 600 12px/1.4 var(--font-text); letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-3); }
 .guide-toc summary::-webkit-details-marker { display: none; }
@@ -944,8 +1074,10 @@ html.js .reveal.is-in { opacity: 1; transform: none; }
 @media (max-width: 1023px) {
   .lead-entry { grid-template-columns: minmax(0, 1fr); row-gap: 24px; }
   .dispatch { grid-template-columns: minmax(0, 1fr); }
-  .dispatch .is-big { grid-template-columns: minmax(0, 1fr); }
-  .dispatch .is-big > div { grid-column: 1; }
+  /* stacked, the featured entry reads like every other entry: section mark, title, summary, date */
+  .dispatch .is-big { display: flex; flex-direction: column; }
+  .dispatch .is-big > div { display: contents; }
+  .dispatch .is-big .mark { order: -1; }
 }
 .shelf { position: relative; padding: 48px 0 8px; }
 .shelf > .stop { top: 52px; }
@@ -1047,12 +1179,12 @@ a.btn-paper:hover, .night a.btn-paper:hover { background: #fff; border-color: #f
 @media (prefers-reduced-motion: reduce) {
   html, html:focus-within { scroll-behavior: auto; }
   html.js .reveal { opacity: 1; transform: none; transition: none; }
-  .stop, .faq-list summary::after, .btn, .nav-toggle span, .guide-toc summary::after { transition: none; }
+  .stop, .faq-list summary::after, .btn, .nav-toggle span, .guide-toc summary::after, .video-cue-disc { transition: none; }
 }
 
 /* ---------- print: guides and documents on paper ---------- */
 @media print {
-  .site-head, .site-foot, .progress, .skip, .nav-mobile, .next-stop, .night, .lightbox { display: none !important; }
+  .site-head, .site-foot, .progress, .skip, .nav-mobile, .next-stop, .night, .lightbox, .video-cue { display: none !important; }
   body { background: #fff; color: #000; font-size: 11pt; }
   .guide, .doc { display: block; }
   .guide-toc, .doc-nav { position: static; max-height: none; page-break-after: always; }

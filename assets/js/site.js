@@ -255,6 +255,123 @@
   });
 
   /* ---------------------------------------------------------------
+     Demo plates at rest: the poster and a paper play cue.
+     A browser draws its control bar as a dark band across the poster;
+     here the native controls only appear once the reader starts the
+     video, and the plate returns to its poster when the video ends.
+     Without this script the videos keep their native controls.
+     --------------------------------------------------------------- */
+  var playWord = doc.documentElement.lang === 'fr' ? 'Lire' : 'Play';
+  var playSeparator = doc.documentElement.lang === 'fr' ? ' : ' : ': ';
+
+  videos.forEach(function (video) {
+    var plate = video.parentElement;
+    if (!video.hasAttribute('controls') || !plate || !plate.classList.contains('plate')) { return; }
+
+    var cue = doc.createElement('button');
+    var title = video.getAttribute('aria-label');
+    cue.type = 'button';
+    cue.className = 'video-cue';
+    cue.setAttribute('aria-label', title ? playWord + playSeparator + title : playWord);
+    cue.innerHTML = '<span class="video-cue-disc" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M8.6 5.4v13.2L19.4 12z"/></svg></span>';
+    plate.appendChild(cue);
+    video.removeAttribute('controls');
+
+    cue.addEventListener('click', function () {
+      cue.hidden = true;
+      video.setAttribute('controls', '');
+      /* the cue had the focus: hand it to the video, in every browser, so the keyboard keeps its place */
+      video.setAttribute('tabindex', '0');
+      var started = video.play();
+      if (started && typeof started.catch === 'function') { started.catch(function () {}); }
+      video.focus();
+    });
+
+    video.addEventListener('ended', function () {
+      /* in full screen the reader still needs the controls to leave it */
+      if (doc.fullscreenElement || doc.webkitFullscreenElement || video.webkitDisplayingFullscreen) { return; }
+      var hadFocus = doc.activeElement === video;
+      /* the poster and the video do not share one ratio: keep the box the video gave the plate,
+         so nothing below it moves when the poster comes back (the poster then fills that box) */
+      if (video.videoWidth && video.videoHeight) {
+        video.style.aspectRatio = video.videoWidth + ' / ' + video.videoHeight;
+        video.style.objectFit = 'cover';
+      }
+      video.removeAttribute('controls');
+      video.removeAttribute('tabindex');
+      video.load();
+      cue.hidden = false;
+      if (hadFocus) { cue.focus(); }
+    });
+  });
+
+  /* ---------------------------------------------------------------
+     Wide tables: mark the edges that still hide content (the CSS
+     draws a soft shadow there) and make an overflowing table
+     reachable and scrollable from the keyboard.
+     --------------------------------------------------------------- */
+  var tableBoxes = Array.prototype.slice.call(doc.querySelectorAll('.tbl'));
+  var french = doc.documentElement.lang === 'fr';
+
+  /* Name a scrolling table after its caption, else after the heading it sits under. */
+  function tableLabel(box) {
+    var caption = box.querySelector('caption');
+    if (caption && caption.textContent.trim()) { return caption.textContent.trim(); }
+    var node = box;
+    while (node && node !== main && node !== doc.body) {
+      var previous = node.previousElementSibling;
+      while (previous) {
+        if (/^H[2-4]$/.test(previous.tagName) && previous.textContent.trim()) {
+          return (french ? 'Tableau : ' : 'Table: ') + previous.textContent.trim().replace(/\s+/g, ' ');
+        }
+        previous = previous.previousElementSibling;
+      }
+      node = node.parentElement;
+    }
+    return french ? 'Tableau à faire défiler' : 'Scrollable table';
+  }
+
+  function markTable(box) {
+    var max = box.scrollWidth - box.clientWidth;
+    var more = [];
+    if (max > 1) {
+      if (box.scrollLeft > 1) { more.push('left'); }
+      if (box.scrollLeft < max - 1) { more.push('right'); }
+    }
+    if (more.length) {
+      box.setAttribute('data-more', more.join(' '));
+    } else {
+      box.removeAttribute('data-more');
+    }
+    if (max > 1 && !box.hasAttribute('tabindex')) {
+      var labelled = box.hasAttribute('aria-label') || box.hasAttribute('aria-labelledby');
+      box.setAttribute('tabindex', '0');
+      box.setAttribute('role', 'region');
+      if (!labelled) { box.setAttribute('aria-label', tableLabel(box)); }
+      box.setAttribute('data-auto-region', labelled ? 'kept-label' : 'own-label');
+    } else if (max <= 1 && box.hasAttribute('data-auto-region')) {
+      if (box.getAttribute('data-auto-region') === 'own-label') { box.removeAttribute('aria-label'); }
+      box.removeAttribute('tabindex');
+      box.removeAttribute('role');
+      box.removeAttribute('data-auto-region');
+    }
+  }
+
+  if (tableBoxes.length) {
+    var markTables = function () { tableBoxes.forEach(markTable); };
+    tableBoxes.forEach(function (box) {
+      box.addEventListener('scroll', function () { markTable(box); }, { passive: true });
+    });
+    markTables();
+    window.addEventListener('resize', function () {
+      window.clearTimeout(markTables.timer);
+      markTables.timer = window.setTimeout(markTables, 120);
+    });
+    window.addEventListener('load', markTables);
+    if (doc.fonts && doc.fonts.ready) { doc.fonts.ready.then(markTables); }
+  }
+
+  /* ---------------------------------------------------------------
      Analytics hooks (Plausible), unchanged from the previous site:
      AppExchange clicks and trial-form submissions.
      --------------------------------------------------------------- */
