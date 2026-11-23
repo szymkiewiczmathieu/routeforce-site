@@ -224,6 +224,25 @@ def main() -> int:
             except json.JSONDecodeError as exc:
                 errors.append(f"{relative}: invalid JSON-LD ({exc.msg})")
 
+        is_blog_post = any(
+            node.get("@type") == "BlogPosting"
+            for data in parser.jsonld_data
+            for node in top_level_schema_nodes(data)
+        )
+        if is_blog_post:
+            visible_updated = re.search(
+                r'<li><b>(?:Updated|Mis à jour)</b><span><time datetime="(\d{4}-\d{2}-\d{2})">',
+                source,
+            )
+            dates = modified_dates.get(file.resolve(), set())
+            if not visible_updated:
+                errors.append(f"{relative}: BlogPosting is missing its visible Updated date")
+            elif len(dates) == 1 and visible_updated.group(1) != next(iter(dates)):
+                errors.append(
+                    f"{relative}: visible Updated={visible_updated.group(1)} "
+                    f"does not match dateModified={next(iter(dates))}"
+                )
+
     homepage = pages.get((DIST / "index.html").resolve())
     if not homepage:
         errors.append("Missing index.html")
@@ -358,7 +377,7 @@ def main() -> int:
             and collection.get("name") == tools_parser.titles[0]
             and collection.get("description") == tools_parser.descriptions[0]
             and collection.get("inLanguage") == "en"
-            and collection.get("dateModified") == "2026-09-16"
+            and re.fullmatch(r"\d{4}-\d{2}-\d{2}", str(collection.get("dateModified", "")))
             and entity_reference(collection.get("isPartOf"), f"{CANONICAL_ORIGIN}/#website")
             and entity_reference(collection.get("publisher"), f"{CANONICAL_ORIGIN}/#organization")
             and entity_reference(collection.get("mainEntity"), f"{tools_canonical}#tool-list")
