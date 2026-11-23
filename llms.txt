@@ -22,12 +22,12 @@
 - Salesforce Mobile workflow for map, routes, GPS-assisted proximity checks, check-in, visit reporting, and navigation handoff
 
 ## Current package
-- Current documented release: TourviaApp 7.36.0
-- Released 21 July 2026 on the Security-Review-approved TourviaApp package lineage
-- Release focus: current scheduling after option changes, stale-recalculation protection, Agentforce recency filtering before result limits, keyboard focus for step actions, and marker resilience when an optional type field is empty or invalid
+- Current documented release: TourviaApp 7.37.0
+- Released 30 September 2026 on the Security-Review-approved TourviaApp package lineage
+- Release focus: Plan My Day, offline check-in with automatic/manual synchronization, and configurable Task/Event next steps after a visit
 
 ## Pricing
-- Last verified: 21 July 2026
+- Last verified: 23 November 2026
 - Complete 30-day trial installed from the public AppExchange listing with Get It Now
 - Paid standard scope: €30/user/month excluding tax, billed monthly (€360/user/year)
 - The same per-user price applies at every team size; Tourvia does not switch larger teams to custom-quote pricing

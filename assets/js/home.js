@@ -1649,8 +1649,15 @@
   /* Main Animation Loop */
   var gs = computeTarget();
   var lastTime = performance.now();
+  var lastFrame = 0;
+  var frameInterval = 1000 / 30;
 
   function frame(now) {
+    if (now - lastFrame < frameInterval) {
+      window.requestAnimationFrame(frame);
+      return;
+    }
+    lastFrame = now;
     var dt = Math.min(0.05, (now - lastTime) / 1000);
     lastTime = now;
 

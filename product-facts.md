@@ -1,6 +1,6 @@
 # Tourvia product facts
 
-Last verified: 21 July 2026
+Last verified: 23 November 2026
 
 Tourvia, formerly RouteForce, is a route planning and field execution application operated by SKZ Consulting. It is delivered as a managed package for Salesforce orgs.
 
@@ -19,8 +19,8 @@ The current pricing page is the source for commercial terms: https://gettourvia.
 
 ## Product and package
 
-- Current documented version: TourviaApp 7.36.0
-- Current release focus: planning invalidation when options change, protection against stale asynchronous recalculation, Agentforce recency filtering before result limits, keyboard focus for route-step actions, and resilient marker rendering when an optional type field is empty or invalid
+- Current documented version: TourviaApp 7.37.0
+- Current release focus: Plan My Day, offline check-in with automatic/manual synchronization, and configurable Task/Event next steps after a visit
 - Trial access: 30-day trial installed from the public AppExchange listing (Get It Now)
 - Security Review: passed on 22 May 2026 for the reviewed package lineage
 - Salesforce does not endorse or recommend Tourvia
